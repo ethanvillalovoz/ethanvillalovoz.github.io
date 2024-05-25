@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Ethan Villalovoz"
+title                    : "Homepage"
 title_separator          : "-"
 name                     : &name "Ethan Villalovoz"
 description              : &description "personal description"
