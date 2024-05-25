@@ -1,7 +1,7 @@
 ---
 title: "Social Triangles and Aggressive Lines: Multi-Robot Formations Impact Navigation and Approach"
 collection: publications
-permalink: /publication/2009-10-01-paper-title-number-1
+permalink: /publication/2023-10-01-Social-Triangles-and-Aggressive-Lines:-Multi-Robot-Formations-Impact-Navigation-and-Approach
 excerpt: 'Authors: Alexandra Bacula, Ethan Villalovoz, Deanna Flynn, Ankur Mehta, Heather Knight'
 date: 2023-10-01
 venue: 'IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)'
