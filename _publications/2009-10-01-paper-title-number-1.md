@@ -6,7 +6,7 @@ excerpt: 'Authors: Alexandra Bacula, Ethan Villalovoz, Deanna Flynn, Ankur Mehta
 date: 2023-10-01
 venue: 'IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)'
 # slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
-paperurl: 'http://academicpages.github.io/files/2023_IROS_Social_Triangles_Agressive_Lines.pdf'
+# paperurl: 'http://academicpages.github.io/files/2023_IROS_Social_Triangles_Agressive_Lines.pdf'
 # citation: 'Alexandra Bacula, Ethan Villalovoz, Deanna Flynn, Ankur Mehta, Heather Knight.'
 ---
 
