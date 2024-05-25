@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: "CV"
-permalink: /cv/
+title: ""
+permalink: /experience/
 author_profile: true
 redirect_from:
   - /resume
@@ -11,35 +11,38 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+<!-- * Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* M.S. in Jekyll, GitHub University, 2014 -->
+* B.S. in Computer Science, Washington State University, 2025 (expected)
 
-Work experience
+Work/Research Experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
+<!-- * Spring 2024: Academic Pages Collaborator
+  <!-- * Github University
   * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+  * Supervisor: The Users --> -->
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * Github University
+* Aug 2021 - Feb 2022: Undergraduate Research Assistant
+  * Brozik Laboratory | Washington State University
+  <!-- * Github University
   * Duties included: Tagging issues
-  * Supervisor: Professor Git
+  * Supervisor: Professor Git -->
+
+* Aug 2021 - Feb 2022: Undergraduate Research Assistant
+  * Brozik Laboratory | Washington State University
+  * Advisor: Dr. James Brozik, Dr. Michael Martinez
+  <!-- * Github University
+  * Duties included: Tagging issues
+  * Supervisor: Professor Git -->
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Programming Languages
+  * C/C++, Python, HTML/CSS, Haskell, MATLAB, LATEX, C#, SQL, R
+* Developer Tools
+  * VS Code, VS Community, Xcode, CLion, PyCharm, RStudio, Weka, Cytoscape, Google Colab
+* Technologies/Frameworks
+  * Command Line Interface - Windows/Unix, Robot Operating System, Linux, GitHub, Pandas, NumPy, PyTorch, scikit-learn, TensorFlow
 
 Publications
 ======
@@ -59,6 +62,6 @@ Teaching
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Service and leadership
+<!-- Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Currently signed in to 43 different slack teams -->
