@@ -29,11 +29,8 @@ Work/Research Experience
   * Supervisor: Professor Git -->
 
 * Aug 2021 - Feb 2022: Undergraduate Research Assistant
-  * Brozik Laboratory | Washington State University
+  * Brozik Laboratory || Washington State University
   * Advisor: Dr. James Brozik, Dr. Michael Martinez
-  <!-- * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git -->
   
 Skills
 ======
