@@ -64,7 +64,7 @@ Skills
 * Developer Tools
   * VS Code, VS Community, Xcode, CLion, PyCharm, RStudio, Weka, Cytoscape, Google Colab
 * Technologies/Frameworks
-  * Command Line Interface - Windows/Unix, Robot Operating System, Linux, GitHub, Pandas, NumPy, PyTorch, scikit-learn, TensorFlow
+  * Command Line Interface - Windows/Unix, Robot Operating System, Linux, GitHub, Pandas, NumPy, PyTorch, Scikit-learn, TensorFlow, Matplotlib, Seaborn
 
 Publications
 ======
