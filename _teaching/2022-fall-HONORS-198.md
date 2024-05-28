@@ -4,7 +4,7 @@ collection: teaching
 type: "Undergraduate Course"
 permalink: /teaching/HONORS-198-Honors-First-Year-Experience-(Fall 2022)
 venue: "Washington State University, Honors College"
-date: 2022-02
+date: 2022-02-01
 location: "Pullman, USA"
 ---
 
