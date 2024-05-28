@@ -22,5 +22,5 @@ Heading 3
 
 Fostered a sense of community and facilitated engagement with the Honors curriculum, guiding 12 incoming
 students through their transition to college life, nurturing a supportive learning environment.
-• Provided expert academic advising and support in schedule planning, ensuring a seamless transition for students
+Provided expert academic advising and support in schedule planning, ensuring a seamless transition for students
 as they navigated college
