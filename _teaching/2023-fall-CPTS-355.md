@@ -4,7 +4,7 @@ collection: teaching
 type: "Undergraduate Course"
 permalink: /teaching/CPT-S-355-Programming-Language-Design-(Fall 2023)
 venue: "Washington State University, School of Electrical Engineering & Computer Science"
-date: 2022-08-01
+date: 2023-08-01
 location: "Pullman, USA"
 ---
 
