@@ -8,8 +8,8 @@ date: 2022-02-01
 location: "Pullman, USA"
 ---
 
-HONORS 198 Honors First-Year Experience
-======
+## HONORS 198 Honors First-Year Experience
+
 Making a successful transition to college including advising, schedule planning and undergraduate research opportunities.
 
 <!-- Heading 1
