@@ -1,13 +1,15 @@
 ---
-title: "Honors Facilitator"
+title: "Honors Facilitator Fall 2022"
 collection: teaching
-type: "Undergraduate Course (Fall)"
+type: "Undergraduate Course"
 permalink: /teaching/HONORS-198-Honors-First-Year-Experience-(Fall 2022)
 venue: "Washington State University, Honors College"
 date: 2022-02-01
 location: "Pullman, USA"
 ---
 
+HONORS 198 Honors First-Year Experience
+======
 Making a successful transition to college including advising, schedule planning and undergraduate research opportunities.
 
 <!-- Heading 1

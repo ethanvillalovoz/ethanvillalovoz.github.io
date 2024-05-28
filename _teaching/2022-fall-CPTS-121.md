@@ -1,13 +1,15 @@
 ---
-title: "Undergraduate Teaching Assistant"
+title: "Undergraduate Teaching Assistant Fall 2022"
 collection: teaching
-type: "Undergraduate Course (Fall)"
+type: "Undergraduate Course"
 permalink: /teaching/CPT-S-121-Program-Design-and-Development-C/C++-(Fall 2022)
 venue: "Washington State University, School of Electrical Engineering & Computer Science"
 date: 2022-08-01
 location: "Pullman, USA"
 ---
 
+CPT_S 121 Program Design and Development C/C++
+======
 Formulation of problems and top-down design of programs in a modern structured language (C/C++) for their solution on a digital computer.
 
 <!-- Heading 1
