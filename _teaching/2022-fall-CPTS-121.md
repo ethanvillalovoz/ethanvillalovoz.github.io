@@ -2,7 +2,7 @@
 title: "Undergraduate Teaching Assistant Fall 2022"
 collection: teaching
 type: "Undergraduate Course"
-permalink: /teaching/CPT-S-121-Program-Design-and-Development-C/C++-(Fall 2022)
+permalink: /teaching/CPT-S-121-Program-Design-and-Development-C/C++-(Fall-2022)
 venue: "Washington State University, School of Electrical Engineering & Computer Science"
 date: 2022-08-01
 location: "Pullman, USA"
