@@ -13,7 +13,7 @@ This Summer 2024 I will be participating in Carnegie Mellon University's Robotic
 
 Research
 ======
-I am interested in driving innovation in intelligent robot design for real-world applications. Specializing in advancing active perception, computer vision, and deep learning to enhance navigation, communication, and learning capabilities, thereby improving autonomy in complex environments.
+I am broadly interested in developing advanced AI and machine learning techniques for autonomous robotics, computer vision, and their applications in healthcare and personalized medicine.
 
 I will be applying for graduate school this upcoming fall and will be graduating with my undergraduate degree in Spring 2025. I plan to start graduate school in Fall 2025. If you are interested in my experiences and believe I would be a great fit for your lab group, please feel free to contact me.
 
