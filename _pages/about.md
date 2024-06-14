@@ -20,7 +20,7 @@ I am broadly interested in developing advanced AI and machine learning technique
 I will be applying for graduate school this upcoming fall and will be graduating with my undergraduate degree in Spring 2025. I plan to start graduate school in Fall 2025. I am enthusiastic about continuing my research at a higher level and am eager to contribute to a dynamic and forward-thinking lab group.
 
 ## Contact
-If you are interested in my experiences and believe I would be a great fit for your lab group, please feel free to [contact me](mailto:your-email@example.com).
+If you are interested in my experiences and believe I would be a great fit for your lab group, please feel free to [contact me](mailto:ethan.villalovoz@wsu.edu).
 
 ---
 
