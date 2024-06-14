@@ -39,3 +39,16 @@
 @import "vendor/font-awesome/brands";
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
+
+/* Default Light Mode */
+body {
+    background-color: white;
+    color: black;
+  }
+  
+  /* Dark Mode */
+  body.dark-mode {
+    background-color: black;
+    color: white;
+  }
+  
