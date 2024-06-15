@@ -1,0 +1,8 @@
+MATH 497: Instructional Practicum
+Math Learning Center Tutor, Washington State University - Fall 2023
+
+CPT S 355: Programming Language Design
+Undergraduate Teaching Assistant, Washington State University - Fall 2023
+
+CPT S 121: Program Design and Development C/C++
+Undergraduate Teaching Assistant, Washington State University - Fall 2022
