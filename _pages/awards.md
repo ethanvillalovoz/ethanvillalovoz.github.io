@@ -6,7 +6,8 @@ redirect_from:
   - /awards
 ---
 
-{% include base_path %}
+Awards
+======
 
 Auvil Undergraduate Research Fellowship, Washington State University - 2024
 
