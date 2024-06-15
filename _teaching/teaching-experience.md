@@ -6,8 +6,6 @@ redirect_from:
   - /teaching
 ---
 
-{% include base_path %}
-
 Teaching
 ======
 
