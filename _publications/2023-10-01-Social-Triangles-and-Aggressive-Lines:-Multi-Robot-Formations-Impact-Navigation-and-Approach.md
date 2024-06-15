@@ -25,7 +25,7 @@ Abstract— Spatial formations can give many social cues, such as illustrating a
 }
 ```
 
-[Paper](http://ethanvillalovoz.github.io/files/2023_IROS_Social_Triangles_Agressive_Lines.pdf)
-[Code](https://github.com/ethanvillalovoz/REU-CHARISMA-Lab)
+<!-- [Paper](http://ethanvillalovoz.github.io/files/2023_IROS_Social_Triangles_Agressive_Lines.pdf)
+[Code](https://github.com/ethanvillalovoz/REU-CHARISMA-Lab) -->
 <!-- [Supplementary](http://htnghia87.github.io/files/aaai24a.pdf) -->
 <!-- [Bibtex](http://ethanvillalovoz.github.io/files/2023_IROS_Social_Triangles_Agressive_Lines.bib) -->
