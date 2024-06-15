@@ -6,9 +6,6 @@ redirect_from:
   - /teaching
 ---
 
-Teaching
-======
-
 MATH 497: Instructional Practicum
 Math Learning Center Tutor, Washington State University - Fall 2023
 
