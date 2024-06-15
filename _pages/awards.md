@@ -6,7 +6,7 @@ redirect_from:
   - /awards
 ---
 
-
+Awards
 ======
 
 Auvil Undergraduate Research Fellowship, Washington State University - 2024
