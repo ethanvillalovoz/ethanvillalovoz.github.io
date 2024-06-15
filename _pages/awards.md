@@ -7,6 +7,8 @@ redirect_from:
 ---
 
 
+======
+
 Auvil Undergraduate Research Fellowship, Washington State University - 2024
 
 Distinguished Leader Award, Washington State University - 2024
