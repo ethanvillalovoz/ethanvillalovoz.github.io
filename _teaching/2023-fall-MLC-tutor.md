@@ -2,7 +2,7 @@
 title: "Math Learning Center Tutor Fall 2023"
 collection: teaching
 type: "Undergraduate Tutor"
-permalink: /teaching/Math-Learning-Center-Tutor-(Fall-2023)
+# permalink: /teaching/Math-Learning-Center-Tutor-(Fall-2023)
 venue: "Washington State University, Department of Mathematics and Statistics"
 date: 2023-09-01
 location: "Pullman, USA"
