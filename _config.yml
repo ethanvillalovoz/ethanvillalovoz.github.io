@@ -21,7 +21,7 @@ repository               : "ethanvillalovoz/ethanvillalovoz.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "EthanProfilePic.jpg"
+  avatar           : "EthanVillalovozProfilePicture.jpeg"
   name             : "Ethan Villalovoz"
   pronouns         : # example: "she/her"  
   bio              : "WSU CS Undergrad"
