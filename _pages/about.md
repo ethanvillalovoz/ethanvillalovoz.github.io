@@ -15,8 +15,8 @@ This Summer 2024, I will be participating in Carnegie Mellon University's Roboti
 <!-- I am broadly interested in developing advanced AI and machine learning techniques for autonomous robotics, computer vision, and their applications in healthcare and personalized medicine. My goal is to drive innovation in these fields to enhance autonomy, improve healthcare outcomes, and contribute to the development of intelligent systems capable of operating in complex environments. -->
 My research interests lie at the intersection of robotics, machine learning, and artificial intelligence, with a focus on developing autonomous systems that can intelligently learn and adapt in dynamic environments. Specifically, I am interested in creating robust algorithms for robotic perception, planning, and control, which are essential for enabling intelligent behaviors in complex settings. Additionally, I am passionate about natural language processing to facilitate seamless and intuitive human-AI communication. I aim to enhance human-robot interaction and multi-agent collaboration through advanced learning and control strategies, ensuring safe and efficient interactions.
 
-## Future Plans
-I will be applying for graduate school this upcoming fall and will be graduating with my undergraduate degree in Spring 2025. I plan to start graduate school in Fall 2025. If you are interested in my experiences and believe I would be a great fit for your lab group, please feel free to [contact me](mailto:ethan.villalovoz@wsu.edu).
+<!-- ## Future Plans
+I will be applying for graduate school this upcoming fall and will be graduating with my undergraduate degree in Spring 2025. I plan to start graduate school in Fall 2025. If you are interested in my experiences and believe I would be a great fit for your lab group, please feel free to [contact me](mailto:ethan.villalovoz@wsu.edu). -->
 
 ---
 
