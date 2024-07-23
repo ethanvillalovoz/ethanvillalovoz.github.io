@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "👋🏼 Hi, I’m Ethan Villalovoz – Welcome to My Portfolio!"
+title: "👋🏼 Hi, I’m Ethan Villalovoz"
 author_profile: true
 redirect_from: 
   - /about/
