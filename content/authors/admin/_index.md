@@ -30,7 +30,7 @@ organizations:
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
-  - icon: custom/envelope
+  - icon: custom/envelope-regular
     url: 'mailto:ethan.villalovoz@gmail.com'
     label: E-mail Me
   # - icon: brands/x
