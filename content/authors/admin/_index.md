@@ -74,51 +74,58 @@ education:
   #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
   #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
   #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  # - area: BSc Artificial Intelligence
-  #   institution: Massachusetts Institute of Technology
-  #   date_start: 2016-01-01
-  #   date_end: 2020-12-31
-  #   summary: |
-  #     GPA: 3.4/4.0
-      
-  #     Courses included:
-  #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
   - area: BSc Computer Science, 2025
     institution: Washington State University
-    # date_start: 2016-01-01
-    # date_end: 2020-12-31
+    date_start: 2021-08-01
+    date_end: 2025-05-01
+    summary: |
+      GPA: 3.96/4.0
+
+      Thesis: Retrieval-Augmented Generation (RAG) using Knowledge Graphs and Vector Search
+
+      Relevant Coursework:
+      - Computer Science: Data Structures, Algorithms, Systems Programming, Machine Learning, Artificial Intelligence, Neural Networks.
+      - Mathematics: Linear Algebra, Discrete Structures, Principles of Optimization, Graph Theory, Probability and Statistics.
+      - Other: Bioinformatics
+work:
+  # - position: Backend Software Engineer
+  #   company_name: X
+  #   company_url: ''
+  #   company_logo: ''
+  #   date_start: 2016-01-01
+  #   date_end: ''
+  #   summary: |
+  #     Responsibilities include:
+  #     - Migrated infrastructure to a new data center
+  #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
+  #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - position: Robotics Institute Summer Scholars
+    company_name: Carnegie Mellon University
+    company_url: https://riss.ri.cmu.edu/
+    company_logo: ''
+    date_start: 2024-06-01
+    date_end: 2024-08-01
     # summary: |
-    #   GPA: 3.4/4.0
-      
-    #   Courses included:
+    #   Responsibilities include:
+    #   - Migrated infrastructure to a new data center
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
-    #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
-# work:
-#   - position: Director of Cloud Infrastructure
-#     company_name: GenCoin
-#     company_url: ''
-#     company_logo: ''
-#     date_start: 2021-01-01
-#     date_end: ''
-#     summary: |2-
-#       Responsibilities include:
-#       - lorem ipsum dolor sit amet, consectetur adipiscing elit
-#       - lorem ipsum dolor sit amet, consectetur adipiscing elit
-#       - lorem ipsum dolor sit amet, consectetur adipiscing elit
-#   - position: Backend Software Engineer
-#     company_name: X
-#     company_url: ''
-#     company_logo: ''
-#     date_start: 2016-01-01
-#     date_end: 2020-12-31
-#     summary: |
-#       Responsibilities include:
-#       - Migrated infrastructure to a new data center
-#       - lorem ipsum dolor sit amet, consectetur adipiscing elit
-#       - lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - position: STEP Intern
+    company_name: Google
+    company_url: https://buildyourfuture.withgoogle.com/programs/step
+    company_logo: ''
+    date_start: 2023-05-01
+    date_end: 2023-08-01
+    # summary: |
+    #   Optimized internal database processes with C++ and SQL, reducing runtime by 66% and enhancing data visualization through real-time dashboards and dynamic graphs.
+  - position: Robots in the Real World
+    company_name: Oregon State University
+    company_url: https://engineering.oregonstate.edu/CoRIS/reu-robots-real-world
+    company_logo: ''
+    date_start: 2022-06-01
+    date_end: 2022-08-01
+    # summary: |
+    #   Developed geometric features for multi-robot expressive motion, integrating performing arts techniques to enhance robot character and intelligence.
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
