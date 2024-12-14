@@ -203,6 +203,6 @@ work:
 
 ## About Me
 
-Hi, I am a senior undergraduate student in Computer Science at Washington State University, aspiring to advance robotics and AI. I am currently a research assistant in the Doppa Laboratory, working with Dr. Jana Doppa on analyzing security vulnerabilities in large language model (LLM)-generated code and improving their accuracy using Bayesian optimization.
+Hi, I am a senior undergraduate student in Computer Science at Washington State University, aspiring to advance robotics and AI. I am currently a research assistant working with Dr. Jana Doppa on analyzing security vulnerabilities in large language model (LLM)-generated code and improving their accuracy using Bayesian optimization.
 
 My research interests lie in the areas of human-robot interaction, reinforcement learning, and multimodal systems. I will graduate in Spring 2025 with a B.Sc. in Computer Science and will be applying for graduate school for the Fall 2025 term. Beyond my academic work, I’ve completed experiences at Oregon State University, Google, and Carnegie Mellon University.
