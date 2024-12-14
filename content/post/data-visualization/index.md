@@ -11,7 +11,7 @@ tags:
 image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com)'
 ---
-
+<!-- 
 Hugo Blox is designed to give technical content creators a seamless experience. You can focus on the content and Hugo Blox handles the rest.
 
 Use popular tools such as Plotly, Mermaid, and data frames.
@@ -154,4 +154,4 @@ renders as
 
 {{< table path="results.csv" header="true" caption="Table 1: My results" >}}
 
-## Did you find this page helpful? Consider sharing it 🙌
+## Did you find this page helpful? Consider sharing it 🙌 -->
