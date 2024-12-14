@@ -35,7 +35,7 @@ sections:
       title: '📚 My Research'
       subtitle: ''
       text: |-
-        I am passionate about advancing robotics and artificial intelligence to create systems that effectively collaborate with humans in dynamic, real-world settings. My research interests are reinforcement learning, human-robot interaction, and multimodal systems to develop socially adaptive, intelligent robots. My goal is to create robots that are not only efficient but also intuitive and accessible for diverse users.
+        I am passionate about advancing robotics and artificial intelligence to create systems that effectively collaborate with humans in dynamic, real-world settings. My research interests are in reinforcement learning, human-robot interaction, and multimodal systems to develop socially adaptive, intelligent robots. My goal is to create robots that are not only efficient but also intuitive and accessible for diverse users.
 
         If you're interested in collaboration feel free to reach out! 😊
     design:
