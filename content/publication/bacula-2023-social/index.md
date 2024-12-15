@@ -14,15 +14,15 @@ publication_types:
 publication: '*2023 IEEE/RSJ International Conference on Intelligent Robots and Systems
   (IROS)*'
 
-abstract: Spatial formations can give many social cues, such
+abstract: 'Spatial formations can give many social cues, such
 as illustrating a group of people are having a conversation
 (social affiliation), or that they are trying to move swiftly
 through a space (functional goal). This work explored how
 people perceive varied robots formations while navigating
 through a space and approaching people. Evaluation occurred
-across four different geometric formations':' wedge, v-shape,
+across four different geometric formations: wedge, v-shape,
 vertical line, and horizontal line (Fig 3). Two studies were
-conducted':' the first being an exploratory study of three robots
+conducted: the first being an exploratory study of three robots
 navigating through a public space, and the second being a
 controlled user study of the same robots approaching humans in
 different formations. Results showed that triangle shapes were
@@ -35,10 +35,10 @@ controller variance. Results from this work show that formation
 impacts how people perceive robots, and as a result may impact
 task success. Future researchers can use these results to inform
 their behavior design for multi-robot groups to increase task
-success and desired communication effects.
+success and desired communication effects.'
 
 # Summary. An optional shortened abstract.
-summary: This study investigates how the spatial formations of robots impact human perceptions during navigation and approach scenarios. Four geometric formations were analyzed':' wedge, v-shape, horizontal line, and vertical line. Findings indicate that triangle formations (wedge and v-shape) are perceived more positively, being associated with politeness and social inclusion. In contrast, horizontal line formations are seen as threatening and unwelcoming. These results have implications for designing multi-robot systems to enhance task success and human-robot interaction.
+summary: 'This study investigates how the spatial formations of robots impact human perceptions during navigation and approach scenarios. Four geometric formations were analyzed: wedge, v-shape, horizontal line, and vertical line. Findings indicate that triangle formations (wedge and v-shape) are perceived more positively, being associated with politeness and social inclusion. In contrast, horizontal line formations are seen as threatening and unwelcoming. These results have implications for designing multi-robot systems to enhance task success and human-robot interaction.'
 
 tags:
   - Human-Robot Interaction
