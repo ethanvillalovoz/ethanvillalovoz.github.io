@@ -59,14 +59,18 @@
                     <li><b>06/2024:</b> This summer, I will be conducting research at Carnegie Mellon University as part of the <a href="https://riss.ri.cmu.edu/">CMU RISS</a> program.</li>
                     <li><b>09/2023:</b> I will be participating in Google Research's <a href="https://research.google/programs-and-events/csrmp/">CS Research Mentorship Program</a> during the Fall semester.</li>
                     <li><b>07/2023:</b> I am thrilled and sincerely grateful to have been awarded the <a href="https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship">Generation Google Scholarship</a>.</li>
-                    <li><a href="javascript:toggle_vis('news')">Show More</a></li>
-                    <div id="news" style="display: none;">
-                      <li><b>07/2023:</b> My contributions to the work I completed at Oregon State University have been accepted for presentation at <b>IROS 2023</b>!</li>
-                      <li><b>05/2023:</b> This summer, I will be interning as a <a href="https://buildyourfuture.withgoogle.com/programs/step">STEP Intern</a> at Google.</li>
-                      <li><b>05/2023:</b> I am happy to have received and become a MARC Scholar through the <a href="https://marc.wsu.edu/">National Institutes of Health Fellowship</a>.</li>
-                      <li><b>06/2022:</b> This summer, I conducted research at Oregon State University as part of the <a href="https://engineering.oregonstate.edu/CoRIS/reu-robots-real-world">REU: Robots in the Real World</a> program.</li>
-                      <li><b>07/2021:</b> I am happy to have received and become an ESTEEMED Scholar through the <a href="https://mira.wsu.edu/">National Institutes of Health Fellowship</a>.</li>
-                    </div>
+                    <li><a href="javascript:void(0);" onclick="toggle_vis('news', this)">Show More</a></li>
+                    <li>
+                      <div id="news" style="display: none;">
+                        <ul>
+                          <li><b>07/2023:</b> My contributions to the work I completed at Oregon State University have been accepted for presentation at <b>IROS 2023</b>!</li>
+                          <li><b>05/2023:</b> I will be interning as a <a href="https://buildyourfuture.withgoogle.com/programs/step">STEP Intern</a> at Google.</li>
+                          <li><b>05/2023:</b> I became a MARC Scholar through the <a href="https://marc.wsu.edu/">NIH Fellowship</a>.</li>
+                          <li><b>06/2022:</b> I conducted research at Oregon State University as part of the <a href="https://engineering.oregonstate.edu/CoRIS/reu-robots-real-world">REU: Robots in the Real World</a> program.</li>
+                          <li><b>07/2021:</b> I became an ESTEEMED Scholar through the <a href="https://mira.wsu.edu/">NIH Fellowship</a>.</li>
+                        </ul>
+                      </div>
+                    </li>
                   </ul>
                 <!-- <p>
                   Some papers are <span class="highlight">highlighted</span>.
@@ -143,5 +147,19 @@
         </td>
       </tr>
     </table>
+    <script>
+      function toggle_vis(id, link) {
+        var elem = document.getElementById(id);
+        var text = link.innerHTML;
+
+        if (elem.style.display === 'none') {
+          elem.style.display = 'block';
+          link.innerHTML = 'Show Less';
+        } else {
+          elem.style.display = 'none';
+          link.innerHTML = 'Show More';
+        }
+      }
+    </script>
   </body>
 </html>
