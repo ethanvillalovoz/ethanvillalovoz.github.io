@@ -59,8 +59,12 @@
                   <li><b>06/2024:</b> This summer, I will be conducting research at Carnegie Mellon University as part of the <a href="https://riss.ri.cmu.edu/">CMU RISS</a> program.</li>
                   <li><b>09/2023:</b> I will be participating in Google Research's <a href="https://research.google/programs-and-events/csrmp/">CS Research Mentorship Program</a> during the Fall semester.</li>
                   <li><b>07/2023:</b> I am thrilled and sincerely grateful to have been awarded the <a href="https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship">Generation Google Scholarship</a>.</li>
-                  <li><a href="javascript:void(0);" onclick="toggle_news(this)">Show More</a></li>
-                
+                  <li>
+                    <a href="javascript:void(0);" onclick="toggle_news(this)">
+                      <span class="toggle-icon">▼</span> <span class="toggle-text">Show More</span>
+                    </a>
+                  </li>
+                                  
                   <li class="hidden-news" style="display: none;"><b>07/2023:</b> My contributions to the work I completed at Oregon State University have been accepted for presentation at <b>IROS 2023</b>!</li>
                   <li class="hidden-news" style="display: none;"><b>05/2023:</b> I will be interning as a <a href="https://buildyourfuture.withgoogle.com/programs/step">STEP Intern</a> at Google.</li>
                   <li class="hidden-news" style="display: none;"><b>05/2023:</b> I became a MARC Scholar through the <a href="https://marc.wsu.edu/">NIH Fellowship</a>.</li>
@@ -151,8 +155,12 @@
           item.style.display = isHidden ? "list-item" : "none";
         });
     
-        link.innerHTML = isHidden ? "Show Less" : "Show More";
+        const icon = link.querySelector('.toggle-icon');
+        const text = link.querySelector('.toggle-text');
+    
+        text.innerHTML = isHidden ? "Show Less" : "Show More";
+        icon.innerHTML = isHidden ? "▲" : "▼";
       }
-    </script>
+    </script>    
   </body>
 </html>

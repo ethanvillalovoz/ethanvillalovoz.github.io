@@ -140,3 +140,15 @@ span.highlight {
     display: inline-block;
     border-radius: 10px;
 }
+
+.toggle-icon {
+  margin-right: 4px;
+  font-size: 0.9em;
+}
+
+.toggle-text {
+  color: #0077cc;
+  text-decoration: underline;
+  font-weight: 500;
+  cursor: pointer;
+}
