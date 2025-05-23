@@ -4,18 +4,20 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #003366;
   --primary: #00BFAE;
   --primary-light: #4debd4;
   --primary-dark: #003366;
+  --card: #f8fafd;
 }
 
 .dark {
-  --background: #001733;
-  --foreground: #ededed;
+  --background: #10151a; /* deep neutral navy/black */
+  --foreground: #e0fcf8; /* light teal for text */
   --primary: #4debd4;
   --primary-light: #80f0e0;
   --primary-dark: #1a88dc;
+  --card: #18212b; /* softer, less saturated dark for cards */
 }
 
 body {
