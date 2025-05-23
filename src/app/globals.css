@@ -5,17 +5,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #00BFAE;
+  --primary-light: #4debd4;
+  --primary-dark: #003366;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #001733;
+  --foreground: #ededed;
+  --primary: #4debd4;
+  --primary-light: #80f0e0;
+  --primary-dark: #1a88dc;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s, color 0.3s;
 }

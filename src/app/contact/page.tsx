@@ -1,8 +1,24 @@
+import { motion } from "framer-motion";
+
 export default function ContactPage() {
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold mb-4">Contact</h1>
-      <p className="text-gray-700 mb-6">Get in touch or find my social links below.</p>
+      <motion.h1
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="text-3xl font-extrabold mb-4 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent"
+      >
+        Contact
+      </motion.h1>
+      <motion.p
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+        className="text-blue-900 dark:text-primary-light mb-6 text-lg font-medium"
+      >
+        Get in touch or find my social links below.
+      </motion.p>
       {/* TODO: Add email, Google Scholar, Twitter, GitHub links, etc. */}
     </main>
   );
