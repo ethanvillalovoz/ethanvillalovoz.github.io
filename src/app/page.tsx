@@ -123,7 +123,7 @@ export default function Home() {
             transition={{ delay: 0.25, duration: 0.7, ease: "easeOut" }}
             className="text-lg text-gray-600 dark:text-gray-300 mb-8"
           >
-            Welcome! Explore my research, projects, and journey below.
+            Welcome! Explore my research, projects, and journey here!
           </motion.p>
           <p className="mb-4">
             I am a recent graduate in Computer Science from Washington State

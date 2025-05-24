@@ -8,7 +8,7 @@ const timeline = [
 		title: "Robotics Institute Summer Scholars",
 		org: "Carnegie Mellon University",
 		location: "Pittsburgh, Pennsylvania USA",
-		logo: "/logos/cmu.png",
+		logo: "/images/EthanVillalovozGradPic.jpeg",
 		description: "",
 	},
 	{
@@ -33,7 +33,7 @@ const timeline = [
 		org: "Washington State University, Honors College",
 		location: "Pullman, Washington USA",
 		logo: "/logos/wsu.png",
-		description: "GPA 3.96",
+		description: "",
 	},
 ];
 
@@ -67,8 +67,7 @@ export default function AboutPage() {
 				/>
 				<div className="flex-1">
 					<div className="mb-2 text-primary font-semibold text-base md:text-lg">
-						Currently: Robotics Institute Summer Scholar at Carnegie Mellon
-						University
+						Currently: Job Seeking/Applying for Graduate Programs
 					</div>
 					<motion.p
 						initial={{ opacity: 0, y: 40 }}
@@ -76,9 +75,7 @@ export default function AboutPage() {
 						transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
 						className="text-blue-900 dark:text-primary-light mb-6 text-lg font-medium"
 					>
-						Hi, I’m Ethan! I’m a software engineer and researcher passionate about
-						AI, open source, and building tools that empower others. Here you’ll
-						find my background, timeline, CV, and{" "}
+						Here you’ll find my background, timeline, CV, and{" "}
 						<a
 							href="#fun-facts"
 							className="underline text-primary hover:text-primary-dark transition-colors"
@@ -104,7 +101,7 @@ export default function AboutPage() {
 							<img
 								src={item.logo}
 								alt={item.org + " logo"}
-								className="w-12 h-12 object-contain rounded-full border border-neutral-200 dark:border-neutral-700 bg-white mr-4"
+								className="w-24 h-24 object-contain rounded-full border border-neutral-200 dark:border-neutral-700 bg-white mr-4"
 							/>
 							{/* Content */}
 							<div>
