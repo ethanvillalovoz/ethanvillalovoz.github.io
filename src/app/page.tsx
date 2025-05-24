@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,9 +9,16 @@ export default function Home() {
     <main className="max-w-4xl mx-auto px-4 py-10">
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
         <div className="flex-1">
-          <h1 className="text-4xl font-bold mb-2">Ethan Villalovoz</h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="text-5xl font-extrabold mb-4 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent"
+          >
+            Hi, I'm Ethan Villalovoz
+          </motion.h1>
           <p className="mb-4">
-            Hi! I am a recent graduate in Computer Science from Washington State
+            I am a recent graduate in Computer Science from Washington State
             University with a minor in Mathematics. My research spans robotics,
             machine learning, and AI safety, with a focus on reinforcement
             learning, human-AI collaboration, and large language models.
@@ -26,44 +34,6 @@ export default function Home() {
             I am currently seeking full-time opportunities in AI/ML research and
             engineering while preparing to apply for Ph.D. programs in Fall 2025.
           </p>
-          <div className="flex flex-wrap gap-4 mt-4">
-            <Link
-              href="mailto:ethan.villalovoz@gmail.com"
-              className="text-primary underline"
-            >
-              Email
-            </Link>
-            <Link
-              href="/data/EthanVillalovoz-CV.pdf"
-              className="text-primary underline"
-            >
-              CV
-            </Link>
-            <Link
-              href="/data/EthanVillalovoz-bio.txt"
-              className="text-primary underline"
-            >
-              Bio
-            </Link>
-            <Link
-              href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en"
-              className="text-primary underline"
-            >
-              Google Scholar
-            </Link>
-            <Link
-              href="https://x.com/etvillalovoz"
-              className="text-primary underline"
-            >
-              Twitter
-            </Link>
-            <Link
-              href="https://github.com/ethanvillalovoz"
-              className="text-primary underline"
-            >
-              GitHub
-            </Link>
-          </div>
         </div>
         <div>
           <Image
