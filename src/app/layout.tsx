@@ -28,6 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Use .png for best browser compatibility and match Next.js metadata */}
+        <link rel="icon" href="/images/ai_robot_icon.png" type="image/png" sizes="any" />
+        <link rel="shortcut icon" href="/images/ai_robot_icon.png" type="image/png" />
+        {/* Remove .jpeg favicon links */}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

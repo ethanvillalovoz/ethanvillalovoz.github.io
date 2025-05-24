@@ -74,16 +74,18 @@ export default function ContactPage() {
 				</h2>
 				<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 					{contacts.map((c) => (
-						<a
-							key={c.label}
-							href={c.href}
-							className="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-semibold shadow hover:bg-primary-dark transition text-lg"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<span className="text-2xl">{c.icon}</span>
-							<span className="truncate">{c.value}</span>
-						</a>
+						<div key={c.label} className="relative flex items-center gap-3">
+							<a
+								href={c.href}
+								className="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-semibold shadow hover:bg-primary-dark transition text-lg flex-1"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<span className="text-2xl">{c.icon}</span>
+								<span className="truncate">{c.value}</span>
+								{c.label === "Email" && <CopyEmailButton email={c.value} />}
+							</a>
+						</div>
 					))}
 				</div>
 			</section>
@@ -112,5 +114,68 @@ export default function ContactPage() {
 				</div>
 			</section>
 		</main>
+	);
+}
+
+// CopyEmailButton component
+function CopyEmailButton({ email }: { email: string }) {
+	const [copied, setCopied] = useState(false);
+
+	const handleCopy = async (e: React.MouseEvent) => {
+		e.preventDefault(); // Prevent link navigation
+		try {
+			await navigator.clipboard.writeText(email);
+			setCopied(true);
+			setTimeout(() => setCopied(false), 1500);
+		} catch (err) {
+			// fallback or error handling
+		}
+	};
+
+	return (
+		<span className="relative ml-2">
+			<button
+				onClick={handleCopy}
+				className="p-1 rounded-full hover:bg-primary-light/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+				type="button"
+				aria-label="Copy email address"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					className="text-white opacity-80"
+				>
+					<rect
+						x="9"
+						y="9"
+						width="13"
+						height="13"
+						rx="2"
+						strokeWidth="2"
+						stroke="currentColor"
+						fill="none"
+					/>
+					<rect
+						x="3"
+						y="3"
+						width="13"
+						height="13"
+						rx="2"
+						strokeWidth="2"
+						stroke="currentColor"
+						fill="none"
+					/>
+				</svg>
+			</button>
+			{copied && (
+				<span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-neutral-800 text-white text-xs rounded px-2 py-1 shadow z-10 animate-fade-in-out whitespace-nowrap">
+					Copied!
+				</span>
+			)}
+		</span>
 	);
 }
