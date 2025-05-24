@@ -29,7 +29,7 @@ export default function ResearchPage() {
         transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
         className="text-blue-900 dark:text-primary-light mb-6 text-lg font-medium"
       >
-        A list of my research papers and publications will appear here.
+        A list of my research papers and publications.
       </motion.p>
       {/* TODO: Add research papers, bibtex links, etc. */}
       <section className="mb-10">

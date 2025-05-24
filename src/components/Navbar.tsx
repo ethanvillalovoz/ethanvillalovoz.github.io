@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
+import Image from "next/image";
 
 const navLinks = [
 	{ name: "Home", href: "/" },
@@ -13,10 +14,16 @@ const navLinks = [
 
 export default function Navbar() {
 	return (
-		<nav className="w-full bg-gradient-to-r from-primary via-primary-light to-primary-dark dark:from-primary-dark dark:via-primary dark:to-primary-light/80 backdrop-blur border-b border-blue-200 dark:border-blue-900 sticky top-0 z-50 transition-colors shadow-soft">
+		<nav className="w-full bg-gradient-to-r from-primary via-primary-light to-primary-dark dark:from-primary-dark dark:via-primary dark:to-primary-dark/80 backdrop-blur border-b border-primary-dark dark:border-primary-dark sticky top-0 z-50 transition-colors shadow-soft">
 			<div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-				<div className="text-xl font-extrabold tracking-tight text-blue-900 dark:text-primary-light">
-					<Link href="/">My Portfolio</Link>
+				<div className="flex items-center gap-2">
+					<Image
+						src="/images/ai_robot_icon.jpeg"
+						alt="AI and Robotics Logo"
+						width={40}
+						height={40}
+						priority
+					/>
 				</div>
 				<div className="flex items-center space-x-6">
 					{navLinks.map((link) => (
