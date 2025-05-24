@@ -4,71 +4,80 @@ import { motion } from "framer-motion";
 
 const projects = [
 	{
-		title: "ACME10-HE-RAGApp: Hybrid-Expert RAG for Academic Paper QA",
+		title: "ACME10-HE-RAGApp: RAG with Vector Search, Knowledge Graphs, and LLMs",
 		description:
-			"A hybrid-expert Retrieval-Augmented Generation (RAG) app for answering questions about academic papers. Combines LLMs with symbolic tools and custom retrievers for robust, interpretable QA.",
-		image: "/images/ai_robot_icon.jpeg",
-		tags: ["LLM", "RAG", "Academic QA", "Open Source"],
+			"A full-stack Retrieval-Augmented Generation (RAG) application developed for HackerEarth that integrates vector search (FAISS), knowledge graphs (DBpedia), and OpenAI’s LLM to generate traceable, context-rich answers from a Wikipedia-based knowledge base.",
+		image: "/images/projects/RAG_flowchart.jpeg",
+		tags: ["LLM", "RAG", "Vector Search", "Knowledge Graph", "Full-Stack", "NLP"],
 		features: [
-			"Hybrid LLM + symbolic tool pipeline",
-			"Custom retriever for academic PDFs",
-			"Interpretable answer traces",
-			"Open source, extensible design",
+			"Developed for HackerEarth using 10,000+ Wikipedia articles",
+      "FAISS-based vector search for semantic retrieval",
+      "Knowledge graph context enhancement with DBpedia and SPARQL",
+      "OpenAI LLM for coherent and natural language answers",
+      "Dockerized deployment with local dev option",
 		],
 		extraLinks: [
 			{
 				label: "GitHub",
-				url: "https://github.com/ethanvillalovoz/ACME10-HE-RAGApp",
+				url: "https://github.com/mollyiverson/ACME10-HE-RAGApp",
 			},
-			{
-				label: "Demo",
-				url: "https://acme10-he-ragapp-demo.vercel.app/",
-			},
+      {
+        label: "Final Report",
+        url: "https://github.com/mollyiverson/ACME10-HE-RAGApp/blob/main/docs/project-report/RAGApp-FinalReport.pdf",
+      },
+			// {
+			// 	label: "Demo",
+			// 	url: "https://acme10-he-ragapp-demo.vercel.app/",
+			// },
 		],
-		date: "2024",
-		status: "Maintained",
+		date: "2025",
+		status: "Completed",
 	},
 	{
-		title: "DDPG Paper Reimplementation (PyTorch, Gymnasium)",
+		title: "DDPG: Deep Deterministic Policy Gradient (TensorFlow 2.x)",
 		description:
-			"A faithful PyTorch reimplementation of Deep Deterministic Policy Gradient (DDPG) for continuous control, with full Gymnasium integration, reproducibility, and experiment tracking.",
-		image: "/images/ai_robot_icon.jpeg",
-		tags: ["Reinforcement Learning", "PyTorch", "DDPG", "Open Source"],
+			"A clean and modular reimplementation of the DDPG reinforcement learning algorithm (Lillicrap et al., 2015) using modern TensorFlow 2.x APIs, compatible with Gym environments, GPU acceleration, and interactive analysis notebooks.",
+		image: "/images/projects/DDPG_padded.png",
+		tags: ["Reinforcement Learning", "DDPG", "TensorFlow", "OpenAI Gym"],
 		features: [
-			"Reproducible results",
-			"Gymnasium integration",
-			"Experiment tracking",
-			"Colab-ready",
-		],
+      "Modular implementation of actor-critic, buffer, and noise components",
+      "Compatible with Gym ≥ 0.26, CPU/GPU, and Apple Silicon (M1–M4)",
+      "Colab/Binder-ready for easy reproducibility and visualization",
+      "Includes logging, learning curves, and training metrics (e.g., Pendulum-v1)"
+	  ],
 		extraLinks: [
 			{
-				label: "GitHub",
-				url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation",
-			},
-			{
-				label: "Colab",
-				url: "https://colab.research.google.com/drive/1Qw6Qw3Qw6Qw3Qw6Qw3Qw6Qw6Qw6Qw6Qw",
-			},
+			label: "GitHub",
+			url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation"
+      },
+      {
+        label: "Colab Notebook",
+        url: "https://colab.research.google.com/github/ethanvillalovoz/ddpg-paper-reimplementation/blob/main/notebooks/DDPG_Analysis.ipynb"
+      },
+      {
+        label: "Original Paper",
+        url: "https://arxiv.org/abs/1509.02971"
+      }
 		],
-		date: "2023",
-		status: "Maintained",
+		date: "2025",
+		status: "Completed",
 	},
 	{
 		title: "OLMo Fine-Tuning on Resume Data",
 		description:
-			"End-to-end fine-tuning of the open-source OLMo LLM on a custom prompt-response dataset derived from Kaggle resume data. Includes data processing, custom PyTorch dataset, training config, HuggingFace conversion, and evaluation scripts.",
+			"Demonstrates end-to-end fine-tuning of the open-source OLMo LLM on a structured prompt-response dataset derived from Kaggle resume data, including training, HuggingFace conversion, and evaluation.",
 		image: "https://allenai.org/olmo/olmo-7b-animation.gif",
 		tags: ["LLM", "Fine-Tuning", "PyTorch", "NLP", "Open Source"],
 		features: [
-			"Custom data pipeline",
-			"HuggingFace model conversion",
-			"Evaluation scripts included",
-			"Open source",
-		],
+      "Processed and cleaned resume data into prompt-response format",
+      "Implemented custom PyTorch dataset for supervised LLM training",
+      "Fine-tuned OLMo using AI2's training framework",
+      "Converted and evaluated model in HuggingFace Transformers format"
+	  ],
 		extraLinks: [
 			{
 				label: "GitHub (OLMo fork)",
-				url: "https://github.com/ethanvillalovoz/OLMo",
+				url: "https://github.com/ethanvillalovoz/olmo-resume-finetune",
 			},
 			{
 				label: "Original OLMo",
@@ -87,8 +96,8 @@ const projects = [
 				url: "https://huggingface.co/allenai/OLMo-2-0425-1B",
 			},
 		],
-		date: "2024",
-		status: "In Progress",
+		date: "2025",
+		status: "Completed",
 	},
 ];
 
