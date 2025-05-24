@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ethan Villalovoz Personal Website
 
-## Getting Started
+A modern, professional personal website built with [Next.js](https://nextjs.org), designed for researchers, engineers, and professionals to showcase their work, research, and contact information. This site features:
 
-First, run the development server:
+- **Projects Page:** Card-based, responsive grid for technical projects with tags, features, status, images, and extra links (GitHub, Demo, etc.).
+- **About Page:** Vertical timeline of experience, profile photo, current role, downloadable CV, and fun facts.
+- **Contact Page:** Prominent contact buttons, copy-to-clipboard email, downloadable/displayed speaker bio, and professional headshot.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
+- Built with Next.js App Router and TypeScript
+- Fully responsive and accessible
+- Card-based project/research display
+- Vertical timeline for experience
+- Downloadable and displayed bio/CV
+- Copy-to-clipboard email with feedback
+- Easy to customize for your own use
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Getting Started (Local Development)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To run this website locally and make changes:
 
-## Learn More
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ethanvillalovoz/ethan-site-rebuild.git
+   cd ethan-site-rebuild
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Open your browser:**
+   Visit [http://localhost:3000](http://localhost:3000) to view the site.
 
-## Deploy on Vercel
+5. **Make changes:**
+   - Edit files in `src/app/` (e.g., `projects/page.tsx`, `about/page.tsx`, `contact/page.tsx`).
+   - The site will auto-update as you save changes.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6. **Testing changes:**
+   - Manually verify your changes in the browser.
+   - (Optional) Add your own tests if desired.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Using This as a Template
+
+Want to use this site as a template for your own personal or research website?
+
+1. **Fork or clone this repository.**
+2. **Replace content:**
+   - Update project, research, and about data in the respective files.
+   - Replace images in `/public/images/` and documents in `/public/data/`.
+   - Update your contact information in `src/app/contact/page.tsx`.
+3. **Customize styles and layout as needed.**
+4. **Deploy to Vercel or your preferred platform.**
+
+---
+
+## Credits
+- Built by Ethan Villalovoz
+- Inspired by modern academic and engineering portfolio sites
+
+---
+
+## License
+This project is open source and available under the [MIT License](LICENSE).
