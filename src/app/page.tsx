@@ -140,7 +140,7 @@ export default function Home() {
           </p>
           <p className="mb-4">
             I am currently seeking full-time opportunities in AI/ML research and
-            engineering while preparing to apply for Ph.D. programs in Fall 2025.
+            engineering while preparing to apply for M.S. programs in Spring 2026.
           </p>
         </div>
         <div>
