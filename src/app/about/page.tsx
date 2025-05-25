@@ -8,7 +8,7 @@ const timeline = [
 		title: "Robotics Institute Summer Scholars",
 		org: "Carnegie Mellon University",
 		location: "Pittsburgh, Pennsylvania USA",
-		logo: "/images/EthanVillalovozGradPic.jpeg",
+		logo: "/images/timeline/Carnegie_Mellon_icon.png",
 		description: "",
 	},
 	{
@@ -16,7 +16,7 @@ const timeline = [
 		title: "STEP Intern",
 		org: "Google",
 		location: "Sunnyvale, California USA",
-		logo: "/logos/google.png",
+		logo: "/images/timeline/Google_icon.png",
 		description: "",
 	},
 	{
@@ -24,7 +24,7 @@ const timeline = [
 		title: "Robots in the Real World",
 		org: "Oregon State University",
 		location: "Corvallis, Oregon USA",
-		logo: "/logos/osu.png",
+		logo: "/images/timeline/Oregon_State_icon.jpeg",
 		description: "",
 	},
 	{
@@ -32,7 +32,7 @@ const timeline = [
 		title: "B.S. in Computer Science, Minor in Mathematics",
 		org: "Washington State University, Honors College",
 		location: "Pullman, Washington USA",
-		logo: "/logos/wsu.png",
+		logo: "/images/timeline/Washington_State_icon.png",
 		description: "",
 	},
 ];
@@ -130,9 +130,9 @@ export default function AboutPage() {
 			<section id="fun-facts">
 				<h2 className="text-xl font-bold mb-4 text-primary">Fun Facts</h2>
 				<ul className="list-disc list-inside text-neutral-700 dark:text-neutral-300 space-y-2">
-					<li>I love hiking and landscape photography.</li>
-					<li>I can solve a Rubik's Cube in under a minute.</li>
-					<li>My favorite programming language is Python.</li>
+					<li>I’m currently binge-watching *Community* (and yes, Troy and Abed are my favorites, but I still need to finish watching *Suits* Seasons 8 and 9 lol).</li>
+					<li>I’m teaching myself guitar (it feels like I am cutting my fingernails every two days).</li>
+					<li>I play both indoor and beach volleyball to stay active.</li>
 				</ul>
 			</section>
 		</main>
