@@ -6,31 +6,31 @@ import { useEffect, useState } from "react";
 const contacts = [
 	{
 		label: "Email",
-		value: "ethan.villalovoz@gmail.com",
+		value: "Email",
 		href: "mailto:ethan.villalovoz@gmail.com",
 		icon: "📧",
 	},
 	{
 		label: "LinkedIn",
-		value: "linkedin.com/in/ethanvillalovoz",
-		href: "https://www.linkedin.com/in/ethanvillalovoz/",
+		value: "LinkedIn",
+		href: "https://www.linkedin.com/in/evillalovoz27/",
 		icon: "🔗",
 	},
 	{
 		label: "Twitter",
-		value: "@ethanvillalovoz",
-		href: "https://twitter.com/ethanvillalovoz",
+		value: "Twitter",
+		href: "https://x.com/etvillalovoz",
 		icon: "🐦",
 	},
 	{
 		label: "GitHub",
-		value: "github.com/ethanvillalovoz",
+		value: "GitHub",
 		href: "https://github.com/ethanvillalovoz",
 		icon: "💻",
 	},
 	{
 		label: "Google Scholar",
-		value: "scholar.google.com/citations?user=CavKFp4AAAAJ",
+		value: "Google Scholar",
 		href: "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
 		icon: "🎓",
 	},
