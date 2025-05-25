@@ -92,6 +92,40 @@ This repo is your playground for making edits. When you are ready to publish you
 
 ---
 
+## Deploying to Vercel (Recommended)
+
+This site is hosted on [Vercel](https://vercel.com), which provides seamless integration with Next.js and automatic deployments from your GitHub repository. If you want to deploy your own version:
+
+1. **Push your code to GitHub.**
+   - Make sure your latest changes are committed and pushed to a GitHub repository.
+
+2. **Create a Vercel account:**
+   - Go to [https://vercel.com/signup](https://vercel.com/signup) and sign up (you can use your GitHub account).
+
+3. **Import your repository:**
+   - Click "New Project" and select your GitHub repository.
+   - Vercel will auto-detect your Next.js setup.
+
+4. **Configure project settings (optional):**
+   - You can set environment variables or custom build settings if needed.
+   - The default settings work for most Next.js projects.
+
+5. **Deploy:**
+   - Click "Deploy" and Vercel will build and deploy your site.
+   - After deployment, you’ll get a live URL (e.g., `https://your-site.vercel.app`).
+
+6. **Set up a custom domain (optional):**
+   - In your Vercel dashboard, go to your project’s "Domains" tab.
+   - Add your custom domain and follow the instructions to update your DNS records.
+
+7. **Automatic redeploys:**
+   - Every time you push to your GitHub repository, Vercel will automatically rebuild and redeploy your site.
+
+**Note:**  
+Vercel is the recommended way to host Next.js sites, as it supports all Next.js features out of the box, including server-side rendering and API routes.
+
+---
+
 ## Using This as a Template
 
 Want to use this site as a template for your own personal or research website?
