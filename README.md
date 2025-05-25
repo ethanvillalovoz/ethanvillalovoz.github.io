@@ -62,6 +62,36 @@ To run this website locally and make changes:
 
 ---
 
+## Deploying to GitHub Pages (.github.io)
+
+This repo is your playground for making edits. When you are ready to publish your changes to your public website:
+
+1. **Build and export the static site:**
+   ```bash
+   npm run build
+   # This will generate an 'out/' folder with your static site
+   ```
+
+2. **Copy the contents of the `out/` folder** to your `ethanvillalovoz.github.io` repository (replace old files if prompted).
+   - You can do this manually, or with a command like:
+     ```bash
+     cp -r out/* ../ethanvillalovoz.github.io/
+     ```
+   - Make sure you are in the root of this repo when you run the command above, and that your .github.io repo is checked out one directory up.
+
+3. **Commit and push in your .github.io repo:**
+   ```bash
+   cd ../ethanvillalovoz.github.io
+   git add .
+   git commit -m "Deploy updated static site"
+   git push
+   ```
+
+4. **Your changes will be live at:**
+   [https://ethanvillalovoz.github.io/](https://ethanvillalovoz.github.io/)
+
+---
+
 ## Using This as a Template
 
 Want to use this site as a template for your own personal or research website?
@@ -72,7 +102,7 @@ Want to use this site as a template for your own personal or research website?
    - Replace images in `/public/images/` and documents in `/public/data/`.
    - Update your contact information in `src/app/contact/page.tsx`.
 3. **Customize styles and layout as needed.**
-4. **Deploy to Vercel or your preferred platform.**
+4. **Deploy to Vercel or your preferred platform, or use the static export method above for GitHub Pages.**
 
 ---
 
