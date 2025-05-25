@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
@@ -28,7 +27,7 @@ export default function Home() {
       date: "09/2023",
       content: (
         <>
-          I will be participating in Google Research's{" "}
+          I will be participating in Google Research&apos;s{" "}
           <a href="https://research.google/programs-and-events/csrmp/" className="text-primary underline">CS Research Mentorship Program</a> during the Fall semester.
         </>
       ),
@@ -107,7 +106,7 @@ export default function Home() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="text-5xl font-extrabold mb-4 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent"
           >
-            Hi, I'm Ethan Villalovoz
+            Hi, I&apos;m Ethan Villalovoz
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

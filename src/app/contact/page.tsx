@@ -127,7 +127,7 @@ function CopyEmailButton({ email }: { email: string }) {
 			await navigator.clipboard.writeText(email);
 			setCopied(true);
 			setTimeout(() => setCopied(false), 1500);
-		} catch (err) {
+		} catch {
 			// fallback or error handling
 		}
 	};
