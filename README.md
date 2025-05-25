@@ -14,6 +14,7 @@ A modern, professional personal website built with [Next.js](https://nextjs.org)
 - Downloadable and displayed bio/CV
 - Copy-to-clipboard email with feedback
 - Easy to customize for your own use
+- Responsive navigation bar with a mobile-friendly hamburger menu
 
 ---
 
