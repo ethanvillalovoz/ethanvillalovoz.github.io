@@ -25,7 +25,7 @@ export default function Navbar() {
 						priority
 					/>
 				</div>
-				<div className="flex items-center space-x-6">
+				<div className="flex flex-col items-stretch gap-y-2 sm:flex-row sm:items-center sm:space-x-6">
 					{navLinks.map((link) => (
 						<Link
 							key={link.name}
