@@ -10,16 +10,17 @@
     "export": "next export"
   },
   "dependencies": {
+    "@types/next": "^8.0.7",
     "framer-motion": "^12.12.2",
-    "next": "15.1.8",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "next": "^15.1.8",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19.1.5",
     "eslint": "^9",
     "eslint-config-next": "15.1.8",
     "postcss": "^8",
