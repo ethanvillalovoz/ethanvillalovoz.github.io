@@ -99,6 +99,36 @@ const projects = [
 		date: "2025",
 		status: "Completed",
 	},
+	{
+		title: "DeepFace One-Shot Facial Recognition",
+		description:
+			"Real-time facial verification app based on a reimplementation of Koch et al.'s Siamese network for one-shot learning, optimized for Apple Silicon (M1–M4) using TensorFlow Metal and Kivy.",
+		image: "",
+		tags: ["Computer Vision", "TensorFlow", "One-Shot Learning", "Siamese Network"],
+		features: [
+		"Rebuilt Siamese network with L1 distance and sigmoid classifier for one-shot face matching",
+		"Adapted facial verification to real-time use via webcam and LFW dataset",
+		"Integrated OpenCV and Kivy for a cross-platform face verification GUI",
+		"Optimized training and inference using TensorFlow Metal on M1/M2/M4 Mac hardware",
+		"Achieved perfect training accuracy and smooth live inference on Apple Silicon"
+		],
+		extraLinks: [
+			{
+			label: "GitHub Repo",
+			url: "https://github.com/ethanvillalovoz/deepface-oneshot-paper-reimplementation",
+			},
+			{
+				label: "Original Paper (Koch et al., 2015)",
+				url: "https://www.cs.cmu.edu/~rsalakhu/papers/oneshot1.pdf",
+			},
+			{
+				label: "LFW Dataset",
+				url: "https://www.kaggle.com/datasets/jessicali9530/lfw-dataset",
+			}
+		],
+		date: "2025",
+		status: "Completed",
+	},
 ];
 
 export default function ProjectsPage() {
