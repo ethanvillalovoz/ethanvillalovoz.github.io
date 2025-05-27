@@ -103,14 +103,13 @@ const projects = [
 		title: "DeepFace One-Shot Facial Recognition",
 		description:
 			"Real-time facial verification app based on a reimplementation of Koch et al.'s Siamese network for one-shot learning, optimized for Apple Silicon (M1–M4) using TensorFlow Metal and Kivy.",
-		image: "",
+		image: "images/projects/DeepFace_cover.png",
 		tags: ["Computer Vision", "TensorFlow", "One-Shot Learning", "Siamese Network"],
 		features: [
 		"Rebuilt Siamese network with L1 distance and sigmoid classifier for one-shot face matching",
 		"Adapted facial verification to real-time use via webcam and LFW dataset",
 		"Integrated OpenCV and Kivy for a cross-platform face verification GUI",
-		"Optimized training and inference using TensorFlow Metal on M1/M2/M4 Mac hardware",
-		"Achieved perfect training accuracy and smooth live inference on Apple Silicon"
+		"Optimized training and inference using TensorFlow Metal on M1/M2/M3/M4 Mac hardware"
 		],
 		extraLinks: [
 			{
