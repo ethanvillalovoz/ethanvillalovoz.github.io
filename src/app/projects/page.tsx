@@ -11,20 +11,20 @@ const projects = [
 		tags: ["LLM", "RAG", "Vector Search", "Knowledge Graph", "Full-Stack", "NLP"],
 		features: [
 			"Developed for HackerEarth using 10,000+ Wikipedia articles",
-      "FAISS-based vector search for semantic retrieval",
-      "Knowledge graph context enhancement with DBpedia and SPARQL",
-      "OpenAI LLM for coherent and natural language answers",
-      "Dockerized deployment with local dev option",
+			"FAISS-based vector search for semantic retrieval",
+			"Knowledge graph context enhancement with DBpedia and SPARQL",
+			"OpenAI LLM for coherent and natural language answers",
+			"Dockerized deployment with local dev option",
 		],
 		extraLinks: [
 			{
 				label: "GitHub",
 				url: "https://github.com/mollyiverson/ACME10-HE-RAGApp",
 			},
-      {
-        label: "Final Report",
-        url: "https://github.com/mollyiverson/ACME10-HE-RAGApp/blob/main/docs/project-report/RAGApp-FinalReport.pdf",
-      },
+			{
+				label: "Final Report",
+				url: "https://github.com/mollyiverson/ACME10-HE-RAGApp/blob/main/docs/project-report/RAGApp-FinalReport.pdf",
+			},
 			// {
 			// 	label: "Demo",
 			// 	url: "https://acme10-he-ragapp-demo.vercel.app/",
@@ -40,26 +40,56 @@ const projects = [
 		image: "/images/projects/DDPG_padded.png",
 		tags: ["Reinforcement Learning", "DDPG", "TensorFlow", "OpenAI Gym"],
 		features: [
-      "Modular implementation of actor-critic, buffer, and noise components",
-      "Compatible with Gym ≥ 0.26, CPU/GPU, and Apple Silicon (M1–M4)",
-      "Colab/Binder-ready for easy reproducibility and visualization",
-      "Includes logging, learning curves, and training metrics (e.g., Pendulum-v1)"
-	  ],
+			"Modular implementation of actor-critic, buffer, and noise components",
+			"Compatible with Gym ≥ 0.26, CPU/GPU, and Apple Silicon (M1–M4)",
+			"Colab/Binder-ready for easy reproducibility and visualization",
+			"Includes logging, learning curves, and training metrics (e.g., Pendulum-v1)"
+		],
 		extraLinks: [
 			{
 			label: "GitHub",
 			url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation"
-      },
-      {
-        label: "Colab Notebook",
-        url: "https://colab.research.google.com/github/ethanvillalovoz/ddpg-paper-reimplementation/blob/main/notebooks/DDPG_Analysis.ipynb"
-      },
-      {
-        label: "Original Paper",
-        url: "https://arxiv.org/abs/1509.02971"
-      }
+			},
+			{
+				label: "Colab Notebook",
+				url: "https://colab.research.google.com/github/ethanvillalovoz/ddpg-paper-reimplementation/blob/main/notebooks/DDPG_Analysis.ipynb"
+			},
+			{
+				label: "Original Paper",
+				url: "https://arxiv.org/abs/1509.02971"
+			}
 		],
-		date: "2025",
+		date: "May 2025",
+		status: "Completed",
+	},
+	{
+		title: "ClarifyBot: An LLM-Guided Clarification System",
+		description:
+			"An interactive system that improves robot alignment by generating clarification questions in response to ambiguous human feedback. Combines bandit-style reinforcement learning with large language models and real-time feedback visualization.",
+		image: "/images/projects/ClarifyBot.png",
+		tags: ["LLM", "Reinforcement Learning", "Human-AI Interaction", "Reward Modeling", "Bandits"],
+		features: [
+			"Bandit-driven adaptive question generation (Epsilon-Greedy and UCB)",
+			"Clarification question generation using Mistral-7B-Instruct",
+			"Web-based GUI with alignment confidence and real-time analytics",
+			"Live integration between Flask UI and Jupyter-based research dashboard",
+			"Research-grade logging and misalignment detection with explainable metrics"
+		],
+		extraLinks: [
+			{
+			label: "GitHub",
+			url: "https://github.com/ethanvillalovoz/clarifybot"
+			},
+			{
+				label: "Colab Notebook",
+				url: "https://colab.research.google.com/github/ethanvillalovoz/clarifybot/blob/main/notebooks/demo.ipynb"
+			},
+			{
+				label: "Project Blog",
+				url: "https://github.com/ethanvillalovoz/clarifybot/blob/main/blog.md"
+			}
+		],
+		date: "June 2025",
 		status: "Completed",
 	},
 ];
