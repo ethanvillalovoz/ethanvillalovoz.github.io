@@ -1,5 +1,5 @@
 Ethan Villalovoz is a recent graduate from Washington State University, where he earned a Bachelor of Science in Computer Science with a minor in Mathematics. His research interests lie at the intersection of robotics, machine learning, and artificial intelligence, with a focus on reinforcement learning, multimodal systems, and human-AI collaboration.
 
-Ethan has conducted research at Carnegie Mellon University (as a Robotics Institute Summer Scholar), Oregon State University (in the CHARISMA Robotics Lab), and Washington State University (in the Doppa Lab). He also completed a STEP internship at Google, where he built scalable internal analytics and visualization tools using C++, SQL, and HTML.
+Ethan has conducted research at Carnegie Mellon University (as a Robotics Institute Summer Scholar), Oregon State University (in the CHARISMA Robotics Lab), and Washington State University (in the Doppa Lab). He also completed a STEP internship at Google, where he built scalable internal analytics and visualization tools.
 
-He has been recognized with awards such as the AWS AI & ML Scholarship, Generation Google Scholarship, and NIH MARC Fellowship.
+He has been recognized with awards such as the Generation Google Scholarship and NIH MARC Fellowship.

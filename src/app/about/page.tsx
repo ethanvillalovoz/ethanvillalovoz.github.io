@@ -4,6 +4,14 @@ import { motion } from "framer-motion";
 
 const timeline = [
 	{
+		year: "Summer 2025",
+		title: "Production Engineering Fellow",
+		org: "MLH Fellowship",
+		location: "Remote",
+		logo: "/images/timeline/mlh_fellowship_logo.jpeg",
+		description: "",
+	},
+	{
 		year: "Summer 2024",
 		title: "Robotics Institute Summer Scholars",
 		org: "Carnegie Mellon University",
