@@ -112,7 +112,7 @@ export default function ProjectsPage() {
 
 	return (
 		<main className="max-w-5xl mx-auto px-4 py-10">
-			<div className="flex items-center justify-between mb-4">
+			<header className="flex items-center justify-between mb-4">
 				<motion.h1
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -129,7 +129,7 @@ export default function ProjectsPage() {
 				>
 					View GitHub
 				</a>
-			</div>
+			</header>
 			<motion.p
 				initial={{ opacity: 0, y: 40 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -140,6 +140,9 @@ export default function ProjectsPage() {
 			</motion.p>
 			{/* Project cards */}
 			<section className="mb-12">
+				<h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
+					Project Gallery
+				</h2>
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 					{reversedProjects.map((project) => (
 						<motion.article

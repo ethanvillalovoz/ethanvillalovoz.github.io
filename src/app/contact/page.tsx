@@ -47,7 +47,7 @@ export default function ContactPage() {
 
 	return (
 		<main className="max-w-5xl mx-auto px-4 py-10">
-			<div className="flex items-center justify-between mb-8">
+			<header className="flex items-center justify-between mb-8">
 				<motion.h1
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export default function ContactPage() {
 				>
 					Contact
 				</motion.h1>
-			</div>
+			</header>
 			<motion.p
 				initial={{ opacity: 0, y: 40 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ export default function ContactPage() {
 
 			{/* Contact Methods */}
 			<section className="mb-10">
-				<h2 className="text-xl font-bold mb-4 text-primary">
+				<h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
 					Contact Information
 				</h2>
 				<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -93,7 +93,9 @@ export default function ContactPage() {
 			{/* Speaker Headshot and Bio */}
 			<section className="mb-10">
 				<div className="flex items-center justify-between mb-2">
-					<h2 className="text-xl font-bold text-primary">Speaker Bio</h2>
+					<h2 className="text-2xl font-bold bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
+						Speaker Bio
+					</h2>
 					<a
 						href="/data/EthanVillalovoz-bio.txt"
 						download

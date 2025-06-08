@@ -177,8 +177,13 @@ export default function Home() {
           </div>
         </div>
         {/* Add extra spacing before News section */}
-        <section className="mt-16">
-          <h2 className="text-2xl font-bold mb-4">News</h2>
+        <section className="mt-16" aria-labelledby="news-heading">
+          <h2
+            id="news-heading"
+            className="text-2xl font-bold mb-4 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1"
+          >
+            News
+          </h2>
           <ul className="list-disc pl-5 space-y-2">
             {visibleNews.map((item, idx) => (
               <li key={idx}>

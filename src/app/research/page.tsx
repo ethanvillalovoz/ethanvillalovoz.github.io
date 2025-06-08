@@ -44,19 +44,17 @@ function copyToClipboard(text: string) {
 export default function ResearchPage() {
 	const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
-	// Collect all unique tags
 	const allTags = Array.from(
 		new Set(papers.flatMap((paper) => paper.tags || []))
 	);
 
-	// Filter papers by selected tag
 	const filteredPapers = selectedTag
 		? papers.filter((paper) => paper.tags?.includes(selectedTag))
 		: papers;
 
 	return (
 		<main className="max-w-5xl mx-auto px-4 py-10">
-			<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+			<header className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
 				<motion.h1
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -73,7 +71,7 @@ export default function ResearchPage() {
 				>
 					Google Scholar
 				</a>
-			</div>
+			</header>
 			<motion.p
 				initial={{ opacity: 0, y: 40 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -83,7 +81,9 @@ export default function ResearchPage() {
 				A list of my research papers and publications.
 			</motion.p>
 			<section className="mb-10">
-				<h2 className="text-2xl font-bold mb-2">Research Interests</h2>
+				<h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
+					Research Interests
+				</h2>
 				<p className="text-lg mb-2">
 					My research focuses on robotics, machine learning, AI safety, reinforcement
 					learning, human-AI collaboration, and large language models. I am

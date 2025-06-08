@@ -65,7 +65,7 @@ const timeline = [
 export default function AboutPage() {
 	return (
 		<main className="max-w-5xl mx-auto px-4 py-10">
-			<div className="flex items-center justify-between mb-8">
+			<header className="flex items-center justify-between mb-8">
 				<motion.h1
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -82,7 +82,7 @@ export default function AboutPage() {
 				>
 					Download CV
 				</a>
-			</div>
+			</header>
 
 			<div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-6">
 				<img
@@ -113,7 +113,9 @@ export default function AboutPage() {
 
 			{/* About Me / Motivation Section */}
 			<section className="mb-10">
-				<h2 className="text-xl font-bold mb-2 text-primary">My Story & Motivation</h2>
+				<h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
+					My Story & Motivation
+				</h2>
 				<p className="text-neutral-800 dark:text-neutral-200 mb-2 text-lg">
 					From an early age, I was fascinated by how technology can amplify human potential and solve real-world problems. My journey in computer science began with a curiosity for robotics and artificial intelligence, and has grown into a passion for building systems that are not only intelligent, but also safe, interpretable, and beneficial to society.
 				</p>
@@ -124,7 +126,9 @@ export default function AboutPage() {
 
 			{/* Philosophy Section */}
 			<section className="mb-10">
-				<h2 className="text-xl font-bold mb-2 text-primary">My Approach</h2>
+				<h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
+					My Approach
+				</h2>
 				<p className="text-neutral-800 dark:text-neutral-200 text-lg">
 					I approach research and engineering with curiosity, empathy, and a commitment to open collaboration. I value clear communication, rigorous experimentation, and always strive to make my work accessible and impactful for both technical and non-technical audiences.
 				</p>
@@ -132,7 +136,9 @@ export default function AboutPage() {
 
 			{/* Timeline */}
 			<section className="mb-10">
-				<h2 className="text-xl font-bold mb-6 text-primary">Timeline</h2>
+				<h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
+					Timeline
+				</h2>
 				<div className="relative border-l-2 border-primary pl-8">
 					{timeline.map((item, idx) => (
 						<div
@@ -183,7 +189,9 @@ export default function AboutPage() {
 
 			{/* Fun Facts */}
 			<section id="fun-facts">
-				<h2 className="text-xl font-bold mb-4 text-primary">Fun Facts</h2>
+				<h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
+					Fun Facts
+				</h2>
 				<ul className="list-disc list-inside text-neutral-700 dark:text-neutral-300 space-y-2">
 					<li>
 						I’m currently binge-watching{" "}
