@@ -3,6 +3,19 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+// Tag to emoji/icon mapping for visual emphasis
+const tagIcons: Record<string, string> = {
+	"Robotics": "🤖",
+	"Multi-Robot": "🤝",
+	"Human-Robot Interaction": "🧑‍🤝‍🤖",
+	"AI Safety": "🛡️",
+	"Reinforcement Learning": "🎯",
+	"Machine Learning": "📈",
+	"Large Language Models": "💬",
+	"Computer Vision": "👁️",
+	// Add more as needed
+};
+
 const papers = [
 	{
 		title: "Social Triangles and Aggressive Lines: Multi-Robot Formations Impact Navigation and Approach",
@@ -101,6 +114,7 @@ export default function ResearchPage() {
 							}`}
 							onClick={() => setSelectedTag(tag)}
 						>
+							<span className="mr-1">{tagIcons[tag] || "🔖"}</span>
 							{tag}
 						</button>
 					))}
@@ -116,7 +130,7 @@ export default function ResearchPage() {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ duration: 0.5, ease: "easeOut" }}
-							className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 flex flex-col md:flex-row gap-4 items-start shadow"
+							className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 flex flex-col md:flex-row gap-4 items-start shadow transition-transform duration-200 hover:scale-[1.025] hover:shadow-xl"
 						>
 							<img
 								src={paper.image}
@@ -170,14 +184,15 @@ export default function ResearchPage() {
 								<div className="text-neutral-700 dark:text-neutral-300 text-sm">
 									{paper.description}
 								</div>
-								{/* Tags */}
+								{/* Tags with icons */}
 								{paper.tags && (
 									<div className="mt-2 flex flex-wrap gap-2">
 										{paper.tags.map((tag) => (
 											<span
 												key={tag}
-												className="inline-block px-2 py-0.5 rounded bg-primary/10 text-primary text-xs font-medium"
+												className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary/10 text-primary text-xs font-medium"
 											>
+												<span>{tagIcons[tag] || "🔖"}</span>
 												{tag}
 											</span>
 										))}

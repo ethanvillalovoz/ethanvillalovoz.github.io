@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 
+// Add icons for each timeline entry (customize as you like)
 const timeline = [
 	{
 		year: "Summer 2025",
@@ -9,7 +10,9 @@ const timeline = [
 		org: "MLH Fellowship",
 		location: "Remote",
 		logo: "/images/timeline/mlh_fellowship_logo.jpeg",
-		description: "",
+		icon: "🛠️",
+		description:
+			"",
 	},
 	{
 		year: "Summer 2024",
@@ -17,7 +20,9 @@ const timeline = [
 		org: "Carnegie Mellon University",
 		location: "Pittsburgh, Pennsylvania USA",
 		logo: "/images/timeline/Carnegie_Mellon_icon.png",
-		description: "",
+		icon: "🤖",
+		description:
+			"Developed hierarchical reward learning systems leveraging Bayesian inference and human feedback to align autonomous systems with human preferences and improve adaptability in dynamic settings.",
 	},
 	{
 		year: "Summer 2023",
@@ -25,7 +30,9 @@ const timeline = [
 		org: "Google",
 		location: "Sunnyvale, California USA",
 		logo: "/images/timeline/Google_icon.png",
-		description: "",
+		icon: "💻",
+		description:
+			"Optimized internal database processes with C++ and SQL, reducing runtime by 66% and enhancing data visualization through real-time dashboards and dynamic graphs.",
 	},
 	{
 		year: "Summer 2022",
@@ -33,7 +40,9 @@ const timeline = [
 		org: "Oregon State University",
 		location: "Corvallis, Oregon USA",
 		logo: "/images/timeline/Oregon_State_icon.jpeg",
-		description: "",
+		icon: "🤝",
+		description:
+			"Developed geometric features for multi-robot expressive motion, integrating performing arts techniques to enhance robot character and intelligence.",
 	},
 	{
 		year: "2021–2025",
@@ -41,7 +50,15 @@ const timeline = [
 		org: "Washington State University, Honors College",
 		location: "Pullman, Washington USA",
 		logo: "/images/timeline/Washington_State_icon.png",
-		description: "",
+		icon: "🎓",
+		description:
+			"Graduated with honors, focusing on AI, machine learning, and mathematics.",
+		activities: [
+			"Honors College",
+			"NIH MARC Fellow",
+			"ESTEEMED MIRA Scholar",
+			"VCEA College Ambassador",
+		],
 	},
 ];
 
@@ -94,6 +111,25 @@ export default function AboutPage() {
 				</div>
 			</div>
 
+			{/* About Me / Motivation Section */}
+			<section className="mb-10">
+				<h2 className="text-xl font-bold mb-2 text-primary">My Story & Motivation</h2>
+				<p className="text-neutral-800 dark:text-neutral-200 mb-2 text-lg">
+					From an early age, I was fascinated by how technology can amplify human potential and solve real-world problems. My journey in computer science began with a curiosity for robotics and artificial intelligence, and has grown into a passion for building systems that are not only intelligent, but also safe, interpretable, and beneficial to society.
+				</p>
+				<p className="text-neutral-800 dark:text-neutral-200 mb-2 text-lg">
+					Whether it’s developing expressive multi-robot behaviors, aligning AI with human values, or optimizing large-scale systems, I’m driven by the challenge of making technology more collaborative and trustworthy. I believe that the future of AI depends on our ability to bridge the gap between technical innovation and human needs.
+				</p>
+			</section>
+
+			{/* Philosophy Section */}
+			<section className="mb-10">
+				<h2 className="text-xl font-bold mb-2 text-primary">My Approach</h2>
+				<p className="text-neutral-800 dark:text-neutral-200 text-lg">
+					I approach research and engineering with curiosity, empathy, and a commitment to open collaboration. I value clear communication, rigorous experimentation, and always strive to make my work accessible and impactful for both technical and non-technical audiences.
+				</p>
+			</section>
+
 			{/* Timeline */}
 			<section className="mb-10">
 				<h2 className="text-xl font-bold mb-6 text-primary">Timeline</h2>
@@ -103,13 +139,15 @@ export default function AboutPage() {
 							key={idx}
 							className="mb-12 flex items-start relative"
 						>
-							{/* Timeline dot */}
-							<span className="absolute -left-4 top-2 w-4 h-4 bg-primary rounded-full border-4 border-white dark:border-neutral-900 shadow"></span>
+							{/* Timeline dot with icon */}
+							<span className="absolute -left-6 top-2 w-8 h-8 flex items-center justify-center bg-primary rounded-full border-4 border-white dark:border-neutral-900 shadow text-xl text-white">
+								{item.icon}
+							</span>
 							{/* Logo */}
 							<img
 								src={item.logo}
 								alt={item.org + " logo"}
-								className="w-24 h-24 object-contain rounded-full border border-neutral-200 dark:border-neutral-700 bg-white mr-4"
+								className="w-24 h-24 object-contain rounded-full border border-neutral-200 dark:border-neutral-700 bg-white mr-4 ml-2"
 							/>
 							{/* Content */}
 							<div>
@@ -126,6 +164,15 @@ export default function AboutPage() {
 								{item.description && (
 									<div className="text-neutral-700 dark:text-neutral-300 text-sm mt-1">
 										{item.description}
+										{item.activities && (
+											<ul className="list-disc list-inside ml-4 mt-1">
+												{item.activities.map(
+													(activity: string, idx: number) => (
+														<li key={idx}>{activity}</li>
+													)
+												)}
+											</ul>
+										)}
 									</div>
 								)}
 							</div>
@@ -138,8 +185,15 @@ export default function AboutPage() {
 			<section id="fun-facts">
 				<h2 className="text-xl font-bold mb-4 text-primary">Fun Facts</h2>
 				<ul className="list-disc list-inside text-neutral-700 dark:text-neutral-300 space-y-2">
-					<li>I’m currently binge-watching *Community* (and yes, Troy and Abed are my favorites, but I still need to finish watching *Suits* Seasons 8 and 9 lol).</li>
-					<li>I’m teaching myself guitar (it feels like I am cutting my fingernails every two days).</li>
+					<li>
+						I’m currently binge-watching{" "}
+						<i>Community</i> (and yes, Troy and Abed are my favorites, but I
+						still need to finish watching <i>Suits</i> Seasons 8 and 9 lol).
+					</li>
+					<li>
+						I’m teaching myself guitar (it feels like I am cutting my fingernails
+						every two days).
+					</li>
 					<li>I play both indoor and beach volleyball to stay active.</li>
 				</ul>
 			</section>

@@ -2,6 +2,23 @@
 
 import { motion } from "framer-motion";
 
+// Tag to emoji/icon mapping for visual emphasis
+const tagIcons: Record<string, string> = {
+	LLM: "🤖",
+	RAG: "📚",
+	"Vector Search": "🔎",
+	"Knowledge Graph": "🗺️",
+	"Full-Stack": "🛠️",
+	NLP: "📝",
+	"Reinforcement Learning": "🎯",
+	DDPG: "🧠",
+	TensorFlow: "🔢",
+	"OpenAI Gym": "🏋️",
+	"Human-AI Interaction": "🧑‍💻",
+	"Reward Modeling": "🏆",
+	Bandits: "🎰",
+};
+
 const projects = [
 	{
 		title: "ACME10-HE-RAGApp: RAG with Vector Search, Knowledge Graphs, and LLMs",
@@ -25,10 +42,6 @@ const projects = [
 				label: "Final Report",
 				url: "https://github.com/mollyiverson/ACME10-HE-RAGApp/blob/main/docs/project-report/RAGApp-FinalReport.pdf",
 			},
-			// {
-			// 	label: "Demo",
-			// 	url: "https://acme10-he-ragapp-demo.vercel.app/",
-			// },
 		],
 		date: "2025",
 		status: "Completed",
@@ -43,21 +56,21 @@ const projects = [
 			"Modular implementation of actor-critic, buffer, and noise components",
 			"Compatible with Gym ≥ 0.26, CPU/GPU, and Apple Silicon (M1–M4)",
 			"Colab/Binder-ready for easy reproducibility and visualization",
-			"Includes logging, learning curves, and training metrics (e.g., Pendulum-v1)"
+			"Includes logging, learning curves, and training metrics (e.g., Pendulum-v1)",
 		],
 		extraLinks: [
 			{
-			label: "GitHub",
-			url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation"
+				label: "GitHub",
+				url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation",
 			},
 			{
 				label: "Colab Notebook",
-				url: "https://colab.research.google.com/github/ethanvillalovoz/ddpg-paper-reimplementation/blob/main/notebooks/DDPG_Analysis.ipynb"
+				url: "https://colab.research.google.com/github/ethanvillalovoz/ddpg-paper-reimplementation/blob/main/notebooks/DDPG_Analysis.ipynb",
 			},
 			{
 				label: "Original Paper",
-				url: "https://arxiv.org/abs/1509.02971"
-			}
+				url: "https://arxiv.org/abs/1509.02971",
+			},
 		],
 		date: "May 2025",
 		status: "Completed",
@@ -73,21 +86,21 @@ const projects = [
 			"Clarification question generation using Mistral-7B-Instruct",
 			"Web-based GUI with alignment confidence and real-time analytics",
 			"Live integration between Flask UI and Jupyter-based research dashboard",
-			"Research-grade logging and misalignment detection with explainable metrics"
+			"Research-grade logging and misalignment detection with explainable metrics",
 		],
 		extraLinks: [
 			{
-			label: "GitHub",
-			url: "https://github.com/ethanvillalovoz/clarifybot"
+				label: "GitHub",
+				url: "https://github.com/ethanvillalovoz/clarifybot",
 			},
 			{
 				label: "Colab Notebook",
-				url: "https://colab.research.google.com/github/ethanvillalovoz/clarifybot/blob/main/notebooks/demo.ipynb"
+				url: "https://colab.research.google.com/github/ethanvillalovoz/clarifybot/blob/main/notebooks/demo.ipynb",
 			},
 			{
 				label: "Project Blog",
-				url: "https://github.com/ethanvillalovoz/clarifybot/blob/main/blog.md"
-			}
+				url: "https://github.com/ethanvillalovoz/clarifybot/blob/main/blog.md",
+			},
 		],
 		date: "June 2025",
 		status: "Completed",
@@ -95,8 +108,6 @@ const projects = [
 ];
 
 export default function ProjectsPage() {
-	// Remove tag filter logic
-	// Reverse the order of projects for display
 	const reversedProjects = [...projects].reverse();
 
 	return (
@@ -137,7 +148,7 @@ export default function ProjectsPage() {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ duration: 0.5, ease: "easeOut" }}
-							className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 flex flex-col md:flex-row gap-4 items-start shadow"
+							className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 flex flex-col md:flex-row gap-4 items-start shadow transition-transform duration-200 hover:scale-[1.025] hover:shadow-xl"
 						>
 							<img
 								src={project.image}
@@ -185,14 +196,15 @@ export default function ProjectsPage() {
 										))}
 									</ul>
 								)}
-								{/* Tags */}
+								{/* Tags with icons */}
 								{project.tags && (
 									<div className="mt-2 flex flex-wrap gap-2">
 										{project.tags.map((tag) => (
 											<span
 												key={tag}
-												className="inline-block px-2 py-0.5 rounded bg-primary/10 text-primary text-xs font-medium"
+												className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary/10 text-primary text-xs font-medium"
 											>
+												<span>{tagIcons[tag] || "🔖"}</span>
 												{tag}
 											</span>
 										))}
