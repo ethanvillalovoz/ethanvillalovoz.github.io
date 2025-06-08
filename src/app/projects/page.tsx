@@ -43,7 +43,7 @@ const projects = [
 				url: "https://github.com/mollyiverson/ACME10-HE-RAGApp/blob/main/docs/project-report/RAGApp-FinalReport.pdf",
 			},
 		],
-		date: "2025",
+		date: "May 2025",
 		status: "Completed",
 	},
 	{
