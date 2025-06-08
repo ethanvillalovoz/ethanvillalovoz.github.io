@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CalendarIcon } from "@heroicons/react/24/outline"; // Optional: Use your icon library
 
 export default function FirstPost() {
   return (
