@@ -14,10 +14,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ethan Villalovoz",
-  description: "Portfolio of Ethan Villalovoz: AI/ML Researcher & Engineer.",
+  title: "Ethan Villalovoz | AI Researcher & Developer",
+  description:
+    "Portfolio of Ethan Villalovoz: AI/ML researcher, engineer, and recent WSU graduate. Explore my projects, research, and journey.",
   icons: {
     icon: "/images/ai_robot_icon.png",
+  },
+  openGraph: {
+    title: "Ethan Villalovoz | AI Researcher & Developer",
+    description:
+      "Portfolio of Ethan Villalovoz: AI/ML researcher, engineer, and recent WSU graduate. Explore my projects, research, and journey.",
+    url: "https://ethanvillalovoz.vercel.app/", // Update to your real URL
+    siteName: "Ethan Villalovoz Portfolio",
+    images: [
+      {
+        url: "/images/ai_robot_icon.png", // Place this image in your public/images folder
+        width: 1200,
+        height: 630,
+        alt: "Ethan Villalovoz Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ethan Villalovoz | AI Researcher & Developer",
+    description:
+      "Portfolio of Ethan Villalovoz: AI/ML researcher, engineer, and recent WSU graduate.",
+    images: ["/images/ai_robot_icon.png"],
+    creator: "@etvillalovoz",
   },
 };
 
