@@ -9,6 +9,14 @@ export default function Home() {
 
   const newsItems = [
     {
+      date: "06/2025",
+      content: (
+        <>
+          I joined the <a href="https://fellowship.mlh.io/programs/production-engineering-sre" className="text-primary underline">MLH Fellowship</a> as a Production Engineering Fellow!
+        </>
+      ),
+    },
+    {
       date: "05/2025",
       content: (
         <>Graduated from Washington State University with a B.S. in Computer Science and a minor in Mathematics. Go Cougs!</>

@@ -4,6 +4,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const posts = [
+    {
+        slug: "shakespeare-style-transfer",
+        title: "What a Tiny Dataset Taught Me About NLP Style Transfer",
+        date: "2025-06-10",
+        summary: "How I used a T5 transformer to turn modern English into Shakespearean—and why the dataset mattered more than the model.",
+    },
 	{
 		slug: "first-post",
 		title: "My First Blog Post",
