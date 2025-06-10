@@ -17,6 +17,9 @@ const tagIcons: Record<string, string> = {
 	"Human-AI Interaction": "🧑‍💻",
 	"Reward Modeling": "🏆",
 	Bandits: "🎰",
+	T5: "📘",
+	"Text Style Transfer": "🎭",
+	Streamlit: "🌐",
 };
 
 const projects = [
@@ -101,6 +104,36 @@ const projects = [
 				label: "Project Blog",
 				url: "https://github.com/ethanvillalovoz/clarifybot/blob/main/blog.md",
 			},
+		],
+		date: "June 2025",
+		status: "Completed",
+	},
+	{
+		title: "AI Shakespeare Translator: T5 for Text Style Transfer",
+		description:
+			"A neural machine translation pipeline using the T5 transformer to convert modern English into Shakespearean English. Emphasizes the critical role of dataset alignment in text style transfer and includes an interactive Streamlit app.",
+		image: "/images/projects/shakespeare_translator.png",
+		tags: ["LLM", "NLP", "Text Style Transfer", "T5", "Streamlit"],
+		features: [
+			"Modern → Shakespearean translation with fine-tuned T5 model",
+			"Demonstrates data quality impact using tiny vs. noisy datasets",
+			"Training, inference, and evaluation pipelines using Hugging Face and PyTorch",
+			"Interactive Streamlit web app with example inputs and model behavior",
+			"Runs on Apple Silicon, CUDA, or CPU with Colab support"
+		],
+		extraLinks: [
+			{
+				label: "GitHub",
+				url: "https://github.com/ethanvillalovoz/ai-shakespeare-translator"
+			},
+			{
+				label: "Colab Demo",
+				url: "https://colab.research.google.com/github/ethanvillalovoz/ai-shakespeare-translator/blob/main/demo.ipynb"
+			},
+			{
+				label: "Project Blog",
+				url: "https://github.com/ethanvillalovoz/ai-shakespeare-translator/blob/main/blog.md"
+			}
 		],
 		date: "June 2025",
 		status: "Completed",
