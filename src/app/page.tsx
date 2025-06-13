@@ -93,7 +93,7 @@ export default function Home() {
       date: "06/2022",
       content: (
         <>
-          I conducted research at Oregon State University as part of the{" "}
+          I will be conducting research at Oregon State University as part of the{" "}
           <a href="https://engineering.oregonstate.edu/CoRIS/reu-robots-real-world" className="text-primary underline">REU: Robots in the Real World</a> program.
         </>
       ),
