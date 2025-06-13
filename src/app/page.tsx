@@ -12,6 +12,16 @@ export default function Home() {
       date: "06/2025",
       content: (
         <>
+          Gave an alumni talk for the{" "}
+          <a href="https://marc.wsu.edu/" className="text-primary underline">WSU MARC</a> &{" "}
+          <a href="https://mira.wsu.edu/" className="text-primary underline">MIRA</a> program on my research journey and grad school advice.
+        </>
+      ),
+    },
+    {
+      date: "06/2025",
+      content: (
+        <>
           I joined the <a href="https://fellowship.mlh.io/programs/production-engineering-sre" className="text-primary underline">MLH Fellowship</a> as a Production Engineering Fellow!
         </>
       ),
