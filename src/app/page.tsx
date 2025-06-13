@@ -173,6 +173,9 @@ export default function Home() {
               I am currently seeking full-time opportunities in AI/ML research and
               engineering while preparing to apply for M.S. programs in Spring 2026.
             </p>
+            <p className="mb-4">
+              Please feel free to reach out about research, collaboration, or any advice I can help with!
+            </p>
           </div>
           <div>
             <Image
