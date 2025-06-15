@@ -22,7 +22,7 @@ export default function Home() {
       date: "06/2025",
       content: (
         <>
-          I joined the <a href="https://fellowship.mlh.io/programs/production-engineering-sre" className="text-primary underline">MLH Fellowship</a> as a Production Engineering Fellow!
+          I joined the <a href="https://fellowship.mlh.io/programs/production-engineering-sre" className="text-primary underline">Meta x MLH Fellowship</a> as a Production Engineering Fellow!
         </>
       ),
     },
