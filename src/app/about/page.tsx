@@ -7,8 +7,8 @@ const timeline = [
 	{
 		year: "Summer 2025",
 		title: "Production Engineering Fellow",
-		org: "Meta x MLH Fellowship",
-		location: "Remote",
+		org: "Meta x MLH",
+		location: "Remote USA",
 		logo: "/images/timeline/meta_MLH_fellowship_logo.png",
 		icon: "🛠️",
 		description:
