@@ -78,66 +78,66 @@ const projects = [
 		date: "May 2025",
 		status: "Completed",
 	},
-	{
-		title: "ClarifyBot: An LLM-Guided Clarification System",
-		description:
-			"An interactive system that improves robot alignment by generating clarification questions in response to ambiguous human feedback. Combines bandit-style reinforcement learning with large language models and real-time feedback visualization.",
-		image: "/images/projects/ClarifyBot.png",
-		tags: ["LLM", "Reinforcement Learning", "Human-AI Interaction", "Reward Modeling", "Bandits"],
-		features: [
-			"Bandit-driven adaptive question generation (Epsilon-Greedy and UCB)",
-			"Clarification question generation using Mistral-7B-Instruct",
-			"Web-based GUI with alignment confidence and real-time analytics",
-			"Live integration between Flask UI and Jupyter-based research dashboard",
-			"Research-grade logging and misalignment detection with explainable metrics",
-		],
-		extraLinks: [
-			{
-				label: "GitHub",
-				url: "https://github.com/ethanvillalovoz/clarifybot",
-			},
-			{
-				label: "Colab Notebook",
-				url: "https://colab.research.google.com/github/ethanvillalovoz/clarifybot/blob/main/notebooks/demo.ipynb",
-			},
-			{
-				label: "Project Blog",
-				url: "https://github.com/ethanvillalovoz/clarifybot/blob/main/blog.md",
-			},
-		],
-		date: "June 2025",
-		status: "Completed",
-	},
-	{
-		title: "AI Shakespeare Translator: T5 for Text Style Transfer",
-		description:
-			"A neural machine translation pipeline using the T5 transformer to convert modern English into Shakespearean English. Emphasizes the critical role of dataset alignment in text style transfer and includes an interactive Streamlit app.",
-		image: "/images/projects/shakespeare_translator.png",
-		tags: ["LLM", "NLP", "Text Style Transfer", "T5", "Streamlit"],
-		features: [
-			"Modern → Shakespearean translation with fine-tuned T5 model",
-			"Demonstrates data quality impact using tiny vs. noisy datasets",
-			"Training, inference, and evaluation pipelines using Hugging Face and PyTorch",
-			"Interactive Streamlit web app with example inputs and model behavior",
-			"Runs on Apple Silicon, CUDA, or CPU with Colab support"
-		],
-		extraLinks: [
-			{
-				label: "GitHub",
-				url: "https://github.com/ethanvillalovoz/ai-shakespeare-translator"
-			},
-			{
-				label: "Colab Demo",
-				url: "https://colab.research.google.com/github/ethanvillalovoz/ai-shakespeare-translator/blob/main/demo.ipynb"
-			},
-			{
-				label: "Project Blog",
-				url: "https://github.com/ethanvillalovoz/ai-shakespeare-translator/blob/main/blog.md"
-			}
-		],
-		date: "June 2025",
-		status: "Completed",
-	},
+	// {
+	// 	title: "ClarifyBot: An LLM-Guided Clarification System",
+	// 	description:
+	// 		"An interactive system that improves robot alignment by generating clarification questions in response to ambiguous human feedback. Combines bandit-style reinforcement learning with large language models and real-time feedback visualization.",
+	// 	image: "/images/projects/ClarifyBot.png",
+	// 	tags: ["LLM", "Reinforcement Learning", "Human-AI Interaction", "Reward Modeling", "Bandits"],
+	// 	features: [
+	// 		"Bandit-driven adaptive question generation (Epsilon-Greedy and UCB)",
+	// 		"Clarification question generation using Mistral-7B-Instruct",
+	// 		"Web-based GUI with alignment confidence and real-time analytics",
+	// 		"Live integration between Flask UI and Jupyter-based research dashboard",
+	// 		"Research-grade logging and misalignment detection with explainable metrics",
+	// 	],
+	// 	extraLinks: [
+	// 		{
+	// 			label: "GitHub",
+	// 			url: "https://github.com/ethanvillalovoz/clarifybot",
+	// 		},
+	// 		{
+	// 			label: "Colab Notebook",
+	// 			url: "https://colab.research.google.com/github/ethanvillalovoz/clarifybot/blob/main/notebooks/demo.ipynb",
+	// 		},
+	// 		{
+	// 			label: "Project Blog",
+	// 			url: "https://github.com/ethanvillalovoz/clarifybot/blob/main/blog.md",
+	// 		},
+	// 	],
+	// 	date: "June 2025",
+	// 	status: "Completed",
+	// },
+	// {
+	// 	title: "AI Shakespeare Translator: T5 for Text Style Transfer",
+	// 	description:
+	// 		"A neural machine translation pipeline using the T5 transformer to convert modern English into Shakespearean English. Emphasizes the critical role of dataset alignment in text style transfer and includes an interactive Streamlit app.",
+	// 	image: "/images/projects/shakespeare_translator.png",
+	// 	tags: ["LLM", "NLP", "Text Style Transfer", "T5", "Streamlit"],
+	// 	features: [
+	// 		"Modern → Shakespearean translation with fine-tuned T5 model",
+	// 		"Demonstrates data quality impact using tiny vs. noisy datasets",
+	// 		"Training, inference, and evaluation pipelines using Hugging Face and PyTorch",
+	// 		"Interactive Streamlit web app with example inputs and model behavior",
+	// 		"Runs on Apple Silicon, CUDA, or CPU with Colab support"
+	// 	],
+	// 	extraLinks: [
+	// 		{
+	// 			label: "GitHub",
+	// 			url: "https://github.com/ethanvillalovoz/ai-shakespeare-translator"
+	// 		},
+	// 		{
+	// 			label: "Colab Demo",
+	// 			url: "https://colab.research.google.com/github/ethanvillalovoz/ai-shakespeare-translator/blob/main/demo.ipynb"
+	// 		},
+	// 		{
+	// 			label: "Project Blog",
+	// 			url: "https://github.com/ethanvillalovoz/ai-shakespeare-translator/blob/main/blog.md"
+	// 		}
+	// 	],
+	// 	date: "June 2025",
+	// 	status: "Completed",
+	// },
 ];
 
 export default function ProjectsPage() {
