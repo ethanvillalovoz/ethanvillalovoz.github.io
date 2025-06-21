@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ethanvillalovoz.vercel.app
+
+# Sitemaps
+Sitemap: https://ethanvillalovoz.vercel.app/sitemap.xml
