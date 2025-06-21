@@ -1,6 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://ethanvillalovoz.vercel.app', // or your custom domain
+  siteUrl: 'https://ethanvillalovoz.vercel.app',
   generateRobotsTxt: true,
-  generateIndexSitemap: true,
+  generateIndexSitemap: false, // ✅ important fix
+  outDir: 'out', // ✅ required for static export
 };
