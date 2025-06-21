@@ -63,39 +63,25 @@ To run this website locally and make changes:
 
 ---
 
-## Deploying to GitHub Pages (.github.io)
+## Sitemap & Robots.txt Regeneration (for SEO)
 
-This repo is your playground for making edits. When you are ready to publish your changes to your public website:
+To keep your site SEO-friendly, you should regenerate the `sitemap.xml` and `robots.txt` files whenever you add, remove, or update pages or projects. This ensures search engines have the latest structure of your site.
 
-1. **Build and export the static site:**
+1. **Regenerate sitemap and robots.txt:**
    ```bash
-   npm run build
-   # This will generate an 'out/' folder with your static site
+   npx next-sitemap
    ```
 
-2. **Copy the contents of the `out/` folder** to your `ethanvillalovoz.github.io` repository (replace old files if prompted).
-   - You can do this manually, or with a command like:
-     ```bash
-     cp -r out/* ../ethanvillalovoz.github.io/
-     ```
-   - Make sure you are in the root of this repo when you run the command above, and that your .github.io repo is checked out one directory up.
+2. This will update the `public/sitemap.xml` and `public/robots.txt` files.
 
-3. **Commit and push in your .github.io repo:**
-   ```bash
-   cd ../ethanvillalovoz.github.io
-   git add .
-   git commit -m "Deploy updated static site"
-   git push
-   ```
-
-4. **Your changes will be live at:**
-   [https://ethanvillalovoz.github.io/](https://ethanvillalovoz.github.io/)
+3. **Deployment:**
+   - These static SEO files are placed in the `/public` directory and are automatically included by Vercel on deployment.
 
 ---
 
-## Deploying to Vercel (Recommended)
+## Deploying to Vercel
 
-This site is hosted on [Vercel](https://vercel.com), which provides seamless integration with Next.js and automatic deployments from your GitHub repository. If you want to deploy your own version:
+This site is deployed exclusively on [Vercel](https://vercel.com), which provides seamless integration with Next.js and automatic deployments from your GitHub repository.
 
 1. **Push your code to GitHub.**
    - Make sure your latest changes are committed and pushed to a GitHub repository.
@@ -123,7 +109,7 @@ This site is hosted on [Vercel](https://vercel.com), which provides seamless int
    - Every time you push to your GitHub repository, Vercel will automatically rebuild and redeploy your site.
 
 **Note:**  
-Vercel is the recommended way to host Next.js sites, as it supports all Next.js features out of the box, including server-side rendering and API routes.
+Vercel is the recommended and only supported way to host this Next.js site.
 
 ---
 
@@ -137,7 +123,7 @@ Want to use this site as a template for your own personal or research website?
    - Replace images in `/public/images/` and documents in `/public/data/`.
    - Update your contact information in `src/app/contact/page.tsx`.
 3. **Customize styles and layout as needed.**
-4. **Deploy to Vercel or your preferred platform, or use the static export method above for GitHub Pages.**
+4. **Deploy to Vercel as described above.**
 
 ---
 
