@@ -58,6 +58,9 @@ export default function RootLayout({
         {/* Use .png for best browser compatibility and match Next.js metadata */}
         <link rel="icon" href="/images/ai_robot_icon.png" type="image/png" sizes="any" />
         <link rel="shortcut icon" href="/images/ai_robot_icon.png" type="image/png" />
+
+        {/* ✅ Add your Google verification meta tag here */}
+        <meta name="google-site-verification" content="YI1L3YOtnukh0nVwoZ-TVjTTp9_PN65NylPHNUshHII" />
         {/* Remove .jpeg favicon links */}
       </head>
       <body
