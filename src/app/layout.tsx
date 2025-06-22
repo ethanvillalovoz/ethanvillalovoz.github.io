@@ -63,7 +63,7 @@ export default function RootLayout({
         <meta name="google-site-verification" content="YI1L3YOtnukh0nVwoZ-TVjTTp9_PN65NylPHNUshHII" />
         {/* Remove .jpeg favicon links */}
 
-        {/* ✅ JSON-LD Structured Data for SEO */}
+        {/* ✅ Person Structured Data */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -75,7 +75,8 @@ export default function RootLayout({
               "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
               "https://github.com/ethanvillalovoz",
               "https://x.com/etvillalovoz",
-              "https://www.linkedin.com/in/evillalovoz27/"
+              "https://www.linkedin.com/in/evillalovoz27/",
+              "https://ethanvillalovoz.github.io/"
             ],
             "jobTitle": "AI Researcher & Developer",
             "alumniOf": {
@@ -85,6 +86,27 @@ export default function RootLayout({
             "description": "AI/ML researcher and engineer focused on robotics and human-AI interaction."
           })
         }} />
+
+        {/* ✅ Organization Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Ethan Villalovoz",
+              "url": "https://ethanvillalovoz.vercel.app",
+              "logo": "https://ethanvillalovoz.vercel.app/images/ai_robot_icon.png",
+              "sameAs": [
+                "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
+                "https://github.com/ethanvillalovoz",
+                "https://x.com/etvillalovoz",
+                "https://www.linkedin.com/in/evillalovoz27/",
+                "https://ethanvillalovoz.github.io/"
+              ]
+            })
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
