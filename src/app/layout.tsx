@@ -72,8 +72,10 @@ export default function RootLayout({
             "url": "https://ethanvillalovoz.vercel.app",
             "image": "https://ethanvillalovoz.vercel.app/images/ai_robot_icon.png",
             "sameAs": [
+              "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
               "https://github.com/ethanvillalovoz",
-              "https://www.linkedin.com/in/ethanvillalovoz"
+              "https://x.com/etvillalovoz",
+              "https://www.linkedin.com/in/evillalovoz27/"
             ],
             "jobTitle": "AI Researcher & Developer",
             "alumniOf": {
