@@ -62,6 +62,27 @@ export default function RootLayout({
         {/* ✅ Add your Google verification meta tag here */}
         <meta name="google-site-verification" content="YI1L3YOtnukh0nVwoZ-TVjTTp9_PN65NylPHNUshHII" />
         {/* Remove .jpeg favicon links */}
+
+        {/* ✅ JSON-LD Structured Data for SEO */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Ethan Villalovoz",
+            "url": "https://ethanvillalovoz.vercel.app",
+            "image": "https://ethanvillalovoz.vercel.app/images/ai_robot_icon.png",
+            "sameAs": [
+              "https://github.com/ethanvillalovoz",
+              "https://www.linkedin.com/in/ethanvillalovoz"
+            ],
+            "jobTitle": "AI Researcher & Developer",
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Washington State University"
+            },
+            "description": "AI/ML researcher and engineer focused on robotics and human-AI interaction."
+          })
+        }} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
