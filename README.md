@@ -1,137 +1,253 @@
 # Ethan Villalovoz Personal Website
 
-A modern, professional personal website built with [Next.js](https://nextjs.org), designed for researchers, engineers, and professionals to showcase their work, research, and contact information. This site features:
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://vercel.com)
+[![Next.js](https://img.shields.io/badge/next.js-14-blue)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/typescript-5.4-blue)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-- **Projects Page:** Card-based, responsive grid for technical projects with tags, features, status, images, and extra links (GitHub, Demo, etc.).
-- **About Page:** Vertical timeline of experience, profile photo, current role, downloadable CV, and fun facts.
-- **Contact Page:** Prominent contact buttons, copy-to-clipboard email, downloadable/displayed speaker bio, and professional headshot.
+---
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Description](#description)
+- [Visuals](#visuals)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Technologies Used](#technologies-used)
+- [QuickStart](#quickstart)
+- [Usage](#usage)
+- [Advanced Usage](#advanced-usage)
+- [Configuration](#configuration)
+- [Folder Structure](#folder-structure)
+- [Automated Tests](#automated-tests)
+- [Roadmap](#roadmap)
+- [Contribution Guidelines](#contribution-guidelines)
+- [Issue & Pull Request Templates](#issue--pull-request-templates)
+- [Diagrams](#diagrams)
+- [SOLID Principles](#solid-principles)
+- [License](#license)
+
+---
+
+## Introduction
+
+A modern, professional personal website built with Next.js and TypeScript. Designed for researchers, engineers, and professionals to showcase their work, research, and contact information.
+
+---
+
+## Description
+
+This site features a responsive, card-based projects page, a vertical timeline for experience, and a contact page with copy-to-clipboard email and downloadable bio/CV. It is fully accessible, SEO-friendly, and easy to customize for your own use. The project is deployed on Vercel for seamless CI/CD.
+
+---
+
+## Visuals
+
+<!-- Replace these with your own screenshots or GIFs -->
+![Homepage Screenshot](public/visuals/homepage.png)
+![Projects Page Screenshot](public/visuals/project_page.png)
+![Timeline Screenshot](public/visuals/timeline.png)
+
+---
 
 ## Features
-- Built with Next.js App Router and TypeScript
-- Fully responsive and accessible
-- Card-based project/research display
-- Vertical timeline for experience
+
+- Card-based, responsive grid for technical projects
+- Vertical timeline for experience and education
 - Downloadable and displayed bio/CV
 - Copy-to-clipboard email with feedback
-- Easy to customize for your own use
-- Responsive navigation bar with a mobile-friendly hamburger menu
+- Responsive navigation bar with mobile hamburger menu
+- SEO: sitemap.xml and robots.txt auto-generation
+- Fully responsive and accessible
+- Easy to customize and extend
 
 ---
 
-## Getting Started (Local Development)
+## Prerequisites
 
-To run this website locally and make changes:
+- Node.js v18+ (recommended: latest LTS)
+- npm, yarn, pnpm, or bun (choose one)
+- Git
+
+---
+
+## Technologies Used
+
+- [Next.js (App Router)](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [next-sitemap](https://github.com/iamvishnusankar/next-sitemap) (SEO)
+- [Vercel](https://vercel.com/) (deployment)
+
+---
+
+## QuickStart
 
 1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/ethanvillalovoz/ethan-site-rebuild.git
-   cd ethan-site-rebuild
-   ```
+    ```bash
+    git clone https://github.com/ethanvillalovoz/ethan-site-rebuild.git
+    cd ethan-site-rebuild
+    ```
 
 2. **Install dependencies:**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   # or
-   bun install
-   ```
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    # or
+    bun install
+    ```
 
 3. **Start the development server:**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   # or
-   bun dev
-   ```
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    # or
+    bun dev
+    ```
 
-4. **Open your browser:**
-   Visit [http://localhost:3000](http://localhost:3000) to view the site.
-
-5. **Make changes:**
-   - Edit files in `src/app/` (e.g., `projects/page.tsx`, `about/page.tsx`, `contact/page.tsx`).
-   - The site will auto-update as you save changes.
-
-6. **Testing changes:**
-   - Manually verify your changes in the browser.
-   - (Optional) Add your own tests if desired.
+4. **Open your browser:**  
+   Visit [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## Sitemap & Robots.txt Regeneration (for SEO)
+## Usage
 
-To keep your site SEO-friendly, you should regenerate the `sitemap.xml` and `robots.txt` files whenever you add, remove, or update pages or projects. This ensures search engines have the latest structure of your site.
-
-1. **Regenerate sitemap and robots.txt:**
-   ```bash
-   npx next-sitemap
-   ```
-
-2. This will update the `public/sitemap.xml` and `public/robots.txt` files.
-
-3. **Deployment:**
-   - These static SEO files are placed in the `/public` directory and are automatically included by Vercel on deployment.
+- Edit content in `src/app/` (e.g., `projects/page.tsx`, `about/page.tsx`, `contact/page.tsx`)
+- Replace images in `public/images/` and documents in `public/data/`
+- The site auto-updates as you save changes
 
 ---
 
-## Deploying to Vercel
+## Advanced Usage
 
-This site is deployed exclusively on [Vercel](https://vercel.com), which provides seamless integration with Next.js and automatic deployments from your GitHub repository.
-
-1. **Push your code to GitHub.**
-   - Make sure your latest changes are committed and pushed to a GitHub repository.
-
-2. **Create a Vercel account:**
-   - Go to [https://vercel.com/signup](https://vercel.com/signup) and sign up (you can use your GitHub account).
-
-3. **Import your repository:**
-   - Click "New Project" and select your GitHub repository.
-   - Vercel will auto-detect your Next.js setup.
-
-4. **Configure project settings (optional):**
-   - You can set environment variables or custom build settings if needed.
-   - The default settings work for most Next.js projects.
-
-5. **Deploy:**
-   - Click "Deploy" and Vercel will build and deploy your site.
-   - After deployment, you’ll get a live URL (e.g., `https://your-site.vercel.app`).
-
-6. **Set up a custom domain (optional):**
-   - In your Vercel dashboard, go to your project’s "Domains" tab.
-   - Add your custom domain and follow the instructions to update your DNS records.
-
-7. **Automatic redeploys:**
-   - Every time you push to your GitHub repository, Vercel will automatically rebuild and redeploy your site.
-
-**Note:**  
-Vercel is the recommended and only supported way to host this Next.js site.
+- **SEO:**  
+  Regenerate `sitemap.xml` and `robots.txt` after adding/removing pages:
+  ```bash
+  npx next-sitemap
+  ```
+- **Custom Domains:**  
+  Configure in the Vercel dashboard under your project’s "Domains" tab.
+- **Environment Variables:**  
+  Add secrets or API keys in Vercel dashboard or `.env.local` (see [Configuration](#configuration))
 
 ---
 
-## Using This as a Template
+## Configuration
 
-Want to use this site as a template for your own personal or research website?
-
-1. **Fork or clone this repository.**
-2. **Replace content:**
-   - Update project, research, and about data in the respective files.
-   - Replace images in `/public/images/` and documents in `/public/data/`.
-   - Update your contact information in `src/app/contact/page.tsx`.
-3. **Customize styles and layout as needed.**
-4. **Deploy to Vercel as described above.**
+- Most configuration is handled via `next.config.js` and environment variables.
+- To add environment variables, create a `.env.local` file:
+    ```
+    NEXT_PUBLIC_SITE_URL=https://your-site.vercel.app
+    # Add other variables as needed
+    ```
+- For SEO, update `next-sitemap.config.js` as needed.
 
 ---
 
-## Credits
-- Built by Ethan Villalovoz
-- Inspired by modern academic and engineering portfolio sites
+## Folder Structure
+
+```
+ethan-site-rebuild/
+├── public/
+│   ├── images/
+│   ├── data/
+│   ├── robots.txt
+│   └── sitemap.xml
+├── src/
+│   ├── app/
+│   ├── components/
+│   ├── styles/
+│   └── ...
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   └── PULL_REQUEST_TEMPLATE.md
+├── README.md
+├── LICENSE
+├── next.config.js
+├── tailwind.config.js
+└── package.json
+```
+
+---
+
+## Automated Tests
+
+*No automated tests are included yet.*  
+You can add your own tests using [Jest](https://jestjs.io/) or [React Testing Library](https://testing-library.com/).
+
+---
+
+## Roadmap
+
+- [ ] Add blog section
+- [ ] Add automated tests
+- [ ] Improve accessibility and a11y testing
+- [x] Add dark mode toggle
+- [x] Enhance project filtering and search
+- [x] Add more visuals and animations
+
+---
+
+## Contribution Guidelines
+
+Contributions are welcome!  
+To contribute:
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Commit your changes
+4. Open a pull request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more details (coming soon).
+
+---
+
+## Issue & Pull Request Templates
+
+- Use the templates in `.github/ISSUE_TEMPLATE/` for bug reports and feature requests.
+- Pull requests should use `.github/PULL_REQUEST_TEMPLATE.md`.
+
+---
+
+## Diagrams
+
+For architecture and workflow diagrams, use [Mermaid](https://mermaid-js.github.io/).
+
+Example:
+
+```mermaid
+flowchart TD
+    A[Visitor] -->|Navigates| B(Homepage)
+    B --> C{Chooses Page}
+    C -->|Projects| D[Projects Page]
+    C -->|About| E[About Page]
+    C -->|Contact| F[Contact Page]
+```
+
+---
+
+## SOLID Principles
+
+This project aims to follow SOLID principles for maintainability:
+
+- **Single Responsibility:** Each component does one thing.
+- **Open/Closed:** Components are open for extension, closed for modification.
+- **Liskov Substitution:** Components can be replaced by their subtypes.
+- **Interface Segregation:** Prefer small, focused interfaces.
+- **Dependency Inversion:** Depend on abstractions, not concretions.
 
 ---
 
 ## License
+
 This project is open source and available under the [MIT License](LICENSE).
+
+---
