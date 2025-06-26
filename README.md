@@ -206,7 +206,7 @@ To contribute:
 3. Commit your changes
 4. Open a pull request
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for more details (coming soon).
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 
 ---
 
