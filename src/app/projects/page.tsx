@@ -52,14 +52,14 @@ const projects = [
 	{
 		title: "DDPG: Deep Deterministic Policy Gradient (TensorFlow 2.x)",
 		description:
-			"A clean and modular reimplementation of the DDPG reinforcement learning algorithm (Lillicrap et al., 2015) using modern TensorFlow 2.x APIs, compatible with Gym environments, GPU acceleration, and interactive analysis notebooks.",
+			"A robust, modular, and extensible reimplementation of the DDPG reinforcement learning algorithm (Lillicrap et al., 2015) using TensorFlow 2.x. Built for reproducibility, research comparison, and interactive experimentation with Gym environments.",
 		image: "/images/projects/DDPG_padded.png",
 		tags: ["Reinforcement Learning", "DDPG", "TensorFlow", "OpenAI Gym"],
 		features: [
-			"Modular implementation of actor-critic, buffer, and noise components",
-			"Compatible with Gym ≥ 0.26, CPU/GPU, and Apple Silicon (M1–M4)",
-			"Colab/Binder-ready for easy reproducibility and visualization",
-			"Includes logging, learning curves, and training metrics (e.g., Pendulum-v1)",
+			"Modular architecture: separate agent, networks, noise, buffer, wrappers",
+			"Hyperparameter sweeps, YAML config system, and TensorBoard logging",
+			"Includes full unit test suite and reproducibility controls (seed, version logging)",
+			"Supports Gym ≥ 0.26, Apple Silicon acceleration (tensorflow-macos, -metal)"
 		],
 		extraLinks: [
 			{
@@ -67,15 +67,15 @@ const projects = [
 				url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation",
 			},
 			{
-				label: "Colab Notebook",
-				url: "https://colab.research.google.com/github/ethanvillalovoz/ddpg-paper-reimplementation/blob/main/notebooks/DDPG_Analysis.ipynb",
+				label: "Architecture Diagram",
+				url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation/blob/main/docs/architecture.md",
 			},
 			{
 				label: "Original Paper",
 				url: "https://arxiv.org/abs/1509.02971",
-			},
+			}
 		],
-		date: "May 2025",
+		date: "July 2025",
 		status: "Completed",
 	},
 	// {
