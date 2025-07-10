@@ -20,6 +20,19 @@ const tagIcons: Record<string, string> = {
 	T5: "📘",
 	"Text Style Transfer": "🎭",
 	Streamlit: "🌐",
+	"AI Interview Prep": "📈",
+	FastAPI: "⚡",
+	React: "⚛️",
+	"Hugging Face": "🤗",
+	SQLite: "💾",
+	"Computer Vision": "👁️",
+	OpenCV: "📷",
+	face_recognition: "🧬",
+	LaTeX: "📄",
+	Resume: "🧾",
+	ATS: "✅",
+	PDF: "🖨️",
+	"Open Source": "👐",
 };
 
 const projects = [
@@ -50,7 +63,7 @@ const projects = [
 		status: "Completed",
 	},
 	{
-		title: "DDPG: Deep Deterministic Policy Gradient (TensorFlow 2.x)",
+		title: "DDPG: Deep Deterministic Policy Gradient Reimplementation in TensorFlow 2.x",
 		description:
 			"A robust, modular, and extensible reimplementation of the DDPG reinforcement learning algorithm (Lillicrap et al., 2015) using TensorFlow 2.x. Built for reproducibility, research comparison, and interactive experimentation with Gym environments.",
 		image: "/images/projects/DDPG_padded.png",
@@ -78,6 +91,83 @@ const projects = [
 		date: "July 2025",
 		status: "Completed",
 	},
+	{
+		title: "CodePrep.AI: AI-Powered Coding Interview Prep with LLMs",
+		description:
+			"An interactive full-stack web application that generates multiple-choice coding challenges using Meta-Llama-3-8B-Instruct. Designed for interview practice, daily challenge tracking, and progress feedback with real-time explanations.",
+		image: "/images/projects/codeprep_home.png",
+		tags: ["LLM", "AI Interview Prep", "FastAPI", "React", "Hugging Face", "SQLite"],
+		features: [
+			"Dynamic challenge generation using Meta-Llama-3-8B-Instruct from Hugging Face",
+			"Clerk authentication with quota tracking and personalized history view",
+			"Full-stack system with React (Vite), FastAPI, and SQLite",
+			"Support for challenge explanation, user feedback, and difficulty selection",
+		],
+		extraLinks: [
+			{
+			label: "GitHub",
+			url: "https://github.com/ethanvillalovoz/codeprep-ai",
+			},
+			{
+			label: "Architecture",
+			url: "https://github.com/ethanvillalovoz/codeprep-ai/blob/main/docs/architecture.md",
+			},
+			// {
+			// label: "Live Demo (Optional)",
+			// url: "https://your-deployment-url.com" // Replace or remove if not applicable
+			// }
+		],
+		date: "July 2025",
+		status: "Completed"
+	},
+	{
+		title: "FaceTrack: Smart Face Recognition Attendance System",
+		description:
+			"A full-stack web application that automates attendance tracking using facial recognition. Built with FastAPI, React, and SQLite, it supports real-time webcam input and batch image uploads for seamless attendance logging.",
+		image: "/images/projects/facetrack.png", // Replace with actual path or upload one
+		tags: ["Computer Vision", "OpenCV", "FastAPI", "React", "face_recognition", "SQLite"],
+		features: [
+			"Real-time face recognition via webcam and batch image uploads",
+			"FastAPI backend with REST API endpoints and SQLite integration",
+			"React frontend with live feedback, image previews, and attendance viewer",
+			"OpenCV and face_recognition for robust face encoding and matching",
+			"Interactive database-backed attendance logs with export support"
+		],
+		extraLinks: [
+			{
+			label: "GitHub",
+			url: "https://github.com/ethanvillalovoz/FaceTrack-Face-Attendance-System",
+			},
+		],
+		date: "July 2025",
+		status: "Completed",
+	},
+	{
+		title: "LaTeX Resume Template",
+		description:
+			"A clean, ATS-friendly, and modern LaTeX resume template built for students and developers applying to technical roles. Features minimalist design, modular macros, and PDF outputs optimized for readability and machine parsing.",
+		image: "/images/projects/resume-template.png", // Let me know if you'd like a custom one generated
+		tags: ["LaTeX", "Resume", "ATS", "PDF", "Open Source"],
+		features: [
+			"Modular LaTeX macros for easy customization and consistency across sections",
+			"Single-page layout with bolded technologies and quantifiable bullet points",
+			"Fully ATS-compatible PDF output using Unicode embedding and semantic structure",
+			"Includes Overleaf support, documentation, and contribution guidelines",
+			"Open-source under MIT License, ready to fork and adapt"
+		],
+		extraLinks: [
+			{
+				label: "GitHub",
+				url: "https://github.com/ethanvillalovoz/latex-resume-template",
+			},
+			{
+				label: "Docs",
+				url: "https://github.com/ethanvillalovoz/latex-resume-template/blob/main/docs/ABOUT.md",
+			}
+		],
+		date: "July 2025",
+		status: "Completed"
+	}
 	// {
 	// 	title: "ClarifyBot: An LLM-Guided Clarification System",
 	// 	description:
