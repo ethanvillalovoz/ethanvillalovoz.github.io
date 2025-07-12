@@ -33,14 +33,30 @@ const tagIcons: Record<string, string> = {
 	ATS: "✅",
 	PDF: "🖨️",
 	"Open Source": "👐",
+	LangChain: "🧠",
+	LangGraph: "🧩",
+	Firecrawl: "🔥",
+	CLI: "💻",
+	"AI Agents": "🕵️‍♂️",
+	OpenAI: "🌐",
+	MLOps: "⚙️",
+	MLflow: "📊",
+	DVC: "🔁",
+	Docker: "🐳",
+	AWS: "☁️",
+	Flask: "🍶",
+	"Chrome Extension": "🌐",
+	"Sentiment Analysis": "💬",
+	LightGBM: "🌲"
 };
+
 
 const projects = [
 	{
 		title: "ACME10-HE-RAGApp: RAG with Vector Search, Knowledge Graphs, and LLMs",
 		description:
 			"A full-stack Retrieval-Augmented Generation (RAG) application developed for HackerEarth that integrates vector search (FAISS), knowledge graphs (DBpedia), and OpenAI’s LLM to generate traceable, context-rich answers from a Wikipedia-based knowledge base.",
-		image: "/images/projects/RAG_flowchart.jpeg",
+		image: "/images/projects/RAG_flowchart.jpg",
 		tags: ["LLM", "RAG", "Vector Search", "Knowledge Graph", "Full-Stack", "NLP"],
 		features: [
 			"Developed for HackerEarth using 10,000+ Wikipedia articles",
@@ -163,6 +179,69 @@ const projects = [
 			{
 				label: "Docs",
 				url: "https://github.com/ethanvillalovoz/latex-resume-template/blob/main/docs/ABOUT.md",
+			}
+		],
+		date: "July 2025",
+		status: "Completed"
+	},
+	{
+		title: "IntelliCrawl: Autonomous AI Research Agent for Developer Tools",
+		description:
+			"An advanced autonomous research agent that uses LLMs and web crawling to analyze and compare developer tools. Built with LangGraph, LangChain, and Firecrawl for scalable, multi-step analysis workflows.",
+		image: "/images/projects/intellicrawl.png", // Let me know if you want me to generate this!
+		tags: ["LLM", "LangChain", "LangGraph", "OpenAI", "Firecrawl", "CLI", "AI Agents"],
+		features: [
+			"Supports batch, single, and interactive CLI modes with customizable output (text, markdown, JSON, CSV)",
+			"Uses LangGraph for async, multi-step workflows and LangChain for LLM orchestration",
+			"Scrapes and analyzes developer tool websites using Firecrawl and GPT-4o-mini",
+			"Implements persistent caching with diskcache and .env-configured API keys",
+			"Includes a secondary lightweight agent using Firecrawl MCP and GPT-4.1-nano"
+		],
+		extraLinks: [
+			{
+				label: "GitHub",
+				url: "https://github.com/ethanvillalovoz/intellicrawl",
+			},
+			{
+				label: "Docs",
+				url: "https://github.com/ethanvillalovoz/intellicrawl/blob/main/README.md",
+			}
+		],
+		date: "July 2025",
+		status: "Completed"
+	},
+	{
+		title: "SentiSync: Real-Time YouTube Sentiment Analysis with MLOps",
+		description:
+			"A full MLOps pipeline and Chrome extension for real-time sentiment analysis on YouTube comments, using Flask, MLflow, Docker, and AWS.",
+		image: "/images/projects/sentisync.png", // I can generate one for you if needed
+		tags: [
+			"MLOps",
+			"MLflow",
+			"DVC",
+			"Docker",
+			"AWS",
+			"Flask",
+			"Chrome Extension",
+			"Sentiment Analysis",
+			"NLP",
+			"LightGBM"
+		],
+		features: [
+			"Chrome Extension scrapes YouTube comments and fetches real-time sentiment insights from the backend",
+			"End-to-end MLOps workflow using DVC for reproducibility and MLflow for experiment tracking",
+			"Flask backend deployed via Docker on AWS EC2, with GitHub Actions-based CI/CD pipeline",
+			"Supports sentiment prediction, word cloud generation, and trend visualizations through API endpoints",
+			"Includes a suite of Jupyter notebooks for model experimentation, evaluation, and ensemble learning"
+		],
+		extraLinks: [
+			{
+				label: "GitHub",
+				url: "https://github.com/ethanvillalovoz/sentisync",
+			},
+			{
+				label: "Docs",
+				url: "https://github.com/ethanvillalovoz/sentisync/blob/main/README.md",
 			}
 		],
 		date: "July 2025",
