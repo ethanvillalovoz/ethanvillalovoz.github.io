@@ -74,14 +74,24 @@ export default function AboutPage() {
 				>
 					About
 				</motion.h1>
-				<a
-					href="/data/EthanVillalovoz-CV.pdf"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="px-4 py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
-				>
-					Download CV
-				</a>
+				<div className="flex gap-3">
+					<a
+						href="/data/EthanVillalovoz-Resume.pdf"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="px-4 py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
+					>
+						Download Resume
+					</a>
+					<a
+						href="/data/EthanVillalovoz-CV.pdf"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="px-4 py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
+					>
+						Download CV
+					</a>
+				</div>
 			</header>
 
 			<div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-6">
