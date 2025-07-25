@@ -9,6 +9,16 @@ export default function Home() {
 
   const newsItems = [
     {
+      date: "07/2025",
+      content: (
+        <>
+          Admitted to the{" "}
+          <a href="https://www.cc.gatech.edu/" className="text-primary underline">Georgia Tech MSCS</a>{" "}
+          program! I’ll be starting in <strong>Spring 2026</strong>, specializing in Computational Perception and Robotics.
+        </>
+      ),
+    },
+    {
       date: "06/2025",
       content: (
         <>
@@ -49,6 +59,7 @@ export default function Home() {
           <a href="https://research.google/programs-and-events/csrmp/" className="text-primary underline">CS Research Mentorship Program</a> during the Fall semester.
         </>
       ),
+      hidden: true,
     },
     {
       date: "07/2023",
@@ -58,6 +69,7 @@ export default function Home() {
           <a href="https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship" className="text-primary underline">Generation Google Scholarship</a>.
         </>
       ),
+      hidden: true,
     },
     // Hidden news items
     {
@@ -167,21 +179,25 @@ export default function Home() {
               Welcome! Explore my research, projects, and journey here!
             </motion.p>
             <p className="mb-4">
-              I am a recent graduate in Computer Science from Washington State
-              University with a minor in Mathematics. My research spans robotics,
-              machine learning, and AI safety, with a focus on reinforcement
-              learning, human-AI collaboration, and large language models.
+              I am a recent graduate in Computer Science from Washington State University 
+              with a minor in Mathematics. My research spans robotics, machine learning, and 
+              AI safety, with a focus on reinforcement learning, human-AI collaboration, and 
+              large language models.
             </p>
             <p className="mb-4">
-              I’ve conducted research at Carnegie Mellon University (HARP Lab) on
-              hierarchical reward learning, Oregon State University (CHARISMA Lab)
-              on multi-robot navigation, and completed a software engineering
-              internship at Google (STEP Intern), where I built scalable data
-              processing and visualization systems to support internal analytics.
+              I’ve conducted research at Carnegie Mellon University (HARP Lab) on hierarchical 
+              reward learning, Oregon State University (CHARISMA Lab) on multi-robot navigation, 
+              and Washington State University (Doppa Lab). I also completed a software engineering 
+              internship at Google (STEP Intern), where I built scalable data processing and visualization 
+              systems to support internal analytics.
             </p>
             <p className="mb-4">
-              I am currently seeking full-time opportunities in AI/ML research and
-              engineering while preparing to apply for M.S. programs in Spring 2026.
+              I was recently admitted to the Master of Science in Computer Science 
+              program at Georgia Tech, where I will begin in Spring 2026, specializing in Computational Perception and Robotics.
+            </p>
+            <p className="mb-4">
+              I am currently seeking full-time opportunities in AI/ML research and engineering 
+              while continuing to explore the intersection of foundation models and embodied intelligence.
             </p>
             <p className="mb-4">
               Please feel free to reach out about research, collaboration, or any advice I can help with!
