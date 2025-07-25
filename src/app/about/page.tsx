@@ -5,6 +5,19 @@ import { motion } from "framer-motion";
 // Add icons for each timeline entry (customize as you like)
 const timeline = [
 	{
+		year: "2026–Present",
+		title: "M.S. in Computer Science, Specialization in Computational Perception and Robotics",
+		org: "Georgia Institute of Technology, College of Computing",
+		location: "Atlanta, Georgia USA",
+		logo: "/images/timeline/GT_icon.png",
+		icon: "🐝",
+		description:
+			"Pursuing M.S. in Computer Science with a focus on AI, robotics, and perception.",
+		// activities: [
+			
+		// ],
+	},
+	{
 		year: "Summer 2025",
 		title: "Production Engineering Fellow",
 		org: "Meta x MLH",
@@ -102,7 +115,7 @@ export default function AboutPage() {
 				/>
 				<div className="flex-1">
 					<div className="mb-2 text-primary font-semibold text-base md:text-lg">
-						Currently: Job Seeking/Applying for Graduate Programs
+						Currently: Job Seeking | Incoming MSCS @ Georgia Tech (Spring 2026)
 					</div>
 					<motion.p
 						initial={{ opacity: 0, y: 40 }}
