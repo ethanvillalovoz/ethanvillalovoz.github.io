@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // Tag to emoji/icon mapping for visual emphasis
 const tagIcons: Record<string, string> = {
@@ -404,11 +405,15 @@ export default function ProjectsPage() {
 							transition={{ duration: 0.5, ease: "easeOut" }}
 							className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 flex flex-col md:flex-row gap-4 items-start shadow transition-transform duration-200 hover:scale-[1.025] hover:shadow-xl"
 						>
-							<img
-								src={project.image}
-								alt={project.title}
-								className="w-40 h-32 object-cover rounded-lg border border-yellow-200 dark:border-yellow-700"
-							/>
+							<div className="relative w-40 h-32 rounded-lg overflow-hidden border border-yellow-200 dark:border-yellow-700">
+								<Image
+									src={project.image}
+									alt={project.title}
+									fill
+									className="object-cover"
+									sizes="160px"
+								/>
+							</div>
 							<div className="flex-1">
 								<div className="flex flex-wrap items-center gap-2 mb-1">
 									<div className="font-bold text-lg text-primary">

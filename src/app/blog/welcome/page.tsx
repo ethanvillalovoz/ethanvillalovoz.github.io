@@ -6,8 +6,7 @@ import {
   FaGithub, 
   FaLinkedin, 
   FaTwitter,       // Twitter
-  FaYoutube,       // YouTube
-  FaGraduationCap  // Google Scholar
+  FaYoutube        // YouTube
 } from "react-icons/fa";
 import { SiGooglescholar } from "react-icons/si";
 
@@ -34,18 +33,18 @@ export default function FirstPost() {
         className="prose dark:prose-invert max-w-none bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 shadow-md space-y-5"
       >
         <p className="text-lg leading-relaxed">
-          Hi there — I'm Ethan Villalovoz. I recently graduated{" "}
+          Hi there — I&apos;m Ethan Villalovoz. I recently graduated{" "}
           <strong className="text-primary dark:text-primary-light">summa cum laude</strong> with a B.S. in Computer Science from
-          Washington State University, and I'm now beginning my M.S. in Computer
+          Washington State University, and I&apos;m now beginning my M.S. in Computer
           Science at Georgia Tech, specializing in Computational Perception and
-          Robotics. Over the last few years, I've explored the intersection of{" "}
+          Robotics. Over the last few years, I&apos;ve explored the intersection of{" "}
           <strong className="text-primary dark:text-primary-light">robotics, machine learning, and human-AI collaboration</strong>{" "}
           — from NIH fellowships and academic research, to internships at places
           like <strong className="text-primary dark:text-primary-light">Google</strong> and <strong className="text-primary dark:text-primary-light">Meta</strong>, and summer
           research at <strong className="text-primary dark:text-primary-light">Carnegie Mellon</strong>.
         </p>
         <p className="text-lg leading-relaxed">
-          This blog is my space to reflect, share, and explore what I'm learning
+          This blog is my space to reflect, share, and explore what I&apos;m learning
           — not just the polished projects, but the in-between stages: the
           late-night debugging sessions, the research rabbit holes, the career
           crossroads, and the small wins that keep you moving.
@@ -78,15 +77,15 @@ export default function FirstPost() {
         </div>
         
         <p className="text-lg leading-relaxed">
-          I'm building this blog not just as a record of my path, but as a place
+          I&apos;m building this blog not just as a record of my path, but as a place
           to give back — because I know how hard it is to find guidance when
-          you're figuring this all out for the first time. If my writing helps
-          even one student believe they can make it too, it's worth it.
+          you&apos;re figuring this all out for the first time. If my writing helps
+          even one student believe they can make it too, it&apos;s worth it.
         </p>
         
         <div className="border-t border-gray-200 dark:border-gray-700 pt-5 mt-6">
           <p className="text-lg">
-            Thanks for stopping by — and if any of this resonates with you, I'd
+            Thanks for stopping by — and if any of this resonates with you, I&apos;d
             love for you to stick around. Feel free to connect with me on:
           </p>
           

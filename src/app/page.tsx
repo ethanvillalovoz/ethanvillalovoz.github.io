@@ -12,7 +12,7 @@ export default function Home() {
       date: "07/2025",
       content: (
         <>
-          Launched a new <a href="/blog" className="text-primary underline">blog section</a> where I'll be sharing my journey in AI, robotics research, and grad school experiences!
+          Launched a new <a href="/blog" className="text-primary underline">blog section</a> where I&apos;ll be sharing my journey in AI, robotics research, and grad school experiences!
         </>
       ),
     },

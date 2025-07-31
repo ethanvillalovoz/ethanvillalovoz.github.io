@@ -140,7 +140,7 @@ export default function BlogPage() {
 				>
 					<h3 className="text-xl font-bold text-primary mb-2">Stay Updated</h3>
 					<p className="text-neutral-600 dark:text-neutral-300 mb-4">
-						I'm just getting started with this blog. More posts about AI, robotics
+						I&apos;m just getting started with this blog. More posts about AI, robotics
 						research, and my grad school journey coming soon!
 					</p>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { 
   FaLinkedin, 
@@ -148,11 +149,15 @@ export default function ContactPage() {
 					</motion.a>
 				</div>
 				<div className="flex flex-col md:flex-row gap-6 items-start">
-					<img
-						src="/images/EthanVillalovozPic.jpeg"
-						alt="Ethan Villalovoz headshot"
-						className="w-32 h-32 rounded-full object-cover border-4 border-primary shadow mb-4 md:mb-0"
-					/>
+					<div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-primary shadow mb-4 md:mb-0">
+						<Image
+							src="/images/EthanVillalovozPic.jpeg"
+							alt="Ethan Villalovoz headshot"
+							fill
+							className="object-cover"
+							sizes="128px"
+						/>
+					</div>
 					<pre className="whitespace-pre-wrap bg-neutral-50 dark:bg-neutral-900/30 p-4 rounded-lg border border-neutral-200 dark:border-neutral-700 text-neutral-800 dark:text-neutral-100 text-base flex-1">
 						{bio}
 					</pre>
