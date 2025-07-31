@@ -12,6 +12,14 @@ export default function Home() {
       date: "07/2025",
       content: (
         <>
+          Launched a new <a href="/blog" className="text-primary underline">blog section</a> where I'll be sharing my journey in AI, robotics research, and grad school experiences!
+        </>
+      ),
+    },
+    {
+      date: "07/2025",
+      content: (
+        <>
           Admitted to the{" "}
           <a href="https://www.cc.gatech.edu/" className="text-primary underline">Georgia Tech MSCS</a>{" "}
           program! I’ll be starting in <strong>Spring 2026</strong>, specializing in Computational Perception and Robotics.

@@ -2,37 +2,58 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { 
+  FaEnvelope, 
+  FaLinkedin, 
+  FaTwitter, 
+  FaGithub, 
+  FaYoutube,
+  FaDownload
+} from "react-icons/fa";
+import { SiGooglescholar, SiGmail } from "react-icons/si";
 
 const contacts = [
 	{
 		label: "Email",
-		value: "Email",
+		value: "ethan.villalovoz@gmail.com",
 		href: "mailto:ethan.villalovoz@gmail.com",
-		icon: "📧",
+		icon: <SiGmail className="text-2xl" />,
+		color: "bg-red-600 hover:bg-red-700"
 	},
 	{
 		label: "LinkedIn",
 		value: "LinkedIn",
 		href: "https://www.linkedin.com/in/evillalovoz27/",
-		icon: "🔗",
+		icon: <FaLinkedin className="text-2xl" />,
+		color: "bg-blue-600 hover:bg-blue-700"
 	},
 	{
 		label: "Twitter",
 		value: "Twitter",
 		href: "https://x.com/etvillalovoz",
-		icon: "🐦",
+		icon: <FaTwitter className="text-2xl" />,
+		color: "bg-blue-400 hover:bg-blue-500"
 	},
 	{
 		label: "GitHub",
 		value: "GitHub",
 		href: "https://github.com/ethanvillalovoz",
-		icon: "💻",
+		icon: <FaGithub className="text-2xl" />,
+		color: "bg-gray-800 hover:bg-gray-900"
+	},
+	{
+		label: "YouTube",
+		value: "YouTube",
+		href: "https://www.youtube.com/channel/UCgn7lZDWYZz0i7W_gv6xmaQ",
+		icon: <FaYoutube className="text-2xl" />,
+		color: "bg-red-700 hover:bg-red-800"
 	},
 	{
 		label: "Google Scholar",
 		value: "Google Scholar",
 		href: "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
-		icon: "🎓",
+		icon: <SiGooglescholar className="text-2xl" />,
+		color: "bg-green-600 hover:bg-green-700"
 	},
 ];
 
@@ -69,40 +90,49 @@ export default function ContactPage() {
 
 			{/* Contact Methods */}
 			<section className="mb-10">
-				<h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
+				<h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
 					Contact Information
 				</h2>
-				<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 					{contacts.map((c) => (
-						<div key={c.label} className="relative flex items-center gap-3">
+						<motion.div 
+							key={c.label}
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.4, ease: "easeOut" }}
+							className="relative"
+						>
 							<a
 								href={c.href}
-								className="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-semibold shadow hover:bg-primary-dark transition text-lg flex-1"
+								className={`flex items-center gap-3 px-5 py-3.5 rounded-lg ${c.color} text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 text-lg w-full`}
 								target="_blank"
 								rel="noopener noreferrer"
 							>
-								<span className="text-2xl">{c.icon}</span>
-								<span className="truncate">{c.value}</span>
+								<span className="flex items-center justify-center w-8 h-8">{c.icon}</span>
+								<span className="truncate">{c.label === "Email" ? c.value : c.label}</span>
 								{c.label === "Email" && <CopyEmailButton email={c.value} />}
 							</a>
-						</div>
+						</motion.div>
 					))}
 				</div>
 			</section>
-
+			
 			{/* Speaker Headshot and Bio */}
 			<section className="mb-10">
-				<div className="flex items-center justify-between mb-2">
+				<div className="flex items-center justify-between mb-4">
 					<h2 className="text-2xl font-bold bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
 						Speaker Bio
 					</h2>
-					<a
+					<motion.a
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.95 }}
 						href="/data/EthanVillalovoz-bio.txt"
 						download
-						className="px-3 py-1 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
+						className="px-4 py-2 rounded-md bg-primary text-white font-semibold shadow-md hover:bg-primary-dark transition-colors flex items-center gap-2"
 					>
+						<FaDownload className="text-sm" />
 						Download Bio
-					</a>
+					</motion.a>
 				</div>
 				<div className="flex flex-col md:flex-row gap-6 items-start">
 					<img
