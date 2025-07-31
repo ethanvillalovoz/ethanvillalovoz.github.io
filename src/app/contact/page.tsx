@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { 
-  FaEnvelope, 
   FaLinkedin, 
   FaTwitter, 
   FaGithub, 
@@ -102,16 +101,30 @@ export default function ContactPage() {
 							transition={{ duration: 0.4, ease: "easeOut" }}
 							className="relative"
 						>
-							<a
-								href={c.href}
-								className={`flex items-center gap-3 px-5 py-3.5 rounded-lg ${c.color} text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 text-lg w-full`}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<span className="flex items-center justify-center w-8 h-8">{c.icon}</span>
-								<span className="truncate">{c.label === "Email" ? c.value : c.label}</span>
-								{c.label === "Email" && <CopyEmailButton email={c.value} />}
-							</a>
+							{c.label === "Email" ? (
+								<div className={`flex items-center gap-3 px-5 py-3.5 rounded-lg ${c.color} text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 text-lg w-full`}>
+									<span className="flex items-center justify-center w-8 h-8">{c.icon}</span>
+									<a 
+										href={c.href}
+										className="truncate hover:underline"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										{c.value}
+									</a>
+									<CopyEmailButton email={c.value} />
+								</div>
+							) : (
+								<a
+									href={c.href}
+									className={`flex items-center gap-3 px-5 py-3.5 rounded-lg ${c.color} text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 text-lg w-full`}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<span className="flex items-center justify-center w-8 h-8">{c.icon}</span>
+									<span className="truncate">{c.label}</span>
+								</a>
+							)}
 						</motion.div>
 					))}
 				</div>
@@ -154,7 +167,7 @@ function CopyEmailButton({ email }: { email: string }) {
 	const [copied, setCopied] = useState(false);
 
 	const handleCopy = async (e: React.MouseEvent) => {
-		e.preventDefault(); // Prevent link navigation
+		e.stopPropagation(); // Stop propagation to prevent link navigation
 		try {
 			await navigator.clipboard.writeText(email);
 			setCopied(true);
@@ -166,10 +179,12 @@ function CopyEmailButton({ email }: { email: string }) {
 
 	return (
 		<span className="relative ml-2">
-			<button
+			{/* Use span instead of button to avoid nesting issues */}
+			<span
 				onClick={handleCopy}
-				className="p-1 rounded-full hover:bg-primary-light/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
-				type="button"
+				className="p-1 rounded-full hover:bg-primary-light/30 focus:outline-none cursor-pointer inline-flex"
+				role="button"
+				tabIndex={0}
 				aria-label="Copy email address"
 			>
 				<svg
@@ -202,7 +217,7 @@ function CopyEmailButton({ email }: { email: string }) {
 						fill="none"
 					/>
 				</svg>
-			</button>
+			</span>
 			{copied && (
 				<span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-neutral-800 text-white text-xs rounded px-2 py-1 shadow z-10 animate-fade-in-out whitespace-nowrap">
 					Copied!
