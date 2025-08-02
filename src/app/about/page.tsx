@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FaFileAlt, FaFilePdf } from "react-icons/fa";
 
 // Add icons for each timeline entry (customize as you like)
 const timeline = [
@@ -92,16 +93,18 @@ export default function AboutPage() {
 						href="/data/EthanVillalovoz-Resume.pdf"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="px-4 py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
+						className="inline-flex items-center px-4 py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
 					>
+						<FaFileAlt className="mr-2" />
 						Download Resume
 					</a>
 					<a
 						href="/data/EthanVillalovoz-CV.pdf"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="px-4 py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
+						className="inline-flex items-center px-4 py-2 rounded bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition"
 					>
+						<FaFilePdf className="mr-2" />
 						Download CV
 					</a>
 				</div>

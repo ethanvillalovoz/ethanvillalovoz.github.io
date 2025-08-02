@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaCalendarAlt, FaArrowRight } from "react-icons/fa";
+import { SiMedium } from "react-icons/si"; // Import Medium icon
 
 // Tag to emoji/icon mapping for visual emphasis (matching your projects page)
 const tagIcons: Record<string, string> = {
@@ -19,6 +20,14 @@ const tagIcons: Record<string, string> = {
 };
 
 const posts = [
+	{
+		slug: "flask-app-to-live-site",
+		title: "🚀 From Flask App to Live Site",
+		date: "2025-08-01",
+		summary:
+			"My journey through the Meta x MLH Production Engineering Fellowship, building a production-grade web application from scratch.",
+		tags: ["Career", "Tutorials"],
+	},
 	{
 		slug: "welcome",
 		title: "Welcome to My Blog",
@@ -46,7 +55,7 @@ const posts = [
 export default function BlogPage() {
 	return (
 		<main className="max-w-5xl mx-auto px-4 py-10">
-			<header className="mb-8">
+			<header className="flex items-center justify-between mb-4">
 				<motion.h1
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -55,6 +64,15 @@ export default function BlogPage() {
 				>
 					Blog & Journal
 				</motion.h1>
+				<a
+					href="https://medium.com/@ethan.villalovoz"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="inline-flex items-center px-4 py-2 rounded bg-black text-white font-semibold shadow hover:bg-gray-800 transition"
+				>
+					<SiMedium className="mr-2" />
+					Medium
+				</a>
 			</header>
             <motion.p
 				initial={{ opacity: 0, y: 40 }}

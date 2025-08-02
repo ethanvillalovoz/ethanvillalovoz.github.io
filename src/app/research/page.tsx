@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { SiGooglescholar } from "react-icons/si";
 
 // Tag to emoji/icon mapping for visual emphasis
 const tagIcons: Record<string, string> = {
@@ -55,7 +56,7 @@ export default function ResearchPage() {
 
 	return (
 		<main className="max-w-5xl mx-auto px-4 py-10">
-			<header className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+			<header className="flex items-center justify-between mb-4">
 				<motion.h1
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -68,8 +69,9 @@ export default function ResearchPage() {
 					href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="inline-block px-4 py-2 rounded-lg bg-primary text-white font-semibold shadow hover:bg-primary-dark transition-colors text-base mt-2 sm:mt-0"
+					className="inline-flex items-center px-4 py-2 rounded-lg bg-green-600 text-white font-semibold shadow hover:bg-green-700 transition-colors text-base mt-2 sm:mt-0"
 				>
+					<SiGooglescholar className="mr-2" />
 					Google Scholar
 				</a>
 			</header>

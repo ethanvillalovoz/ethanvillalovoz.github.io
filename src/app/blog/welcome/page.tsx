@@ -6,13 +6,20 @@ import {
   FaGithub, 
   FaLinkedin, 
   FaTwitter,       // Twitter
-  FaYoutube        // YouTube
+  FaYoutube,       // YouTube
+  FaArrowLeft      // Back arrow
 } from "react-icons/fa";
 import { SiGooglescholar } from "react-icons/si";
+import Link from "next/link";
 
 export default function FirstPost() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-10">
+      <Link href="/blog" className="inline-flex items-center text-primary hover:text-primary-dark mb-4 transition-colors">
+        <FaArrowLeft className="mr-2" />
+        Back to all blog posts
+      </Link>
+      
       <motion.h1
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -24,6 +31,8 @@ export default function FirstPost() {
       <div className="flex items-center gap-2 text-neutral-500 mb-8 text-sm">
         <FaCalendarAlt className="w-4 h-4" />
         <span>July 30, 2025</span>
+        <span>•</span>
+        <span>2 min read</span>
       </div>
       
       <motion.article
@@ -32,6 +41,21 @@ export default function FirstPost() {
         transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
         className="prose dark:prose-invert max-w-none bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 shadow-md space-y-5"
       >
+        {/* Tag pills at the top */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+            Introduction
+          </span>
+          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-600/10 text-blue-600 dark:text-blue-400 text-xs font-medium">
+            Research
+          </span>
+          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-green-600/10 text-green-600 dark:text-green-400 text-xs font-medium">
+            AI
+          </span>
+          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-orange-600/10 text-orange-600 dark:text-orange-400 text-xs font-medium">
+            Academic
+          </span>
+        </div>
         <p className="text-lg leading-relaxed">
           Hi there — I&apos;m Ethan Villalovoz. I recently graduated{" "}
           <strong className="text-primary dark:text-primary-light">summa cum laude</strong> with a B.S. in Computer Science from

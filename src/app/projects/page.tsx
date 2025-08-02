@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FaGithub } from "react-icons/fa";
 
 // Tag to emoji/icon mapping for visual emphasis
 const tagIcons: Record<string, string> = {
@@ -377,9 +378,10 @@ export default function ProjectsPage() {
 					href="https://github.com/ethanvillalovoz"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="inline-block px-4 py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
+					className="inline-flex items-center px-4 py-2 rounded bg-gray-800 text-white font-semibold shadow hover:bg-gray-700 transition"
 				>
-					View GitHub
+					<FaGithub className="mr-2" />
+					GitHub
 				</a>
 			</header>
 			<motion.p
