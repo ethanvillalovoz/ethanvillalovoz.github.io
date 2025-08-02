@@ -79,7 +79,7 @@ const timeline = [
 export default function AboutPage() {
 	return (
 		<main className="max-w-5xl mx-auto px-4 py-10">
-			<header className="flex items-center justify-between mb-8">
+			<header className="flex flex-col sm:flex-row items-center sm:items-start sm:justify-between gap-4 mb-8">
 				<motion.h1
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -88,24 +88,24 @@ export default function AboutPage() {
 				>
 					About
 				</motion.h1>
-				<div className="flex gap-3">
+				<div className="flex gap-2">
 					<a
 						href="/data/EthanVillalovoz-Resume.pdf"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="inline-flex items-center px-4 py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
+						className="inline-flex items-center px-3 py-1.5 text-sm sm:text-base sm:px-4 sm:py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
 					>
-						<FaFileAlt className="mr-2" />
-						Download Resume
+						<FaFileAlt className="mr-1.5 sm:mr-2 text-sm sm:text-base" />
+						Resume
 					</a>
 					<a
 						href="/data/EthanVillalovoz-CV.pdf"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="inline-flex items-center px-4 py-2 rounded bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition"
+						className="inline-flex items-center px-3 py-1.5 text-sm sm:text-base sm:px-4 sm:py-2 rounded bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition"
 					>
-						<FaFilePdf className="mr-2" />
-						Download CV
+						<FaFilePdf className="mr-1.5 sm:mr-2 text-sm sm:text-base" />
+						CV
 					</a>
 				</div>
 			</header>
