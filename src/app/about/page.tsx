@@ -26,7 +26,7 @@ const timeline = [
 		logo: "/images/timeline/meta_MLH_fellowship_logo.png",
 		icon: "🛠️",
 		description:
-			"",
+			"Deployed a full-stack Flask app with Docker on DigitalOcean, integrating MySQL and Nginx, automating CI/CD to cut release time by 80%, and adding Prometheus/Grafana monitoring for reliable performance.",
 	},
 	{
 		year: "Summer 2024",
