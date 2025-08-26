@@ -30,7 +30,7 @@ const timeline = [
 	},
 	{
 		year: "Summer 2024",
-		title: "Robotics Institute Summer Scholars",
+		title: "Robotics Institute Summer Scholar",
 		org: "Carnegie Mellon University",
 		location: "Pittsburgh, Pennsylvania USA",
 		logo: "/images/timeline/Carnegie_Mellon_icon.png",
