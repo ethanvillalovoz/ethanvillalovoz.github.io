@@ -40,7 +40,7 @@ const timeline = [
 	},
 	{
 		year: "Summer 2023",
-		title: "STEP Intern",
+		title: "Software Engineering Intern (STEP)",
 		org: "Google",
 		location: "Sunnyvale, California USA",
 		logo: "/images/timeline/Google_icon.png",

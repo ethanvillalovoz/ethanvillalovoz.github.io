@@ -40,7 +40,7 @@ export default function Home() {
       date: "06/2025",
       content: (
         <>
-          I joined the <a href="https://fellowship.mlh.io/programs/production-engineering-sre" className="text-primary underline">Meta x MLH Fellowship</a> as a Production Engineering Fellow!
+          I joined Meta as a <a href="https://fellowship.mlh.io/programs/production-engineering-sre" className="text-primary underline">Production Engineering Fellow</a>!
         </>
       ),
     },
@@ -94,7 +94,7 @@ export default function Home() {
       content: (
         <>
           I will be interning as a{" "}
-          <a href="https://buildyourfuture.withgoogle.com/programs/step" className="text-primary underline">STEP Intern</a> at Google.
+          <a href="https://buildyourfuture.withgoogle.com/programs/step" className="text-primary underline">Software Engineering Intern (STEP)</a> at Google.
         </>
       ),
       hidden: true,
