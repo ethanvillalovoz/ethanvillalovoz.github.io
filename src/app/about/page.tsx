@@ -50,7 +50,7 @@ const timeline = [
 	},
 	{
 		year: "Summer 2022",
-		title: "Robots in the Real World",
+		title: "REU Fellow",
 		org: "Oregon State University",
 		location: "Corvallis, Oregon USA",
 		logo: "/images/timeline/Oregon_State_icon.jpeg",
