@@ -21,9 +21,9 @@ const timeline = [
 	{
 		year: "Summer 2025",
 		title: "Production Engineering Fellow",
-		org: "Meta",
+		org: "Meta & Major League Hacking",
 		location: "Remote USA",
-		logo: "/images/timeline/facebook_logo.jpeg",
+		logo: "/images/timeline/meta_MLH_fellowship_logo.png",
 		icon: "🛠️",
 		description:
 			"Deployed a full-stack Flask app with Docker on DigitalOcean, integrating MySQL and Nginx, automating CI/CD to cut release time by 80%, and adding Prometheus/Grafana monitoring for reliable performance.",

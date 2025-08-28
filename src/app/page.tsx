@@ -40,7 +40,7 @@ export default function Home() {
       date: "06/2025",
       content: (
         <>
-          I joined Meta as a <a href="https://fellowship.mlh.io/programs/production-engineering-sre" className="text-primary underline">Production Engineering Fellow</a>!
+          I joined Meta & Major League Hacking as a <a href="https://fellowship.mlh.io/programs/production-engineering-sre" className="text-primary underline">Production Engineering Fellow</a>!
         </>
       ),
     },
