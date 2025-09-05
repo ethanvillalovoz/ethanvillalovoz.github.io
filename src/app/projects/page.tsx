@@ -57,7 +57,14 @@ const tagIcons: Record<string, string> = {
 	"Web Scraping": "🕸️",
 	Puppeteer: "🎭",
 	Mistral: "🌬️",
-	"Llama-3": "🦙"
+	"Llama-3": "🦙",
+	"Autonomous Driving": "🚗",
+	Keras: "🧪",
+	CNN: "🧮",
+	"Data Augmentation": "🧬",
+	"Socket.IO": "🔌",
+	Python: "🐍",
+	"Udacity Simulator": "🕹️"
 };
 
 
@@ -297,7 +304,50 @@ const projects = [
 		],
 		date: "July 2025",
 		status: "Completed"
-	}
+	},
+	{
+		title: "Self-Driving Car: Behavioral Cloning in the Udacity Simulator",
+		description:
+			"End-to-end CNN (NVIDIA architecture) that predicts steering from front-camera images to autonomously drive the Udacity simulator. Includes balanced/augmented data pipeline, real-time inference via Flask + Socket.IO, and reproducible training.",
+		image: "/images/projects/self-driving-udacity.png", // TODO: add a screenshot or GIF from docs/simulator_screenshot.png
+		tags: [
+			"Autonomous Driving",
+			"Computer Vision",
+			"TensorFlow",
+			"Keras",
+			"CNN",
+			"OpenCV",
+			"Data Augmentation",
+			"Flask",
+			"Socket.IO",
+			"Python",
+			"Udacity Simulator"
+		],
+		features: [
+			"Implements the NVIDIA end-to-end CNN to predict steering from images (200×66, YUV, Gaussian blur, normalized)",
+			"Balanced + augmented dataset (flip/brightness/crop) to reduce bias and improve generalization",
+			"Real-time inference server with Flask + python-socketio on port 4567; drives autonomously in the simulator",
+			"Configurable throttle with speed-based heuristic and adjustable speed limit",
+			"Reproducible training via Jupyter notebook; artifacts saved to model/model.h5",
+			"Clear QuickStart, visuals, and MIT-licensed code for easy cloning and extension"
+		],
+		extraLinks: [
+			{
+			label: "GitHub",
+			url: "https://github.com/ethanvillalovoz/self-driving-car-simulation" // TODO: confirm repo URL
+			},
+			{
+			label: "Docs",
+			url: "https://github.com/ethanvillalovoz/self-driving-car-simulation/blob/main/README.md"
+			},
+			{
+			label: "Udacity Simulator",
+			url: "https://github.com/udacity/self-driving-car-sim"
+			}
+		],
+		date: "September 2025",
+		status: "Completed"
+	},
 	// {
 	// 	title: "ClarifyBot: An LLM-Guided Clarification System",
 	// 	description:
