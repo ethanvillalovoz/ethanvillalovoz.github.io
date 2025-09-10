@@ -75,13 +75,13 @@ const projects = [
 			"A full-stack Retrieval-Augmented Generation (RAG) application developed for HackerEarth that integrates vector search (FAISS), knowledge graphs (DBpedia), and OpenAI’s LLM to generate traceable, context-rich answers from a Wikipedia-based knowledge base.",
 		image: "/images/projects/RAG_flowchart.jpg",
 		tags: ["LLM", "RAG", "Vector Search", "Knowledge Graph", "Full-Stack", "NLP"],
-		features: [
-			"Developed for HackerEarth using 10,000+ Wikipedia articles",
-			"FAISS-based vector search for semantic retrieval",
-			"Knowledge graph context enhancement with DBpedia and SPARQL",
-			"OpenAI LLM for coherent and natural language answers",
-			"Dockerized deployment with local dev option",
-		],
+		// features: [
+		// 	"Developed for HackerEarth using 10,000+ Wikipedia articles",
+		// 	"FAISS-based vector search for semantic retrieval",
+		// 	"Knowledge graph context enhancement with DBpedia and SPARQL",
+		// 	"OpenAI LLM for coherent and natural language answers",
+		// 	"Dockerized deployment with local dev option",
+		// ],
 		extraLinks: [
 			{
 				label: "GitHub",
@@ -101,12 +101,12 @@ const projects = [
 			"A robust, modular, and extensible reimplementation of the DDPG reinforcement learning algorithm (Lillicrap et al., 2015) using TensorFlow 2.x. Built for reproducibility, research comparison, and interactive experimentation with Gym environments.",
 		image: "/images/projects/DDPG_padded.png",
 		tags: ["Reinforcement Learning", "DDPG", "TensorFlow", "OpenAI Gym"],
-		features: [
-			"Modular architecture: separate agent, networks, noise, buffer, wrappers",
-			"Hyperparameter sweeps, YAML config system, and TensorBoard logging",
-			"Includes full unit test suite and reproducibility controls (seed, version logging)",
-			"Supports Gym ≥ 0.26, Apple Silicon acceleration (tensorflow-macos, -metal)"
-		],
+		// features: [
+		// 	"Modular architecture: separate agent, networks, noise, buffer, wrappers",
+		// 	"Hyperparameter sweeps, YAML config system, and TensorBoard logging",
+		// 	"Includes full unit test suite and reproducibility controls (seed, version logging)",
+		// 	"Supports Gym ≥ 0.26, Apple Silicon acceleration (tensorflow-macos, -metal)"
+		// ],
 		extraLinks: [
 			{
 				label: "GitHub",
@@ -130,12 +130,12 @@ const projects = [
 			"An interactive full-stack web application that generates multiple-choice coding challenges using Meta-Llama-3-8B-Instruct. Designed for interview practice, daily challenge tracking, and progress feedback with real-time explanations.",
 		image: "/images/projects/codeprep_home.png",
 		tags: ["LLM", "AI Interview Prep", "FastAPI", "React", "Hugging Face", "SQLite"],
-		features: [
-			"Dynamic challenge generation using Meta-Llama-3-8B-Instruct from Hugging Face",
-			"Clerk authentication with quota tracking and personalized history view",
-			"Full-stack system with React (Vite), FastAPI, and SQLite",
-			"Support for challenge explanation, user feedback, and difficulty selection",
-		],
+		// features: [
+		// 	"Dynamic challenge generation using Meta-Llama-3-8B-Instruct from Hugging Face",
+		// 	"Clerk authentication with quota tracking and personalized history view",
+		// 	"Full-stack system with React (Vite), FastAPI, and SQLite",
+		// 	"Support for challenge explanation, user feedback, and difficulty selection",
+		// ],
 		extraLinks: [
 			{
 			label: "GitHub",
@@ -159,13 +159,13 @@ const projects = [
 			"A full-stack web application that automates attendance tracking using facial recognition. Built with FastAPI, React, and SQLite, it supports real-time webcam input and batch image uploads for seamless attendance logging.",
 		image: "/images/projects/facetrack.png", // Replace with actual path or upload one
 		tags: ["Computer Vision", "OpenCV", "FastAPI", "React", "face_recognition", "SQLite"],
-		features: [
-			"Real-time face recognition via webcam and batch image uploads",
-			"FastAPI backend with REST API endpoints and SQLite integration",
-			"React frontend with live feedback, image previews, and attendance viewer",
-			"OpenCV and face_recognition for robust face encoding and matching",
-			"Interactive database-backed attendance logs with export support"
-		],
+		// features: [
+		// 	"Real-time face recognition via webcam and batch image uploads",
+		// 	"FastAPI backend with REST API endpoints and SQLite integration",
+		// 	"React frontend with live feedback, image previews, and attendance viewer",
+		// 	"OpenCV and face_recognition for robust face encoding and matching",
+		// 	"Interactive database-backed attendance logs with export support"
+		// ],
 		extraLinks: [
 			{
 			label: "GitHub",
@@ -181,13 +181,13 @@ const projects = [
 			"A clean, ATS-friendly, and modern LaTeX resume template built for students and developers applying to technical roles. Features minimalist design, modular macros, and PDF outputs optimized for readability and machine parsing.",
 		image: "/images/projects/resume-template.png", // Let me know if you'd like a custom one generated
 		tags: ["LaTeX", "Resume", "ATS", "PDF", "Open Source"],
-		features: [
-			"Modular LaTeX macros for easy customization and consistency across sections",
-			"Single-page layout with bolded technologies and quantifiable bullet points",
-			"Fully ATS-compatible PDF output using Unicode embedding and semantic structure",
-			"Includes Overleaf support, documentation, and contribution guidelines",
-			"Open-source under MIT License, ready to fork and adapt"
-		],
+		// features: [
+		// 	"Modular LaTeX macros for easy customization and consistency across sections",
+		// 	"Single-page layout with bolded technologies and quantifiable bullet points",
+		// 	"Fully ATS-compatible PDF output using Unicode embedding and semantic structure",
+		// 	"Includes Overleaf support, documentation, and contribution guidelines",
+		// 	"Open-source under MIT License, ready to fork and adapt"
+		// ],
 		extraLinks: [
 			{
 				label: "GitHub",
@@ -207,13 +207,13 @@ const projects = [
 			"An advanced autonomous research agent that uses LLMs and web crawling to analyze and compare developer tools. Built with LangGraph, LangChain, and Firecrawl for scalable, multi-step analysis workflows.",
 		image: "/images/projects/intellicrawl.png", // Let me know if you want me to generate this!
 		tags: ["LLM", "LangChain", "LangGraph", "OpenAI", "Firecrawl", "CLI", "AI Agents"],
-		features: [
-			"Supports batch, single, and interactive CLI modes with customizable output (text, markdown, JSON, CSV)",
-			"Uses LangGraph for async, multi-step workflows and LangChain for LLM orchestration",
-			"Scrapes and analyzes developer tool websites using Firecrawl and GPT-4o-mini",
-			"Implements persistent caching with diskcache and .env-configured API keys",
-			"Includes a secondary lightweight agent using Firecrawl MCP and GPT-4.1-nano"
-		],
+		// features: [
+		// 	"Supports batch, single, and interactive CLI modes with customizable output (text, markdown, JSON, CSV)",
+		// 	"Uses LangGraph for async, multi-step workflows and LangChain for LLM orchestration",
+		// 	"Scrapes and analyzes developer tool websites using Firecrawl and GPT-4o-mini",
+		// 	"Implements persistent caching with diskcache and .env-configured API keys",
+		// 	"Includes a secondary lightweight agent using Firecrawl MCP and GPT-4.1-nano"
+		// ],
 		extraLinks: [
 			{
 				label: "GitHub",
@@ -244,13 +244,13 @@ const projects = [
 			"NLP",
 			"LightGBM"
 		],
-		features: [
-			"Chrome Extension scrapes YouTube comments and fetches real-time sentiment insights from the backend",
-			"End-to-end MLOps workflow using DVC for reproducibility and MLflow for experiment tracking",
-			"Flask backend deployed via Docker on AWS EC2, with GitHub Actions-based CI/CD pipeline",
-			"Supports sentiment prediction, word cloud generation, and trend visualizations through API endpoints",
-			"Includes a suite of Jupyter notebooks for model experimentation, evaluation, and ensemble learning"
-		],
+		// features: [
+		// 	"Chrome Extension scrapes YouTube comments and fetches real-time sentiment insights from the backend",
+		// 	"End-to-end MLOps workflow using DVC for reproducibility and MLflow for experiment tracking",
+		// 	"Flask backend deployed via Docker on AWS EC2, with GitHub Actions-based CI/CD pipeline",
+		// 	"Supports sentiment prediction, word cloud generation, and trend visualizations through API endpoints",
+		// 	"Includes a suite of Jupyter notebooks for model experimentation, evaluation, and ensemble learning"
+		// ],
 		extraLinks: [
 			{
 				label: "GitHub",
@@ -284,14 +284,14 @@ const projects = [
 			"Mistral",
 			"Llama-3"
 		],
-		features: [
-			"Built with Next.js and TypeScript, featuring a sleek, responsive chat UI for seamless user interaction",
-			"Retrieves answers using semantic search over a vector database populated with scraped healthcare resources",
-			"Uses @xenova/transformers for local embedding and LangChain for intelligent text processing",
-			"Runs LLM inference with Llama-3.1-8B-Instruct via Hugging Face API with context injection",
-			"Includes a custom script to scrape, embed, and load structured healthcare content into Astra DB",
-			"CI/CD pipeline using GitHub Actions for automatic linting and builds on push"
-		],
+		// features: [
+		// 	"Built with Next.js and TypeScript, featuring a sleek, responsive chat UI for seamless user interaction",
+		// 	"Retrieves answers using semantic search over a vector database populated with scraped healthcare resources",
+		// 	"Uses @xenova/transformers for local embedding and LangChain for intelligent text processing",
+		// 	"Runs LLM inference with Llama-3.1-8B-Instruct via Hugging Face API with context injection",
+		// 	"Includes a custom script to scrape, embed, and load structured healthcare content into Astra DB",
+		// 	"CI/CD pipeline using GitHub Actions for automatic linting and builds on push"
+		// ],
 		extraLinks: [
 			{
 				label: "GitHub",
@@ -323,14 +323,14 @@ const projects = [
 			"Python",
 			"Udacity Simulator"
 		],
-		features: [
-			"Implements the NVIDIA end-to-end CNN to predict steering from images (200×66, YUV, Gaussian blur, normalized)",
-			"Balanced + augmented dataset (flip/brightness/crop) to reduce bias and improve generalization",
-			"Real-time inference server with Flask + python-socketio on port 4567; drives autonomously in the simulator",
-			"Configurable throttle with speed-based heuristic and adjustable speed limit",
-			"Reproducible training via Jupyter notebook; artifacts saved to model/model.h5",
-			"Clear QuickStart, visuals, and MIT-licensed code for easy cloning and extension"
-		],
+		// features: [
+		// 	"Implements the NVIDIA end-to-end CNN to predict steering from images (200×66, YUV, Gaussian blur, normalized)",
+		// 	"Balanced + augmented dataset (flip/brightness/crop) to reduce bias and improve generalization",
+		// 	"Real-time inference server with Flask + python-socketio on port 4567; drives autonomously in the simulator",
+		// 	"Configurable throttle with speed-based heuristic and adjustable speed limit",
+		// 	"Reproducible training via Jupyter notebook; artifacts saved to model/model.h5",
+		// 	"Clear QuickStart, visuals, and MIT-licensed code for easy cloning and extension"
+		// ],
 		extraLinks: [
 			{
 			label: "GitHub",
@@ -500,13 +500,13 @@ export default function ProjectsPage() {
 									{project.description}
 								</div>
 								{/* Features */}
-								{project.features && (
+								{/* {project.features && (
 									<ul className="list-disc list-inside text-xs text-neutral-600 dark:text-neutral-300 mb-2">
 										{project.features.map((feature, idx) => (
 											<li key={idx}>{feature}</li>
 										))}
 									</ul>
-								)}
+								)} */}
 								{/* Tags with icons */}
 								{project.tags && (
 									<div className="mt-2 flex flex-wrap gap-2">

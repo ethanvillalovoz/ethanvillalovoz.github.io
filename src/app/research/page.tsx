@@ -95,7 +95,7 @@ export default function ResearchPage() {
 				</p>
 			</section>
 			{/* Tag Filter */}
-			{allTags.length > 0 && (
+			{/* {allTags.length > 0 && (
 				<div className="mb-8 flex flex-wrap gap-2">
 					<button
 						className={`px-3 py-1 rounded-full border text-sm font-medium transition-colors ${
@@ -122,7 +122,7 @@ export default function ResearchPage() {
 						</button>
 					))}
 				</div>
-			)}
+			)} */}
 			{/* Papers List */}
 			<section className="mb-12">
 				<div className="flex flex-col gap-6">

@@ -8,14 +8,14 @@ export default function Home() {
   const [showAllNews, setShowAllNews] = useState(false);
 
   const newsItems = [
-    {
-      date: "07/2025",
-      content: (
-        <>
-          Launched a new <a href="/blog" className="text-primary underline">blog section</a> where I&apos;ll be sharing my journey in AI, robotics research, and grad school experiences!
-        </>
-      ),
-    },
+    // {
+    //   date: "07/2025",
+    //   content: (
+    //     <>
+    //       Launched a new <a href="/blog" className="text-primary underline">blog section</a> where I&apos;ll be sharing my journey in AI, robotics research, and grad school experiences!
+    //     </>
+    //   ),
+    // },
     {
       date: "07/2025",
       content: (
