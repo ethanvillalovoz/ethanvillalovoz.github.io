@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { SiGooglescholar } from "react-icons/si";
@@ -44,18 +43,8 @@ function copyToClipboard(text: string) {
 }
 
 export default function ResearchPage() {
-	const [selectedTag, setSelectedTag] = useState<string | null>(null);
-
-	const allTags = Array.from(
-		new Set(papers.flatMap((paper) => paper.tags || []))
-	);
-
-	const filteredPapers = selectedTag
-		? papers.filter((paper) => paper.tags?.includes(selectedTag))
-		: papers;
-
-	return (
-		<main className="max-w-5xl mx-auto px-4 py-10">
+    return (
+        <main className="max-w-5xl mx-auto px-4 py-10">
 			<header className="flex items-center justify-between mb-4">
 				<motion.h1
 					initial={{ opacity: 0, y: 40 }}
@@ -125,9 +114,9 @@ export default function ResearchPage() {
 			)} */}
 			{/* Papers List */}
 			<section className="mb-12">
-				<div className="flex flex-col gap-6">
-					{filteredPapers.map((paper) => (
-						<motion.article
+                <div className="flex flex-col gap-6">
+                    {papers.map((paper) => (
+                        <motion.article
 							key={paper.title}
 							initial={{ opacity: 0, y: 30 }}
 							whileInView={{ opacity: 1, y: 0 }}
@@ -207,9 +196,9 @@ export default function ResearchPage() {
 								)}
 							</div>
 						</motion.article>
-					))}
-				</div>
-			</section>
+                    ))}
+                </div>
+            </section>
 		</main>
 	);
 }
