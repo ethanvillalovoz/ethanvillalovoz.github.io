@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaLinkedin, FaGithub, FaEnvelope, FaYoutube, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, 
+  // FaYoutube, FaTwitter 
+} from "react-icons/fa";
 import { SiGooglescholar } from "react-icons/si";
 
 // Example timeline data structure
