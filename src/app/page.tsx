@@ -67,30 +67,30 @@ const educationTimeline = [
 	},
 	// ...add more education
 ];
-const featuredResearch = [
-	{
-		title: "Social Triangles and Aggressive Lines: Multi-Robot Formations Impact Navigation and Approach",
-		venue: "IROS 2023",
-		desc: "Investigates how different multi-robot formations affect navigation and approach behaviors in social environments.",
-		link: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.pdf",
-		image: "/images/research/stal_cover.jpg", // Add your image path
-		tags: ["Robotics", "Multi-Robot", "HRI"],
-	},
-	// ...add more research
-];
-const featuredProjects = [
-	{
-		title: "TT4D",
-		desc: "Generate winning combinations, view past results, and analyze lottery trends all in one place.",
-		tags: ["Docker", "FastAPI", "NextJS", "PostgreSQL", "Python"],
-		image: "/images/projects/tt4d_screenshot.png", // Add your image path
-		links: [
-			{ label: "Website", url: "https://tt4d.com", icon: "🌐" },
-			{ label: "Source", url: "https://github.com/ethanvillalovoz/tt4d", icon: "💻" },
-		],
-	},
-	// ...add more projects
-];
+// const featuredResearch = [
+//   {
+//     title: "Social Triangles and Aggressive Lines: Multi-Robot Formations Impact Navigation and Approach",
+//     venue: "IROS 2023",
+//     desc: "Investigates how different multi-robot formations affect navigation and approach behaviors in social environments.",
+//     link: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.pdf",
+//     image: "/images/research/stal_cover.jpg", // Add your image path
+//     tags: ["Robotics", "Multi-Robot", "HRI"],
+//   },
+//   // ...add more research
+// ];
+// const featuredProjects = [
+//   {
+//     title: "TT4D",
+//     desc: "Generate winning combinations, view past results, and analyze lottery trends all in one place.",
+//     tags: ["Docker", "FastAPI", "NextJS", "PostgreSQL", "Python"],
+//     image: "/images/projects/tt4d_screenshot.png", // Add your image path
+//     links: [
+//       { label: "Website", url: "https://tt4d.com", icon: "🌐" },
+//       { label: "Source", url: "https://github.com/ethanvillalovoz/tt4d", icon: "💻" },
+//     ],
+//   },
+//   // ...add more projects
+// ];
 
 export default function Home() {
 	const [timelineTab, setTimelineTab] = useState<"work" | "education">("work");
