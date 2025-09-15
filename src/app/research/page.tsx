@@ -5,17 +5,17 @@ import Image from "next/image";
 import { SiGooglescholar } from "react-icons/si";
 
 // Tag to emoji/icon mapping for visual emphasis
-const tagIcons: Record<string, string> = {
-	"Robotics": "🤖",
-	"Multi-Robot": "🤝",
-	"Human-Robot Interaction": "🧑‍🤝‍🤖",
-	"AI Safety": "🛡️",
-	"Reinforcement Learning": "🎯",
-	"Machine Learning": "📈",
-	"Large Language Models": "💬",
-	"Computer Vision": "👁️",
-	// Add more as needed
-};
+// const tagIcons: Record<string, string> = {
+// 	"Robotics": "🤖",
+// 	"Multi-Robot": "🤝",
+// 	"Human-Robot Interaction": "🧑‍🤝‍🤖",
+// 	"AI Safety": "🛡️",
+// 	"Reinforcement Learning": "🎯",
+// 	"Machine Learning": "📈",
+// 	"Large Language Models": "💬",
+// 	"Computer Vision": "👁️",
+// 	// Add more as needed
+// };
 
 const papers = [
 	{
