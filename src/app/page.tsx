@@ -260,27 +260,27 @@ export default function Home() {
 	return (
 		<main className="max-w-4xl mx-auto px-4 py-10 relative overflow-hidden">
 			{/* SVG Background */}
-			<svg
+			{/* <svg
 				className="absolute inset-0 w-full h-full pointer-events-none z-0"
 				style={{ opacity: 0.1 }}
 				viewBox="0 0 800 600"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 				aria-hidden="true"
-			>
+			> */}
 				{/* Neural network/circuit pattern */}
-				<circle cx="100" cy="100" r="40" stroke="#3b82f6" strokeWidth="2" />
+				{/* <circle cx="100" cy="100" r="40" stroke="#3b82f6" strokeWidth="2" />
 				<circle cx="300" cy="200" r="30" stroke="#f59e42" strokeWidth="2" />
 				<circle cx="600" cy="120" r="50" stroke="#10b981" strokeWidth="2" />
 				<circle cx="700" cy="400" r="35" stroke="#6366f1" strokeWidth="2" />
-				<circle cx="200" cy="500" r="25" stroke="#f43f5e" strokeWidth="2" />
+				<circle cx="200" cy="500" r="25" stroke="#f43f5e" strokeWidth="2" /> */}
 				{/* Connecting lines */}
-				<line x1="100" y1="100" x2="300" y2="200" stroke="#3b82f6" strokeWidth="2" />
+				{/* <line x1="100" y1="100" x2="300" y2="200" stroke="#3b82f6" strokeWidth="2" />
 				<line x1="300" y1="200" x2="600" y2="120" stroke="#f59e42" strokeWidth="2" />
 				<line x1="600" y1="120" x2="700" y2="400" stroke="#10b981" strokeWidth="2" />
 				<line x1="700" y1="400" x2="200" y2="500" stroke="#6366f1" strokeWidth="2" />
 				<line x1="200" y1="500" x2="100" y2="100" stroke="#f43f5e" strokeWidth="2" />
-			</svg>
+			</svg> */}
 			<div className="relative z-10">
 				{/* Intro Section */}
 				<div className="flex flex-col md:flex-row items-center md:items-start gap-8">
