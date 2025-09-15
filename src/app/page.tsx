@@ -56,6 +56,7 @@ const educationTimeline = [
 		title: "M.S. in Computer Science, Specialization in Computational Perception and Robotics (Spring 2026, admitted)",
 		bullets: [
 			"Pursuing M.S. in Computer Science with a focus on AI, robotics, and perception.",
+			"Activities: AI Safety Initiative",
 		],
 	},
 	{
@@ -65,6 +66,7 @@ const educationTimeline = [
 		title: "B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.00)",
 		bullets: [
 			"Graduated with honors, focusing on AI, machine learning, and mathematics.",
+			"Activities: Honors College, NIH ESTEEMED Fellow, VCEA College Ambassador, NIH MARC Fellow",
 		],
 	},
 	// ...add more education
