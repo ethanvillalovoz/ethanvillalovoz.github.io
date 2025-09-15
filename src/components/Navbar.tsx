@@ -73,7 +73,7 @@ export default function Navbar() {
 			{menuOpen && (
 				<div className="md:hidden bg-white dark:bg-blue-900/90 px-4 pb-4 pt-2 shadow-lg">
 					<div className="flex flex-col gap-y-2">
-						{leftLinks.map((link) => (
+						{[...leftLinks, ...rightLinks].map((link) => (
 							<Link
 								key={link.name}
 								href={link.href}
