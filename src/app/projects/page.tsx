@@ -5,67 +5,67 @@ import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 
 // Tag to emoji/icon mapping for visual emphasis
-const tagIcons: Record<string, string> = {
-	LLM: "🤖",
-	RAG: "📚",
-	"Vector Search": "🔎",
-	"Knowledge Graph": "🗺️",
-	"Full-Stack": "🛠️",
-	NLP: "📝",
-	"Reinforcement Learning": "🎯",
-	DDPG: "🧠",
-	TensorFlow: "🔢",
-	"OpenAI Gym": "🏋️",
-	"Human-AI Interaction": "🧑‍💻",
-	"Reward Modeling": "🏆",
-	Bandits: "🎰",
-	T5: "📘",
-	"Text Style Transfer": "🎭",
-	Streamlit: "🌐",
-	"AI Interview Prep": "📈",
-	FastAPI: "⚡",
-	React: "⚛️",
-	"Hugging Face": "🤗",
-	SQLite: "💾",
-	"Computer Vision": "👁️",
-	OpenCV: "📷",
-	face_recognition: "🧬",
-	LaTeX: "📄",
-	Resume: "🧾",
-	ATS: "✅",
-	PDF: "🖨️",
-	"Open Source": "👐",
-	LangChain: "🧠",
-	LangGraph: "🧩",
-	Firecrawl: "🔥",
-	CLI: "💻",
-	"AI Agents": "🕵️‍♂️",
-	OpenAI: "🌐",
-	MLOps: "⚙️",
-	MLflow: "📊",
-	DVC: "🔁",
-	Docker: "🐳",
-	AWS: "☁️",
-	Flask: "🍶",
-	"Chrome Extension": "🌐",
-	"Sentiment Analysis": "💬",
-	LightGBM: "🌲",
-	"Next.js": "📦",
-	TypeScript: "🔷",
-	"Astra DB": "🗄️",
-	"Healthcare AI": "🩺",
-	"Web Scraping": "🕸️",
-	Puppeteer: "🎭",
-	Mistral: "🌬️",
-	"Llama-3": "🦙",
-	"Autonomous Driving": "🚗",
-	Keras: "🧪",
-	CNN: "🧮",
-	"Data Augmentation": "🧬",
-	"Socket.IO": "🔌",
-	Python: "🐍",
-	"Udacity Simulator": "🕹️"
-};
+// const tagIcons: Record<string, string> = {
+// 	LLM: "🤖",
+// 	RAG: "📚",
+// 	"Vector Search": "🔎",
+// 	"Knowledge Graph": "🗺️",
+// 	"Full-Stack": "🛠️",
+// 	NLP: "📝",
+// 	"Reinforcement Learning": "🎯",
+// 	DDPG: "🧠",
+// 	TensorFlow: "🔢",
+// 	"OpenAI Gym": "🏋️",
+// 	"Human-AI Interaction": "🧑‍💻",
+// 	"Reward Modeling": "🏆",
+// 	Bandits: "🎰",
+// 	T5: "📘",
+// 	"Text Style Transfer": "🎭",
+// 	Streamlit: "🌐",
+// 	"AI Interview Prep": "📈",
+// 	FastAPI: "⚡",
+// 	React: "⚛️",
+// 	"Hugging Face": "🤗",
+// 	SQLite: "💾",
+// 	"Computer Vision": "👁️",
+// 	OpenCV: "📷",
+// 	face_recognition: "🧬",
+// 	LaTeX: "📄",
+// 	Resume: "🧾",
+// 	ATS: "✅",
+// 	PDF: "🖨️",
+// 	"Open Source": "👐",
+// 	LangChain: "🧠",
+// 	LangGraph: "🧩",
+// 	Firecrawl: "🔥",
+// 	CLI: "💻",
+// 	"AI Agents": "🕵️‍♂️",
+// 	OpenAI: "🌐",
+// 	MLOps: "⚙️",
+// 	MLflow: "📊",
+// 	DVC: "🔁",
+// 	Docker: "🐳",
+// 	AWS: "☁️",
+// 	Flask: "🍶",
+// 	"Chrome Extension": "🌐",
+// 	"Sentiment Analysis": "💬",
+// 	LightGBM: "🌲",
+// 	"Next.js": "📦",
+// 	TypeScript: "🔷",
+// 	"Astra DB": "🗄️",
+// 	"Healthcare AI": "🩺",
+// 	"Web Scraping": "🕸️",
+// 	Puppeteer: "🎭",
+// 	Mistral: "🌬️",
+// 	"Llama-3": "🦙",
+// 	"Autonomous Driving": "🚗",
+// 	Keras: "🧪",
+// 	CNN: "🧮",
+// 	"Data Augmentation": "🧬",
+// 	"Socket.IO": "🔌",
+// 	Python: "🐍",
+// 	"Udacity Simulator": "🕹️"
+// };
 
 
 const projects = [
@@ -508,7 +508,7 @@ export default function ProjectsPage() {
 									</ul>
 								)} */}
 								{/* Tags with icons */}
-								{project.tags && (
+								{/* {project.tags && (
 									<div className="mt-2 flex flex-wrap gap-2">
 										{project.tags.map((tag) => (
 											<span
@@ -520,7 +520,7 @@ export default function ProjectsPage() {
 											</span>
 										))}
 									</div>
-								)}
+								)} */}
 							</div>
 						</motion.article>
 					))}
