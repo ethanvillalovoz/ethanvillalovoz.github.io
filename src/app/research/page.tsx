@@ -181,7 +181,7 @@ export default function ResearchPage() {
 									{paper.description}
 								</div>
 								{/* Tags with icons */}
-								{paper.tags && (
+								{/* {paper.tags && (
 									<div className="mt-2 flex flex-wrap gap-2">
 										{paper.tags.map((tag) => (
 											<span
@@ -193,7 +193,7 @@ export default function ResearchPage() {
 											</span>
 										))}
 									</div>
-								)}
+								)} */}
 							</div>
 						</motion.article>
                     ))}
