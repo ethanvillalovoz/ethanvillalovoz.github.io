@@ -112,10 +112,10 @@ const projects = [
 				label: "GitHub",
 				url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation",
 			},
-			{
-				label: "Architecture Diagram",
-				url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation/blob/main/docs/architecture.md",
-			},
+			// {
+			// 	label: "Architecture Diagram",
+			// 	url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation/blob/main/docs/architecture.md",
+			// },
 			{
 				label: "Original Paper",
 				url: "https://arxiv.org/abs/1509.02971",
@@ -141,10 +141,10 @@ const projects = [
 			label: "GitHub",
 			url: "https://github.com/ethanvillalovoz/codeprep-ai",
 			},
-			{
-			label: "Architecture",
-			url: "https://github.com/ethanvillalovoz/codeprep-ai/blob/main/docs/architecture.md",
-			},
+			// {
+			// label: "Architecture",
+			// url: "https://github.com/ethanvillalovoz/codeprep-ai/blob/main/docs/architecture.md",
+			// },
 			// {
 			// label: "Live Demo (Optional)",
 			// url: "https://your-deployment-url.com" // Replace or remove if not applicable
@@ -193,10 +193,10 @@ const projects = [
 				label: "GitHub",
 				url: "https://github.com/ethanvillalovoz/latex-resume-template",
 			},
-			{
-				label: "Docs",
-				url: "https://github.com/ethanvillalovoz/latex-resume-template/blob/main/docs/ABOUT.md",
-			}
+			// {
+			// 	label: "Docs",
+			// 	url: "https://github.com/ethanvillalovoz/latex-resume-template/blob/main/docs/ABOUT.md",
+			// }
 		],
 		date: "July 2025",
 		status: "Completed"
@@ -219,10 +219,10 @@ const projects = [
 				label: "GitHub",
 				url: "https://github.com/ethanvillalovoz/intellicrawl",
 			},
-			{
-				label: "Docs",
-				url: "https://github.com/ethanvillalovoz/intellicrawl/blob/main/README.md",
-			}
+			// {
+			// 	label: "Docs",
+			// 	url: "https://github.com/ethanvillalovoz/intellicrawl/blob/main/README.md",
+			// }
 		],
 		date: "July 2025",
 		status: "Completed"
@@ -256,10 +256,10 @@ const projects = [
 				label: "GitHub",
 				url: "https://github.com/ethanvillalovoz/sentisync",
 			},
-			{
-				label: "Docs",
-				url: "https://github.com/ethanvillalovoz/sentisync/blob/main/README.md",
-			}
+			// {
+			// 	label: "Docs",
+			// 	url: "https://github.com/ethanvillalovoz/sentisync/blob/main/README.md",
+			// }
 		],
 		date: "July 2025",
 		status: "Completed"
@@ -297,10 +297,10 @@ const projects = [
 				label: "GitHub",
 				url: "https://github.com/ethanvillalovoz/clearbill-ai",
 			},
-			{
-				label: "Docs",
-				url: "https://github.com/ethanvillalovoz/clearbill-ai/blob/main/README.md",
-			}
+			// {
+			// 	label: "Docs",
+			// 	url: "https://github.com/ethanvillalovoz/clearbill-ai/blob/main/README.md",
+			// }
 		],
 		date: "July 2025",
 		status: "Completed"
@@ -336,14 +336,14 @@ const projects = [
 			label: "GitHub",
 			url: "https://github.com/ethanvillalovoz/self-driving-car-simulation" // TODO: confirm repo URL
 			},
-			{
-			label: "Docs",
-			url: "https://github.com/ethanvillalovoz/self-driving-car-simulation/blob/main/README.md"
-			},
-			{
-			label: "Udacity Simulator",
-			url: "https://github.com/udacity/self-driving-car-sim"
-			}
+			// {
+			// label: "Docs",
+			// url: "https://github.com/ethanvillalovoz/self-driving-car-simulation/blob/main/README.md"
+			// },
+			// {
+			// label: "Udacity Simulator",
+			// url: "https://github.com/udacity/self-driving-car-sim"
+			// }
 		],
 		date: "September 2025",
 		status: "Completed"

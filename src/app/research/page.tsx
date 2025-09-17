@@ -165,7 +165,7 @@ export default function ResearchPage() {
 									>
 										BibTeX
 									</a>
-									<button
+									{/* <button
 										onClick={() => {
 											fetch(paper.bibtex)
 												.then((res) => res.text())
@@ -175,7 +175,7 @@ export default function ResearchPage() {
 										title="Copy BibTeX to clipboard"
 									>
 										Copy BibTeX
-									</button>
+									</button> */}
 								</div>
 								<div className="text-neutral-700 dark:text-neutral-300 text-sm">
 									{paper.description}
