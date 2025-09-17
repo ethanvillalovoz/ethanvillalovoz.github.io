@@ -38,9 +38,9 @@ const papers = [
 	// Add more papers here as needed
 ];
 
-function copyToClipboard(text: string) {
-	navigator.clipboard.writeText(text);
-}
+// function copyToClipboard(text: string) {
+// 	navigator.clipboard.writeText(text);
+// }
 
 export default function ResearchPage() {
     return (
