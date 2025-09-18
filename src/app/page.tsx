@@ -53,7 +53,7 @@ const educationTimeline = [
 		date: "2026 - 2027 (expected)",
 		company: "Georgia Institute of Technology, College of Computing",
 		logo: "/images/timeline/GT_icon.png", // Add your logo to /public/logos/
-		title: "M.S. in Computer Science, Specialization in Computational Perception and Robotics (Spring 2026, admitted)",
+		title: "M.S. in Computer Science, Specialization in Computational Perception and Robotics",
 		bullets: [
 			"Pursuing M.S. in Computer Science with a focus on AI, robotics, and perception.",
 			"Activities: AI Safety Initiative",
@@ -309,12 +309,12 @@ export default function Home() {
 						>
 							Welcome! Explore my research, projects, and journey here!
 						</motion.p>
-						<p className="mb-4">
+						{/* <p className="mb-4">
 							I am a recent graduate in Computer Science from Washington State University with a minor in Mathematics.
-							{/* My research spans robotics, machine learning, and
+							My research spans robotics, machine learning, and
               AI safety, with a focus on reinforcement learning, human-AI collaboration, and
-              large language models. */}
-						</p>
+              large language models.
+						</p> */}
 						{/* <p className="mb-4">
               I’ve conducted research at Carnegie Mellon University (HARP Lab) on hierarchical
               reward learning, Oregon State University (CHARISMA Lab) on multi-robot navigation,
@@ -323,7 +323,8 @@ export default function Home() {
               systems to support internal analytics.
             </p> */}
 						<p className="mb-4">
-							I was recently admitted to the Master of Science in Computer Science program at Georgia Tech, where I will begin in Spring 2026, specializing in Computational Perception and Robotics.
+							I am a Master's student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics. 
+							{/* Previously, I completed my B.S. in Computer Science at Washington State University. */}
 						</p>
 						<p className="mb-4">
 							I am currently seeking full-time opportunities in AI/ML research and engineering while continuing to explore the intersection of foundation models and embodied intelligence.
