@@ -323,7 +323,7 @@ export default function Home() {
               systems to support internal analytics.
             </p> */}
 						<p className="mb-4">
-							I am a Master's student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics. 
+							I am a Master&apos;s student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics. 
 							{/* Previously, I completed my B.S. in Computer Science at Washington State University. */}
 						</p>
 						<p className="mb-4">
