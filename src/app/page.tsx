@@ -326,9 +326,9 @@ export default function Home() {
 							I am a Master&apos;s student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics. 
 							{/* Previously, I completed my B.S. in Computer Science at Washington State University. */}
 						</p>
-						<p className="mb-4">
-							I am currently seeking full-time opportunities in AI/ML research and engineering while continuing to explore the intersection of foundation models and embodied intelligence.
-						</p>
+						{/* <p className="mb-4">
+							I am currently seeking full-time/internship opportunities in AI/ML research and engineering while continuing to explore the intersection of foundation models and embodied intelligence.
+						</p> */}
 						<p className="mb-4">Please feel free to reach out about research, collaboration, or any advice I can help with!</p>
 						<div className="flex flex-wrap items-center gap-3 mb-8">
 							<a
@@ -403,7 +403,7 @@ export default function Home() {
 					</div>
 					<div>
 						<Image
-							src="/images/EthanVillalovozGradPic.jpeg"
+							src="/images/EthanVillalovozPic.jpeg"
 							alt="Ethan Villalovoz"
 							width={220}
 							height={220}
