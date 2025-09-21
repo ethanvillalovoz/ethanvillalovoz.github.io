@@ -46,8 +46,6 @@ This site features a responsive, card-based projects page, a vertical timeline f
 
 <!-- Replace these with your own screenshots or GIFs -->
 ![Homepage Screenshot](public/visuals/homepage.png)
-![Projects Page Screenshot](public/visuals/project_page.png)
-![Timeline Screenshot](public/visuals/timeline.png)
 
 ---
 
