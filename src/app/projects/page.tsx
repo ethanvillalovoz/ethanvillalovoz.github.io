@@ -471,7 +471,7 @@ export default function ProjectsPage() {
 									<div className="font-bold text-lg text-primary">
 										{project.title}
 									</div>
-									{project.date && (
+									{/* {project.date && (
 										<span className="text-xs text-neutral-500 font-semibold ml-2">
 											{project.date}
 										</span>
@@ -480,7 +480,7 @@ export default function ProjectsPage() {
 										<span className="text-xs px-2 py-0.5 rounded bg-primary/20 text-primary font-semibold ml-2">
 											{project.status}
 										</span>
-									)}
+									)} */}
 								</div>
 								<div className="flex flex-wrap gap-4 mb-1">
 									{project.extraLinks &&
