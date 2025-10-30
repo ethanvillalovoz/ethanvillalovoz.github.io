@@ -332,7 +332,7 @@ export default function Home() {
               systems to support internal analytics.
             </p> */}
 						<p className="mb-4">
-							I am a Master&apos;s student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics. This summer, I will be a Software Engineer Intern at Microsoft.
+							I am a Master&apos;s student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics. This summer, I&apos;ll be joining Microsoft as a Software Engineer Intern.
 							{/* Previously, I completed my B.S. in Computer Science at Washington State University. */}
 						</p>
 						{/* <p className="mb-4">
