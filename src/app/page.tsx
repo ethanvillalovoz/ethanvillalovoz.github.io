@@ -11,6 +11,15 @@ import { SiGooglescholar } from "react-icons/si";
 // Example timeline data structure
 const workTimeline = [
 	{
+		date: "Summer 2026",
+		company: "Microsoft",
+		logo: "/images/timeline/microsoft_logo.jpeg", // Place your logo in /public/logos/
+		title: "Software Engineer Intern",
+		bullets: [
+			"Commerce and Ecosystems.",
+		],
+	},
+	{
 		date: "Jun 2025 - Sep 2025",
 		company: "Meta & Major League Hacking",
 		logo: "/images/timeline/meta_MLH_fellowship_logo.png", // Place your logo in /public/logos/
@@ -323,7 +332,7 @@ export default function Home() {
               systems to support internal analytics.
             </p> */}
 						<p className="mb-4">
-							I am a Master&apos;s student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics. 
+							I am a Master&apos;s student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics. This summer, I will be a Software Engineer Intern at Microsoft.
 							{/* Previously, I completed my B.S. in Computer Science at Washington State University. */}
 						</p>
 						{/* <p className="mb-4">
