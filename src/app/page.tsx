@@ -25,7 +25,7 @@ const workTimeline = [
 		logo: "/images/timeline/meta_MLH_fellowship_logo.png", // Place your logo in /public/logos/
 		title: "Production Engineering Fellow",
 		bullets: [
-			"Deployed a full-stack Flask app with Docker on DigitalOcean, integrating MySQL and Nginx, automating CI/CD to cut release time by 80%, and adding Prometheus/Grafana monitoring for reliable performance.",
+			"Built and deployed a production-grade full-stack Flask application with Docker, CI/CD automation, and monitoring infrastructure, improving deployment efficiency, scalability, and reliability in real-world production environments.",
 		],
 	},
   {
@@ -34,7 +34,7 @@ const workTimeline = [
 		logo: "/images/timeline/Carnegie_Mellon_icon.png", // Place your logo in /public/logos/
 		title: "Robotics Institute Summer Scholar",
 		bullets: [
-			"Developed hierarchical reward learning systems leveraging Bayesian inference and human feedback to align autonomous systems with human preferences and improve adaptability in dynamic settings.",
+			"Developed a hierarchical reward learning framework with Bayesian inference and interactive clarification dialogues, enhancing robot adaptability and task accuracy in human-robot collaboration research.",
 		],
 	},
   {
@@ -43,7 +43,7 @@ const workTimeline = [
 		logo: "/images/timeline/Google_icon.png", // Place your logo in /public/logos/
 		title: "Software Engineering Intern (STEP)",
 		bullets: [
-			"Optimized internal database processes with C++ and SQL, reducing runtime by 66% and enhancing data visualization through real-time dashboards and dynamic graphs.",
+			"Developed scalable C++ and SQL analytics pipelines and interactive dashboards that optimized internal data workflows, reduced runtime by 66%, and enhanced real-time decision-making across engineering teams.",
 		],
 	},
   {
@@ -52,7 +52,7 @@ const workTimeline = [
 		logo: "/images/timeline/Oregon_State_icon.jpeg", // Place your logo in /public/logos/
 		title: "REU Fellow",
 		bullets: [
-			"Developed geometric features for multi-robot expressive motion, integrating performing arts techniques to enhance robot character and intelligence.",
+			"Designed and implemented geometric motion primitives and interactive deployment tools enabling expressive multi-robot behaviors for human-robot interaction research.",
 		],
 	},
 	// ...add more work experiences
