@@ -77,10 +77,10 @@ export default function ResearchPage() {
 					Research Interests
 				</h2>
 				<p className="text-lg mb-2">
-					My research focuses on robotics, machine learning, AI safety, reinforcement
-					learning, human-AI collaboration, and large language models. I am
-					passionate about building intelligent systems that are robust,
-					interpretable, and beneficial to society.
+					My research focuses on interactive robot learning, human-AI collaboration, and alignment, 
+					developing autonomous systems that efficiently learn human objectives, infer shared task 
+					representations, and ensure behavior aligns with human expectations through probabilistic 
+					and cognitive modeling.
 				</p>
 			</section>
 			{/* Tag Filter */}
