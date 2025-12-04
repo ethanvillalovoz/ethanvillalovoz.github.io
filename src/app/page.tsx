@@ -422,7 +422,7 @@ export default function Home() {
 				</div>
 
 				{/* Timeline Section */}
-				<section className="mt-16">
+				<section className="mb-12">
 					<div className="flex gap-2 mb-4">
 						<button
 							className={`px-4 py-2 rounded-t-lg font-semibold border-b-2 transition-colors ${
