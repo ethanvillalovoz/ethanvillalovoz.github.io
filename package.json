@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/next": "^8.0.7",
     "framer-motion": "^12.12.2",
-    "next": "^15.1.8",
+    "next": "^16.0.7",
     "next-sitemap": "^4.2.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
