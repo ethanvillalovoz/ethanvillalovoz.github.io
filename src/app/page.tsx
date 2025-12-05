@@ -50,7 +50,7 @@ const workTimeline = [
 		date: "Jun 2022 - Aug 2022",
 		company: "Oregon State University",
 		logo: "/images/timeline/Oregon_State_icon.jpeg", // Place your logo in /public/logos/
-		title: "REU Fellow",
+		title: "NSF REU Fellow",
 		bullets: [
 			"Designed and implemented geometric motion primitives and interactive deployment tools enabling expressive multi-robot behaviors for human-robot interaction research.",
 		],
