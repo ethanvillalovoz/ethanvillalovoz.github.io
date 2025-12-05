@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaFileAlt, FaFilePdf } from "react-icons/fa";
+import Image from "next/image";
 
 // Add icons for each timeline entry (customize as you like)
 const timeline = [
@@ -111,10 +112,13 @@ export default function AboutPage() {
 			</header>
 
 			<div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-6">
-				<img
+				<Image
 					src="/images/EthanVillalovozGradPic.jpeg"
 					alt="Ethan Villalovoz profile photo"
+					width={160}
+					height={160}
 					className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow"
+					priority
 				/>
 				<div className="flex-1">
 					<div className="mb-2 text-primary font-semibold text-base md:text-lg">
@@ -176,9 +180,11 @@ export default function AboutPage() {
 								{item.icon}
 							</span>
 							{/* Logo */}
-							<img
+							<Image
 								src={item.logo}
 								alt={item.org + " logo"}
+								width={96}
+								height={96}
 								className="w-24 h-24 object-contain rounded-full border border-neutral-200 dark:border-neutral-700 bg-white mr-4 ml-2"
 							/>
 							{/* Content */}

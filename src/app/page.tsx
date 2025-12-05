@@ -453,9 +453,11 @@ export default function Home() {
 							>
 								{/* Company Logo */}
 								<div className="flex-shrink-0">
-									<img
+									<Image
 										src={item.logo}
 										alt={item.company + ' logo'}
+										width={48}
+										height={48}
 										className="w-12 h-12 rounded-full object-contain border border-gray-200 dark:border-neutral-700 bg-white"
 									/>
 								</div>
@@ -494,7 +496,7 @@ export default function Home() {
 						{featuredResearch.map((r, idx) => (
 							<div key={idx} className="bg-white dark:bg-neutral-900 rounded-lg p-0 shadow flex flex-col overflow-hidden">
 								{r.image && (
-									<img src={r.image} alt={r.title} className="w-full h-40 object-cover border-b" />
+									<Image src={r.image} alt={r.title} width={640} height={160} className="w-full h-40 object-cover border-b" />
 								)}
 								<div className="p-5 flex flex-col flex-1">
 									<div className="font-semibold text-lg mb-1">{r.title}</div>
@@ -528,7 +530,7 @@ export default function Home() {
 						{featuredProjects.map((p, idx) => (
 							<div key={idx} className="bg-white dark:bg-neutral-900 rounded-lg p-0 shadow flex flex-col overflow-hidden">
 								{p.image && (
-									<img src={p.image} alt={p.title} className="w-full h-40 object-cover border-b" />
+									<Image src={p.image} alt={p.title} width={640} height={160} className="w-full h-40 object-cover border-b" />
 								)}
 								<div className="p-5 flex flex-col flex-1">
 									<div className="font-semibold text-lg mb-1">{p.title}</div>
