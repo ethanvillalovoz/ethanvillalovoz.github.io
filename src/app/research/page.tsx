@@ -77,10 +77,11 @@ export default function ResearchPage() {
 					Research Interests
 				</h2>
 				<p className="text-lg mb-2">
-					My research focuses on interactive robot learning, human-AI collaboration, and alignment, 
-					developing autonomous systems that efficiently learn human objectives, infer shared task 
-					representations, and ensure behavior aligns with human expectations through probabilistic 
-					and cognitive modeling.
+					My research focuses on building aligned world models for robotics, which are frameworks that jointly 
+					infer human intent and predict the consequences of actions in complex environments. I am interested in 
+					interactive robot learning, human-AI collaboration, and generative models for embodied intelligence. 
+					My work aims to develop autonomous systems that resolve ambiguity, learn from minimal human feedback, and 
+					plan safely and intelligently through predictive modeling and foundation-model-based representations.
 				</p>
 			</section>
 			{/* Tag Filter */}
