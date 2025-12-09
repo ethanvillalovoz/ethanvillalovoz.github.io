@@ -353,7 +353,7 @@ export default function Home() {
 								href="/data/EthanVillalovoz-Resume.pdf"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="inline-flex items-center px-4 py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
+								className="inline-flex items-center px-4 py-2 rounded bg-gradient-to-r from-primary via-primary-light to-primary-dark text-white font-semibold shadow-lg hover:brightness-110 transition"
 							>
 								Resume
 							</a>
@@ -361,7 +361,7 @@ export default function Home() {
 								href="/data/EthanVillalovoz-CV.pdf"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="inline-flex items-center px-4 py-2 rounded bg-primary/10 text-primary font-semibold shadow hover:bg-primary/20 transition"
+								className="inline-flex items-center px-4 py-2 rounded bg-gradient-to-r from-primary via-primary-light to-primary-dark text-white font-semibold shadow-lg hover:brightness-110 transition"
 							>
 								CV
 							</a>
@@ -484,7 +484,7 @@ export default function Home() {
 										{item.company === "Washington State University, Honors College" && (
 											<a
 												href="https://github.com/mollyiverson/ACME10-HE-RAGApp"
-												className="inline-block mt-3 px-4 py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
+												className="inline-block mt-3 px-4 py-2 rounded bg-gradient-to-r from-primary via-primary-light to-primary-dark text-white font-semibold shadow-lg hover:brightness-110 transition"
 												target="_blank"
 												rel="noopener noreferrer"
 											>
