@@ -72,8 +72,8 @@ export default function ResearchPage() {
 			>
 				A list of my research papers and publications.
 			</motion.p>
-			<section className="mb-10">
-				<h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/40 dark:border-primary-dark/40 inline-block pb-1 drop-shadow-lg">
+			<section className="mb-12">
+				<h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/40 dark:border-primary-dark/40 inline-block pb-1 drop-shadow-lg">
 					Research Interests
 				</h2>
 				<p className="text-lg mb-2">

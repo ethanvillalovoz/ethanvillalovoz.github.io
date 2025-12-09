@@ -276,7 +276,7 @@ export default function Home() {
 	const hiddenNews = newsItems.filter((item) => item.hidden);
 
 	return (
-		<main className="max-w-4xl mx-auto px-4 py-10 relative overflow-hidden bg-gradient-to-br from-primary/10 via-primary-light/10 to-primary-dark/20 dark:from-primary-dark/30 dark:via-primary/10 dark:to-primary-dark/40">
+		<main className="max-w-5xl mx-auto px-4 py-10 relative overflow-hidden bg-gradient-to-br from-primary/10 via-primary-light/10 to-primary-dark/20 dark:from-primary-dark/30 dark:via-primary/10 dark:to-primary-dark/40">
 			{/* SVG Background */}
 			{/* <svg
 				className="absolute inset-0 w-full h-full pointer-events-none z-0"
@@ -307,7 +307,7 @@ export default function Home() {
 							initial={{ opacity: 0, y: 40 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.7, ease: "easeOut" }}
-							className="text-5xl font-extrabold mb-4 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent"
+							className="text-5xl font-extrabold mb-4 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent drop-shadow-lg"
 						>
 							Hi, I&apos;m Ethan Villalovoz
 						</motion.h1>
@@ -574,7 +574,7 @@ export default function Home() {
 				<section className="mb-12" aria-labelledby="news-heading">
 					<h2
 						id="news-heading"
-						className="text-2xl font-bold mb-4 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1"
+						className="text-2xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/40 dark:border-primary-dark/40 inline-block pb-1 drop-shadow-lg"
 					>
 						News
 					</h2>
