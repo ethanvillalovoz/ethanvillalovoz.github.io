@@ -1,8 +1,53 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { GitHubCalendar } from "react-github-calendar";
 import Image from "next/image";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaPython, FaReact, FaDatabase, FaRobot, FaChartLine, FaBook, FaBrain, FaCloud, FaDocker, FaFlask, FaFilePdf, FaFileAlt, FaUserGraduate, FaCodeBranch, FaSearch, FaEye, FaAward, FaClipboardList, FaLaptopCode, FaRegSmile, FaCar, FaRegFileAlt } from "react-icons/fa";
+import { SiTensorflow, SiOpenai, SiTypescript, SiNextdotjs, SiHuggingface, SiLangchain, SiOpencv, SiFastapi, SiFlask, SiDocker, SiKeras, SiPuppeteer, SiStreamlit, SiLatex, SiGithub, SiPython, SiSqlite, SiDvc, SiMlflow, SiAstra, SiUdacity } from "react-icons/si";
+// Tag to icon mapping using react-icons
+const tagIcons: Record<string, JSX.Element> = {
+	LLM: <FaRobot />,
+	RAG: <FaBook />,
+	"Vector Search": <FaSearch />,
+	"Knowledge Graph": <FaDatabase />,
+	"Full-Stack": <FaLaptopCode />,
+	NLP: <FaChartLine />,
+	"Reinforcement Learning": <FaBrain />,
+	DDPG: <FaBrain />,
+	TensorFlow: <SiTensorflow />,
+	"OpenAI Gym": <SiOpenai />,
+	"Human-AI Interaction": <FaUserGraduate />,
+	"Reward Modeling": <FaAward />,
+	Bandits: <FaClipboardList />,
+	T5: <FaBook />,
+	"Text Style Transfer": <FaRegSmile />,
+	Flask: <SiFlask />,
+	"Chrome Extension": <FaCloud />,
+	"Sentiment Analysis": <FaChartLine />,
+	"Next.js": <SiNextdotjs />,
+	TypeScript: <SiTypescript />,
+	"Astra DB": <SiAstra />,
+	"Healthcare AI": <FaUserGraduate />,
+	"Web Scraping": <FaSearch />,
+	Puppeteer: <SiPuppeteer />,
+	"Llama-3": <FaRobot />,
+	"Autonomous Driving": <FaCar />,
+	LangChain: <SiLangchain />,
+	CLI: <FaLaptopCode />,
+	"AI Agents": <FaRobot />,
+	OpenAI: <SiOpenai />,
+	MLOps: <FaCloud />,
+	MLflow: <SiMlflow />,
+	DVC: <SiDvc />,
+	Docker: <SiDocker />,
+	Keras: <SiKeras />,
+	CNN: <FaBrain />,
+	"Data Augmentation": <FaUserGraduate />,
+	"Socket.IO": <FaLaptopCode />,
+	Python: <FaPython />,
+	"Udacity Simulator": <SiUdacity />,
+};
 
 // Tag to emoji/icon mapping for visual emphasis
 // const tagIcons: Record<string, string> = {
@@ -414,13 +459,13 @@ export default function ProjectsPage() {
 	const reversedProjects = [...projects].reverse();
 
 	return (
-		<main className="max-w-5xl mx-auto px-4 py-10">
-			<header className="flex items-center justify-between mb-4">
+		<main className="max-w-5xl mx-auto px-4 py-10 bg-gradient-to-br from-primary/10 via-primary-light/10 to-primary-dark/20 dark:from-primary-dark/30 dark:via-primary/10 dark:to-primary-dark/40">
+			<header className="flex items-center justify-between mb-8 bg-gradient-to-r from-primary/30 via-primary-light/20 to-primary-dark/30 dark:from-primary-dark/40 dark:via-primary/20 dark:to-primary-dark/50 rounded-xl shadow-lg px-6 py-4">
 				<motion.h1
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.7, ease: "easeOut" }}
-					className="text-3xl font-extrabold bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent"
+					className="text-4xl font-extrabold bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent drop-shadow-lg"
 				>
 					Projects
 				</motion.h1>
@@ -428,7 +473,7 @@ export default function ProjectsPage() {
 					href="https://github.com/ethanvillalovoz"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="inline-flex items-center px-4 py-2 rounded bg-gray-800 text-white font-semibold shadow hover:bg-gray-700 transition"
+					className="inline-flex items-center px-4 py-2 rounded bg-gradient-to-r from-primary via-primary-light to-primary-dark text-white font-semibold shadow-lg hover:brightness-110 transition"
 				>
 					<FaGithub className="mr-2" />
 					GitHub
@@ -438,16 +483,23 @@ export default function ProjectsPage() {
 				initial={{ opacity: 0, y: 40 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-				className="text-blue-900 dark:text-primary-light mb-6 text-lg font-medium"
+				className="text-blue-900 dark:text-primary-light mb-8 text-xl font-medium bg-gradient-to-r from-primary/10 via-primary-light/10 to-primary-dark/10 dark:from-primary-dark/20 dark:via-primary/10 dark:to-primary-dark/20 rounded-lg px-4 py-2 shadow"
 			>
 				A showcase of my personal and technical projects.
 			</motion.p>
+			{/* GitHub Activity Widget below intro text */}
+			<section className="mb-8">
+				<h2 className="text-xl font-bold mb-2 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent">GitHub Contribution Activity</h2>
+				<div className="bg-gradient-to-r from-primary/10 via-primary-light/10 to-primary-dark/10 dark:from-primary-dark/20 dark:via-primary/10 dark:to-primary-dark/20 rounded-lg p-4 shadow-lg overflow-x-auto">
+					<GitHubCalendar username="ethanvillalovoz" blockSize={14} blockMargin={4} fontSize={14} />
+				</div>
+			</section>
 			{/* Project cards */}
 			<section className="mb-12">
-				<h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
+				<h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/40 dark:border-primary-dark/40 inline-block pb-1 drop-shadow-lg">
 					Project Gallery
 				</h2>
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 					{reversedProjects.map((project) => (
 						<motion.article
 							key={project.title}
@@ -455,9 +507,9 @@ export default function ProjectsPage() {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ duration: 0.5, ease: "easeOut" }}
-							className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 flex flex-col md:flex-row gap-4 items-start shadow transition-transform duration-200 hover:scale-[1.025] hover:shadow-xl"
+							className="bg-gradient-to-br from-neutral-100/80 via-primary-light/30 to-primary-dark/40 dark:from-neutral-900/80 dark:via-primary/20 dark:to-primary-dark/60 rounded-2xl p-0 shadow-xl border border-primary/10 dark:border-primary-dark/20 backdrop-blur-md flex flex-col md:flex-row gap-4 items-start transition-transform duration-200 hover:scale-[1.025] hover:shadow-2xl"
 						>
-							<div className="relative w-40 h-32 rounded-lg overflow-hidden border border-yellow-200 dark:border-yellow-700">
+							<div className="relative w-40 h-32 rounded-lg overflow-hidden border-2 border-primary/30 dark:border-primary-dark/40 shadow">
 								<Image
 									src={project.image}
 									alt={project.title}
@@ -466,21 +518,9 @@ export default function ProjectsPage() {
 									sizes="160px"
 								/>
 							</div>
-							<div className="flex-1">
-								<div className="flex flex-wrap items-center gap-2 mb-1">
-									<div className="font-bold text-lg text-primary">
-										{project.title}
-									</div>
-									{/* {project.date && (
-										<span className="text-xs text-neutral-500 font-semibold ml-2">
-											{project.date}
-										</span>
-									)}
-									{project.status && (
-										<span className="text-xs px-2 py-0.5 rounded bg-primary/20 text-primary font-semibold ml-2">
-											{project.status}
-										</span>
-									)} */}
+							  <div className="flex-1 p-6">
+								<div className="font-bold text-lg text-primary mb-1 drop-shadow">
+									{project.title}
 								</div>
 								<div className="flex flex-wrap gap-4 mb-1">
 									{project.extraLinks &&
@@ -488,7 +528,7 @@ export default function ProjectsPage() {
 											<a
 												key={link.label + idx}
 												href={link.url}
-												className="text-primary underline text-sm"
+												className="text-primary underline text-sm transition-colors hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary"
 												target="_blank"
 												rel="noopener noreferrer"
 											>
@@ -508,24 +548,13 @@ export default function ProjectsPage() {
 									</ul>
 								)} */}
 								{/* Tags with icons */}
-								{/* {project.tags && (
-									<div className="mt-2 flex flex-wrap gap-2">
-										{project.tags.map((tag) => (
-											<span
-												key={tag}
-												className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary/10 text-primary text-xs font-medium"
-											>
-												<span>{tagIcons[tag] || "🔖"}</span>
-												{tag}
-											</span>
-										))}
-									</div>
-								)} */}
+
 							</div>
 						</motion.article>
 					))}
 				</div>
 			</section>
+
 		</main>
 	);
 }

@@ -267,7 +267,7 @@ export default function Home() {
 	const hiddenNews = newsItems.filter((item) => item.hidden);
 
 	return (
-		<main className="max-w-4xl mx-auto px-4 py-10 relative overflow-hidden">
+		<main className="max-w-4xl mx-auto px-4 py-10 relative overflow-hidden bg-gradient-to-br from-primary/10 via-primary-light/10 to-primary-dark/20 dark:from-primary-dark/30 dark:via-primary/10 dark:to-primary-dark/40">
 			{/* SVG Background */}
 			{/* <svg
 				className="absolute inset-0 w-full h-full pointer-events-none z-0"
@@ -292,7 +292,7 @@ export default function Home() {
 			</svg> */}
 			<div className="relative z-10">
 				{/* Intro Section */}
-				<div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+				<div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-8 bg-gradient-to-r from-primary/30 via-primary-light/20 to-primary-dark/30 dark:from-primary-dark/40 dark:via-primary/20 dark:to-primary-dark/50 rounded-xl shadow-lg px-6 py-4">
 					<div className="flex-1">
 						<motion.h1
 							initial={{ opacity: 0, y: 40 }}
@@ -444,43 +444,45 @@ export default function Home() {
 						>
 							Education
 						</button>
-					</div>
-					<div className="bg-neutral-100 dark:bg-neutral-900 rounded-lg p-6 shadow mb-8">
+					  </div>
+					<div className="bg-gradient-to-r from-primary/10 via-primary-light/10 to-primary-dark/10 dark:from-primary-dark/20 dark:via-primary/10 dark:to-primary-dark/20 rounded-lg p-6 shadow-lg mb-8">
 						{(timelineTab === "work" ? workTimeline : educationTimeline).map((item, idx) => (
 							<div
 								key={idx}
-								className="flex items-start gap-5 mb-8 last:mb-0 bg-white dark:bg-neutral-800 rounded-lg p-5 shadow"
+								className="flex items-start gap-5 mb-8 last:mb-0 bg-gradient-to-br from-neutral-100/80 via-primary-light/30 to-primary-dark/40 dark:from-neutral-900/80 dark:via-primary/20 dark:to-primary-dark/60 rounded-2xl p-0 shadow-xl border border-primary/10 dark:border-primary-dark/20 backdrop-blur-md"
 							>
-								{/* Company Logo */}
-								<div className="flex-shrink-0">
-									<Image
-										src={item.logo}
-										alt={item.company + ' logo'}
-										width={48}
-										height={48}
-										className="w-12 h-12 rounded-full object-contain border border-gray-200 dark:border-neutral-700 bg-white"
-									/>
-								</div>
-								{/* Content */}
-								<div>
-									<div className="text-xs text-gray-500 dark:text-gray-400 mb-1">{item.date}</div>
-									<div className="font-bold text-lg">{item.company}</div>
-									<div className="text-sm text-primary mb-2">{item.title}</div>
-									<ul className="list-disc pl-5 space-y-1">
-										{item.bullets.map((point, i) => (
-											<li key={i} className="text-gray-700 dark:text-gray-200">{point}</li>
-										))}
-									</ul>
-									{item.company === "Washington State University, Honors College" && (
-                    <a
-                      href="https://github.com/mollyiverson/ACME10-HE-RAGApp"
-                      className="inline-block mt-3 px-4 py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Senior Design Project
-                    </a>
-                  )}
+								<div className="p-5 w-full flex items-start gap-5">
+									{/* Company Logo */}
+									<div className="flex-shrink-0">
+										<Image
+											src={item.logo}
+											alt={item.company + ' logo'}
+											width={48}
+											height={48}
+											className="w-12 h-12 rounded-full object-contain border border-gray-200 dark:border-neutral-700 bg-white"
+										/>
+									</div>
+									{/* Content */}
+									<div>
+										<div className="text-xs text-gray-500 dark:text-gray-400 mb-1">{item.date}</div>
+										<div className="font-bold text-lg">{item.company}</div>
+										<div className="text-sm text-primary mb-2">{item.title}</div>
+										<ul className="list-disc pl-5 space-y-1">
+											{item.bullets.map((point, i) => (
+												<li key={i} className="text-gray-700 dark:text-gray-200">{point}</li>
+											))}
+										</ul>
+										{item.company === "Washington State University, Honors College" && (
+											<a
+												href="https://github.com/mollyiverson/ACME10-HE-RAGApp"
+												className="inline-block mt-3 px-4 py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												Senior Design Project
+											</a>
+										)}
+									</div>
 								</div>
 							</div>
 						))}
