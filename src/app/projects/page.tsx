@@ -523,8 +523,10 @@ export default function ProjectsPage() {
 							</div>
 							  <div className="flex-1 p-6">
 								<div className="font-bold text-lg text-primary mb-1 drop-shadow">
+								<div className="font-bold text-lg mb-1 drop-shadow text-red-600 dark:text-red-400">
 									{project.title}
 								</div>
+							</div>
 								<div className="flex flex-wrap gap-4 mb-1">
 									{project.extraLinks &&
 										project.extraLinks.map((link, idx) => (

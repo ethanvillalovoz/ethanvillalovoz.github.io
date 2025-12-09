@@ -55,13 +55,13 @@ export default function ResearchPage() {
 					Research
 				</motion.h1>
 				<a
-					href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="inline-flex items-center px-4 py-2 rounded-lg bg-green-600 text-white font-semibold shadow hover:bg-green-700 transition-colors text-base mt-2 sm:mt-0"
-				>
-					<SiGooglescholar className="mr-2" />
-					Google Scholar
+						href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-flex items-center px-4 py-2 rounded bg-gradient-to-r from-primary via-primary-light to-primary-dark text-white font-semibold shadow-lg hover:brightness-110 transition"
+					>
+						<SiGooglescholar className="mr-2" />
+						Google Scholar
 				</a>
 			</header>
 			<motion.p
@@ -139,7 +139,7 @@ export default function ResearchPage() {
 									href={paper.pdf}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="font-bold text-lg text-primary hover:underline block drop-shadow"
+									className="font-bold text-lg text-red-600 dark:text-red-400 hover:underline block drop-shadow"
 								>
 									{paper.title}
 								</a>

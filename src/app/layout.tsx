@@ -16,22 +16,22 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ethan Villalovoz | AI Researcher & Developer",
   description:
-    "Portfolio of Ethan Villalovoz: AI/ML researcher, engineer, and recent WSU graduate. Explore my projects, research, and journey.",
+    "Website of Ethan Villalovoz: AI/ML researcher, engineer, and MSCS student at Georgia Tech. Explore my projects, research, and journey.",
   icons: {
     icon: "/images/ai_robot_icon.png",
   },
   openGraph: {
     title: "Ethan Villalovoz | AI Researcher & Developer",
     description:
-      "Portfolio of Ethan Villalovoz: AI/ML researcher, engineer, and recent WSU graduate. Explore my projects, research, and journey.",
+      "Website of Ethan Villalovoz: AI/ML researcher, engineer, and MSCS student at Georgia Tech. Explore my projects, research, and journey.",
     url: "https://ethanvillalovoz.vercel.app/", // Update to your real URL
-    siteName: "Ethan Villalovoz Portfolio",
+    siteName: "Ethan Villalovoz Website",
     images: [
       {
         url: "/images/ai_robot_icon.png", // Place this image in your public/images folder
         width: 1200,
         height: 630,
-        alt: "Ethan Villalovoz Portfolio",
+        alt: "Ethan Villalovoz Website",
       },
     ],
     locale: "en_US",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ethan Villalovoz | AI Researcher & Developer",
     description:
-      "Portfolio of Ethan Villalovoz: AI/ML researcher, engineer, and recent WSU graduate.",
+      "Website of Ethan Villalovoz: AI/ML researcher, engineer, and MSCS student at Georgia Tech.",
     images: ["/images/ai_robot_icon.png"],
     creator: "@etvillalovoz",
   },
@@ -81,7 +81,7 @@ export default function RootLayout({
             "jobTitle": "AI Researcher & Developer",
             "alumniOf": {
               "@type": "CollegeOrUniversity",
-              "name": "Washington State University"
+              "name": "Georgia Institute of Technology"
             },
             "description": "AI/ML researcher and engineer focused on robotics and human-AI interaction."
           })

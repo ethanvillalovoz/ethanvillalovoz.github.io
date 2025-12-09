@@ -78,7 +78,7 @@ export default function TeachingPage() {
 									{exp.course}
 								</div>
 								<div className="flex flex-wrap items-center gap-2 mb-1">
-									<div className="font-bold text-lg text-primary drop-shadow">
+									<div className="font-bold text-lg text-red-600 dark:text-red-400 drop-shadow">
 										{exp.role}
 									</div>
 									<span className="text-xs text-neutral-500 font-semibold ml-2">
