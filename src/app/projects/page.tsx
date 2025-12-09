@@ -9,7 +9,7 @@ import Image from "next/image";
 import { FaGithub, FaPython, FaReact, FaDatabase, FaRobot, FaChartLine, FaBook, FaBrain, FaCloud, FaDocker, FaFlask, FaFilePdf, FaFileAlt, FaUserGraduate, FaCodeBranch, FaSearch, FaEye, FaAward, FaClipboardList, FaLaptopCode, FaRegSmile, FaCar, FaRegFileAlt } from "react-icons/fa";
 import { SiTensorflow, SiOpenai, SiTypescript, SiNextdotjs, SiHuggingface, SiLangchain, SiOpencv, SiFastapi, SiFlask, SiDocker, SiKeras, SiPuppeteer, SiStreamlit, SiLatex, SiGithub, SiPython, SiSqlite, SiDvc, SiMlflow, SiAstra, SiUdacity } from "react-icons/si";
 // Tag to icon mapping using react-icons
-const tagIcons: Record<string, JSX.Element> = {
+const tagIcons: Record<string, React.ReactNode> = {
 	LLM: <FaRobot />,
 	RAG: <FaBook />,
 	"Vector Search": <FaSearch />,
