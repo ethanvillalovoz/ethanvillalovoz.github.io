@@ -149,10 +149,10 @@ export default function ResearchPage() {
 								<div className="italic text-neutral-700 dark:text-neutral-300 mb-1">
 									{paper.conference}
 								</div>
-								<div className="flex flex-wrap gap-4 mb-1">
+								<div className="flex flex-wrap gap-3 mb-3">
 									<a
 										href={paper.pdf}
-										className="text-primary underline text-sm"
+										className="inline-flex items-center px-4 py-2 rounded bg-gradient-to-r from-primary via-primary-light to-primary-dark text-white font-semibold shadow-lg hover:brightness-110 transition text-sm"
 										target="_blank"
 										rel="noopener noreferrer"
 									>
@@ -160,7 +160,7 @@ export default function ResearchPage() {
 									</a>
 									<a
 										href={paper.bibtex}
-										className="text-primary underline text-sm"
+										className="inline-flex items-center px-4 py-2 rounded bg-gradient-to-r from-primary via-primary-light to-primary-dark text-white font-semibold shadow-lg hover:brightness-110 transition text-sm"
 										target="_blank"
 										rel="noopener noreferrer"
 									>
