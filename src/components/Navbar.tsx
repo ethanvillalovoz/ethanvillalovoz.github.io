@@ -18,6 +18,8 @@ export default function Navbar() {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const pathname = usePathname();
 
+	const isActive = (path: string) => pathname === path || pathname === `${path}/`;
+
 	return (
 		<nav
 			className="w-full bg-gradient-to-r from-primary via-primary-light to-primary-dark dark:from-primary-dark dark:via-primary dark:to-primary-dark/80 backdrop-blur border-b border-primary-dark dark:border-primary-dark sticky top-0 z-50 transition-colors shadow-soft"
@@ -45,9 +47,9 @@ export default function Navbar() {
 							<Link
 								key={link.name}
 								href={link.href}
-								aria-current={pathname === link.href ? "page" : undefined}
+								aria-current={isActive(link.href) ? "page" : undefined}
 								className={`rounded-2xl px-4 py-2 font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/60 shadow-soft bg-white/60 dark:bg-blue-900/40 hover:bg-gradient-to-r hover:from-primary hover:to-primary-light hover:text-white dark:hover:from-primary-dark dark:hover:to-primary
-									${pathname === link.href ? "ring-2 ring-primary bg-gradient-to-r from-primary to-primary-light text-white dark:from-primary-dark dark:to-primary" : "text-blue-900 dark:text-primary-light"}`}
+									${isActive(link.href) ? "ring-2 ring-primary bg-gradient-to-r from-primary to-primary-light text-white dark:from-primary-dark dark:to-primary" : "text-blue-900 dark:text-primary-light"}`}
 							>
 								{link.name}
 							</Link>
@@ -72,9 +74,9 @@ export default function Navbar() {
 							<Link
 								key={link.name}
 								href={link.href}
-								aria-current={pathname === link.href ? "page" : undefined}
+								aria-current={isActive(link.href) ? "page" : undefined}
 								className={`rounded-2xl px-4 py-2 font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/60 shadow-soft bg-white/60 dark:bg-blue-900/40 hover:bg-gradient-to-r hover:from-primary hover:to-primary-light hover:text-white dark:hover:from-primary-dark dark:hover:to-primary
-									${pathname === link.href ? "ring-2 ring-primary bg-gradient-to-r from-primary to-primary-light text-white dark:from-primary-dark dark:to-primary" : "text-blue-900 dark:text-primary-light"}`}
+									${isActive(link.href) ? "ring-2 ring-primary bg-gradient-to-r from-primary to-primary-light text-white dark:from-primary-dark dark:to-primary" : "text-blue-900 dark:text-primary-light"}`}
 							>
 								{link.name}
 							</Link>
@@ -95,9 +97,9 @@ export default function Navbar() {
 							<Link
 								key={link.name}
 								href={link.href}
-								aria-current={pathname === link.href ? "page" : undefined}
+								aria-current={isActive(link.href) ? "page" : undefined}
 								className={`rounded-2xl px-4 py-2 font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/60 shadow-soft bg-white/80 dark:bg-blue-900/40 hover:bg-gradient-to-r hover:from-primary hover:to-primary-light hover:text-white dark:hover:from-primary-dark dark:hover:to-primary
-									${pathname === link.href ? "ring-2 ring-primary bg-gradient-to-r from-primary to-primary-light text-white dark:from-primary-dark dark:to-primary" : "text-blue-900 dark:text-primary-light"}`}
+									${isActive(link.href) ? "ring-2 ring-primary bg-gradient-to-r from-primary to-primary-light text-white dark:from-primary-dark dark:to-primary" : "text-blue-900 dark:text-primary-light"}`}
 								onClick={() => setMenuOpen(false)}
 							>
 								{link.name}
