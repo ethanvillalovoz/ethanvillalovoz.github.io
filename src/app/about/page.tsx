@@ -94,7 +94,7 @@ export default function AboutPage() {
 						href="/data/EthanVillalovoz-Resume.pdf"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="inline-flex items-center px-3 py-1.5 text-sm sm:text-base sm:px-4 sm:py-2 rounded bg-primary text-white font-semibold shadow hover:bg-primary-dark transition"
+						className="inline-flex items-center px-3 py-1.5 text-sm sm:text-base sm:px-4 sm:py-2 rounded bg-primary text-primary-foreground font-semibold shadow hover:bg-primary-dark transition"
 					>
 						<FaFileAlt className="mr-1.5 sm:mr-2 text-sm sm:text-base" />
 						Resume
@@ -176,7 +176,7 @@ export default function AboutPage() {
 							className="mb-12 flex items-start relative"
 						>
 							{/* Timeline dot with icon */}
-							<span className="absolute -left-6 top-2 w-8 h-8 flex items-center justify-center bg-primary rounded-full border-4 border-white dark:border-neutral-900 shadow text-xl text-white">
+							<span className="absolute -left-6 top-2 w-8 h-8 flex items-center justify-center bg-primary rounded-full border-4 border-white dark:border-neutral-900 shadow text-xl text-primary-foreground">
 								{item.icon}
 							</span>
 							{/* Logo */}

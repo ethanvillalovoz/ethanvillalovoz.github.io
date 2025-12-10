@@ -142,7 +142,7 @@ export default function ContactPage() {
 						whileTap={{ scale: 0.95 }}
 						href="/data/EthanVillalovoz-bio.txt"
 						download
-						className="px-4 py-2 rounded-md bg-primary text-white font-semibold shadow-md hover:bg-primary-dark transition-colors flex items-center gap-2"
+						className="px-4 py-2 rounded-md bg-primary text-primary-foreground font-semibold shadow-md hover:bg-primary-dark transition-colors flex items-center gap-2"
 					>
 						<FaDownload className="text-sm" />
 						Download Bio

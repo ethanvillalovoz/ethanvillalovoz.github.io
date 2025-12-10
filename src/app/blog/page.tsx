@@ -164,7 +164,7 @@ export default function BlogPage() {
 
 					<Link
 						href="/contact"
-						className="inline-flex items-center px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors"
+						className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary-dark transition-colors"
 					>
 						Contact Me
 					</Link>

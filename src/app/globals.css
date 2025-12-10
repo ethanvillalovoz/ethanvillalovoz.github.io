@@ -3,28 +3,30 @@
 @tailwind utilities;
 
 :root {
-  --background: #FFFFFF;      /* Pure White */
-  --foreground: #1A1A1A;      /* Soft Black */
+  --background: 255 255 255;      /* Pure White */
+  --foreground: 26 26 26;      /* Soft Black */
   /* World Labs (Real) Palette */
-  --primary: #1A1A1A;         /* Dark Charcoal */
-  --primary-light: #8E8E9E;   /* Muted Slate/Lavender */
-  --primary-dark: #000000;    /* Pure Black */
-  --card: #F9F9F9;            /* Very Light Gray */
+  --primary: 26 26 26;         /* Dark Charcoal */
+  --primary-foreground: 255 255 255; /* White text on primary */
+  --primary-light: 142 142 158;   /* Muted Slate/Lavender */
+  --primary-dark: 0 0 0;    /* Pure Black */
+  --card: 249 249 249;            /* Very Light Gray */
 }
 
 .dark {
-  --background: #0F0F0F;      /* Deep Space Black */
-  --foreground: #FFFFFF;      /* Pure White */
+  --background: 15 15 15;      /* Deep Space Black */
+  --foreground: 255 255 255;      /* Pure White */
   /* World Labs (Real) Palette */
-  --primary: #FFFFFF;         /* White for contrast */
-  --primary-light: #A0A0B0;   /* Light Slate */
-  --primary-dark: #333333;    
-  --card: #1A1A1A;            /* Dark Card */
+  --primary: 255 255 255;         /* White for contrast */
+  --primary-foreground: 26 26 26; /* Black text on primary */
+  --primary-light: 160 160 176;   /* Light Slate */
+  --primary-dark: 51 51 51;    
+  --card: 26 26 26;            /* Dark Card */
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
   font-family: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
   transition: background 0.3s, color 0.3s;
 }

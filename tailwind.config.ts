@@ -10,13 +10,14 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				background: "var(--background)",
-				foreground: "var(--foreground)",
+				background: "rgb(var(--background) / <alpha-value>)",
+				foreground: "rgb(var(--foreground) / <alpha-value>)",
 				// World Labs (Real) Palette
-				primary: "#1A1A1A",         // Dark Charcoal (Buttons/Logo)
-				"primary-light": "#8E8E9E", // Muted Slate/Lavender (Subheadings)
-				"primary-dark": "#000000",  // Pure Black
-				card: "var(--card)",
+				primary: "rgb(var(--primary) / <alpha-value>)",
+				"primary-foreground": "rgb(var(--primary-foreground) / <alpha-value>)",
+				"primary-light": "rgb(var(--primary-light) / <alpha-value>)",
+				"primary-dark": "rgb(var(--primary-dark) / <alpha-value>)",
+				card: "rgb(var(--card) / <alpha-value>)",
 			},
 			borderRadius: {
 				xl: "1.25rem",
