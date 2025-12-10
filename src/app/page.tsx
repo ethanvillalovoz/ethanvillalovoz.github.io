@@ -411,7 +411,7 @@ export default function Home() {
 								<SiGooglescholar />
 							</a>
               <a
-								href="mailto:ethan.villalovoz@gmail.com"
+								href="mailto:ethan.villalovoz@gatech.edu"
 								className="text-primary hover:text-primary-dark text-2xl"
 								aria-label="Email"
 							>
