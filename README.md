@@ -85,8 +85,8 @@ This site features a responsive, card-based projects page, a vertical timeline f
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/ethanvillalovoz/ethan-site-rebuild.git
-    cd ethan-site-rebuild
+    git clone https://github.com/ethanvillalovoz/ethanvillalovoz.github.io.git
+    cd ethanvillalovoz.github.io
     ```
 
 2. **Install dependencies:**
@@ -153,7 +153,7 @@ This site features a responsive, card-based projects page, a vertical timeline f
 ## Folder Structure
 
 ```
-ethan-site-rebuild/
+ethanvillalovoz.github.io/
 ├── public/
 │   ├── images/
 │   ├── data/
@@ -185,7 +185,7 @@ You can add your own tests using [Jest](https://jestjs.io/) or [React Testing Li
 
 ## Roadmap
 
-- [ ] Add blog section
+- [x] Add blog section
 - [ ] Add automated tests
 - [ ] Improve accessibility and a11y testing
 - [x] Add dark mode toggle
