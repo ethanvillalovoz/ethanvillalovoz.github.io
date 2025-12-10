@@ -27,25 +27,25 @@ const projects = [
 		date: "May 2025",
 		status: "Completed",
 	},
-	{
-		title: "DDPG: Deep Deterministic Policy Gradient Reimplementation",
-		description:
-			"A robust, modular, and extensible reimplementation of the DDPG reinforcement learning algorithm (Lillicrap et al., 2015) using TensorFlow 2.x. Built for reproducibility, research comparison, and interactive experimentation with Gym environments.",
-		image: "/images/projects/DDPG_padded.png",
-		tags: ["Reinforcement Learning", "DDPG", "TensorFlow", "OpenAI Gym"],
-		extraLinks: [
-			{
-				label: "Code",
-				url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation",
-			},
-			{
-				label: "Original Paper",
-				url: "https://arxiv.org/abs/1509.02971",
-			}
-		],
-		date: "July 2025",
-		status: "Completed",
-	},
+	// {
+	// 	title: "DDPG: Deep Deterministic Policy Gradient Reimplementation",
+	// 	description:
+	// 		"A robust, modular, and extensible reimplementation of the DDPG reinforcement learning algorithm (Lillicrap et al., 2015) using TensorFlow 2.x. Built for reproducibility, research comparison, and interactive experimentation with Gym environments.",
+	// 	image: "/images/projects/DDPG_padded.png",
+	// 	tags: ["Reinforcement Learning", "DDPG", "TensorFlow", "OpenAI Gym"],
+	// 	extraLinks: [
+	// 		{
+	// 			label: "Code",
+	// 			url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation",
+	// 		},
+	// 		{
+	// 			label: "Original Paper",
+	// 			url: "https://arxiv.org/abs/1509.02971",
+	// 		}
+	// 	],
+	// 	date: "July 2025",
+	// 	status: "Completed",
+	// },
 	{
 		title: "CodePrep.AI: AI-Powered Coding Interview Prep with LLMs",
 		description:
