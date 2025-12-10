@@ -12,9 +12,10 @@ export default {
 			colors: {
 				background: "var(--background)",
 				foreground: "var(--foreground)",
-				primary: "#9D2235", // WSU Crimson
-				"primary-light": "#C94F5C", // Lighter Crimson
-				"primary-dark": "#5E6A71", // WSU Gray
+				// World Labs (Real) Palette
+				primary: "#1A1A1A",         // Dark Charcoal (Buttons/Logo)
+				"primary-light": "#8E8E9E", // Muted Slate/Lavender (Subheadings)
+				"primary-dark": "#000000",  // Pure Black
 				card: "var(--card)",
 			},
 			borderRadius: {
@@ -23,10 +24,14 @@ export default {
 				"3xl": "2rem",
 			},
 			boxShadow: {
-				soft: "0 4px 24px 0 rgba(157, 34, 53, 0.1)", // subtle crimson shadow
+				soft: "0 4px 24px 0 rgba(0, 0, 0, 0.05)", // Very subtle shadow
 			},
 			transitionProperty: {
 				spacing: "margin, padding",
+			},
+			fontFamily: {
+				sans: ["Inter", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+				serif: ["Times New Roman", "Times", "serif"], // Added for that elegant look
 			},
 		},
 	},

@@ -523,7 +523,7 @@ export default function ProjectsPage() {
 							</div>
 							  <div className="flex-1 p-6">
 								<div className="font-bold text-lg text-primary mb-1 drop-shadow">
-								<div className="font-bold text-lg mb-1 drop-shadow text-red-600 dark:text-red-400">
+								<div className="font-bold text-lg mb-1 drop-shadow text-primary dark:text-primary-light">
 									{project.title}
 								</div>
 							</div>

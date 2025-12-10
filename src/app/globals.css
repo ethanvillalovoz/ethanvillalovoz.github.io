@@ -3,26 +3,32 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #222222;
-  --primary: #9D2235;         /* WSU Crimson */
-  --primary-light: #C94F5C;   /* Lighter Crimson */
-  --primary-dark: #5E6A71;    /* WSU Gray */
-  --card: #f8fafd;
+  --background: #FFFFFF;      /* Pure White */
+  --foreground: #1A1A1A;      /* Soft Black */
+  /* World Labs (Real) Palette */
+  --primary: #1A1A1A;         /* Dark Charcoal */
+  --primary-light: #8E8E9E;   /* Muted Slate/Lavender */
+  --primary-dark: #000000;    /* Pure Black */
+  --card: #F9F9F9;            /* Very Light Gray */
 }
 
 .dark {
-  --background: #10151a;      /* Deep neutral navy/black */
-  --foreground: #f3f3f3;      /* Light gray for text */
-  --primary: #9D2235;         /* WSU Crimson */
-  --primary-light: #C94F5C;   /* Lighter Crimson */
-  --primary-dark: #5E6A71;    /* WSU Gray */
-  --card: #18212b;            /* Softer, less saturated dark for cards */
+  --background: #0F0F0F;      /* Deep Space Black */
+  --foreground: #FFFFFF;      /* Pure White */
+  /* World Labs (Real) Palette */
+  --primary: #FFFFFF;         /* White for contrast */
+  --primary-light: #A0A0B0;   /* Light Slate */
+  --primary-dark: #333333;    
+  --card: #1A1A1A;            /* Dark Card */
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
   transition: background 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Times New Roman", Times, serif; /* Elegant Serif Headings */
 }

@@ -139,7 +139,7 @@ export default function ResearchPage() {
 									href={paper.pdf}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="font-bold text-lg text-red-600 dark:text-red-400 hover:underline block drop-shadow"
+									className="font-bold text-lg text-primary dark:text-primary-light hover:underline block drop-shadow"
 								>
 									{paper.title}
 								</a>

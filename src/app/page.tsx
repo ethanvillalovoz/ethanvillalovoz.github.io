@@ -14,7 +14,7 @@ const workTimeline = [
 		date: "Summer 2026",
 		company: "Microsoft",
 		logo: "/images/timeline/microsoft_logo.jpeg", // Place your logo in /public/logos/
-		title: <span className="text-red-600 dark:text-red-400">Software Engineer Intern</span>,
+		title: <span className="text-primary dark:text-primary-light">Software Engineer Intern</span>,
 		bullets: [
 			"Commerce and Ecosystems.",
 		],
@@ -23,7 +23,7 @@ const workTimeline = [
 		date: "Jun 2025 - Sep 2025",
 		company: "Meta & Major League Hacking",
 		logo: "/images/timeline/meta_MLH_fellowship_logo.png", // Place your logo in /public/logos/
-		title: <span className="text-red-600 dark:text-red-400">Production Engineering Fellow</span>,
+		title: <span className="text-primary dark:text-primary-light">Production Engineering Fellow</span>,
 		bullets: [
 			"Built and deployed a production-grade full-stack Flask application with Docker, CI/CD automation, and monitoring infrastructure, improving deployment efficiency, scalability, and reliability in real-world production environments.",
 		],
@@ -32,7 +32,7 @@ const workTimeline = [
 		date: "Jun 2024 - Aug 2024",
 		company: "Carnegie Mellon University",
 		logo: "/images/timeline/Carnegie_Mellon_icon.png", // Place your logo in /public/logos/
-		title: <span className="text-red-600 dark:text-red-400">Robotics Institute Summer Scholar</span>,
+		title: <span className="text-primary dark:text-primary-light">Robotics Institute Summer Scholar</span>,
 		bullets: [
 			"Developed a hierarchical reward learning framework with Bayesian inference and interactive clarification dialogues, enhancing robot adaptability and task accuracy in human-robot collaboration research.",
 		],
@@ -41,7 +41,7 @@ const workTimeline = [
 		date: "May 2023 - Aug 2023",
 		company: "Google",
 		logo: "/images/timeline/Google_icon.png", // Place your logo in /public/logos/
-		title: <span className="text-red-600 dark:text-red-400">Software Engineering Intern (STEP)</span>,
+		title: <span className="text-primary dark:text-primary-light">Software Engineering Intern (STEP)</span>,
 		bullets: [
 			"Developed scalable C++ and SQL analytics pipelines and interactive dashboards that optimized internal data workflows, reduced runtime by 66%, and enhanced real-time decision-making across engineering teams.",
 		],
@@ -50,7 +50,7 @@ const workTimeline = [
 		date: "Jun 2022 - Aug 2022",
 		company: "Oregon State University",
 		logo: "/images/timeline/Oregon_State_icon.jpeg", // Place your logo in /public/logos/
-		title: <span className="text-red-600 dark:text-red-400">NSF REU Fellow</span>,
+		title: <span className="text-primary dark:text-primary-light">NSF REU Fellow</span>,
 		bullets: [
 			"Designed and implemented geometric motion primitives and interactive deployment tools enabling expressive multi-robot behaviors for human-robot interaction research.",
 		],
@@ -63,7 +63,7 @@ const educationTimeline = [
 		company: "Georgia Institute of Technology, College of Computing",
 		logo: "/images/timeline/GT_icon.png", // Add your logo to /public/logos/
 		title: (
-			<span className="text-red-600 dark:text-red-400">M.S. in Computer Science, Specialization in Computational Perception and Robotics</span>
+			<span className="text-primary dark:text-primary-light">M.S. in Computer Science, Specialization in Computational Perception and Robotics</span>
 		),
 		bullets: [
 			"Pursuing M.S. in Computer Science with a focus on AI, robotics, and perception.",
@@ -75,7 +75,7 @@ const educationTimeline = [
 		company: "Washington State University, Honors College",
 		logo: "/images/timeline/Washington_State_icon.png", // Add your logo to /public/logos/
 		title: (
-			<span className="text-red-600 dark:text-red-400">B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.00)</span>
+			<span className="text-primary dark:text-primary-light">B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.00)</span>
 		),
 		bullets: [
 			"Graduated with honors, focusing on AI, machine learning, and mathematics.",
@@ -127,11 +127,11 @@ export default function Home() {
 			content: (
 				<>
 					Admitted to the{" "}
-					<a href="https://www.cc.gatech.edu/" className="text-red-600 dark:text-red-400 underline">
+					<a href="https://www.cc.gatech.edu/" className="text-primary dark:text-primary-light underline">
 						Georgia Tech MSCS
 					</a>{" "}
 					program! I’ll be starting in {" "}
-					<a className="text-red-600 dark:text-red-400 font-bold">
+					<a className="text-primary dark:text-primary-light font-bold">
 						Spring 2026
 					</a>, specializing in Computational Perception and Robotics.
 				</>
@@ -142,11 +142,11 @@ export default function Home() {
 			content: (
 				<>
 					Gave an alumni talk for the{" "}
-					<a href="https://marc.wsu.edu/" className="text-red-600 dark:text-red-400 underline">
+					<a href="https://marc.wsu.edu/" className="text-primary dark:text-primary-light underline">
 						WSU MARC
 					</a>{" "}
 					&{" "}
-					<a href="https://mira.wsu.edu/" className="text-red-600 dark:text-red-400 underline">
+					<a href="https://mira.wsu.edu/" className="text-primary dark:text-primary-light underline">
 						MIRA
 					</a>{" "}
 					program on my research journey and grad school advice.
@@ -158,7 +158,7 @@ export default function Home() {
 			content: (
 				<>
 					I joined Meta & Major League Hacking as a{" "}
-					<a href="https://fellowship.mlh.io/programs/production-engineering-sre" className="text-red-600 dark:text-red-400 underline">
+					<a href="https://fellowship.mlh.io/programs/production-engineering-sre" className="text-primary dark:text-primary-light underline">
 						Production Engineering Fellow
 					</a>!
 				</>
@@ -173,7 +173,7 @@ export default function Home() {
 			content: (
 				<>
 					This summer, I will be conducting research at Carnegie Mellon University as part of the{" "}
-					<a href="https://riss.ri.cmu.edu/" className="text-red-600 dark:text-red-400 underline">
+					<a href="https://riss.ri.cmu.edu/" className="text-primary dark:text-primary-light underline">
 						CMU RISS
 					</a>{" "}
 					program.
@@ -185,7 +185,7 @@ export default function Home() {
 			content: (
 				<>
 					I will be participating in Google Research&apos;s{" "}
-					<a href="https://research.google/programs-and-events/csrmp/" className="text-red-600 dark:text-red-400 underline">
+					<a href="https://research.google/programs-and-events/csrmp/" className="text-primary dark:text-primary-light underline">
 						CS Research Mentorship Program
 					</a>{" "}
 					during the Fall semester.
@@ -198,7 +198,7 @@ export default function Home() {
 			content: (
 				<>
 					I am thrilled and sincerely grateful to have been awarded the{" "}
-					<a href="https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship" className="text-red-600 dark:text-red-400 underline">
+					<a href="https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship" className="text-primary dark:text-primary-light underline">
 						Generation Google Scholarship
 					</a>
 					.
@@ -212,7 +212,7 @@ export default function Home() {
 			content: (
 				<>
 					My contributions to the work I completed at Oregon State University have been accepted for presentation at {" "}
-					<a className="text-red-600 dark:text-red-400 font-bold">
+					<a className="text-primary dark:text-primary-light font-bold">
 						IROS 2023
 					</a>!
 				</>
@@ -224,7 +224,7 @@ export default function Home() {
 			content: (
 				<>
 					I will be interning as a{" "}
-					<a href="https://buildyourfuture.withgoogle.com/programs/step" className="text-red-600 dark:text-red-400 underline">
+					<a href="https://buildyourfuture.withgoogle.com/programs/step" className="text-primary dark:text-primary-light underline">
 						Software Engineering Intern (STEP)
 					</a>{" "}
 					at Google.
@@ -237,7 +237,7 @@ export default function Home() {
 			content: (
 				<>
 					I became a MARC Scholar through the{" "}
-					<a href="https://marc.wsu.edu/" className="text-red-600 dark:text-red-400 underline">
+					<a href="https://marc.wsu.edu/" className="text-primary dark:text-primary-light underline">
 						NIH Fellowship
 					</a>
 					.
@@ -250,7 +250,7 @@ export default function Home() {
 			content: (
 				<>
 					I will be conducting research at Oregon State University as part of the{" "}
-					<a href="https://engineering.oregonstate.edu/CoRIS/reu-robots-real-world" className="text-red-600 dark:text-red-400 underline">
+					<a href="https://engineering.oregonstate.edu/CoRIS/reu-robots-real-world" className="text-primary dark:text-primary-light underline">
 						REU: Robots in the Real World
 					</a>{" "}
 					program.
@@ -263,7 +263,7 @@ export default function Home() {
 			content: (
 				<>
 					I became an ESTEEMED Scholar through the{" "}
-					<a href="https://mira.wsu.edu/" className="text-red-600 dark:text-red-400 underline">
+					<a href="https://mira.wsu.edu/" className="text-primary dark:text-primary-light underline">
 						NIH Fellowship
 					</a>
 					.
@@ -587,7 +587,7 @@ export default function Home() {
 						{!showAllNews && hiddenNews.length > 0 && (
 							<li>
 								<button
-									className="text-red-600 dark:text-red-400 underline"
+									className="text-primary dark:text-primary-light underline"
 									onClick={() => setShowAllNews(true)}
 								>
 									▼ Show More
@@ -603,7 +603,7 @@ export default function Home() {
 						{showAllNews && (
 							<li>
 								<button
-									className="text-red-600 dark:text-red-400 underline"
+									className="text-primary dark:text-primary-light underline"
 									onClick={() => setShowAllNews(false)}
 								>
 									▲ Show Less
