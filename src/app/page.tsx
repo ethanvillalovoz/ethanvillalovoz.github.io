@@ -309,24 +309,24 @@ export default function Home() {
 							transition={{ duration: 0.7, ease: "easeOut" }}
 							className="text-5xl font-extrabold mb-4 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent drop-shadow-lg"
 						>
-							Hi, I&apos;m Ethan Villalovoz
+							Ethan Villalovoz
 						</motion.h1>
-						<motion.p
+						{/* <motion.p
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0.15, duration: 0.7, ease: "easeOut" }}
 							className="text-xl md:text-2xl font-medium text-gray-700 dark:text-primary-light mb-6"
 						>
 							AI/ML Researcher & Engineer
-						</motion.p>
-						<motion.p
+						</motion.p> */}
+						{/* <motion.p
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0.25, duration: 0.7, ease: "easeOut" }}
 							className="text-lg text-gray-600 dark:text-gray-300 mb-8"
 						>
 							Welcome! Explore my research, projects, and journey here!
-						</motion.p>
+						</motion.p> */}
 						{/* <p className="mb-4">
 							I am a recent graduate in Computer Science from Washington State University with a minor in Mathematics.
 							My research spans robotics, machine learning, and
