@@ -64,7 +64,7 @@ const educationTimeline = [
 			<span className="text-primary dark:text-white font-medium">M.S. in Computer Science, Specialization in Computational Perception and Robotics</span>
 		),
 		bullets: [
-			"Pursuing M.S. in Computer Science with a focus on AI, robotics, and perception.",
+			"Pursuing M.S. in Computer Science with a focus on AI, robotics, and perception",
 			"Activities: AI Safety Initiative",
 		],
 	},
@@ -76,7 +76,7 @@ const educationTimeline = [
 			<span className="text-primary dark:text-white font-medium">B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.00)</span>
 		),
 		bullets: [
-			"Graduated with honors, focusing on AI, machine learning, and mathematics.",
+			<span>Senior Design Project: <a href="https://github.com/mollyiverson/ACME10-HE-RAGApp" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">Retrieval-Augmented Generation (RAG) using Knowledge Graphs and Vector Search</a></span>,
 			"Activities: Honors College, NIH ESTEEMED Fellow, VCEA College Ambassador, NIH MARC Fellow",
 		],
 	},

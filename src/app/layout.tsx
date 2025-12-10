@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Website of Ethan Villalovoz: AI/ML researcher, engineer, and MSCS student at Georgia Tech. Explore my projects, research, and journey.",
   icons: {
-    icon: "/images/ai_robot_icon.png",
+    icon: "/images/website_icon.png",
   },
   openGraph: {
     title: "Ethan Villalovoz | AI Researcher & Developer",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Ethan Villalovoz Website",
     images: [
       {
-        url: "/images/ai_robot_icon.png", // Place this image in your public/images folder
+        url: "/images/website_icon.png", // Place this image in your public/images folder
         width: 1200,
         height: 630,
         alt: "Ethan Villalovoz Website",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Ethan Villalovoz | AI Researcher & Developer",
     description:
       "Website of Ethan Villalovoz: AI/ML researcher, engineer, and MSCS student at Georgia Tech.",
-    images: ["/images/ai_robot_icon.png"],
+    images: ["/images/website_icon.png"],
     creator: "@etvillalovoz",
   },
 };
@@ -56,8 +56,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Use .png for best browser compatibility and match Next.js metadata */}
-        <link rel="icon" href="/images/ai_robot_icon.png" type="image/png" sizes="any" />
-        <link rel="shortcut icon" href="/images/ai_robot_icon.png" type="image/png" />
+        <link rel="icon" href="/images/website_icon.png" type="image/png" sizes="any" />
+        <link rel="shortcut icon" href="/images/website_icon.png" type="image/png" />
 
         {/* ✅ Add your Google verification meta tag here */}
         <meta name="google-site-verification" content="YI1L3YOtnukh0nVwoZ-TVjTTp9_PN65NylPHNUshHII" />
@@ -70,7 +70,7 @@ export default function RootLayout({
             "@type": "Person",
             "name": "Ethan Villalovoz",
             "url": "https://ethanvillalovoz.vercel.app",
-            "image": "https://ethanvillalovoz.vercel.app/images/ai_robot_icon.png",
+            "image": "https://ethanvillalovoz.vercel.app/images/website_icon.png",
             "sameAs": [
               "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
               "https://github.com/ethanvillalovoz",
@@ -96,7 +96,7 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "Ethan Villalovoz",
               "url": "https://ethanvillalovoz.vercel.app",
-              "logo": "https://ethanvillalovoz.vercel.app/images/ai_robot_icon.png",
+              "logo": "https://ethanvillalovoz.vercel.app/images/website_icon.png",
               "sameAs": [
                 "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
                 "https://github.com/ethanvillalovoz",

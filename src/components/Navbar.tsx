@@ -60,12 +60,12 @@ export default function Navbar() {
 						<Link href="/">
 							<span className="sr-only">Home</span>
 							<Image
-								src="/images/ai_robot_icon.jpeg"
-								alt="AI and Robotics Logo"
+								src="/images/website_icon.png"
+								alt="Ethan Villalovoz Logo"
 								width={32}
 								height={32}
 								priority
-								className="rounded-full grayscale hover:grayscale-0 transition-all duration-300"
+								className="object-contain dark:invert hover:opacity-80 transition-opacity"
 							/>
 						</Link>
 					</div>
