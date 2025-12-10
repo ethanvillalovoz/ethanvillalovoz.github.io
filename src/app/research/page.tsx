@@ -156,16 +156,16 @@ export default function ResearchPage() {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										PDF
+										Paper
 									</a>
-									<a
+									{/* <a
 										href={paper.bibtex}
 										className="inline-flex items-center px-4 py-2 rounded bg-gradient-to-r from-primary via-primary-light to-primary-dark text-white font-semibold shadow-lg hover:brightness-110 transition text-sm"
 										target="_blank"
 										rel="noopener noreferrer"
 									>
 										BibTeX
-									</a>
+									</a> */}
 								</div>
 								<div className="text-neutral-700 dark:text-neutral-300 text-sm">
 									{paper.description}

@@ -132,7 +132,7 @@ const projects = [
 		// ],
 		extraLinks: [
 			{
-				label: "GitHub",
+				label: "Code",
 				url: "https://github.com/mollyiverson/ACME10-HE-RAGApp",
 			},
 			{
@@ -157,7 +157,7 @@ const projects = [
 		// ],
 		extraLinks: [
 			{
-				label: "GitHub",
+				label: "Code",
 				url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation",
 			},
 			// {
@@ -186,7 +186,7 @@ const projects = [
 		// ],
 		extraLinks: [
 			{
-			label: "GitHub",
+			label: "Code",
 			url: "https://github.com/ethanvillalovoz/codeprep-ai",
 			},
 			// {
@@ -216,7 +216,7 @@ const projects = [
 		// ],
 		extraLinks: [
 			{
-			label: "GitHub",
+			label: "Code",
 			url: "https://github.com/ethanvillalovoz/FaceTrack-Face-Attendance-System",
 			},
 		],
@@ -238,7 +238,7 @@ const projects = [
 		// ],
 		extraLinks: [
 			{
-				label: "GitHub",
+				label: "Code",
 				url: "https://github.com/ethanvillalovoz/latex-resume-template",
 			},
 			// {
@@ -264,7 +264,7 @@ const projects = [
 		// ],
 		extraLinks: [
 			{
-				label: "GitHub",
+				label: "Code",
 				url: "https://github.com/ethanvillalovoz/intellicrawl",
 			},
 			// {
@@ -301,7 +301,7 @@ const projects = [
 		// ],
 		extraLinks: [
 			{
-				label: "GitHub",
+				label: "Code",
 				url: "https://github.com/ethanvillalovoz/sentisync",
 			},
 			// {
@@ -342,7 +342,7 @@ const projects = [
 		// ],
 		extraLinks: [
 			{
-				label: "GitHub",
+				label: "Code",
 				url: "https://github.com/ethanvillalovoz/clearbill-ai",
 			},
 			// {
@@ -381,7 +381,7 @@ const projects = [
 		// ],
 		extraLinks: [
 			{
-			label: "GitHub",
+			label: "Code",
 			url: "https://github.com/ethanvillalovoz/self-driving-car-simulation" // TODO: confirm repo URL
 			},
 			// {
@@ -527,13 +527,13 @@ export default function ProjectsPage() {
 									{project.title}
 								</div>
 							</div>
-								<div className="flex flex-wrap gap-4 mb-1">
+								<div className="flex flex-wrap gap-3 mb-3">
 									{project.extraLinks &&
 										project.extraLinks.map((link, idx) => (
 											<a
 												key={link.label + idx}
 												href={link.url}
-												className="text-primary underline text-sm transition-colors hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary"
+												className="inline-flex items-center px-4 py-2 rounded bg-gradient-to-r from-primary via-primary-light to-primary-dark text-white font-semibold shadow-lg hover:brightness-110 transition text-sm"
 												target="_blank"
 												rel="noopener noreferrer"
 											>
