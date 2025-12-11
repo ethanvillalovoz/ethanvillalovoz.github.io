@@ -242,14 +242,14 @@ export default function ProjectsPage() {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ duration: 0.5, ease: "easeOut" }}
-							className="group flex flex-col bg-card rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600 transition-all duration-300"
+							className="group flex flex-col bg-card rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800"
 						>
 							<div className="relative w-full h-48 overflow-hidden bg-neutral-100 dark:bg-neutral-900">
 								<Image
 									src={project.image}
 									alt={project.title}
 									fill
-									className="object-cover transition-transform duration-500 group-hover:scale-105"
+									className="object-cover"
 									sizes="(max-width: 768px) 100vw, 50vw"
 								/>
 							</div>

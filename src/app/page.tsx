@@ -315,7 +315,7 @@ export default function Home() {
 						{(timelineTab === "work" ? workTimeline : educationTimeline).map((item, idx) => (
 							<div
 								key={idx}
-								className="flex items-start gap-6 p-6 rounded-xl bg-card border border-neutral-100 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors"
+								className="flex items-start gap-6 p-6 rounded-xl bg-card border border-neutral-100 dark:border-neutral-800"
 							>
 								<div className="flex-shrink-0">
 									<Image

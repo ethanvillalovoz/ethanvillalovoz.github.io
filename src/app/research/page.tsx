@@ -66,7 +66,7 @@ export default function ResearchPage() {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ duration: 0.5, ease: "easeOut" }}
-							className="flex flex-col md:flex-row gap-8 p-6 rounded-xl bg-card border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
+							className="flex flex-col md:flex-row gap-8 p-6 rounded-xl bg-card border border-neutral-200 dark:border-neutral-800"
 						>
 							<div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-900">
 								<Image

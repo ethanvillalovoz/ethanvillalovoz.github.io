@@ -64,7 +64,7 @@ export default function TeachingPage() {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ duration: 0.5, ease: "easeOut" }}
-							className="p-6 rounded-xl bg-card border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
+							className="p-6 rounded-xl bg-card border border-neutral-200 dark:border-neutral-800"
 						>
 							<div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
 								<div className="font-serif text-xl font-medium text-primary">
