@@ -14,24 +14,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ethan Villalovoz | AI Researcher & Developer",
+  metadataBase: new URL("https://ethanvillalovoz.vercel.app"),
+  title: "Ethan Villalovoz",
   description:
-    "Website of Ethan Villalovoz: AI/ML researcher, engineer, and MSCS student at Georgia Tech. Explore my projects, research, and journey.",
+    "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
   icons: {
     icon: "/images/website_icon.png",
   },
+  verification: {
+    google: "YI1L3YOtnukh0nVwoZ-TVjTTp9_PN65NylPHNUshHII",
+  },
   openGraph: {
-    title: "Ethan Villalovoz | AI Researcher & Developer",
+    title: "Ethan Villalovoz",
     description:
-      "Website of Ethan Villalovoz: AI/ML researcher, engineer, and MSCS student at Georgia Tech. Explore my projects, research, and journey.",
-    url: "https://ethanvillalovoz.vercel.app/", // Update to your real URL
-    siteName: "Ethan Villalovoz Website",
+      "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
+    url: "https://ethanvillalovoz.vercel.app/",
+    // siteName: "Ethan Villalovoz",
     images: [
       {
-        url: "/images/website_icon.png", // Place this image in your public/images folder
+        url: "/images/EthanVillalovozPic.jpeg",
         width: 1200,
         height: 630,
-        alt: "Ethan Villalovoz Website",
+        // alt: "Ethan Villalovoz",
       },
     ],
     locale: "en_US",
@@ -39,10 +43,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ethan Villalovoz | AI Researcher & Developer",
+    title: "Ethan Villalovoz",
     description:
-      "Website of Ethan Villalovoz: AI/ML researcher, engineer, and MSCS student at Georgia Tech.",
-    images: ["/images/website_icon.png"],
+      "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
+    images: ["/images/EthanVillalovozPic.jpeg"],
     creator: "@etvillalovoz",
   },
 };
@@ -54,63 +58,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Use .png for best browser compatibility and match Next.js metadata */}
-        <link rel="icon" href="/images/website_icon.png" type="image/png" sizes="any" />
-        <link rel="shortcut icon" href="/images/website_icon.png" type="image/png" />
-
-        {/* ✅ Add your Google verification meta tag here */}
-        <meta name="google-site-verification" content="YI1L3YOtnukh0nVwoZ-TVjTTp9_PN65NylPHNUshHII" />
-        {/* Remove .jpeg favicon links */}
-
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {/* ✅ Person Structured Data */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Ethan Villalovoz",
-            "url": "https://ethanvillalovoz.vercel.app",
-            "image": "https://ethanvillalovoz.vercel.app/images/website_icon.png",
-            "sameAs": [
-              "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
-              "https://github.com/ethanvillalovoz",
-              "https://x.com/etvillalovoz",
-              "https://www.linkedin.com/in/evillalovoz27/",
-              "https://ethanvillalovoz.github.io/"
-            ],
-            "jobTitle": "AI Researcher & Developer",
-            "alumniOf": {
-              "@type": "CollegeOrUniversity",
-              "name": "Georgia Institute of Technology"
-            },
-            "description": "AI/ML researcher and engineer focused on robotics and human-AI interaction."
-          })
-        }} />
-
-        {/* ✅ Organization Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Ethan Villalovoz",
-              "url": "https://ethanvillalovoz.vercel.app",
-              "logo": "https://ethanvillalovoz.vercel.app/images/website_icon.png",
-              "sameAs": [
+              "@type": "Person",
+              name: "Ethan Villalovoz",
+              url: "https://ethanvillalovoz.vercel.app",
+              image: "https://ethanvillalovoz.vercel.app/images/EthanVillalovozPic.jpeg",
+              sameAs: [
                 "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
                 "https://github.com/ethanvillalovoz",
                 "https://x.com/etvillalovoz",
                 "https://www.linkedin.com/in/evillalovoz27/",
-                "https://ethanvillalovoz.github.io/"
-              ]
-            })
+                "https://ethanvillalovoz.github.io/",
+              ],
+              jobTitle: "MSCS @ Georgia Tech",
+              alumniOf: {
+                "@type": "CollegeOrUniversity",
+                name: "Washington State University",
+              },
+              description:
+                "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
+            }),
           }}
         />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
         <Navbar />
         {children}
       </body>
