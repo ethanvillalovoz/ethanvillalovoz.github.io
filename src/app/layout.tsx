@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     // siteName: "Ethan Villalovoz",
     images: [
       {
-        url: "/images/website_icon_with_background.png",
+        url: "/images/EthanVillalovozPic.jpeg",
         width: 800,
         height: 800,
         // alt: "Ethan Villalovoz",
@@ -42,11 +42,11 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Ethan Villalovoz",
     description:
       "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
-    images: ["/images/EthanVillalovozPic.jpeg"],
+    images: ["/images/website_icon_with_background.png"],
     creator: "@etvillalovoz",
   },
 };
