@@ -39,24 +39,24 @@ const teachingExperiences = [
 
 export default function TeachingPage() {
 	return (
-		<main className="max-w-5xl mx-auto px-6 py-16 bg-background text-foreground">
-			<header className="mb-12">
+		<main className="max-w-5xl mx-auto px-6 py-24 bg-background text-foreground">
+			<header className="mb-24">
 				<motion.h1
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.7, ease: "easeOut" }}
-					className="text-5xl font-serif font-medium text-primary mb-4"
+					className="text-7xl md:text-8xl font-serif text-primary dark:text-white mb-8 tracking-tighter leading-[0.9]"
 				>
 					Teaching
 				</motion.h1>
-				<p className="text-xl text-neutral-600 dark:text-neutral-300">
+				<p className="text-2xl text-neutral-600 dark:text-neutral-300 font-light">
 					A list of my teaching experiences.
 				</p>
 			</header>
 			
 			<section className="mb-12">
-				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-6">Washington State University</h2>
-				<div className="grid gap-6">
+				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-12">Washington State University</h2>
+				<div className="space-y-12">
 					{teachingExperiences.map((exp, idx) => (
 						<motion.article
 							key={idx}
@@ -64,21 +64,21 @@ export default function TeachingPage() {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ duration: 0.5, ease: "easeOut" }}
-							className="p-6 rounded-xl bg-card border border-neutral-200 dark:border-neutral-800"
+							className="group flex flex-col md:flex-row md:items-start gap-6 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-8"
 						>
-							<div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
-								<div className="font-serif text-xl font-medium text-primary">
+							<div className="flex-shrink-0 md:w-48 pt-1">
+								<div className="text-sm font-mono text-neutral-500 uppercase tracking-widest">{exp.term}</div>
+							</div>
+							<div className="flex-1">
+								<div className="font-serif text-2xl text-primary dark:text-white mb-2">
 									{exp.course}
 								</div>
-								<span className="text-sm font-mono text-primary-light uppercase tracking-wider mt-1 md:mt-0">
-									{exp.term}
-								</span>
-							</div>
-							<div className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-3">
-								{exp.role}
-							</div>
-							<div className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
-								{exp.description}
+								<div className="text-lg font-medium text-neutral-500 dark:text-neutral-400 mb-4">
+									{exp.role}
+								</div>
+								<div className="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
+									{exp.description}
+								</div>
 							</div>
 						</motion.article>
 					))}

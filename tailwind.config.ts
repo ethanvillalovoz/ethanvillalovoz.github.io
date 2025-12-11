@@ -31,8 +31,8 @@ export default {
 				spacing: "margin, padding",
 			},
 			fontFamily: {
-				sans: ["Inter", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
-				serif: ["Times New Roman", "Times", "serif"], // Added for that elegant look
+				sans: ["Inter", "system-ui", "sans-serif"],
+				serif: ["Times New Roman", "Times", "serif"],
 			},
 		},
 	},

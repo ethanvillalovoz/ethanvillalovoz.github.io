@@ -235,28 +235,25 @@ export default function Home() {
 		<main className="max-w-5xl mx-auto px-6 py-16 bg-background text-foreground">
 			<div className="relative z-10">
 				{/* Intro Section */}
-				<div className="flex flex-col md:flex-row items-center md:items-start gap-12 mb-16">
+				<div className="flex flex-col md:flex-row items-start gap-12 mb-24">
 					<div className="flex-1">
 						<motion.h1
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.7, ease: "easeOut" }}
-							className="text-6xl font-serif mb-6 text-primary dark:text-white tracking-tight"
+							className="text-7xl md:text-8xl font-serif mb-8 text-primary dark:text-white tracking-tighter leading-[0.9]"
 						>
-							Ethan Villalovoz
+							Ethan<br />Villalovoz
 						</motion.h1>
-						<p className="mb-6 text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
-							I am a Master&apos;s student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics. This summer, I&apos;ll be joining Microsoft as a Software Engineer Intern.
+						<p className="mb-8 text-xl md:text-2xl leading-relaxed text-neutral-600 dark:text-neutral-300 font-light max-w-2xl">
+							Master&apos;s student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics. Incoming Software Engineer Intern at Microsoft.
 						</p>
-						<p className="mb-8 text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
-							Please feel free to reach out about research, collaboration, or any advice I can help with!
-						</p>
-						<div className="flex flex-wrap items-center gap-4 mb-8">
+						<div className="flex flex-wrap items-center gap-4 mb-12">
 							<a
 								href="/data/EthanVillalovoz-Resume.pdf"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="inline-flex items-center px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+								className="inline-flex items-center px-8 py-3 rounded-full bg-primary text-primary-foreground text-lg font-medium hover:opacity-90 transition-opacity"
 							>
 								Resume
 							</a>
@@ -264,73 +261,75 @@ export default function Home() {
 								href="/data/EthanVillalovoz-CV.pdf"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="inline-flex items-center px-6 py-2.5 rounded-full border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
+								className="inline-flex items-center px-8 py-3 rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-lg"
 							>
 								CV
 							</a>
-							<div className="flex gap-4 ml-2">
-								<a href="https://www.linkedin.com/in/evillalovoz27/" target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-primary transition-colors text-2xl"><FaLinkedin /></a>
-								<a href="https://github.com/ethanvillalovoz" target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-primary transition-colors text-2xl"><FaGithub /></a>
-								<a href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-primary transition-colors text-2xl"><SiGooglescholar /></a>
-								<a href="mailto:ethan.villalovoz@gatech.edu" className="text-neutral-500 hover:text-primary transition-colors text-2xl"><FaEnvelope /></a>
-							</div>
+						</div>
+						<div className="flex gap-6">
+							<a href="https://www.linkedin.com/in/evillalovoz27/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaLinkedin /></a>
+							<a href="https://github.com/ethanvillalovoz" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaGithub /></a>
+							<a href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><SiGooglescholar /></a>
+							<a href="mailto:ethan.villalovoz@gatech.edu" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaEnvelope /></a>
 						</div>
 					</div>
-					<div>
+					<div className="w-full md:w-auto flex justify-center md:justify-end">
 						<Image
 							src="/images/EthanVillalovozPic.jpeg"
 							alt="Ethan Villalovoz"
-							width={240}
-							height={240}
-							className="rounded-full object-cover"
+							width={300}
+							height={300}
+							className="rounded-2xl object-cover shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500"
 						/>
 					</div>
 				</div>
 
 				{/* Timeline Section */}
-				<section className="mb-16">
-					<div className="flex gap-6 mb-6 border-b border-neutral-200 dark:border-neutral-800">
+				<section className="mb-24">
+					<div className="flex gap-8 mb-8 border-b border-neutral-200 dark:border-neutral-800">
 						<button
-							className={`pb-3 font-medium transition-colors ${
+							className={`pb-4 text-lg font-serif transition-colors ${
 								timelineTab === "work"
 									? "border-b-2 border-primary text-primary dark:text-white"
-									: "text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-200"
+									: "text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300"
 							}`}
 							onClick={() => setTimelineTab("work")}
 						>
-							Work
+							Work Experience
 						</button>
 						<button
-							className={`pb-3 font-medium transition-colors ${
+							className={`pb-4 text-lg font-serif transition-colors ${
 								timelineTab === "education"
 									? "border-b-2 border-primary text-primary dark:text-white"
-									: "text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-200"
+									: "text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300"
 							}`}
 							onClick={() => setTimelineTab("education")}
 						>
 							Education
 						</button>
 					  </div>
-					<div className="space-y-6">
+					<div className="space-y-12">
 						{(timelineTab === "work" ? workTimeline : educationTimeline).map((item, idx) => (
 							<div
 								key={idx}
-								className="flex items-start gap-6 p-6 rounded-xl bg-card border border-neutral-100 dark:border-neutral-800"
+								className="group flex flex-col md:flex-row md:items-start gap-6 md:gap-12"
 							>
-								<div className="flex-shrink-0">
-									<Image
-										src={item.logo}
-										alt={item.company + ' logo'}
-										width={48}
-										height={48}
-										className="w-12 h-12 rounded-full object-contain bg-white border border-neutral-100"
-									/>
+								<div className="flex-shrink-0 md:w-48 pt-1">
+									<div className="text-sm font-mono text-neutral-500 uppercase tracking-widest">{item.date}</div>
 								</div>
-								<div>
-									<div className="text-sm text-primary-light mb-1 font-medium">{item.date}</div>
-									<div className="font-serif text-xl text-primary dark:text-white mb-1">{item.company}</div>
-									<div className="text-base text-neutral-700 dark:text-neutral-300 mb-2">{item.title}</div>
-									<ul className="list-disc pl-5 space-y-1 text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
+								<div className="flex-1">
+									<div className="flex items-center gap-4 mb-2">
+										<Image
+											src={item.logo}
+											alt={item.company + ' logo'}
+											width={32}
+											height={32}
+											className="w-8 h-8 rounded-full object-contain bg-white"
+										/>
+										<h3 className="font-serif text-2xl text-primary dark:text-white">{item.company}</h3>
+									</div>
+									<div className="text-lg font-medium text-neutral-800 dark:text-neutral-200 mb-3">{item.title}</div>
+									<ul className="list-disc pl-5 space-y-2 text-neutral-600 dark:text-neutral-400 leading-relaxed">
 										{item.bullets.map((point, i) => (
 											<li key={i}>{point}</li>
 										))}
@@ -343,42 +342,50 @@ export default function Home() {
 
 				{/* News Section */}
 				<section className="mb-12">
-					<h2 className="text-3xl font-serif mb-8 text-primary dark:text-white">News</h2>
-					<ul className="space-y-4 border-l-2 border-neutral-100 dark:border-neutral-800 pl-6">
+					<h2 className="text-4xl font-serif mb-12 text-primary dark:text-white">Latest News</h2>
+					<div className="grid gap-8">
 						{visibleNews.map((item, idx) => (
-							<li key={idx} className="text-neutral-700 dark:text-neutral-300">
-								<span className="font-mono text-xs text-primary-light mr-3 uppercase tracking-wider">{item.date}</span>
-								<span>{item.content}</span>
-							</li>
+							<div key={idx} className="flex flex-col md:flex-row gap-4 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-8">
+								<div className="md:w-32 flex-shrink-0">
+									<span className="font-mono text-sm text-neutral-500 uppercase tracking-widest">{item.date}</span>
+								</div>
+								<div className="text-lg text-neutral-800 dark:text-neutral-200 leading-relaxed">
+									{item.content}
+								</div>
+							</div>
 						))}
 						{!showAllNews && hiddenNews.length > 0 && (
-							<li>
+							<div className="pt-8">
 								<button
-									className="text-sm text-primary-light hover:text-primary transition-colors font-medium mt-2"
+									className="text-primary hover:opacity-70 transition-opacity font-medium underline decoration-neutral-300 underline-offset-4"
 									onClick={() => setShowAllNews(true)}
 								>
-									+ Show More
+									View Archive
 								</button>
-							</li>
+							</div>
 						)}
 						{showAllNews &&
 							hiddenNews.map((item, idx) => (
-								<li key={visibleNews.length + idx} className="text-neutral-700 dark:text-neutral-300">
-									<span className="font-mono text-xs text-primary-light mr-3 uppercase tracking-wider">{item.date}</span>
-									<span>{item.content}</span>
-								</li>
+								<div key={visibleNews.length + idx} className="flex flex-col md:flex-row gap-4 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-8">
+									<div className="md:w-32 flex-shrink-0">
+										<span className="font-mono text-sm text-neutral-500 uppercase tracking-widest">{item.date}</span>
+									</div>
+									<div className="text-lg text-neutral-800 dark:text-neutral-200 leading-relaxed">
+										{item.content}
+									</div>
+								</div>
 							))}
 						{showAllNews && (
-							<li>
+							<div className="pt-8">
 								<button
-									className="text-sm text-primary-light hover:text-primary transition-colors font-medium mt-2"
+									className="text-primary hover:opacity-70 transition-opacity font-medium underline decoration-neutral-300 underline-offset-4"
 									onClick={() => setShowAllNews(false)}
 								>
-									- Show Less
+									Show Less
 								</button>
-							</li>
+							</div>
 						)}
-					</ul>
+					</div>
 				</section>
 			</div>
 		</main>

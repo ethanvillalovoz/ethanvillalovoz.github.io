@@ -3,25 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --background: 255 255 255;      /* Pure White */
-  --foreground: 26 26 26;      /* Soft Black */
-  /* World Labs (Real) Palette */
-  --primary: 26 26 26;         /* Dark Charcoal */
-  --primary-foreground: 255 255 255; /* White text on primary */
-  --primary-light: 142 142 158;   /* Muted Slate/Lavender */
-  --primary-dark: 0 0 0;    /* Pure Black */
-  --card: 249 249 249;            /* Very Light Gray */
+  /* World Labs Inspired - Light Mode */
+  --background: 253 252 248;      /* Warm Off-White / Bone */
+  --foreground: 28 28 28;         /* Sharp Charcoal */
+  
+  --primary: 28 28 28;            /* Match foreground for high contrast */
+  --primary-foreground: 255 255 255; 
+  --primary-light: 115 115 115;   /* Neutral Gray for secondary text */
+  --primary-dark: 0 0 0;    
+  
+  --card: 255 255 255;            /* Pure white cards on cream bg */
 }
 
 .dark {
-  --background: 15 15 15;      /* Deep Space Black */
-  --foreground: 255 255 255;      /* Pure White */
-  /* World Labs (Real) Palette */
-  --primary: 255 255 255;         /* White for contrast */
-  --primary-foreground: 26 26 26; /* Black text on primary */
-  --primary-light: 160 160 176;   /* Light Slate */
-  --primary-dark: 51 51 51;    
-  --card: 26 26 26;            /* Dark Card */
+  /* World Labs Inspired - Dark Mode */
+  --background: 10 10 10;         /* Deepest Black/Gray */
+  --foreground: 240 240 240;      /* Soft White */
+  
+  --primary: 255 255 255;         
+  --primary-foreground: 10 10 10; 
+  --primary-light: 163 163 163;   
+  --primary-dark: 255 255 255;    
+  
+  --card: 23 23 23;               /* Subtle dark card */
 }
 
 body {
@@ -29,6 +33,11 @@ body {
   background: rgb(var(--background));
   font-family: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
   transition: background 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: -0.02em; /* Tighter tracking for that editorial look */
 }
 
 h1, h2, h3, h4, h5, h6 {

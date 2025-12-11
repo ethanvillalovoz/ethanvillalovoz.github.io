@@ -22,7 +22,7 @@ export default function Navbar() {
 
 	return (
 		<nav
-			className="w-full bg-background/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 sticky top-0 z-50 transition-colors"
+			className="w-full bg-background/80 backdrop-blur-xl border-b border-neutral-200/50 dark:border-neutral-800/50 sticky top-0 z-50 transition-colors"
 			role="navigation"
 			aria-label="Main navigation"
 		>

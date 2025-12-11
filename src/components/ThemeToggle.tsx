@@ -42,7 +42,7 @@ export default function ThemeToggle() {
     <button
       aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
       onClick={toggleTheme}
-      className="ml-2 p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-primary focus:outline-none"
+      className="ml-4 p-2.5 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity focus:outline-none shadow-sm"
     >
       <AnimatePresence mode="wait" initial={false}>
         {dark ? (
@@ -53,8 +53,8 @@ export default function ThemeToggle() {
             exit={{ scale: 0.5, opacity: 0, rotate: 90 }}
             transition={{ duration: 0.2 }}
           >
-             {/* Simple Moon Icon */}
-             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+             {/* Solid Moon Icon */}
+             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
              </svg>
           </motion.div>
@@ -66,9 +66,9 @@ export default function ThemeToggle() {
             exit={{ scale: 0.5, opacity: 0, rotate: -90 }}
             transition={{ duration: 0.2 }}
           >
-            {/* Simple Sun Icon */}
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="5"></circle>
+            {/* Sun Icon with filled center */}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="5" fill="currentColor" stroke="none"></circle>
               <line x1="12" y1="1" x2="12" y2="3"></line>
               <line x1="12" y1="21" x2="12" y2="23"></line>
               <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>

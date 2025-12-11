@@ -194,13 +194,13 @@ export default function ProjectsPage() {
 	const reversedProjects = [...projects].reverse();
 
 	return (
-		<main className="max-w-6xl mx-auto px-6 py-16 bg-background text-foreground">
-			<header className="flex items-center justify-between mb-12">
+		<main className="max-w-6xl mx-auto px-6 py-24 bg-background text-foreground">
+			<header className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
 				<motion.h1
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.7, ease: "easeOut" }}
-					className="text-5xl font-serif font-medium text-primary dark:text-white"
+					className="text-7xl md:text-8xl font-serif text-primary dark:text-white tracking-tighter leading-[0.9]"
 				>
 					Projects
 				</motion.h1>
@@ -208,9 +208,9 @@ export default function ProjectsPage() {
 					href="https://github.com/ethanvillalovoz"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="inline-flex items-center px-5 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors shadow-sm"
+					className="inline-flex items-center px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity mb-2"
 				>
-					<FaGithub className="mr-2" />
+					<FaGithub className="mr-2 text-lg" />
 					GitHub
 				</a>
 			</header>
@@ -219,7 +219,7 @@ export default function ProjectsPage() {
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-				className="text-xl text-neutral-600 dark:text-neutral-300 mb-12 max-w-2xl leading-relaxed"
+				className="text-2xl text-neutral-600 dark:text-neutral-300 mb-24 max-w-3xl leading-relaxed font-light"
 			>
 				A showcase of my personal and technical projects, ranging from reinforcement learning research to full-stack AI applications.
 			</motion.p>

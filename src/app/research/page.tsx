@@ -26,13 +26,13 @@ const papers = [
 
 export default function ResearchPage() {
     return (
-		<main className="max-w-5xl mx-auto px-6 py-16 bg-background text-foreground">
-			<header className="flex items-center justify-between mb-12">
+		<main className="max-w-5xl mx-auto px-6 py-24 bg-background text-foreground">
+			<header className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
 				<motion.h1
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.7, ease: "easeOut" }}
-					className="text-5xl font-serif font-medium text-primary dark:text-white"
+					className="text-7xl md:text-8xl font-serif text-primary dark:text-white tracking-tighter leading-[0.9]"
 				>
 					Research
 				</motion.h1>
@@ -40,16 +40,16 @@ export default function ResearchPage() {
 						href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="inline-flex items-center px-5 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors shadow-sm"
+						className="inline-flex items-center px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity mb-2"
 					>
-						<SiGooglescholar className="mr-2" />
+						<SiGooglescholar className="mr-2 text-lg" />
 						Google Scholar
 				</a>
 			</header>
 			
-			<section className="mb-16">
-				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-4">Interests</h2>
-				<p className="text-xl leading-relaxed text-neutral-700 dark:text-neutral-300 max-w-3xl">
+			<section className="mb-24">
+				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-8">Interests</h2>
+				<p className="text-2xl leading-relaxed text-neutral-700 dark:text-neutral-300 max-w-4xl font-light">
 					My research focuses on building aligned world models for robotics, which are frameworks that jointly 
 					infer human intent and predict the consequences of actions in complex environments. I am interested in 
 					interactive robot learning, human-AI collaboration, and generative models for embodied intelligence.
@@ -57,8 +57,8 @@ export default function ResearchPage() {
 			</section>
 
 			<section className="mb-12">
-				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-6">Publications</h2>
-				<div className="flex flex-col gap-8">
+				<h2 className="text-4xl font-serif mb-12 text-primary dark:text-white">Publications</h2>
+				<div className="flex flex-col gap-12">
 					{papers.map((paper) => (
 						<motion.article
 							key={paper.title}
@@ -66,15 +66,15 @@ export default function ResearchPage() {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ duration: 0.5, ease: "easeOut" }}
-							className="flex flex-col md:flex-row gap-8 p-6 rounded-xl bg-card border border-neutral-200 dark:border-neutral-800"
+							className="flex flex-col md:flex-row gap-8 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-12"
 						>
-							<div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-900">
+							<div className="relative w-full md:w-64 h-40 flex-shrink-0 rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-900">
 								<Image
 									src={paper.image}
 									alt={paper.title}
 									fill
 									className="object-cover"
-									sizes="200px"
+									sizes="300px"
 								/>
 							</div>
 							  <div className="flex-1">
@@ -82,23 +82,23 @@ export default function ResearchPage() {
 									href={paper.pdf}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="font-serif text-xl font-medium text-primary dark:text-white hover:text-primary-light transition-colors block mb-2"
+									className="font-serif text-2xl font-medium text-primary dark:text-white hover:text-primary-light transition-colors block mb-3 leading-tight"
 								>
 									{paper.title}
 								</a>
-								<div className="text-neutral-600 dark:text-neutral-400 mb-1">
+								<div className="text-lg text-neutral-600 dark:text-neutral-400 mb-2">
 									{paper.authors.join(", ")}
 								</div>
-								<div className="text-sm font-medium text-primary-light mb-4">
+								<div className="text-sm font-mono text-primary-light uppercase tracking-wider mb-6">
 									{paper.conference}
 								</div>
-								<p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4 leading-relaxed">
+								<p className="text-neutral-600 dark:text-neutral-400 text-lg mb-6 leading-relaxed">
 									{paper.description}
 								</p>
 								<div className="flex gap-3">
 									<a
 										href={paper.pdf}
-										className="inline-flex items-center px-4 py-1.5 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+										className="inline-flex items-center px-6 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
 										target="_blank"
 										rel="noopener noreferrer"
 									>
