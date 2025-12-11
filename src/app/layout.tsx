@@ -42,11 +42,11 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Ethan Villalovoz",
     description:
       "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
-    images: ["/images/website_icon_with_background.png"],
+    images: ["/images/EthanVillalovozPic.jpeg"],
     creator: "@etvillalovoz",
   },
 };
