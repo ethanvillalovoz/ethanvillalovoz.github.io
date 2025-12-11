@@ -35,6 +35,8 @@ export const metadata: Metadata = {
         url: "/images/EthanVillalovozPic.jpeg",
         width: 800,
         height: 800,
+        // width: 1200,
+        // height: 630,
         // alt: "Ethan Villalovoz",
       },
     ],
@@ -43,6 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
+    // card: "summary_large_image",
     title: "Ethan Villalovoz",
     description:
       "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
