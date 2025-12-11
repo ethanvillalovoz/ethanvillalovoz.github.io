@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     // siteName: "Ethan Villalovoz",
     images: [
       {
-        url: "/images/EthanVillalovozPic.jpeg",
+        url: "/images/website_icon_with_background.png",
         width: 800,
         height: 800,
         // alt: "Ethan Villalovoz",
