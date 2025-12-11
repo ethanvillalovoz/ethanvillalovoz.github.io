@@ -282,7 +282,7 @@ export default function Home() {
 							alt="Ethan Villalovoz"
 							width={240}
 							height={240}
-							className="rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+							className="rounded-full object-cover"
 						/>
 					</div>
 				</div>
