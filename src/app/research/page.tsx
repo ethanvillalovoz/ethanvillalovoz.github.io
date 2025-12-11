@@ -78,14 +78,11 @@ export default function ResearchPage() {
 								/>
 							</div>
 							  <div className="flex-1">
-								<a
-									href={paper.pdf}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="font-serif text-2xl font-medium text-primary dark:text-white hover:text-primary-light transition-colors block mb-3 leading-tight"
+								<h3
+									className="font-serif text-2xl font-medium text-primary dark:text-white block mb-3 leading-tight"
 								>
 									{paper.title}
-								</a>
+								</h3>
 								<div className="text-lg text-neutral-600 dark:text-neutral-400 mb-2">
 									{paper.authors.join(", ")}
 								</div>
