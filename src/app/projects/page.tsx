@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { motion } from "framer-motion";
 import { GitHubCalendar } from "react-github-calendar";
@@ -191,6 +191,22 @@ const projects = [
 ];
 
 export default function ProjectsPage() {
+	const [theme, setTheme] = useState<"light" | "dark">("light");
+
+	useEffect(() => {
+		const updateTheme = () => {
+			const isDark = document.documentElement.classList.contains("dark");
+			setTheme(isDark ? "dark" : "light");
+		};
+
+		updateTheme();
+
+		const observer = new MutationObserver(updateTheme);
+		observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+
+		return () => observer.disconnect();
+	}, []);
+
 	const reversedProjects = [...projects].reverse();
 
 	return (
@@ -227,8 +243,14 @@ export default function ProjectsPage() {
 			{/* GitHub Activity Widget */}
 			<section className="mb-16">
 				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-4">Contribution Activity</h2>
-				<div className="p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-card">
-					<GitHubCalendar username="ethanvillalovoz" blockSize={12} blockMargin={4} fontSize={14} />
+				<div className="p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-card flex justify-center">
+					<GitHubCalendar 
+						username="ethanvillalovoz" 
+						blockSize={12} 
+						blockMargin={4} 
+						fontSize={14}
+						colorScheme={theme}
+					/>
 				</div>
 			</section>
 
