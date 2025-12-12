@@ -249,20 +249,6 @@ export default function ProjectsPage() {
 				A showcase of my personal and technical projects, ranging from reinforcement learning research to full-stack AI applications.
 			</motion.p>
 
-			{/* GitHub Activity Widget */}
-			<section className="mb-16">
-				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-4">Contribution Activity</h2>
-				<div className="p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-card flex justify-center">
-					<GitHubCalendar 
-						username="ethanvillalovoz" 
-						blockSize={12} 
-						blockMargin={4} 
-						fontSize={14}
-						colorScheme={theme}
-					/>
-				</div>
-			</section>
-
 			{/* Project cards */}
 			<section className="mb-12">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -310,6 +296,20 @@ export default function ProjectsPage() {
 							</div>
 						</motion.article>
 					))}
+				</div>
+			</section>
+
+			{/* GitHub Activity Widget */}
+			<section className="mb-16">
+				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-4">Contribution Activity</h2>
+				<div className="p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-card flex justify-center">
+					<GitHubCalendar 
+						username="ethanvillalovoz" 
+						blockSize={12} 
+						blockMargin={4} 
+						fontSize={14}
+						colorScheme={theme}
+					/>
 				</div>
 			</section>
 		</main>
