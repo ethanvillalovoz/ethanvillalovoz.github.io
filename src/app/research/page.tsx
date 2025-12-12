@@ -8,7 +8,7 @@ interface Paper {
 	title: string;
 	authors: string[];
 	conference: string;
-	pdf?: string;
+	paper?: string;
 	bibtex?: string;
 	image: string;
 	description: string;
@@ -29,7 +29,7 @@ const papers: Paper[] = [
 			"Heather Knight",
 		],
 		conference: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2023",
-		pdf: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.pdf",
+		paper: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.pdf",
 		bibtex: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.bib",
 		image: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/STAL_Multi_Robot_Formations.png",
 		description:
@@ -107,9 +107,9 @@ export default function ResearchPage() {
 									{paper.description}
 								</p>
 								<div className="flex gap-3 flex-wrap">
-									{paper.pdf && (
+									{paper.paper && (
 										<a
-											href={paper.pdf}
+											href={paper.paper}
 											className="inline-flex items-center px-6 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
 											target="_blank"
 											rel="noopener noreferrer"
