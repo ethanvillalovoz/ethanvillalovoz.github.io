@@ -99,7 +99,7 @@ export default function ResearchPage() {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										PDF
+										Paper
 									</a>
 								</div>
 							</div>
