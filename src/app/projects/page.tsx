@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { GitHubCalendar } from "react-github-calendar";
 import Image from "next/image";
-import { FaGithub, FaPython, FaReact, FaDatabase, FaRobot, FaChartLine, FaBook, FaBrain, FaCloud, FaDocker, FaFlask, FaFilePdf, FaFileAlt, FaUserGraduate, FaCodeBranch, FaSearch, FaEye, FaAward, FaClipboardList, FaLaptopCode, FaRegSmile, FaCar, FaRegFileAlt } from "react-icons/fa";
+import { FaGithub, FaPython, FaReact, FaDatabase, FaRobot, FaChartLine, FaBook, FaBrain, FaCloud, FaDocker, FaFlask, FaFilePdf, FaFileAlt, FaUserGraduate, FaCodeBranch, FaSearch, FaEye, FaAward, FaClipboardList, FaLaptopCode, FaRegSmile, FaCar, FaRegFileAlt, FaArrowRight, FaGlobe, FaYoutube, FaExternalLinkAlt } from "react-icons/fa";
 import { SiTensorflow, SiOpenai, SiTypescript, SiNextdotjs, SiHuggingface, SiLangchain, SiOpencv, SiFastapi, SiFlask, SiDocker, SiKeras, SiPuppeteer, SiStreamlit, SiLatex, SiGithub, SiPython, SiSqlite, SiDvc, SiMlflow, SiAstra, SiUdacity } from "react-icons/si";
 
 const projects = [
@@ -190,6 +190,15 @@ const projects = [
 	},
 ];
 
+const getLinkIcon = (label: string) => {
+	const lower = label.toLowerCase();
+	if (lower.includes("code") || lower.includes("github")) return <FaGithub className="ml-2 text-sm opacity-70" />;
+	if (lower.includes("report") || lower.includes("paper") || lower.includes("pdf")) return <FaFilePdf className="ml-2 text-sm opacity-70" />;
+	if (lower.includes("video") || lower.includes("youtube")) return <FaYoutube className="ml-2 text-sm opacity-70" />;
+	if (lower.includes("website") || lower.includes("demo") || lower.includes("app")) return <FaGlobe className="ml-2 text-sm opacity-70" />;
+	return <FaExternalLinkAlt className="ml-2 text-xs opacity-70" />;
+};
+
 export default function ProjectsPage() {
 	const [theme, setTheme] = useState<"light" | "dark">("light");
 
@@ -294,6 +303,7 @@ export default function ProjectsPage() {
 												rel="noopener noreferrer"
 											>
 												{link.label}
+												{getLinkIcon(link.label)}
 											</a>
 										))}
 								</div>

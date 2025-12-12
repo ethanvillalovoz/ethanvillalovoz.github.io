@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { SiGooglescholar } from "react-icons/si";
+import { FaGithub, FaFilePdf, FaGlobe, FaYoutube } from "react-icons/fa";
 
 interface Paper {
 	title: string;
@@ -115,6 +116,7 @@ export default function ResearchPage() {
 											rel="noopener noreferrer"
 										>
 											Paper
+											<FaFilePdf className="ml-2 text-sm opacity-70" />
 										</a>
 									)}
 									{paper.website && (
@@ -125,6 +127,7 @@ export default function ResearchPage() {
 											rel="noopener noreferrer"
 										>
 											Website
+											<FaGlobe className="ml-2 text-sm opacity-70" />
 										</a>
 									)}
 									{paper.code && (
@@ -135,6 +138,7 @@ export default function ResearchPage() {
 											rel="noopener noreferrer"
 										>
 											Code
+											<FaGithub className="ml-2 text-sm opacity-70" />
 										</a>
 									)}
 									{paper.video && (
@@ -145,6 +149,7 @@ export default function ResearchPage() {
 											rel="noopener noreferrer"
 										>
 											Video
+											<FaYoutube className="ml-2 text-sm opacity-70" />
 										</a>
 									)}
 								</div>
