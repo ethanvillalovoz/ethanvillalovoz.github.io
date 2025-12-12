@@ -245,8 +245,11 @@ export default function Home() {
 						>
 							Ethan<br />Villalovoz
 						</motion.h1>
-						<p className="mb-8 text-xl md:text-2xl leading-relaxed text-neutral-600 dark:text-neutral-300 font-light max-w-2xl">
+						<p className="mb-6 text-xl md:text-2xl leading-relaxed text-neutral-600 dark:text-neutral-300 font-light max-w-2xl">
 							Master&apos;s student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics. Incoming Software Engineer Intern at Microsoft.
+						</p>
+						<p className="mb-8 text-lg md:text-xl leading-relaxed text-neutral-600 dark:text-neutral-300 font-light max-w-2xl">
+							I am always open to connecting—please feel free to reach out!
 						</p>
 						<div className="flex flex-wrap items-center gap-4 mb-12">
 							<a
