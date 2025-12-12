@@ -4,7 +4,21 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { SiGooglescholar } from "react-icons/si";
 
-const papers = [
+interface Paper {
+	title: string;
+	authors: string[];
+	conference: string;
+	pdf?: string;
+	bibtex?: string;
+	image: string;
+	description: string;
+	tags: string[];
+	website?: string;
+	code?: string;
+	video?: string;
+}
+
+const papers: Paper[] = [
 	{
 		title: "Social Triangles and Aggressive Lines: Multi-Robot Formations Impact Navigation and Approach",
 		authors: [
@@ -92,15 +106,47 @@ export default function ResearchPage() {
 								<p className="text-neutral-600 dark:text-neutral-400 text-lg mb-6 leading-relaxed">
 									{paper.description}
 								</p>
-								<div className="flex gap-3">
-									<a
-										href={paper.pdf}
-										className="inline-flex items-center px-6 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										Paper
-									</a>
+								<div className="flex gap-3 flex-wrap">
+									{paper.pdf && (
+										<a
+											href={paper.pdf}
+											className="inline-flex items-center px-6 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Paper
+										</a>
+									)}
+									{paper.website && (
+										<a
+											href={paper.website}
+											className="inline-flex items-center px-6 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Website
+										</a>
+									)}
+									{paper.code && (
+										<a
+											href={paper.code}
+											className="inline-flex items-center px-6 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Code
+										</a>
+									)}
+									{paper.video && (
+										<a
+											href={paper.video}
+											className="inline-flex items-center px-6 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Video
+										</a>
+									)}
 								</div>
 							</div>
 						</motion.article>
