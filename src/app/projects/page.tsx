@@ -210,7 +210,7 @@ export default function ProjectsPage() {
 	const reversedProjects = [...projects].reverse();
 
 	return (
-		<main className="max-w-6xl mx-auto px-6 py-24 bg-background text-foreground">
+		<main className="max-w-5xl mx-auto px-6 py-24 bg-background text-foreground">
 			<header className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
 				<motion.h1
 					initial={{ opacity: 0, y: 20 }}
