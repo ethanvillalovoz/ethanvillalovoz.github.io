@@ -240,14 +240,11 @@ export default function ProjectsPage() {
 				</a>
 			</header>
 			
-			<motion.p
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+			<p
 				className="text-2xl text-neutral-600 dark:text-neutral-300 mb-24 max-w-3xl leading-relaxed font-light"
 			>
 				A showcase of my personal and technical projects, ranging from reinforcement learning research to full-stack AI applications.
-			</motion.p>
+			</p>
 
 			{/* Project cards */}
 			<section className="mb-12">
