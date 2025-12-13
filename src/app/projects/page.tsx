@@ -8,44 +8,44 @@ import { FaGithub, FaPython, FaReact, FaDatabase, FaRobot, FaChartLine, FaBook, 
 import { SiTensorflow, SiOpenai, SiTypescript, SiNextdotjs, SiHuggingface, SiLangchain, SiOpencv, SiFastapi, SiFlask, SiDocker, SiKeras, SiPuppeteer, SiStreamlit, SiLatex, SiGithub, SiPython, SiSqlite, SiDvc, SiMlflow, SiAstra, SiUdacity } from "react-icons/si";
 
 const projects = [
-	{
-		title: "ACME10-HE-RAGApp: RAG with Vector Search, Knowledge Graphs, and LLMs",
-		description:
-			"A full-stack Retrieval-Augmented Generation (RAG) application developed for HackerEarth that integrates vector search (FAISS), knowledge graphs (DBpedia), and OpenAI’s LLM to generate traceable, context-rich answers from a Wikipedia-based knowledge base.",
-		image: "/images/projects/RAG_flowchart.jpg",
-		tags: ["LLM", "RAG", "Vector Search", "Knowledge Graph", "Full-Stack", "NLP"],
-		extraLinks: [
-			{
-				label: "Code",
-				url: "https://github.com/mollyiverson/ACME10-HE-RAGApp",
-			},
-			{
-				label: "Final Report",
-				url: "https://github.com/mollyiverson/ACME10-HE-RAGApp/blob/main/docs/project-report/RAGApp-FinalReport.pdf",
-			},
-		],
-		date: "May 2025",
-		status: "Completed",
-	},
 	// {
-	// 	title: "DDPG: Deep Deterministic Policy Gradient Reimplementation",
+	// 	title: "ACME10-HE-RAGApp: RAG with Vector Search, Knowledge Graphs, and LLMs",
 	// 	description:
-	// 		"A robust, modular, and extensible reimplementation of the DDPG reinforcement learning algorithm (Lillicrap et al., 2015) using TensorFlow 2.x. Built for reproducibility, research comparison, and interactive experimentation with Gym environments.",
-	// 	image: "/images/projects/DDPG_padded.png",
-	// 	tags: ["Reinforcement Learning", "DDPG", "TensorFlow", "OpenAI Gym"],
+	// 		"A full-stack Retrieval-Augmented Generation (RAG) application developed for HackerEarth that integrates vector search (FAISS), knowledge graphs (DBpedia), and OpenAI’s LLM to generate traceable, context-rich answers from a Wikipedia-based knowledge base.",
+	// 	image: "/images/projects/RAG_flowchart.jpg",
+	// 	tags: ["LLM", "RAG", "Vector Search", "Knowledge Graph", "Full-Stack", "NLP"],
 	// 	extraLinks: [
 	// 		{
 	// 			label: "Code",
-	// 			url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation",
+	// 			url: "https://github.com/mollyiverson/ACME10-HE-RAGApp",
 	// 		},
 	// 		{
-	// 			label: "Original Paper",
-	// 			url: "https://arxiv.org/abs/1509.02971",
-	// 		}
+	// 			label: "Final Report",
+	// 			url: "https://github.com/mollyiverson/ACME10-HE-RAGApp/blob/main/docs/project-report/RAGApp-FinalReport.pdf",
+	// 		},
 	// 	],
-	// 	date: "July 2025",
+	// 	date: "May 2025",
 	// 	status: "Completed",
 	// },
+	{
+		title: "DDPG: Deep Deterministic Policy Gradient Reimplementation",
+		description:
+			"A robust, modular, and extensible reimplementation of the DDPG reinforcement learning algorithm (Lillicrap et al., 2015) using TensorFlow 2.x. Built for reproducibility, research comparison, and interactive experimentation with Gym environments.",
+		image: "/images/projects/DDPG_padded.png",
+		tags: ["Reinforcement Learning", "DDPG", "TensorFlow", "OpenAI Gym"],
+		extraLinks: [
+			{
+				label: "Code",
+				url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation",
+			},
+			{
+				label: "Original Paper",
+				url: "https://arxiv.org/abs/1509.02971",
+			}
+		],
+		date: "July 2025",
+		status: "Completed",
+	},
 	{
 		title: "CodePrep.AI: AI-Powered Coding Interview Prep with LLMs",
 		description:
@@ -300,7 +300,7 @@ export default function ProjectsPage() {
 			</section>
 
 			{/* GitHub Activity Widget */}
-			<section className="mb-16">
+			{/* <section className="mb-16">
 				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-4">Contribution Activity</h2>
 				<div className="p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-card flex justify-center">
 					<GitHubCalendar 
@@ -311,7 +311,7 @@ export default function ProjectsPage() {
 						colorScheme={theme}
 					/>
 				</div>
-			</section>
+			</section> */}
 		</main>
 	);
 }
