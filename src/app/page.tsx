@@ -251,7 +251,7 @@ export default function Home() {
 						<p className="mb-8 text-lg md:text-xl leading-relaxed text-neutral-600 dark:text-neutral-300 font-light max-w-2xl">
 							I am always open to connecting—please feel free to reach out!
 						</p>
-						<div className="flex flex-wrap items-center gap-4 mb-12">
+						<div className="flex flex-wrap items-center gap-6 mb-12">
 							<a
 								href="/data/EthanVillalovoz-Resume.pdf"
 								target="_blank"
@@ -268,12 +268,12 @@ export default function Home() {
 							>
 								CV
 							</a>
-						</div>
-						<div className="flex gap-6">
-							<a href="https://www.linkedin.com/in/evillalovoz27/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaLinkedin /></a>
-							<a href="https://github.com/ethanvillalovoz" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaGithub /></a>
-							<a href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><SiGooglescholar /></a>
-							<a href="mailto:ethan.villalovoz@gatech.edu" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaEnvelope /></a>
+							<div className="flex items-center gap-6 ml-2">
+								<a href="https://www.linkedin.com/in/evillalovoz27/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaLinkedin /></a>
+								<a href="https://github.com/ethanvillalovoz" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaGithub /></a>
+								<a href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><SiGooglescholar /></a>
+								<a href="mailto:ethan.villalovoz@gatech.edu" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaEnvelope /></a>
+							</div>
 						</div>
 					</div>
 					<div className="w-full md:w-auto flex justify-center md:justify-end">
