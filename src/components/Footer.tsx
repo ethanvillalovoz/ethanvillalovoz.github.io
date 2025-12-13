@@ -26,7 +26,7 @@ const Footer = () => {
             <FaGithub size={20} />
           </a>
           <a
-            href="https://www.linkedin.com/in/ethanvillalovoz/"
+            href="https://www.linkedin.com/in/evillalovoz27/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-primary dark:text-neutral-400 dark:hover:text-white transition-colors"
@@ -35,7 +35,7 @@ const Footer = () => {
             <FaLinkedin size={20} />
           </a>
           <a
-            href="mailto:ethan.villalovoz@gmail.com"
+            href="mailto:ethan.villalovoz@gatech.edu"
             className="text-neutral-500 hover:text-primary dark:text-neutral-400 dark:hover:text-white transition-colors"
             aria-label="Email"
           >

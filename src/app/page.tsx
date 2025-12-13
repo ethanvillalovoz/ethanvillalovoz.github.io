@@ -243,7 +243,7 @@ export default function Home() {
 							transition={{ duration: 0.7, ease: "easeOut" }}
 							className="text-7xl md:text-8xl font-serif mb-8 text-primary dark:text-white tracking-tighter leading-[0.9]"
 						>
-							Ethan<br />Villalovoz
+							Ethan Villalovoz
 						</motion.h1>
 						<p className="mb-6 text-xl md:text-2xl leading-relaxed text-neutral-600 dark:text-neutral-300 font-light max-w-2xl">
 							Master&apos;s student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics. Incoming Software Engineer Intern at Microsoft.
