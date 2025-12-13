@@ -31,7 +31,7 @@ const projects = [
 		title: "DDPG: Deep Deterministic Policy Gradient Reimplementation",
 		description:
 			"A robust, modular, and extensible reimplementation of the DDPG reinforcement learning algorithm (Lillicrap et al., 2015) using TensorFlow 2.x. Built for reproducibility, research comparison, and interactive experimentation with Gym environments.",
-		image: "/images/projects/DDPG_padded.png",
+		image: "/images/projects/ddpg.png",
 		tags: ["Reinforcement Learning", "DDPG", "TensorFlow", "OpenAI Gym"],
 		extraLinks: [
 			{
@@ -50,7 +50,7 @@ const projects = [
 		title: "CodePrep.AI: AI-Powered Coding Interview Prep with LLMs",
 		description:
 			"An interactive full-stack web application that generates multiple-choice coding challenges using Meta-Llama-3-8B-Instruct. Designed for interview practice, daily challenge tracking, and progress feedback with real-time explanations.",
-		image: "/images/projects/codeprep_home.png",
+		image: "/images/projects/codeprep.png",
 		tags: ["LLM", "AI Interview Prep", "FastAPI", "React", "Hugging Face", "SQLite"],
 		extraLinks: [
 			{
@@ -80,7 +80,7 @@ const projects = [
 		title: "LaTeX Resume Template",
 		description:
 			"A clean, ATS-friendly, and modern LaTeX resume template built for students and developers applying to technical roles. Features minimalist design, modular macros, and PDF outputs optimized for readability and machine parsing.",
-		image: "/images/projects/resume-template.png",
+		image: "/images/projects/latex.png",
 		tags: ["LaTeX", "Resume", "ATS", "PDF", "Open Source"],
 		extraLinks: [
 			{
@@ -165,7 +165,7 @@ const projects = [
 		title: "Self-Driving Car: Behavioral Cloning in the Udacity Simulator",
 		description:
 			"End-to-end CNN (NVIDIA architecture) that predicts steering from front-camera images to autonomously drive the Udacity simulator. Includes balanced/augmented data pipeline, real-time inference via Flask + Socket.IO, and reproducible training.",
-		image: "/images/projects/self-driving-udacity.png",
+		image: "/images/projects/self_driving.png",
 		tags: [
 			"Autonomous Driving",
 			"Computer Vision",
