@@ -51,7 +51,7 @@ const projects = [
 		description:
 			"An interactive full-stack web application that generates multiple-choice coding challenges using Meta-Llama-3-8B-Instruct. Designed for interview practice, daily challenge tracking, and progress feedback with real-time explanations.",
 		image: "/images/projects/codeprep.png",
-		tags: ["LLM", "AI Interview Prep", "FastAPI", "React", "Hugging Face", "SQLite"],
+		tags: ["React", "FastAPI", "LLMs", "Hugging Face"],
 		extraLinks: [
 			{
 			label: "Code",
@@ -66,7 +66,7 @@ const projects = [
 		description:
 			"A full-stack web application that automates attendance tracking using facial recognition. Built with FastAPI, React, and SQLite, it supports real-time webcam input and batch image uploads for seamless attendance logging.",
 		image: "/images/projects/facetrack.png",
-		tags: ["Computer Vision", "OpenCV", "FastAPI", "React", "face_recognition", "SQLite"],
+		tags: ["Computer Vision", "Face Recognition", "React", "FastAPI"],
 		extraLinks: [
 			{
 			label: "Code",
@@ -81,7 +81,7 @@ const projects = [
 		description:
 			"A clean, ATS-friendly, and modern LaTeX resume template built for students and developers applying to technical roles. Features minimalist design, modular macros, and PDF outputs optimized for readability and machine parsing.",
 		image: "/images/projects/latex.png",
-		tags: ["LaTeX", "Resume", "ATS", "PDF", "Open Source"],
+		tags: ["LaTeX", "Resume Template", "Overleaf", "CI/CD"],
 		extraLinks: [
 			{
 				label: "Code",
@@ -96,7 +96,7 @@ const projects = [
 		description:
 			"An advanced autonomous research agent that uses LLMs and web crawling to analyze and compare developer tools. Built with LangGraph, LangChain, and Firecrawl for scalable, multi-step analysis workflows.",
 		image: "/images/projects/intellicrawl.png",
-		tags: ["LLM", "LangChain", "LangGraph", "OpenAI", "Firecrawl", "CLI", "AI Agents"],
+		tags: ["AI Agents", "LangChain", "OpenAI", "Web Scraping"],
 		extraLinks: [
 			{
 				label: "Code",
@@ -111,18 +111,7 @@ const projects = [
 		description:
 			"A full MLOps pipeline and Chrome extension for real-time sentiment analysis on YouTube comments, using Flask, MLflow, Docker, and AWS.",
 		image: "/images/projects/sentisync.png",
-		tags: [
-			"MLOps",
-			"MLflow",
-			"DVC",
-			"Docker",
-			"AWS",
-			"Flask",
-			"Chrome Extension",
-			"Sentiment Analysis",
-			"NLP",
-			"LightGBM"
-		],
+		tags: ["MLOps", "Sentiment Analysis", "Docker", "AWS"],
 		extraLinks: [
 			{
 				label: "Code",
@@ -137,21 +126,7 @@ const projects = [
 		description:
 			"An AI-powered chatbot that uses Retrieval-Augmented Generation (RAG) with Astra DB, LangChain, and Hugging Face’s Llama-3.1-8B-Instruct to help users understand medical bills with clear, context-aware responses.",
 		image: "/images/projects/clearbill.png",
-		tags: [
-			"RAG",
-			"LLM",
-			"LangChain",
-			"Next.js",
-			"TypeScript",
-			"Vector Search",
-			"Astra DB",
-			"Healthcare AI",
-			"Web Scraping",
-			"Puppeteer",
-			"Hugging Face",
-			"Mistral",
-			"Llama-3"
-		],
+		tags: ["RAG", "LLMs", "Next.js", "Vector Databases"],
 		extraLinks: [
 			{
 				label: "Code",
@@ -166,19 +141,7 @@ const projects = [
 		description:
 			"End-to-end CNN (NVIDIA architecture) that predicts steering from front-camera images to autonomously drive the Udacity simulator. Includes balanced/augmented data pipeline, real-time inference via Flask + Socket.IO, and reproducible training.",
 		image: "/images/projects/self_driving.png",
-		tags: [
-			"Autonomous Driving",
-			"Computer Vision",
-			"TensorFlow",
-			"Keras",
-			"CNN",
-			"OpenCV",
-			"Data Augmentation",
-			"Flask",
-			"Socket.IO",
-			"Python",
-			"Udacity Simulator"
-		],
+		tags: ["Computer Vision", "Deep Learning", "TensorFlow", "Autonomous Driving"],
 		extraLinks: [
 			{
 			label: "Code",
@@ -271,9 +234,20 @@ export default function ProjectsPage() {
 								<h3 className="font-serif text-xl font-medium text-primary dark:text-white mb-3 leading-tight">
 									{project.title}
 								</h3>
-								<p className="text-neutral-600 dark:text-neutral-400 text-sm mb-6 leading-relaxed flex-1">
+								<p className="text-neutral-600 dark:text-neutral-400 text-sm mb-6 leading-relaxed">
 									{project.description}
 								</p>
+
+								<div className="flex flex-wrap gap-2 mb-6">
+									{project.tags.map((tag) => (
+										<span
+											key={tag}
+											className="px-2.5 py-1 text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 rounded-md"
+										>
+											{tag}
+										</span>
+									))}
+								</div>
 								
 								<div className="flex flex-wrap gap-3 mt-auto">
 									{project.extraLinks &&
