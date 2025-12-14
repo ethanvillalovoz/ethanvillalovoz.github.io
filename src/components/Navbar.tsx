@@ -25,55 +25,54 @@ export default function Navbar() {
 			aria-label="Main navigation"
 		>
 			<div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-				{/* Hamburger Button (Mobile) */}
-				<button
-					className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-primary"
-					aria-label={menuOpen ? "Close menu" : "Open menu"}
-					aria-expanded={menuOpen}
-					aria-controls="mobile-menu"
-					onClick={() => setMenuOpen((open) => !open)}
-				>
-					<span className={`block w-6 h-0.5 rounded transition-all duration-200 mb-1 ${menuOpen ? "rotate-45 translate-y-1.5" : ""} bg-foreground`}></span>
-					<span className={`block w-6 h-0.5 rounded transition-all duration-200 mb-1 ${menuOpen ? "opacity-0" : ""} bg-foreground`}></span>
-					<span className={`block w-6 h-0.5 rounded transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""} bg-foreground`}></span>
-				</button>
+				{/* Logo & Desktop Links */}
+				<div className="flex items-center gap-8">
+					<Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
+						<span className="sr-only">Home</span>
+						<Image
+							src="/images/website_icon.png"
+							alt="Ethan Villalovoz Logo"
+							width={32}
+							height={32}
+							priority
+							className="object-contain dark:invert"
+						/>
+					</Link>
 
-				{/* Desktop Nav */}
-				<div className="hidden md:flex flex-1 items-center justify-between">
-					<div className="flex items-center gap-8">
-						{/* Logo */}
-						<Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
-							<span className="sr-only">Home</span>
-							<Image
-								src="/images/website_icon.png"
-								alt="Ethan Villalovoz Logo"
-								width={32}
-								height={32}
-								priority
-								className="object-contain dark:invert"
-							/>
-						</Link>
-
-						{/* Links */}
-						<div className="flex items-center space-x-6">
-							{navLinks.map((link) => (
-								<Link
-									key={link.name}
-									href={link.href}
-									aria-current={isActive(link.href) ? "page" : undefined}
-									className={`text-sm font-medium transition-colors hover:text-primary
-									${isActive(link.href) ? "text-primary font-semibold" : "text-neutral-500 dark:text-neutral-400"}`}
-								>
-									{link.name}
-								</Link>
-							))}
-						</div>
+					{/* Desktop Nav Links */}
+					<div className="hidden md:flex items-center space-x-6">
+						{navLinks.map((link) => (
+							<Link
+								key={link.name}
+								href={link.href}
+								aria-current={isActive(link.href) ? "page" : undefined}
+								className={`text-sm font-medium transition-colors hover:text-primary
+								${isActive(link.href) ? "text-primary font-semibold" : "text-neutral-500 dark:text-neutral-400"}`}
+							>
+								{link.name}
+							</Link>
+						))}
 					</div>
+				</div>
 
-					{/* Theme Toggle */}
-					<div className="flex items-center">
+				{/* Right Side: Desktop Toggle & Mobile Hamburger */}
+				<div className="flex items-center">
+					<div className="hidden md:block">
 						<ThemeToggle />
 					</div>
+
+					{/* Hamburger Button (Mobile) */}
+					<button
+						className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-primary ml-auto"
+						aria-label={menuOpen ? "Close menu" : "Open menu"}
+						aria-expanded={menuOpen}
+						aria-controls="mobile-menu"
+						onClick={() => setMenuOpen((open) => !open)}
+					>
+						<span className={`block w-6 h-0.5 rounded transition-all duration-200 mb-1 ${menuOpen ? "rotate-45 translate-y-1.5" : ""} bg-foreground`}></span>
+						<span className={`block w-6 h-0.5 rounded transition-all duration-200 mb-1 ${menuOpen ? "opacity-0" : ""} bg-foreground`}></span>
+						<span className={`block w-6 h-0.5 rounded transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""} bg-foreground`}></span>
+					</button>
 				</div>
 			</div>
 
