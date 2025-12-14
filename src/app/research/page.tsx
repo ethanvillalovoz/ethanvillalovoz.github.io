@@ -17,6 +17,7 @@ interface Paper {
 	title: string;
 	authors: Author[];
 	conference: string;
+	award?: string;
 	paper?: string;
 	bibtex?: string;
 	image: string;
@@ -25,6 +26,7 @@ interface Paper {
 	website?: string;
 	code?: string;
 	video?: string;
+	highlighted?: boolean;
 }
 
 const papers: Paper[] = [
@@ -37,13 +39,18 @@ const papers: Paper[] = [
 			{ name: "Ankur Mehta", url: "https://uclalemur.com/" },
 			{ name: "Heather Knight", url: "https://www.charismarobotics.com/" },
 		],
-		conference: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2023",
+		conference: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2023.",
 		paper: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.pdf",
 		bibtex: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.bib",
 		image: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/STAL_Multi_Robot_Formations.png",
 		description:
 			"Investigates how different multi-robot formations affect navigation and approach behaviors in social environments. Demonstrates the impact of formation geometry on human-robot interaction and navigation efficiency.",
 		tags: ["Robotics", "Multi-Robot", "Human-Robot Interaction"],
+		// website: "https://sites.google.com/plu.edu/alexandra-bacula/publications",
+		// code: "https://github.com/ethanvillalovoz/social-triangles-aggressive-lines",
+		// video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+		// highlighted: true,
+		// award: "(Spotlight)",
 	},
 ];
 
@@ -82,9 +89,14 @@ export default function ResearchPage() {
 			<section className="mb-12">
 				<div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
 					<h2 className="text-4xl font-serif text-primary dark:text-white">Publications</h2>
-					<div className="text-sm text-neutral-500 dark:text-neutral-400 mb-1">
-						<span className="mr-4">* Equal Contribution</span>
-						<span>† Equal Advising</span>
+					<div className="text-sm text-neutral-500 dark:text-neutral-400 mb-1 flex flex-col md:flex-row gap-2 md:gap-6">
+						<div>
+							<span className="mr-4">* Equal Contribution</span>
+							<span>† Equal Advising</span>
+						</div>
+						<div>
+							Representative works are <span className="bg-yellow-100 dark:bg-yellow-900/30 px-1 rounded">highlighted</span>
+						</div>
 					</div>
 				</div>
 				<div className="flex flex-col gap-12">
@@ -95,7 +107,9 @@ export default function ResearchPage() {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ duration: 0.5, ease: "easeOut" }}
-							className="flex flex-col md:flex-row gap-8 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-12"
+							className={`flex flex-col md:flex-row gap-8 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-12 p-6 -mx-6 rounded-xl transition-colors ${
+								paper.highlighted ? "bg-yellow-100 dark:bg-yellow-900/30" : ""
+							}`}
 						>
 							<div className="relative w-full md:w-64 h-40 flex-shrink-0 rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-900">
 								<Image
@@ -139,6 +153,11 @@ export default function ResearchPage() {
 								</div>
 								<div className="text-sm font-mono text-primary-light uppercase tracking-wider mb-6">
 									{paper.conference}
+									{paper.award && (
+										<span className="text-red-600 dark:text-red-400 ml-2 normal-case tracking-normal font-sans font-medium">
+											{paper.award}
+										</span>
+									)}
 								</div>
 								<p className="text-neutral-600 dark:text-neutral-400 text-lg mb-6 leading-relaxed">
 									{paper.description}
