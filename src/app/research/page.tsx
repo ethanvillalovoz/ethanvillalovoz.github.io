@@ -15,6 +15,7 @@ interface Author {
 
 interface Paper {
 	title: string;
+	url?: string;
 	authors: Author[];
 	conference: string;
 	award?: string;
@@ -32,6 +33,7 @@ interface Paper {
 const papers: Paper[] = [
 	{
 		title: "Social Triangles and Aggressive Lines: Multi-Robot Formations Impact Navigation and Approach",
+		url: "https://ieeexplore.ieee.org/abstract/document/10342372",
 		authors: [
 			{ name: "Alexandra Bacula", url: "https://sites.google.com/plu.edu/alexandra-bacula" },
 			{ name: "Ethan Villalovoz", isMe: true },
@@ -124,7 +126,18 @@ export default function ResearchPage() {
 								<h3
 									className="font-serif text-2xl font-medium text-primary dark:text-white block mb-3 leading-tight"
 								>
-									{paper.title}
+									{paper.url ? (
+										<a
+											href={paper.url}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary"
+										>
+											{paper.title}
+										</a>
+									) : (
+										paper.title
+									)}
 								</h3>
 								<div className="text-lg text-neutral-600 dark:text-neutral-400 mb-2">
 									{paper.authors.map((author, index) => (
