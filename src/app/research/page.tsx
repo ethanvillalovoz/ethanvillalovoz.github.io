@@ -8,6 +8,7 @@ import { FaGithub, FaFilePdf, FaGlobe, FaYoutube } from "react-icons/fa";
 interface Author {
 	name: string;
 	url?: string;
+	isMe?: boolean;
 }
 
 interface Paper {
@@ -29,7 +30,7 @@ const papers: Paper[] = [
 		title: "Social Triangles and Aggressive Lines: Multi-Robot Formations Impact Navigation and Approach",
 		authors: [
 			{ name: "Alexandra Bacula", url: "https://sites.google.com/plu.edu/alexandra-bacula" },
-			{ name: "Ethan Villalovoz" },
+			{ name: "Ethan Villalovoz", isMe: true },
 			{ name: "Deanna Flynn", url: "https://deannaflynn.wixsite.com/deanna-flynn" },
 			{ name: "Ankur Mehta", url: "https://uclalemur.com/" },
 			{ name: "Heather Knight", url: "https://www.charismarobotics.com/" },
@@ -111,12 +112,16 @@ export default function ResearchPage() {
 													href={author.url}
 													target="_blank"
 													rel="noopener noreferrer"
-													className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary"
+													className={`text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary ${
+														author.isMe ? "font-bold" : ""
+													}`}
 												>
 													{author.name}
 												</a>
 											) : (
-												author.name
+												<span className={author.isMe ? "font-bold text-primary dark:text-white" : ""}>
+													{author.name}
+												</span>
 											)}
 											{index < paper.authors.length - 1 && ", "}
 										</span>
