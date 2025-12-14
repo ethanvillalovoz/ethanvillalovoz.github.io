@@ -111,7 +111,7 @@ export default function ResearchPage() {
 													href={author.url}
 													target="_blank"
 													rel="noopener noreferrer"
-													className="hover:text-primary dark:hover:text-white hover:underline transition-colors"
+													className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary"
 												>
 													{author.name}
 												</a>
