@@ -9,6 +9,8 @@ interface Author {
 	name: string;
 	url?: string;
 	isMe?: boolean;
+	equalContribution?: boolean;
+	equalAdvising?: boolean;
 }
 
 interface Paper {
@@ -78,7 +80,13 @@ export default function ResearchPage() {
 			</section>
 
 			<section className="mb-12">
-				<h2 className="text-4xl font-serif mb-12 text-primary dark:text-white">Publications</h2>
+				<div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+					<h2 className="text-4xl font-serif text-primary dark:text-white">Publications</h2>
+					<div className="text-sm text-neutral-500 dark:text-neutral-400 mb-1">
+						<span className="mr-4">* Equal Contribution</span>
+						<span>† Equal Advising</span>
+					</div>
+				</div>
 				<div className="flex flex-col gap-12">
 					{papers.map((paper) => (
 						<motion.article
@@ -123,6 +131,8 @@ export default function ResearchPage() {
 													{author.name}
 												</span>
 											)}
+											{author.equalContribution && "*"}
+											{author.equalAdvising && "†"}
 											{index < paper.authors.length - 1 && ", "}
 										</span>
 									))}
