@@ -5,9 +5,14 @@ import Image from "next/image";
 import { SiGooglescholar } from "react-icons/si";
 import { FaGithub, FaFilePdf, FaGlobe, FaYoutube } from "react-icons/fa";
 
+interface Author {
+	name: string;
+	url?: string;
+}
+
 interface Paper {
 	title: string;
-	authors: string[];
+	authors: Author[];
 	conference: string;
 	paper?: string;
 	bibtex?: string;
@@ -23,11 +28,11 @@ const papers: Paper[] = [
 	{
 		title: "Social Triangles and Aggressive Lines: Multi-Robot Formations Impact Navigation and Approach",
 		authors: [
-			"Alexandra Bacula",
-			"Ethan Villalovoz",
-			"Deanna Flynn",
-			"Ankur Mehta",
-			"Heather Knight",
+			{ name: "Alexandra Bacula", url: "https://sites.google.com/plu.edu/alexandra-bacula" },
+			{ name: "Ethan Villalovoz" },
+			{ name: "Deanna Flynn", url: "https://deannaflynn.wixsite.com/deanna-flynn" },
+			{ name: "Ankur Mehta", url: "https://uclalemur.com/" },
+			{ name: "Heather Knight", url: "https://www.charismarobotics.com/" },
 		],
 		conference: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2023",
 		paper: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.pdf",
@@ -99,7 +104,23 @@ export default function ResearchPage() {
 									{paper.title}
 								</h3>
 								<div className="text-lg text-neutral-600 dark:text-neutral-400 mb-2">
-									{paper.authors.join(", ")}
+									{paper.authors.map((author, index) => (
+										<span key={index}>
+											{author.url ? (
+												<a
+													href={author.url}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="hover:text-primary dark:hover:text-white hover:underline transition-colors"
+												>
+													{author.name}
+												</a>
+											) : (
+												author.name
+											)}
+											{index < paper.authors.length - 1 && ", "}
+										</span>
+									))}
 								</div>
 								<div className="text-sm font-mono text-primary-light uppercase tracking-wider mb-6">
 									{paper.conference}
