@@ -5,12 +5,18 @@ import Footer from "../components/Footer";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ethanvillalovoz.vercel.app"),
-  title: "Ethan Villalovoz",
+  metadataBase: new URL("https://ethanvillalovoz.com"),
+  title: {
+    default: "Ethan Villalovoz",
+    template: "%s | Ethan Villalovoz",
+  },
   description:
     "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
+  applicationName: "Ethan Villalovoz",
   icons: {
     icon: "/images/website_icon.png",
+    shortcut: "/images/website_icon.png",
+    apple: "/images/website_icon.png",
   },
   verification: {
     google: "YI1L3YOtnukh0nVwoZ-TVjTTp9_PN65NylPHNUshHII",
@@ -19,16 +25,14 @@ export const metadata: Metadata = {
     title: "Ethan Villalovoz",
     description:
       "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
-    url: "https://ethanvillalovoz.vercel.app/",
-    // siteName: "Ethan Villalovoz",
+    url: "https://ethanvillalovoz.com",
+    siteName: "Ethan Villalovoz",
     images: [
       {
         url: "/images/EthanVillalovozPic.jpeg",
         width: 800,
         height: 800,
-        // width: 1200,
-        // height: 630,
-        // alt: "Ethan Villalovoz",
+        alt: "Ethan Villalovoz",
       },
     ],
     locale: "en_US",
