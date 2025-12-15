@@ -26,7 +26,6 @@ export const metadata: Metadata = {
     description:
       "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
     url: "https://ethanvillalovoz.com",
-    siteName: "Ethan Villalovoz",
     images: [
       {
         url: "/images/EthanVillalovozPic.jpeg",
