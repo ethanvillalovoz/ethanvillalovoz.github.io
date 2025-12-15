@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ethanvillalovoz.vercel.app"),
@@ -50,11 +51,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`antialiased flex flex-col min-h-screen`}
-        suppressHydrationWarning
       >
+        <Providers>
         {/* ✅ Person Structured Data */}
         <script
           type="application/ld+json"
@@ -87,6 +88,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+        </Providers>
       </body>
     </html>
   );

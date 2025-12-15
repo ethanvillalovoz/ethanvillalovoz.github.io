@@ -32,7 +32,6 @@ body {
   color: rgb(var(--foreground));
   background: rgb(var(--background));
   font-family: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
-  transition: background 0.3s, color 0.3s;
 }
 
 h1, h2, h3, h4, h5, h6 {
