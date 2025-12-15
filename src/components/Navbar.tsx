@@ -46,7 +46,7 @@ export default function Navbar() {
 								key={link.name}
 								href={link.href}
 								aria-current={isActive(link.href) ? "page" : undefined}
-								className={`text-sm font-medium transition-colors hover:text-primary
+								className={`text-sm font-medium transition-colors hover:text-primary dark:hover:text-primary
 								${isActive(link.href) ? "text-primary font-semibold" : "text-neutral-500 dark:text-neutral-400"}`}
 							>
 								{link.name}
@@ -88,7 +88,7 @@ export default function Navbar() {
 								key={link.name}
 								href={link.href}
 								aria-current={isActive(link.href) ? "page" : undefined}
-								className={`text-lg font-medium transition-colors
+								className={`text-lg font-medium transition-colors hover:text-primary dark:hover:text-primary
 									${isActive(link.href) ? "text-primary" : "text-neutral-500 dark:text-neutral-400"}`}
 								onClick={() => setMenuOpen(false)}
 							>
