@@ -54,6 +54,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`antialiased flex flex-col min-h-screen`}
+        suppressHydrationWarning
       >
         <Providers>
         {/* ✅ Person Structured Data */}
