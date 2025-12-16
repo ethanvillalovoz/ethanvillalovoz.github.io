@@ -76,7 +76,7 @@ const educationTimeline = [
 			<span className="text-primary dark:text-white font-medium">B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.00)</span>
 		),
 		bullets: [
-			<span>Senior Design Project: <a href="https://github.com/mollyiverson/ACME10-HE-RAGApp" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">Retrieval-Augmented Generation (RAG) using Knowledge Graphs and Vector Search</a></span>,
+			<span>Senior Design Project: <a href="/data/capstone/index.html" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">Retrieval-Augmented Generation (RAG) using Knowledge Graphs and Vector Search</a></span>,
 			"Activities: Honors College, NIH ESTEEMED Fellow, VCEA College Ambassador, NIH MARC Fellow",
 		],
 	},
