@@ -1,4 +1,5 @@
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter, FaYoutube } from "react-icons/fa";
+import { SiGooglescholar } from "react-icons/si";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,6 +18,15 @@ const Footer = () => {
 
         <div className="flex gap-6">
           <a
+            href="https://www.linkedin.com/in/evillalovoz27/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-neutral-500 hover:text-primary dark:text-neutral-400 dark:hover:text-white transition-colors"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin size={20} />
+          </a>
+          <a
             href="https://github.com/ethanvillalovoz"
             target="_blank"
             rel="noopener noreferrer"
@@ -26,13 +36,31 @@ const Footer = () => {
             <FaGithub size={20} />
           </a>
           <a
-            href="https://www.linkedin.com/in/evillalovoz27/"
+            href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en"
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-primary dark:text-neutral-400 dark:hover:text-white transition-colors"
-            aria-label="LinkedIn"
+            aria-label="Google Scholar"
           >
-            <FaLinkedin size={20} />
+            <SiGooglescholar size={20} />
+          </a>
+          <a
+            href="https://x.com/etvillalovoz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-neutral-500 hover:text-primary dark:text-neutral-400 dark:hover:text-white transition-colors"
+            aria-label="X (Twitter)"
+          >
+            <FaTwitter size={20} />
+          </a>
+          <a
+            href="https://www.youtube.com/@ethanvillalovoz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-neutral-500 hover:text-primary dark:text-neutral-400 dark:hover:text-white transition-colors"
+            aria-label="YouTube"
+          >
+            <FaYoutube size={20} />
           </a>
           <a
             href="mailto:ethan.villalovoz@gatech.edu"
