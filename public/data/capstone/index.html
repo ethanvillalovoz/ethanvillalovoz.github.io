@@ -275,12 +275,14 @@
           <p>
             We implemented a modular RAG system composed of four key
             components:
-            (1) an NLP module for query parsing and entity extraction,
-            (2) a vector search engine using FAISS,
-            (3) a knowledge graph handler that queries DBpedia using
-            SPARQL,
-            and (4) an LLM module (ChatGPT) that synthesizes the results
-            into a final response.
+          </p>
+          <ul>
+            <li>An NLP module for query parsing and entity extraction</li>
+            <li>A vector search engine using FAISS</li>
+            <li>A knowledge graph handler that queries DBpedia using SPARQL</li>
+            <li>An LLM module (ChatGPT) that synthesizes the results into a final response</li>
+          </ul>
+          <p>
             This system enhances the factual reliability of generated
             answers while offering scalable performance.
           </p>
@@ -291,20 +293,17 @@
 
       <!-- Matting. -->
       <div class="column">
-        <h2 class="title is-3">Features/Functionality</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <ul>
-              <li>End-to-end retrieval pipeline: from query to final LLM response</li>
-              <li>Wikipedia embeddings stored with FAISS for fast vector search</li>
-              <li>SPARQL-based querying of DBpedia for structured entity facts</li>
-              <li>Entity detection using natural language processing (spaCy)</li>
-              <li>Live performance logging of each module (e.g., NLP, KG, VS)</li>
-              <li>Frontend user interface built in React</li>
-            </ul>
-            <img src="./static/images/figures/figure_4.png" alt="Features" style="width: 100%; height: auto;">
-          </div>
-
+        <div class="content">
+          <h2 class="title is-3">Features/Functionality</h2>
+          <ul>
+            <li>End-to-end retrieval pipeline: from query to final LLM response</li>
+            <li>Wikipedia embeddings stored with FAISS for fast vector search</li>
+            <li>SPARQL-based querying of DBpedia for structured entity facts</li>
+            <li>Entity detection using natural language processing (spaCy)</li>
+            <li>Live performance logging of each module (e.g., NLP, KG, VS)</li>
+            <li>Frontend user interface built in React</li>
+          </ul>
+          <img src="./static/images/figures/figure_4.png" alt="Features" style="width: 100%; height: auto;">
         </div>
       </div>
     </div>
