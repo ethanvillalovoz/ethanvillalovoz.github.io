@@ -9,7 +9,7 @@ import { SiGooglescholar } from "react-icons/si";
 // Example timeline data structure
 const workTimeline = [
 	{
-		date: "Summer 2026",
+		date: "May 2026 - Jul 2026",
 		company: "Microsoft",
 		logo: "/images/timeline/microsoft_logo.jpeg",
 		title: <span className="text-primary dark:text-white font-medium">Software Engineer Intern</span>,
@@ -17,15 +17,15 @@ const workTimeline = [
 			"Commerce and Ecosystems.",
 		],
 	},
-	{
-		date: "Jun 2025 - Sep 2025",
-		company: "Meta & Major League Hacking",
-		logo: "/images/timeline/meta_MLH_fellowship_logo.png",
-		title: <span className="text-primary dark:text-white font-medium">Production Engineering Fellow</span>,
-		bullets: [
-			"Built and deployed a production-grade full-stack Flask application with Docker, CI/CD automation, and monitoring infrastructure.",
-		],
-	},
+	// {
+	// 	date: "Jun 2025 - Sep 2025",
+	// 	company: "Meta & Major League Hacking",
+	// 	logo: "/images/timeline/meta_MLH_fellowship_logo.png",
+	// 	title: <span className="text-primary dark:text-white font-medium">Production Engineering Fellow</span>,
+	// 	bullets: [
+	// 		"Built and deployed a production-grade full-stack Flask application with Docker, CI/CD automation, and monitoring infrastructure.",
+	// 	],
+	// },
   {
 		date: "Jun 2024 - Aug 2024",
 		company: "Carnegie Mellon University",
