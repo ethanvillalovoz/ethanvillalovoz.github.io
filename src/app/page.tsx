@@ -116,17 +116,17 @@ export default function Home() {
 				</>
 			),
 		},
-		{
-			date: "06/2025",
-			content: (
-				<>
-					Joined Meta & Major League Hacking as a{" "}
-					<a href="https://fellowship.mlh.io/programs/production-engineering-sre" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
-						Production Engineering Fellow
-					</a>!
-				</>
-			),
-		},
+		// {
+		// 	date: "06/2025",
+		// 	content: (
+		// 		<>
+		// 			Joined Meta & Major League Hacking as a{" "}
+		// 			<a href="https://fellowship.mlh.io/programs/production-engineering-sre" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+		// 				Production Engineering Fellow
+		// 			</a>!
+		// 		</>
+		// 	),
+		// },
 		{
 			date: "05/2025",
 			content: <>Graduated from Washington State University with a B.S. in Computer Science. Go Cougs!</>,
@@ -153,7 +153,7 @@ export default function Home() {
 					</a>.
 				</>
 			),
-			hidden: true,
+			// hidden: true,
 		},
 		{
 			date: "07/2023",
