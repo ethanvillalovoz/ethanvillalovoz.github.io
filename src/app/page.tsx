@@ -92,7 +92,7 @@ export default function Home() {
 			content: (
 				<>
 					Admitted to the{" "}
-					<a href="https://www.cc.gatech.edu/" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+					<a href="https://www.cc.gatech.edu/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
 						Georgia Tech MSCS
 					</a>{" "}
 					program! I’ll be starting in {" "}
@@ -105,11 +105,11 @@ export default function Home() {
 			content: (
 				<>
 					Gave an alumni talk for the{" "}
-					<a href="https://marc.wsu.edu/" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+					<a href="https://marc.wsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
 						WSU MARC
 					</a>{" "}
 					&{" "}
-					<a href="https://mira.wsu.edu/" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+					<a href="https://mira.wsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
 						MIRA
 					</a>{" "}
 					program.
@@ -121,7 +121,7 @@ export default function Home() {
 		// 	content: (
 		// 		<>
 		// 			Joined Meta & Major League Hacking as a{" "}
-		// 			<a href="https://fellowship.mlh.io/programs/production-engineering-sre" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+		// 			<a href="https://fellowship.mlh.io/programs/production-engineering-sre" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
 		// 				Production Engineering Fellow
 		// 			</a>!
 		// 		</>
@@ -136,7 +136,7 @@ export default function Home() {
 			content: (
 				<>
 					Conducting research at Carnegie Mellon University as part of the{" "}
-					<a href="https://riss.ri.cmu.edu/" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+					<a href="https://riss.ri.cmu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
 						CMU RISS
 					</a>{" "}
 					program.
@@ -148,7 +148,7 @@ export default function Home() {
 			content: (
 				<>
 					Participating in Google Research&apos;s{" "}
-					<a href="https://research.google/programs-and-events/csrmp/" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+					<a href="https://research.google/programs-and-events/csrmp/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
 						CS Research Mentorship Program
 					</a>.
 				</>
@@ -160,7 +160,7 @@ export default function Home() {
 			content: (
 				<>
 					Awarded the{" "}
-					<a href="https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+					<a href="https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
 						Generation Google Scholarship
 					</a>.
 				</>
@@ -182,7 +182,7 @@ export default function Home() {
 			content: (
 				<>
 					Interning as a{" "}
-					<a href="https://buildyourfuture.withgoogle.com/programs/step" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+					<a href="https://about.google/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
 						Software Engineering Intern (STEP)
 					</a>{" "}
 					at Google.
@@ -195,7 +195,7 @@ export default function Home() {
 			content: (
 				<>
 					Became a MARC Scholar through the{" "}
-					<a href="https://marc.wsu.edu/" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+					<a href="https://marc.wsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
 						NIH Fellowship
 					</a>.
 				</>
@@ -207,7 +207,7 @@ export default function Home() {
 			content: (
 				<>
 					Conducting research at Oregon State University as part of the{" "}
-					<a href="https://engineering.oregonstate.edu/CoRIS/reu-robots-real-world" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+					<a href="https://engineering.oregonstate.edu/CoRIS/reu-robots-real-world" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
 						REU: Robots in the Real World
 					</a>{" "}
 					program.
@@ -220,7 +220,7 @@ export default function Home() {
 			content: (
 				<>
 					Became an ESTEEMED Scholar through the{" "}
-					<a href="https://mira.wsu.edu/" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+					<a href="https://mira.wsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
 						NIH Fellowship
 					</a>.
 				</>
