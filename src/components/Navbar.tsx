@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import ThemeToggle from "./ThemeToggle";
 import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
@@ -57,10 +56,6 @@ export default function Navbar() {
 
 				{/* Right Side: Desktop Toggle & Mobile Hamburger */}
 				<div className="flex items-center">
-					<div className="hidden md:block">
-						<ThemeToggle />
-					</div>
-
 					{/* Hamburger Button (Mobile) */}
 					<button
 						className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-primary ml-auto"
@@ -95,9 +90,6 @@ export default function Navbar() {
 								{link.name}
 							</Link>
 						))}
-						<div>
-							<ThemeToggle />
-						</div>
 					</div>
 				</div>
 			)}
