@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Ethan Villalovoz",
   },
   description:
-    "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
+    "Master's student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics.",
   applicationName: "Ethan Villalovoz",
   icons: {
     icon: "/images/website_icon.png",
@@ -24,14 +24,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ethan Villalovoz",
     description:
-      "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
+      "Master's student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics.",
     url: "https://ethanvillalovoz.com",
+    siteName: "Ethan Villalovoz",
     images: [
       {
-        url: "/images/EthanVillalovozPic.jpeg",
+        url: "/images/website_icon.png",
         width: 800,
         height: 800,
-        alt: "Ethan Villalovoz",
+        alt: "Ethan Villalovoz Logo",
       },
     ],
     locale: "en_US",
@@ -39,11 +40,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    // card: "summary_large_image",
     title: "Ethan Villalovoz",
     description:
-      "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
-    images: ["/images/EthanVillalovozPic.jpeg"],
+      "Master's student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics.",
+    images: ["/images/website_icon.png"],
     creator: "@etvillalovoz",
   },
 };
@@ -83,7 +83,7 @@ export default function RootLayout({
                 name: "Washington State University",
               },
               description:
-                "AI researcher and engineer, building intelligent systems that perceive, reason, and interact with the physical world.",
+                "Master's student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics.",
             }),
           }}
         />
