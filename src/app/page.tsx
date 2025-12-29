@@ -57,27 +57,27 @@ const workTimeline = [
 
 const educationTimeline = [
 	{
-		date: "2026 - 2027 (expected)",
+		date: "Jan 2026 - Dec 2027",
 		company: "Georgia Institute of Technology",
 		logo: "/images/timeline/GT_icon.png",
 		title: (
-			<span className="text-primary dark:text-white font-medium">M.S. in Computer Science, Specialization in Computational Perception and Robotics</span>
+			<span className="text-primary dark:text-white font-medium">M.S. in Computer Science, Computational Perception and Robotics (GPA: 4.0/4.0)</span>
 		),
 		bullets: [
-			"Pursuing M.S. in Computer Science with a focus on AI, robotics, and perception",
-			"Activities: AI Safety Initiative",
+			// "Pursuing M.S. in Computer Science with a focus on AI, robotics, and perception",
+			// "Activities: AI Safety Initiative",
 		],
 	},
 	{
-		date: "2021 - 2025",
-		company: "Washington State University, Honors College",
+		date: "Aug 2021 - May 2025",
+		company: "Washington State University",
 		logo: "/images/timeline/Washington_State_icon.png",
 		title: (
-			<span className="text-primary dark:text-white font-medium">B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.00)</span>
+			<span className="text-primary dark:text-white font-medium">B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.0)</span>
 		),
 		bullets: [
-			<span>Senior Design Project: <a href="/data/capstone/index.html" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">Retrieval-Augmented Generation (RAG) using Knowledge Graphs and Vector Search</a></span>,
-			"Activities: Honors College, NIH ESTEEMED Fellow, VCEA College Ambassador, NIH MARC Fellow",
+			<span>Senior Design Project: <a href="/data/capstone/index.html" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">Retrieval-Augmented Generation Application Using Knowledge Graph and Vector Search</a></span>,
+			// "Activities: Honors College, NIH ESTEEMED Fellow, VCEA College Ambassador, NIH MARC Fellow",
 		],
 	},
 ];
