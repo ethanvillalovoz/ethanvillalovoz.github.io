@@ -13,6 +13,54 @@ interface Author {
 	equalAdvising?: boolean;
 }
 
+{/* ------------------------------Pre-Prints-------------------------- */}
+
+interface PrePrint {
+	title: string;
+	url?: string;
+	authors: Author[];
+	conference: string;
+	award?: string;
+	paper?: string;
+	bibtex?: string;
+	image: string;
+	description: string;
+	tags: string[];
+	website?: string;
+	code?: string;
+	video?: string;
+	highlighted?: boolean;
+}
+
+const preprints: PrePrint[] = [
+	{
+		title: "An Exploratory Study of Bayesian Prompt Optimization for Test-Driven Code Generation with Large Language Models",
+		url: "https://arxiv.org/abs/2512.15076",
+		authors: [
+			{ name: "S. Tomar", url: "https://shlok-crypto.github.io/" },
+			{ name: "A. Deshwal", url: "https://aryandeshwal.github.io/" },
+			{ name: "E. Villalovoz", isMe: true },
+			{ name: "M. Fazzini", url: "https://www-users.cse.umn.edu/~mfazzini/" },
+			{ name: "H. Cai", url: "https://chapering.github.io/" },
+			{ name: "J.R. Doppa", url: "https://eecs.wsu.edu/~jana/" },
+		],
+		conference: "arXiv, 2025",
+		paper: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/paper.pdf",
+		// bibtex: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.bib",
+		image: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/ICSE_BO_figure.png",
+		description:
+			"Explores Bayesian optimization as a principled approach to automated prompt search for large language model–based code generation. Demonstrates sample-efficient improvements in functional correctness over strong prompting baselines on the HumanEval+ benchmark.",
+		tags: ["Robotics", "Multi-Robot", "Human-Robot Interaction"],
+		// website: "https://sites.google.com/plu.edu/alexandra-bacula/publications",
+		// code: "https://github.com/ethanvillalovoz/social-triangles-aggressive-lines",
+		// video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+		// highlighted: true,
+		// award: "(Spotlight)",
+	},
+];
+
+{/* ------------------------------Publications-------------------------- */}
+
 interface Paper {
 	title: string;
 	url?: string;
@@ -89,17 +137,153 @@ export default function ResearchPage() {
 			</section>
 
 			<section className="mb-12">
+				<div className="text-sm text-neutral-500 dark:text-neutral-400 mb-1 flex flex-col md:flex-row gap-2 md:gap-6">
+					<div>
+						<span className="mr-4">* Equal Contribution</span>
+						<span>† Equal Advising</span>
+					</div>
+					<div>
+						Representative works are <span className="bg-yellow-100 dark:bg-yellow-900/30 px-1 rounded">highlighted</span>
+					</div>
+				</div>
+			</section>
+
+			<section className="mb-12">
+
+				{/* ------------------------------Pre-Prints-------------------------- */}
+
+				<div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+					<h2 className="text-4xl font-serif text-primary dark:text-white">Pre-Prints</h2>
+				</div>
+				<div className="flex flex-col gap-12">
+					{preprints.map((paper) => (
+						<motion.article
+							key={paper.title}
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.5, ease: "easeOut" }}
+							className={`flex flex-col md:flex-row gap-8 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-12 p-6 -mx-6 rounded-xl transition-colors ${
+								paper.highlighted ? "bg-yellow-100 dark:bg-yellow-900/30" : ""
+							}`}
+						>
+							<div className="relative w-full md:w-64 h-40 flex-shrink-0 rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-900">
+								<Image
+									src={paper.image}
+									alt={paper.title}
+									fill
+									className="object-cover"
+									sizes="300px"
+								/>
+							</div>
+							  <div className="flex-1">
+								<h3
+									className="font-serif text-2xl font-medium text-primary dark:text-white block mb-3 leading-tight"
+								>
+									{paper.url ? (
+										<a
+											href={paper.url}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary"
+										>
+											{paper.title}
+										</a>
+									) : (
+										paper.title
+									)}
+								</h3>
+								<div className="text-lg text-neutral-600 dark:text-neutral-400 mb-2">
+									{paper.authors.map((author, index) => (
+										<span key={index}>
+											{author.url ? (
+												<a
+													href={author.url}
+													target="_blank"
+													rel="noopener noreferrer"
+													className={`text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary ${
+														author.isMe ? "font-bold" : ""
+													}`}
+												>
+													{author.name}
+												</a>
+											) : (
+												<span className={author.isMe ? "font-bold text-primary dark:text-white" : ""}>
+													{author.name}
+												</span>
+											)}
+											{author.equalContribution && "*"}
+											{author.equalAdvising && "†"}
+											{index < paper.authors.length - 1 && ", "}
+										</span>
+									))}
+								</div>
+								<div className="text-sm font-mono text-primary-light uppercase tracking-wider mb-6">
+									{paper.conference}
+									{paper.award && (
+										<span className="text-red-600 dark:text-red-400 ml-2 normal-case tracking-normal font-sans font-medium">
+											{paper.award}
+										</span>
+									)}
+								</div>
+								<p className="text-neutral-600 dark:text-neutral-400 text-lg mb-6 leading-relaxed">
+									{paper.description}
+								</p>
+								<div className="flex gap-3 flex-wrap">
+									{paper.paper && (
+										<a
+											href={paper.paper}
+											className="inline-flex items-center px-6 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Paper
+											<FaFilePdf className="ml-2 text-sm opacity-70" />
+										</a>
+									)}
+									{paper.website && (
+										<a
+											href={paper.website}
+											className="inline-flex items-center px-6 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Website
+											<FaGlobe className="ml-2 text-sm opacity-70" />
+										</a>
+									)}
+									{paper.code && (
+										<a
+											href={paper.code}
+											className="inline-flex items-center px-6 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Code
+											<FaGithub className="ml-2 text-sm opacity-70" />
+										</a>
+									)}
+									{paper.video && (
+										<a
+											href={paper.video}
+											className="inline-flex items-center px-6 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Video
+											<FaYoutube className="ml-2 text-sm opacity-70" />
+										</a>
+									)}
+								</div>
+							</div>
+						</motion.article>
+					))}
+				</div>
+
+				{/* ------------------------------Publications-------------------------- */}
+
 				<div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
 					<h2 className="text-4xl font-serif text-primary dark:text-white">Publications</h2>
-					<div className="text-sm text-neutral-500 dark:text-neutral-400 mb-1 flex flex-col md:flex-row gap-2 md:gap-6">
-						<div>
-							<span className="mr-4">* Equal Contribution</span>
-							<span>† Equal Advising</span>
-						</div>
-						<div>
-							Representative works are <span className="bg-yellow-100 dark:bg-yellow-900/30 px-1 rounded">highlighted</span>
-						</div>
-					</div>
 				</div>
 				<div className="flex flex-col gap-12">
 					{papers.map((paper) => (
