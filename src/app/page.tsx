@@ -17,6 +17,15 @@ const workTimeline = [
 			"Commerce and Ecosystems.",
 		],
 	},
+	{
+		date: "Jan 2024 - May 2025",
+		company: "Washington State University",
+		logo: "/images/timeline/washington_state_university_logo.jpeg",
+		title: <span className="text-primary dark:text-white font-medium">Undergraduate Research Assistant</span>,
+		bullets: [
+			"Developed and evaluated a Bayesian optimization framework for prompt-based large language model code generation.",
+		],
+	},
 	// {
 	// 	date: "Jun 2025 - Sep 2025",
 	// 	company: "Meta & Major League Hacking",
