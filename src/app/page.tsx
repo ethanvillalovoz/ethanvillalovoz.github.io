@@ -241,7 +241,7 @@ export default function Home() {
 	const hiddenNews = newsItems.filter((item) => item.hidden);
 
 	return (
-		<main className="max-w-5xl mx-auto px-6 py-16 bg-background text-foreground">
+		<main className="max-w-5xl mx-auto px-6 py-24 bg-background text-foreground">
 			<div className="relative z-10">
 				{/* Intro Section */}
 				<div className="flex flex-col md:flex-row items-start gap-12 mb-24">
