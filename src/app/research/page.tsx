@@ -128,7 +128,7 @@ export default function ResearchPage() {
 			</header>
 			
 			<section className="mb-24">
-				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-8">Interests</h2>
+				{/* <h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-8">Interests</h2> */}
 				<p className="text-2xl leading-relaxed text-neutral-700 dark:text-neutral-300 max-w-4xl font-light">
 					My research focuses on building aligned world models for robotics, which are frameworks that jointly 
 					infer human intent and predict the consequences of actions in complex environments. I am interested in 

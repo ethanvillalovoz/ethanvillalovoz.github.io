@@ -202,12 +202,12 @@ export default function ProjectsPage() {
 					GitHub
 				</a>
 			</header>
-			
-			<p
-				className="text-2xl text-neutral-600 dark:text-neutral-300 mb-24 max-w-3xl leading-relaxed font-light"
-			>
-				A showcase of my personal and technical projects, ranging from reinforcement learning research to full-stack AI applications.
-			</p>
+
+			<section className="mb-24">
+				<p className="text-2xl leading-relaxed text-neutral-700 dark:text-neutral-300 max-w-4xl font-light">
+					A showcase of my personal and technical projects, ranging from reinforcement learning research to full-stack AI applications.
+				</p>
+			</section>
 
 			{/* Project cards */}
 			<section className="mb-12">

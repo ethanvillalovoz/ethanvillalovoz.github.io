@@ -40,19 +40,22 @@ const teachingExperiences = [
 export default function TeachingPage() {
 	return (
 		<main className="max-w-5xl mx-auto px-6 py-24 bg-background text-foreground">
-			<header className="mb-24">
+			<header className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
 				<h1
 					// initial={{ opacity: 0, y: 20 }}
 					// animate={{ opacity: 1, y: 0 }}
 					// transition={{ duration: 0.7, ease: "easeOut" }}
-					className="text-7xl md:text-8xl font-serif text-primary dark:text-white mb-8 tracking-tighter leading-[0.9]"
+					className="text-7xl md:text-8xl font-serif text-primary dark:text-white tracking-tighter leading-[0.9]"
 				>
 					Teaching
 				</h1>
-				<p className="text-2xl text-neutral-600 dark:text-neutral-300 font-light">
+			</header>
+
+			<section className="mb-24">
+				<p className="text-2xl leading-relaxed text-neutral-700 dark:text-neutral-300 max-w-4xl font-light">
 					A list of my teaching experiences.
 				</p>
-			</header>
+			</section>
 			
 			<section className="mb-12">
 				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-12">Washington State University</h2>
