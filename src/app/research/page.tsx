@@ -108,14 +108,14 @@ export default function ResearchPage() {
     return (
 		<main className="max-w-5xl mx-auto px-6 py-24 bg-background text-foreground">
 			<header className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
-				<motion.h1
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.7, ease: "easeOut" }}
+				<h1
+					// initial={{ opacity: 0, y: 20 }}
+					// animate={{ opacity: 1, y: 0 }}
+					// transition={{ duration: 0.7, ease: "easeOut" }}
 					className="text-7xl md:text-8xl font-serif text-primary dark:text-white tracking-tighter leading-[0.9]"
 				>
 					Research
-				</motion.h1>
+				</h1>
 				<a
 						href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en"
 						target="_blank"
@@ -157,12 +157,12 @@ export default function ResearchPage() {
 				</div>
 				<div className="flex flex-col gap-12">
 					{preprints.map((paper) => (
-						<motion.article
+						<article
 							key={paper.title}
-							initial={{ opacity: 0, y: 20 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true }}
-							transition={{ duration: 0.5, ease: "easeOut" }}
+							// initial={{ opacity: 0, y: 20 }}
+							// whileInView={{ opacity: 1, y: 0 }}
+							// viewport={{ once: true }}
+							// transition={{ duration: 0.5, ease: "easeOut" }}
 							className={`flex flex-col md:flex-row gap-8 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-12 p-6 -mx-6 rounded-xl transition-colors ${
 								paper.highlighted ? "bg-yellow-100 dark:bg-yellow-900/30" : ""
 							}`}
@@ -276,7 +276,7 @@ export default function ResearchPage() {
 									)}
 								</div>
 							</div>
-						</motion.article>
+						</article>
 					))}
 				</div>
 
@@ -287,12 +287,12 @@ export default function ResearchPage() {
 				</div>
 				<div className="flex flex-col gap-12">
 					{papers.map((paper) => (
-						<motion.article
+						<article
 							key={paper.title}
-							initial={{ opacity: 0, y: 20 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true }}
-							transition={{ duration: 0.5, ease: "easeOut" }}
+							// initial={{ opacity: 0, y: 20 }}
+							// whileInView={{ opacity: 1, y: 0 }}
+							// viewport={{ once: true }}
+							// transition={{ duration: 0.5, ease: "easeOut" }}
 							className={`flex flex-col md:flex-row gap-8 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-12 p-6 -mx-6 rounded-xl transition-colors ${
 								paper.highlighted ? "bg-yellow-100 dark:bg-yellow-900/30" : ""
 							}`}
@@ -406,7 +406,7 @@ export default function ResearchPage() {
 									)}
 								</div>
 							</div>
-						</motion.article>
+						</article>
 					))}
 				</div>
 			</section>

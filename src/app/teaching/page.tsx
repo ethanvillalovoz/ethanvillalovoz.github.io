@@ -41,14 +41,14 @@ export default function TeachingPage() {
 	return (
 		<main className="max-w-5xl mx-auto px-6 py-24 bg-background text-foreground">
 			<header className="mb-24">
-				<motion.h1
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.7, ease: "easeOut" }}
+				<h1
+					// initial={{ opacity: 0, y: 20 }}
+					// animate={{ opacity: 1, y: 0 }}
+					// transition={{ duration: 0.7, ease: "easeOut" }}
 					className="text-7xl md:text-8xl font-serif text-primary dark:text-white mb-8 tracking-tighter leading-[0.9]"
 				>
 					Teaching
-				</motion.h1>
+				</h1>
 				<p className="text-2xl text-neutral-600 dark:text-neutral-300 font-light">
 					A list of my teaching experiences.
 				</p>
@@ -58,12 +58,12 @@ export default function TeachingPage() {
 				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-12">Washington State University</h2>
 				<div className="space-y-12">
 					{teachingExperiences.map((exp, idx) => (
-						<motion.article
+						<article
 							key={idx}
-							initial={{ opacity: 0, y: 20 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true }}
-							transition={{ duration: 0.5, ease: "easeOut" }}
+							// initial={{ opacity: 0, y: 20 }}
+							// whileInView={{ opacity: 1, y: 0 }}
+							// viewport={{ once: true }}
+							// transition={{ duration: 0.5, ease: "easeOut" }}
 							className="group flex flex-col md:flex-row md:items-start gap-6 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-8"
 						>
 							<div className="flex-shrink-0 md:w-48 pt-1">
@@ -80,7 +80,7 @@ export default function TeachingPage() {
 									{exp.description}
 								</div>
 							</div>
-						</motion.article>
+						</article>
 					))}
 				</div>
 			</section>

@@ -184,14 +184,14 @@ export default function ProjectsPage() {
 	return (
 		<main className="max-w-5xl mx-auto px-6 py-24 bg-background text-foreground">
 			<header className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
-				<motion.h1
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.7, ease: "easeOut" }}
+				<h1
+					// initial={{ opacity: 0, y: 20 }}
+					// animate={{ opacity: 1, y: 0 }}
+					// transition={{ duration: 0.7, ease: "easeOut" }}
 					className="text-7xl md:text-8xl font-serif text-primary dark:text-white tracking-tighter leading-[0.9]"
 				>
 					Projects
-				</motion.h1>
+				</h1>
 				<a
 					href="https://github.com/ethanvillalovoz"
 					target="_blank"
@@ -213,12 +213,12 @@ export default function ProjectsPage() {
 			<section className="mb-12">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 					{reversedProjects.map((project) => (
-						<motion.article
+						<article
 							key={project.title}
-							initial={{ opacity: 0, y: 20 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true }}
-							transition={{ duration: 0.5, ease: "easeOut" }}
+							// initial={{ opacity: 0, y: 20 }}
+							// whileInView={{ opacity: 1, y: 0 }}
+							// viewport={{ once: true }}
+							// transition={{ duration: 0.5, ease: "easeOut" }}
 							className="group flex flex-col bg-card rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800"
 						>
 							<div className="relative w-full h-48 overflow-hidden bg-neutral-100 dark:bg-neutral-900">
@@ -265,7 +265,7 @@ export default function ProjectsPage() {
 										))}
 								</div>
 							</div>
-						</motion.article>
+						</article>
 					))}
 				</div>
 			</section>
