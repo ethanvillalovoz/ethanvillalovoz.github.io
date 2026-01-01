@@ -14,9 +14,14 @@ export const metadata: Metadata = {
     "Master's student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics.",
   applicationName: "Ethan Villalovoz",
   icons: {
-    icon: "/images/website_icon.png",
-    shortcut: "/images/website_icon.png",
-    apple: "/images/website_icon.png",
+    icon: [
+      { url: "/images/website_icon.png", media: "(prefers-color-scheme: light)", type: "image/png" },
+      { url: "/images/website_icon_white.png", media: "(prefers-color-scheme: dark)", type: "image/png" },
+    ],
+    shortcut: ["/images/website_icon.png"],
+    apple: [
+      { url: "/images/website_icon.png" },
+    ],
   },
   verification: {
     google: "YI1L3YOtnukh0nVwoZ-TVjTTp9_PN65NylPHNUshHII",
@@ -60,6 +65,19 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Providers>
+        {/* ✅ WebSite Structured Data (For Google Site Name) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Ethan Villalovoz",
+              url: "https://ethanvillalovoz.com",
+              alternateName: ["ethanvillalovoz.com", "Ethan Villalovoz"],
+            }),
+          }}
+        />
         {/* ✅ Person Structured Data */}
         <script
           type="application/ld+json"
@@ -68,8 +86,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Ethan Villalovoz",
-              url: "https://ethanvillalovoz.vercel.app",
-              image: "https://ethanvillalovoz.vercel.app/images/EthanVillalovozPic.jpeg",
+              url: "https://ethanvillalovoz.com",
+              image: "https://ethanvillalovoz.com/images/EthanVillalovozPic.jpeg",
               sameAs: [
                 "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
                 "https://github.com/ethanvillalovoz",
