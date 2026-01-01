@@ -113,9 +113,9 @@ export default function Home() {
 			date: "06/2025",
 			content: (
 				<>
-					Gave an alumni talk for the{" "}
+					Gave an alumni talk for the WSU{" "}
 					<a href="https://marc.wsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
-						WSU MARC
+						MARC
 					</a>{" "}
 					&{" "}
 					<a href="https://mira.wsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
@@ -144,9 +144,9 @@ export default function Home() {
 			date: "06/2024",
 			content: (
 				<>
-					Conducting research at Carnegie Mellon University as part of the{" "}
+					Conducting research at Carnegie Mellon University as part of the CMU{" "}
 					<a href="https://riss.ri.cmu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
-						CMU RISS
+						RISS
 					</a>{" "}
 					program.
 				</>
@@ -203,10 +203,11 @@ export default function Home() {
 			date: "05/2023",
 			content: (
 				<>
-					Became a MARC Scholar through the{" "}
+					Became a{" "}
 					<a href="https://marc.wsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
-						NIH Fellowship
-					</a>.
+						NIH MARC Scholar
+					</a>{" "}
+					through the National Institutes of Health.
 				</>
 			),
 			hidden: true,
@@ -224,18 +225,18 @@ export default function Home() {
 			),
 			hidden: true,
 		},
-		{
-			date: "07/2021",
-			content: (
-				<>
-					Became an ESTEEMED Scholar through the{" "}
-					<a href="https://mira.wsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
-						NIH Fellowship
-					</a>.
-				</>
-			),
-			hidden: true,
-		},
+		// {
+		// 	date: "07/2021",
+		// 	content: (
+		// 		<>
+		// 			Became an ESTEEMED Scholar through the{" "}
+		// 			<a href="https://mira.wsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+		// 				NIH Fellowship
+		// 			</a>.
+		// 		</>
+		// 	),
+		// 	hidden: true,
+		// },
 	];
 	const visibleNews = newsItems.filter((item) => !item.hidden);
 	const hiddenNews = newsItems.filter((item) => item.hidden);
