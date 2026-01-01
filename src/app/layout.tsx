@@ -15,10 +15,9 @@ export const metadata: Metadata = {
   applicationName: "Ethan Villalovoz",
   icons: {
     icon: [
-      { url: "/images/website_icon.png", media: "(prefers-color-scheme: light)", type: "image/png" },
       { url: "/images/website_icon_white.png", media: "(prefers-color-scheme: dark)", type: "image/png" },
+      { url: "/images/website_icon.png", media: "(prefers-color-scheme: light)", type: "image/png" },
     ],
-    shortcut: ["/images/website_icon.png"],
     apple: [
       { url: "/images/website_icon.png" },
     ],
