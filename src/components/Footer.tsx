@@ -1,4 +1,6 @@
-import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter, FaYoutube } from "react-icons/fa";
+import Link from "next/link";
+import Image from "next/image";
+import { FaGithub, FaLinkedin, FaEnvelope, FaYoutube, FaXTwitter } from "react-icons/fa6";
 import { SiGooglescholar } from "react-icons/si";
 
 const Footer = () => {
@@ -6,17 +8,34 @@ const Footer = () => {
 
   return (
     <footer className="border-t border-neutral-200 dark:border-neutral-800 mt-auto bg-background">
-      <div className="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="text-center md:text-left">
-          <p className="text-sm text-neutral-600 dark:text-neutral-400 font-medium">
+      <div className="max-w-5xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+        
+        {/* Left: Logo & Name */}
+        <div className="flex justify-center md:justify-start">
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <Image
+              src="/images/website_icon.png"
+              alt="Ethan Villalovoz Logo"
+              width={24}
+              height={24}
+              className="object-contain dark:invert"
+            />
+            <span className="font-semibold text-lg tracking-tight">Ethan Villalovoz</span>
+          </Link>
+        </div>
+
+        {/* Center: Copyright & Info */}
+        <div className="text-center flex flex-col items-center justify-center">
+          <p className="text-[10px] md:text-xs text-neutral-500 dark:text-neutral-400 font-medium uppercase tracking-widest">
             © {currentYear} Ethan Villalovoz.
           </p>
-          <p className="text-xs text-neutral-500 dark:text-neutral-500 mt-2">
-            Built with Next.js, Tailwind CSS, and Framer Motion.
+          <p className="text-[10px] md:text-xs text-neutral-500 dark:text-neutral-400 font-medium uppercase tracking-widest">
+            All rights reserved.
           </p>
         </div>
 
-        <div className="flex gap-6">
+        {/* Right: Social Icons */}
+        <div className="flex justify-center md:justify-end gap-6">
           <a
             href="https://www.linkedin.com/in/evillalovoz27/"
             target="_blank"
@@ -24,7 +43,7 @@ const Footer = () => {
             className="text-neutral-500 hover:text-primary dark:text-neutral-400 dark:hover:text-white transition-colors"
             aria-label="LinkedIn"
           >
-            <FaLinkedin size={20} />
+            <FaLinkedin size={18} />
           </a>
           <a
             href="https://github.com/ethanvillalovoz"
@@ -33,7 +52,7 @@ const Footer = () => {
             className="text-neutral-500 hover:text-primary dark:text-neutral-400 dark:hover:text-white transition-colors"
             aria-label="GitHub"
           >
-            <FaGithub size={20} />
+            <FaGithub size={18} />
           </a>
           <a
             href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en"
@@ -42,7 +61,7 @@ const Footer = () => {
             className="text-neutral-500 hover:text-primary dark:text-neutral-400 dark:hover:text-white transition-colors"
             aria-label="Google Scholar"
           >
-            <SiGooglescholar size={20} />
+            <SiGooglescholar size={18} />
           </a>
           <a
             href="https://x.com/etvillalovoz"
@@ -51,7 +70,7 @@ const Footer = () => {
             className="text-neutral-500 hover:text-primary dark:text-neutral-400 dark:hover:text-white transition-colors"
             aria-label="X (Twitter)"
           >
-            <FaTwitter size={20} />
+            <FaXTwitter size={18} />
           </a>
           <a
             href="https://www.youtube.com/@ethanvillalovoz"
@@ -60,14 +79,14 @@ const Footer = () => {
             className="text-neutral-500 hover:text-primary dark:text-neutral-400 dark:hover:text-white transition-colors"
             aria-label="YouTube"
           >
-            <FaYoutube size={20} />
+            <FaYoutube size={18} />
           </a>
           <a
             href="mailto:ethan.villalovoz@gatech.edu"
             className="text-neutral-500 hover:text-primary dark:text-neutral-400 dark:hover:text-white transition-colors"
             aria-label="Email"
           >
-            <FaEnvelope size={20} />
+            <FaEnvelope size={18} />
           </a>
         </div>
       </div>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaLinkedin, FaGithub, FaEnvelope, FaYoutube, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaYoutube, FaXTwitter } from "react-icons/fa6";
 import { SiGooglescholar } from "react-icons/si";
 
 // Example timeline data structure
@@ -281,7 +281,7 @@ export default function Home() {
 								<a href="https://www.linkedin.com/in/evillalovoz27/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaLinkedin /></a>
 								<a href="https://github.com/ethanvillalovoz" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaGithub /></a>
 								<a href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><SiGooglescholar /></a>
-								<a href="https://x.com/etvillalovoz" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaTwitter /></a>
+								<a href="https://x.com/etvillalovoz" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaXTwitter /></a>
 								<a href="https://www.youtube.com/@ethanvillalovoz" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaYoutube /></a>
 								<a href="mailto:ethan.villalovoz@gatech.edu" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaEnvelope /></a>
 							</div>

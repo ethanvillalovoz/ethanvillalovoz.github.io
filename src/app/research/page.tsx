@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { SiGooglescholar } from "react-icons/si";
-import { FaGithub, FaFilePdf, FaGlobe, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaFilePdf, FaGlobe, FaYoutube } from "react-icons/fa6";
 
 interface Author {
 	name: string;
