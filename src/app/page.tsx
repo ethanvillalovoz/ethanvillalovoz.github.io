@@ -97,6 +97,20 @@ export default function Home() {
 
 	const newsItems = [
 		{
+			date: "12/2025",
+			content: (
+				<>
+					New paper on {" "}
+					<span className="font-semibold">arXiv</span>{" "}
+					on {" "}
+					<a href="https://arxiv.org/abs/2512.15076" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+						Bayesian prompt optimization for LLM-based code generation
+					</a>.
+				</>
+			),
+			// hidden: true,
+		},
+		{
 			date: "07/2025",
 			content: (
 				<>
@@ -162,7 +176,7 @@ export default function Home() {
 					</a>.
 				</>
 			),
-			// hidden: true,
+			hidden: true,
 		},
 		{
 			date: "07/2023",
@@ -180,8 +194,12 @@ export default function Home() {
 			date: "07/2023",
 			content: (
 				<>
-					Work accepted for presentation at {" "}
-					<span className="font-semibold">IROS 2023</span>!
+					Paper accepted at {" "}
+					<span className="font-semibold">IROS 2023</span>{" "}
+					on{" "}
+					<a href="https://ieeexplore.ieee.org/abstract/document/10342372" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-white underline decoration-primary-light/50 hover:decoration-primary">
+						multi-robot formations for social navigation
+					</a>.
 				</>
 			),
 			hidden: true,
