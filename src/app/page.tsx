@@ -312,7 +312,7 @@ export default function Home() {
 							alt="Ethan Villalovoz"
 							width={300}
 							height={300}
-							className="rounded-2xl object-cover shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500"
+							className="rounded-2xl object-cover shadow-2xl"
 						/>
 					</div>
 				</div>
