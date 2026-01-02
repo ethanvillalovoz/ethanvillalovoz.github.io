@@ -328,7 +328,7 @@ export default function Home() {
 							}`}
 							onClick={() => setTimelineTab("work")}
 						>
-							Work Experience
+							Experience
 						</button>
 						<button
 							className={`pb-4 text-lg font-serif transition-colors ${
