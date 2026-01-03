@@ -24,38 +24,36 @@ export default function Navbar() {
 			aria-label="Main navigation"
 		>
 			<div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-				{/* Logo & Desktop Links */}
-				<div className="flex items-center gap-8">
-					<Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
-						<span className="sr-only">Home</span>
-						<Image
-							src="/images/website_icon.png"
-							alt="Ethan Villalovoz Logo"
-							width={32}
-							height={32}
-							priority
-							className="object-contain dark:invert"
-						/>
-					</Link>
+				{/* Logo */}
+				<Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
+					<span className="sr-only">Home</span>
+					<Image
+						src="/images/website_icon.png"
+						alt="Ethan Villalovoz Logo"
+						width={32}
+						height={32}
+						priority
+						className="object-contain dark:invert"
+					/>
+				</Link>
 
-					{/* Desktop Nav Links */}
-					<div className="hidden md:flex items-center space-x-6">
-						{navLinks.map((link) => (
-							<Link
-								key={link.name}
-								href={link.href}
-								aria-current={isActive(link.href) ? "page" : undefined}
-								className={`text-sm font-medium transition-colors hover:text-primary dark:hover:text-primary
-								${isActive(link.href) ? "text-primary font-semibold" : "text-neutral-500 dark:text-neutral-400"}`}
-							>
-								{link.name}
-							</Link>
-						))}
-					</div>
+				{/* Desktop Nav Links */}
+				<div className="hidden md:flex items-center space-x-6">
+					{navLinks.map((link) => (
+						<Link
+							key={link.name}
+							href={link.href}
+							aria-current={isActive(link.href) ? "page" : undefined}
+							className={`text-sm font-medium transition-colors hover:text-primary dark:hover:text-primary
+							${isActive(link.href) ? "text-primary font-semibold" : "text-neutral-500 dark:text-neutral-400"}`}
+						>
+							{link.name}
+						</Link>
+					))}
 				</div>
 
-				{/* Right Side: Desktop Toggle & Mobile Hamburger */}
-				<div className="flex items-center gap-4">
+			{/* Right Side: Desktop Toggle & Mobile Hamburger */}
+			<div className="flex items-center gap-4 md:hidden">
 					{/* Hamburger Button (Mobile) */}
 					<button
 						className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-primary ml-auto"
