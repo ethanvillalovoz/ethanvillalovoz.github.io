@@ -59,7 +59,7 @@ const preprints: PrePrint[] = [
 	},
 ];
 
-{/* ------------------------------Publications-------------------------- */}
+{/* ------------------------------2023-------------------------- */}
 
 interface Paper {
 	title: string;
@@ -78,7 +78,7 @@ interface Paper {
 	highlighted?: boolean;
 }
 
-const papers: Paper[] = [
+const papers_2023: Paper[] = [
 	{
 		title: "Social Triangles and Aggressive Lines: Multi-Robot Formations Impact Navigation and Approach",
 		url: "https://ieeexplore.ieee.org/abstract/document/10342372",
@@ -127,14 +127,14 @@ export default function ResearchPage() {
 				</a> */}
 			</header>
 			
-			<section className="mb-24">
+			{/* <section className="mb-24"> */}
 				{/* <h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-8">Interests</h2> */}
-				<p className="text-2xl leading-relaxed text-neutral-700 dark:text-neutral-300 max-w-4xl font-light">
+				{/* <p className="text-2xl leading-relaxed text-neutral-700 dark:text-neutral-300 max-w-4xl font-light">
 					My research focuses on building aligned world models for robotics, which are frameworks that jointly 
 					infer human intent and predict the consequences of actions in complex environments. I am interested in 
 					interactive robot learning, human-AI collaboration, and generative models for embodied intelligence.
 				</p>
-			</section>
+			</section> */}
 
 			<section className="mb-12">
 				<div className="text-sm text-neutral-500 dark:text-neutral-400 mb-1 flex flex-col md:flex-row gap-2 md:gap-6">
@@ -280,13 +280,13 @@ export default function ResearchPage() {
 					))}
 				</div>
 
-				{/* ------------------------------Publications-------------------------- */}
+				{/* ------------------------------2023-------------------------- */}
 
 				<div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-					<h2 className="text-4xl font-serif text-primary dark:text-white">Publications</h2>
+					<h2 className="text-4xl font-serif text-primary dark:text-white">2023</h2>
 				</div>
 				<div className="flex flex-col gap-12">
-					{papers.map((paper) => (
+					{papers_2023.map((paper) => (
 						<article
 							key={paper.title}
 							// initial={{ opacity: 0, y: 20 }}
