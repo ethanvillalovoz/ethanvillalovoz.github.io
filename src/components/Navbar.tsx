@@ -51,6 +51,14 @@ export default function Navbar() {
 							{link.name}
 						</Link>
 					))}
+					<a
+						href="/data/EthanVillalovoz-CV.pdf"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-flex items-center px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
+					>
+						CV
+					</a>
 				</div>
 
 			{/* Right Side: Desktop Toggle & Mobile Hamburger */}
@@ -89,6 +97,15 @@ export default function Navbar() {
 								{link.name}
 							</Link>
 						))}
+						<a
+							href="/data/EthanVillalovoz-CV.pdf"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="inline-flex items-center px-6 py-2 rounded-full bg-primary text-primary-foreground text-lg font-medium hover:opacity-90 transition-opacity"
+							onClick={() => setMenuOpen(false)}
+						>
+							CV
+						</a>
 					</div>
 				</div>
 			)}
