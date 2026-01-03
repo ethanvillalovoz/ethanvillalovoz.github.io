@@ -114,7 +114,7 @@ export default function ResearchPage() {
 					// transition={{ duration: 0.7, ease: "easeOut" }}
 					className="text-7xl md:text-8xl font-serif text-primary dark:text-white tracking-tighter leading-[0.9]"
 				>
-					Research
+					Publications
 				</h1>
 				{/* <a
 						href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en"
