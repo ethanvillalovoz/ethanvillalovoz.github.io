@@ -149,7 +149,7 @@ export default function ResearchPage() {
 			</section>
 
 			{/* ------------------------------Pre-Prints-------------------------- */}
-			<section className="mb-12">
+			<section className="mb-24">
 				<div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
 					<h2 className="text-4xl font-serif text-primary dark:text-white">Pre-Prints</h2>
 				</div>
@@ -161,7 +161,7 @@ export default function ResearchPage() {
 							// whileInView={{ opacity: 1, y: 0 }}
 							// viewport={{ once: true }}
 							// transition={{ duration: 0.5, ease: "easeOut" }}
-							className={`flex flex-col md:flex-row gap-8 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-12 p-6 -mx-6 rounded-xl transition-colors ${
+							className={`flex flex-col md:flex-row gap-8 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-8 p-6 -mx-6 rounded-xl transition-colors ${
 								paper.highlighted ? "bg-yellow-100 dark:bg-yellow-900/30" : ""
 							}`}
 						>
@@ -292,7 +292,7 @@ export default function ResearchPage() {
 							// whileInView={{ opacity: 1, y: 0 }}
 							// viewport={{ once: true }}
 							// transition={{ duration: 0.5, ease: "easeOut" }}
-							className={`flex flex-col md:flex-row gap-8 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-12 p-6 -mx-6 rounded-xl transition-colors ${
+							className={`flex flex-col md:flex-row gap-8 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-8 p-6 -mx-6 rounded-xl transition-colors ${
 								paper.highlighted ? "bg-yellow-100 dark:bg-yellow-900/30" : ""
 							}`}
 						>
