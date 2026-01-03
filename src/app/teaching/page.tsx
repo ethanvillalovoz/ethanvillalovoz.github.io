@@ -51,11 +51,11 @@ export default function TeachingPage() {
 				</h1>
 			</header>
 
-			<section className="mb-24">
+			{/* <section className="mb-24">
 				<p className="text-2xl leading-relaxed text-neutral-700 dark:text-neutral-300 max-w-4xl font-light">
 					A list of my teaching experiences.
 				</p>
-			</section>
+			</section> */}
 			
 			<section className="mb-12">
 				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-12">Washington State University</h2>
