@@ -25,7 +25,7 @@ export default function Navbar() {
 		>
 			<div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
 				{/* Logo */}
-				<Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
+				<Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity flex items-center gap-3">
 					<span className="sr-only">Home</span>
 					<Image
 						src="/images/website_icon.png"
@@ -35,6 +35,7 @@ export default function Navbar() {
 						priority
 						className="object-contain dark:invert"
 					/>
+					<span className="font-semibold text-lg tracking-tight hidden sm:block">Ethan Villalovoz</span>
 				</Link>
 
 				{/* Desktop Nav Links */}
