@@ -148,10 +148,8 @@ export default function ResearchPage() {
 				</div>
 			</section>
 
+			{/* ------------------------------Pre-Prints-------------------------- */}
 			<section className="mb-12">
-
-				{/* ------------------------------Pre-Prints-------------------------- */}
-
 				<div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
 					<h2 className="text-4xl font-serif text-primary dark:text-white">Pre-Prints</h2>
 				</div>
@@ -279,9 +277,10 @@ export default function ResearchPage() {
 						</article>
 					))}
 				</div>
+			</section>
 
-				{/* ------------------------------2023-------------------------- */}
-
+			{/* ------------------------------2023-------------------------- */}
+			<section className="mb-12">
 				<div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
 					<h2 className="text-4xl font-serif text-primary dark:text-white">2023</h2>
 				</div>
