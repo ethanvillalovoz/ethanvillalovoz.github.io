@@ -116,7 +116,7 @@ export default function ResearchPage() {
 				>
 					Research
 				</h1>
-				<a
+				{/* <a
 						href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en"
 						target="_blank"
 						rel="noopener noreferrer"
@@ -124,7 +124,7 @@ export default function ResearchPage() {
 					>
 						<SiGooglescholar className="mr-2 text-lg" />
 						Google Scholar
-				</a>
+				</a> */}
 			</header>
 			
 			<section className="mb-24">
