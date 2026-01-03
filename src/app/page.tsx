@@ -293,7 +293,7 @@ export default function Home() {
 							</span>
 						</div>
 						<p className="mb-6 text-xl md:text-2xl leading-relaxed text-neutral-600 dark:text-neutral-300 font-light max-w-2xl">
-							Master&apos;s student in Computer Science at Georgia Tech. My research interests are in robot learning and world modeling from human interaction and feedback. Incoming Software Engineer Intern at Microsoft.
+							Master&apos;s student in Computer Science at Georgia Tech. My research interests are in robot learning and world modeling from human interaction and feedback.
 						</p>
 						<p className="mb-8 text-lg md:text-xl leading-relaxed text-neutral-600 dark:text-neutral-300 font-light max-w-2xl">
 							I am always open to connecting—please feel free to reach out!
@@ -307,15 +307,15 @@ export default function Home() {
 							>
 								Resume
 							</a>
-							<a
+							{/* <a
 								href="/data/EthanVillalovoz-CV.pdf"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="inline-flex items-center px-8 py-3 rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-lg"
 							>
 								CV
-							</a>
-							<div className="flex items-center gap-6 ml-2">
+							</a> */}
+							<div className="flex items-center gap-6">
 								<a href="https://www.linkedin.com/in/evillalovoz27/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaLinkedin /></a>
 								<a href="https://github.com/ethanvillalovoz" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><FaGithub /></a>
 								<a href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors text-2xl"><SiGooglescholar /></a>
