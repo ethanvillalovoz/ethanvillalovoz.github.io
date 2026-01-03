@@ -77,7 +77,7 @@ export default function Navbar() {
 					id="mobile-menu"
 					className="md:hidden bg-background px-6 pb-6 pt-2 border-b border-neutral-200 dark:border-neutral-800 animate-fade-in"
 				>
-					<div className="flex flex-col gap-y-4">
+					<div className="flex flex-col gap-y-4 items-end">
 						{navLinks.map((link) => (
 							<Link
 								key={link.name}
