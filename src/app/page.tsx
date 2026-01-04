@@ -4,7 +4,23 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaLinkedin, FaGithub, FaEnvelope, FaYoutube, FaXTwitter } from "react-icons/fa6";
-import { SiGooglescholar } from "react-icons/si";
+import { 
+	SiGooglescholar, 
+	SiPython, 
+	SiCplusplus, 
+	SiPytorch, 
+	SiHuggingface,
+	SiOpencv,
+	SiGit,
+	SiDocker,
+	SiAnaconda,
+	SiMlflow,
+	SiDvc,
+	SiJupyter,
+	SiPandas,
+	SiSqlite,
+	SiFastapi
+} from "react-icons/si";
 
 // Example timeline data structure
 const workTimeline = [
@@ -89,6 +105,23 @@ const educationTimeline = [
 			// "Activities: Honors College, NIH ESTEEMED Fellow, VCEA College Ambassador, NIH MARC Fellow",
 		],
 	},
+];
+
+const skills = [
+	{ name: "Python", icon: SiPython },
+	{ name: "C/C++", icon: SiCplusplus },
+	// { name: "SQL", icon: SiSqlite },
+	{ name: "PyTorch", icon: SiPytorch },
+	// { name: "Hugging Face Transformers", icon: SiHuggingface },
+	{ name: "Pandas", icon: SiPandas },
+	{ name: "OpenCV", icon: SiOpencv },
+	{ name: "Git", icon: SiGit },
+	{ name: "Docker", icon: SiDocker },
+	// { name: "Conda", icon: SiAnaconda },
+	// { name: "MLflow", icon: SiMlflow },
+	// { name: "DVC", icon: SiDvc },
+	// { name: "Jupyter", icon: SiJupyter },
+	// { name: "FastAPI", icon: SiFastapi },
 ];
 
 export default function Home() {
@@ -335,6 +368,22 @@ export default function Home() {
 						/>
 					</div>
 				</div>
+
+				{/* Tech Stack Section */}
+				<section className="mb-24">
+					<h2 className="text-4xl font-serif mb-8 text-primary dark:text-white">Technical Skills</h2>
+					<div className="flex flex-wrap gap-4">
+						{skills.map((skill) => (
+							<div 
+								key={skill.name} 
+								className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors cursor-default"
+							>
+								<skill.icon className="text-xl" />
+								<span className="font-medium">{skill.name}</span>
+							</div>
+						))}
+					</div>
+				</section>
 
 				{/* Timeline Section */}
 				<section className="mb-24">
