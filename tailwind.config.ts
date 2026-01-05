@@ -12,7 +12,7 @@ export default {
 			colors: {
 				background: "rgb(var(--background) / <alpha-value>)",
 				foreground: "rgb(var(--foreground) / <alpha-value>)",
-				// World Labs (Real) Palette
+				// Apple Style Palette
 				primary: "rgb(var(--primary) / <alpha-value>)",
 				"primary-foreground": "rgb(var(--primary-foreground) / <alpha-value>)",
 				"primary-light": "rgb(var(--primary-light) / <alpha-value>)",
@@ -25,14 +25,31 @@ export default {
 				"3xl": "2rem",
 			},
 			boxShadow: {
-				soft: "0 4px 24px 0 rgba(0, 0, 0, 0.05)", // Very subtle shadow
+				soft: "0 8px 30px rgba(0, 0, 0, 0.04)", // Apple-like soft shadow
+				glass: "0 8px 32px 0 rgba(31, 38, 135, 0.07)",
 			},
 			transitionProperty: {
 				spacing: "margin, padding",
 			},
 			fontFamily: {
-				sans: ["Inter", "system-ui", "sans-serif"],
-				serif: ["Times New Roman", "Times", "serif"],
+				sans: [
+					"-apple-system",
+					"BlinkMacSystemFont",
+					"SF Pro Display",
+					"Inter",
+					"Segoe UI",
+					"Roboto",
+					"Helvetica",
+					"Arial",
+					"sans-serif",
+				],
+				serif: [
+					"-apple-system",
+					"BlinkMacSystemFont",
+					"SF Pro Display",
+					"Inter",
+					"sans-serif",
+				], // Override serif to use sans for consistency
 			},
 		},
 	},

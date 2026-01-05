@@ -3,38 +3,53 @@
 @tailwind utilities;
 
 :root {
-  /* World Labs Inspired - Light Mode */
-  --background: 253 252 248;      /* Warm Off-White / Bone */
-  --foreground: 28 28 28;         /* Sharp Charcoal */
+  /* Apple Inspired - Light Mode */
+  --background: 255 255 255;      /* Pure White */
+  --foreground: 29 29 31;         /* Apple Dark Gray/Black */
   
-  --primary: 28 28 28;            /* Match foreground for high contrast */
+  --primary: 0 102 204;           /* Apple Blue (Classic) */
   --primary-foreground: 255 255 255; 
-  --primary-light: 115 115 115;   /* Neutral Gray for secondary text */
+  --primary-light: 134 134 139;   /* Apple Gray for secondary text */
   --primary-dark: 0 0 0;    
   
-  --card: 255 255 255;            /* Pure white cards on cream bg */
+  --card: 245 245 247;            /* Light Gray for cards/sections */
 }
 
 .dark {
-  /* World Labs Inspired - Dark Mode */
-  --background: 10 10 10;         /* Deepest Black/Gray */
-  --foreground: 240 240 240;      /* Soft White */
+  /* Apple Inspired - Dark Mode */
+  --background: 0 0 0;            /* Pure Black */
+  --foreground: 245 245 247;      /* Off White */
   
-  --primary: 255 255 255;         
-  --primary-foreground: 10 10 10; 
-  --primary-light: 163 163 163;   
+  --primary: 41 151 255;          /* Apple Blue (Dark Mode) */
+  --primary-foreground: 0 0 0; 
+  --primary-light: 134 134 139;   /* Apple Gray */
   --primary-dark: 255 255 255;    
   
-  --card: 23 23 23;               /* Subtle dark card */
+  --card: 28 28 30;               /* Dark Gray for cards */
 }
 
 body {
   color: rgb(var(--foreground));
   background: rgb(var(--background));
-  font-family: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Times New Roman", Times, serif;
-  letter-spacing: -0.02em; /* Tighter tracking for that editorial look */
+  font-weight: 600; /* Semi-bold for headings */
+  letter-spacing: -0.015em; /* Tight tracking */
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass {
+  background: rgba(28, 28, 30, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }

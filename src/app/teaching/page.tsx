@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { FadeIn, FadeInStagger, FadeInItem } from "@/components/ui/FadeIn";
 
 const teachingExperiences = [
 	{
@@ -39,54 +39,45 @@ const teachingExperiences = [
 
 export default function TeachingPage() {
 	return (
-		<main className="max-w-5xl mx-auto px-6 py-24 bg-background text-foreground">
-			<header className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
-				<h1
-					// initial={{ opacity: 0, y: 20 }}
-					// animate={{ opacity: 1, y: 0 }}
-					// transition={{ duration: 0.7, ease: "easeOut" }}
-					className="text-7xl md:text-8xl font-serif text-primary dark:text-white tracking-tighter leading-[0.9]"
-				>
-					Teaching
-				</h1>
-			</header>
-
-			{/* <section className="mb-24">
-				<p className="text-2xl leading-relaxed text-neutral-700 dark:text-neutral-300 max-w-4xl font-light">
-					A list of my teaching experiences.
-				</p>
-			</section> */}
+		<main className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
+			<div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
+				<FadeIn>
+					<header className="mb-24">
+						<h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
+							Teaching
+						</h1>
+						<p className="text-lg text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-2xl">
+							My teaching experience.
+						</p>
+					</header>
+				</FadeIn>
 			
-			<section className="mb-12">
-				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-12">Washington State University</h2>
-				<div className="space-y-12">
-					{teachingExperiences.map((exp, idx) => (
-						<article
-							key={idx}
-							// initial={{ opacity: 0, y: 20 }}
-							// whileInView={{ opacity: 1, y: 0 }}
-							// viewport={{ once: true }}
-							// transition={{ duration: 0.5, ease: "easeOut" }}
-							className="group flex flex-col md:flex-row md:items-start gap-6 md:gap-12 border-t border-neutral-200 dark:border-neutral-800 pt-8"
-						>
-							<div className="flex-shrink-0 md:w-48 pt-1">
-								<div className="text-sm font-mono text-neutral-500 uppercase tracking-widest">{exp.term}</div>
-							</div>
-							<div className="flex-1">
-								<div className="font-serif text-2xl text-primary dark:text-white mb-2">
-									{exp.course}
-								</div>
-								<div className="text-lg font-medium text-neutral-500 dark:text-neutral-400 mb-4">
-									{exp.role}
-								</div>
-								<div className="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
-									{exp.description}
-								</div>
-							</div>
-						</article>
-					))}
-				</div>
-			</section>
+				<FadeIn>
+					<h2 className="text-2xl font-bold mb-8 tracking-tight">Washington State University</h2>
+					<FadeInStagger className="space-y-4">
+						{teachingExperiences.map((exp, idx) => (
+							<FadeInItem key={idx}>
+								<article className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8 p-6 -mx-6 rounded-2xl hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-colors">
+									<div className="flex-shrink-0 md:w-32 pt-1">
+										<div className="text-sm font-medium text-neutral-400 uppercase tracking-wider">{exp.term}</div>
+									</div>
+									<div className="flex-1">
+										<h3 className="font-semibold text-lg text-foreground mb-1">
+											{exp.course}
+										</h3>
+										<div className="text-sm font-medium text-primary mb-3">
+											{exp.role}
+										</div>
+										<p className="text-base text-neutral-500 dark:text-neutral-400 leading-relaxed">
+											{exp.description}
+										</p>
+									</div>
+								</article>
+							</FadeInItem>
+						))}
+					</FadeInStagger>
+				</FadeIn>
+			</div>
 		</main>
 	);
 }

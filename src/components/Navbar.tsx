@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
 	{ name: "Home", href: "/" },
@@ -12,30 +13,42 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+	const [scrolled, setScrolled] = useState(false);
 	const [menuOpen, setMenuOpen] = useState(false);
 	const pathname = usePathname();
+
+	useEffect(() => {
+		const handleScroll = () => {
+			setScrolled(window.scrollY > 20);
+		};
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
 
 	const isActive = (path: string) => pathname === path || pathname === `${path}/`;
 
 	return (
-		<nav
-			className="w-full bg-background/80 backdrop-blur-xl border-b border-neutral-200/50 dark:border-neutral-800/50 sticky top-0 z-50"
-			role="navigation"
-			aria-label="Main navigation"
+		<motion.nav
+			initial={{ y: -100 }}
+			animate={{ y: 0 }}
+			transition={{ duration: 0.5 }}
+			className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+				scrolled || menuOpen ? "glass" : "bg-transparent"
+			}`}
 		>
-			<div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+			<div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
 				{/* Logo */}
-				<Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity flex items-center gap-3">
-					<span className="sr-only">Home</span>
+				<Link href="/" className="flex items-center gap-3 group z-50">
 					<Image
 						src="/images/website_icon.png"
 						alt="Ethan Villalovoz Logo"
-						width={32}
-						height={32}
-						priority
-						className="object-contain dark:invert"
+						width={28}
+						height={28}
+						className="object-contain dark:invert opacity-90 group-hover:opacity-100 transition-opacity"
 					/>
-					<span className="font-semibold text-lg tracking-tight hidden sm:block">Ethan Villalovoz</span>
+					<span className="font-semibold text-lg tracking-tight text-foreground/90 group-hover:text-foreground transition-colors">
+						Ethan Villalovoz
+					</span>
 				</Link>
 
 				{/* Desktop Nav Links */}
@@ -44,9 +57,11 @@ export default function Navbar() {
 						<Link
 							key={link.name}
 							href={link.href}
-							aria-current={isActive(link.href) ? "page" : undefined}
-							className={`text-sm font-medium transition-colors hover:text-primary dark:hover:text-primary
-							${isActive(link.href) ? "text-primary font-semibold" : "text-neutral-500 dark:text-neutral-400"}`}
+							className={`text-[13px] font-medium transition-colors duration-200 ${
+								isActive(link.href)
+									? "text-foreground font-semibold"
+									: "text-neutral-500 hover:text-foreground dark:text-neutral-400 dark:hover:text-foreground"
+							}`}
 						>
 							{link.name}
 						</Link>
@@ -55,60 +70,75 @@ export default function Navbar() {
 						href="/data/EthanVillalovoz-CV.pdf"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="inline-flex items-center px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
+						className="inline-flex items-center px-4 py-1.5 rounded-full bg-foreground text-background text-[13px] font-medium hover:opacity-90 transition-opacity"
 					>
 						CV
 					</a>
 				</div>
 
-			{/* Right Side: Desktop Toggle & Mobile Hamburger */}
-			<div className="flex items-center gap-4 md:hidden">
-					{/* Hamburger Button (Mobile) */}
-					<button
-						className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-primary ml-auto"
-						aria-label={menuOpen ? "Close menu" : "Open menu"}
-						aria-expanded={menuOpen}
-						aria-controls="mobile-menu"
-						onClick={() => setMenuOpen((open) => !open)}
-					>
-						<span className={`block w-6 h-0.5 rounded transition-all duration-200 mb-1 ${menuOpen ? "rotate-45 translate-y-1.5" : ""} bg-foreground`}></span>
-						<span className={`block w-6 h-0.5 rounded transition-all duration-200 mb-1 ${menuOpen ? "opacity-0" : ""} bg-foreground`}></span>
-						<span className={`block w-6 h-0.5 rounded transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""} bg-foreground`}></span>
-					</button>
-				</div>
+				{/* Mobile Hamburger Button */}
+				<button
+					className="md:hidden relative w-10 h-10 flex justify-center items-center focus:outline-none z-50"
+					aria-label={menuOpen ? "Close menu" : "Open menu"}
+					aria-expanded={menuOpen}
+					onClick={() => setMenuOpen(!menuOpen)}
+				>
+					<span
+						className={`absolute h-0.5 w-5 bg-foreground rounded-full transition-all duration-300 ease-out ${
+							menuOpen ? "rotate-45" : "-translate-y-1.5"
+						}`}
+					/>
+					<span
+						className={`absolute h-0.5 w-5 bg-foreground rounded-full transition-all duration-300 ease-out ${
+							menuOpen ? "opacity-0" : "opacity-100"
+						}`}
+					/>
+					<span
+						className={`absolute h-0.5 w-5 bg-foreground rounded-full transition-all duration-300 ease-out ${
+							menuOpen ? "-rotate-45" : "translate-y-1.5"
+						}`}
+					/>
+				</button>
 			</div>
 
 			{/* Mobile Dropdown Menu */}
-			{menuOpen && (
-				<div
-					id="mobile-menu"
-					className="md:hidden bg-background px-6 pb-6 pt-2 border-b border-neutral-200 dark:border-neutral-800 animate-fade-in"
-				>
-					<div className="flex flex-col gap-y-4 items-end">
-						{navLinks.map((link) => (
-							<Link
-								key={link.name}
-								href={link.href}
-								aria-current={isActive(link.href) ? "page" : undefined}
-								className={`text-lg font-medium transition-colors hover:text-primary dark:hover:text-primary
-									${isActive(link.href) ? "text-primary" : "text-neutral-500 dark:text-neutral-400"}`}
+			<AnimatePresence>
+				{menuOpen && (
+					<motion.div
+						initial={{ opacity: 0, height: 0 }}
+						animate={{ opacity: 1, height: "auto" }}
+						exit={{ opacity: 0, height: 0 }}
+						transition={{ duration: 0.3, ease: "easeInOut" }}
+						className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-b border-neutral-200/50 dark:border-neutral-800/50"
+					>
+						<div className="px-6 pb-8 pt-4 flex flex-col gap-4 items-center">
+							{navLinks.map((link) => (
+								<Link
+									key={link.name}
+									href={link.href}
+									className={`text-lg font-medium transition-colors ${
+										isActive(link.href)
+											? "text-foreground"
+											: "text-neutral-500 dark:text-neutral-400"
+									}`}
+									onClick={() => setMenuOpen(false)}
+								>
+									{link.name}
+								</Link>
+							))}
+							<a
+								href="/data/EthanVillalovoz-CV.pdf"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="inline-flex items-center px-6 py-2 rounded-full bg-foreground text-background text-base font-medium hover:opacity-90 transition-opacity mt-2"
 								onClick={() => setMenuOpen(false)}
 							>
-								{link.name}
-							</Link>
-						))}
-						<a
-							href="/data/EthanVillalovoz-CV.pdf"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="inline-flex items-center px-6 py-2 rounded-full bg-primary text-primary-foreground text-lg font-medium hover:opacity-90 transition-opacity"
-							onClick={() => setMenuOpen(false)}
-						>
-							CV
-						</a>
-					</div>
-				</div>
-			)}
-		</nav>
+								CV
+							</a>
+						</div>
+					</motion.div>
+				)}
+			</AnimatePresence>
+		</motion.nav>
 	);
 }
