@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState, useRef, type ReactNode } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaLinkedin, FaGithub, FaEnvelope, FaYoutube, FaXTwitter } from "react-icons/fa6";
 import { 
 	SiPython, SiCplusplus, SiPytorch, SiPandas, SiOpencv, SiGit, SiDocker, SiGooglescholar
@@ -89,9 +90,16 @@ const skills = [
 	{ name: "Docker", icon: SiDocker },
 ];
 
+const profileImages = [
+	"/images/EthanVillalovozPic.jpeg",
+	"/images/graduation_2025.jpg",
+];
+
 export default function Home() {
 	const [timelineTab, setTimelineTab] = useState<"work" | "education">("work");
 	const [showAllNews, setShowAllNews] = useState(false);
+	const [currentImageIndex, setCurrentImageIndex] = useState(0);
+	const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
 
     const newsItems: { date: string; content: ReactNode; hidden?: boolean }[] = [
 		{
@@ -310,15 +318,42 @@ export default function Home() {
 								</div>
 							</div>
 						</div>
-						<div className="relative w-40 h-40 md:w-56 md:h-56 flex-shrink-0">
-							<Image
-								src="/images/EthanVillalovozPic.jpeg"
-								alt="Ethan Villalovoz"
-								fill
-								className="object-cover rounded-2xl shadow-soft"
-								priority
-							/>
-						</div>
+						
+						<motion.div 
+							className="relative w-40 h-40 md:w-56 md:h-56 flex-shrink-0 cursor-pointer"
+							initial={{ rotate: 3 }}
+							whileHover={{ rotate: 0 }}
+							transition={{ duration: 0.3 }}
+							onHoverStart={() => {
+								hoverTimeout.current = setTimeout(() => {
+									setCurrentImageIndex((prev) => (prev + 1) % profileImages.length);
+								}, 320);
+							}}
+							onHoverEnd={() => {
+								if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
+							}}
+						>
+							<div className="relative w-full h-full rounded-2xl overflow-hidden shadow-soft bg-neutral-100 dark:bg-neutral-800">
+								<AnimatePresence>
+									<motion.div
+										key={currentImageIndex}
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+										exit={{ opacity: 0 }}
+										transition={{ duration: 0.5 }}
+										className="absolute inset-0"
+									>
+										<Image
+											src={profileImages[currentImageIndex]}
+											alt="Ethan Villalovoz"
+											fill
+											className="object-cover"
+											priority
+										/>
+									</motion.div>
+								</AnimatePresence>
+							</div>
+						</motion.div>
 					</div>
 				</FadeIn>
 
