@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useDragControls } from "framer-motion";
 import Image from "next/image";
 import { 
   FaApple, 
@@ -20,7 +20,12 @@ import {
   FaSpotify,
   FaComment,
   FaMapMarkerAlt,
-  FaArrowRight
+  FaArrowRight,
+  FaLinkedin,
+  FaGithub,
+  FaYoutube,
+  FaTwitter,
+  FaGraduationCap
 } from "react-icons/fa";
 import { IoIosSwitch, IoMdMail, IoMdPhotos } from "react-icons/io";
 import { RiFinderFill } from "react-icons/ri";
@@ -110,7 +115,7 @@ type SystemState = "boot" | "login" | "desktop";
 interface WindowState {
   id: string;
   title: string;
-  type: "finder" | "safari" | "terminal" | "mail" | "preview" | "pdf-viewer";
+  type: "finder" | "safari" | "terminal" | "mail" | "preview" | "pdf-viewer" | "about";
   isOpen: boolean;
   isMinimized: boolean;
   position: { x: number; y: number };
@@ -193,7 +198,7 @@ const MailApp = () => {
             </div>
             {!sent ? (
                 <div className="p-6 flex flex-col gap-4 h-full">
-                    <div className="border-b pb-2 text-sm text-gray-500">To: <span className="text-black px-2 bg-blue-100 rounded-md">ethan@villalovoz.com</span></div>
+                    <div className="border-b pb-2 text-sm text-gray-500">To: <span className="text-black px-2 bg-blue-100 rounded-md">ethan.villalovoz@gatech.edu</span></div>
                     <div className="border-b pb-2 text-sm text-gray-500 flex gap-2">
                         <span>Subject:</span>
                         <input className="outline-none flex-1 text-black" placeholder="Hello!" />
@@ -273,23 +278,110 @@ const FinderApp = ({ onNavigate, onOpenFile }: { onNavigate: any, onOpenFile: an
     )
 };
 
+// 4. About App Component (Carousel)
+const AboutApp = () => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const profileImages = [
+        "/images/EthanVillalovozPic.jpeg",
+        // "/images/EthanVillalovozGradPic.jpeg",
+        "/images/graduation_2025.jpg"
+    ];
+
+    return (
+         <div className="flex flex-col items-center justify-center p-4 bg-[#ececec] text-neutral-800 h-full select-text overflow-hidden">
+             <motion.div 
+                className="relative w-40 h-40 md:w-56 md:h-56 flex-shrink-0 cursor-pointer mb-4"
+                initial={{ rotate: 3 }}
+                whileHover={{ rotate: 0 }}
+                transition={{ duration: 0.3 }}
+                onHoverStart={() => {
+                    hoverTimeout.current = setTimeout(() => {
+                        setCurrentImageIndex((prev) => (prev + 1) % profileImages.length);
+                    }, 320);
+                }}
+                onHoverEnd={() => {
+                    if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
+                }}
+            >
+                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg bg-neutral-100">
+                    <AnimatePresence>
+                        <motion.div
+                            key={currentImageIndex}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="absolute inset-0"
+                        >
+                            <Image
+                                src={profileImages[currentImageIndex]}
+                                alt="Ethan Villalovoz"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+            </motion.div>
+
+            <h1 className="text-3xl font-extrabold mb-1">Ethan Villalovoz</h1>
+            <p className="text-sm text-neutral-500 mb-4 flex items-center gap-1 font-medium">
+                <FaMapMarkerAlt className="text-neutral-400" /> Sacramento, California, United States
+            </p>
+            <div className="text-center space-y-3 max-w-md text-[13px] leading-relaxed font-sans">
+                <p>
+                    Master&apos;s student in Computer Science at <span className="font-semibold text-black">Georgia Tech</span>.
+                    My research interests lie at the intersection of robot learning, world modeling, and human-aligned decision making.
+                </p>
+                <p>
+                    I am always open to connecting—please feel free to reach out!
+                </p>
+            </div>
+         </div>
+    );
+};
+
 // Reusable Window Shell
 const Window = ({ windowState, isActive, onClose, onMinimize, onFocus, children }: any) => {
+    const controls = useDragControls();
+    const [isDragging, setIsDragging] = useState(false);
+    
     return (
     <motion.div
-      drag dragMomentum={false}
+      drag
+      dragMomentum={false}
+      dragListener={false} // Only drag via controls
+      dragControls={controls}
+      onDragStart={() => setIsDragging(true)}
+      onDragEnd={() => setIsDragging(false)}
       initial={{ scale: 0.95, opacity: 0 }}
-      animate={{ scale: windowState.isMinimized ? 0 : 1, opacity: windowState.isMinimized ? 0 : 1, y: windowState.isMinimized ? 200 : 0 }}
+      animate={{ 
+          scale: windowState.isMinimized ? 0 : 1, 
+          opacity: windowState.isMinimized ? 0 : 1, 
+          y: windowState.isMinimized ? 200 : 0,
+      }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      style={{ width: windowState.size.w, height: windowState.size.h, zIndex: isActive ? 50 : windowState.zIndex }}
-      className={`absolute top-20 left-20 rounded-xl overflow-hidden border border-neutral-200 bg-white shadow-2xl ${isActive ? 'shadow-black/20' : ''}`}
+      style={{ 
+          width: windowState.size.w, 
+          height: windowState.size.h, 
+          zIndex: isActive ? 50 : windowState.zIndex, 
+          position: 'absolute',
+          top: windowState.position.y,
+          left: windowState.position.x
+      }}
+      className={`rounded-xl overflow-hidden border border-neutral-200 bg-white shadow-2xl ${isActive ? 'shadow-black/20' : ''}`}
       onMouseDown={() => onFocus(windowState.id)}
     >
-      <div className="h-8 bg-[#f3f4f6] border-b border-neutral-200 flex items-center px-4 justify-between" onDoubleClick={() => {}}>
+      <div 
+        className="h-8 bg-[#f3f4f6] border-b border-neutral-200 flex items-center px-4 justify-between select-none" 
+        onPointerDown={(e) => controls.start(e)}
+      >
         <div className="flex space-x-2 group">
-          <button onClick={(e) => { e.stopPropagation(); onClose(windowState.id); }} className="w-3 h-3 rounded-full bg-[#FF5F56] border border-black/10 flex items-center justify-center hover:opacity-80 text-[8px] font-bold text-black/50 opacity-0 group-hover:opacity-100 transition-all">x</button>
-          <button onClick={(e) => { e.stopPropagation(); onMinimize(windowState.id); }} className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-black/10 flex items-center justify-center hover:opacity-80 text-[8px] font-bold text-black/50 opacity-0 group-hover:opacity-100 transition-all">-</button>
-          <button className="w-3 h-3 rounded-full bg-[#27C93F] border border-black/10 flex items-center justify-center hover:opacity-80 text-[6px] font-bold text-black/50 opacity-0 group-hover:opacity-100 transition-all">sw</button>
+          <button onClick={(e) => { e.stopPropagation(); onClose(windowState.id); }} className="w-3 h-3 rounded-full bg-[#FF5F56] border border-black/10 flex items-center justify-center hover:opacity-80 text-[6px] font-bold text-black/50">x</button>
+          <button className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-black/10 flex items-center justify-center cursor-default"></button>
+          <button className="w-3 h-3 rounded-full bg-[#27C93F] border border-black/10 flex items-center justify-center cursor-default"></button>
         </div>
         <div className="text-xs font-semibold text-neutral-500 flex items-center gap-2">
             {windowState.type === 'finder' && <RiFinderFill />}
@@ -297,7 +389,7 @@ const Window = ({ windowState, isActive, onClose, onMinimize, onFocus, children 
         </div>
         <div className="w-10"></div>
       </div>
-      <div className="h-[calc(100%-2rem)] overflow-hidden relative">
+      <div className={`h-[calc(100%-2rem)] overflow-hidden relative ${isDragging ? 'pointer-events-none' : ''}`}>
           {children}
       </div>
     </motion.div>
@@ -424,6 +516,8 @@ const Desktop = () => {
     const [time, setTime] = useState<string>("");
     const [windows, setWindows] = useState<WindowState[]>([]);
     const [activeWindowId, setActiveWindowId] = useState<string | null>(null);
+    const [activeMenu, setActiveMenu] = useState<string | null>(null);
+    const router = useRouter();
 
     // Clock
     useEffect(() => {
@@ -482,19 +576,63 @@ const Desktop = () => {
         <div 
           className="absolute inset-0 bg-no-repeat bg-center overflow-hidden"
           style={{ backgroundImage: 'url(/images/macos-wallpaper.png)', backgroundSize: '100% 100%' }} 
-          onClick={() => setActiveWindowId(null)}
+          onClick={() => { setActiveWindowId(null); setActiveMenu(null); }}
         >
             {/* Menu Bar */}
-            <div className="h-7 bg-black/40 backdrop-blur-md flex items-center justify-between px-4 text-white text-xs select-none z-50 relative">
-                <div className="flex items-center gap-4 font-medium">
-                    <FaApple className="text-base" />
-                    <span className="font-bold">Finder</span>
-                    <span>File</span>
-                    <span>Edit</span>
-                    <span>View</span>
-                    <span>Go</span>
-                    <span>Window</span>
-                    <span>Help</span>
+            <div className="h-7 bg-black/40 backdrop-blur-md flex items-center justify-between px-2 text-white text-xs select-none z-50 relative">
+                <div className="flex items-center gap-1 font-medium h-full">
+                    {/* Apple Menu */}
+                    <div className={`relative h-full flex items-center px-3 rounded hover:bg-white/20 transition-colors cursor-default ${activeMenu === 'apple' ? 'bg-white/20' : ''}`} onClick={(e) => { e.stopPropagation(); setActiveMenu(activeMenu === 'apple' ? null : 'apple'); }}>
+                        <FaApple className="text-base" />
+                        {activeMenu === 'apple' && (
+                            <div className="absolute top-full left-0 mt-1 w-56 bg-gray-900/90 backdrop-blur-md rounded-md shadow-xl text-white py-1 border border-white/20 flex flex-col z-50">
+                                <span className="px-4 py-1 hover:bg-blue-600 cursor-default" onClick={() => openWindow('about', 'About This Mac')}>About This Mac</span>
+                                <div className="h-[1px] bg-white/10 my-1 mx-2" />
+                                <span className="px-4 py-1 hover:bg-blue-600 cursor-default flex justify-between" onClick={() => router.push('/')}>Log Out Ethan Villalovoz... <span className="text-gray-400 text-[9px] tracking-widest">⇧⌘Q</span></span>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* App Name */}
+                    <div className="h-full flex items-center px-3 rounded cursor-default font-bold">
+                        Ethan Villalovoz
+                    </div>
+
+                    {/* Contact Menu */}
+                    <div className={`relative h-full flex items-center px-3 rounded hover:bg-white/20 transition-colors cursor-default ${activeMenu === 'contact' ? 'bg-white/20' : ''}`} onClick={(e) => { e.stopPropagation(); setActiveMenu(activeMenu === 'contact' ? null : 'contact'); }}>
+                        <span>Contact</span>
+                        {activeMenu === 'contact' && (
+                            <div className="absolute top-full left-0 mt-1 w-48 bg-gray-900/90 backdrop-blur-md rounded-md shadow-xl text-white py-1 border border-white/20 flex flex-col z-50">
+                                <div className="px-4 py-2 hover:bg-blue-600 cursor-pointer flex items-center gap-3" onClick={() => openWindow('safari', 'LinkedIn', { url: 'https://www.linkedin.com/in/evillalovoz27/' })}>
+                                    <FaLinkedin className="text-lg" /> LinkedIn
+                                </div>
+                                <div className="px-4 py-2 hover:bg-blue-600 cursor-pointer flex items-center gap-3" onClick={() => openWindow('safari', 'GitHub', { url: 'https://github.com/ethanvillalovoz' })}>
+                                    <FaGithub className="text-lg" /> GitHub
+                                </div>
+                                <div className="px-4 py-2 hover:bg-blue-600 cursor-pointer flex items-center gap-3" onClick={() => openWindow('safari', 'Scholar', { url: 'https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en' })}>
+                                    <FaGraduationCap className="text-lg" /> Scholar
+                                </div>
+                                <div className="px-4 py-2 hover:bg-blue-600 cursor-pointer flex items-center gap-3" onClick={() => openWindow('safari', 'X', { url: 'https://x.com/etvillalovoz' })}>
+                                    <FaTwitter className="text-lg" /> X
+                                </div>
+                                <div className="px-4 py-2 hover:bg-blue-600 cursor-pointer flex items-center gap-3" onClick={() => openWindow('safari', 'YouTube', { url: 'https://www.youtube.com/@ethanvillalovoz' })}>
+                                    <FaYoutube className="text-lg" /> YouTube
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Resume Menu */}
+                    <div className={`relative h-full flex items-center px-3 rounded hover:bg-white/20 transition-colors cursor-default ${activeMenu === 'resume' ? 'bg-white/20' : ''}`} onClick={(e) => { e.stopPropagation(); setActiveMenu(activeMenu === 'resume' ? null : 'resume'); }}>
+                        <span>Resume</span>
+                        {activeMenu === 'resume' && (
+                            <div className="absolute top-full left-0 mt-1 w-48 bg-gray-900/90 backdrop-blur-md rounded-md shadow-xl text-white py-1 border border-white/20 flex flex-col z-50">
+                                <div className="px-4 py-2 hover:bg-blue-600 cursor-pointer flex items-center gap-3" onClick={() => openWindow('safari', 'Resume', { url: '/data/EthanVillalovoz-Resume.pdf' })}>
+                                    <FaFilePdf className="text-lg" /> View as PDF
+                                </div>
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <div className="flex items-center gap-4">
                     <FaWifi />
@@ -528,6 +666,7 @@ const Desktop = () => {
                         {w.type === 'safari' && (
                              <iframe src={w.data?.url} className="w-full h-full bg-white" title={w.title} />
                         )}
+                        {w.type === 'about' && <AboutApp />}
                         {w.type === 'preview' && (
                             <div className="p-8 font-serif text-lg leading-loose bg-white h-full overflow-auto text-black selection:bg-blue-300">
                                 {w.data?.text}
