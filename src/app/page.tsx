@@ -3,7 +3,7 @@
 import { useState, useRef, type ReactNode } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaLinkedin, FaGithub, FaEnvelope, FaYoutube, FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin, FaGithub, FaEnvelope, FaYoutube, FaXTwitter, FaApple } from "react-icons/fa6";
 import { 
 	SiPython, SiCplusplus, SiPytorch, SiPandas, SiOpencv, SiGit, SiDocker, SiGooglescholar
 } from "react-icons/si";
@@ -294,6 +294,14 @@ export default function Home() {
 									className="inline-flex items-center px-6 py-2.5 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
 								>
 									Resume
+								</a>
+
+								<a
+									href="/macos"
+									className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-sm font-medium hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors group"
+								>
+									<FaApple className="mb-0.5 text-neutral-500 group-hover:text-foreground transition-colors" size={16} />
+									<span className="group-hover:text-foreground transition-colors">macOS</span>
 								</a>
 								
 								<div className="flex items-center gap-5">
