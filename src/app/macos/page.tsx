@@ -24,7 +24,8 @@ import {
   FaLinkedin,
   FaGithub,
   FaYoutube,
-  FaGraduationCap
+  FaGraduationCap,
+  FaLayerGroup
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoIosSwitch, IoMdMail, IoMdPhotos } from "react-icons/io";
@@ -581,9 +582,17 @@ const Desktop = () => {
 
     // Clock
     useEffect(() => {
-        const updateTime = () => setTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+        const updateTime = () => {
+             const now = new Date();
+             // Format: "Sunday, May 25   6:00 PM"
+             const date = now.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
+             const time = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+             setTime(`${date}\u00A0\u00A0\u00A0${time}`);
+        };
         updateTime();
         const interval = setInterval(updateTime, 1000);
+        
+        // Initial set to avoid hydration mismatch if possible, though strict mode might differ
         return () => clearInterval(interval);
     }, []);
 
@@ -695,9 +704,25 @@ const Desktop = () => {
                     </div>
                 </div>
                 <div className="flex items-center gap-4">
-                    <FaWifi />
-                    <FaBatteryFull />
-                    <span>{time}</span>
+                     <span className="opacity-90 grayscale">
+                        <FaLayerGroup className="text-sm" />
+                     </span>
+                     <div className="flex items-center gap-3.5">
+                        <FaBatteryFull className="text-sm opacity-90" />
+                        <FaWifi className="text-sm opacity-90" />
+                        <FaSearch className="text-sm opacity-90" />
+                        <div className="relative w-4 h-4 flex flex-col justify-between py-[2px] opacity-90">
+                            {/* Custom CSS Control Center Icon */}
+                            <div className="w-full h-[5px] rounded-full bg-white border border-black/10 relative">
+                                <div className="absolute left-0 top-0 bottom-0 w-[5px] bg-white rounded-full shadow-sm" />
+                            </div>
+                            <div className="w-full h-[5px] rounded-full bg-white border border-black/10 relative">
+                                <div className="absolute right-0 top-0 bottom-0 w-[5px] bg-white rounded-full shadow-sm" />
+                            </div>
+                        </div>
+                   </div>
+                   <div className="w-4 h-4 rounded-full bg-gradient-to-br from-[#33ccff] via-[#ff33cc] to-[#ffcc33] opacity-90 shadow-inner ml-1" />
+                   <span className="font-medium ml-2 text-sm select-none">{time}</span>
                 </div>
             </div>
 
