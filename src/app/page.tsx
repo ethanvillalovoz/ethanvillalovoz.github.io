@@ -300,8 +300,8 @@ export default function Home() {
 									href="/macos"
 									className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-sm font-medium hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors group"
 								>
-									<FaApple className="mb-0.5 text-neutral-500 group-hover:text-foreground transition-colors" size={16} />
-									<span className="group-hover:text-foreground transition-colors">macOS</span>
+									<FaApple className="mb-0.5 text-neutral-500 group-hover:text-foreground transition-colors" size={18} />
+									{/* <span className="group-hover:text-foreground transition-colors">macOS</span> */}
 								</a>
 								
 								<div className="flex items-center gap-5">
