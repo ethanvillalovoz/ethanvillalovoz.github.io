@@ -440,6 +440,66 @@ const DesktopIcon = ({ file, onOpen }: { file: VirtualFile, onOpen: (file: Virtu
     );
 };
 
+// 5. Sticky Note Component
+const StickyNote = () => {
+    const controls = useDragControls();
+    // Prevent dragging when clicking tasks
+    const [isDragging, setIsDragging] = useState(false);
+    
+    const [tasks, setTasks] = useState([
+        { id: 1, text: "Graduate High School", done: true },
+        { id: 2, text: "Drink water", done: false },
+        { id: 3, text: "Pretend I like my job", done: true },
+        { id: 4, text: "Read papers without crying", done: false },
+        { id: 5, text: "Make robots less confused than me", done: false },
+        { id: 6, text: "Move out of my parents house", done: false },
+        { id: 7, text: "Get really good at making pasta", done: true },
+        { id: 8, text: "Touch grass (occasionally)", done: false },
+    ]);
+
+    const toggleTask = (id: number) => {
+        if (!isDragging) {
+             setTasks(tasks.map(t => t.id === id ? { ...t, done: !t.done } : t));
+        }
+    };
+
+    return (
+        <motion.div
+            drag
+            dragControls={controls}
+            dragMomentum={false}
+            dragListener={false} // Only drag via listener on handle
+            onDragStart={() => setIsDragging(true)}
+            onDragEnd={() => setIsDragging(false)}
+            initial={{ x: 50, y: 100, rotate: -2 }}
+            className="absolute top-20 left-20 w-64 min-h-[300px] bg-[#feff9c] shadow-lg rounded-sm p-5 text-[#4a4a4a] text-sm z-0 origin-top-left font-sans transform rotate-[-2deg]"
+            style={{ fontFamily: '"Marker Felt", "Comic Sans MS", sans-serif' }}
+        >
+             {/* Drag Handle */}
+             <div 
+                className="absolute top-0 left-0 right-0 h-8 cursor-move flex justify-center items-center group mb-2"
+                onPointerDown={(e) => controls.start(e)}
+             >
+                 <div className="w-16 h-1 bg-black/5 rounded-full group-hover:bg-black/10 transition-colors" />
+             </div>
+
+             <h2 className="font-bold text-lg mb-4 mt-2 select-none">To do:</h2>
+             <ul className="space-y-2">
+                 {tasks.map(task => (
+                     <li 
+                        key={task.id} 
+                        onClick={() => toggleTask(task.id)}
+                        className={`cursor-pointer flex items-start gap-2 transition-opacity select-none ${task.done ? 'opacity-40 line-through' : ''}`}
+                     >
+                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-black/40 flex-shrink-0" />
+                         <span>{task.text}</span>
+                     </li>
+                 ))}
+             </ul>
+        </motion.div>
+    );
+};
+
 const BootScreen = ({ onComplete }: { onComplete: () => void }) => {
   useEffect(() => {
     const timer = setTimeout(onComplete, 2500); 
@@ -648,6 +708,9 @@ const Desktop = () => {
                      <DesktopIcon key={file.id} file={file} onOpen={handleFileOpen} />
                  ))}
             </div>
+
+            {/* Sticky Note Widget */}
+            <StickyNote />
 
             {/* Windows */}
             <AnimatePresence>
