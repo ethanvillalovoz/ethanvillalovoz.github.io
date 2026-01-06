@@ -1,20 +1,356 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { FaApple, FaArrowRight } from "react-icons/fa6";
+import { 
+  FaApple, 
+  FaFolder, 
+  FaSafari, 
+  FaTerminal, 
+  FaWifi, 
+  FaBatteryFull,
+  FaSearch,
+  FaPaperPlane,
+  FaFilePdf,
+  FaFileCode,
+  FaFileAlt,
+  FaTrash,
+  FaMusic,
+  FaSpotify,
+  FaComment,
+  FaMapMarkerAlt,
+  FaArrowRight
+} from "react-icons/fa";
+import { IoIosSwitch, IoMdMail, IoMdPhotos } from "react-icons/io";
+import { RiFinderFill } from "react-icons/ri";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+
+// --- Data & File System ---
+
+type FileType = "folder" | "image" | "pdf" | "txt" | "app" | "link";
+
+interface VirtualFile {
+  id: string;
+  name: string;
+  type: FileType;
+  content?: string | any;
+  icon?: any;
+  children?: VirtualFile[];
+}
+
+const fileSystem: VirtualFile[] = [
+  {
+    id: "macintosh-hd",
+    name: "Macintosh HD",
+    type: "folder",
+    children: [
+      {
+        id: "applications",
+        name: "Applications",
+        type: "folder",
+        children: [
+            { id: "app-safari", name: "Safari", type: "app", content: "safari" },
+            { id: "app-mail", name: "Mail", type: "app", content: "mail" },
+            { id: "app-terminal", name: "Terminal", type: "app", content: "terminal" },
+        ]
+      },
+      {
+        id: "users",
+        name: "Users",
+        type: "folder",
+        children: [
+          {
+            id: "ethan",
+            name: "ethan",
+            type: "folder",
+            children: [
+              { id: "desktop", name: "Desktop", type: "folder", children: [] }, // Dynamic
+              { 
+                  id: "documents", 
+                  name: "Documents", 
+                  type: "folder", 
+                  children: [
+                      { id: "resume", name: "Resume.pdf", type: "pdf", content: "/data/EthanVillalovoz-Resume.pdf" },
+                      { 
+                          id: "projects", 
+                          name: "Projects", 
+                          type: "folder",
+                          children: [
+                              { id: "p1", name: "Simplingo", type: "link", content: "https://simplingo.app" },
+                              { id: "p2", name: "Leafpress", type: "link", content: "https://leafpress.io" },
+                              { id: "p3", name: "AbsolutMess", type: "folder", children: [] }
+                          ]
+                      },
+                      {
+                          id: "research",
+                          name: "Research",
+                          type: "folder",
+                          children: [
+                              { id: "paper1", name: "Bayesian_Prompt_Opt.pdf", type: "pdf", content: "https://arxiv.org/abs/2512.15076" },
+                              { id: "paper2", name: "Social_Triangles.pdf", type: "pdf", content: "https://ieeexplore.ieee.org/abstract/document/10342372" }
+                          ]
+                      }
+                  ] 
+              },
+              { id: "downloads", name: "Downloads", type: "folder", children: [] },
+              { id: "about", name: "about_me.txt", type: "txt", content: `Hi, I'm Ethan.\n\nI am a Master's student at Georgia Tech and an incoming Software Engineer at Microsoft.\n\nMy interests lie in Robotics, Bayesian Optimization, and building cool things.` }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+];
 
 // --- Types ---
 type SystemState = "boot" | "login" | "desktop";
 
+interface WindowState {
+  id: string;
+  title: string;
+  type: "finder" | "safari" | "terminal" | "mail" | "preview" | "pdf-viewer";
+  isOpen: boolean;
+  isMinimized: boolean;
+  position: { x: number; y: number };
+  size: { w: number; h: number };
+  zIndex: number;
+  data?: any; // To pass path or content
+}
+
 // --- Components ---
+
+// 1. Terminal Component with functional command line
+const TerminalApp = ({ fs }: { fs: VirtualFile[] }) => {
+    const [history, setHistory] = useState([
+        "Last login: " + new Date().toDateString() + " on ttys000",
+        "Type 'help' for available commands."
+    ]);
+    const [input, setInput] = useState("");
+    const bottomRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [history]);
+
+    const handleCommand = (e: React.FormEvent) => {
+        e.preventDefault();
+        const cmd = input.trim();
+        const newHistory = [...history, `ethan@macbook ~ % ${cmd}`];
+
+        if (cmd === "help") {
+            newHistory.push("Available commands: help, clear, whoami, ls, date, cat about.txt");
+        } else if (cmd === "clear") {
+            setHistory([]);
+            setInput("");
+            return;
+        } else if (cmd === "whoami") {
+            newHistory.push("ethan villalovoz");
+        } else if (cmd === "ls") {
+            newHistory.push("Desktop  Documents  Downloads  about_me.txt");
+        } else if (cmd === "date") {
+            newHistory.push(new Date().toString());
+        } else if (cmd === "cat about.txt" || cmd === "cat about_me.txt") {
+             newHistory.push("Hi, I'm Ethan. Master's Student @ GT. Incoming SWE @ Microsoft.");
+        } else if (cmd !== "") {
+            newHistory.push(`zsh: command not found: ${cmd}`);
+        }
+        
+        setHistory(newHistory);
+        setInput("");
+    };
+
+    return (
+        <div className="h-full bg-[#1e1e1e] text-white font-mono p-4 text-sm overflow-auto" onClick={() => document.getElementById('term-input')?.focus()}>
+            {history.map((line, i) => <div key={i} className="whitespace-pre-wrap mb-1 text-[#4AF626] opacity-90">{line}</div>)}
+            <form onSubmit={handleCommand} className="flex gap-2">
+                <span className="text-[#4AF626]">ethan@macbook ~ %</span>
+                <input 
+                    id="term-input"
+                    type="text" 
+                    value={input} 
+                    onChange={e => setInput(e.target.value)}
+                    className="flex-1 bg-transparent border-none outline-none text-[#4AF626] caret-white"
+                    autoFocus
+                />
+            </form>
+            <div ref={bottomRef} />
+        </div>
+    );
+};
+
+// 2. Mail Component (Contact Form)
+const MailApp = () => {
+    const [sent, setSent] = useState(false);
+    return (
+        <div className="h-full flex flex-col bg-white">
+            <div className="h-12 border-b flex items-center px-4 justify-between bg-gray-50">
+                <div className="flex gap-4 text-gray-500">
+                    <span className="hover:text-black cursor-pointer">Inbox</span>
+                    <span className="text-black font-semibold">Compose</span>
+                    <span className="hover:text-black cursor-pointer">Sent</span>
+                </div>
+                <FaPaperPlane className={`text-blue-500 cursor-pointer ${sent ? 'text-green-500' : ''}`} />
+            </div>
+            {!sent ? (
+                <div className="p-6 flex flex-col gap-4 h-full">
+                    <div className="border-b pb-2 text-sm text-gray-500">To: <span className="text-black px-2 bg-blue-100 rounded-md">ethan@villalovoz.com</span></div>
+                    <div className="border-b pb-2 text-sm text-gray-500 flex gap-2">
+                        <span>Subject:</span>
+                        <input className="outline-none flex-1 text-black" placeholder="Hello!" />
+                    </div>
+                    <textarea className="flex-1 resize-none outline-none text-gray-800 font-serif leading-relaxed" placeholder="Write your message here..." />
+                    <button onClick={() => setSent(true)} className="self-end bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
+                        Send Message
+                    </button>
+                </div>
+            ) : (
+                <div className="flex-1 flex flex-col items-center justify-center text-gray-400 gap-4">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-500 text-2xl">✓</div>
+                    <p>Message Sent!</p>
+                    <button onClick={() => setSent(false)} className="text-blue-500 text-sm hover:underline">Write another</button>
+                </div>
+            )}
+        </div>
+    );
+};
+
+// 3. Finder Component
+const FinderApp = ({ onNavigate, onOpenFile }: { onNavigate: any, onOpenFile: any }) => {
+    // Simplified State for Finder navigation
+    const [currentPath, setCurrentPath] = useState<VirtualFile[]>(fileSystem[0].children![1].children![0].children![1].children!); // Default to Documents
+    const [pathName, setPathName] = useState("Documents");
+
+    return (
+        <div className="flex h-full">
+            {/* Sidebar */}
+            <div className="w-48 bg-white/40 dark:bg-black/20 backdrop-blur-md p-3 flex flex-col gap-4 text-xs font-medium text-neutral-600 border-r border-black/5">
+                <div>
+                     <p className="text-[10px] text-neutral-400 font-bold mb-1 pl-2">Favorites</p>
+                    <div className="flex flex-col gap-0.5">
+                        <SidebarItem icon="📂" label="Documents" active={pathName === "Documents"} onClick={() => { setPathName("Documents"); setCurrentPath(fileSystem[0].children![1].children![0].children![1].children!) }} />
+                        <SidebarItem icon="🖥️" label="Applications" active={pathName === "Applications"} onClick={() => { setPathName("Applications"); setCurrentPath(fileSystem[0].children![0].children!) }} />
+                        <SidebarItem icon="☁️" label="iCloud Drive" />
+                    </div>
+                </div>
+                <div>
+                    <p className="text-[10px] text-neutral-400 font-bold mb-1 pl-2">Tags</p>
+                    <div className="flex flex-col gap-0.5">
+                        <SidebarItem icon="🔴" label="Important" />
+                        <SidebarItem icon="🟢" label="Work" />
+                    </div>
+                </div>
+            </div>
+            {/* Main Area */}
+            <div className="flex-1 bg-white p-2">
+                 {/* Breadcrumbs/Nav could go here */}
+                 <div className="grid grid-cols-4 gap-2 auto-rows-min">
+                    {currentPath.map((file) => (
+                        <div 
+                            key={file.id} 
+                            className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-blue-50 transition-colors cursor-pointer group"
+                            onDoubleClick={() => {
+                                if(file.type === 'folder') {
+                                    setCurrentPath(file.children || []);
+                                    setPathName(file.name);
+                                } else {
+                                    onOpenFile(file);
+                                }
+                            }}
+                        >
+                             <div className="text-4xl text-neutral-700 drop-shadow-sm group-hover:scale-110 transition-transform">
+                                {file.type === 'folder' && <FaFolder className="text-blue-400" />}
+                                {file.type === 'pdf' && <FaFilePdf className="text-red-500" />}
+                                {file.type === 'txt' && <FaFileAlt className="text-gray-500" />}
+                                {file.type === 'app' && <FaApple className="text-gray-800" />}
+                                {file.type === 'link' && <FaSafari className="text-blue-500" />}
+                             </div>
+                             <span className="text-xs text-center font-medium line-clamp-2 w-full break-words">{file.name}</span>
+                        </div>
+                    ))}
+                 </div>
+            </div>
+        </div>
+    )
+};
+
+// Reusable Window Shell
+const Window = ({ windowState, isActive, onClose, onMinimize, onFocus, children }: any) => {
+    return (
+    <motion.div
+      drag dragMomentum={false}
+      initial={{ scale: 0.95, opacity: 0 }}
+      animate={{ scale: windowState.isMinimized ? 0 : 1, opacity: windowState.isMinimized ? 0 : 1, y: windowState.isMinimized ? 200 : 0 }}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      style={{ width: windowState.size.w, height: windowState.size.h, zIndex: isActive ? 50 : windowState.zIndex }}
+      className={`absolute top-20 left-20 rounded-xl overflow-hidden border border-neutral-200 bg-white shadow-2xl ${isActive ? 'shadow-black/20' : ''}`}
+      onMouseDown={() => onFocus(windowState.id)}
+    >
+      <div className="h-8 bg-[#f3f4f6] border-b border-neutral-200 flex items-center px-4 justify-between" onDoubleClick={() => {}}>
+        <div className="flex space-x-2 group">
+          <button onClick={(e) => { e.stopPropagation(); onClose(windowState.id); }} className="w-3 h-3 rounded-full bg-[#FF5F56] border border-black/10 flex items-center justify-center hover:opacity-80 text-[8px] font-bold text-black/50 opacity-0 group-hover:opacity-100 transition-all">x</button>
+          <button onClick={(e) => { e.stopPropagation(); onMinimize(windowState.id); }} className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-black/10 flex items-center justify-center hover:opacity-80 text-[8px] font-bold text-black/50 opacity-0 group-hover:opacity-100 transition-all">-</button>
+          <button className="w-3 h-3 rounded-full bg-[#27C93F] border border-black/10 flex items-center justify-center hover:opacity-80 text-[6px] font-bold text-black/50 opacity-0 group-hover:opacity-100 transition-all">sw</button>
+        </div>
+        <div className="text-xs font-semibold text-neutral-500 flex items-center gap-2">
+            {windowState.type === 'finder' && <RiFinderFill />}
+            {windowState.title}
+        </div>
+        <div className="w-10"></div>
+      </div>
+      <div className="h-[calc(100%-2rem)] overflow-hidden relative">
+          {children}
+      </div>
+    </motion.div>
+  );
+};
+
+
+// Helper for Sidebar
+const SidebarItem = ({ icon, label, active = false, onClick }: { icon: string, label: string, active?: boolean, onClick?: () => void }) => (
+    <div onClick={onClick} className={`flex items-center gap-2 px-2 py-1 rounded ${active ? 'bg-black/10 dark:bg-white/10' : 'hover:bg-black/5 dark:hover:bg-white/5'} cursor-default ${onClick ? 'cursor-pointer' : ''}`}>
+        <span className="text-sm">{icon}</span>
+        <span>{label}</span>
+    </div>
+);
+
+const DockItem = ({ children, label, onClick, isOpen }: { children: React.ReactNode, label: string, onClick?: () => void, isOpen?: boolean }) => (
+     <div className="group relative flex flex-col items-center gap-1" onClick={onClick}>
+        <div className="w-12 h-12 bg-white/20 backdrop-blur-md border border-white/10 rounded-2xl flex items-center justify-center text-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 active:scale-95 cursor-pointer">
+            {children}
+        </div>
+        <div className={`w-1 h-1 bg-white rounded-full ${isOpen ? 'opacity-100' : 'opacity-0'} transition-opacity`} />
+        
+        {/* Tooltip */}
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-800/80 backdrop-blur text-white text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+            {label}
+        </div>
+    </div>
+);
+
+// Desktop Icon Component
+const DesktopIcon = ({ file, onOpen }: { file: VirtualFile, onOpen: (file: VirtualFile) => void }) => {
+    return (
+        <div 
+            className="flex flex-col items-center gap-1 w-20 group cursor-pointer"
+            onDoubleClick={() => onOpen(file)}
+        >
+            <div className="w-16 h-16 flex items-center justify-center text-5xl filter drop-shadow-md group-hover:scale-105 transition-transform">
+                {file.type === 'folder' && <FaFolder className="text-blue-400" />}
+                {file.type === 'pdf' && <FaFilePdf className="text-red-500" />}
+                {file.type === 'txt' && <FaFileAlt className="text-gray-200" />}
+                {file.type === 'app' && <FaApple className="text-white" />}
+                {file.type === 'link' && <FaSafari className="text-blue-500" />}
+            </div>
+            <span className="text-xs text-white font-medium text-center px-1 rounded group-hover:bg-blue-600/50 line-clamp-2 shadow-sm text-shadow select-none">
+                {file.name}
+            </span>
+        </div>
+    );
+};
 
 const BootScreen = ({ onComplete }: { onComplete: () => void }) => {
   useEffect(() => {
-    const timer = setTimeout(onComplete, 3000); // 3 seconds boot time
+    const timer = setTimeout(onComplete, 2500); 
     return () => clearTimeout(timer);
   }, [onComplete]);
 
@@ -26,14 +362,12 @@ const BootScreen = ({ onComplete }: { onComplete: () => void }) => {
       transition={{ duration: 1 }}
     >
       <FaApple className="text-white w-24 h-24 mb-16" />
-      <motion.div 
-        className="w-48 h-1.5 bg-neutral-800 rounded-full overflow-hidden"
-      >
+      <motion.div className="w-48 h-1.5 bg-neutral-800 rounded-full overflow-hidden">
         <motion.div 
           className="h-full bg-white"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
-          transition={{ duration: 3, ease: "easeInOut" }}
+          transition={{ duration: 2.5, ease: "easeInOut" }}
         />
       </motion.div>
     </motion.div>
@@ -49,38 +383,25 @@ const LoginScreen = ({ onLogin }: { onLogin: () => void }) => {
     onLogin(); 
   };
   
-  const handleCancel = () => {
-    router.push("/");
-  };
-
   return (
     <motion.div 
       className="absolute inset-0 flex flex-col items-center justify-center z-40 text-white"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
-      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
+      transition={{ duration: 0.8 }}
     >
-      {/* Background Image - Matches Desktop but blurred */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-teal-800" />
-      
-      {/* Blur Overlay */}
-      <div className="absolute inset-0 backdrop-blur-md bg-black/20" />
+      <div className="absolute inset-0 bg-no-repeat bg-center" style={{ backgroundImage: 'url(/images/macos-wallpaper.png)', backgroundSize: '100% 100%' }} />
+      <div className="absolute inset-0 backdrop-blur-xl bg-black/30" />
 
       <div className="z-10 flex flex-col items-center space-y-6">
         <div className="relative w-24 h-24 rounded-full overflow-hidden shadow-2xl border-2 border-white/20">
-          <Image 
-            src="/images/EthanVillalovozPic.jpeg" 
-            alt="User" 
-            fill 
-            className="object-cover"
-          />
+          <Image src="/images/EthanVillalovozPic.jpeg" alt="User" fill className="object-cover" />
         </div>
         
         <h2 className="text-white text-xl font-semibold tracking-wide drop-shadow-md">Ethan Villalovoz</h2>
         
         <form onSubmit={handleLogin} className="flex flex-col items-center space-y-3">
-          <div className="flex items-center gap-2">
             <input 
               type="password" 
               value={password}
@@ -89,153 +410,169 @@ const LoginScreen = ({ onLogin }: { onLogin: () => void }) => {
               className="bg-white/20 border border-white/30 rounded-full px-4 py-1.5 text-white placeholder-white/50 text-sm focus:outline-none focus:bg-white/30 transition-all w-48 backdrop-blur-sm text-center"
               autoFocus
             />
-            {password.length > 0 && (
-              <button 
-                type="submit" 
-                className="w-7 h-7 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 text-white transition-colors"
-              >
-                <FaArrowRight size={12} />
-              </button>
-            )}
-          </div>
-          <p className="text-white/40 text-xs font-medium">Hint: Just press Enter</p>
+            <p className="text-white/40 text-xs font-medium">Hint: Just press Enter</p>
         </form>
-      </div>
-
-      <div className="absolute bottom-8 text-white/50 flex flex-col items-center gap-2 z-10">
-         <div 
-             className="flex flex-col items-center cursor-pointer hover:text-white transition-colors"
-             onClick={handleCancel}
-         >
-            <div className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center mb-1">
-                <span className="text-xs">✕</span>
-            </div>
-            <span className="text-xs">Cancel</span>
-         </div>
-         <span className="text-xs mt-4">Safe Boot</span>
+         <p className="text-white/40 text-xs font-medium pt-4 cursor-pointer hover:text-white" onClick={() => router.push('/')}>
+             Cancel / Restart
+         </p>
       </div>
     </motion.div>
   );
 };
 
 const Desktop = () => {
-    // Basic clock state
     const [time, setTime] = useState<string>("");
+    const [windows, setWindows] = useState<WindowState[]>([]);
+    const [activeWindowId, setActiveWindowId] = useState<string | null>(null);
 
+    // Clock
     useEffect(() => {
-        const updateTime = () => {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString("en-US", { 
-                hour: "numeric", 
-                minute: "2-digit",
-                hour12: true 
-            });
-            const dateString = now.toLocaleDateString("en-US", { 
-                weekday: "short", 
-                month: "short", 
-                day: "numeric" 
-            });
-            setTime(`${dateString} ${timeString}`);
-        };
+        const updateTime = () => setTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
         updateTime();
         const interval = setInterval(updateTime, 1000);
         return () => clearInterval(interval);
     }, []);
 
-  return (
-    <motion.div 
-      className="fixed inset-0 bg-cover bg-center flex flex-col overflow-hidden"
-      initial={{ opacity: 0, scale: 1.05 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      {/* Simulated Wallpaper */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-teal-800" />
-      
-      {/* Menu Bar */}
-      <div className="relative z-50 h-7 flex items-center justify-between px-4 bg-black/20 backdrop-blur-md text-white shadow-sm select-none">
-        <div className="flex items-center gap-4 text-sm font-medium">
-          <FaApple className="text-white text-base hover:opacity-80 cursor-pointer" />
-          <span className="font-bold cursor-default">Finder</span>
-          <span className="hover:bg-white/10 px-2 rounded cursor-default">File</span>
-          <span className="hover:bg-white/10 px-2 rounded cursor-default">Edit</span>
-          <span className="hover:bg-white/10 px-2 rounded cursor-default">View</span>
-          <span className="hover:bg-white/10 px-2 rounded cursor-default">Go</span>
-          <span className="hover:bg-white/10 px-2 rounded cursor-default">Window</span>
-          <span className="hover:bg-white/10 px-2 rounded cursor-default">Help</span>
-        </div>
-        <div className="flex items-center gap-4 text-xs font-medium">
-          <span className="hover:bg-white/10 px-2 rounded cursor-default">100%</span>
-          <span className="hover:bg-white/10 px-2 rounded cursor-default">{time}</span>
-        </div>
-      </div>
+    const openWindow = (type: WindowState["type"], title: string, data?: any) => {
+        // Bring to front if already open
+        const existingInfo = windows.find(w => w.type === type && w.title === title);
+        if (existingInfo) {
+             setWindows(prev => prev.map(w => w.id === existingInfo.id ? { ...w, isMinimized: false, zIndex: windows.length + 1 } : w));
+             setActiveWindowId(existingInfo.id);
+             return;
+        }
 
-      {/* Desktop Area */}
-      <div className="flex-1 relative p-4">
-        {/* Simple Desktop Icon */}
-        <Link 
-            href="/"
-            className="absolute top-4 right-4 w-20 flex flex-col items-center group cursor-pointer"
+        const id = Math.random().toString(36).substr(2, 9);
+        const newWindow: WindowState = {
+            id,
+            type,
+            title,
+            isOpen: true,
+            isMinimized: false,
+            position: { x: 100 + (windows.length * 30), y: 50 + (windows.length * 30) },
+            size: { w: type === 'finder' ? 850 : 700, h: 500 },
+            zIndex: windows.length + 1,
+            data
+        };
+        setWindows([...windows, newWindow]);
+        setActiveWindowId(id);
+    };
+
+    const closeWindow = (id: string) => {
+        setWindows(prev => prev.filter(w => w.id !== id));
+    };
+
+    const handleFileOpen = (file: VirtualFile) => {
+        if (file.type === 'folder') {
+             openWindow('finder', file.name, { path: file.children });
+        } else if (file.type === 'link') {
+            window.open(file.content, '_blank');
+        } else if (file.type === 'pdf') {
+            openWindow('safari', file.name, { url: file.content }); 
+        } else if (file.type === 'txt') {
+             openWindow('preview', file.name, { text: file.content });
+        } else if (file.type === 'app') {
+            if(file.name === "Mail") openWindow('mail', 'Mail');
+            if(file.name === "Terminal") openWindow('terminal', 'Terminal');
+            if(file.name === "Finder") openWindow('finder', 'Finder');
+        }
+    };
+
+    return (
+        <div 
+          className="absolute inset-0 bg-no-repeat bg-center overflow-hidden"
+          style={{ backgroundImage: 'url(/images/macos-wallpaper.png)', backgroundSize: '100% 100%' }} 
+          onClick={() => setActiveWindowId(null)}
         >
-            <div className="w-14 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg shadow-lg mb-1 group-hover:bg-blue-500/80 border border-white/20 flex items-center justify-center">
-                <FaArrowRight className="text-white transform rotate-180" />
+            {/* Menu Bar */}
+            <div className="h-7 bg-black/40 backdrop-blur-md flex items-center justify-between px-4 text-white text-xs select-none z-50 relative">
+                <div className="flex items-center gap-4 font-medium">
+                    <FaApple className="text-base" />
+                    <span className="font-bold">Finder</span>
+                    <span>File</span>
+                    <span>Edit</span>
+                    <span>View</span>
+                    <span>Go</span>
+                    <span>Window</span>
+                    <span>Help</span>
+                </div>
+                <div className="flex items-center gap-4">
+                    <FaWifi />
+                    <FaBatteryFull />
+                    <span>{time}</span>
+                </div>
             </div>
-            <span className="text-white text-xs font-medium bg-blue-600/0 group-hover:bg-blue-600/80 px-2 rounded-sm transition-colors shadow-sm">
-                Exit Mode
-            </span>
-        </Link>
-      </div>
 
-      {/* Dock Area */}
-      <div className="h-20 pb-2 flex items-end justify-center relative z-50 mb-1">
-        <div className="bg-white/20 backdrop-blur-xl border border-white/10 px-3 pb-3 pt-3 rounded-2xl flex items-end gap-3 shadow-2xl mx-auto">
-           {/* Finder */}
-           <div className="group relative w-12 h-12 bg-gradient-to-b from-blue-400 to-blue-600 rounded-xl shadow-lg hover:-translate-y-2 transition-transform duration-200 cursor-pointer flex items-center justify-center">
-                <div className="text-white font-bold text-xs">Finder</div>
-                <div className="absolute -bottom-1 w-1 h-1 bg-white/50 rounded-full" />
-           </div>
-           
-           {/* Launchpad */}
-           <div className="group relative w-12 h-12 bg-gradient-to-br from-gray-300 to-gray-500 rounded-xl shadow-lg hover:-translate-y-2 transition-transform duration-200 cursor-pointer flex items-center justify-center">
-                 <div className="grid grid-cols-3 gap-0.5 opacity-80">
-                    {[...Array(9)].map((_, i) => <div key={i} className="w-1 h-1 bg-white rounded-full" />)}
-                 </div>
-           </div>
+            {/* Desktop Icons Grid */}
+            <div className="absolute top-10 right-4 flex flex-col gap-4 items-end z-0">
+                 {/* Desktop Folder Content */}
+                 {fileSystem[0]?.children?.[0]?.children?.map(file => (
+                     <DesktopIcon key={file.id} file={file} onOpen={handleFileOpen} />
+                 ))}
+            </div>
 
-           {/* Safari */}
-            <div className="group relative w-12 h-12 bg-white rounded-xl shadow-lg hover:-translate-y-2 transition-transform duration-200 cursor-pointer overflow-hidden">
-                <div className="absolute inset-0 bg-blue-400/20" />
-                <div className="w-full h-full flex items-center justify-center text-blue-500 font-bold text-xs">Safari</div>
-                 <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-white/50 rounded-full" />
-           </div>
+            {/* Windows */}
+            <AnimatePresence>
+                {windows.map(w => (
+                     <Window 
+                        key={w.id} 
+                        windowState={w} 
+                        isActive={activeWindowId === w.id}
+                        onClose={closeWindow}
+                        onMinimize={() => {}} 
+                        onFocus={setActiveWindowId}
+                     >
+                        {w.type === 'terminal' && <TerminalApp fs={fileSystem} />}
+                        {w.type === 'mail' && <MailApp />}
+                        {w.type === 'finder' && <FinderApp onNavigate={() => {}} onOpenFile={handleFileOpen} />}
+                        {w.type === 'safari' && (
+                             <iframe src={w.data?.url} className="w-full h-full bg-white" title={w.title} />
+                        )}
+                        {w.type === 'preview' && (
+                            <div className="p-8 font-serif text-lg leading-loose bg-white h-full overflow-auto text-black selection:bg-blue-300">
+                                {w.data?.text}
+                            </div>
+                        )}
+                     </Window>
+                ))}
+            </AnimatePresence>
 
-            <div className="w-[1px] h-10 bg-white/20 mx-1" />
+            {/* Dock */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 p-2 bg-white/20 backdrop-blur-xl border border-white/20 rounded-2xl flex items-end gap-3 z-50 shadow-2xl">
+                 <DockItem label="Finder" onClick={() => openWindow('finder', 'Finder')} isOpen={windows.some(w => w.type === 'finder')} >
+                    <RiFinderFill className="text-blue-500" />
+                 </DockItem>
+                 <DockItem label="Safari" onClick={() => openWindow('safari', 'Internet', { url: 'https://www.google.com/webhp?igu=1' })} isOpen={windows.some(w => w.type === 'safari')}>
+                    <FaSafari className="text-blue-400" />
+                 </DockItem>
+                 <DockItem label="Mail" onClick={() => openWindow('mail', 'Mail')} isOpen={windows.some(w => w.type === 'mail')}>
+                    <FaPaperPlane className="text-blue-500 transform -rotate-12" />
+                 </DockItem>
+                 <DockItem label="Terminal" onClick={() => openWindow('terminal', 'Terminal')} isOpen={windows.some(w => w.type === 'terminal')}>
+                    <FaTerminal className="text-gray-800" />
+                 </DockItem>
+                 <DockItem label="Projects" onClick={() => openWindow('finder', 'Deep Learning Projects')} isOpen={false}>
+                    <FaFolder className="text-blue-400" />
+                 </DockItem>
+                 
+                 <div className="w-[1px] h-10 bg-white/30 mx-1" />
 
-            {/* Trash */}
-           <div className="group relative w-12 h-12 bg-gradient-to-b from-neutral-300 to-neutral-400 rounded-xl shadow-lg hover:-translate-y-2 transition-transform duration-200 cursor-pointer flex items-center justify-center">
-                <div className="w-8 h-px bg-neutral-600 mt-2" />
-           </div>
+                 <DockItem label="Trash" onClick={() => {}}>
+                    <FaTrash className="text-gray-400" />
+                 </DockItem>
+            </div>
         </div>
-      </div>
-    </motion.div>
-  );
+    );
 };
 
 export default function MacOSPage() {
   const [systemState, setSystemState] = useState<SystemState>("boot");
-
   return (
-    <main className="fixed inset-0 w-screen h-screen overflow-hidden bg-black font-sans selection:bg-blue-500/30 z-[9999]">
+    <main className="fixed inset-0 w-screen h-screen overflow-hidden bg-black font-sans z-[9999]">
       <AnimatePresence mode="wait">
-        {systemState === "boot" && (
-          <BootScreen key="boot" onComplete={() => setSystemState("login")} />
-        )}
-        {systemState === "login" && (
-          <LoginScreen key="login" onLogin={() => setSystemState("desktop")} />
-        )}
-        {systemState === "desktop" && (
-          <Desktop key="desktop" />
-        )}
+        {systemState === "boot" && <BootScreen key="boot" onComplete={() => setSystemState("login")} />}
+        {systemState === "login" && <LoginScreen key="login" onLogin={() => setSystemState("desktop")} />}
+        {systemState === "desktop" && <Desktop key="desktop" />}
       </AnimatePresence>
     </main>
   );
