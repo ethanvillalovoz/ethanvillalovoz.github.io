@@ -1507,10 +1507,18 @@ const Desktop = () => {
     // Teaching Subfolders (Apps)
     const teachApps = desktopFolder.children!.find(c => c.id === 'teaching-folder')!.children!;
 
+    const [isMobileLayout, setIsMobileLayout] = useState(false);
+    useEffect(() => {
+        const handleResize = () => setIsMobileLayout(window.innerWidth < 1024);
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <div 
           className="absolute inset-0 bg-no-repeat bg-center overflow-hidden"
-          style={{ backgroundImage: 'url(/images/macos-wallpaper.png)', backgroundSize: '100% 100%' }} 
+          style={{ backgroundImage: 'url(/images/macos-wallpaper.png)', backgroundSize: 'cover', backgroundPosition: 'center' }} 
           onClick={() => { setActiveWindowId(null); setActiveMenu(null); }}
         >
             {/* Menu Bar */}
@@ -1527,7 +1535,7 @@ const Desktop = () => {
                             </div>
                         )}
                     </div>
-hidden md:
+
                     {/* App Name */}
                     <div className="h-full flex items-center px-3 rounded cursor-default font-bold">
                         Ethan Villalovoz
@@ -1593,53 +1601,78 @@ hidden md:
             </div>
 
 
-            {/* Sticky Note Widget */}
-            <StickyNote />
+            {/* Desktop Layout (Large Screens) */}
+            {!isMobileLayout && (
+                <>
+                    {/* Sticky Note Widget */}
+                    <StickyNote />
 
-            {/* Static Desktop Icons (CV & Resume) - Center */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-8 md:gap-12 pointer-events-none z-0">
-                <div className="pointer-events-auto">
-                    <DesktopIcon file={cvFile} onOpen={handleFileOpen} />
+                    {/* Static Desktop Icons (CV & Resume) - Center */}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-8 md:gap-12 pointer-events-none z-0">
+                        <div className="pointer-events-auto">
+                            <DesktopIcon file={cvFile} onOpen={handleFileOpen} />
+                        </div>
+                        <div className="pointer-events-auto">
+                            <DesktopIcon file={resumeFile} onOpen={handleFileOpen} />
+                        </div>
+                    </div>
+
+                    {/* Draggable Desktop Icons */}
+                    
+                    {/* Home: Bottom Left */}
+                    {homeApps.map((file, i) => (
+                        <DraggableDesktopIcon 
+                            key={file.id} 
+                            file={file} 
+                            onOpen={handleFileOpen} 
+                            bottom={140} 
+                            left={30 + (i * 100)} 
+                        />
+                    ))}
+
+                    {/* Publications: Top Right */}
+                    {pubApps.map((file, i) => (
+                        <DraggableDesktopIcon 
+                            key={file.id} 
+                            file={file} 
+                            onOpen={handleFileOpen} 
+                            top={60} 
+                            right={30 + (i * 100)} 
+                        />
+                    ))}
+
+                    {/* Teaching: Bottom Right */}
+                    {teachApps.map((file, i) => (
+                        <DraggableDesktopIcon 
+                            key={file.id} 
+                            file={file} 
+                            onOpen={handleFileOpen} 
+                            bottom={140} 
+                            right={30 + (i * 100)} 
+                        />
+                    ))}
+                </>
+            )}
+
+            {/* Mobile/Tablet Layout (Grid System) */}
+            {isMobileLayout && (
+                <div className="absolute inset-0 pt-12 pb-24 px-6 grid grid-cols-3 sm:grid-cols-4 content-start gap-y-6 gap-x-2 overflow-y-auto">
+                    {/* CV & Resume First */}
+                    <div className="flex justify-center"><DesktopIcon file={cvFile} onOpen={handleFileOpen} /></div>
+                    <div className="flex justify-center"><DesktopIcon file={resumeFile} onOpen={handleFileOpen} /></div>
+                    
+                    {/* Then Apps Grouped */}
+                    {homeApps.map(file => (
+                        <div key={file.id} className="flex justify-center"><DesktopIcon file={file} onOpen={handleFileOpen} /></div>
+                    ))}
+                    {pubApps.map(file => (
+                        <div key={file.id} className="flex justify-center"><DesktopIcon file={file} onOpen={handleFileOpen} /></div>
+                    ))}
+                    {teachApps.map(file => (
+                        <div key={file.id} className="flex justify-center"><DesktopIcon file={file} onOpen={handleFileOpen} /></div>
+                    ))}
                 </div>
-                <div className="pointer-events-auto">
-                    <DesktopIcon file={resumeFile} onOpen={handleFileOpen} />
-                </div>
-            </div>
-
-            {/* Draggable Desktop Icons */}
-            
-            {/* Home: Bottom Left */}
-            {homeApps.map((file, i) => (
-                <DraggableDesktopIcon 
-                    key={file.id} 
-                    file={file} 
-                    onOpen={handleFileOpen} 
-                    bottom={140} 
-                    left={30 + (i * 100)} 
-                />
-            ))}
-
-            {/* Publications: Top Right */}
-            {pubApps.map((file, i) => (
-                <DraggableDesktopIcon 
-                    key={file.id} 
-                    file={file} 
-                    onOpen={handleFileOpen} 
-                    top={60} 
-                    right={30 + (i * 100)} 
-                />
-            ))}
-
-            {/* Teaching: Bottom Right */}
-            {teachApps.map((file, i) => (
-                <DraggableDesktopIcon 
-                    key={file.id} 
-                    file={file} 
-                    onOpen={handleFileOpen} 
-                    bottom={140} 
-                    right={30 + (i * 100)} 
-                />
-            ))}
+            )}
 
             {/* Windows */}
             <AnimatePresence>
