@@ -553,9 +553,9 @@ const MailApp = () => {
         <div className="h-full flex flex-col bg-white">
             <div className="h-12 border-b flex items-center px-4 justify-between bg-gray-50">
                 <div className="flex gap-4 text-gray-500">
-                    <span className="hover:text-black cursor-pointer">Inbox</span>
+                    <span>Inbox</span>
                     <span className="text-black font-semibold">Compose</span>
-                    <span className="hover:text-black cursor-pointer">Sent</span>
+                    <span>Sent</span>
                 </div>
                 <FaPaperPlane className={`text-blue-500 cursor-pointer ${sent ? 'text-green-500' : ''}`} onClick={!sent ? handleSend : undefined} />
             </div>
