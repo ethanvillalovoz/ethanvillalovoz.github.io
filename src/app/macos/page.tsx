@@ -998,19 +998,36 @@ const DesktopIcon = ({ file, onOpen }: { file: VirtualFile, onOpen: (file: Virtu
     return (
         <div 
             className="flex flex-col items-center gap-1 w-20 group cursor-pointer"
-            onDoubleClick={() => onOpen(file)}
+            onDoubleClick={(e) => { e.stopPropagation(); onOpen(file); }}
         >
             <div className="w-16 h-16 flex items-center justify-center text-5xl filter drop-shadow-md group-hover:scale-105 transition-transform">
                 {file.type === 'folder' && <FaFolder className="text-blue-400" />}
                 {file.type === 'pdf' && <FaFilePdf className="text-red-500" />}
                 {file.type === 'txt' && <FaFileAlt className="text-gray-200" />}
-                {file.type === 'app' && <FaApple className="text-white" />}
+                {file.type === 'app' && (file.icon ? file.icon : <FaApple className="text-white" />)}
                 {file.type === 'link' && <FaSafari className="text-blue-500" />}
             </div>
-            <span className="text-xs text-white font-medium text-center px-1 rounded group-hover:bg-blue-600/50 line-clamp-2 shadow-sm text-shadow select-none">
+            <span className="text-xs text-white font-medium text-center px-1 rounded group-hover:bg-blue-600/50 line-clamp-2 shadow-sm text-shadow select-none bg-black/20">
                 {file.name}
             </span>
         </div>
+    );
+};
+
+// Wrapper for draggable icons
+const DraggableDesktopIcon = ({ file, onOpen, top, left, right, bottom }: { file: VirtualFile, onOpen: (f: VirtualFile) => void, top?: number|string, left?: number|string, right?: number|string, bottom?: number|string }) => {
+    const controls = useDragControls();
+    return (
+        <motion.div
+            drag
+            dragMomentum={false}
+            dragListener={true}
+            whileDrag={{ scale: 1.1, zIndex: 100 }}
+            className="absolute flex flex-col items-center"
+            style={{ top, left, right, bottom }}
+        >
+            <DesktopIcon file={file} onOpen={onOpen} />
+        </motion.div>
     );
 };
 
@@ -1223,6 +1240,20 @@ const Desktop = () => {
         }
     };
 
+    // Extract files for desktop
+    const desktopFolder = fileSystem[0].children![1].children![0].children![0];
+    const cvFile = desktopFolder.children!.find(c => c.id === 'cv')!;
+    const resumeFile = desktopFolder.children!.find(c => c.id === 'resume')!;
+    
+    // Home Subfolders (Apps)
+    const homeApps = desktopFolder.children!.find(c => c.id === 'home-folder')!.children!;
+    
+    // Publications Subfolders (Apps)
+    const pubApps = desktopFolder.children!.find(c => c.id === 'publications-folder')!.children!;
+    
+    // Teaching Subfolders (Apps)
+    const teachApps = desktopFolder.children!.find(c => c.id === 'teaching-folder')!.children!;
+
     return (
         <div 
           className="absolute inset-0 bg-no-repeat bg-center overflow-hidden"
@@ -1311,6 +1342,51 @@ const Desktop = () => {
 
             {/* Sticky Note Widget */}
             <StickyNote />
+
+            {/* Static Desktop Icons (CV & Resume) - Center */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-12 pointer-events-none z-0">
+                <div className="pointer-events-auto">
+                    <DesktopIcon file={cvFile} onOpen={handleFileOpen} />
+                </div>
+                <div className="pointer-events-auto">
+                    <DesktopIcon file={resumeFile} onOpen={handleFileOpen} />
+                </div>
+            </div>
+
+            {/* Draggable Desktop Icons */}
+            
+            {/* Home: Bottom Left */}
+            {homeApps.map((file, i) => (
+                <DraggableDesktopIcon 
+                    key={file.id} 
+                    file={file} 
+                    onOpen={handleFileOpen} 
+                    bottom={140} 
+                    left={30 + (i * 100)} 
+                />
+            ))}
+
+            {/* Publications: Top Right */}
+            {pubApps.map((file, i) => (
+                <DraggableDesktopIcon 
+                    key={file.id} 
+                    file={file} 
+                    onOpen={handleFileOpen} 
+                    top={60} 
+                    right={30 + (i * 100)} 
+                />
+            ))}
+
+            {/* Teaching: Bottom Right */}
+            {teachApps.map((file, i) => (
+                <DraggableDesktopIcon 
+                    key={file.id} 
+                    file={file} 
+                    onOpen={handleFileOpen} 
+                    bottom={140} 
+                    right={30 + (i * 100)} 
+                />
+            ))}
 
             {/* Windows */}
             <AnimatePresence>
