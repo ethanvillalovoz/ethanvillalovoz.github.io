@@ -1184,6 +1184,8 @@ const Window = ({ windowState, isActive, onClose, onMinimize, onFocus, children 
       style={{ 
           width: windowState.size.w, 
           height: windowState.size.h, 
+          maxWidth: '95vw',
+          maxHeight: '85vh',
           zIndex: isActive ? 50 : windowState.zIndex, 
           position: 'absolute',
           top: windowState.position.y,
@@ -1440,14 +1442,21 @@ const Desktop = () => {
         }
 
         const id = Math.random().toString(36).substr(2, 9);
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
         const newWindow: WindowState = {
             id,
             type,
             title,
             isOpen: true,
             isMinimized: false,
-            position: { x: 100 + (windows.length * 30), y: 50 + (windows.length * 30) },
-            size: { w: type === 'finder' ? 850 : 700, h: 500 },
+            position: { 
+                x: isMobile ? 10 : 100 + (windows.length * 30), 
+                y: isMobile ? 50 : 50 + (windows.length * 30) 
+            },
+            size: { 
+                w: isMobile ? window.innerWidth * 0.9 : (type === 'finder' ? 850 : 700), 
+                h: isMobile ? window.innerHeight * 0.6 : 500 
+            },
             zIndex: windows.length + 1,
             data
         };
@@ -1518,7 +1527,7 @@ const Desktop = () => {
                             </div>
                         )}
                     </div>
-
+hidden md:
                     {/* App Name */}
                     <div className="h-full flex items-center px-3 rounded cursor-default font-bold">
                         Ethan Villalovoz
@@ -1549,7 +1558,7 @@ const Desktop = () => {
                     </div>
 
                     {/* Resume Menu */}
-                    <div className={`relative h-full flex items-center px-3 rounded hover:bg-white/20 transition-colors cursor-default ${activeMenu === 'resume' ? 'bg-white/20' : ''}`} onClick={(e) => { e.stopPropagation(); setActiveMenu(activeMenu === 'resume' ? null : 'resume'); }}>
+                    <div className={`relative h-full hidden md:flex items-center px-3 rounded hover:bg-white/20 transition-colors cursor-default ${activeMenu === 'resume' ? 'bg-white/20' : ''}`} onClick={(e) => { e.stopPropagation(); setActiveMenu(activeMenu === 'resume' ? null : 'resume'); }}>
                         <span>Resume</span>
                         {activeMenu === 'resume' && (
                             <div className="absolute top-full left-0 mt-1 w-56 bg-gray-900/90 backdrop-blur-md rounded-md shadow-xl text-white py-1 border border-white/20 flex flex-col z-50">
@@ -1561,14 +1570,14 @@ const Desktop = () => {
                     </div>
                 </div>
                 <div className="flex items-center gap-4">
-                     <span className="opacity-90 grayscale">
+                     <span className="opacity-90 grayscale hidden md:block">
                         <FaLayerGroup className="text-sm" />
                      </span>
                      <div className="flex items-center gap-3.5">
                         <FaBatteryFull className="text-sm opacity-90" />
                         <FaWifi className="text-sm opacity-90" />
-                        <FaSearch className="text-sm opacity-90" />
-                        <div className="relative w-4 h-4 flex flex-col justify-between py-[2px] opacity-90">
+                        <FaSearch className="text-sm opacity-90 hidden md:block" />
+                        <div className="relative w-4 h-4 hidden md:flex flex-col justify-between py-[2px] opacity-90">
                             {/* Custom CSS Control Center Icon */}
                             <div className="w-full h-[5px] rounded-full bg-white border border-black/10 relative">
                                 <div className="absolute left-0 top-0 bottom-0 w-[5px] bg-white rounded-full shadow-sm" />
@@ -1588,7 +1597,7 @@ const Desktop = () => {
             <StickyNote />
 
             {/* Static Desktop Icons (CV & Resume) - Center */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-12 pointer-events-none z-0">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-8 md:gap-12 pointer-events-none z-0">
                 <div className="pointer-events-auto">
                     <DesktopIcon file={cvFile} onOpen={handleFileOpen} />
                 </div>
@@ -1670,7 +1679,7 @@ const Desktop = () => {
             </AnimatePresence>
 
             {/* Dock */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 p-2 bg-white/20 backdrop-blur-xl border border-white/20 rounded-2xl flex items-end gap-3 z-50 shadow-2xl">
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 p-2 bg-white/20 backdrop-blur-xl border border-white/20 rounded-2xl flex items-end gap-3 z-50 shadow-2xl max-w-[95vw] overflow-x-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                  <DockItem label="Finder" onClick={() => openWindow('finder', 'Finder')} isOpen={windows.some(w => w.type === 'finder')} >
                     <RiFinderFill className="text-blue-500" />
                  </DockItem>
