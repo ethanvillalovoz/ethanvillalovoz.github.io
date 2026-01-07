@@ -545,7 +545,9 @@ const TerminalApp = ({ fs, onOpen }: { fs: VirtualFile[], onOpen: (file: Virtual
             case 'ls':
                 const children = currentDir?.children || [];
                 if (children.length > 0) {
-                     newHistory.push(children.map(c => c.type === 'folder' ? c.name + '/' : c.name).join('   '));
+                     // Filter out Documents and Downloads for cleaner view
+                     const visibleChildren = children.filter(c => c.name !== 'Documents' && c.name !== 'Downloads');
+                     newHistory.push(visibleChildren.map(c => c.type === 'folder' ? c.name + '/' : c.name).join('   '));
                 }
                 break;
             case 'cd':
