@@ -31,10 +31,226 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 import { IoIosSwitch, IoMdMail, IoMdPhotos } from "react-icons/io";
 import { RiFinderFill } from "react-icons/ri";
+import { 
+	SiPython, SiCplusplus, SiPytorch, SiPandas, SiOpencv, SiGit, SiDocker, SiGooglescholar
+} from "react-icons/si";
+import { FadeIn, FadeInStagger, FadeInItem } from "@/components/ui/FadeIn";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 // --- Data & File System ---
+
+const workTimeline = [
+	{
+		date: "May 2026 - Jul 2026",
+		company: "Microsoft",
+		logo: "/images/timeline/microsoft_logo.jpeg",
+		title: <span className="text-gray-900 dark:text-gray-100 font-medium">Software Engineer Intern</span>,
+		bullets: [
+			"Commerce and Ecosystems.",
+		],
+	},
+	{
+		date: "Jan 2024 - May 2025",
+		company: "Washington State University",
+		logo: "/images/timeline/washington_state_university_logo.jpeg",
+		title: <span className="text-gray-900 dark:text-gray-100 font-medium">Undergraduate Research Assistant</span>,
+		bullets: [
+			"Developed and evaluated a Bayesian optimization framework for prompt-based large language model code generation.",
+		],
+	},
+  {
+		date: "Jun 2024 - Aug 2024",
+		company: "Carnegie Mellon University",
+		logo: "/images/timeline/Carnegie_Mellon_icon.png",
+		title: <span className="text-gray-900 dark:text-gray-100 font-medium">Robotics Institute Summer Scholar</span>,
+		bullets: [
+			"Developed a hierarchical reward learning framework with Bayesian inference and interactive clarification dialogues.",
+		],
+	},
+  {
+		date: "May 2023 - Aug 2023",
+		company: "Google",
+		logo: "/images/timeline/Google_icon.png",
+		title: <span className="text-gray-900 dark:text-gray-100 font-medium">Software Engineering Intern (STEP)</span>,
+		bullets: [
+			"Developed scalable C++ and SQL analytics pipelines and interactive dashboards that optimized internal data workflows.",
+		],
+	},
+  {
+		date: "Jun 2022 - Aug 2022",
+		company: "Oregon State University",
+		logo: "/images/timeline/Oregon_State_icon.jpeg",
+		title: <span className="text-gray-900 dark:text-gray-100 font-medium">NSF REU Fellow</span>,
+		bullets: [
+			"Designed and implemented geometric motion primitives and interactive deployment tools enabling expressive multi-robot behaviors.",
+		],
+	},
+];
+
+const educationTimeline = [
+	{
+		date: "Jan 2026 - Dec 2027",
+		company: "Georgia Institute of Technology",
+		logo: "/images/timeline/GT_icon.png",
+		title: (
+			<span className="text-gray-900 dark:text-gray-100 font-medium">M.S. in Computer Science, Computational Perception and Robotics (GPA: 4.0/4.0)</span>
+		),
+		bullets: [],
+	},
+	{
+		date: "Aug 2021 - May 2025",
+		company: "Washington State University",
+		logo: "/images/timeline/Washington_State_icon.png",
+		title: (
+			<span className="text-gray-900 dark:text-gray-100 font-medium">B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.0)</span>
+		),
+		bullets: [
+			<span>Senior Design Project: <a href="/data/capstone/index.html" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Retrieval-Augmented Generation Application Using Knowledge Graph and Vector Search</a></span>,
+		],
+	},
+];
+
+const skills = [
+	{ name: "Python", icon: SiPython },
+	{ name: "C/C++", icon: SiCplusplus },
+	{ name: "PyTorch", icon: SiPytorch },
+	{ name: "Pandas", icon: SiPandas },
+	{ name: "OpenCV", icon: SiOpencv },
+	{ name: "Docker", icon: SiDocker },
+];
+
+const newsItems: { date: string; content: React.ReactNode; hidden?: boolean }[] = [
+    {
+        date: "12/2025",
+        content: (
+            <>
+                New paper on {" "}
+                <span className="font-semibold">arXiv</span>{" "}
+                on {" "}
+                <a href="https://arxiv.org/abs/2512.15076" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                    Bayesian prompt optimization for LLM-based code generation
+                </a>.
+            </>
+        ),
+    },
+    {
+        date: "07/2025",
+        content: (
+            <>
+                Admitted to the{" "}
+                <a href="https://www.cc.gatech.edu/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                    Georgia Tech MSCS
+                </a>{" "}
+                program! I’ll be starting in {" "}
+                <span className="font-semibold">Spring 2026</span>.
+            </>
+        ),
+    },
+    {
+        date: "06/2025",
+        content: (
+            <>
+                Gave an alumni talk for the WSU{" "}
+                <a href="https://marc.wsu.edu/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                    MARC
+                </a>{" "}
+                &{" "}
+                <a href="https://mira.wsu.edu/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                    MIRA
+                </a>{" "}
+                program.
+            </>
+        ),
+    },
+    {
+        date: "05/2025",
+        content: <>Graduated from Washington State University with a B.S. in Computer Science. Go Cougs!</>,
+    },
+    {
+        date: "06/2024",
+        content: (
+            <>
+                Conducting research at Carnegie Mellon University as part of the CMU{" "}
+                <a href="https://riss.ri.cmu.edu/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                    RISS
+                </a>{" "}
+                program.
+            </>
+        ),
+    },
+    {
+        date: "09/2023",
+        content: (
+            <>
+                Participating in Google Research&apos;s{" "}
+                <a href="https://research.google/programs-and-events/csrmp/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                    CS Research Mentorship Program
+                </a>.
+            </>
+        ),
+    },
+    {
+        date: "07/2023",
+        content: (
+            <>
+                Awarded the{" "}
+                <a href="https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                    Generation Google Scholarship
+                </a>.
+            </>
+        ),
+    },
+    {
+        date: "07/2023",
+        content: (
+            <>
+                Paper accepted at {" "}
+                <span className="font-semibold">IROS 2023</span>{" "}
+                on{" "}
+                <a href="https://ieeexplore.ieee.org/abstract/document/10342372" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                    multi-robot formations for social navigation
+                </a>.
+            </>
+        ),
+    },
+    {
+        date: "05/2023",
+        content: (
+            <>
+                Interning as a{" "}
+                <a href="https://about.google/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                    Software Engineering Intern (STEP)
+                </a>{" "}
+                at Google.
+            </>
+        ),
+    },
+    {
+        date: "05/2023",
+        content: (
+            <>
+                Became a{" "}
+                <a href="https://marc.wsu.edu/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                    NIH MARC Scholar
+                </a>{" "}
+                through the National Institutes of Health.
+            </>
+        ),
+    },
+    {
+        date: "06/2022",
+        content: (
+            <>
+                Conducting research at Oregon State University as part of the{" "}
+                <a href="https://engineering.oregonstate.edu/CoRIS/reu-robots-real-world" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                    REU: Robots in the Real World
+                </a>{" "}
+                program.
+            </>
+        ),
+    },
+];
 
 type FileType = "folder" | "image" | "pdf" | "txt" | "app" | "link";
 
@@ -80,7 +296,16 @@ const fileSystem: VirtualFile[] = [
                 children: [
                     { id: "cv", name: "CV.pdf", type: "pdf", content: "/data/EthanVillalovoz-CV.pdf" },
                     { id: "resume", name: "Resume.pdf", type: "pdf", content: "/data/EthanVillalovoz-Resume.pdf" },
-                    { id: "home-folder", name: "Home", type: "folder", children: [] },
+                    { 
+                        id: "home-folder", 
+                        name: "Home", 
+                        type: "folder", 
+                        children: [
+                            { id: "news-app", name: "News", type: "app", icon: <FaFolder className="text-blue-400" />, content: "news" },
+                            { id: "experience-app", name: "Experience", type: "app", icon: <FaFolder className="text-blue-400" />, content: "experience" },
+                            { id: "technologies-app", name: "Technologies", type: "app", icon: <FaFolder className="text-blue-400" />, content: "technologies" },
+                        ] 
+                    },
                     { id: "publications-folder", name: "Publications", type: "folder", children: [] },
                     { id: "teaching-folder", name: "Teaching", type: "folder", children: [] }
                 ] 
@@ -128,7 +353,7 @@ type SystemState = "boot" | "login" | "desktop";
 interface WindowState {
   id: string;
   title: string;
-  type: "finder" | "safari" | "terminal" | "mail" | "preview" | "pdf-viewer" | "about";
+  type: "finder" | "safari" | "terminal" | "mail" | "preview" | "pdf-viewer" | "about" | "news" | "experience" | "technologies";
   isOpen: boolean;
   isMinimized: boolean;
   position: { x: number; y: number };
@@ -267,11 +492,15 @@ const FinderApp = ({ onNavigate, onOpenFile }: { onNavigate: any, onOpenFile: an
                             }}
                         >
                              <div className="text-4xl text-neutral-700 drop-shadow-sm group-hover:scale-110 transition-transform">
-                                {file.type === 'folder' && <FaFolder className="text-blue-400" />}
-                                {file.type === 'pdf' && <FaFilePdf className="text-red-500" />}
-                                {file.type === 'txt' && <FaFileAlt className="text-gray-500" />}
-                                {file.type === 'app' && <FaApple className="text-gray-800" />}
-                                {file.type === 'link' && <FaSafari className="text-blue-500" />}
+                                {file.icon ? file.icon : (
+                                    <>
+                                        {file.type === 'folder' && <FaFolder className="text-blue-400" />}
+                                        {file.type === 'pdf' && <FaFilePdf className="text-red-500" />}
+                                        {file.type === 'txt' && <FaFileAlt className="text-gray-500" />}
+                                        {file.type === 'app' && <FaApple className="text-gray-800" />}
+                                        {file.type === 'link' && <FaSafari className="text-blue-500" />}
+                                    </>
+                                )}
                              </div>
                              <span className="text-xs text-center font-medium line-clamp-2 w-full break-words">{file.name}</span>
                         </div>
@@ -346,6 +575,102 @@ const AboutApp = () => {
          </div>
     );
 };
+
+// 5. News Component
+const NewsApp = () => {
+    return (
+        <div className="h-full bg-white p-6 overflow-y-auto text-neutral-800">
+             <FadeIn>
+                <h2 className="text-2xl font-bold mb-8 tracking-tight">News</h2>
+                <FadeInStagger className="space-y-6 border-l-2 border-neutral-100 pl-6 ml-2">
+                    {newsItems.map((item, index) => (
+                        <FadeInItem key={index} className="relative">
+                             <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-neutral-200 border-2 border-white" />
+                             <div className="text-sm text-neutral-400 mb-1 font-mono">{item.date}</div>
+                             <div className="leading-relaxed text-sm">{item.content}</div>
+                        </FadeInItem>
+                    ))}
+                </FadeInStagger>
+            </FadeIn>
+        </div>
+    )
+}
+
+// 6. Experience Component
+const ExperienceApp = () => {
+    const [tab, setTab] = useState<"work" | "education">("work");
+    return (
+        <div className="h-full bg-white p-6 overflow-y-auto text-neutral-800">
+             <FadeIn>
+                <div className="flex items-center gap-6 mb-8">
+                    <h2 className="text-2xl font-bold tracking-tight">Experience</h2>
+                    <div className="flex bg-neutral-100 p-1 rounded-full">
+                        {(["work", "education"] as const).map((t) => (
+                             <button
+                                key={t}
+                                onClick={() => setTab(t)}
+                                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+                                    tab === t 
+                                        ? "bg-white text-gray-900 shadow-sm" 
+                                        : "text-gray-500 hover:text-gray-700"
+                                }`}
+                            >
+                                {t.charAt(0).toUpperCase() + t.slice(1)}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                <FadeInStagger key={tab} className="space-y-4">
+                    {(tab === "work" ? workTimeline : educationTimeline).map((item, index) => (
+                        <FadeInItem key={index}>
+                           <div className="flex gap-4 p-4 rounded-xl hover:bg-neutral-50 transition-colors border border-transparent hover:border-neutral-100">
+                                <div className="relative w-12 h-12 flex-shrink-0 mt-1 rounded-full overflow-hidden border border-neutral-100 bg-white">
+                                    <Image src={item.logo} alt={item.company} fill className="object-cover" />
+                                </div>
+                                <div className="flex-1">
+                                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
+                                        <h3 className="font-semibold text-lg text-gray-900">{item.company}</h3>
+                                        <span className="text-sm font-medium text-neutral-400">{item.date}</span>
+                                    </div>
+                                    <div className="text-base text-gray-700 mb-2">{item.title}</div>
+                                    <ul className="list-disc list-outside ml-4 space-y-1">
+                                        {item.bullets.map((bullet, idx) => (
+                                            <li key={idx} className="text-sm text-neutral-500 leading-relaxed pl-1">
+                                                {bullet}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                           </div>
+                        </FadeInItem>
+                    ))}
+                </FadeInStagger>
+            </FadeIn>
+        </div>
+    )
+}
+
+// 7. Technologies Component
+const TechnologiesApp = () => {
+    return (
+        <div className="h-full bg-white p-6 overflow-y-auto text-neutral-800">
+            <FadeIn>
+                <h2 className="text-2xl font-bold mb-8 tracking-tight">Technologies</h2>
+                <FadeInStagger className="grid grid-cols-3 sm:grid-cols-4 gap-4" faster>
+                    {skills.map((skill) => (
+                        <FadeInItem key={skill.name}>
+                            <div className="flex flex-col items-center gap-3 p-4 rounded-xl bg-neutral-50 hover:bg-neutral-100 transition-colors text-gray-600 hover:text-gray-900 cursor-default">
+                                <skill.icon className="text-3xl" />
+                                <span className="text-sm font-medium">{skill.name}</span>
+                            </div>
+                        </FadeInItem>
+                    ))}
+                </FadeInStagger>
+            </FadeIn>
+        </div>
+    )
+}
 
 // Reusable Window Shell
 const Window = ({ windowState, isActive, onClose, onMinimize, onFocus, children }: any) => {
@@ -641,6 +966,10 @@ const Desktop = () => {
             if(file.name === "Mail") openWindow('mail', 'Mail');
             if(file.name === "Terminal") openWindow('terminal', 'Terminal');
             if(file.name === "Finder") openWindow('finder', 'Finder');
+
+            if(file.content === "news") openWindow('news', 'News');
+            if(file.content === "experience") openWindow('experience', 'Experience');
+            if(file.content === "technologies") openWindow('technologies', 'Technologies');
         }
     };
 
@@ -740,8 +1069,8 @@ const Desktop = () => {
                         key={w.id} 
                         windowState={w} 
                         isActive={activeWindowId === w.id}
-                        onClose={closeWindow}
-                        onMinimize={() => {}} 
+                        onClose={() => closeWindow(w.id)}
+                        onMinimize={() => setWindows(prev => prev.map(win => win.id === w.id ? { ...win, isMinimized: true } : win))}
                         onFocus={setActiveWindowId}
                      >
                         {w.type === 'terminal' && <TerminalApp fs={fileSystem} />}
@@ -756,6 +1085,9 @@ const Desktop = () => {
                                 {w.data?.text}
                             </div>
                         )}
+                        {w.type === 'news' && <NewsApp />}
+                        {w.type === 'experience' && <ExperienceApp />}
+                        {w.type === 'technologies' && <TechnologiesApp />}
                      </Window>
                 ))}
             </AnimatePresence>
