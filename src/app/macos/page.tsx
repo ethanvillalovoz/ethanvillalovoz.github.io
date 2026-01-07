@@ -27,7 +27,8 @@ import {
   FaGlobe,
   FaGraduationCap,
   FaLayerGroup,
-  FaDesktop
+  FaDesktop,
+  FaPowerOff
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoIosSwitch, IoMdMail, IoMdPhotos } from "react-icons/io";
@@ -1463,8 +1464,8 @@ const Desktop = () => {
                  
                  <div className="w-[1px] h-10 bg-white/30 mx-1" />
 
-                 <DockItem label="Trash" onClick={() => {}}>
-                    <FaTrash className="text-gray-500" />
+                 <DockItem label="Log Out" onClick={() => router.push('/')}>
+                    <FaPowerOff className="text-red-500" />
                  </DockItem>
             </div>
         </div>
