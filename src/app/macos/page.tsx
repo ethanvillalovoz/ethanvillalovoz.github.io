@@ -24,6 +24,7 @@ import {
   FaLinkedin,
   FaGithub,
   FaYoutube,
+  FaGlobe,
   FaGraduationCap,
   FaLayerGroup,
   FaDesktop
@@ -132,8 +133,15 @@ interface Publication {
 	url?: string;
 	authors: Author[];
 	conference: string;
+	award?: string;
+	paper?: string;
+	bibtex?: string;
 	image: string;
 	description: string;
+	tags?: string[];
+	website?: string;
+	code?: string;
+	video?: string;
     highlighted?: boolean;
 }
 
@@ -142,14 +150,15 @@ const preprints: Publication[] = [
 		title: "An Exploratory Study of Bayesian Prompt Optimization for Test-Driven Code Generation with Large Language Models",
 		url: "https://arxiv.org/abs/2512.15076",
 		authors: [
-			{ name: "S. Tomar" },
-			{ name: "A. Deshwal" },
+			{ name: "S. Tomar", url: "https://shlok-crypto.github.io/" },
+			{ name: "A. Deshwal", url: "https://aryandeshwal.github.io/" },
 			{ name: "E. Villalovoz", isMe: true },
-			{ name: "M. Fazzini" },
-			{ name: "H. Cai" },
-			{ name: "J.R. Doppa" },
+			{ name: "M. Fazzini", url: "https://www-users.cse.umn.edu/~mfazzini/" },
+			{ name: "H. Cai", url: "https://chapering.github.io/" },
+			{ name: "J.R. Doppa", url: "https://eecs.wsu.edu/~jana/" },
 		],
 		conference: "arXiv, 2025",
+		paper: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/paper.pdf",
 		image: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/ICSE_BO_figure.png",
 		description: "Explores Bayesian optimization as a principled approach to automated prompt search for large language model–based code generation. Demonstrates sample-efficient improvements in functional correctness over strong prompting baselines on the HumanEval+ benchmark.",
 	},
@@ -160,13 +169,15 @@ const papers_2023: Publication[] = [
 		title: "Social Triangles and Aggressive Lines: Multi-Robot Formations Impact Navigation and Approach",
 		url: "https://ieeexplore.ieee.org/abstract/document/10342372",
 		authors: [
-			{ name: "A. Bacula" },
+			{ name: "A. Bacula", url: "https://sites.google.com/plu.edu/alexandra-bacula" },
 			{ name: "E. Villalovoz", isMe: true },
-			{ name: "D. Flynn" },
-			{ name: "A. Mehta" },
-			{ name: "H. Knight" },
+			{ name: "D. Flynn", url: "https://deannaflynn.wixsite.com/deanna-flynn" },
+			{ name: "A. Mehta", url: "https://uclalemur.com/" },
+			{ name: "H. Knight", url: "https://www.charismarobotics.com/" },
 		],
 		conference: "International Conference on Intelligent Robots and Systems (IROS), 2023",
+		paper: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.pdf",
+		bibtex: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.bib",
 		image: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/STAL_Multi_Robot_Formations.png",
 		description: "Investigates how different multi-robot formations affect navigation and approach behaviors in social environments. Demonstrates the impact of formation geometry on human-robot interaction and navigation efficiency.",
         // highlighted: true
@@ -751,27 +762,80 @@ const PublicationsListApp = ({ title, papers }: { title: string, papers: Publica
     <div className="h-full bg-white p-6 overflow-y-auto text-neutral-800">
          <FadeIn>
             <h2 className="text-2xl font-bold mb-8 tracking-tight">{title}</h2>
-            <FadeInStagger className="space-y-6">
+            <FadeInStagger className="space-y-4">
                 {papers.map((paper) => (
                     <FadeInItem key={paper.title}>
-                        <article className={`flex flex-col md:flex-row gap-6 p-4 rounded-2xl border border-transparent hover:border-neutral-100 transition-colors ${paper.highlighted ? 'bg-yellow-50/50' : 'hover:bg-neutral-50'}`}>
-                             <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200">
-                                <Image src={paper.image} alt={paper.title} fill className="object-cover" />
-                             </div>
-                             <div className="flex-1 space-y-2">
-                                <h3 className="font-semibold text-lg leading-tight">
-                                    {paper.url ? <a href={paper.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">{paper.title}</a> : paper.title}
+                        <article className={`flex flex-col md:flex-row gap-6 md:gap-8 p-6 -mx-6 rounded-2xl transition-colors ${
+                            paper.highlighted 
+                                ? "bg-yellow-50/80" 
+                                : "hover:bg-neutral-50"
+                        }`}>
+                            <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200">
+                                <Image
+                                    src={paper.image}
+                                    alt={paper.title}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div className="flex-1 space-y-3">
+                                <h3 className="font-semibold text-lg leading-tight text-neutral-900">
+                                    {paper.url ? (
+                                        <a href={paper.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
+                                            {paper.title}
+                                        </a>
+                                    ) : paper.title}
                                 </h3>
-                                <div className="text-sm text-neutral-500 flex flex-wrap gap-1">
-                                    {paper.authors.map((author, i) => (
-                                        <span key={i} className={author.isMe ? "font-semibold text-neutral-900" : ""}>
-                                            {author.name}{i < paper.authors.length - 1 ? ", " : ""}
+                                
+                                <div className="text-sm text-neutral-500">
+                                    {paper.authors.map((author, index) => (
+                                        <span key={index}>
+                                            {author.url ? (
+                                                <a href={author.url} target="_blank" rel="noopener noreferrer" className={`hover:text-neutral-900 transition-colors ${author.isMe ? "font-medium text-neutral-900" : ""}`}>
+                                                    {author.name}
+                                                </a>
+                                            ) : (
+                                                <span className={author.isMe ? "font-medium text-neutral-900" : ""}>
+                                                    {author.name}
+                                                </span>
+                                            )}
+                                            {index < paper.authors.length - 1 && ", "}
                                         </span>
                                     ))}
                                 </div>
-                                <div className="text-sm font-medium text-neutral-800">{paper.conference}</div>
-                                <p className="text-sm text-neutral-500 leading-relaxed">{paper.description}</p>
-                             </div>
+
+                                <div className="text-sm font-medium text-neutral-700">
+                                    {paper.conference}
+                                    {paper.award && <span className="text-red-500 ml-2">{paper.award}</span>}
+                                </div>
+
+                                <p className="text-sm text-neutral-500 leading-relaxed">
+                                    {paper.description}
+                                </p>
+
+                                <div className="flex flex-wrap gap-3 pt-2">
+                                    {paper.paper && (
+                                        <a href={paper.paper} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-100 text-xs font-medium text-neutral-600 hover:bg-neutral-200 transition-colors">
+                                            <FaFilePdf /> Paper
+                                        </a>
+                                    )}
+                                    {paper.website && (
+                                        <a href={paper.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-100 text-xs font-medium text-neutral-600 hover:bg-neutral-200 transition-colors">
+                                            <FaGlobe /> Website
+                                        </a>
+                                    )}
+                                    {paper.code && (
+                                        <a href={paper.code} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-100 text-xs font-medium text-neutral-600 hover:bg-neutral-200 transition-colors">
+                                            <FaGithub /> Code
+                                        </a>
+                                    )}
+                                    {paper.video && (
+                                        <a href={paper.video} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-100 text-xs font-medium text-neutral-600 hover:bg-neutral-200 transition-colors">
+                                            <FaYoutube /> Video
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
                         </article>
                     </FadeInItem>
                 ))}
