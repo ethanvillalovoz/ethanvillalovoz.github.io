@@ -469,7 +469,7 @@ type SystemState = "boot" | "login" | "desktop";
 interface WindowState {
   id: string;
   title: string;
-  type: "finder" | "safari" | "terminal" | "mail" | "preview" | "pdf-viewer" | "about" | "news" | "experience" | "technologies" | "interests" | "pre-prints" | "2023-papers" | "wsu-teaching";
+  type: "finder" | "safari" | "terminal" | "mail" | "preview" | "pdf-viewer" | "about" | "news" | "experience" | "technologies" | "interests" | "pre-prints" | "2023-papers" | "wsu-teaching" | "photos";
   isOpen: boolean;
   isMinimized: boolean;
   position: { x: number; y: number };
@@ -646,6 +646,31 @@ const FinderApp = ({ onNavigate, onOpenFile }: { onNavigate: any, onOpenFile: an
         </div>
     )
 };
+
+// 3.5 Photos Component
+const PhotosApp = () => {
+    const photos = [
+        { src: "/images/EthanVillalovozPic.jpeg", name: "EthanVillalovozPic.jpeg" },
+        { src: "/images/graduation_2025.jpg", name: "graduation_2025.jpg" }
+    ];
+
+    return (
+        <div className="h-full bg-white p-8 overflow-y-auto">
+             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                {photos.map((photo, i) => (
+                    <div key={i} className="flex flex-col items-center gap-3">
+                         <div className="relative w-full aspect-square shadow-md bg-gray-50 border border-gray-100 p-2 rounded">
+                            <div className="relative w-full h-full overflow-hidden rounded-sm">
+                                <Image src={photo.src} alt={photo.name} fill className="object-cover hover:scale-105 transition-transform duration-500" />
+                            </div>
+                         </div>
+                        <span className="text-xs font-semibold text-gray-600 tracking-tight">{photo.name}</span>
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}
 
 // 4. About App Component (Carousel)
 const AboutApp = () => {
@@ -1427,6 +1452,7 @@ const Desktop = () => {
                              <iframe src={w.data?.url} className="w-full h-full bg-white" title={w.title} />
                         )}
                         {w.type === 'about' && <AboutApp />}
+                        {w.type === 'photos' && <PhotosApp />}
                         {w.type === 'preview' && (
                             <div className="p-8 font-serif text-lg leading-loose bg-white h-full overflow-auto text-black selection:bg-blue-300">
                                 {w.data?.text}
@@ -1454,6 +1480,11 @@ const Desktop = () => {
                  </DockItem>
                  <DockItem label="Mail" onClick={() => openWindow('mail', 'Mail')} isOpen={windows.some(w => w.type === 'mail')}>
                     <FaPaperPlane className="text-blue-500 transform -rotate-12" />
+                 </DockItem>
+                 <DockItem label="Photos" onClick={() => openWindow('photos', 'Photos')} isOpen={windows.some(w => w.type === 'photos')}>
+                    <div className="bg-white rounded-lg p-1">
+                        <IoMdPhotos className="text-xl text-pink-500" />
+                    </div>
                  </DockItem>
                  <DockItem label="Terminal" onClick={() => openWindow('terminal', 'Terminal')} isOpen={windows.some(w => w.type === 'terminal')}>
                     <FaTerminal className="text-gray-900" />
