@@ -72,7 +72,18 @@ const fileSystem: VirtualFile[] = [
             name: "ethan",
             type: "folder",
             children: [
-              { id: "desktop", name: "Desktop", type: "folder", children: [] }, // Dynamic
+              { 
+                id: "desktop", 
+                name: "Desktop", 
+                type: "folder", 
+                children: [
+                    { id: "cv", name: "CV.pdf", type: "pdf", content: "/data/EthanVillalovoz-CV.pdf" },
+                    { id: "resume", name: "Resume.pdf", type: "pdf", content: "/data/EthanVillalovoz-Resume.pdf" },
+                    { id: "home-folder", name: "Home", type: "folder", children: [] },
+                    { id: "publications-folder", name: "Publications", type: "folder", children: [] },
+                    { id: "teaching-folder", name: "Teaching", type: "folder", children: [] }
+                ] 
+              }, // Dynamic
               { 
                   id: "documents", 
                   name: "Documents", 
@@ -223,8 +234,8 @@ const MailApp = () => {
 // 3. Finder Component
 const FinderApp = ({ onNavigate, onOpenFile }: { onNavigate: any, onOpenFile: any }) => {
     // Simplified State for Finder navigation
-    const [currentPath, setCurrentPath] = useState<VirtualFile[]>(fileSystem[0].children![1].children![0].children![1].children!); // Default to Documents
-    const [pathName, setPathName] = useState("Documents");
+    const [currentPath, setCurrentPath] = useState<VirtualFile[]>(fileSystem[0].children![1].children![0].children![0].children!); // Default to Desktop
+    const [pathName, setPathName] = useState("Desktop");
 
     return (
         <div className="flex h-full">
@@ -233,16 +244,7 @@ const FinderApp = ({ onNavigate, onOpenFile }: { onNavigate: any, onOpenFile: an
                 <div>
                      <p className="text-[10px] text-neutral-400 font-bold mb-1 pl-2">Favorites</p>
                     <div className="flex flex-col gap-0.5">
-                        <SidebarItem icon="📂" label="Documents" active={pathName === "Documents"} onClick={() => { setPathName("Documents"); setCurrentPath(fileSystem[0].children![1].children![0].children![1].children!) }} />
-                        <SidebarItem icon="🖥️" label="Applications" active={pathName === "Applications"} onClick={() => { setPathName("Applications"); setCurrentPath(fileSystem[0].children![0].children!) }} />
-                        <SidebarItem icon="☁️" label="iCloud Drive" />
-                    </div>
-                </div>
-                <div>
-                    <p className="text-[10px] text-neutral-400 font-bold mb-1 pl-2">Tags</p>
-                    <div className="flex flex-col gap-0.5">
-                        <SidebarItem icon="🔴" label="Important" />
-                        <SidebarItem icon="🟢" label="Work" />
+                        <SidebarItem icon="�️" label="Desktop" active={pathName === "Desktop"} onClick={() => { setPathName("Desktop"); setCurrentPath(fileSystem[0].children![1].children![0].children![0].children!) }} />
                     </div>
                 </div>
             </div>
