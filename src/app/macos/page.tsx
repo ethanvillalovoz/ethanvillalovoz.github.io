@@ -981,7 +981,7 @@ const SidebarItem = ({ icon, label, active = false, onClick }: { icon: React.Rea
 
 const DockItem = ({ children, label, onClick, isOpen }: { children: React.ReactNode, label: string, onClick?: () => void, isOpen?: boolean }) => (
      <div className="group relative flex flex-col items-center gap-1" onClick={onClick}>
-        <div className="w-12 h-12 bg-white/20 backdrop-blur-md border border-white/10 rounded-2xl flex items-center justify-center text-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 active:scale-95 cursor-pointer">
+        <div className="w-12 h-12 bg-gray-100/90 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-center text-2xl shadow-xl hover:-translate-y-2 transition-transform duration-300 active:scale-95 cursor-pointer">
             {children}
         </div>
         <div className={`w-1 h-1 bg-white rounded-full ${isOpen ? 'opacity-100' : 'opacity-0'} transition-opacity`} />
@@ -1435,7 +1435,7 @@ const Desktop = () => {
                     <FaPaperPlane className="text-blue-500 transform -rotate-12" />
                  </DockItem>
                  <DockItem label="Terminal" onClick={() => openWindow('terminal', 'Terminal')} isOpen={windows.some(w => w.type === 'terminal')}>
-                    <FaTerminal className="text-gray-800" />
+                    <FaTerminal className="text-gray-900" />
                  </DockItem>
                  <DockItem label="Projects" onClick={() => openWindow('finder', 'Deep Learning Projects')} isOpen={false}>
                     <FaFolder className="text-blue-400" />
@@ -1444,7 +1444,7 @@ const Desktop = () => {
                  <div className="w-[1px] h-10 bg-white/30 mx-1" />
 
                  <DockItem label="Trash" onClick={() => {}}>
-                    <FaTrash className="text-gray-400" />
+                    <FaTrash className="text-gray-500" />
                  </DockItem>
             </div>
         </div>
