@@ -726,13 +726,6 @@ const Desktop = () => {
                 </div>
             </div>
 
-            {/* Desktop Icons Grid */}
-            <div className="absolute top-10 right-4 flex flex-col gap-4 items-end z-0">
-                 {/* Desktop Folder Content */}
-                 {fileSystem[0]?.children?.[0]?.children?.map(file => (
-                     <DesktopIcon key={file.id} file={file} onOpen={handleFileOpen} />
-                 ))}
-            </div>
 
             {/* Sticky Note Widget */}
             <StickyNote />
