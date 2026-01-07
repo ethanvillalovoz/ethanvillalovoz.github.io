@@ -25,7 +25,8 @@ import {
   FaGithub,
   FaYoutube,
   FaGraduationCap,
-  FaLayerGroup
+  FaLayerGroup,
+  FaDesktop
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoIosSwitch, IoMdMail, IoMdPhotos } from "react-icons/io";
@@ -244,7 +245,7 @@ const FinderApp = ({ onNavigate, onOpenFile }: { onNavigate: any, onOpenFile: an
                 <div>
                      <p className="text-[10px] text-neutral-400 font-bold mb-1 pl-2">Favorites</p>
                     <div className="flex flex-col gap-0.5">
-                        <SidebarItem icon="�️" label="Desktop" active={pathName === "Desktop"} onClick={() => { setPathName("Desktop"); setCurrentPath(fileSystem[0].children![1].children![0].children![0].children!) }} />
+                        <SidebarItem icon={<FaDesktop className="text-blue-500" />} label="Desktop" active={pathName === "Desktop"} onClick={() => { setPathName("Desktop"); setCurrentPath(fileSystem[0].children![1].children![0].children![0].children!) }} />
                     </div>
                 </div>
             </div>
@@ -401,7 +402,7 @@ const Window = ({ windowState, isActive, onClose, onMinimize, onFocus, children 
 
 
 // Helper for Sidebar
-const SidebarItem = ({ icon, label, active = false, onClick }: { icon: string, label: string, active?: boolean, onClick?: () => void }) => (
+const SidebarItem = ({ icon, label, active = false, onClick }: { icon: React.ReactNode, label: string, active?: boolean, onClick?: () => void }) => (
     <div onClick={onClick} className={`flex items-center gap-2 px-2 py-1 rounded ${active ? 'bg-black/10 dark:bg-white/10' : 'hover:bg-black/5 dark:hover:bg-white/5'} cursor-default ${onClick ? 'cursor-pointer' : ''}`}>
         <span className="text-sm">{icon}</span>
         <span>{label}</span>
