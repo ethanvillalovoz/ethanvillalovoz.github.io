@@ -28,10 +28,11 @@ import {
   FaGraduationCap,
   FaLayerGroup,
   FaDesktop,
-  FaPowerOff
+  FaPowerOff,
+  FaPlay
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { IoIosSwitch, IoMdMail, IoMdPhotos } from "react-icons/io";
+import { IoIosSwitch, IoMdMail, IoMdPhotos, IoMdShuffle } from "react-icons/io";
 import { RiFinderFill } from "react-icons/ri";
 import { 
 	SiPython, SiCplusplus, SiPytorch, SiPandas, SiOpencv, SiGit, SiDocker, SiGooglescholar
@@ -469,7 +470,7 @@ type SystemState = "boot" | "login" | "desktop";
 interface WindowState {
   id: string;
   title: string;
-  type: "finder" | "safari" | "terminal" | "mail" | "preview" | "pdf-viewer" | "about" | "news" | "experience" | "technologies" | "interests" | "pre-prints" | "2023-papers" | "wsu-teaching" | "photos";
+  type: "finder" | "safari" | "terminal" | "mail" | "preview" | "pdf-viewer" | "about" | "news" | "experience" | "technologies" | "interests" | "pre-prints" | "2023-papers" | "wsu-teaching" | "photos" | "music";
   isOpen: boolean;
   isMinimized: boolean;
   position: { x: number; y: number };
@@ -671,6 +672,81 @@ const PhotosApp = () => {
         </div>
     )
 }
+
+// 3.6 Music Component
+const MusicApp = () => {
+    const songs = [
+        { title: "Mrs. Hollywood", artist: "Go-Jo", album: "Mrs. Hollywood - Single", time: "2:24" },
+        { title: "Brand New", artist: "Ben Rector", album: "Brand New", time: "4:04" },
+        { title: "Only Fan (feat. Cordae) E", artist: "Bazzi", album: "Infinite Dream", time: "2:33" },
+        { title: "I Love It (feat. Charli XCX) E", artist: "Icona Pop", album: "This Is... Icona Pop", time: "2:37" },
+        { title: "Bulletproof", artist: "La Roux", album: "La Roux (Bonus Track Version)", time: "3:26" },
+        { title: "Ain't Too Cool", artist: "LunchMoney Lewis", album: "Ain't Too Cool - Single", time: "3:43" },
+    ];
+
+    return (
+        <div className="h-full bg-[#1e1e1e] text-white flex flex-col font-sans overflow-hidden">
+             {/* Header */}
+             <div className="p-5 flex items-end gap-5 bg-gradient-to-b from-[#4c2a2a] to-[#1e1e1e]">
+                <div className="hidden sm:block w-36 h-36 shadow-2xl relative shrink-0">
+                     <Image src="/images/graduation_2025.jpg" alt="Playlist Cover" fill className="object-cover rounded-md shadow-lg" />
+                </div>
+                <div className="flex flex-col gap-1 pb-1">
+                    <span className="text-xs font-bold uppercase tracking-wider">Playlist</span>
+                    <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tighter mb-2">Jam jams 🍯</h1>
+                    <div className="flex items-center gap-2 text-xs text-gray-300 font-medium">
+                         <div className="relative w-5 h-5 rounded-full overflow-hidden border border-white/10">
+                             <Image src="/images/EthanVillalovozPic.jpeg" alt="Owner" fill className="object-cover" />
+                         </div>
+                         <span className="text-white hover:underline cursor-pointer font-bold">Ethan Villalovoz</span>
+                         <span className="text-white/60">& 1 Other</span>
+                         <span className="text-white/60">•</span>
+                         <span className="text-white/60">6 songs, 19 min</span>
+                    </div>
+                </div>
+             </div>
+
+             {/* Controls */}
+             <div className="px-6 py-3 flex items-center gap-4 bg-[#1e1e1e]/50 backdrop-blur-md sticky top-0 z-10">
+                 <button className="w-12 h-12 bg-[#fa233b] rounded-full flex items-center justify-center hover:scale-105 transition-transform shadow-lg">
+                    <FaPlay className="text-white text-lg ml-1" />
+                 </button>
+                 <button className="text-[#fa233b] text-2xl hover:scale-110 transition-transform">
+                    <IoMdShuffle />
+                 </button>
+             </div>
+
+             {/* List */}
+             <div className="flex-1 overflow-y-auto px-6 pb-6">
+                <table className="w-full text-left border-collapse text-sm text-gray-400">
+                    <thead className="border-b border-white/10 text-xs uppercase tracking-wider font-normal">
+                        <tr>
+                            <th className="pb-2 w-8 text-center">#</th>
+                            <th className="pb-2">Title</th>
+                            <th className="hidden md:table-cell pb-2">Album</th>
+                            <th className="hidden sm:table-cell pb-2 text-right">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {songs.map((song, i) => (
+                            <tr key={i} className="group hover:bg-white/10 rounded-md transition-colors cursor-default">
+                                <td className="py-2 pl-2 text-center group-hover:text-white">{i + 1}</td>
+                                <td className="py-2">
+                                    <div className="flex flex-col">
+                                        <span className="text-white text-[14px] font-medium leading-tight">{song.title}</span>
+                                        <span className="group-hover:text-white text-[12px]">{song.artist}</span>
+                                    </div>
+                                </td>
+                                <td className="hidden md:table-cell py-2 group-hover:text-white">{song.album}</td>
+                                <td className="hidden sm:table-cell py-2 text-right font-variant-numeric tabular-nums">{song.time}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+             </div>
+        </div>
+    );
+};
 
 // 4. About App Component (Carousel)
 const AboutApp = () => {
@@ -1453,6 +1529,7 @@ const Desktop = () => {
                         )}
                         {w.type === 'about' && <AboutApp />}
                         {w.type === 'photos' && <PhotosApp />}
+                        {w.type === 'music' && <MusicApp />}
                         {w.type === 'preview' && (
                             <div className="p-8 font-serif text-lg leading-loose bg-white h-full overflow-auto text-black selection:bg-blue-300">
                                 {w.data?.text}
@@ -1484,6 +1561,11 @@ const Desktop = () => {
                  <DockItem label="Photos" onClick={() => openWindow('photos', 'Photos')} isOpen={windows.some(w => w.type === 'photos')}>
                     <div className="bg-white rounded-lg p-1">
                         <IoMdPhotos className="text-xl text-pink-500" />
+                    </div>
+                 </DockItem>
+                 <DockItem label="Apple Music" onClick={() => openWindow('music', 'Music')} isOpen={windows.some(w => w.type === 'music')}>
+                    <div className="w-10 h-10 bg-[#fa233b] rounded-xl flex items-center justify-center shadow-lg border border-white/10">
+                        <FaMusic className="text-white text-xl" />
                     </div>
                  </DockItem>
                  <DockItem label="Terminal" onClick={() => openWindow('terminal', 'Terminal')} isOpen={windows.some(w => w.type === 'terminal')}>
