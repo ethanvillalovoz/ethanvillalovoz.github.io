@@ -420,14 +420,7 @@ const fileSystem: VirtualFile[] = [
                         name: "Teaching", 
                         type: "folder", 
                         children: [
-                             {
-                                id: "wsu-folder",
-                                name: "Washington State University",
-                                type: "folder",
-                                children: [
-                                    { id: "wsu-teaching-app", name: "Teaching Experience", type: "app", icon: <FaFolder className="text-blue-400" />, content: "wsu-teaching" }
-                                ]
-                            }
+                            { id: "wsu-teaching-app", name: "Washington State University", type: "app", icon: <FaFolder className="text-blue-400" />, content: "wsu-teaching" }
                         ] 
                     }
                 ] 
