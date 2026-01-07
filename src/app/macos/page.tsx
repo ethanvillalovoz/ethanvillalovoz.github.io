@@ -1285,19 +1285,19 @@ const Desktop = () => {
                         <span>Socials</span>
                         {activeMenu === 'socials' && (
                             <div className="absolute top-full left-0 mt-1 w-56 bg-gray-900/90 backdrop-blur-md rounded-md shadow-xl text-white py-1 border border-white/20 flex flex-col z-50">
-                                <div className="px-4 py-1 hover:bg-blue-600 cursor-default flex items-center gap-3" onClick={() => openWindow('safari', 'LinkedIn', { url: 'https://www.linkedin.com/in/evillalovoz27/' })}>
+                                <div className="px-4 py-1 hover:bg-blue-600 cursor-default flex items-center gap-3" onClick={() => window.open('https://www.linkedin.com/in/evillalovoz27/', '_blank')}>
                                     <FaLinkedin className="text-lg" /> LinkedIn
                                 </div>
-                                <div className="px-4 py-1 hover:bg-blue-600 cursor-default flex items-center gap-3" onClick={() => openWindow('safari', 'GitHub', { url: 'https://github.com/ethanvillalovoz' })}>
+                                <div className="px-4 py-1 hover:bg-blue-600 cursor-default flex items-center gap-3" onClick={() => window.open('https://github.com/ethanvillalovoz', '_blank')}>
                                     <FaGithub className="text-lg" /> GitHub
                                 </div>
-                                <div className="px-4 py-1 hover:bg-blue-600 cursor-default flex items-center gap-3" onClick={() => openWindow('safari', 'Scholar', { url: 'https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en' })}>
+                                <div className="px-4 py-1 hover:bg-blue-600 cursor-default flex items-center gap-3" onClick={() => window.open('https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en', '_blank')}>
                                     <FaGraduationCap className="text-lg" /> Scholar
                                 </div>
-                                {/* <div className="px-4 py-1 hover:bg-blue-600 cursor-default flex items-center gap-3" onClick={() => openWindow('safari', 'X', { url: 'https://x.com/etvillalovoz' })}>
+                                <div className="px-4 py-1 hover:bg-blue-600 cursor-default flex items-center gap-3" onClick={() => window.open('https://x.com/etvillalovoz', '_blank')}>
                                     <FaXTwitter className="text-lg" /> X
-                                </div> */}
-                                <div className="px-4 py-1 hover:bg-blue-600 cursor-default flex items-center gap-3" onClick={() => openWindow('safari', 'YouTube', { url: 'https://www.youtube.com/@ethanvillalovoz' })}>
+                                </div>
+                                <div className="px-4 py-1 hover:bg-blue-600 cursor-default flex items-center gap-3" onClick={() => window.open('https://www.youtube.com/@ethanvillalovoz', '_blank')}>
                                     <FaYoutube className="text-lg" /> YouTube
                                 </div>
                             </div>
