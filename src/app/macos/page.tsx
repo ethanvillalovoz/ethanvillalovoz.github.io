@@ -316,6 +316,41 @@ const newsItems: { date: string; content: React.ReactNode; hidden?: boolean }[] 
     },
 ];
 
+const teachingExperiences = [
+	{
+		role: "Undergraduate Teaching Assistant",
+		course: "CPT_S 315: Introduction to Data Mining",
+		institution: "Washington State University",
+		term: "Spring 2025",
+		description:
+			"The process of automatically extracting valid, useful, and previously unknown information from large repositories.",
+	},
+	{
+		role: "Undergraduate Teaching Assistant",
+		course: "CPT_S 350: Design and Analysis of Algorithms",
+		institution: "Washington State University",
+		term: "Fall 2024",
+		description:
+			"Analysis of data structures and algorithms; computational complexity and design of efficient data-handling procedures.",
+	},
+  {
+		role: "Undergraduate Teaching Assistant",
+		course: "CPT_S 355: Programming Language Design",
+		institution: "Washington State University",
+		term: "Fall 2023",
+		description:
+			"Design concepts of high-level programming languages; survey of existing languages, experience using some languages.",
+	},
+	{
+		role: "Undergraduate Teaching Assistant",
+		course: "CPT_S 121: Program Design and Development C/C++",
+		institution: "Washington State University",
+		term: "Fall 2022",
+		description:
+			"Formulation of problems and top-down design of programs in a modern structured language (C/C++) for their solution on a digital computer.",
+	},
+];
+
 type FileType = "folder" | "image" | "pdf" | "txt" | "app" | "link";
 
 interface VirtualFile {
@@ -380,7 +415,21 @@ const fileSystem: VirtualFile[] = [
                             { id: "2023-papers-app", name: "2023", type: "app", icon: <FaFolder className="text-blue-400" />, content: "2023-papers" },
                         ] 
                     },
-                    { id: "teaching-folder", name: "Teaching", type: "folder", children: [] }
+                    { 
+                        id: "teaching-folder", 
+                        name: "Teaching", 
+                        type: "folder", 
+                        children: [
+                             {
+                                id: "wsu-folder",
+                                name: "Washington State University",
+                                type: "folder",
+                                children: [
+                                    { id: "wsu-teaching-app", name: "Teaching Experience", type: "app", icon: <FaFolder className="text-blue-400" />, content: "wsu-teaching" }
+                                ]
+                            }
+                        ] 
+                    }
                 ] 
               }, // Dynamic
               { 
@@ -426,7 +475,7 @@ type SystemState = "boot" | "login" | "desktop";
 interface WindowState {
   id: string;
   title: string;
-  type: "finder" | "safari" | "terminal" | "mail" | "preview" | "pdf-viewer" | "about" | "news" | "experience" | "technologies" | "interests" | "pre-prints" | "2023-papers";
+  type: "finder" | "safari" | "terminal" | "mail" | "preview" | "pdf-viewer" | "about" | "news" | "experience" | "technologies" | "interests" | "pre-prints" | "2023-papers" | "wsu-teaching";
   isOpen: boolean;
   isMinimized: boolean;
   position: { x: number; y: number };
@@ -757,7 +806,38 @@ const InterestsApp = () => (
     </div>
 );
 
-// 9. Publications List Component
+// 9. Teaching Component
+const TeachingApp = () => (
+    <div className="h-full bg-white p-8 overflow-y-auto text-neutral-800">
+        <FadeIn>
+            <h2 className="text-2xl font-bold mb-8 tracking-tight">Washington State University</h2>
+            <FadeInStagger className="space-y-4">
+                {teachingExperiences.map((exp, idx) => (
+                    <FadeInItem key={idx}>
+                        <article className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8 p-6 -mx-6 rounded-2xl hover:bg-neutral-50 transition-colors border border-transparent hover:border-neutral-100">
+                            <div className="flex-shrink-0 md:w-32 pt-1">
+                                <div className="text-sm font-medium text-neutral-400 uppercase tracking-wider">{exp.term}</div>
+                            </div>
+                            <div className="flex-1">
+                                <h3 className="font-semibold text-lg text-neutral-900 mb-1">
+                                    {exp.course}
+                                </h3>
+                                <div className="text-sm font-medium text-blue-600 mb-3">
+                                    {exp.role}
+                                </div>
+                                <p className="text-base text-neutral-500 leading-relaxed">
+                                    {exp.description}
+                                </p>
+                            </div>
+                        </article>
+                    </FadeInItem>
+                ))}
+            </FadeInStagger>
+        </FadeIn>
+    </div>
+);
+
+// 10. Publications List Component
 const PublicationsListApp = ({ title, papers }: { title: string, papers: Publication[] }) => (
     <div className="h-full bg-white p-6 overflow-y-auto text-neutral-800">
          <FadeIn>
@@ -1146,6 +1226,7 @@ const Desktop = () => {
             if(file.content === "interests") openWindow('interests', 'Research Interests');
             if(file.content === "pre-prints") openWindow('pre-prints', 'Pre-Prints');
             if(file.content === "2023-papers") openWindow('2023-papers', '2023 Papers');
+            if(file.content === "wsu-teaching") openWindow('wsu-teaching', 'Teaching Experience');
         }
     };
 
@@ -1268,6 +1349,7 @@ const Desktop = () => {
                         {w.type === 'interests' && <InterestsApp />}
                         {w.type === 'pre-prints' && <PublicationsListApp title="Pre-Prints" papers={preprints} />}
                         {w.type === '2023-papers' && <PublicationsListApp title="2023 Papers" papers={papers_2023} />}
+                        {w.type === 'wsu-teaching' && <TeachingApp />}
                      </Window>
                 ))}
             </AnimatePresence>
