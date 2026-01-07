@@ -1231,7 +1231,7 @@ const DockItem = ({ children, label, onClick, isOpen }: { children: React.ReactN
         <div className={`w-1 h-1 bg-white rounded-full ${isOpen ? 'opacity-100' : 'opacity-0'} transition-opacity`} />
         
         {/* Tooltip */}
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-800/80 backdrop-blur text-white text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-800/80 backdrop-blur text-white text-xs font-medium rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
             {label}
         </div>
     </div>
