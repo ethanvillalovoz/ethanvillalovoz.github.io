@@ -1553,10 +1553,14 @@ const Desktop = () => {
                     <RiFinderFill className="text-blue-500" />
                  </DockItem>
                  <DockItem label="Safari" onClick={() => openWindow('safari', 'Internet', { url: 'https://www.google.com/webhp?igu=1' })} isOpen={windows.some(w => w.type === 'safari')}>
-                    <FaSafari className="text-blue-400" />
+                    <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                        <FaSafari className="text-[#1b9bf0] text-2xl" />
+                    </div>
                  </DockItem>
                  <DockItem label="Mail" onClick={() => openWindow('mail', 'Mail')} isOpen={windows.some(w => w.type === 'mail')}>
-                    <FaPaperPlane className="text-blue-500 transform -rotate-12" />
+                    <div className="w-10 h-10 bg-gradient-to-br from-sky-400 to-blue-600 rounded-xl flex items-center justify-center shadow-lg border border-white/10">
+                        <FaPaperPlane className="text-white text-xl transform -rotate-12" />
+                    </div>
                  </DockItem>
                  <DockItem label="Photos" onClick={() => openWindow('photos', 'Photos')} isOpen={windows.some(w => w.type === 'photos')}>
                     <div className="bg-white rounded-lg p-1">
