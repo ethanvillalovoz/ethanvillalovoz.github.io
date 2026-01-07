@@ -516,7 +516,7 @@ const TerminalApp = ({ fs, onOpen }: { fs: VirtualFile[], onOpen: (file: Virtual
 
         const args = cmdLine.split(' ');
         const cmd = args[0];
-        const arg1 = args[1];
+        const arg1 = args.slice(1).join(' ').trim();
 
         const currentDir = path[path.length - 1];
         const prompt = `ethanvillalovoz@Mac ${getPromptPath(path)} %`;
