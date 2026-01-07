@@ -482,7 +482,13 @@ interface WindowState {
 // --- Components ---
 
 // 1. Terminal Component with functional command line
-const TerminalApp = ({ fs }: { fs: VirtualFile[] }) => {
+const TerminalApp = ({ fs, onOpen }: { fs: VirtualFile[], onOpen: (file: VirtualFile) => void }) => {
+    // Locate Home Directory (/Users/ethan)
+    const homeDir = fs[0]?.children?.find(c => c.id === 'users')?.children?.find(c => c.id === 'ethan');
+    
+    // Path Stack (Default to Home)
+    const [path, setPath] = useState<VirtualFile[]>(homeDir ? [homeDir] : []);
+    
     const [history, setHistory] = useState([
         "Last login: " + new Date().toDateString() + " on ttys000",
         "Type 'help' for available commands."
@@ -491,28 +497,97 @@ const TerminalApp = ({ fs }: { fs: VirtualFile[] }) => {
     const bottomRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [history]);
+    
+    // Helper to format prompt path
+    const getPromptPath = (currentPath: VirtualFile[]) => {
+        if (currentPath.length === 0) return "/";
+        // Base is ethan (Home)
+        if (currentPath[0].id === 'ethan') {
+            const sub = currentPath.slice(1).map(f => f.name).join('/');
+            return sub ? `~/${sub}` : '~';
+        }
+        return '/'; 
+    };
 
     const handleCommand = (e: React.FormEvent) => {
         e.preventDefault();
-        const cmd = input.trim();
-        const newHistory = [...history, `ethan@macbook ~ % ${cmd}`];
+        const cmdLine = input.trim();
+        if (!cmdLine) return; // Ignore empty enter
 
-        if (cmd === "help") {
-            newHistory.push("Available commands: help, clear, whoami, ls, date, cat about.txt");
-        } else if (cmd === "clear") {
-            setHistory([]);
-            setInput("");
-            return;
-        } else if (cmd === "whoami") {
-            newHistory.push("ethan villalovoz");
-        } else if (cmd === "ls") {
-            newHistory.push("Desktop  Documents  Downloads  about_me.txt");
-        } else if (cmd === "date") {
-            newHistory.push(new Date().toString());
-        } else if (cmd === "cat about.txt" || cmd === "cat about_me.txt") {
-             newHistory.push("Hi, I'm Ethan. Master's Student @ GT. Incoming SWE @ Microsoft.");
-        } else if (cmd !== "") {
-            newHistory.push(`zsh: command not found: ${cmd}`);
+        const args = cmdLine.split(' ');
+        const cmd = args[0];
+        const arg1 = args[1];
+
+        const currentDir = path[path.length - 1];
+        const prompt = `ethanvillalovoz@Mac ${getPromptPath(path)} %`;
+        
+        const newHistory = [...history, `${prompt} ${cmdLine}`];
+
+        switch (cmd) {
+            case 'help':
+                newHistory.push("Available commands: help, clear, whoami, ls, cd, pwd, cat, date");
+                break;
+            case 'clear':
+                setHistory([]);
+                setInput("");
+                return;
+            case 'whoami':
+                newHistory.push("ethanvillalovoz");
+                break;
+            case 'date':
+                newHistory.push(new Date().toString());
+                break;
+            case 'pwd':
+                // Construct absolute path
+                const relative = path.slice(1).map(f => f.name).join('/');
+                newHistory.push(`/Users/ethan${relative ? '/' + relative : ''}`);
+                break;
+            case 'ls':
+                const children = currentDir?.children || [];
+                if (children.length > 0) {
+                     newHistory.push(children.map(c => c.type === 'folder' ? c.name + '/' : c.name).join('   '));
+                }
+                break;
+            case 'cd':
+                if (!arg1 || arg1 === '~') {
+                     setPath([homeDir!]);
+                } else if (arg1 === '..') {
+                     if (path.length > 1) {
+                         setPath(prev => prev.slice(0, -1));
+                     }
+                } else {
+                     const target = currentDir?.children?.find(c => c.name === arg1 && c.type === 'folder');
+                     if (target) {
+                         setPath(prev => [...prev, target]);
+                     } else {
+                         newHistory.push(`cd: no such file or directory: ${arg1}`);
+                     }
+                }
+                break;
+             case 'cat':
+                if (!arg1) {
+                    newHistory.push("usage: cat <filename>");
+                } else {
+                    const targetFile = currentDir?.children?.find(c => c.name === arg1);
+                    if (!targetFile) {
+                        newHistory.push(`cat: ${arg1}: No such file or directory`);
+                    } else if (targetFile.type === 'folder') {
+                        newHistory.push(`cat: ${arg1}: Is a directory`);
+                    } else {
+                        // For "cat", we interpret it as opening/inspecting the file
+                        if (targetFile.content && typeof targetFile.content === 'string' && !targetFile.content.startsWith('/') && !targetFile.content.startsWith('http') && !targetFile.type.includes('app')) {
+                             // Simple text content (like about_me.txt instructions in original code)
+                             newHistory.push(targetFile.content);
+                        } else {
+                             // Binary/App/PDF -> trigger open
+                             onOpen(targetFile);
+                             newHistory.push(`Opening ${arg1}...`);
+                        }
+                    }
+                }
+                break;
+             default:
+                newHistory.push(`zsh: command not found: ${cmd}`);
         }
         
         setHistory(newHistory);
@@ -521,16 +596,17 @@ const TerminalApp = ({ fs }: { fs: VirtualFile[] }) => {
 
     return (
         <div className="h-full bg-[#1e1e1e] text-white font-mono p-4 text-sm overflow-auto" onClick={() => document.getElementById('term-input')?.focus()}>
-            {history.map((line, i) => <div key={i} className="whitespace-pre-wrap mb-1 text-[#4AF626] opacity-90">{line}</div>)}
+            {history.map((line, i) => <div key={i} className="whitespace-pre-wrap mb-1 leading-relaxed">{line}</div>)}
             <form onSubmit={handleCommand} className="flex gap-2">
-                <span className="text-[#4AF626]">ethan@macbook ~ %</span>
+                <span className="text-white whitespace-nowrap">{`ethanvillalovoz@Mac ${getPromptPath(path)} %`}</span>
                 <input 
                     id="term-input"
                     type="text" 
                     value={input} 
                     onChange={e => setInput(e.target.value)}
-                    className="flex-1 bg-transparent border-none outline-none text-[#4AF626] caret-white"
+                    className="flex-1 bg-transparent border-none outline-none text-white caret-gray-400"
                     autoFocus
+                    autoComplete="off"
                 />
             </form>
             <div ref={bottomRef} />
@@ -1521,7 +1597,7 @@ const Desktop = () => {
                         onMinimize={() => setWindows(prev => prev.map(win => win.id === w.id ? { ...win, isMinimized: true } : win))}
                         onFocus={setActiveWindowId}
                      >
-                        {w.type === 'terminal' && <TerminalApp fs={fileSystem} />}
+                        {w.type === 'terminal' && <TerminalApp fs={fileSystem} onOpen={handleFileOpen} />}
                         {w.type === 'mail' && <MailApp />}
                         {w.type === 'finder' && <FinderApp onNavigate={() => {}} onOpenFile={handleFileOpen} />}
                         {w.type === 'safari' && (
