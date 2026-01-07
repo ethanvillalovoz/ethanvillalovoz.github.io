@@ -539,6 +539,16 @@ const TerminalApp = ({ fs }: { fs: VirtualFile[] }) => {
 // 2. Mail Component (Contact Form)
 const MailApp = () => {
     const [sent, setSent] = useState(false);
+    const [subject, setSubject] = useState("");
+    const [message, setMessage] = useState("");
+
+    const handleSend = () => {
+         const email = "ethan.villalovoz@gatech.edu";
+         const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+         window.open(mailtoLink, '_blank');
+         setSent(true);
+    };
+
     return (
         <div className="h-full flex flex-col bg-white">
             <div className="h-12 border-b flex items-center px-4 justify-between bg-gray-50">
@@ -547,25 +557,35 @@ const MailApp = () => {
                     <span className="text-black font-semibold">Compose</span>
                     <span className="hover:text-black cursor-pointer">Sent</span>
                 </div>
-                <FaPaperPlane className={`text-blue-500 cursor-pointer ${sent ? 'text-green-500' : ''}`} />
+                <FaPaperPlane className={`text-blue-500 cursor-pointer ${sent ? 'text-green-500' : ''}`} onClick={!sent ? handleSend : undefined} />
             </div>
             {!sent ? (
                 <div className="p-6 flex flex-col gap-4 h-full">
                     <div className="border-b pb-2 text-sm text-gray-500">To: <span className="text-black px-2 bg-blue-100 rounded-md">ethan.villalovoz@gatech.edu</span></div>
                     <div className="border-b pb-2 text-sm text-gray-500 flex gap-2">
                         <span>Subject:</span>
-                        <input className="outline-none flex-1 text-black" placeholder="Hello!" />
+                        <input 
+                            className="outline-none flex-1 text-black" 
+                            placeholder="Hello!" 
+                            value={subject}
+                            onChange={(e) => setSubject(e.target.value)}
+                        />
                     </div>
-                    <textarea className="flex-1 resize-none outline-none text-gray-800 font-serif leading-relaxed" placeholder="Write your message here..." />
-                    <button onClick={() => setSent(true)} className="self-end bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
+                    <textarea 
+                        className="flex-1 resize-none outline-none text-gray-800 font-serif leading-relaxed" 
+                        placeholder="Write your message here..." 
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                    />
+                    <button onClick={handleSend} className="self-end bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
                         Send Message
                     </button>
                 </div>
             ) : (
                 <div className="flex-1 flex flex-col items-center justify-center text-gray-400 gap-4">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-500 text-2xl">✓</div>
-                    <p>Message Sent!</p>
-                    <button onClick={() => setSent(false)} className="text-blue-500 text-sm hover:underline">Write another</button>
+                    <p>Draft opened in mail client!</p>
+                    <button onClick={() => { setSent(false); setSubject(""); setMessage(""); }} className="text-blue-500 text-sm hover:underline">Write another</button>
                 </div>
             )}
         </div>
