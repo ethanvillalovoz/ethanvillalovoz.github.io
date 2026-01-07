@@ -455,7 +455,7 @@ const fileSystem: VirtualFile[] = [
                   ] 
               },
               { id: "downloads", name: "Downloads", type: "folder", children: [] },
-              { id: "about", name: "about_me.txt", type: "txt", content: `Hi, I'm Ethan.\n\nI am a Master's student at Georgia Tech and an incoming Software Engineer at Microsoft.\n\nMy interests lie in Robotics, Bayesian Optimization, and building cool things.` }
+              { id: "about", name: "about_me.txt", type: "txt", content: `Hi, I'm Ethan.\n\nI am a Master's student in Computer Science at Georgia Tech.\n\nMy research interests lie at the intersection of robot learning, world modeling, and human-aligned decision making.` }
             ]
           }
         ]
@@ -507,6 +507,49 @@ const TerminalApp = ({ fs, onOpen }: { fs: VirtualFile[], onOpen: (file: Virtual
             return sub ? `~/${sub}` : '~';
         }
         return '/'; 
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Tab') {
+            e.preventDefault();
+            const trimmedInput = input.trim();
+            const args = input.split(' ');
+            
+            // If empty, do nothing
+            if (!trimmedInput) return;
+
+            // 1. Command Autocomplete (if only 1 word and no trailing space)
+            if (args.length === 1) {
+                const commands = ['help', 'clear', 'whoami', 'ls', 'cd', 'pwd', 'cat', 'date'];
+                const partial = args[0];
+                const matches = commands.filter(c => c.startsWith(partial));
+                if (matches.length === 1) {
+                    setInput(matches[0] + ' '); // Add space for convenience
+                    return;
+                }
+            }
+
+            // 2. File/Folder Autocomplete (if we have a command, or just want to match files)
+            // Get the last chunk being typed
+            const lastArg = args[args.length - 1];
+            // If the last arg is empty string (user typed "cd " space), we might want to list all? 
+            // For now let's only autocomplete if there is some text or at least we are in "arg position"
+            
+            const currentDir = path[path.length - 1];
+            const children = currentDir?.children || [];
+
+            // Case-insensitive matching for better UX
+            const matches = children.filter(c => 
+                c.name.toLowerCase().startsWith(lastArg.toLowerCase())
+            );
+
+            if (matches.length === 1) {
+                // Replace the last argument with the full name
+                const newArgs = [...args];
+                newArgs[newArgs.length - 1] = matches[0].name;
+                setInput(newArgs.join(' ')); 
+            }
+        }
     };
 
     const handleCommand = (e: React.FormEvent) => {
@@ -606,6 +649,7 @@ const TerminalApp = ({ fs, onOpen }: { fs: VirtualFile[], onOpen: (file: Virtual
                     type="text" 
                     value={input} 
                     onChange={e => setInput(e.target.value)}
+                    onKeyDown={handleKeyDown}
                     className="flex-1 bg-transparent border-none outline-none text-white caret-gray-400"
                     autoFocus
                     autoComplete="off"
