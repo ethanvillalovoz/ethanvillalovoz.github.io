@@ -1243,17 +1243,23 @@ const DockItem = ({ children, label, onClick, isOpen }: { children: React.ReactN
 const DesktopIcon = ({ file, onOpen }: { file: VirtualFile, onOpen: (file: VirtualFile) => void }) => {
     return (
         <div 
-            className="flex flex-col items-center gap-1 w-20 group cursor-pointer"
+            className="flex flex-col items-center gap-1 w-[4.5rem] md:w-20 group cursor-pointer"
             onDoubleClick={(e) => { e.stopPropagation(); onOpen(file); }}
+            onClick={(e) => {
+                 // For touch devices, sometimes double click is hard, allow single click helper or keep double?
+                 // Standard for desktop is double.
+                 // Windows 95 mobile example likely uses single tap?
+                 // But sticking to double for 'MacOS' feel unless requested.
+            }}
         >
-            <div className="w-16 h-16 flex items-center justify-center text-5xl filter drop-shadow-md group-hover:scale-105 transition-transform">
+            <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center text-4xl md:text-5xl filter drop-shadow-md group-hover:scale-105 transition-transform">
                 {file.type === 'folder' && <FaFolder className="text-blue-400" />}
                 {file.type === 'pdf' && <FaFilePdf className="text-red-500" />}
                 {file.type === 'txt' && <FaFileAlt className="text-gray-200" />}
                 {file.type === 'app' && (file.icon ? file.icon : <FaApple className="text-white" />)}
                 {file.type === 'link' && <FaSafari className="text-blue-500" />}
             </div>
-            <span className="text-xs text-white font-medium text-center px-1 rounded group-hover:bg-blue-600/50 line-clamp-2 shadow-sm text-shadow select-none bg-black/20">
+            <span className="text-[10px] md:text-xs text-white font-medium text-center px-1 rounded group-hover:bg-blue-600/50 line-clamp-2 shadow-sm text-shadow select-none bg-black/20 leading-tight">
                 {file.name}
             </span>
         </div>
@@ -1654,22 +1660,22 @@ const Desktop = () => {
                 </>
             )}
 
-            {/* Mobile/Tablet Layout (Grid System) */}
+            {/* Mobile/Tablet Layout (Fitted Desktop Stream) */}
             {isMobileLayout && (
-                <div className="absolute inset-0 pt-12 pb-24 px-6 grid grid-cols-3 sm:grid-cols-4 content-start gap-y-6 gap-x-2 overflow-y-auto">
+                <div className="absolute inset-0 pt-10 pb-20 px-2 flex flex-col flex-wrap content-start items-start gap-y-2 gap-x-4 overflow-x-auto scrollbar-hide pointer-events-auto">
                     {/* CV & Resume First */}
-                    <div className="flex justify-center"><DesktopIcon file={cvFile} onOpen={handleFileOpen} /></div>
-                    <div className="flex justify-center"><DesktopIcon file={resumeFile} onOpen={handleFileOpen} /></div>
+                    <div className="shrink-0"><DesktopIcon file={cvFile} onOpen={handleFileOpen} /></div>
+                    <div className="shrink-0"><DesktopIcon file={resumeFile} onOpen={handleFileOpen} /></div>
                     
                     {/* Then Apps Grouped */}
                     {homeApps.map(file => (
-                        <div key={file.id} className="flex justify-center"><DesktopIcon file={file} onOpen={handleFileOpen} /></div>
+                        <div key={file.id} className="shrink-0"><DesktopIcon file={file} onOpen={handleFileOpen} /></div>
                     ))}
                     {pubApps.map(file => (
-                        <div key={file.id} className="flex justify-center"><DesktopIcon file={file} onOpen={handleFileOpen} /></div>
+                        <div key={file.id} className="shrink-0"><DesktopIcon file={file} onOpen={handleFileOpen} /></div>
                     ))}
                     {teachApps.map(file => (
-                        <div key={file.id} className="flex justify-center"><DesktopIcon file={file} onOpen={handleFileOpen} /></div>
+                        <div key={file.id} className="shrink-0"><DesktopIcon file={file} onOpen={handleFileOpen} /></div>
                     ))}
                 </div>
             )}
