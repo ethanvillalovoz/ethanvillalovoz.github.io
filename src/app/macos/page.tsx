@@ -1458,8 +1458,10 @@ const Desktop = () => {
                  <DockItem label="Terminal" onClick={() => openWindow('terminal', 'Terminal')} isOpen={windows.some(w => w.type === 'terminal')}>
                     <FaTerminal className="text-gray-900" />
                  </DockItem>
-                 <DockItem label="Projects" onClick={() => openWindow('finder', 'Deep Learning Projects')} isOpen={false}>
-                    <FaFolder className="text-blue-400" />
+                 <DockItem label="About" onClick={() => openWindow('about', 'About This Mac')} isOpen={windows.some(w => w.type === 'about')}>
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden">
+                        <Image src="/images/EthanVillalovozPic.jpeg" alt="Me" fill className="object-cover" />
+                    </div>
                  </DockItem>
                  
                  <div className="w-[1px] h-10 bg-white/30 mx-1" />
