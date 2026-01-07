@@ -120,6 +120,59 @@ const skills = [
 	{ name: "Docker", icon: SiDocker },
 ];
 
+// Publications Data
+interface Author {
+	name: string;
+	url?: string;
+	isMe?: boolean;
+}
+
+interface Publication {
+	title: string;
+	url?: string;
+	authors: Author[];
+	conference: string;
+	image: string;
+	description: string;
+    highlighted?: boolean;
+}
+
+const preprints: Publication[] = [
+	{
+		title: "An Exploratory Study of Bayesian Prompt Optimization for Test-Driven Code Generation with Large Language Models",
+		url: "https://arxiv.org/abs/2512.15076",
+		authors: [
+			{ name: "S. Tomar" },
+			{ name: "A. Deshwal" },
+			{ name: "E. Villalovoz", isMe: true },
+			{ name: "M. Fazzini" },
+			{ name: "H. Cai" },
+			{ name: "J.R. Doppa" },
+		],
+		conference: "arXiv, 2025",
+		image: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/ICSE_BO_figure.png",
+		description: "Explores Bayesian optimization as a principled approach to automated prompt search for large language model–based code generation. Demonstrates sample-efficient improvements in functional correctness over strong prompting baselines on the HumanEval+ benchmark.",
+	},
+];
+
+const papers_2023: Publication[] = [
+	{
+		title: "Social Triangles and Aggressive Lines: Multi-Robot Formations Impact Navigation and Approach",
+		url: "https://ieeexplore.ieee.org/abstract/document/10342372",
+		authors: [
+			{ name: "A. Bacula" },
+			{ name: "E. Villalovoz", isMe: true },
+			{ name: "D. Flynn" },
+			{ name: "A. Mehta" },
+			{ name: "H. Knight" },
+		],
+		conference: "International Conference on Intelligent Robots and Systems (IROS), 2023",
+		image: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/STAL_Multi_Robot_Formations.png",
+		description: "Investigates how different multi-robot formations affect navigation and approach behaviors in social environments. Demonstrates the impact of formation geometry on human-robot interaction and navigation efficiency.",
+        // highlighted: true
+	},
+];
+
 const newsItems: { date: string; content: React.ReactNode; hidden?: boolean }[] = [
     {
         date: "12/2025",
@@ -306,7 +359,16 @@ const fileSystem: VirtualFile[] = [
                             { id: "technologies-app", name: "Technologies", type: "app", icon: <FaFolder className="text-blue-400" />, content: "technologies" },
                         ] 
                     },
-                    { id: "publications-folder", name: "Publications", type: "folder", children: [] },
+                    { 
+                        id: "publications-folder", 
+                        name: "Publications", 
+                        type: "folder", 
+                        children: [
+                            { id: "interests-app", name: "Interests", type: "app", icon: <FaFolder className="text-blue-400" />, content: "interests" },
+                            { id: "preprints-app", name: "Pre-Prints", type: "app", icon: <FaFolder className="text-blue-400" />, content: "pre-prints" },
+                            { id: "2023-papers-app", name: "2023", type: "app", icon: <FaFolder className="text-blue-400" />, content: "2023-papers" },
+                        ] 
+                    },
                     { id: "teaching-folder", name: "Teaching", type: "folder", children: [] }
                 ] 
               }, // Dynamic
@@ -353,7 +415,7 @@ type SystemState = "boot" | "login" | "desktop";
 interface WindowState {
   id: string;
   title: string;
-  type: "finder" | "safari" | "terminal" | "mail" | "preview" | "pdf-viewer" | "about" | "news" | "experience" | "technologies";
+  type: "finder" | "safari" | "terminal" | "mail" | "preview" | "pdf-viewer" | "about" | "news" | "experience" | "technologies" | "interests" | "pre-prints" | "2023-papers";
   isOpen: boolean;
   isMinimized: boolean;
   position: { x: number; y: number };
@@ -672,6 +734,52 @@ const TechnologiesApp = () => {
     )
 }
 
+// 8. Interests Component
+const InterestsApp = () => (
+    <div className="h-full bg-white p-8 flex items-center justify-center text-center text-neutral-800">
+        <FadeIn>
+             <h2 className="text-3xl font-bold mb-6">Research Interests</h2>
+             <p className="text-xl text-neutral-600 leading-relaxed max-w-2xl">
+                I&apos;m interested in how robots can learn structured, uncertainty-aware representations of the world and human intent through interaction and feedback.
+             </p>
+        </FadeIn>
+    </div>
+);
+
+// 9. Publications List Component
+const PublicationsListApp = ({ title, papers }: { title: string, papers: Publication[] }) => (
+    <div className="h-full bg-white p-6 overflow-y-auto text-neutral-800">
+         <FadeIn>
+            <h2 className="text-2xl font-bold mb-8 tracking-tight">{title}</h2>
+            <FadeInStagger className="space-y-6">
+                {papers.map((paper) => (
+                    <FadeInItem key={paper.title}>
+                        <article className={`flex flex-col md:flex-row gap-6 p-4 rounded-2xl border border-transparent hover:border-neutral-100 transition-colors ${paper.highlighted ? 'bg-yellow-50/50' : 'hover:bg-neutral-50'}`}>
+                             <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200">
+                                <Image src={paper.image} alt={paper.title} fill className="object-cover" />
+                             </div>
+                             <div className="flex-1 space-y-2">
+                                <h3 className="font-semibold text-lg leading-tight">
+                                    {paper.url ? <a href={paper.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">{paper.title}</a> : paper.title}
+                                </h3>
+                                <div className="text-sm text-neutral-500 flex flex-wrap gap-1">
+                                    {paper.authors.map((author, i) => (
+                                        <span key={i} className={author.isMe ? "font-semibold text-neutral-900" : ""}>
+                                            {author.name}{i < paper.authors.length - 1 ? ", " : ""}
+                                        </span>
+                                    ))}
+                                </div>
+                                <div className="text-sm font-medium text-neutral-800">{paper.conference}</div>
+                                <p className="text-sm text-neutral-500 leading-relaxed">{paper.description}</p>
+                             </div>
+                        </article>
+                    </FadeInItem>
+                ))}
+            </FadeInStagger>
+        </FadeIn>
+    </div>
+);
+
 // Reusable Window Shell
 const Window = ({ windowState, isActive, onClose, onMinimize, onFocus, children }: any) => {
     const controls = useDragControls();
@@ -970,6 +1078,10 @@ const Desktop = () => {
             if(file.content === "news") openWindow('news', 'News');
             if(file.content === "experience") openWindow('experience', 'Experience');
             if(file.content === "technologies") openWindow('technologies', 'Technologies');
+            
+            if(file.content === "interests") openWindow('interests', 'Research Interests');
+            if(file.content === "pre-prints") openWindow('pre-prints', 'Pre-Prints');
+            if(file.content === "2023-papers") openWindow('2023-papers', '2023 Papers');
         }
     };
 
@@ -1088,6 +1200,10 @@ const Desktop = () => {
                         {w.type === 'news' && <NewsApp />}
                         {w.type === 'experience' && <ExperienceApp />}
                         {w.type === 'technologies' && <TechnologiesApp />}
+                        
+                        {w.type === 'interests' && <InterestsApp />}
+                        {w.type === 'pre-prints' && <PublicationsListApp title="Pre-Prints" papers={preprints} />}
+                        {w.type === '2023-papers' && <PublicationsListApp title="2023 Papers" papers={papers_2023} />}
                      </Window>
                 ))}
             </AnimatePresence>
