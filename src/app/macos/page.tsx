@@ -1660,22 +1660,22 @@ const Desktop = () => {
                 </>
             )}
 
-            {/* Mobile/Tablet Layout (Fitted Desktop Stream) */}
+            {/* Mobile/Tablet Layout (Strict Grid No Scroll) */}
             {isMobileLayout && (
-                <div className="absolute inset-0 pt-10 pb-20 px-2 flex flex-col flex-wrap content-start items-start gap-y-2 gap-x-4 overflow-x-auto scrollbar-hide pointer-events-auto">
+                <div className="absolute inset-0 pt-12 pb-24 px-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 content-start justify-items-center gap-y-4 gap-x-2 overflow-hidden pointer-events-auto">
                     {/* CV & Resume First */}
-                    <div className="shrink-0"><DesktopIcon file={cvFile} onOpen={handleFileOpen} /></div>
-                    <div className="shrink-0"><DesktopIcon file={resumeFile} onOpen={handleFileOpen} /></div>
+                    <DesktopIcon file={cvFile} onOpen={handleFileOpen} />
+                    <DesktopIcon file={resumeFile} onOpen={handleFileOpen} />
                     
                     {/* Then Apps Grouped */}
                     {homeApps.map(file => (
-                        <div key={file.id} className="shrink-0"><DesktopIcon file={file} onOpen={handleFileOpen} /></div>
+                        <DesktopIcon key={file.id} file={file} onOpen={handleFileOpen} />
                     ))}
                     {pubApps.map(file => (
-                        <div key={file.id} className="shrink-0"><DesktopIcon file={file} onOpen={handleFileOpen} /></div>
+                        <DesktopIcon key={file.id} file={file} onOpen={handleFileOpen} />
                     ))}
                     {teachApps.map(file => (
-                        <div key={file.id} className="shrink-0"><DesktopIcon file={file} onOpen={handleFileOpen} /></div>
+                        <DesktopIcon key={file.id} file={file} onOpen={handleFileOpen} />
                     ))}
                 </div>
             )}
