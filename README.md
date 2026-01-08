@@ -1,4 +1,4 @@
-# Ethan Villalovoz Personal Portfolio
+# Ethan Villalovoz Portfolio
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://vercel.com)
 [![Next.js](https://img.shields.io/badge/next.js-14-blue)](https://nextjs.org/)
