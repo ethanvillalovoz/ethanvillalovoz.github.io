@@ -928,7 +928,7 @@ const AboutApp = () => {
                     My research interests lie at the intersection of robot learning, world modeling, and human-aligned decision making.
                 </p>
                 <p>
-                    I am always open to connecting—please feel free to reach out!
+                    I am always open to connecting. Please feel free to reach out!
                 </p>
             </div>
          </div>

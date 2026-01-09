@@ -282,7 +282,7 @@ export default function Home() {
 									My research interests lie at the intersection of robot learning, world modeling, and human-aligned decision making. I’m particularly interested in how robots can learn structured, uncertainty-aware representations of the world and human intent through interaction and feedback.
 								</p> */}
 								<p className="text-lg text-primary-light leading-relaxed">
-									I am always open to connecting—please feel free to reach out!
+									I am always open to connecting. Please feel free to reach out!
 								</p>
 							</div>
 
