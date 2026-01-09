@@ -1292,7 +1292,7 @@ const StickyNote = () => {
     const [tasks, setTasks] = useState([
         { id: 1, text: "Graduate High School", done: true },
         { id: 2, text: "Drink water", done: false },
-        { id: 3, text: "Pretend I like my job", done: true },
+        { id: 3, text: "Brush my teeth", done: true },
         { id: 4, text: "Read papers without crying", done: false },
         { id: 5, text: "Make robots less confused than me", done: false },
         { id: 6, text: "Move out of my parents house", done: false },
