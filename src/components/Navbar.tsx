@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaApple } from "react-icons/fa6";
 
 const navLinks = [
 	{ name: "Home", href: "/" },
@@ -67,12 +68,11 @@ export default function Navbar() {
 						</Link>
 					))}
 					<a
-						href="/data/EthanVillalovoz-CV.pdf"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="inline-flex items-center px-4 py-1.5 rounded-full bg-foreground text-background text-[13px] font-medium hover:opacity-90 transition-opacity"
+						href="/macos"
+						className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-foreground text-background text-[13px] font-medium hover:opacity-90 transition-opacity"
 					>
-						CV
+						<FaApple className="mb-0.5" />
+						macOS
 					</a>
 				</div>
 
@@ -127,13 +127,12 @@ export default function Navbar() {
 								</Link>
 							))}
 							<a
-								href="/data/EthanVillalovoz-CV.pdf"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inline-flex items-center px-6 py-2 rounded-full bg-foreground text-background text-base font-medium hover:opacity-90 transition-opacity mt-2"
+								href="/macos"
+								className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-foreground text-background text-base font-medium hover:opacity-90 transition-opacity mt-2"
 								onClick={() => setMenuOpen(false)}
 							>
-								CV
+								<FaApple className="mb-0.5" />
+								macOS
 							</a>
 						</div>
 					</motion.div>
