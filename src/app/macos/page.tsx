@@ -46,7 +46,7 @@ const workTimeline = [
 		date: "May 2026 - Jul 2026",
 		company: "Microsoft",
 		logo: "/images/timeline/microsoft_logo.jpeg",
-		title: <span className="text-gray-900 dark:text-gray-100 font-medium">Software Engineer Intern</span>,
+		title: <span className="text-gray-900 font-medium">Software Engineer Intern</span>,
 		bullets: [
 			"Commerce and Ecosystems.",
 		],
@@ -55,7 +55,7 @@ const workTimeline = [
 		date: "Jan 2024 - May 2025",
 		company: "Washington State University",
 		logo: "/images/timeline/washington_state_university_logo.jpeg",
-		title: <span className="text-gray-900 dark:text-gray-100 font-medium">Undergraduate Research Assistant</span>,
+		title: <span className="text-gray-900 font-medium">Undergraduate Research Assistant</span>,
 		bullets: [
 			"Developed and evaluated a Bayesian optimization framework for prompt-based large language model code generation.",
 		],
@@ -64,7 +64,7 @@ const workTimeline = [
 		date: "Jun 2024 - Aug 2024",
 		company: "Carnegie Mellon University",
 		logo: "/images/timeline/Carnegie_Mellon_icon.png",
-		title: <span className="text-gray-900 dark:text-gray-100 font-medium">Robotics Institute Summer Scholar</span>,
+		title: <span className="text-gray-900 font-medium">Robotics Institute Summer Scholar</span>,
 		bullets: [
 			"Developed a hierarchical reward learning framework with Bayesian inference and interactive clarification dialogues.",
 		],
@@ -73,7 +73,7 @@ const workTimeline = [
 		date: "May 2023 - Aug 2023",
 		company: "Google",
 		logo: "/images/timeline/Google_icon.png",
-		title: <span className="text-gray-900 dark:text-gray-100 font-medium">Software Engineering Intern (STEP)</span>,
+		title: <span className="text-gray-900 font-medium">Software Engineering Intern (STEP)</span>,
 		bullets: [
 			"Developed scalable C++ and SQL analytics pipelines and interactive dashboards that optimized internal data workflows.",
 		],
@@ -82,7 +82,7 @@ const workTimeline = [
 		date: "Jun 2022 - Aug 2022",
 		company: "Oregon State University",
 		logo: "/images/timeline/Oregon_State_icon.jpeg",
-		title: <span className="text-gray-900 dark:text-gray-100 font-medium">NSF REU Fellow</span>,
+		title: <span className="text-gray-900 font-medium">NSF REU Fellow</span>,
 		bullets: [
 			"Designed and implemented geometric motion primitives and interactive deployment tools enabling expressive multi-robot behaviors.",
 		],
@@ -95,7 +95,7 @@ const educationTimeline = [
 		company: "Georgia Institute of Technology",
 		logo: "/images/timeline/GT_icon.png",
 		title: (
-			<span className="text-gray-900 dark:text-gray-100 font-medium">M.S. in Computer Science, Computational Perception and Robotics (GPA: 4.0/4.0)</span>
+			<span className="text-gray-900 font-medium">M.S. in Computer Science, Computational Perception and Robotics (GPA: 4.0/4.0)</span>
 		),
 		bullets: [],
 	},
@@ -104,7 +104,7 @@ const educationTimeline = [
 		company: "Washington State University",
 		logo: "/images/timeline/Washington_State_icon.png",
 		title: (
-			<span className="text-gray-900 dark:text-gray-100 font-medium">B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.0)</span>
+			<span className="text-gray-900 font-medium">B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.0)</span>
 		),
 		bullets: [
 			<span>Senior Design Project: <a href="/data/capstone/index.html" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Retrieval-Augmented Generation Application Using Knowledge Graph and Vector Search</a></span>,
@@ -677,15 +677,15 @@ const MailApp = () => {
                     <div className="border-b pb-2 text-sm text-gray-500 flex gap-2">
                         <span>Subject:</span>
                         <input 
-                            className="outline-none flex-1 text-black" 
-                            placeholder="Hello!" 
+                            className="outline-none flex-1 text-black bg-transparent" 
+                            placeholder="Hello!"  
                             value={subject}
                             onChange={(e) => setSubject(e.target.value)}
                         />
                     </div>
                     <textarea 
-                        className="flex-1 resize-none outline-none text-gray-800 font-serif leading-relaxed" 
-                        placeholder="Write your message here..." 
+                        className="flex-1 resize-none outline-none text-gray-800 font-serif leading-relaxed bg-transparent" 
+                        placeholder="Write your message here..."  
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                     />
@@ -713,7 +713,7 @@ const FinderApp = ({ onNavigate, onOpenFile }: { onNavigate: any, onOpenFile: an
     return (
         <div className="flex h-full">
             {/* Sidebar */}
-            <div className="w-48 bg-white/40 dark:bg-black/20 backdrop-blur-md p-3 flex flex-col gap-4 text-xs font-medium text-neutral-600 border-r border-black/5">
+            <div className="w-48 bg-white/40 backdrop-blur-md p-3 flex flex-col gap-4 text-xs font-medium text-neutral-600 border-r border-black/5">
                 <div>
                      <p className="text-[10px] text-neutral-400 font-bold mb-1 pl-2">Favorites</p>
                     <div className="flex flex-col gap-0.5">
@@ -1158,7 +1158,7 @@ const Window = ({ windowState, isActive, onClose, onMinimize, onFocus, children 
           top: windowState.position.y,
           left: windowState.position.x
       }}
-      className={`rounded-xl overflow-hidden border border-neutral-200 bg-white shadow-2xl ${isActive ? 'shadow-black/20' : ''}`}
+      className={`rounded-xl overflow-hidden border border-neutral-200 bg-white text-gray-900 shadow-2xl ${isActive ? 'shadow-black/20' : ''}`}
       onMouseDown={() => onFocus(windowState.id)}
     >
       <div 
@@ -1186,7 +1186,7 @@ const Window = ({ windowState, isActive, onClose, onMinimize, onFocus, children 
 
 // Helper for Sidebar
 const SidebarItem = ({ icon, label, active = false, onClick }: { icon: React.ReactNode, label: string, active?: boolean, onClick?: () => void }) => (
-    <div onClick={onClick} className={`flex items-center gap-2 px-2 py-1 rounded ${active ? 'bg-black/10 dark:bg-white/10' : 'hover:bg-black/5 dark:hover:bg-white/5'} cursor-default ${onClick ? 'cursor-pointer' : ''}`}>
+    <div onClick={onClick} className={`flex items-center gap-2 px-2 py-1 rounded ${active ? 'bg-black/10' : 'hover:bg-black/5'} cursor-default ${onClick ? 'cursor-pointer' : ''}`}>
         <span className="text-sm">{icon}</span>
         <span>{label}</span>
     </div>
