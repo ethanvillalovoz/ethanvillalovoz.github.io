@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaApple } from "react-icons/fa6";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
 	{ name: "Home", href: "/" },
@@ -52,53 +53,59 @@ export default function Navbar() {
 					</span>
 				</Link>
 
-				{/* Desktop Nav Links */}
-				<div className="hidden md:flex items-center space-x-6">
-					{navLinks.map((link) => (
-						<Link
-							key={link.name}
-							href={link.href}
-							className={`text-[13px] font-medium transition-colors duration-200 ${
-								isActive(link.href)
-									? "text-foreground font-semibold"
-									: "text-neutral-500 hover:text-foreground dark:text-neutral-400 dark:hover:text-foreground"
-							}`}
+				<div className="flex items-center gap-4">
+					{/* Desktop Nav Links */}
+					<div className="hidden md:flex items-center space-x-6">
+						{navLinks.map((link) => (
+							<Link
+								key={link.name}
+								href={link.href}
+								className={`text-[13px] font-medium transition-colors duration-200 ${
+									isActive(link.href)
+										? "text-foreground font-semibold"
+										: "text-neutral-500 hover:text-foreground dark:text-neutral-400 dark:hover:text-foreground"
+								}`}
+							>
+								{link.name}
+							</Link>
+						))}
+						<a
+							href="/macos"
+							className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-foreground text-background text-[13px] font-medium hover:opacity-90 transition-opacity"
 						>
-							{link.name}
-						</Link>
-					))}
-					<a
-						href="/macos"
-						className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-foreground text-background text-[13px] font-medium hover:opacity-90 transition-opacity"
-					>
-						<FaApple className="mb-0.5" />
-						macOS
-					</a>
-				</div>
+							<FaApple className="mb-0.5" />
+							macOS
+						</a>
+					</div>
 
-				{/* Mobile Hamburger Button */}
-				<button
-					className="md:hidden relative w-10 h-10 flex justify-center items-center focus:outline-none z-50"
-					aria-label={menuOpen ? "Close menu" : "Open menu"}
-					aria-expanded={menuOpen}
-					onClick={() => setMenuOpen(!menuOpen)}
-				>
-					<span
-						className={`absolute h-0.5 w-5 bg-foreground rounded-full transition-all duration-300 ease-out ${
-							menuOpen ? "rotate-45" : "-translate-y-1.5"
-						}`}
-					/>
-					<span
-						className={`absolute h-0.5 w-5 bg-foreground rounded-full transition-all duration-300 ease-out ${
-							menuOpen ? "opacity-0" : "opacity-100"
-						}`}
-					/>
-					<span
-						className={`absolute h-0.5 w-5 bg-foreground rounded-full transition-all duration-300 ease-out ${
-							menuOpen ? "-rotate-45" : "translate-y-1.5"
-						}`}
-					/>
-				</button>
+					<div className="hidden md:block h-5 w-px bg-neutral-300 dark:bg-neutral-600" />
+
+					<ThemeToggle />
+
+					{/* Mobile Hamburger Button */}
+					<button
+						className="md:hidden relative w-10 h-10 flex justify-center items-center focus:outline-none z-50"
+						aria-label={menuOpen ? "Close menu" : "Open menu"}
+						aria-expanded={menuOpen}
+						onClick={() => setMenuOpen(!menuOpen)}
+					>
+						<span
+							className={`absolute h-0.5 w-5 bg-foreground rounded-full transition-all duration-300 ease-out ${
+								menuOpen ? "rotate-45" : "-translate-y-1.5"
+							}`}
+						/>
+						<span
+							className={`absolute h-0.5 w-5 bg-foreground rounded-full transition-all duration-300 ease-out ${
+								menuOpen ? "opacity-0" : "opacity-100"
+							}`}
+						/>
+						<span
+							className={`absolute h-0.5 w-5 bg-foreground rounded-full transition-all duration-300 ease-out ${
+								menuOpen ? "-rotate-45" : "translate-y-1.5"
+							}`}
+						/>
+					</button>
+				</div>
 			</div>
 
 			{/* Mobile Dropdown Menu */}

@@ -17,7 +17,7 @@
 
 .dark {
   /* Apple Inspired - Dark Mode */
-  --background: 0 0 0;            /* Pure Black */
+  --background: 34 31 38;         /* Custom Dark Background #221F26 */
   --foreground: 245 245 247;      /* Off White */
   
   --primary: 41 151 255;          /* Apple Blue (Dark Mode) */
@@ -47,6 +47,11 @@ h1, h2, h3, h4, h5, h6 {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass {
+  background: rgba(34, 31, 38, 0.7); /* Matching custom dark background with opacity */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .dark .glass {
