@@ -46,7 +46,7 @@ export default function TeachingPage() {
 						<h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
 							Teaching
 						</h1>
-						<p className="text-lg text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-2xl">
+						<p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl">
 							My teaching experience.
 						</p>
 					</header>
@@ -57,9 +57,9 @@ export default function TeachingPage() {
 					<FadeInStagger className="space-y-4">
 						{teachingExperiences.map((exp, idx) => (
 							<FadeInItem key={idx}>
-								<article className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8 p-6 -mx-6 rounded-2xl hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-colors">
+								<article className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8 p-6 -mx-6 rounded-2xl transition-colors">
 									<div className="flex-shrink-0 md:w-32 pt-1">
-										<div className="text-sm font-medium text-neutral-400 uppercase tracking-wider">{exp.term}</div>
+										<div className="text-sm font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">{exp.term}</div>
 									</div>
 									<div className="flex-1">
 										<h3 className="font-semibold text-lg text-foreground mb-1">
@@ -68,7 +68,7 @@ export default function TeachingPage() {
 										<div className="text-sm font-medium text-primary mb-3">
 											{exp.role}
 										</div>
-										<p className="text-base text-neutral-500 dark:text-neutral-400 leading-relaxed">
+										<p className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
 											{exp.description}
 										</p>
 									</div>

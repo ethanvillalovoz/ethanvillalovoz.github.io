@@ -112,7 +112,7 @@ export default function ResearchPage() {
 						<h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
 							Publications
 						</h1>
-						<p className="text-lg text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-2xl">
+						<p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl">
 							I&apos;m interested in how robots can learn structured, uncertainty-aware representations of the world and human intent through interaction and feedback.
 						</p>
 					</header>
@@ -120,7 +120,7 @@ export default function ResearchPage() {
                 
                 {/* Legend */}
                 <FadeIn className="mb-12">
-                    <div className="text-sm text-neutral-500 dark:text-neutral-400 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 border-b border-neutral-200 dark:border-neutral-800 pb-4">
+                    <div className="text-sm text-neutral-600 dark:text-neutral-400 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 border-b border-neutral-200 dark:border-neutral-800 pb-4">
                         <div className="flex gap-4">
                             <span>* Equal Contribution</span>
                             <span>† Equal Advising</span>
@@ -141,7 +141,7 @@ export default function ResearchPage() {
                                 <article className={`flex flex-col md:flex-row gap-6 md:gap-8 p-6 -mx-6 rounded-2xl transition-colors ${
                                     paper.highlighted 
                                         ? "bg-yellow-50/80 dark:bg-yellow-900/20" 
-                                        : "hover:bg-neutral-50 dark:hover:bg-neutral-900/50"
+                                        : ""
                                 }`}>
                                     <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
                                         <Image
@@ -161,7 +161,7 @@ export default function ResearchPage() {
                                             ) : paper.title}
                                         </h3>
                                         
-                                        <div className="text-sm text-neutral-500 dark:text-neutral-400">
+                                        <div className="text-sm text-neutral-600 dark:text-neutral-400">
                                             {paper.authors.map((author, index) => (
                                                 <span key={index}>
                                                     {author.url ? (
@@ -185,7 +185,7 @@ export default function ResearchPage() {
                                             {paper.award && <span className="text-red-500 ml-2">{paper.award}</span>}
                                         </div>
 
-                                        <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                        <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                                             {paper.description}
                                         </p>
 
@@ -227,7 +227,7 @@ export default function ResearchPage() {
                                 <article className={`flex flex-col md:flex-row gap-6 md:gap-8 p-6 -mx-6 rounded-2xl transition-colors ${
                                     paper.highlighted 
                                         ? "bg-yellow-50/80 dark:bg-yellow-900/20" 
-                                        : "hover:bg-neutral-50 dark:hover:bg-neutral-900/50"
+                                        : ""
                                 }`}>
                                     <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
                                         <Image
@@ -247,7 +247,7 @@ export default function ResearchPage() {
                                             ) : paper.title}
                                         </h3>
                                         
-                                        <div className="text-sm text-neutral-500 dark:text-neutral-400">
+                                        <div className="text-sm text-neutral-600 dark:text-neutral-400">
                                             {paper.authors.map((author, index) => (
                                                 <span key={index}>
                                                     {author.url ? (
@@ -271,7 +271,7 @@ export default function ResearchPage() {
                                             {paper.award && <span className="text-red-500 ml-2">{paper.award}</span>}
                                         </div>
 
-                                        <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                        <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                                             {paper.description}
                                         </p>
 

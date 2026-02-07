@@ -971,7 +971,7 @@ const ExperienceApp = () => {
                                 className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
                                     tab === t 
                                         ? "bg-white text-gray-900 shadow-sm" 
-                                        : "text-gray-500 hover:text-gray-700"
+                                        : "text-gray-600 hover:text-gray-800"
                                 }`}
                             >
                                 {t.charAt(0).toUpperCase() + t.slice(1)}
@@ -983,19 +983,19 @@ const ExperienceApp = () => {
                 <FadeInStagger key={tab} className="space-y-4">
                     {(tab === "work" ? workTimeline : educationTimeline).map((item, index) => (
                         <FadeInItem key={index}>
-                           <div className="flex gap-4 p-4 rounded-xl hover:bg-neutral-50 transition-colors border border-transparent hover:border-neutral-100">
+                           <div className="flex gap-4 p-4 rounded-xl border border-transparent">
                                 <div className="relative w-12 h-12 flex-shrink-0 mt-1 rounded-full overflow-hidden border border-neutral-100 bg-white">
                                     <Image src={item.logo} alt={item.company} fill className="object-cover" />
                                 </div>
                                 <div className="flex-1">
                                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
                                         <h3 className="font-semibold text-lg text-gray-900">{item.company}</h3>
-                                        <span className="text-sm font-medium text-neutral-400">{item.date}</span>
+                                        <span className="text-sm font-medium text-neutral-500">{item.date}</span>
                                     </div>
-                                    <div className="text-base text-gray-700 mb-2">{item.title}</div>
+                                    <div className="text-base text-gray-800 mb-2">{item.title}</div>
                                     <ul className="list-disc list-outside ml-4 space-y-1">
                                         {item.bullets.map((bullet, idx) => (
-                                            <li key={idx} className="text-sm text-neutral-500 leading-relaxed pl-1">
+                                            <li key={idx} className="text-sm text-neutral-600 leading-relaxed pl-1">
                                                 {bullet}
                                             </li>
                                         ))}
@@ -1019,8 +1019,8 @@ const TechnologiesApp = () => {
                 <FadeInStagger className="grid grid-cols-3 sm:grid-cols-4 gap-4" faster>
                     {skills.map((skill) => (
                         <FadeInItem key={skill.name}>
-                            <div className="flex flex-col items-center gap-3 p-4 rounded-xl bg-neutral-50 hover:bg-neutral-100 transition-colors text-gray-600 hover:text-gray-900 cursor-default">
-                                <skill.icon className="text-3xl" />
+                            <div className="flex flex-col items-center gap-3 p-4 rounded-xl bg-neutral-50 text-gray-700 cursor-default">
+                                <skill.icon className="text-3xl text-gray-600" />
                                 <span className="text-sm font-medium">{skill.name}</span>
                             </div>
                         </FadeInItem>
@@ -1051,9 +1051,9 @@ const TeachingApp = () => (
             <FadeInStagger className="space-y-4">
                 {teachingExperiences.map((exp, idx) => (
                     <FadeInItem key={idx}>
-                        <article className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8 p-6 -mx-6 rounded-2xl hover:bg-neutral-50 transition-colors border border-transparent hover:border-neutral-100">
+                        <article className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8 p-6 -mx-6 rounded-2xl border border-transparent">
                             <div className="flex-shrink-0 md:w-32 pt-1">
-                                <div className="text-sm font-medium text-neutral-400 uppercase tracking-wider">{exp.term}</div>
+                                <div className="text-sm font-medium text-neutral-500 uppercase tracking-wider">{exp.term}</div>
                             </div>
                             <div className="flex-1">
                                 <h3 className="font-semibold text-lg text-neutral-900 mb-1">
@@ -1062,7 +1062,7 @@ const TeachingApp = () => (
                                 <div className="text-sm font-medium text-blue-600 mb-3">
                                     {exp.role}
                                 </div>
-                                <p className="text-base text-neutral-500 leading-relaxed">
+                                <p className="text-base text-neutral-600 leading-relaxed">
                                     {exp.description}
                                 </p>
                             </div>
@@ -1085,7 +1085,7 @@ const PublicationsListApp = ({ title, papers }: { title: string, papers: Publica
                         <article className={`flex flex-col md:flex-row gap-6 md:gap-8 p-6 -mx-6 rounded-2xl transition-colors ${
                             paper.highlighted 
                                 ? "bg-yellow-50/80" 
-                                : "hover:bg-neutral-50"
+                                : ""
                         }`}>
                             <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200">
                                 <Image
@@ -1104,7 +1104,7 @@ const PublicationsListApp = ({ title, papers }: { title: string, papers: Publica
                                     ) : paper.title}
                                 </h3>
                                 
-                                <div className="text-sm text-neutral-500">
+                                <div className="text-sm text-neutral-600">
                                     {paper.authors.map((author, index) => (
                                         <span key={index}>
                                             {author.url ? (
@@ -1121,12 +1121,12 @@ const PublicationsListApp = ({ title, papers }: { title: string, papers: Publica
                                     ))}
                                 </div>
 
-                                <div className="text-sm font-medium text-neutral-700">
+                                <div className="text-sm font-medium text-neutral-800">
                                     {paper.conference}
                                     {paper.award && <span className="text-red-500 ml-2">{paper.award}</span>}
                                 </div>
 
-                                <p className="text-sm text-neutral-500 leading-relaxed">
+                                <p className="text-sm text-neutral-600 leading-relaxed">
                                     {paper.description}
                                 </p>
 

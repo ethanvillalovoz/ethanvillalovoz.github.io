@@ -253,7 +253,7 @@ export default function Home() {
 								<h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-2">
 									Ethan Villalovoz
 								</h1>
-								<div className="flex items-center justify-center md:justify-start gap-2 text-neutral-500 dark:text-neutral-400 select-none">
+								<div className="flex items-center justify-center md:justify-start gap-2 text-neutral-600 dark:text-neutral-400 select-none">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										width="16"
@@ -275,13 +275,10 @@ export default function Home() {
 							</div>
 
 							<div className="space-y-4 max-w-xl mx-auto md:mx-0">
-								<p className="text-lg text-primary-light leading-relaxed">
+								<p className="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
 									Master&apos;s student in Computer Science at <span className="text-foreground font-medium">Georgia Tech</span>. My research interests lie at the intersection of robot learning, world modeling, and human-aligned decision making.
 								</p>
-								{/* <p className="text-lg text-primary-light leading-relaxed">
-									My research interests lie at the intersection of robot learning, world modeling, and human-aligned decision making. I’m particularly interested in how robots can learn structured, uncertainty-aware representations of the world and human intent through interaction and feedback.
-								</p> */}
-								<p className="text-lg text-primary-light leading-relaxed">
+								<p className="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
 									I am always open to connecting. Please feel free to reach out!
 								</p>
 							</div>
@@ -373,7 +370,7 @@ export default function Home() {
 						{visibleNews.slice(0, showAllNews ? undefined : 3).map((item, index) => (
 							<FadeInItem key={index} className="relative">
                                 <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-neutral-200 dark:bg-neutral-800 border-2 border-background" />
-								<div className="text-xs font-medium text-neutral-400 mb-1">{item.date}</div>
+								<div className="text-xs font-medium text-neutral-500 dark:text-neutral-400 mb-1">{item.date}</div>
 								<div className="text-base text-foreground/90 leading-relaxed">{item.content}</div>
 							</FadeInItem>
 						))}
@@ -412,7 +409,7 @@ export default function Home() {
 					<FadeInStagger key={timelineTab} className="space-y-4">
 						{(timelineTab === "work" ? workTimeline : educationTimeline).map((item, index) => (
 							<FadeInItem key={index}>
-								<div className="group flex gap-4 md:gap-6 p-6 -mx-6 rounded-2xl hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-colors">
+								<div className="flex gap-4 md:gap-6 p-6 -mx-6 rounded-2xl transition-colors">
 									<div className="flex-shrink-0 mt-1">
 										<div className="w-12 h-12 relative rounded-xl overflow-hidden bg-neutral-50 dark:bg-neutral-900 shadow-sm border border-neutral-100 dark:border-neutral-800">
 											<Image
@@ -426,14 +423,14 @@ export default function Home() {
 									<div className="flex-1">
 										<div className="flex flex-col md:flex-row md:items-center justify-between mb-1">
 											<h3 className="font-semibold text-foreground">{item.company}</h3>
-											<span className="text-xs font-medium text-neutral-400 bg-neutral-100 dark:bg-neutral-900 px-2 py-1 rounded-full w-fit mt-1 md:mt-0">
+											<span className="text-xs font-medium text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-900 px-2 py-1 rounded-full w-fit mt-1 md:mt-0">
 												{item.date}
 											</span>
 										</div>
 										<div className="text-sm text-foreground/80 mb-2">{item.title}</div>
 										<ul className="space-y-1.5">
 											{item.bullets.map((bullet, i) => (
-												<li key={i} className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed pl-3 border-l border-neutral-200 dark:border-neutral-800">
+												<li key={i} className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed pl-3 border-l border-neutral-200 dark:border-neutral-800">
 													{bullet}
 												</li>
 											))}
@@ -452,10 +449,10 @@ export default function Home() {
 						{skills.map((skill) => (
 							<FadeInItem
 								key={skill.name}
-								className="flex flex-col items-center justify-center p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-900/50 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors duration-200 group"
+								className="flex flex-col items-center justify-center p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-900/50 transition-colors duration-200"
 							>
-								<skill.icon className="w-8 h-8 mb-3 text-neutral-400 group-hover:text-foreground transition-colors" />
-								<span className="text-xs font-medium text-neutral-500 group-hover:text-foreground transition-colors text-center">
+								<skill.icon className="w-8 h-8 mb-3 text-neutral-500 dark:text-neutral-400" />
+								<span className="text-xs font-medium text-neutral-600 dark:text-neutral-400 text-center">
 									{skill.name}
 								</span>
 							</FadeInItem>
