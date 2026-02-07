@@ -4,9 +4,7 @@ import { useState, useRef, type ReactNode } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaLinkedin, FaGithub, FaEnvelope, FaYoutube, FaXTwitter } from "react-icons/fa6";
-import { 
-	SiPython, SiCplusplus, SiPytorch, SiPandas, SiOpencv, SiGit, SiDocker, SiGooglescholar
-} from "react-icons/si";
+import { SiGooglescholar } from "react-icons/si";
 import { FadeIn, FadeInStagger, FadeInItem } from "@/components/ui/FadeIn";
 
 const workTimeline = [
@@ -78,16 +76,6 @@ const educationTimeline = [
 			<span>Senior Design Project: <a href="/data/capstone/index.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Retrieval-Augmented Generation Application Using Knowledge Graph and Vector Search</a></span>,
 		],
 	},
-];
-
-const skills = [
-	{ name: "Python", icon: SiPython },
-	{ name: "C/C++", icon: SiCplusplus },
-	{ name: "PyTorch", icon: SiPytorch },
-	{ name: "Pandas", icon: SiPandas },
-	{ name: "OpenCV", icon: SiOpencv },
-	// { name: "Git", icon: SiGit },
-	{ name: "Docker", icon: SiDocker },
 ];
 
 const profileImages = [
@@ -437,24 +425,6 @@ export default function Home() {
 										</ul>
 									</div>
 								</div>
-							</FadeInItem>
-						))}
-					</FadeInStagger>
-				</FadeIn>
-
-				{/* Skills Section */}
-				<FadeIn>
-					<h2 className="text-2xl font-bold mb-8 tracking-tight">Technologies</h2>
-					<FadeInStagger className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4" faster>
-						{skills.map((skill) => (
-							<FadeInItem
-								key={skill.name}
-								className="flex flex-col items-center justify-center p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-900/50 transition-colors duration-200"
-							>
-								<skill.icon className="w-8 h-8 mb-3 text-neutral-500 dark:text-neutral-400" />
-								<span className="text-xs font-medium text-neutral-600 dark:text-neutral-400 text-center">
-									{skill.name}
-								</span>
 							</FadeInItem>
 						))}
 					</FadeInStagger>

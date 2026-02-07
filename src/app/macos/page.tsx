@@ -34,9 +34,7 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 import { IoIosSwitch, IoMdMail, IoMdPhotos, IoMdShuffle } from "react-icons/io";
 import { RiFinderFill } from "react-icons/ri";
-import { 
-	SiPython, SiCplusplus, SiPytorch, SiPandas, SiOpencv, SiGit, SiDocker, SiGooglescholar
-} from "react-icons/si";
+
 import { FadeIn, FadeInStagger, FadeInItem } from "@/components/ui/FadeIn";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -112,15 +110,6 @@ const educationTimeline = [
 			<span>Senior Design Project: <a href="/data/capstone/index.html" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Retrieval-Augmented Generation Application Using Knowledge Graph and Vector Search</a></span>,
 		],
 	},
-];
-
-const skills = [
-	{ name: "Python", icon: SiPython },
-	{ name: "C/C++", icon: SiCplusplus },
-	{ name: "PyTorch", icon: SiPytorch },
-	{ name: "Pandas", icon: SiPandas },
-	{ name: "OpenCV", icon: SiOpencv },
-	{ name: "Docker", icon: SiDocker },
 ];
 
 // Publications Data
@@ -404,7 +393,6 @@ const fileSystem: VirtualFile[] = [
                         children: [
                             { id: "news-app", name: "News", type: "app", icon: <FaFolder className="text-blue-400" />, content: "news" },
                             { id: "experience-app", name: "Experience", type: "app", icon: <FaFolder className="text-blue-400" />, content: "experience" },
-                            { id: "technologies-app", name: "Technologies", type: "app", icon: <FaFolder className="text-blue-400" />, content: "technologies" },
                         ] 
                     },
                     { 
@@ -1010,27 +998,6 @@ const ExperienceApp = () => {
     )
 }
 
-// 7. Technologies Component
-const TechnologiesApp = () => {
-    return (
-        <div className="h-full bg-white p-6 overflow-y-auto text-neutral-800">
-            <FadeIn>
-                <h2 className="text-2xl font-bold mb-8 tracking-tight">Technologies</h2>
-                <FadeInStagger className="grid grid-cols-3 sm:grid-cols-4 gap-4" faster>
-                    {skills.map((skill) => (
-                        <FadeInItem key={skill.name}>
-                            <div className="flex flex-col items-center gap-3 p-4 rounded-xl bg-neutral-50 text-gray-700 cursor-default">
-                                <skill.icon className="text-3xl text-gray-600" />
-                                <span className="text-sm font-medium">{skill.name}</span>
-                            </div>
-                        </FadeInItem>
-                    ))}
-                </FadeInStagger>
-            </FadeIn>
-        </div>
-    )
-}
-
 // 8. Interests Component
 const InterestsApp = () => (
     <div className="h-full bg-white p-8 flex items-center justify-center text-center text-neutral-800">
@@ -1490,8 +1457,6 @@ const Desktop = () => {
 
             if(file.content === "news") openWindow('news', 'News');
             if(file.content === "experience") openWindow('experience', 'Experience');
-            if(file.content === "technologies") openWindow('technologies', 'Technologies');
-            
             if(file.content === "interests") openWindow('interests', 'Research Interests');
             if(file.content === "pre-prints") openWindow('pre-prints', 'Pre-Prints');
             if(file.content === "2023-papers") openWindow('2023-papers', '2023 Papers');
@@ -1707,7 +1672,6 @@ const Desktop = () => {
                         )}
                         {w.type === 'news' && <NewsApp />}
                         {w.type === 'experience' && <ExperienceApp />}
-                        {w.type === 'technologies' && <TechnologiesApp />}
                         
                         {w.type === 'interests' && <InterestsApp />}
                         {w.type === 'pre-prints' && <PublicationsListApp title="Pre-Prints" papers={preprints} />}
