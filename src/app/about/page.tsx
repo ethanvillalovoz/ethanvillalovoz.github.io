@@ -185,7 +185,7 @@ export default function AboutPage() {
 								alt={item.org + " logo"}
 								width={96}
 								height={96}
-								className="w-24 h-24 object-contain rounded-full border border-neutral-200 dark:border-neutral-700 bg-white mr-4 ml-2"
+								className="w-24 h-24 object-contain rounded-full border border-neutral-300 dark:border-neutral-600 bg-white mr-4 ml-2"
 							/>
 							{/* Content */}
 							<div>

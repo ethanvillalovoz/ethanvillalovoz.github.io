@@ -116,7 +116,7 @@ export default function Navbar() {
 						animate={{ opacity: 1, height: "auto" }}
 						exit={{ opacity: 0, height: 0 }}
 						transition={{ duration: 0.3, ease: "easeInOut" }}
-						className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-b border-neutral-200/50 dark:border-neutral-800/50"
+						className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-b border-neutral-300/50 dark:border-neutral-600/50"
 					>
 						<div className="px-6 pb-8 pt-4 flex flex-col gap-4 items-center">
 							{navLinks.map((link) => (

@@ -158,7 +158,7 @@ export default function ContactPage() {
 							sizes="128px"
 						/>
 					</div>
-					<pre className="whitespace-pre-wrap bg-neutral-50 dark:bg-neutral-900/30 p-4 rounded-lg border border-neutral-200 dark:border-neutral-700 text-neutral-800 dark:text-neutral-100 text-base flex-1">
+					<pre className="whitespace-pre-wrap bg-neutral-50 dark:bg-neutral-900/30 p-4 rounded-lg border border-neutral-300 dark:border-neutral-600 text-neutral-800 dark:text-neutral-100 text-base flex-1">
 						{bio}
 					</pre>
 				</div>

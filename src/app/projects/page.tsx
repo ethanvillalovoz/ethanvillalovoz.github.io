@@ -219,7 +219,7 @@ export default function ProjectsPage() {
 							// whileInView={{ opacity: 1, y: 0 }}
 							// viewport={{ once: true }}
 							// transition={{ duration: 0.5, ease: "easeOut" }}
-							className="group flex flex-col bg-card rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800"
+							className="group flex flex-col bg-card rounded-xl overflow-hidden border border-neutral-300 dark:border-neutral-600"
 						>
 							<div className="relative w-full h-48 overflow-hidden bg-neutral-100 dark:bg-neutral-900">
 								<Image

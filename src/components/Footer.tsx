@@ -7,7 +7,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-neutral-200 dark:border-neutral-800 mt-auto bg-background">
+    <footer className="border-t border-neutral-300 dark:border-neutral-600 mt-auto bg-background">
       <div className="max-w-3xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
         
         {/* Left: Logo & Name */}

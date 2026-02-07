@@ -354,10 +354,10 @@ export default function Home() {
 				{/* News Section */}
 				<FadeIn className="mb-24">
 					<h2 className="text-2xl font-bold mb-8 tracking-tight">News</h2>
-					<FadeInStagger key={showAllNews ? "all" : "limited"} className="space-y-6 border-l-2 border-neutral-100 dark:border-neutral-800 pl-6 ml-2">
+					<FadeInStagger key={showAllNews ? "all" : "limited"} className="space-y-6 border-l-2 border-neutral-300 dark:border-neutral-600 pl-6 ml-2">
 						{visibleNews.slice(0, showAllNews ? undefined : 3).map((item, index) => (
 							<FadeInItem key={index} className="relative">
-                                <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-neutral-200 dark:bg-neutral-800 border-2 border-background" />
+                                <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-neutral-300 dark:bg-neutral-600 border-2 border-background" />
 								<div className="text-xs font-medium text-neutral-500 dark:text-neutral-400 mb-1">{item.date}</div>
 								<div className="text-base text-foreground/90 leading-relaxed">{item.content}</div>
 							</FadeInItem>
@@ -399,7 +399,7 @@ export default function Home() {
 							<FadeInItem key={index}>
 								<div className="flex gap-4 md:gap-6 p-6 -mx-6 rounded-2xl transition-colors">
 									<div className="flex-shrink-0 mt-1">
-										<div className="w-12 h-12 relative rounded-xl overflow-hidden bg-neutral-50 dark:bg-neutral-900 shadow-sm border border-neutral-100 dark:border-neutral-800">
+										<div className="w-12 h-12 relative rounded-xl overflow-hidden bg-neutral-50 dark:bg-neutral-900 shadow-sm border border-neutral-300 dark:border-neutral-600">
 											<Image
 												src={item.logo}
 												alt={item.company}
@@ -418,7 +418,7 @@ export default function Home() {
 										<div className="text-sm text-foreground/80 mb-2">{item.title}</div>
 										<ul className="space-y-1.5">
 											{item.bullets.map((bullet, i) => (
-												<li key={i} className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed pl-3 border-l border-neutral-200 dark:border-neutral-800">
+												<li key={i} className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed pl-3 border-l border-neutral-300 dark:border-neutral-600">
 													{bullet}
 												</li>
 											))}

@@ -120,12 +120,12 @@ export default function ResearchPage() {
                 
                 {/* Legend */}
                 <FadeIn className="mb-12">
-                    <div className="text-sm text-neutral-600 dark:text-neutral-400 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 border-b border-neutral-200 dark:border-neutral-800 pb-4">
+                    <div className="text-sm text-neutral-600 dark:text-neutral-400 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 border-b border-neutral-300 dark:border-neutral-600 pb-4">
                         <div className="flex gap-4">
                             <span>* Equal Contribution</span>
                             <span>† Equal Advising</span>
                         </div>
-                        <div className="hidden sm:block w-px h-4 bg-neutral-200 dark:bg-neutral-800" />
+                        <div className="hidden sm:block w-px h-4 bg-neutral-300 dark:bg-neutral-600" />
                         <div>
                             Representative works are <span className="bg-yellow-100 dark:bg-yellow-900/30 px-1.5 py-0.5 rounded text-foreground">highlighted</span>
                         </div>
@@ -143,7 +143,7 @@ export default function ResearchPage() {
                                         ? "bg-yellow-50/80 dark:bg-yellow-900/20" 
                                         : ""
                                 }`}>
-                                    <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+                                    <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-600">
                                         <Image
                                             src={paper.image}
                                             alt={paper.title}
@@ -229,7 +229,7 @@ export default function ResearchPage() {
                                         ? "bg-yellow-50/80 dark:bg-yellow-900/20" 
                                         : ""
                                 }`}>
-                                    <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+                                    <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-600">
                                         <Image
                                             src={paper.image}
                                             alt={paper.title}
