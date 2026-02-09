@@ -1,32 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
 
-import { motion } from "framer-motion";
-import { GitHubCalendar } from "react-github-calendar";
 import Image from "next/image";
-import { FaGithub, FaPython, FaReact, FaDatabase, FaRobot, FaChartLine, FaBook, FaBrain, FaCloud, FaDocker, FaFlask, FaFilePdf, FaUserGraduate, FaCodeBranch, FaEye, FaAward, FaClipboardList, FaLaptopCode, FaCar, FaArrowRight, FaGlobe, FaYoutube, FaUpRightFromSquare } from "react-icons/fa6";
-import { SiTensorflow, SiOpenai, SiTypescript, SiNextdotjs, SiHuggingface, SiLangchain, SiOpencv, SiFastapi, SiFlask, SiDocker, SiKeras, SiPuppeteer, SiStreamlit, SiLatex, SiGithub, SiPython, SiSqlite, SiDvc, SiMlflow, SiAstra, SiUdacity } from "react-icons/si";
+import { FaGithub, FaYoutube, FaGlobe, FaFilePdf, FaUpRightFromSquare } from "react-icons/fa6";
+import { FadeIn, FadeInStagger, FadeInItem } from "@/components/ui/FadeIn";
 
 const projects = [
-	// {
-	// 	title: "ACME10-HE-RAGApp: RAG with Vector Search, Knowledge Graphs, and LLMs",
-	// 	description:
-	// 		"A full-stack Retrieval-Augmented Generation (RAG) application developed for HackerEarth that integrates vector search (FAISS), knowledge graphs (DBpedia), and OpenAI’s LLM to generate traceable, context-rich answers from a Wikipedia-based knowledge base.",
-	// 	image: "/images/projects/RAG_flowchart.jpg",
-	// 	tags: ["LLM", "RAG", "Vector Search", "Knowledge Graph", "Full-Stack", "NLP"],
-	// 	extraLinks: [
-	// 		{
-	// 			label: "Code",
-	// 			url: "https://github.com/mollyiverson/ACME10-HE-RAGApp",
-	// 		},
-	// 		{
-	// 			label: "Final Report",
-	// 			url: "https://github.com/mollyiverson/ACME10-HE-RAGApp/blob/main/docs/project-report/RAGApp-FinalReport.pdf",
-	// 		},
-	// 	],
-	// 	date: "May 2025",
-	// 	status: "Completed",
-	// },
 	{
 		title: "DDPG: Deep Deterministic Policy Gradient Reimplementation",
 		description:
@@ -38,10 +16,6 @@ const projects = [
 				label: "Code",
 				url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation",
 			},
-			{
-				label: "Original Paper",
-				url: "https://arxiv.org/abs/1509.02971",
-			}
 		],
 		date: "July 2025",
 		status: "Completed",
@@ -155,134 +129,86 @@ const projects = [
 
 const getLinkIcon = (label: string) => {
 	const lower = label.toLowerCase();
-	if (lower.includes("code") || lower.includes("github")) return <FaGithub className="ml-2 text-sm opacity-70" />;
-	if (lower.includes("report") || lower.includes("paper") || lower.includes("pdf")) return <FaFilePdf className="ml-2 text-sm opacity-70" />;
-	if (lower.includes("video") || lower.includes("youtube")) return <FaYoutube className="ml-2 text-sm opacity-70" />;
-	if (lower.includes("website") || lower.includes("demo") || lower.includes("app")) return <FaGlobe className="ml-2 text-sm opacity-70" />;
-	return <FaUpRightFromSquare className="ml-2 text-xs opacity-70" />;
+	if (lower.includes("code") || lower.includes("github")) return <FaGithub />;
+	if (lower.includes("report") || lower.includes("paper") || lower.includes("pdf")) return <FaFilePdf />;
+	if (lower.includes("video") || lower.includes("youtube")) return <FaYoutube />;
+	if (lower.includes("website") || lower.includes("demo") || lower.includes("app")) return <FaGlobe />;
+	return <FaUpRightFromSquare />;
 };
 
 export default function ProjectsPage() {
-	const [theme, setTheme] = useState<"light" | "dark">("light");
-
-	useEffect(() => {
-		const updateTheme = () => {
-			const isDark = document.documentElement.classList.contains("dark");
-			setTheme(isDark ? "dark" : "light");
-		};
-
-		updateTheme();
-
-		const observer = new MutationObserver(updateTheme);
-		observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-
-		return () => observer.disconnect();
-	}, []);
-
 	const reversedProjects = [...projects].reverse();
 
 	return (
-		<main className="max-w-5xl mx-auto px-6 py-24 bg-background text-foreground">
-			<header className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
-				<h1
-					// initial={{ opacity: 0, y: 20 }}
-					// animate={{ opacity: 1, y: 0 }}
-					// transition={{ duration: 0.7, ease: "easeOut" }}
-					className="text-7xl md:text-8xl font-serif text-primary dark:text-white tracking-tighter leading-[0.9]"
-				>
-					Projects
-				</h1>
-				<a
-					href="https://github.com/ethanvillalovoz"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="inline-flex items-center px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity mb-2"
-				>
-					<FaGithub className="mr-2 text-lg" />
-					GitHub
-				</a>
-			</header>
+		<main className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
+			<div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
+				<FadeIn>
+					<header className="mb-24">
+						<h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
+							Projects
+						</h1>
+						<p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl">
+							A showcase of my personal and technical projects, ranging from reinforcement learning research to full-stack AI applications.
+						</p>
+					</header>
+				</FadeIn>
 
-			<section className="mb-24">
-				<p className="text-2xl leading-relaxed text-neutral-700 dark:text-neutral-300 max-w-4xl font-light">
-					A showcase of my personal and technical projects, ranging from reinforcement learning research to full-stack AI applications.
-				</p>
-			</section>
-
-			{/* Project cards */}
-			<section className="mb-12">
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8">
 					{reversedProjects.map((project) => (
-						<article
-							key={project.title}
-							// initial={{ opacity: 0, y: 20 }}
-							// whileInView={{ opacity: 1, y: 0 }}
-							// viewport={{ once: true }}
-							// transition={{ duration: 0.5, ease: "easeOut" }}
-							className="group flex flex-col bg-card rounded-xl overflow-hidden border border-neutral-300 dark:border-neutral-600"
-						>
-							<div className="relative w-full h-48 overflow-hidden bg-neutral-100 dark:bg-neutral-900">
-								<Image
-									src={project.image}
-									alt={project.title}
-									fill
-									className="object-cover"
-									sizes="(max-width: 768px) 100vw, 50vw"
-								/>
-							</div>
-							<div className="flex-1 p-6 flex flex-col">
-								<h3 className="font-serif text-xl font-medium text-primary dark:text-white mb-3 leading-tight">
-									{project.title}
-								</h3>
-								<p className="text-neutral-600 dark:text-neutral-400 text-sm mb-6 leading-relaxed">
-									{project.description}
-								</p>
-
-								<div className="flex flex-wrap gap-2 mb-6">
-									{project.tags.map((tag) => (
-										<span
-											key={tag}
-											className="px-2.5 py-1 text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 rounded-md"
-										>
-											{tag}
-										</span>
-									))}
+						<FadeInItem key={project.title} className="h-full">
+							<article className="flex flex-col h-full rounded-2xl border border-neutral-300 dark:border-neutral-600 bg-card overflow-hidden">
+								<div className="relative w-full h-48 bg-neutral-100 dark:bg-neutral-900 border-b border-neutral-300 dark:border-neutral-600">
+									<Image
+										src={project.image}
+										alt={project.title}
+										fill
+										className="object-cover"
+										sizes="(max-width: 768px) 100vw, 50vw"
+									/>
 								</div>
 								
-								<div className="flex flex-wrap gap-3 mt-auto">
-									{project.extraLinks &&
-										project.extraLinks.map((link, idx) => (
-											<a
-												key={link.label + idx}
-												href={link.url}
-												className="inline-flex items-center px-4 py-1.5 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												{link.label}
-												{getLinkIcon(link.label)}
-											</a>
-										))}
-								</div>
-							</div>
-						</article>
-					))}
-				</div>
-			</section>
+								<div className="flex-1 p-6 flex flex-col">
+									<h3 className="font-semibold text-lg leading-tight text-foreground mb-3">
+										{project.title}
+									</h3>
+									<p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
+										{project.description}
+									</p>
 
-			{/* GitHub Activity Widget */}
-			{/* <section className="mb-16">
-				<h2 className="text-sm font-mono uppercase tracking-widest text-primary-light mb-4">Contribution Activity</h2>
-				<div className="p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-card flex justify-center">
-					<GitHubCalendar 
-						username="ethanvillalovoz" 
-						blockSize={12} 
-						blockMargin={4} 
-						fontSize={14}
-						colorScheme={theme}
-					/>
-				</div>
-			</section> */}
+									<div className="mt-auto">
+										<div className="flex flex-wrap gap-2 mb-4">
+											{project.tags.map((tag) => (
+												<span
+													key={tag}
+													className="px-2 py-0.5 text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 rounded-md border border-neutral-200 dark:border-neutral-800"
+												>
+													{tag}
+												</span>
+											))}
+										</div>
+
+										<div className="flex flex-wrap gap-3">
+											{project.extraLinks &&
+												project.extraLinks.map((link, idx) => (
+													<a
+														key={link.label + idx}
+														href={link.url}
+														className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-xs font-medium text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors border border-neutral-200 dark:border-neutral-800"
+														target="_blank"
+														rel="noopener noreferrer"
+													>
+														{getLinkIcon(link.label)}
+														{link.label}
+													</a>
+												))}
+										</div>
+									</div>
+								</div>
+							</article>
+						</FadeInItem>
+					))}
+				</FadeInStagger>
+			</div>
 		</main>
 	);
 }

@@ -282,7 +282,7 @@ export default function Home() {
 									href="/data/EthanVillalovoz-CV.pdf"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex items-center px-6 py-2.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-sm font-medium hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors group"
+									className="inline-flex items-center px-6 py-2.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-sm font-medium hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors border border-neutral-200 dark:border-neutral-800 group"
 								>
 									CV
 								</a>

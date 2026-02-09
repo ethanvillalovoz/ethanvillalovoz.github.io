@@ -26,10 +26,10 @@ const Footer = () => {
 
         {/* Center: Copyright & Info */}
         <div className="text-center flex flex-col items-center justify-center">
-          <p className="text-[10px] md:text-xs text-neutral-500 dark:text-neutral-400 font-medium uppercase tracking-widest">
+          <p className="text-[10px] md:text-xs text-neutral-500 dark:text-neutral-400 font-medium tracking-widest">
             © {currentYear} Ethan Villalovoz.
           </p>
-          <p className="text-[10px] md:text-xs text-neutral-500 dark:text-neutral-400 font-medium uppercase tracking-widest">
+          <p className="text-[10px] md:text-xs text-neutral-500 dark:text-neutral-400 font-medium tracking-widest">
             All rights reserved.
           </p>
         </div>

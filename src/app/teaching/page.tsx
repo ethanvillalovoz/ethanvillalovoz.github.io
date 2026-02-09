@@ -65,7 +65,7 @@ export default function TeachingPage() {
 										<h3 className="font-semibold text-lg text-foreground mb-1">
 											{exp.course}
 										</h3>
-										<div className="text-sm font-medium text-primary mb-3">
+										<div className="text-sm font-medium text-neutral-600 dark:text-neutral-300 mb-3">
 											{exp.role}
 										</div>
 										<p className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
