@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaApple } from "react-icons/fa6";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
@@ -69,13 +68,6 @@ export default function Navbar() {
 								{link.name}
 							</Link>
 						))}
-						<a
-							href="/macos"
-							className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-foreground text-background text-[13px] font-medium hover:opacity-90 transition-opacity"
-						>
-							<FaApple className="mb-0.5" />
-							macOS
-						</a>
 					</div>
 
 					<div className="hidden md:block h-5 w-px bg-neutral-300 dark:bg-neutral-600" />
@@ -133,14 +125,6 @@ export default function Navbar() {
 									{link.name}
 								</Link>
 							))}
-							<a
-								href="/macos"
-								className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-foreground text-background text-base font-medium hover:opacity-90 transition-opacity mt-2"
-								onClick={() => setMenuOpen(false)}
-							>
-								<FaApple className="mb-0.5" />
-								macOS
-							</a>
 						</div>
 					</motion.div>
 				)}
@@ -148,3 +132,4 @@ export default function Navbar() {
 		</motion.nav>
 	);
 }
+						
