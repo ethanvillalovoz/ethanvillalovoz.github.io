@@ -282,7 +282,7 @@ export default function Home() {
 									href="/data/EthanVillalovoz-CV.pdf"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex items-center px-6 py-2.5 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-sm font-medium hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors border border-neutral-200 dark:border-neutral-800 group"
+									className="inline-flex items-center px-6 py-2.5 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-sm font-medium hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors border border-neutral-200 dark:border-neutral-700 group"
 								>
 									CV
 								</a>
@@ -384,7 +384,7 @@ export default function Home() {
 									<div className="flex-1">
 										<div className="flex flex-col md:flex-row md:items-center justify-between mb-1">
 											<h3 className="font-semibold text-foreground">{item.company}</h3>
-											<span className="text-xs font-medium text-neutral-600 dark:text-neutral-400 bg-neutral-200 dark:bg-neutral-800 px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 w-fit mt-1 md:mt-0">
+											<span className="text-xs font-medium text-neutral-600 dark:text-neutral-300 bg-neutral-200 dark:bg-neutral-800 px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-700 w-fit mt-1 md:mt-0">
 												{item.date}
 											</span>
 										</div>
