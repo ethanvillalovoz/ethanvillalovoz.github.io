@@ -654,7 +654,7 @@ export default function Home() {
 				</FadeIn>
 
                 {/* Skills */}
-                <FadeIn className="mb-24">
+                <FadeIn>
                     <h2 className="text-2xl font-bold mb-8 tracking-tight">Skills</h2>
                     <div className="flex flex-wrap gap-3">
                         {skills.map((skill) => (

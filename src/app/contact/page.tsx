@@ -67,8 +67,9 @@ export default function ContactPage() {
 	}, []);
 
 	return (
-		<main className="max-w-5xl mx-auto px-4 py-10">
-			<header className="flex items-center justify-between mb-8">
+		<main className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
+			<div className="max-w-5xl mx-auto px-4 pt-32 pb-24">
+				<header className="flex items-center justify-between mb-24">
 				<motion.h1
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -89,7 +90,7 @@ export default function ContactPage() {
 			</motion.p>
 
 			{/* Contact Methods */}
-			<section className="mb-10">
+			<section className="mb-24">
 				<h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
 					Contact Information
 				</h2>
@@ -132,7 +133,7 @@ export default function ContactPage() {
 			</section>
 			
 			{/* Speaker Headshot and Bio */}
-			<section className="mb-10">
+			<section>
 				<div className="flex items-center justify-between mb-4">
 					<h2 className="text-2xl font-bold bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
 						Speaker Bio
@@ -163,6 +164,7 @@ export default function ContactPage() {
 					</pre>
 				</div>
 			</section>
+			</div>
 		</main>
 	);
 }

@@ -79,8 +79,9 @@ const timeline = [
 
 export default function AboutPage() {
 	return (
-		<main className="max-w-5xl mx-auto px-4 py-10">
-			<header className="flex flex-col sm:flex-row items-center sm:items-start sm:justify-between gap-4 mb-8">
+		<main className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
+			<div className="max-w-5xl mx-auto px-4 pt-32 pb-24">
+				<header className="flex flex-col sm:flex-row items-center sm:items-start sm:justify-between gap-4 mb-24">
 				<motion.h1
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -155,7 +156,7 @@ export default function AboutPage() {
 			</section>
 
 			{/* Philosophy Section */}
-			<section className="mb-10">
+			<section className="mb-24">
 				<h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
 					My Approach
 				</h2>
@@ -165,7 +166,7 @@ export default function AboutPage() {
 			</section>
 
 			{/* Timeline */}
-			<section className="mb-10">
+			<section className="mb-24">
 				<h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent border-b-4 border-primary/30 inline-block pb-1">
 					Timeline
 				</h2>
@@ -237,6 +238,7 @@ export default function AboutPage() {
 					<li>I play both indoor and beach volleyball to stay active.</li>
 				</ul>
 			</section>
+			</div>
 		</main>
 	);
 }
