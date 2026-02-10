@@ -370,7 +370,7 @@ export default function Home() {
 					<FadeInStagger key={timelineTab} className="space-y-4">
 						{(timelineTab === "work" ? workTimeline : educationTimeline).map((item, index) => (
 							<FadeInItem key={index}>
-								<div className="flex gap-4 md:gap-6 p-6 -mx-6 rounded-2xl bg-card border border-neutral-300 dark:border-neutral-600 transition-colors">
+								<div className="w-full flex gap-4 md:gap-6 p-6 rounded-2xl bg-card border border-neutral-300 dark:border-neutral-600 transition-colors">
 									<div className="flex-shrink-0 mt-1">
 										<div className="w-12 h-12 relative rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-900 shadow-sm border border-neutral-300 dark:border-neutral-600">
 											<Image
