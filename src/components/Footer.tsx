@@ -40,7 +40,7 @@ const Footer = () => {
             href="https://www.linkedin.com/in/evillalovoz27/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-[#0077b5] transition-colors transform hover:scale-110 duration-200"
+            className="text-neutral-400 hover:text-[#0077b5] transition-all duration-300 ease-in-out hover:-translate-y-1"
             aria-label="LinkedIn"
           >
             <FaLinkedin size={18} />
@@ -49,7 +49,7 @@ const Footer = () => {
             href="https://github.com/ethanvillalovoz"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-foreground transition-colors transform hover:scale-110 duration-200"
+            className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1"
             aria-label="GitHub"
           >
             <FaGithub size={18} />
@@ -58,7 +58,7 @@ const Footer = () => {
             href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-[#4285F4] transition-colors transform hover:scale-110 duration-200"
+            className="text-neutral-400 hover:text-[#4285F4] transition-all duration-300 ease-in-out hover:-translate-y-1"
             aria-label="Google Scholar"
           >
             <SiGooglescholar size={18} />
@@ -67,7 +67,7 @@ const Footer = () => {
             href="https://x.com/etvillalovoz"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-foreground transition-colors transform hover:scale-110 duration-200"
+            className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1"
             aria-label="X (Twitter)"
           >
             <FaXTwitter size={18} />
@@ -76,14 +76,14 @@ const Footer = () => {
             href="https://www.youtube.com/@ethanvillalovoz"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-[#FF0000] transition-colors transform hover:scale-110 duration-200"
+            className="text-neutral-400 hover:text-[#FF0000] transition-all duration-300 ease-in-out hover:-translate-y-1"
             aria-label="YouTube"
           >
             <FaYoutube size={18} />
           </a>
           <a
             href="mailto:ethan.villalovoz@gatech.edu"
-            className="text-neutral-400 hover:text-foreground transition-colors transform hover:scale-110 duration-200"
+            className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1"
             aria-label="Email"
           >
             <FaEnvelope size={18} />
