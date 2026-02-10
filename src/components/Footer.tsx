@@ -40,7 +40,7 @@ const Footer = () => {
             href="https://www.linkedin.com/in/evillalovoz27/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-[#0077b5] transition-all duration-300 ease-in-out hover:-translate-y-1"
+            className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1"
             aria-label="LinkedIn"
           >
             <FaLinkedin size={18} />
@@ -58,7 +58,7 @@ const Footer = () => {
             href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-[#4285F4] transition-all duration-300 ease-in-out hover:-translate-y-1"
+            className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1"
             aria-label="Google Scholar"
           >
             <SiGooglescholar size={18} />
@@ -76,7 +76,7 @@ const Footer = () => {
             href="https://www.youtube.com/@ethanvillalovoz"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-[#FF0000] transition-all duration-300 ease-in-out hover:-translate-y-1"
+            className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1"
             aria-label="YouTube"
           >
             <FaYoutube size={18} />

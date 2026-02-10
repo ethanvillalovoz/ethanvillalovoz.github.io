@@ -288,19 +288,19 @@ export default function Home() {
 								</a>
 								
 								<div className="flex items-center gap-5">
-									<a href="https://www.linkedin.com/in/evillalovoz27/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-[#0077b5] transition-all duration-300 ease-in-out hover:-translate-y-1">
+									<a href="https://www.linkedin.com/in/evillalovoz27/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1">
 										<FaLinkedin size={22} />
 									</a>
 									<a href="https://github.com/ethanvillalovoz" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1">
 										<FaGithub size={22} />
 									</a>
-									<a href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-[#4285F4] transition-all duration-300 ease-in-out hover:-translate-y-1">
+									<a href="https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1">
 										<SiGooglescholar size={22} />
 									</a>
 									<a href="https://x.com/etvillalovoz" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1">
 										<FaXTwitter size={22} />
 									</a>
-									<a href="https://www.youtube.com/@ethanvillalovoz" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-[#FF0000] transition-all duration-300 ease-in-out hover:-translate-y-1">
+									<a href="https://www.youtube.com/@ethanvillalovoz" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1">
 										<FaYoutube size={22} />
 									</a>
 									<a href="mailto:ethan.villalovoz@gatech.edu" className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1">
