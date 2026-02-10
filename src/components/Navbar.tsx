@@ -62,7 +62,7 @@ export default function Navbar() {
 								className={`text-[13px] font-medium transition-colors duration-200 ${
 									isActive(link.href)
 										? "text-foreground font-semibold"
-										: "text-neutral-500 hover:text-foreground dark:text-neutral-400 dark:hover:text-foreground"
+										: "text-neutral-600 hover:text-foreground dark:text-neutral-300 dark:hover:text-foreground"
 								}`}
 							>
 								{link.name}
@@ -118,7 +118,7 @@ export default function Navbar() {
 									className={`text-lg font-medium transition-colors ${
 										isActive(link.href)
 											? "text-foreground"
-											: "text-neutral-500 dark:text-neutral-400"
+											: "text-neutral-600 dark:text-neutral-300"
 									}`}
 									onClick={() => setMenuOpen(false)}
 								>
