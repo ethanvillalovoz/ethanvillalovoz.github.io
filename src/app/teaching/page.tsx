@@ -57,7 +57,7 @@ export default function TeachingPage() {
 					<FadeInStagger className="space-y-4">
 						{teachingExperiences.map((exp, idx) => (
 							<FadeInItem key={idx}>
-								<article className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8 p-6 -mx-6 rounded-2xl transition-colors">
+								<article className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8 p-6 -mx-6 rounded-2xl bg-card border border-neutral-300 dark:border-neutral-600 transition-colors">
 									<div className="flex-shrink-0 md:w-32 pt-1">
 										<span className="inline-block px-2 py-1 text-xs font-medium text-neutral-600 dark:text-neutral-300 bg-neutral-200 dark:bg-neutral-800 rounded-full border border-neutral-200 dark:border-neutral-700">
 											{exp.term}

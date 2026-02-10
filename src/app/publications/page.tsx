@@ -138,10 +138,10 @@ export default function ResearchPage() {
 					<FadeInStagger className="space-y-4">
 						{preprints.map((paper) => (
 							<FadeInItem key={paper.title}>
-                                <article className={`flex flex-col md:flex-row gap-6 md:gap-8 p-6 -mx-6 rounded-2xl transition-colors ${
+                                <article className={`flex flex-col md:flex-row gap-6 md:gap-8 p-6 -mx-6 rounded-2xl border border-neutral-300 dark:border-neutral-600 transition-colors ${
                                     paper.highlighted 
                                         ? "bg-yellow-50/80 dark:bg-yellow-900/20" 
-                                        : ""
+                                        : "bg-card"
                                 }`}>
                                     <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-600">
                                         <Image
@@ -224,10 +224,10 @@ export default function ResearchPage() {
 					<FadeInStagger className="space-y-4">
 						{papers_2023.map((paper) => (
 							<FadeInItem key={paper.title}>
-                                <article className={`flex flex-col md:flex-row gap-6 md:gap-8 p-6 -mx-6 rounded-2xl transition-colors ${
+                                <article className={`flex flex-col md:flex-row gap-6 md:gap-8 p-6 -mx-6 rounded-2xl border border-neutral-300 dark:border-neutral-600 transition-colors ${
                                     paper.highlighted 
                                         ? "bg-yellow-50/80 dark:bg-yellow-900/20" 
-                                        : ""
+                                        : "bg-card"
                                 }`}>
                                     <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-600">
                                         <Image
