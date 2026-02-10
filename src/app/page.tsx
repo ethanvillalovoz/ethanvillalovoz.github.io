@@ -165,21 +165,21 @@ const skills = [
     { name: "Python", icon: FaPython },
     { name: "C/C++", icon: SiCplusplus },
     { name: "SQL", icon: SiPostgresql },
-    { name: "TypeScript", icon: SiTypescript },
-    { name: "Bash", icon: SiGnubash },
+    // { name: "TypeScript", icon: SiTypescript },
+    // { name: "Bash", icon: SiGnubash },
     { name: "PyTorch", icon: SiPytorch },
     { name: "React", icon: SiReact },
     { name: "Next.js", icon: SiNextdotjs },
     { name: "FastAPI", icon: SiFastapi },
     { name: "OpenCV", icon: SiOpencv },
-    { name: "LangChain", icon: SiLangchain },
+    // { name: "LangChain", icon: SiLangchain },
     { name: "Hugging Face", icon: SiHuggingface },
-    { name: "Pandas", icon: SiPandas },
+    // { name: "Pandas", icon: SiPandas },
     { name: "Docker", icon: FaDocker },
     { name: "AWS", icon: FaAws },
-    { name: "Git", icon: FaGitAlt },
-    { name: "MLflow", icon: SiMlflow },
-    { name: "Linux", icon: FaLinux },
+    // { name: "Git", icon: FaGitAlt },
+    // { name: "MLflow", icon: SiMlflow },
+    // { name: "Linux", icon: FaLinux },
 ];
 
 export default function Home() {
@@ -506,7 +506,7 @@ export default function Home() {
                 {/* Featured Publication */}
                 <FadeIn className="mb-24">
 					<div className="flex items-center justify-between mb-8">
-						<h2 className="text-2xl font-bold tracking-tight">Recent Research</h2>
+						<h2 className="text-2xl font-bold tracking-tight">Publications</h2>
                         <Link href="/publications" className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
                             View All <FaArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
                         </Link>
@@ -592,7 +592,7 @@ export default function Home() {
                  {/* Featured Projects */}
                  <FadeIn className="mb-24">
 					<div className="flex items-center justify-between mb-8">
-						<h2 className="text-2xl font-bold tracking-tight">Recent Projects</h2>
+						<h2 className="text-2xl font-bold tracking-tight">Projects</h2>
                         <Link href="/projects" className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
                             View All <FaArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
                         </Link>
@@ -655,7 +655,7 @@ export default function Home() {
 
                 {/* Skills */}
                 <FadeIn className="mb-24">
-                    <h2 className="text-2xl font-bold mb-8 tracking-tight">Technical Skills</h2>
+                    <h2 className="text-2xl font-bold mb-8 tracking-tight">Skills</h2>
                     <div className="flex flex-wrap gap-3">
                         {skills.map((skill) => (
                             <div 
