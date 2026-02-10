@@ -2,9 +2,19 @@
 
 import { useState, type ReactNode } from "react";
 import Image from "next/image";
-import { FaLinkedin, FaGithub, FaEnvelope, FaYoutube, FaXTwitter } from "react-icons/fa6";
-import { SiGooglescholar } from "react-icons/si";
+import Link from "next/link";
+import { FaLinkedin, FaGithub, FaEnvelope, FaYoutube, FaXTwitter, FaFilePdf, FaArrowRight, FaGlobe, FaUpRightFromSquare, FaDocker, FaAws, FaLinux, FaPython, FaGitAlt } from "react-icons/fa6";
+import { SiGooglescholar, SiCplusplus, SiPytorch, SiPostgresql, SiTypescript, SiGnubash, SiReact, SiNextdotjs, SiFastapi, SiOpencv, SiLangchain, SiHuggingface, SiPandas, SiMlflow } from "react-icons/si";
 import { FadeIn, FadeInStagger, FadeInItem } from "@/components/ui/FadeIn";
+
+const getLinkIcon = (label: string) => {
+	const lower = label.toLowerCase();
+	if (lower.includes("code") || lower.includes("github")) return <FaGithub />;
+	if (lower.includes("report") || lower.includes("paper") || lower.includes("pdf")) return <FaFilePdf />;
+	if (lower.includes("video") || lower.includes("youtube")) return <FaYoutube />;
+	if (lower.includes("website") || lower.includes("demo") || lower.includes("app")) return <FaGlobe />;
+	return <FaUpRightFromSquare />;
+};
 
 const workTimeline = [
 	{
@@ -80,6 +90,96 @@ const educationTimeline = [
 const profileImages = [
 	"/images/EthanVillalovozPic.jpeg",
 	"/images/graduation_2025.jpg",
+];
+
+interface Publication {
+	title: string;
+	url?: string;
+	authors: { name: string; url?: string; isMe?: boolean; equalContribution?: boolean; equalAdvising?: boolean }[];
+	conference: string;
+	award?: string;
+	paper?: string;
+	bibtex?: string;
+	image: string;
+	description: string;
+	tags: string[];
+	website?: string;
+	code?: string;
+	video?: string;
+	highlighted?: boolean;
+}
+
+const featuredPublication: Publication = {
+    title: "An Exploratory Study of Bayesian Prompt Optimization for Test-Driven Code Generation with Large Language Models",
+    url: "https://arxiv.org/abs/2512.15076",
+    authors: [
+        { name: "S. Tomar", url: "https://shlok-crypto.github.io/" },
+        { name: "A. Deshwal", url: "https://aryandeshwal.github.io/" },
+        { name: "E. Villalovoz", isMe: true },
+        { name: "M. Fazzini", url: "https://www-users.cse.umn.edu/~mfazzini/" },
+        { name: "H. Cai", url: "https://chapering.github.io/" },
+        { name: "J.R. Doppa", url: "https://eecs.wsu.edu/~jana/" },
+    ],
+    conference: "arXiv, 2025",
+    paper: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/paper.pdf",
+    image: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/ICSE_BO_figure.png",
+    description:
+        "Explores Bayesian optimization as a principled approach to automated prompt search for large language model–based code generation. Demonstrates sample-efficient improvements in functional correctness over strong prompting baselines on the HumanEval+ benchmark.",
+    tags: ["Robotics", "Multi-Robot", "Human-Robot Interaction"],
+};
+
+const featuredProjects = [
+    {
+		title: "Self-Driving Car: Behavioral Cloning in the Udacity Simulator",
+		description:
+			"End-to-end CNN (NVIDIA architecture) that predicts steering from front-camera images to autonomously drive the Udacity simulator. Includes balanced/augmented data pipeline, real-time inference via Flask + Socket.IO, and reproducible training.",
+		image: "/images/projects/self_driving.png",
+		tags: ["Computer Vision", "Deep Learning", "TensorFlow", "Autonomous Driving"],
+		extraLinks: [
+			{
+                label: "Code",
+                url: "https://github.com/ethanvillalovoz/self-driving-car-simulation"
+			},
+		],
+		date: "September 2025",
+		status: "Completed"
+    },
+    {
+		title: "ClearBill.AI: Explaining Medical Bills with AI and RAG",
+		description:
+			"An AI-powered chatbot that uses Retrieval-Augmented Generation (RAG) with Astra DB, LangChain, and Hugging Face’s Llama-3.1-8B-Instruct to help users understand medical bills with clear, context-aware responses.",
+		image: "/images/projects/clearbill.png",
+		tags: ["RAG", "LLMs", "Next.js", "Vector Databases"],
+		extraLinks: [
+			{
+				label: "Code",
+				url: "https://github.com/ethanvillalovoz/clearbill-ai",
+			},
+		],
+		date: "July 2025",
+		status: "Completed"
+    }
+];
+
+const skills = [
+    { name: "Python", icon: FaPython },
+    { name: "C/C++", icon: SiCplusplus },
+    { name: "SQL", icon: SiPostgresql },
+    { name: "TypeScript", icon: SiTypescript },
+    { name: "Bash", icon: SiGnubash },
+    { name: "PyTorch", icon: SiPytorch },
+    { name: "React", icon: SiReact },
+    { name: "Next.js", icon: SiNextdotjs },
+    { name: "FastAPI", icon: SiFastapi },
+    { name: "OpenCV", icon: SiOpencv },
+    { name: "LangChain", icon: SiLangchain },
+    { name: "Hugging Face", icon: SiHuggingface },
+    { name: "Pandas", icon: SiPandas },
+    { name: "Docker", icon: FaDocker },
+    { name: "AWS", icon: FaAws },
+    { name: "Git", icon: FaGitAlt },
+    { name: "MLflow", icon: SiMlflow },
+    { name: "Linux", icon: FaLinux },
 ];
 
 export default function Home() {
@@ -402,6 +502,172 @@ export default function Home() {
 						))}
 					</FadeInStagger>
 				</FadeIn>
+
+                {/* Featured Publication */}
+                <FadeIn className="mb-24">
+					<div className="flex items-center justify-between mb-8">
+						<h2 className="text-2xl font-bold tracking-tight">Recent Research</h2>
+                        <Link href="/publications" className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+                            View All <FaArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                        </Link>
+					</div>
+                    
+                    <FadeInItem>
+                        <article className={`w-full flex flex-col md:flex-row gap-6 md:gap-8 p-6 rounded-2xl border border-neutral-300 dark:border-neutral-600 transition-colors ${
+                                    featuredPublication.highlighted 
+                                        ? "bg-yellow-50/80 dark:bg-yellow-900/20" 
+                                        : "bg-card"
+                                }`}>
+                            <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-600">
+                                <Image
+                                    src={featuredPublication.image}
+                                    alt={featuredPublication.title}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 192px"
+                                />
+                            </div>
+                            <div className="flex-1 space-y-3">
+                                <h3 className="font-semibold text-lg leading-tight text-foreground">
+                                    <a href={featuredPublication.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                                        {featuredPublication.title}
+                                    </a>
+                                </h3>
+                                
+                                <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                                    {featuredPublication.authors.map((author, index) => (
+                                        <span key={index}>
+                                            {author.url ? (
+                                                <a href={author.url} target="_blank" rel="noopener noreferrer" className={`hover:text-foreground transition-colors ${author.isMe ? "font-medium text-foreground" : ""}`}>
+                                                    {author.name}
+                                                </a>
+                                            ) : (
+                                                <span className={author.isMe ? "font-medium text-foreground" : ""}>
+                                                    {author.name}
+                                                </span>
+                                            )}
+                                            {author.equalContribution && "*"}
+                                            {author.equalAdvising && "†"}
+                                            {index < featuredPublication.authors.length - 1 && ", "}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div className="text-sm font-medium text-foreground/80">
+                                    {featuredPublication.conference}
+                                    {featuredPublication.award && <span className="text-red-500 ml-2">{featuredPublication.award}</span>}
+                                </div>
+                                
+                                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                                    {featuredPublication.description}
+                                </p>
+
+                                <div className="flex flex-wrap gap-3 pt-2">
+                                     {featuredPublication.paper && (
+                                        <a href={featuredPublication.paper} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-200 dark:bg-neutral-800 text-xs font-medium text-neutral-600 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors border border-neutral-200 dark:border-neutral-700">
+                                            <FaFilePdf /> Paper
+                                        </a>
+                                    )}
+                                    {featuredPublication.website && (
+                                        <a href={featuredPublication.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-200 dark:bg-neutral-800 text-xs font-medium text-neutral-600 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors border border-neutral-200 dark:border-neutral-700">
+                                            <FaGlobe /> Website
+                                        </a>
+                                    )}
+                                    {featuredPublication.code && (
+                                        <a href={featuredPublication.code} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-200 dark:bg-neutral-800 text-xs font-medium text-neutral-600 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors border border-neutral-200 dark:border-neutral-700">
+                                            <FaGithub /> Code
+                                        </a>
+                                    )}
+                                    {featuredPublication.video && (
+                                        <a href={featuredPublication.video} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-200 dark:bg-neutral-800 text-xs font-medium text-neutral-600 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors border border-neutral-200 dark:border-neutral-700">
+                                            <FaYoutube /> Video
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
+                        </article>
+                    </FadeInItem>
+                </FadeIn>
+
+                 {/* Featured Projects */}
+                 <FadeIn className="mb-24">
+					<div className="flex items-center justify-between mb-8">
+						<h2 className="text-2xl font-bold tracking-tight">Recent Projects</h2>
+                        <Link href="/projects" className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+                            View All <FaArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                        </Link>
+					</div>
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+						{featuredProjects.map((project) => (
+							<FadeInItem key={project.title} className="h-full">
+								<article className="flex flex-col h-full rounded-2xl border border-neutral-300 dark:border-neutral-600 bg-card overflow-hidden">
+									<div className="relative w-full h-48 bg-neutral-200 dark:bg-neutral-900 border-b border-neutral-300 dark:border-neutral-600">
+										<Image
+											src={project.image}
+											alt={project.title}
+											fill
+											className="object-cover"
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+										/>
+									</div>
+									<div className="flex-1 p-6 flex flex-col">
+										<h3 className="font-semibold text-lg leading-tight text-foreground mb-3">
+											{project.title}
+										</h3>
+										<p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
+											{project.description}
+										</p>
+										
+                                        <div className="mt-auto">
+                                            <div className="flex flex-wrap gap-2 mb-4">
+                                                {project.tags.map((tag) => (
+                                                    <span
+                                                        key={tag}
+                                                        className="px-2 py-0.5 text-xs font-medium bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 rounded-full border border-neutral-200 dark:border-neutral-700"
+                                                    >
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+
+                                            <div className="flex flex-wrap gap-3">
+                                                {project.extraLinks &&
+                                                    project.extraLinks.map((link, idx) => (
+                                                        <a
+                                                            key={link.label + idx}
+                                                            href={link.url}
+                                                            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-200 dark:bg-neutral-800 text-xs font-medium text-neutral-600 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors border border-neutral-200 dark:border-neutral-700"
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                        >
+                                                            {getLinkIcon(link.label)}
+                                                            {link.label}
+                                                        </a>
+                                                    ))}
+                                            </div>
+                                        </div>
+									</div>
+								</article>
+							</FadeInItem>
+						))}
+					</div>
+				</FadeIn>
+
+                {/* Skills */}
+                <FadeIn className="mb-24">
+                    <h2 className="text-2xl font-bold mb-8 tracking-tight">Technical Skills</h2>
+                    <div className="flex flex-wrap gap-3">
+                        {skills.map((skill) => (
+                            <div 
+                                key={skill.name}
+                                className="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-neutral-100 dark:bg-neutral-800/50 text-neutral-700 dark:text-neutral-300 rounded-lg border border-neutral-200 dark:border-neutral-700"
+                            >
+                                <skill.icon className="w-5 h-5 text-neutral-500 dark:text-neutral-400" />
+                                <span>{skill.name}</span>
+                            </div>
+                        ))}
+                    </div>
+                </FadeIn>
 			</div>
 		</main>
 	);
