@@ -282,7 +282,7 @@ export default function Home() {
 									href="/data/EthanVillalovoz-CV.pdf"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex items-center px-6 py-2.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-sm font-medium hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors border border-neutral-200 dark:border-neutral-800 group"
+									className="inline-flex items-center px-6 py-2.5 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-sm font-medium hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors border border-neutral-200 dark:border-neutral-800 group"
 								>
 									CV
 								</a>
@@ -311,7 +311,7 @@ export default function Home() {
 						</div>
 						
 						<div className="relative w-40 h-40 md:w-56 md:h-56 flex-shrink-0">
-							<div className="relative w-full h-full rounded-2xl overflow-hidden shadow-soft bg-neutral-100 dark:bg-neutral-800">
+							<div className="relative w-full h-full rounded-2xl overflow-hidden shadow-soft bg-neutral-200 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-600">
 								<Image
 									src={profileImages[0]}
 									alt="Ethan Villalovoz"
@@ -350,7 +350,7 @@ export default function Home() {
 				<FadeIn className="mb-24">
 					<div className="flex items-center gap-6 mb-8">
 						<h2 className="text-2xl font-bold tracking-tight">Experience</h2>
-						<div className="flex bg-neutral-100 dark:bg-neutral-900 p-1 rounded-full">
+						<div className="flex bg-neutral-200 dark:bg-neutral-900 p-1 rounded-full">
 							{(["work", "education"] as const).map((tab) => (
 								<button
 									key={tab}
@@ -372,7 +372,7 @@ export default function Home() {
 							<FadeInItem key={index}>
 								<div className="flex gap-4 md:gap-6 p-6 -mx-6 rounded-2xl transition-colors">
 									<div className="flex-shrink-0 mt-1">
-										<div className="w-12 h-12 relative rounded-xl overflow-hidden bg-neutral-50 dark:bg-neutral-900 shadow-sm border border-neutral-300 dark:border-neutral-600">
+										<div className="w-12 h-12 relative rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-900 shadow-sm border border-neutral-300 dark:border-neutral-600">
 											<Image
 												src={item.logo}
 												alt={item.company}
@@ -384,7 +384,7 @@ export default function Home() {
 									<div className="flex-1">
 										<div className="flex flex-col md:flex-row md:items-center justify-between mb-1">
 											<h3 className="font-semibold text-foreground">{item.company}</h3>
-											<span className="text-xs font-medium text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-900 px-2 py-1 rounded-full w-fit mt-1 md:mt-0">
+											<span className="text-xs font-medium text-neutral-600 dark:text-neutral-400 bg-neutral-200 dark:bg-neutral-800 px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 w-fit mt-1 md:mt-0">
 												{item.date}
 											</span>
 										</div>
