@@ -135,13 +135,13 @@ export default function ResearchPage() {
 				{/* Pre-Prints */}
 				<FadeIn className="mb-24">
 					<h2 className="text-2xl font-bold mb-8 tracking-tight">Pre-Prints</h2>
-					<FadeInStagger className="space-y-4">
+					<FadeInStagger className="space-y-8">
 						{preprints.map((paper) => (
 							<FadeInItem key={paper.title}>
-                                <article className={`w-full flex flex-col md:flex-row gap-6 md:gap-8 p-6 rounded-2xl border border-neutral-300 dark:border-neutral-600 transition-colors ${
+                                <article className={`w-full flex flex-col md:flex-row gap-6 md:gap-8 transition-colors ${
                                     paper.highlighted 
-                                        ? "bg-yellow-50/80 dark:bg-yellow-900/20" 
-                                        : "bg-card"
+                                        ? "p-6 rounded-2xl bg-yellow-50/80 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800" 
+                                        : ""
                                 }`}>
                                     <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-600">
                                         <Image
@@ -221,13 +221,13 @@ export default function ResearchPage() {
                 {/* 2023 Papers */}
                 <FadeIn>
 					<h2 className="text-2xl font-bold mb-8 tracking-tight">2023</h2>
-					<FadeInStagger className="space-y-4">
+					<FadeInStagger className="space-y-8">
 						{papers_2023.map((paper) => (
 							<FadeInItem key={paper.title}>
-                                <article className={`w-full flex flex-col md:flex-row gap-6 md:gap-8 p-6 rounded-2xl border border-neutral-300 dark:border-neutral-600 transition-colors ${
+                                <article className={`w-full flex flex-col md:flex-row gap-6 md:gap-8 transition-colors ${
                                     paper.highlighted 
-                                        ? "bg-yellow-50/80 dark:bg-yellow-900/20" 
-                                        : "bg-card"
+                                        ? "p-6 rounded-2xl bg-yellow-50/80 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800" 
+                                        : ""
                                 }`}>
                                     <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-600">
                                         <Image

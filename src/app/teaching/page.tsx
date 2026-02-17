@@ -54,10 +54,10 @@ export default function TeachingPage() {
 			
 				<FadeIn>
 					<h2 className="text-2xl font-bold mb-8 tracking-tight">Washington State University</h2>
-					<FadeInStagger className="space-y-4">
+					<FadeInStagger className="space-y-8">
 						{teachingExperiences.map((exp, idx) => (
 							<FadeInItem key={idx}>
-								<article className="w-full flex flex-col md:flex-row md:items-start gap-4 md:gap-8 p-6 rounded-2xl bg-card border border-neutral-300 dark:border-neutral-600 transition-colors">
+								<article className="w-full flex flex-col md:flex-row md:items-start gap-4 md:gap-8 transition-colors">
 									<div className="flex-shrink-0 md:w-32 pt-1">
 										<span className="inline-block px-2 py-1 text-xs font-medium text-neutral-600 dark:text-neutral-300 bg-neutral-200 dark:bg-neutral-800 rounded-full border border-neutral-200 dark:border-neutral-700">
 											{exp.term}
