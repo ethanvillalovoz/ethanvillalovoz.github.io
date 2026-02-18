@@ -18,6 +18,15 @@ const getLinkIcon = (label: string) => {
 
 const workTimeline = [
 	{
+		date: "Feb 2026 - Present",
+		company: "Georgia Institute of Technology",
+		logo: "/images/timeline/GT_icon.png",
+		title: <span className="text-foreground font-medium">Graduate Student Researcher</span>,
+		bullets: [
+			"Robotics.",
+		],
+	},
+	{
 		date: "May 2026 - Jul 2026",
 		company: "Microsoft",
 		logo: "/images/timeline/microsoft_logo.jpeg",
