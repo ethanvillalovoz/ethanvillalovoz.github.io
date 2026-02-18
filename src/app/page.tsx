@@ -77,7 +77,7 @@ const educationTimeline = [
 	{
 		date: "Aug 2021 - May 2025",
 		company: "Washington State University",
-		logo: "/images/timeline/Washington_State_icon.png",
+		logo: "/images/timeline/washington_state_university_logo.jpeg",
 		title: (
 			<span className="text-foreground font-medium">B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.0)</span>
 		),
