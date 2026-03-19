@@ -23,7 +23,7 @@ const workTimeline = [
 		logo: "/images/timeline/GT_icon.png",
 		title: <span className="text-foreground font-medium">Graduate Student Researcher</span>,
 		bullets: [
-			"Machine learning for perception and control in generalizable robotic systems.",
+			"Designing an end-to-end latent video-to-action framework using flow matching and diffusion for robot policy learning.",
 		],
 	},
 	{
