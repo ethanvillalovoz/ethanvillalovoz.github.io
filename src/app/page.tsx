@@ -209,24 +209,24 @@ export default function Home() {
 				</>
 			),
 		},
-		{
-			date: "07/2025",
-			content: (
-				<>
-					Admitted to the{" "}
-					<a href="https://www.cc.gatech.edu/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-						Georgia Tech MSCS
-					</a>{" "}
-					program! I’ll be starting in {" "}
-					<span className="font-semibold">Spring 2026</span>.
-				</>
-			),
-		},
+		// {
+		// 	date: "07/2025",
+		// 	content: (
+		// 		<>
+		// 			Admitted to the{" "}
+		// 			<a href="https://www.cc.gatech.edu/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+		// 				Georgia Tech MSCS
+		// 			</a>{" "}
+		// 			program! I’ll be starting in {" "}
+		// 			<span className="font-semibold">Spring 2026</span>.
+		// 		</>
+		// 	),
+		// },
 		{
 			date: "06/2025",
 			content: (
 				<>
-					Gave an alumni talk for the WSU{" "}
+					Gave an invited alumni talk for the WSU{" "}
 					<a href="https://marc.wsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
 						MARC
 					</a>{" "}
@@ -238,10 +238,10 @@ export default function Home() {
 				</>
 			),
 		},
-		{
-			date: "05/2025",
-			content: <>Graduated from Washington State University with a B.S. in Computer Science. Go Cougs!</>,
-		},
+		// {
+		// 	date: "05/2025",
+		// 	content: <>Graduated from Washington State University with a B.S. in Computer Science. Go Cougs!</>,
+		// },
 		{
 			date: "06/2024",
 			content: (
@@ -258,7 +258,7 @@ export default function Home() {
 			date: "09/2023",
 			content: (
 				<>
-					Participating in Google Research&apos;s{" "}
+					Selected for Google Research&apos;s{" "}
 					<a href="https://research.google/programs-and-events/csrmp/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
 						CS Research Mentorship Program
 					</a>.
