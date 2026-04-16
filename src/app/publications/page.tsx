@@ -113,7 +113,7 @@ export default function ResearchPage() {
 							Publications
 						</h1>
 						<p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl">
-							I&apos;m interested in how robots can understand and align with human intent and preferences through interaction and feedback, and how predictive, multimodal representations of the world and human behavior can enable this in long-horizon tasks.
+                            I&apos;m interested in how robots can understand and align with human intent through interaction and feedback in settings where goals are ambiguous and evolving.
 						</p>
 					</header>
 				</FadeIn>
