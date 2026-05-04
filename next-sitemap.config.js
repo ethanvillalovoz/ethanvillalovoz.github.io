@@ -5,7 +5,7 @@ module.exports = {
   generateIndexSitemap: false, // ✅ important fix
   outDir: 'out', // ✅ required for static export
   additionalPaths: async (config) => [
-    await config.transform(config, '/RAG/'),
+    await config.transform(config, '/rag/'),
     await config.transform(config, '/DreamWorlds/'),
   ],
 };
