@@ -6,5 +6,6 @@ module.exports = {
   outDir: 'out', // ✅ required for static export
   additionalPaths: async (config) => [
     await config.transform(config, '/RAG/'),
+    await config.transform(config, '/DreamWorlds/'),
   ],
 };

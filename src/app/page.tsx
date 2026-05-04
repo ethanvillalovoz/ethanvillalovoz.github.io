@@ -30,9 +30,9 @@ const workTimeline = [
 		date: "May 2026 - Jul 2026",
 		company: "Microsoft",
 		logo: "/images/timeline/microsoft_logo.jpeg",
-		title: <span className="text-foreground font-medium">Incoming Software Engineer Intern</span>,
+		title: <span className="text-foreground font-medium">Software Engineer Intern</span>,
 		bullets: [
-			"Commerce and Ecosystems.",
+			"Commerce Platforms.",
 		],
 	},
 	{

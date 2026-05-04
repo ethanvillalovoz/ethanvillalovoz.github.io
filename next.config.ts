@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/RAG/", destination: "/data/capstone/index.html" },
       { source: "/RAG/static/:path*", destination: "/data/capstone/static/:path*" },
+      { source: "/DreamWorlds/", destination: "/data/cgai_dream_worlds/index.html" },
+      { source: "/DreamWorlds/static/:path*", destination: "/data/cgai_dream_worlds/static/:path*" },
     ];
   },
 };
