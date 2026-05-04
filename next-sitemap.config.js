@@ -6,6 +6,6 @@ module.exports = {
   outDir: 'out', // ✅ required for static export
   additionalPaths: async (config) => [
     await config.transform(config, '/rag/'),
-    await config.transform(config, '/DreamWorlds/'),
+    await config.transform(config, '/gaussian-splatting-physics/'),
   ],
 };
