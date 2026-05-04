@@ -107,7 +107,7 @@ const educationTimeline = [
 			<span className="text-gray-900 font-medium">B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.0)</span>
 		),
 		bullets: [
-			<span>Senior Design Project: <a href="/data/capstone/index.html" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Retrieval-Augmented Generation Application Using Knowledge Graph and Vector Search</a></span>,
+            <span>Senior Design Project: <a href="/RAG/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Retrieval-Augmented Generation Application Using Knowledge Graph and Vector Search</a></span>,
 		],
 	},
 ];

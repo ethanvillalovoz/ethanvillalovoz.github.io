@@ -1,7 +1,10 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://ethanvillalovoz.vercel.app',
+  siteUrl: 'https://ethanvillalovoz.com',
   generateRobotsTxt: true,
   generateIndexSitemap: false, // ✅ important fix
   outDir: 'out', // ✅ required for static export
+  additionalPaths: async (config) => [
+    await config.transform(config, '/RAG/'),
+  ],
 };
