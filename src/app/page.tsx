@@ -197,6 +197,23 @@ export default function Home() {
 
     const newsItems: { date: string; content: ReactNode; hidden?: boolean }[] = [
 		{
+			date: "05/2026",
+			content: (
+				<>
+				Interning as a{" "}
+				<a
+					href="https://www.microsoft.com/"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-primary hover:underline"
+				>
+					Software Engineer Intern
+				</a>{" "}
+				at Microsoft.
+				</>
+			),
+		},
+		{
 			date: "12/2025",
 			content: (
 				<>
