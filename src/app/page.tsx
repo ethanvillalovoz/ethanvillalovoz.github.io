@@ -75,7 +75,7 @@ const workTimeline = [
 
 const educationTimeline = [
 	{
-		date: "Jan 2026 - Dec 2027",
+		date: "Jan 2026 - May 2028",
 		company: "Georgia Institute of Technology",
 		logo: "/images/timeline/GT_icon.png",
 		title: (
