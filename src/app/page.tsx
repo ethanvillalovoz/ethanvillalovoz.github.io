@@ -32,7 +32,7 @@ const workTimeline = [
 		logo: "/images/timeline/microsoft_logo.jpeg",
 		title: <span className="text-foreground font-medium">Software Engineer Intern</span>,
 		bullets: [
-			"Commerce Platforms.",
+			"Contributing to security and authorization improvements for cloud-based financial workflows within Microsoft Commerce Platforms.",
 		],
 	},
 	{
