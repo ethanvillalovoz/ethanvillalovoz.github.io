@@ -1,251 +1,105 @@
 # Ethan Villalovoz Portfolio
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://vercel.com)
-[![Next.js](https://img.shields.io/badge/next.js-14-blue)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/typescript-5.4-blue)](https://www.typescriptlang.org/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com), built with Next.js, TypeScript, Tailwind CSS, and Vercel.
 
----
+The repo is intentionally small around the main public surface:
 
-## Table of Contents
+- Home
+- Publications
+- Projects
+- Teaching
 
-- [Introduction](#introduction)
-- [Description](#description)
-- [Visuals](#visuals)
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Technologies Used](#technologies-used)
-- [QuickStart](#quickstart)
-- [Usage](#usage)
-- [Advanced Usage](#advanced-usage)
-- [Configuration](#configuration)
-- [Folder Structure](#folder-structure)
-- [Automated Tests](#automated-tests)
-- [Roadmap](#roadmap)
-- [Contribution Guidelines](#contribution-guidelines)
-- [Issue & Pull Request Templates](#issue--pull-request-templates)
-- [Diagrams](#diagrams)
-- [SOLID Principles](#solid-principles)
-- [License](#license)
+Project microsites linked from the main pages are kept under `public/data/`, including the RAG capstone page and the Gaussian splatting project page.
 
----
+## Preview
 
-## Introduction
+![Homepage preview](public/visuals/homepage.png)
 
-A modern, professional personal website built with Next.js and TypeScript. Designed for researchers, engineers, and professionals to showcase their work, research, and contact information.
+## Tech Stack
 
----
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- next-themes
+- next-sitemap
+- Vercel
 
-## Description
+## Getting Started
 
-This site features a responsive, card-based projects page, a vertical timeline for experience, and a contact page with copy-to-clipboard email and downloadable bio/CV. It is fully accessible, SEO-friendly, and easy to customize for your own use. The project is deployed on Vercel for seamless CI/CD.
-
----
-
-## Visuals
-
-<!-- Replace these with your own screenshots or GIFs -->
-![Homepage Screenshot](public/visuals/homepage.png)
-
----
-
-## Features
-
-- Card-based, responsive grid for technical projects
-- Vertical timeline for experience and education
-- Downloadable and displayed bio/CV
-- Copy-to-clipboard email with feedback
-- Responsive navigation bar with mobile hamburger menu
-- SEO: sitemap.xml and robots.txt auto-generation
-- Fully responsive and accessible
-- Easy to customize and extend
-
----
-
-## Prerequisites
-
-- Node.js v18+ (recommended: latest LTS)
-- npm, yarn, pnpm, or bun (choose one)
-- Git
-
----
-
-## Technologies Used
-
-- [Next.js (App Router)](https://nextjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-sitemap](https://github.com/iamvishnusankar/next-sitemap) (SEO)
-- [Vercel](https://vercel.com/) (deployment)
-
----
-
-## QuickStart
-
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/ethanvillalovoz/ethanvillalovoz.github.io.git
-    cd ethanvillalovoz.github.io
-    ```
-
-2. **Install dependencies:**
-    ```bash
-    npm install
-    # or
-    yarn install
-    # or
-    pnpm install
-    # or
-    bun install
-    ```
-
-3. **Start the development server:**
-    ```bash
-    npm run dev
-    # or
-    yarn dev
-    # or
-    pnpm dev
-    # or
-    bun dev
-    ```
-
-4. **Open your browser:**  
-   Visit [http://localhost:3000](http://localhost:3000)
-
----
-
-## Usage
-
-- Edit content in `src/app/` (e.g., `projects/page.tsx`, `about/page.tsx`, `contact/page.tsx`)
-- Replace images in `public/images/` and documents in `public/data/`
-- The site auto-updates as you save changes
-
----
-
-## Advanced Usage
-
-- **SEO:**  
-  Regenerate `sitemap.xml` and `robots.txt` after adding/removing pages:
-  ```bash
-  npx next-sitemap
-  ```
-- **Custom Domains:**  
-  Configure in the Vercel dashboard under your project’s "Domains" tab.
-- **Environment Variables:**  
-  Add secrets or API keys in Vercel dashboard or `.env.local` (see [Configuration](#configuration))
-
----
-
-## Configuration
-
-- Most configuration is handled via `next.config.js` and environment variables.
-- To add environment variables, create a `.env.local` file:
-    ```
-    NEXT_PUBLIC_SITE_URL=https://your-site.vercel.app
-    # Add other variables as needed
-    ```
-- For SEO, update `next-sitemap.config.js` as needed.
-
----
-
-## Folder Structure
-
-```
-ethanvillalovoz.github.io/
-├── public/
-│   ├── images/
-│   ├── data/
-│   ├── robots.txt
-│   └── sitemap.xml
-├── src/
-│   ├── app/
-│   ├── components/
-│   ├── styles/
-│   └── ...
-├── .github/
-│   ├── ISSUE_TEMPLATE/
-│   └── PULL_REQUEST_TEMPLATE.md
-├── README.md
-├── LICENSE
-├── next.config.js
-├── tailwind.config.js
-└── package.json
+```bash
+git clone https://github.com/ethanvillalovoz/ethanvillalovoz.github.io.git
+cd ethanvillalovoz.github.io
+npm ci
+npm run dev
 ```
 
----
+Open [http://localhost:3000](http://localhost:3000).
 
-## Automated Tests
+## Scripts
 
-*No automated tests are included yet.*  
-You can add your own tests using [Jest](https://jestjs.io/) or [React Testing Library](https://testing-library.com/).
-
----
-
-## Roadmap
-
-- [x] Add blog section
-- [ ] Add automated tests
-- [ ] Improve accessibility and a11y testing
-- [x] Add dark mode toggle
-- [x] Enhance project filtering and search
-- [x] Add more visuals and animations
-
----
-
-## Contribution Guidelines
-
-Contributions are welcome!  
-To contribute:
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/your-feature`)
-3. Commit your changes
-4. Open a pull request
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
-
----
-
-## Issue & Pull Request Templates
-
-- Use the templates in `.github/ISSUE_TEMPLATE/` for bug reports and feature requests.
-- Pull requests should use `.github/PULL_REQUEST_TEMPLATE.md`.
-
----
-
-## Diagrams
-
-For architecture and workflow diagrams, use [Mermaid](https://mermaid-js.github.io/).
-
-Example:
-
-```mermaid
-flowchart TD
-    A[Visitor] -->|Navigates| B(Homepage)
-    B --> C{Chooses Page}
-    C -->|Projects| D[Projects Page]
-    C -->|About| E[About Page]
-    C -->|Contact| F[Contact Page]
+```bash
+npm run dev        # local development
+npm run lint       # ESLint
+npm run typecheck  # TypeScript
+npm run build      # production build and sitemap generation
+npm run check      # lint, typecheck, and build
 ```
 
----
+## Project Structure
 
-## SOLID Principles
+```text
+src/app/
+  page.tsx          # Home
+  publications/     # Publications page
+  projects/         # Projects page
+  teaching/         # Teaching page
+  layout.tsx        # Site metadata, nav, footer, structured data
 
-This project aims to follow SOLID principles for maintainability:
+src/components/
+  Navbar.tsx
+  Footer.tsx
+  ThemeToggle.tsx
+  ui/FadeIn.tsx
 
-- **Single Responsibility:** Each component does one thing.
-- **Open/Closed:** Components are open for extension, closed for modification.
-- **Liskov Substitution:** Components can be replaced by their subtypes.
-- **Interface Segregation:** Prefer small, focused interfaces.
-- **Dependency Inversion:** Depend on abstractions, not concretions.
+public/
+  data/             # Resume, CV, papers, and static project microsites
+  images/           # Site, project, and timeline images
+  visuals/          # README screenshots
+```
 
----
+## Customizing The Template
+
+To adapt this site for your own portfolio:
+
+1. Update personal metadata in `src/app/layout.tsx`.
+2. Replace content arrays in `src/app/page.tsx`, `src/app/projects/page.tsx`, `src/app/publications/page.tsx`, and `src/app/teaching/page.tsx`.
+3. Replace images in `public/images/`.
+4. Replace documents and static project pages in `public/data/`.
+5. Update `siteUrl` in `next-sitemap.config.js`.
+6. Configure your domain in Vercel.
+
+## Routes
+
+| Route | Purpose |
+| --- | --- |
+| `/` | Home, news, experience, education, featured work |
+| `/publications/` | Research publications and preprints |
+| `/projects/` | Technical project gallery |
+| `/teaching/` | Teaching, mentoring, and talks |
+| `/rag/` | Static senior-design RAG project page |
+| `/gaussian-splatting-physics/` | Static Gaussian splatting project page |
+
+## Deployment
+
+The site is deployed on Vercel. The production build runs:
+
+```bash
+npm run build
+```
+
+`next-sitemap` generates `robots.txt` and `sitemap.xml` during the build using `https://ethanvillalovoz.com` as the canonical site URL.
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
-
----
+This project is available under the [MIT License](LICENSE).

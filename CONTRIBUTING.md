@@ -1,88 +1,49 @@
-# Contributing to Ethan Villalovoz Personal Website
+# Contributing
 
-Thank you for your interest in contributing! Your help is appreciated to make this project better for everyone.
+Thanks for taking a look at this portfolio template. This repo is primarily a personal website, but issues and focused improvements are welcome.
 
----
+## Local Setup
 
-## How to Contribute
+```bash
+git clone https://github.com/ethanvillalovoz/ethanvillalovoz.github.io.git
+cd ethanvillalovoz.github.io
+npm ci
+npm run dev
+```
 
-1. **Fork the repository**  
-   Click the "Fork" button at the top right of this page to create your own copy.
+## Before Opening A Pull Request
 
-2. **Clone your fork**  
-   ```bash
-   git clone https://github.com/your-username/ethan-site-rebuild.git
-   cd ethan-site-rebuild
-   ```
+Run the full local check:
 
-3. **Create a new branch**  
-   Name your branch according to the feature or fix you are working on:
-   ```bash
-   git checkout -b feature/your-feature
-   # or
-   git checkout -b fix/your-bug
-   ```
+```bash
+npm run check
+```
 
-4. **Make your changes**  
-   - Follow the existing code style and conventions.
-   - Add tests if applicable.
-   - Update documentation as needed.
+For smaller changes, at least run:
 
-5. **Commit your changes**  
-   Write clear, concise commit messages:
-   ```bash
-   git add .
-   git commit -m "Add feature: description"
-   ```
+```bash
+npm run lint
+npm run typecheck
+```
 
-6. **Push to your fork**  
-   ```bash
-   git push origin feature/your-feature
-   ```
+## Contribution Guidelines
 
-7. **Open a Pull Request**  
-   - Go to your fork on GitHub and click "Compare & pull request".
-   - Fill out the PR template and describe your changes.
-   - Reference any related issues (e.g., `closes #123`).
+- Keep changes focused and easy to review.
+- Preserve the four main pages: Home, Publications, Projects, and Teaching.
+- Do not remove linked static project pages under `public/data/` unless their links are removed from the site.
+- Do not commit `.next/`, `out/`, local environment files, or generated build artifacts outside the intended sitemap files.
+- Avoid adding personal documents, placeholder PDFs, or unused images.
+- Update `README.md` when setup, routes, or customization steps change.
 
----
+## Pull Requests
 
-## Code of Conduct
+Use the pull request template and include:
 
-Please be respectful and considerate in all interactions. For more details, see [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) if available.
+- What changed
+- Why it changed
+- Screenshots for visible UI changes
+- Verification commands you ran
 
----
+## Issues
 
-## Guidelines
-
-- **Use clear, descriptive branch names.**
-- **Write meaningful commit messages.**
-- **Keep pull requests focused and minimal.**
-- **Document any new features or changes.**
-- **Add or update tests when relevant.**
-- **Check your code with `npm run lint` before submitting.**
-
----
-
-## Reporting Issues
-
-If you find a bug or have a feature request:
-
-- Use the issue templates in `.github/ISSUE_TEMPLATE/`.
-- Provide as much detail as possible (steps to reproduce, expected behavior, screenshots, etc.).
-
----
-
-## Style Guide
-
-- Use [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/) for code formatting and linting.
-- Follow the conventions used in the existing codebase.
-- Use TypeScript for all new files.
-
----
-
-## Need Help?
-
-If you have questions, open an issue or start a discussion.
-
-Thank you
+Bug reports should include the route, browser, viewport size if relevant, and reproduction steps.

@@ -3,8 +3,8 @@
 import { useState, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaLinkedin, FaGithub, FaEnvelope, FaYoutube, FaXTwitter, FaFilePdf, FaArrowRight, FaGlobe, FaUpRightFromSquare, FaDocker, FaAws, FaLinux, FaPython, FaGitAlt } from "react-icons/fa6";
-import { SiGooglescholar, SiCplusplus, SiPytorch, SiPostgresql, SiTypescript, SiGnubash, SiReact, SiNextdotjs, SiFastapi, SiOpencv, SiLangchain, SiHuggingface, SiPandas, SiMlflow } from "react-icons/si";
+import { FaLinkedin, FaGithub, FaEnvelope, FaYoutube, FaXTwitter, FaFilePdf, FaArrowRight, FaGlobe, FaUpRightFromSquare, FaDocker, FaAws, FaPython } from "react-icons/fa6";
+import { SiGooglescholar, SiCplusplus, SiPytorch, SiPostgresql, SiReact, SiNextdotjs, SiFastapi, SiOpencv, SiHuggingface } from "react-icons/si";
 import { FadeIn, FadeInStagger, FadeInItem } from "@/components/ui/FadeIn";
 
 const getLinkIcon = (label: string) => {
@@ -91,7 +91,7 @@ const educationTimeline = [
 			<span className="text-foreground font-medium">B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.0)</span>
 		),
 		bullets: [
-			<span>Senior Design Project: <a href="/rag/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Retrieval-Augmented Generation Application Using Knowledge Graph and Vector Search</a></span>,
+			<span key="senior-design">Senior Design Project: <a href="/rag/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Retrieval-Augmented Generation Application Using Knowledge Graph and Vector Search</a></span>,
 		],
 	},
 ];

@@ -14,7 +14,7 @@ const projects = [
 		extraLinks: [
 			{
 				label: "Code",
-				url: "https://github.com/ethanvillalovoz/ddpg-paper-reimplementation",
+				url: "https://github.com/ethanvillalovoz/ddpg-reimplementation",
 			},
 		],
 		date: "July 2025",
@@ -44,7 +44,7 @@ const projects = [
 		extraLinks: [
 			{
 			label: "Code",
-			url: "https://github.com/ethanvillalovoz/FaceTrack-Face-Attendance-System",
+			url: "https://github.com/ethanvillalovoz/facetrack",
 			},
 		],
 		date: "July 2025",
