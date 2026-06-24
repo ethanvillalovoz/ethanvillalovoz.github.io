@@ -63,8 +63,7 @@ export default function RootLayout({
         className={`antialiased flex flex-col min-h-screen`}
         suppressHydrationWarning
       >
-        <Providers>
-        {/* ✅ WebSite Structured Data (For Google Site Name) */}
+        {/* WebSite structured data for Google site name. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -77,7 +76,7 @@ export default function RootLayout({
             }),
           }}
         />
-        {/* ✅ Person Structured Data */}
+        {/* Person structured data. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -104,12 +103,11 @@ export default function RootLayout({
             }),
           }}
         />
-        <Navbar />
-        <div className="flex-1">
-          {children}
-        </div>
-        <Footer />
-        </Providers>
+				<Providers>
+					<Navbar />
+					<div className="flex-1">{children}</div>
+					<Footer />
+				</Providers>
       </body>
     </html>
   );

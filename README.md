@@ -1,5 +1,7 @@
 # Ethan Villalovoz Portfolio
 
+[![CI](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml)
+
 Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com), built with Next.js, TypeScript, Tailwind CSS, and Vercel.
 
 The repo is intentionally small around the main public surface:
@@ -62,6 +64,15 @@ src/components/
   ThemeToggle.tsx
   ui/FadeIn.tsx
 
+src/data/
+  projects.ts       # Project cards
+  publications.ts   # Publication entries
+  teaching.ts       # Teaching entries
+
+docs/
+  ARCHITECTURE.md
+  CUSTOMIZATION.md
+
 public/
   data/             # Resume, CV, papers, and static project microsites
   images/           # Site, project, and timeline images
@@ -73,11 +84,17 @@ public/
 To adapt this site for your own portfolio:
 
 1. Update personal metadata in `src/app/layout.tsx`.
-2. Replace content arrays in `src/app/page.tsx`, `src/app/projects/page.tsx`, `src/app/publications/page.tsx`, and `src/app/teaching/page.tsx`.
-3. Replace images in `public/images/`.
-4. Replace documents and static project pages in `public/data/`.
-5. Update `siteUrl` in `next-sitemap.config.js`.
-6. Configure your domain in Vercel.
+2. Replace reusable content in `src/data/`.
+3. Update home-page narrative content in `src/app/page.tsx`.
+4. Replace images in `public/images/`.
+5. Replace documents and static project pages in `public/data/`.
+6. Update `siteUrl` in `next-sitemap.config.js`.
+7. Configure your domain in Vercel.
+
+More detail:
+
+- [Architecture](docs/ARCHITECTURE.md)
+- [Customization Guide](docs/CUSTOMIZATION.md)
 
 ## Routes
 
@@ -99,6 +116,10 @@ npm run build
 ```
 
 `next-sitemap` generates `robots.txt` and `sitemap.xml` during the build using `https://ethanvillalovoz.com` as the canonical site URL.
+
+## Project Microsites
+
+The static microsites under `public/data/` are adapted academic project pages. Each microsite folder includes its own README with route, asset, and attribution notes.
 
 ## License
 

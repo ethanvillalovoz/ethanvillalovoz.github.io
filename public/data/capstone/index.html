@@ -3,24 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="A Retrieval-Augmented Generation (RAG) application integrating Knowledge Graphs and Vector Search for accurate, context-aware query responses.">
-  <meta name="keywords" content="RAG, Knowledge Graph, Vector Search, LLM, NLP, AI">
+        content="A Washington State University senior design project for HackerEarth that combines FAISS vector search, DBpedia/SPARQL knowledge-graph retrieval, and OpenAI generation in a React/FastAPI RAG application.">
+  <meta name="keywords" content="RAG, Knowledge Graph, Vector Search, FAISS, DBpedia, SPARQL, FastAPI, React, LLM, NLP, AI">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Retrieval-Augmented Generation Application Using Knowledge Graph and Vector Search</title>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-ID-HERE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'YOUR-ID-HERE');
-  </script> -->
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -33,12 +19,6 @@
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/website_icon.png">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!-- <script defer src="./static/js/fontawesome.all.min.js"></script> -->
-  <!-- <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script> -->
 </head>
 <body>
 
@@ -73,12 +53,11 @@
           </div>
 
           <br />
-          <img src="./static/images/wsu_logo.png" width="20%" />
-          <img src="./static/images/hackerearth_logo.png" width="20%" />
+          <img src="./static/images/wsu_logo.png" alt="Washington State University logo" width="20%" />
+          <img src="./static/images/hackerearth_logo.png" alt="HackerEarth logo" width="20%" />
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
                 <a href="./static/data/paper.pdf" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
@@ -88,16 +67,6 @@
                   <span>Paper</span>
                 </a>
               </span>
-              <!-- <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948" target="_blank" rel="noopener noreferrer"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span> -->
-              <!-- Video Link. -->
               <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=YWdR3FAdq1o" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
@@ -107,7 +76,6 @@
                   <span>Video</span>
                 </a>
               </span>
-              <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/ethanvillalovoz/ACME10-HE-RAGApp" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
@@ -117,15 +85,6 @@
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
-              <!-- <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1" target="_blank" rel="noopener noreferrer"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a> -->
             </div>
 
           </div>
@@ -138,11 +97,11 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./static/images/figures/fig_1.png" alt="Project Teaser" style="width: 100%; height: auto;">
+      <img src="./static/images/figures/fig_1.png" alt="End-to-end RAG pipeline diagram from document loading to LLM response generation" style="width: 100%; height: auto;">
       <h2 class="subtitle has-text-centered">
         End-to-end RAG pipeline: Documents are loaded, chunked, and stored in
-        a vector database. When a user inputs a query, the system retrieves the most
-        relevant document chunks and forwards them to the LLM to generate a response.
+        a vector database. When a user submits a query, the system retrieves relevant
+        context and forwards it to the LLM to generate a grounded response.
       </h2>
     </div>
   </div>
@@ -154,20 +113,18 @@
     <div class="container">
       <div class="columns is-centered" style="align-items: flex-end;">
         <div class="column">
-          <img src="./static/images/figures/figure_2_4.png" alt="Image 1" style="width: 100%; height: auto;" />
+          <img src="./static/images/figures/figure_2_4.png" alt="RAG assistant query input interface" style="width: 100%; height: auto;" />
         </div>
         <div class="column">
-          <img src="./static/images/figures/figure_2_5.png" alt="Image 2" style="width: 100%; height: auto;" />
+          <img src="./static/images/figures/figure_2_5.png" alt="RAG assistant retrieval and response processing interface" style="width: 100%; height: auto;" />
         </div>
         <div class="column">
-          <img src="./static/images/figures/figure_2_6.png" alt="Image 3" style="width: 100%; height: auto;" />
+          <img src="./static/images/figures/figure_2_6.png" alt="RAG assistant generated answer interface" style="width: 100%; height: auto;" />
         </div>
       </div>
       <h2 class="subtitle has-text-centered">
-        User enters a natural language query, triggering the backend RAG system
-        to process and respond.<br />
-        Final system output: A human-readable, factually
-        grounded answer is generated by the LLM, enhanced through retrieved context.
+        A natural language query flows from the React interface into the retrieval stack,
+        where vector search and knowledge-graph context are combined before the final LLM response.
       </h2>
     </div>
   </div>
@@ -176,37 +133,32 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            This project implements a chatbot-like application powered by a Retrieval-Augmented
-            Generation (RAG) model to generate accurate, context-aware responses to user queries.
+            This project implements a chatbot-style Retrieval-Augmented Generation (RAG)
+            application for generating accurate, context-aware responses to user queries.
           </p>
           <p>
-            Traditional RAG systems use vector search for retrieval but often struggle with unstructured
-            data. Our approach integrates knowledge graphs, adding structured relationships to improve
-            retrieval accuracy and response quality. The system processes 10,000 Wikipedia articles along
-            with additional datasets, using enriched vector embeddings to retrieve relevant information. It
-            follows a client-server architecture, with a React frontend for interaction and a backend handling
-            vector search, knowledge graph processing, and LLM-based response generation.
+            Built as a Washington State University senior design project for HackerEarth, the
+            system combines vector search with knowledge-graph retrieval so responses can use
+            both semantic similarity and structured entity relationships. The application processes
+            Wikipedia-scale source material, stores embeddings with FAISS, retrieves structured facts
+            from DBpedia through SPARQL, and synthesizes answers with an LLM-backed generation layer.
           </p>
           <p>
-            Key
-            challenges include refining query handling for complex relationships and optimizing response
-            time. Future improvements will focus on enhancing robustness, expanding multimodal
-            capabilities, and refining retrieval techniques for more advanced NLP applications.
+            The final system follows a React/FastAPI client-server architecture and demonstrates an
+            end-to-end pipeline from document ingestion and retrieval to grounded natural language output.
+            Future work focuses on retrieval re-ranking, broader knowledge sources, and multimodal inputs.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
 
     <hr />
 
-    <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
@@ -216,7 +168,6 @@
         </div>
       </div>
     </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
@@ -227,13 +178,11 @@
 
     <div class="columns is-centered">
 
-      <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">Solution</h2>
+          <h2 class="title is-3">System Architecture</h2>
           <p>
-            We implemented a modular RAG system composed of four key
-            components:
+            We implemented a modular RAG system composed of four key components:
           </p>
           <ul>
             <li>An NLP module for query parsing and entity extraction</li>
@@ -242,18 +191,16 @@
             <li>An LLM module (ChatGPT) that synthesizes the results into a final response</li>
           </ul>
           <p>
-            This system enhances the factual reliability of generated
-            answers while offering scalable performance.
+            This design improves factual grounding while keeping retrieval, graph lookup, and
+            generation components independently testable.
           </p>
-          <img src="./static/images/figures/figure_3.png" alt="Visual Effects" style="width: 100%; height: auto;">
+          <img src="./static/images/figures/figure_3.png" alt="Knowledge graph and vector search system architecture diagram" style="width: 100%; height: auto;">
         </div>
       </div>
-      <!--/ Visual Effects. -->
 
-      <!-- Matting. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">Features/Functionality</h2>
+          <h2 class="title is-3">Technical Features</h2>
           <ul>
             <li>End-to-end retrieval pipeline: query to final LLM response</li>
             <li>Embeddings stored with FAISS for vector search</li>
@@ -262,37 +209,34 @@
             <li>Live performance logging of modules (e.g., NLP, KG, VS)</li>
             <li>Frontend user interface built in React</li>
           </ul>
-          <img src="./static/images/figures/figure_4.png" alt="Features" style="width: 100%; height: auto;">
+          <img src="./static/images/figures/figure_4.png" alt="RAG assistant feature and module overview" style="width: 100%; height: auto;">
         </div>
       </div>
     </div>
-    <!--/ Matting. -->
 
     <hr />
 
-    <!-- Final Status. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Final Status</h2>
 
         <div class="content has-text-justified">
           <p>
-            The project culminated in a fully functional minimum viable product that embeds and indexes the complete Wikipedia dataset to support scalable information retrieval.
+            The project culminated in a functional minimum viable product that embeds and indexes
+            Wikipedia-scale source material to support scalable information retrieval.
           </p>
           <p>
             A working end-to-end query pipeline was implemented, integrating the frontend user interface with the backend retrieval and generation components. User queries are processed through both vector search and knowledge graph retrieval, and the combined results are passed to a large language model to generate coherent, context-aware responses.
           </p>
           <p>
-            The resulting system met the project’s technical objectives and was formally reviewed and approved by the client, HackerEarth, for final presentation.
+            The resulting system met the project's technical objectives and was formally reviewed and approved by the client, HackerEarth, for final presentation.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Final Status. -->
 
     <hr />
 
-    <!-- Future Work. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Future Work</h2>
@@ -317,10 +261,10 @@
       <div class="column is-8">
         <div class="content has-text-centered">
           <p>
-            Website template borrowed from
+            Project page adapted from the
             <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener noreferrer"
-              >NeRFies</a
-            >.
+              >NeRFies website template</a
+            >. Project content and artifacts belong to the ACME10-HE-RAGApp team.
           </p>
         </div>
       </div>

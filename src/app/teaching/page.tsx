@@ -1,41 +1,7 @@
 "use client";
 
 import { FadeIn, FadeInStagger, FadeInItem } from "@/components/ui/FadeIn";
-
-const teachingExperiences = [
-	{
-		role: "Undergraduate Teaching Assistant",
-		course: "CPT_S 315: Introduction to Data Mining",
-		institution: "Washington State University",
-		term: "Spring 2025",
-		description:
-			"The process of automatically extracting valid, useful, and previously unknown information from large repositories.",
-	},
-	{
-		role: "Undergraduate Teaching Assistant",
-		course: "CPT_S 350: Design and Analysis of Algorithms",
-		institution: "Washington State University",
-		term: "Fall 2024",
-		description:
-			"Analysis of data structures and algorithms; computational complexity and design of efficient data-handling procedures.",
-	},
-  {
-		role: "Undergraduate Teaching Assistant",
-		course: "CPT_S 355: Programming Language Design",
-		institution: "Washington State University",
-		term: "Fall 2023",
-		description:
-			"Design concepts of high-level programming languages; survey of existing languages, experience using some languages.",
-	},
-	{
-		role: "Undergraduate Teaching Assistant",
-		course: "CPT_S 121: Program Design and Development C/C++",
-		institution: "Washington State University",
-		term: "Fall 2022",
-		description:
-			"Formulation of problems and top-down design of programs in a modern structured language (C/C++) for their solution on a digital computer.",
-	},
-];
+import { teachingExperiences } from "@/data/teaching";
 
 export default function TeachingPage() {
 	return (
@@ -47,7 +13,7 @@ export default function TeachingPage() {
 							Teaching
 						</h1>
 						<p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl">
-							My teaching experience.
+							I have supported undergraduate computer science courses at Washington State University across programming, algorithms, programming languages, and data mining.
 						</p>
 					</header>
 				</FadeIn>

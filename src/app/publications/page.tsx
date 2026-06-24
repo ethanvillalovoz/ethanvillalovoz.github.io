@@ -3,105 +3,7 @@
 import Image from "next/image";
 import { FaGithub, FaFilePdf, FaGlobe, FaYoutube } from "react-icons/fa6";
 import { FadeIn, FadeInStagger, FadeInItem } from "@/components/ui/FadeIn";
-
-interface Author {
-	name: string;
-	url?: string;
-	isMe?: boolean;
-	equalContribution?: boolean;
-	equalAdvising?: boolean;
-}
-
-{/* ------------------------------Pre-Prints-------------------------- */}
-
-interface PrePrint {
-	title: string;
-	url?: string;
-	authors: Author[];
-	conference: string;
-	award?: string;
-	paper?: string;
-	bibtex?: string;
-	image: string;
-	description: string;
-	tags: string[];
-	website?: string;
-	code?: string;
-	video?: string;
-	highlighted?: boolean;
-}
-
-const preprints: PrePrint[] = [
-	{
-		title: "An Exploratory Study of Bayesian Prompt Optimization for Test-Driven Code Generation with Large Language Models",
-		url: "https://arxiv.org/abs/2512.15076",
-		authors: [
-			{ name: "S. Tomar", url: "https://shlok-crypto.github.io/" },
-			{ name: "A. Deshwal", url: "https://aryandeshwal.github.io/" },
-			{ name: "E. Villalovoz", isMe: true },
-			{ name: "M. Fazzini", url: "https://www-users.cse.umn.edu/~mfazzini/" },
-			{ name: "H. Cai", url: "https://chapering.github.io/" },
-			{ name: "J.R. Doppa", url: "https://eecs.wsu.edu/~jana/" },
-		],
-		conference: "arXiv, 2025",
-		paper: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/paper.pdf",
-		// bibtex: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.bib",
-		image: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/ICSE_BO_figure.png",
-		description:
-			"Explores Bayesian optimization as a principled approach to automated prompt search for large language model–based code generation. Demonstrates sample-efficient improvements in functional correctness over strong prompting baselines on the HumanEval+ benchmark.",
-		tags: ["Robotics", "Multi-Robot", "Human-Robot Interaction"],
-		// website: "https://sites.google.com/plu.edu/alexandra-bacula/publications",
-		// code: "https://github.com/ethanvillalovoz/social-triangles-aggressive-lines",
-		// video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-		// highlighted: true,
-		// award: "(Spotlight)",
-	},
-];
-
-{/* ------------------------------2023-------------------------- */}
-
-interface Paper {
-	title: string;
-	url?: string;
-	authors: Author[];
-	conference: string;
-	award?: string;
-	paper?: string;
-	bibtex?: string;
-	image: string;
-	description: string;
-	tags: string[];
-	website?: string;
-	code?: string;
-	video?: string;
-	highlighted?: boolean;
-}
-
-const papers_2023: Paper[] = [
-	{
-		title: "Social Triangles and Aggressive Lines: Multi-Robot Formations Impact Navigation and Approach",
-		url: "https://ieeexplore.ieee.org/abstract/document/10342372",
-		authors: [
-			{ name: "A. Bacula", url: "https://sites.google.com/plu.edu/alexandra-bacula" },
-			{ name: "E. Villalovoz", isMe: true },
-			{ name: "D. Flynn", url: "https://deannaflynn.wixsite.com/deanna-flynn" },
-			{ name: "A. Mehta", url: "https://uclalemur.com/" },
-			{ name: "H. Knight", url: "https://www.charismarobotics.com/" },
-		],
-		conference: "International Conference on Intelligent Robots and Systems (IROS), 2023",
-		paper: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.pdf",
-		bibtex: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.bib",
-		image: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/STAL_Multi_Robot_Formations.png",
-		description:
-			"Investigates how different multi-robot formations affect navigation and approach behaviors in social environments. Demonstrates the impact of formation geometry on human-robot interaction and navigation efficiency.",
-		tags: ["Robotics", "Multi-Robot", "Human-Robot Interaction"],
-		// website: "https://sites.google.com/plu.edu/alexandra-bacula/publications",
-		// code: "https://github.com/ethanvillalovoz/social-triangles-aggressive-lines",
-		// video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-		// highlighted: true,
-		// award: "(Spotlight)",
-	},
-];
+import { papers2023, preprints } from "@/data/publications";
 
 export default function ResearchPage() {
     return (
@@ -113,7 +15,7 @@ export default function ResearchPage() {
 							Publications
 						</h1>
 						<p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl">
-                            I&apos;m interested in how robots can understand and align with human intent through interaction and feedback in settings where goals are ambiguous and evolving.
+                            My research spans machine learning for code generation and human-centered robotics, with a focus on systems that learn from feedback, evaluation, and interaction.
 						</p>
 					</header>
 				</FadeIn>
@@ -127,14 +29,14 @@ export default function ResearchPage() {
                         </div>
                         <div className="hidden sm:block w-px h-4 bg-neutral-300 dark:bg-neutral-600" />
                         <div>
-                            Representative works are <span className="bg-yellow-100 dark:bg-yellow-900/30 px-1.5 py-0.5 rounded text-foreground">highlighted</span>
+                            My name is emphasized in each author list.
                         </div>
                     </div>
                 </FadeIn>
 
 				{/* Pre-Prints */}
 				<FadeIn className="mb-24">
-					<h2 className="text-2xl font-bold mb-8 tracking-tight">Pre-Prints</h2>
+					<h2 className="text-2xl font-bold mb-8 tracking-tight">Preprints</h2>
 					<FadeInStagger className="space-y-8">
 						{preprints.map((paper) => (
 							<FadeInItem key={paper.title}>
@@ -222,7 +124,7 @@ export default function ResearchPage() {
                 <FadeIn>
 					<h2 className="text-2xl font-bold mb-8 tracking-tight">2023</h2>
 					<FadeInStagger className="space-y-8">
-						{papers_2023.map((paper) => (
+						{papers2023.map((paper) => (
 							<FadeInItem key={paper.title}>
                                 <article className={`w-full flex flex-col md:flex-row gap-6 md:gap-8 transition-colors ${
                                     paper.highlighted 

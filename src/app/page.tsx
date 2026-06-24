@@ -23,7 +23,7 @@ const workTimeline = [
 		logo: "/images/timeline/GT_icon.png",
 		title: <span className="text-foreground font-medium">Graduate Student Researcher</span>,
 		bullets: [
-			"Designing an end-to-end latent video-to-action framework using flow matching and diffusion for robot policy learning.",
+			"Developing a video-to-action robot policy learning framework that couples video diffusion with action flow matching.",
 		],
 	},
 	{
@@ -32,7 +32,7 @@ const workTimeline = [
 		logo: "/images/timeline/microsoft_logo.jpeg",
 		title: <span className="text-foreground font-medium">Software Engineer Intern</span>,
 		bullets: [
-			"Contributing to security and authorization improvements for cloud-based financial workflows within Commerce Platforms.",
+			"Building a multi-agent workflow system that integrates agent orchestration into an internal cloud platform.",
 		],
 	},
 	{
@@ -41,7 +41,7 @@ const workTimeline = [
 		logo: "/images/timeline/washington_state_university_logo.jpeg",
 		title: <span className="text-foreground font-medium">Undergraduate Research Assistant</span>,
 		bullets: [
-			"Developed and evaluated a Bayesian optimization framework for prompt-based large language model code generation.",
+			"Built test-driven evaluation pipelines for Bayesian prompt optimization in LLM code generation across HumanEval+ tasks.",
 		],
 	},
   {
@@ -50,7 +50,7 @@ const workTimeline = [
 		logo: "/images/timeline/Carnegie_Mellon_icon.png",
 		title: <span className="text-foreground font-medium">Robotics Institute Summer Scholar</span>,
 		bullets: [
-			"Developed a hierarchical reward learning framework with Bayesian inference and interactive clarification dialogues.",
+			"Developed a Bayesian reward-learning system for simulated robotic tasks with state correction and clarification feedback.",
 		],
 	},
   {
@@ -59,7 +59,7 @@ const workTimeline = [
 		logo: "/images/timeline/Google_icon.png",
 		title: <span className="text-foreground font-medium">Software Engineering Intern (STEP)</span>,
 		bullets: [
-			"Developed scalable C++ and SQL analytics pipelines and interactive dashboards that optimized internal data workflows.",
+			"Developed C++/SQL analytics jobs and dashboards that automated internal database queue metrics for engineering stakeholders.",
 		],
 	},
   {
@@ -68,7 +68,7 @@ const workTimeline = [
 		logo: "/images/timeline/Oregon_State_icon.jpeg",
 		title: <span className="text-foreground font-medium">NSF REU Fellow</span>,
 		bullets: [
-			"Designed and implemented geometric motion primitives and interactive deployment tools enabling expressive multi-robot behaviors.",
+			"Built Python tools for expressive multi-robot formations used in human-robot interaction research.",
 		],
 	},
 ];
@@ -91,7 +91,7 @@ const educationTimeline = [
 			<span className="text-foreground font-medium">B.S. in Computer Science, Minor in Mathematics (GPA: 3.94/4.0)</span>
 		),
 		bullets: [
-			<span key="senior-design">Senior Design Project: <a href="/rag/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Retrieval-Augmented Generation Application Using Knowledge Graph and Vector Search</a></span>,
+			<span key="senior-design">Senior Design Project: <a href="/rag/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Knowledge Graph RAG Assistant</a></span>,
 		],
 	},
 ];
@@ -133,11 +133,30 @@ const featuredPublication: Publication = {
     paper: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/paper.pdf",
     image: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/ICSE_BO_figure.png",
     description:
-        "Explores Bayesian optimization as a principled approach to automated prompt search for large language model–based code generation. Demonstrates sample-efficient improvements in functional correctness over strong prompting baselines on the HumanEval+ benchmark.",
-    tags: ["Robotics", "Multi-Robot", "Human-Robot Interaction"],
+        "Studies BODE-GEN, a Bayesian optimization approach to automated prompt search for test-driven LLM code generation. Evaluates functional correctness across HumanEval+ tasks and multiple code LLMs against strong prompting baselines.",
+    tags: ["LLM Code Generation", "Bayesian Optimization", "Prompt Search", "HumanEval+"],
 };
 
 const featuredProjects = [
+    {
+		title: "Knowledge Graph RAG Assistant",
+		description:
+			"Team-built senior design project for HackerEarth combining a React/TypeScript chat interface, FastAPI retrieval endpoints, FAISS vector search, DBpedia/SPARQL knowledge-graph context, and OpenAI response generation.",
+		image: "/data/capstone/static/images/figures/fig_1.png",
+		tags: ["RAG", "Knowledge Graphs", "FastAPI", "FAISS"],
+		extraLinks: [
+			{
+				label: "Project Page",
+				url: "/rag/",
+			},
+			{
+				label: "Code",
+				url: "https://github.com/ethanvillalovoz/ACME10-HE-RAGApp",
+			},
+		],
+		date: "May 2025",
+		status: "Completed"
+    },
     {
 		title: "Self-Driving Car: Behavioral Cloning in the Udacity Simulator",
 		description:
@@ -151,21 +170,6 @@ const featuredProjects = [
 			},
 		],
 		date: "September 2025",
-		status: "Completed"
-    },
-    {
-		title: "ClearBill.AI: Explaining Medical Bills with AI and RAG",
-		description:
-			"An AI-powered chatbot that uses Retrieval-Augmented Generation (RAG) with Astra DB, LangChain, and Hugging Face’s Llama-3.1-8B-Instruct to help users understand medical bills with clear, context-aware responses.",
-		image: "/images/projects/clearbill.png",
-		tags: ["RAG", "LLMs", "Next.js", "Vector Databases"],
-		extraLinks: [
-			{
-				label: "Code",
-				url: "https://github.com/ethanvillalovoz/clearbill-ai",
-			},
-		],
-		date: "July 2025",
 		status: "Completed"
     }
 ];
@@ -200,7 +204,7 @@ export default function Home() {
 			date: "05/2026",
 			content: (
 				<>
-				Interning as a{" "}
+				Joined Microsoft as a{" "}
 				<a
 					href="https://www.microsoft.com/"
 					target="_blank"
@@ -217,9 +221,9 @@ export default function Home() {
 			date: "12/2025",
 			content: (
 				<>
-					New paper on {" "}
+					Co-authored an{" "}
 					<span className="font-semibold">arXiv</span>{" "}
-					on {" "}
+					paper on{" "}
 					<a href="https://arxiv.org/abs/2512.15076" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
 						Bayesian prompt optimization for LLM-based code generation
 					</a>.
@@ -263,7 +267,7 @@ export default function Home() {
 			date: "06/2024",
 			content: (
 				<>
-					Conducting research at Carnegie Mellon University as part of the CMU{" "}
+					Conducted research at Carnegie Mellon University through the CMU{" "}
 					<a href="https://riss.ri.cmu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
 						RISS
 					</a>{" "}
@@ -313,7 +317,7 @@ export default function Home() {
 			date: "05/2023",
 			content: (
 				<>
-					Interning as a{" "}
+					Interned as a{" "}
 					<a href="https://about.google/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
 						Software Engineering Intern (STEP)
 					</a>{" "}
@@ -339,7 +343,7 @@ export default function Home() {
 			date: "06/2022",
 			content: (
 				<>
-					Conducting research at Oregon State University as part of the{" "}
+					Conducted research at Oregon State University through the{" "}
 					<a href="https://engineering.oregonstate.edu/CoRIS/reu-robots-real-world" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
 						REU: Robots in the Real World
 					</a>{" "}
@@ -387,10 +391,10 @@ export default function Home() {
 
 							<div className="space-y-4 max-w-xl mx-auto md:mx-0">
 								<p className="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
-									Master&apos;s student in Computer Science at <span className="text-foreground font-medium">Georgia Tech</span>. My research interests lie at the intersection of robot learning, world modeling, and human-aligned decision making.
+									Computer Science master&apos;s student at <span className="text-foreground font-medium">Georgia Tech</span> and software engineer working across AI/ML systems, robotics, and research engineering.
 								</p>
 								<p className="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
-									I am always open to connecting. Please feel free to reach out!
+									I build systems for robot learning, LLM applications, and human-aligned decision making, with experience across research labs and industry teams.
 								</p>
 							</div>
 

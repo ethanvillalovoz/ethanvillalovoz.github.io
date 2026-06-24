@@ -1,12 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: { unoptimized: true }, // If you use next/image
-  trailingSlash: true, // <- REQUIRED for static sitemap URLs to work
+  images: { unoptimized: true },
+  trailingSlash: true,
   async redirects() {
     return [
-      { source: "/RAG/", destination: "/rag/", permanent: true },
-      { source: "/RAG/static/:path*", destination: "/rag/static/:path*", permanent: true },
       {
         source: "/DreamWorlds/",
         destination: "/gaussian-splatting-physics/",

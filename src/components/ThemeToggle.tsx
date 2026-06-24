@@ -1,11 +1,30 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 
+const subscribe = () => () => {};
+const getSnapshot = () => true;
+const getServerSnapshot = () => false;
+
 export default function ThemeToggle() {
   const { setTheme, resolvedTheme } = useTheme();
+  const mounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const isDark = resolvedTheme === "dark";
+
+  if (!mounted) {
+    return (
+      <button
+        className="p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors focus:outline-none flex items-center justify-center text-foreground"
+        aria-label="Toggle Theme"
+        disabled
+        suppressHydrationWarning
+      >
+        <span className="block h-5 w-5" />
+      </button>
+    );
+  }
 
   return (
     <button
