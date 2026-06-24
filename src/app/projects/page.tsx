@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { FaGithub, FaYoutube, FaGlobe, FaFilePdf, FaUpRightFromSquare } from "react-icons/fa6";
 import { FadeIn, FadeInStagger, FadeInItem } from "@/components/ui/FadeIn";
-import { projects } from "@/data/projects";
+import { projectsNewestFirst } from "@/data/projects";
 
 const getLinkIcon = (label: string) => {
 	const lower = label.toLowerCase();
@@ -15,8 +15,6 @@ const getLinkIcon = (label: string) => {
 };
 
 export default function ProjectsPage() {
-	const reversedProjects = [...projects].reverse();
-
 	return (
 		<main className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
 			<div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
@@ -31,10 +29,10 @@ export default function ProjectsPage() {
 					</header>
 				</FadeIn>
 
-				<FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8">
-					{reversedProjects.map((project, projectIdx) => (
+				<FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8" faster>
+					{projectsNewestFirst.map((project, projectIdx) => (
 						<FadeInItem key={project.title} className="h-full">
-							<article className="flex flex-col h-full rounded-2xl border border-neutral-300 dark:border-neutral-600 bg-card overflow-hidden">
+							<article className="flex flex-col h-full rounded-2xl border border-neutral-300 dark:border-neutral-600 bg-card overflow-hidden [content-visibility:auto] [contain-intrinsic-size:420px]">
 								<div className="relative w-full h-48 bg-neutral-200 dark:bg-neutral-900 border-b border-neutral-300 dark:border-neutral-600">
 									<Image
 										src={project.image}
@@ -43,6 +41,7 @@ export default function ProjectsPage() {
 										className="object-cover"
 										sizes="(max-width: 768px) 100vw, 50vw"
 										loading={projectIdx < 2 ? "eager" : "lazy"}
+										decoding="async"
 									/>
 								</div>
 								

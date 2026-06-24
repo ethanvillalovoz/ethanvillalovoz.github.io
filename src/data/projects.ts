@@ -48,7 +48,7 @@ export const projects: Project[] = [
 		title: "FaceTrack: Smart Face Recognition Attendance System",
 		description:
 			"A full-stack attendance system that uses face recognition to automate check-ins, with a React interface, FastAPI backend, SQLite persistence, real-time webcam capture, and batch image uploads.",
-		image: "/images/projects/facetrack.png",
+		image: "/images/projects/facetrack-thumb.jpg",
 		tags: ["Computer Vision", "Face Recognition", "React", "FastAPI"],
 		extraLinks: [
 			{
@@ -63,7 +63,7 @@ export const projects: Project[] = [
 		title: "LaTeX Resume Template",
 		description:
 			"An ATS-friendly LaTeX resume and academic CV template for technical students and developers, with minimalist formatting, reusable macros, example PDFs, and GitHub Actions validation.",
-		image: "/images/projects/latex.png",
+		image: "/images/projects/latex-thumb.jpg",
 		tags: ["LaTeX", "Resume", "Academic CV", "CI/CD"],
 		extraLinks: [
 			{
@@ -78,7 +78,7 @@ export const projects: Project[] = [
 		title: "IntelliCrawl: Autonomous AI Research Agent for Developer Tools",
 		description:
 			"An LLM-powered research agent for comparing developer tools, using LangGraph, LangChain, and Firecrawl to orchestrate multi-step web crawling, synthesis, and structured analysis.",
-		image: "/images/projects/intellicrawl.png",
+		image: "/images/projects/intellicrawl-thumb.jpg",
 		tags: ["AI Agents", "LangGraph", "LangChain", "Firecrawl"],
 		extraLinks: [
 			{
@@ -93,7 +93,7 @@ export const projects: Project[] = [
 		title: "SentiSync: Real-Time YouTube Sentiment Analysis with MLOps",
 		description:
 			"A Chrome extension and Flask API for YouTube comment sentiment analysis, combining LightGBM/TF-IDF inference, charts, word clouds, trend views, and an MLflow/DVC/Docker/AWS workflow.",
-		image: "/images/projects/sentisync.png",
+		image: "/images/projects/sentisync-thumb.jpg",
 		tags: ["Sentiment Analysis", "Flask", "MLflow", "Docker"],
 		extraLinks: [
 			{
@@ -123,7 +123,7 @@ export const projects: Project[] = [
 		title: "Self-Driving Car: Behavioral Cloning in the Udacity Simulator",
 		description:
 			"An end-to-end behavioral cloning system that trains an NVIDIA-style CNN to predict steering from front-camera images and drive the Udacity simulator through real-time Flask + Socket.IO inference.",
-		image: "/images/projects/self_driving.png",
+		image: "/images/projects/self_driving-thumb.jpg",
 		tags: ["Computer Vision", "Deep Learning", "TensorFlow", "Autonomous Driving"],
 		extraLinks: [
 			{
@@ -138,7 +138,7 @@ export const projects: Project[] = [
 		title: "Knowledge Graph RAG Assistant",
 		description:
 			"A team-built senior design project for HackerEarth that combines a React/TypeScript chat interface, FastAPI retrieval endpoints, FAISS vector search, DBpedia/SPARQL knowledge-graph context, and OpenAI response generation.",
-		image: "/data/capstone/static/images/figures/fig_1.png",
+		image: "/images/projects/rag.jpg",
 		tags: ["RAG", "Knowledge Graphs", "FastAPI", "FAISS"],
 		extraLinks: [
 			{
@@ -154,3 +154,5 @@ export const projects: Project[] = [
 		status: "Completed",
 	},
 ];
+
+export const projectsNewestFirst = [...projects].reverse();

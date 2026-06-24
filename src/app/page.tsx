@@ -97,7 +97,7 @@ const educationTimeline = [
 ];
 
 const profileImages = [
-	"/images/EthanVillalovozPic.jpeg",
+	"/images/EthanVillalovozPic-optimized.jpg",
 	"/images/graduation_2025.jpg",
 ];
 
@@ -142,7 +142,7 @@ const featuredProjects = [
 		title: "Knowledge Graph RAG Assistant",
 		description:
 			"Team-built senior design project for HackerEarth combining a React/TypeScript chat interface, FastAPI retrieval endpoints, FAISS vector search, DBpedia/SPARQL knowledge-graph context, and OpenAI response generation.",
-		image: "/data/capstone/static/images/figures/fig_1.png",
+		image: "/images/projects/rag.jpg",
 		tags: ["RAG", "Knowledge Graphs", "FastAPI", "FAISS"],
 		extraLinks: [
 			{
@@ -161,7 +161,7 @@ const featuredProjects = [
 		title: "Self-Driving Car: Behavioral Cloning in the Udacity Simulator",
 		description:
 			"End-to-end CNN (NVIDIA architecture) that predicts steering from front-camera images to autonomously drive the Udacity simulator. Includes balanced/augmented data pipeline, real-time inference via Flask + Socket.IO, and reproducible training.",
-		image: "/images/projects/self_driving.png",
+		image: "/images/projects/self_driving-thumb.jpg",
 		tags: ["Computer Vision", "Deep Learning", "TensorFlow", "Autonomous Driving"],
 		extraLinks: [
 			{

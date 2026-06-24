@@ -1,22 +1,25 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useState, useEffect, useCallback } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
 	{ name: "Home", href: "/" },
-	{ name: "Publications", href: "/publications" },
-	{ name: "Projects", href: "/projects" },
-	{ name: "Teaching", href: "/teaching" },
+	{ name: "Publications", href: "/publications/" },
+	{ name: "Projects", href: "/projects/" },
+	{ name: "Teaching", href: "/teaching/" },
 ];
+
+const normalizePath = (path: string) => (path === "/" ? path : path.replace(/\/$/, ""));
 
 export default function Navbar() {
 	const [scrolled, setScrolled] = useState(false);
 	const [menuOpen, setMenuOpen] = useState(false);
 	const pathname = usePathname();
+	const router = useRouter();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -27,7 +30,24 @@ export default function Navbar() {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	const isActive = (path: string) => pathname === path || pathname === `${path}/`;
+	const currentPath = normalizePath(pathname);
+	const isActive = (path: string) => currentPath === normalizePath(path);
+	const prefetchRoute = useCallback(
+		(href: string) => {
+			if (currentPath !== normalizePath(href)) {
+				router.prefetch(href);
+			}
+		},
+		[currentPath, router]
+	);
+
+	useEffect(() => {
+		const timeout = window.setTimeout(() => {
+			navLinks.forEach((link) => prefetchRoute(link.href));
+		}, 500);
+
+		return () => window.clearTimeout(timeout);
+	}, [prefetchRoute]);
 
 	return (
 		<motion.nav
@@ -60,6 +80,9 @@ export default function Navbar() {
 							<Link
 								key={link.name}
 								href={link.href}
+								prefetch
+								onMouseEnter={() => prefetchRoute(link.href)}
+								onFocus={() => prefetchRoute(link.href)}
 								className={`text-[13px] font-medium transition-colors duration-200 ${
 									isActive(link.href)
 										? "text-foreground font-semibold"
@@ -116,12 +139,17 @@ export default function Navbar() {
 								<Link
 									key={link.name}
 									href={link.href}
+									prefetch
 									className={`text-lg font-medium transition-colors ${
 										isActive(link.href)
 											? "text-foreground"
 											: "text-neutral-600 dark:text-neutral-300"
 									}`}
-									onClick={() => setMenuOpen(false)}
+									onFocus={() => prefetchRoute(link.href)}
+									onClick={() => {
+										prefetchRoute(link.href);
+										setMenuOpen(false);
+									}}
 								>
 									{link.name}
 								</Link>
