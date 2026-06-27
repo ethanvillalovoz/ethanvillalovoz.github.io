@@ -138,6 +138,25 @@ const featuredPublication: Publication = {
 };
 
 const featuredProjects = [
+	{
+		title: "ScenarioLens: Long-Tail Autonomy Scenario Explorer",
+		description:
+			"Waymo-aligned autonomy portfolio project for ingesting motion scenarios, computing interpretable risk metrics, ranking long-tail cases, and presenting them in a searchable static explorer.",
+		image: "/scenariolens/assets/scenariolens-explorer.png",
+		tags: ["Autonomous Driving", "Waymo Motion", "Python", "Scenario Ranking"],
+		extraLinks: [
+			{
+				label: "Live Demo",
+				url: "/scenariolens/",
+			},
+			{
+				label: "Code",
+				url: "https://github.com/ethanvillalovoz/scenariolens",
+			},
+		],
+		date: "June 2026",
+		status: "Active",
+	},
     {
 		title: "Knowledge Graph RAG Assistant",
 		description:
@@ -200,6 +219,18 @@ export default function Home() {
 	const [showAllNews, setShowAllNews] = useState(false);
 
     const newsItems: { date: string; content: ReactNode; hidden?: boolean }[] = [
+		{
+			date: "06/2026",
+			content: (
+				<>
+					Added{" "}
+					<a href="/scenariolens/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+						ScenarioLens
+					</a>
+					, a Waymo-aligned autonomy scenario ranking and explorer project.
+				</>
+			),
+		},
 		{
 			date: "05/2026",
 			content: (

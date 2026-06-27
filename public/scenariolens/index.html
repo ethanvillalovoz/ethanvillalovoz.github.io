@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ScenarioLens Explorer</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312355b'/%3E%3Cpath d='M18 42c5 3 15 3 15-4 0-9-15-5-15-13 0-7 10-7 16-4M42 18v28h12' stroke='white' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="ScenarioLens Explorer">
+          <span class="brand-mark" aria-hidden="true">SL</span>
+          <span>ScenarioLens</span>
+        </a>
+        <nav class="topnav" aria-label="Primary">
+          <a class="topnav-link active" href="./">Explorer</a>
+          <a class="topnav-link" href="./scenarios.json">Data</a>
+          <a class="topnav-link" href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/tech_stack.md">Stack</a>
+        </nav>
+        <a class="repo-link" href="https://github.com/ethanvillalovoz/scenariolens">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 .7a11.3 11.3 0 0 0-3.6 22c.6.1.8-.2.8-.5v-2c-3.3.7-4-1.4-4-1.4-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.4-1.3-5.4-5.6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.7.8 1.2 1.9 1.2 3.1 0 4.4-2.8 5.3-5.4 5.6.4.4.8 1 .8 2.1v3.1c0 .3.2.6.8.5A11.3 11.3 0 0 0 12 .7Z" />
+          </svg>
+          View repo
+        </a>
+      </header>
+
+      <main class="workspace">
+        <aside class="filters" aria-label="Scenario filters">
+          <section class="filter-section">
+            <div class="section-heading">
+              <h2>Datasets</h2>
+              <span id="datasetCount">0/0</span>
+            </div>
+            <div id="datasetFilters" class="check-list"></div>
+          </section>
+
+          <section class="filter-section">
+            <div class="section-heading">
+              <h2>Tags</h2>
+              <span id="tagCount">0</span>
+            </div>
+            <label class="search-field">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m21 21-4.35-4.35m1.35-5.65a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+              </svg>
+              <input id="tagSearch" type="search" placeholder="Search tags" />
+            </label>
+            <div id="tagFilters" class="check-list tag-list"></div>
+          </section>
+
+          <section class="filter-section">
+            <div class="section-heading">
+              <h2>Minimum Score</h2>
+              <span id="scoreLabel">0.00</span>
+            </div>
+            <input id="scoreRange" class="score-range" type="range" min="0" max="35" step="0.25" value="0" />
+          </section>
+
+          <section class="filter-section">
+            <div class="section-heading">
+              <h2>Components</h2>
+            </div>
+            <div id="componentFilters" class="toggle-list"></div>
+          </section>
+
+          <button id="clearFilters" class="clear-button" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 12a9 9 0 1 0 3-6.7M3 4v6h6" />
+            </svg>
+            Clear filters
+          </button>
+        </aside>
+
+        <section class="results-panel" aria-label="Ranked scenarios">
+          <div class="results-toolbar">
+            <div>
+              <p id="resultCount" class="result-count">Loading scenarios</p>
+              <p id="datasetSummary" class="dataset-summary"></p>
+            </div>
+            <label class="sort-control">
+              <span>Sort</span>
+              <select id="sortSelect">
+                <option value="score-desc">Score descending</option>
+                <option value="score-asc">Score ascending</option>
+                <option value="distance-asc">Closest distance</option>
+                <option value="ttc-asc">Lowest TTC</option>
+                <option value="rank-asc">Original rank</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="table-wrap">
+            <table class="scenario-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Scenario</th>
+                  <th>Dataset</th>
+                  <th>Score</th>
+                  <th>Tags</th>
+                  <th>Why high score?</th>
+                </tr>
+              </thead>
+              <tbody id="scenarioRows"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="detail-panel" aria-label="Selected scenario details">
+          <div class="detail-header">
+            <div>
+              <h1 id="detailTitle">ScenarioLens Explorer</h1>
+              <p id="detailSubtitle">Select a scenario to inspect its ranking evidence.</p>
+            </div>
+            <div class="detail-actions">
+              <button id="previousScenario" type="button" aria-label="Previous scenario">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+              </button>
+              <button id="nextScenario" type="button" aria-label="Next scenario">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+              </button>
+            </div>
+          </div>
+
+          <div id="detailTags" class="tag-strip"></div>
+
+          <section class="detail-section">
+            <h2>Trajectory Preview</h2>
+            <div class="svg-frame">
+              <img id="scenarioImage" alt="" />
+            </div>
+          </section>
+
+          <section class="detail-section">
+            <h2>Score Components</h2>
+            <div id="componentBars" class="component-bars"></div>
+          </section>
+
+          <section class="detail-section">
+            <h2>Key Metrics</h2>
+            <dl id="metricGrid" class="metric-grid"></dl>
+          </section>
+
+          <section class="detail-section">
+            <h2>Why This Scenario?</h2>
+            <ul id="reasonList" class="reason-list"></ul>
+          </section>
+        </aside>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

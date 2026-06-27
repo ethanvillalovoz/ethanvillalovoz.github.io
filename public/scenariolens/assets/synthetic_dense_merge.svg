@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="640" viewBox="0 0 920 640" role="img">
+<rect x="0" y="0" width="920" height="640" fill="#f8fafc" />
+<line x1="56" y1="56" x2="56" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="136" y1="56" x2="136" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="216" y1="56" x2="216" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="296" y1="56" x2="296" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="376" y1="56" x2="376" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="456" y1="56" x2="456" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="536" y1="56" x2="536" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="616" y1="56" x2="616" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="696" y1="56" x2="696" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="776" y1="56" x2="776" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="856" y1="56" x2="856" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="56" x2="864" y2="56" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="136" x2="864" y2="136" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="216" x2="864" y2="216" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="296" x2="864" y2="296" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="376" x2="864" y2="376" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="456" x2="864" y2="456" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="536" x2="864" y2="536" stroke="#dbe3ee" stroke-width="1" />
+<text x="56" y="34" fill="#0f172a" font-size="20" font-family="Arial, sans-serif" font-weight="700">synthetic_dense_merge</text>
+<text x="56" y="56" fill="#475569" font-size="13" font-family="Arial, sans-serif">score 11.982 | merge_conflict, dense_multi_agent</text>
+<circle cx="56" cy="608" r="6" fill="#2563eb" />
+<text x="68" y="612" fill="#334155" font-size="12" font-family="Arial, sans-serif">vehicle</text>
+<polyline points="187.53,320.94 337.86,320.94 488.19,315.30" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1.0" />
+<circle cx="187.53" cy="320.94" r="4" fill="#2563eb" opacity="0.45" />
+<circle cx="488.19" cy="315.30" r="6" fill="#2563eb" />
+<text x="496.19" y="307.30" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">ego</text>
+<polyline points="413.02,260.81 525.77,273.96 638.51,287.12" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" />
+<circle cx="413.02" cy="260.81" r="4" fill="#2563eb" opacity="0.45" />
+<circle cx="638.51" cy="287.12" r="6" fill="#2563eb" />
+<text x="646.51" y="279.12" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">veh_1</text>
+<polyline points="56.00,320.94 225.12,320.94 394.23,320.94" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" />
+<circle cx="56.00" cy="320.94" r="4" fill="#2563eb" opacity="0.45" />
+<circle cx="394.23" cy="320.94" r="6" fill="#2563eb" />
+<text x="402.23" y="312.94" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">veh_2</text>
+<polyline points="600.93,379.19 732.47,369.80 864.00,360.40" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" />
+<circle cx="600.93" cy="379.19" r="4" fill="#2563eb" opacity="0.45" />
+<circle cx="864.00" cy="360.40" r="6" fill="#2563eb" />
+<text x="872.00" y="352.40" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">veh_3</text>
+</svg>

@@ -153,6 +153,25 @@ export const projects: Project[] = [
 		date: "May 2025",
 		status: "Completed",
 	},
+	{
+		title: "ScenarioLens: Long-Tail Autonomy Scenario Explorer",
+		description:
+			"A Waymo-aligned autonomy portfolio project for ingesting motion scenarios, computing interpretable interaction and risk metrics, ranking long-tail cases, and presenting them in a searchable static explorer.",
+		image: "/scenariolens/assets/scenariolens-explorer.png",
+		tags: ["Autonomous Driving", "Waymo Motion", "Scenario Ranking", "Python"],
+		extraLinks: [
+			{
+				label: "Live Demo",
+				url: "/scenariolens/",
+			},
+			{
+				label: "Code",
+				url: "https://github.com/ethanvillalovoz/scenariolens",
+			},
+		],
+		date: "June 2026",
+		status: "Active",
+	},
 ];
 
 export const projectsNewestFirst = [...projects].reverse();

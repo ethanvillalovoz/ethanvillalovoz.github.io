@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="640" viewBox="0 0 920 640" role="img">
+<rect x="0" y="0" width="920" height="640" fill="#f8fafc" />
+<line x1="56" y1="56" x2="56" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="136" y1="56" x2="136" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="216" y1="56" x2="216" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="296" y1="56" x2="296" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="376" y1="56" x2="376" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="456" y1="56" x2="456" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="536" y1="56" x2="536" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="616" y1="56" x2="616" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="696" y1="56" x2="696" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="776" y1="56" x2="776" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="856" y1="56" x2="856" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="56" x2="864" y2="56" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="136" x2="864" y2="136" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="216" x2="864" y2="216" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="296" x2="864" y2="296" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="376" x2="864" y2="376" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="456" x2="864" y2="456" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="536" x2="864" y2="536" stroke="#dbe3ee" stroke-width="1" />
+<text x="56" y="34" fill="#0f172a" font-size="20" font-family="Arial, sans-serif" font-weight="700">waymo_native_sample_interaction</text>
+<text x="56" y="56" fill="#475569" font-size="13" font-family="Arial, sans-serif">score 31.542 | vulnerable_road_user, objects_of_interest, tracks_to_predict</text>
+<circle cx="56" cy="608" r="6" fill="#2563eb" />
+<text x="68" y="612" fill="#334155" font-size="12" font-family="Arial, sans-serif">vehicle</text>
+<circle cx="194" cy="608" r="6" fill="#dc2626" />
+<text x="206" y="612" fill="#334155" font-size="12" font-family="Arial, sans-serif">pedestrian</text>
+<polyline points="56.00,384.64 136.80,384.64 217.60,384.64 282.24,384.64" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1.0" />
+<circle cx="56.00" cy="384.64" r="4" fill="#2563eb" opacity="0.45" />
+<circle cx="282.24" cy="384.64" r="6" fill="#2563eb" />
+<text x="290.24" y="376.64" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">42</text>
+<polyline points="249.92,578.56 249.92,559.17 249.92,539.78 249.92,520.38" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" />
+<circle cx="249.92" cy="578.56" r="4" fill="#dc2626" opacity="0.45" />
+<circle cx="249.92" cy="520.38" r="6" fill="#dc2626" />
+<text x="257.92" y="512.38" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">7</text>
+<polyline points="864.00,61.44 831.68,69.52 799.36,77.60 767.04,85.68" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" />
+<circle cx="864.00" cy="61.44" r="4" fill="#2563eb" opacity="0.45" />
+<circle cx="767.04" cy="85.68" r="6" fill="#2563eb" />
+<text x="775.04" y="77.68" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">99</text>
+</svg>

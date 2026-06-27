@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="640" viewBox="0 0 920 640" role="img">
+<rect x="0" y="0" width="920" height="640" fill="#f8fafc" />
+<line x1="56" y1="56" x2="56" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="136" y1="56" x2="136" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="216" y1="56" x2="216" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="296" y1="56" x2="296" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="376" y1="56" x2="376" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="456" y1="56" x2="456" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="536" y1="56" x2="536" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="616" y1="56" x2="616" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="696" y1="56" x2="696" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="776" y1="56" x2="776" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="856" y1="56" x2="856" y2="584" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="56" x2="864" y2="56" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="136" x2="864" y2="136" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="216" x2="864" y2="216" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="296" x2="864" y2="296" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="376" x2="864" y2="376" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="456" x2="864" y2="456" stroke="#dbe3ee" stroke-width="1" />
+<line x1="56" y1="536" x2="864" y2="536" stroke="#dbe3ee" stroke-width="1" />
+<text x="56" y="34" fill="#0f172a" font-size="20" font-family="Arial, sans-serif" font-weight="700">waymo_like_unprotected_turn</text>
+<text x="56" y="56" fill="#475569" font-size="13" font-family="Arial, sans-serif">score 28.851 | vulnerable_road_user, pedestrian_crossing, unprotected_turn</text>
+<circle cx="56" cy="608" r="6" fill="#2563eb" />
+<text x="68" y="612" fill="#334155" font-size="12" font-family="Arial, sans-serif">vehicle</text>
+<circle cx="194" cy="608" r="6" fill="#dc2626" />
+<text x="206" y="612" fill="#334155" font-size="12" font-family="Arial, sans-serif">pedestrian</text>
+<polyline points="864.00,233.43 517.71,233.43 171.43,233.43" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" />
+<circle cx="864.00" cy="233.43" r="4" fill="#2563eb" opacity="0.45" />
+<circle cx="171.43" cy="233.43" r="6" fill="#2563eb" />
+<text x="179.43" y="225.43" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">oncoming_1</text>
+<polyline points="402.29,406.57 402.29,337.31 402.29,268.06" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" />
+<circle cx="402.29" cy="406.57" r="4" fill="#dc2626" opacity="0.45" />
+<circle cx="402.29" cy="268.06" r="6" fill="#dc2626" />
+<text x="410.29" y="260.06" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">ped_1</text>
+<polyline points="56.00,464.29 171.43,291.14 344.57,175.71" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1.0" />
+<circle cx="56.00" cy="464.29" r="4" fill="#2563eb" opacity="0.45" />
+<circle cx="344.57" cy="175.71" r="6" fill="#2563eb" />
+<text x="352.57" y="167.71" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">sdc</text>
+</svg>
