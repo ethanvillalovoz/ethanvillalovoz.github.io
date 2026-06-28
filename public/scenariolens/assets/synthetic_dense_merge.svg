@@ -1,41 +1,102 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="920" height="640" viewBox="0 0 920 640" role="img">
+<title>synthetic_dense_merge trajectory preview</title>
+<desc>Scenario synthetic_dense_merge from synthetic. Score 12.432. 4 agents. Tags: merge_conflict, dense_multi_agent.</desc>
+<defs>
+<clipPath id="scenario-plot-clip"><rect x="56" y="84" width="808" height="474" rx="10" /></clipPath>
+</defs>
 <rect x="0" y="0" width="920" height="640" fill="#f8fafc" />
-<line x1="56" y1="56" x2="56" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="136" y1="56" x2="136" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="216" y1="56" x2="216" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="296" y1="56" x2="296" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="376" y1="56" x2="376" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="456" y1="56" x2="456" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="536" y1="56" x2="536" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="616" y1="56" x2="616" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="696" y1="56" x2="696" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="776" y1="56" x2="776" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="856" y1="56" x2="856" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="56" x2="864" y2="56" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="136" x2="864" y2="136" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="216" x2="864" y2="216" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="296" x2="864" y2="296" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="376" x2="864" y2="376" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="456" x2="864" y2="456" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="536" x2="864" y2="536" stroke="#dbe3ee" stroke-width="1" />
-<text x="56" y="34" fill="#0f172a" font-size="20" font-family="Arial, sans-serif" font-weight="700">synthetic_dense_merge</text>
-<text x="56" y="56" fill="#475569" font-size="13" font-family="Arial, sans-serif">score 11.982 | merge_conflict, dense_multi_agent</text>
-<circle cx="56" cy="608" r="6" fill="#2563eb" />
-<text x="68" y="612" fill="#334155" font-size="12" font-family="Arial, sans-serif">vehicle</text>
-<polyline points="187.53,320.94 337.86,320.94 488.19,315.30" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1.0" />
-<circle cx="187.53" cy="320.94" r="4" fill="#2563eb" opacity="0.45" />
-<circle cx="488.19" cy="315.30" r="6" fill="#2563eb" />
-<text x="496.19" y="307.30" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">ego</text>
-<polyline points="413.02,260.81 525.77,273.96 638.51,287.12" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" />
-<circle cx="413.02" cy="260.81" r="4" fill="#2563eb" opacity="0.45" />
-<circle cx="638.51" cy="287.12" r="6" fill="#2563eb" />
-<text x="646.51" y="279.12" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">veh_1</text>
-<polyline points="56.00,320.94 225.12,320.94 394.23,320.94" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" />
-<circle cx="56.00" cy="320.94" r="4" fill="#2563eb" opacity="0.45" />
-<circle cx="394.23" cy="320.94" r="6" fill="#2563eb" />
-<text x="402.23" y="312.94" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">veh_2</text>
-<polyline points="600.93,379.19 732.47,369.80 864.00,360.40" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" />
-<circle cx="600.93" cy="379.19" r="4" fill="#2563eb" opacity="0.45" />
-<circle cx="864.00" cy="360.40" r="6" fill="#2563eb" />
-<text x="872.00" y="352.40" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">veh_3</text>
+<text x="56" y="36" fill="#0f172a" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="800">Synthetic Dense Merge</text>
+<text x="56" y="60" fill="#64748b" font-size="13" font-family="Inter, Arial, sans-serif" font-weight="650">score 12.43 / 4 agents / Merge Conflict / Dense Multi Agent</text>
+<text x="864" y="38" fill="#64748b" font-size="12" font-family="Inter, Arial, sans-serif" text-anchor="end">synthetic</text>
+<rect x="56" y="84" width="808" height="474" rx="10" fill="#f9fbfd" stroke="#d8e2ee" stroke-width="1.2" />
+<g clip-path="url(#scenario-plot-clip)">
+<line x1="120" y1="84" x2="120" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="184" y1="84" x2="184" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="248" y1="84" x2="248" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="312" y1="84" x2="312" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="376" y1="84" x2="376" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="440" y1="84" x2="440" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="504" y1="84" x2="504" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="568" y1="84" x2="568" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="632" y1="84" x2="632" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="696" y1="84" x2="696" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="760" y1="84" x2="760" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="824" y1="84" x2="824" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="148" x2="864" y2="148" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="212" x2="864" y2="212" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="276" x2="864" y2="276" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="340" x2="864" y2="340" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="404" x2="864" y2="404" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="468" x2="864" y2="468" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="532" x2="864" y2="532" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<rect x="56.00" y="260.50" width="808.00" height="122.42" fill="#e4eaf2" stroke="#c7d3e1" stroke-width="1" opacity="0.92" />
+<rect x="192.37" y="178.22" width="122.42" height="285.56" fill="#e4eaf2" stroke="#c7d3e1" stroke-width="1" opacity="0.92" />
+<line x1="56.00" y1="321.71" x2="864.00" y2="321.71" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="22 18" opacity="0.88" />
+<line x1="253.59" y1="178.22" x2="253.59" y2="463.78" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="22 18" opacity="0.88" />
+<line x1="56.00" y1="260.50" x2="864.00" y2="260.50" stroke="#c7d3e1" stroke-width="1.5" opacity="0.72" />
+<line x1="56.00" y1="382.92" x2="864.00" y2="382.92" stroke="#c7d3e1" stroke-width="1.5" opacity="0.72" />
+<line x1="192.37" y1="178.22" x2="192.37" y2="463.78" stroke="#c7d3e1" stroke-width="1.5" opacity="0.72" />
+<line x1="314.80" y1="178.22" x2="314.80" y2="463.78" stroke="#c7d3e1" stroke-width="1.5" opacity="0.72" />
+<line x1="56.00" y1="291.11" x2="864.00" y2="291.11" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="22 18" opacity="0.35" />
+<line x1="56.00" y1="352.32" x2="864.00" y2="352.32" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="22 18" opacity="0.35" />
+<circle cx="445.76" cy="319.58" r="38.97" fill="#f59e0b" opacity="0.13" />
+<circle cx="445.76" cy="319.58" r="38.97" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.38" />
+<g class="track track-vehicle">
+<polyline points="253.59,321.71 367.47,321.71 481.35,317.44" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" opacity="0.78" />
+<polyline points="253.59,321.71 367.47,321.71 481.35,317.44" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="1.0" />
+<circle cx="253.59" cy="321.71" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
+<circle cx="481.35" cy="317.44" r="8" fill="#2563eb" stroke="#ffffff" stroke-width="2.5" />
+<rect x="493.35" y="283.44" width="44.20" height="24.00" rx="12" fill="#ffffff" stroke="#d8e2ee" opacity="0.96" />
+<rect x="500.35" y="290.44" width="4" height="10" rx="2" fill="#2563eb" />
+<text x="510.35" y="299.94" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">ego</text>
+</g>
+<g class="track track-vehicle">
+<polyline points="424.41,276.16 509.82,286.12 595.24,296.09" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.78" />
+<polyline points="424.41,276.16 509.82,286.12 595.24,296.09" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.92" />
+<circle cx="424.41" cy="276.16" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
+<circle cx="595.24" cy="296.09" r="8" fill="#2563eb" stroke="#ffffff" stroke-width="2.5" />
+<rect x="607.24" y="262.09" width="59.00" height="24.00" rx="12" fill="#ffffff" stroke="#d8e2ee" opacity="0.96" />
+<rect x="614.24" y="269.09" width="4" height="10" rx="2" fill="#2563eb" />
+<text x="624.24" y="278.59" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">veh_1</text>
+</g>
+<g class="track track-vehicle">
+<polyline points="153.94,321.71 282.06,321.71 410.18,321.71" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.78" />
+<polyline points="153.94,321.71 282.06,321.71 410.18,321.71" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.92" />
+<circle cx="153.94" cy="321.71" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
+<circle cx="410.18" cy="321.71" r="8" fill="#2563eb" stroke="#ffffff" stroke-width="2.5" />
+<rect x="422.18" y="287.71" width="59.00" height="24.00" rx="12" fill="#ffffff" stroke="#d8e2ee" opacity="0.96" />
+<rect x="429.18" y="294.71" width="4" height="10" rx="2" fill="#2563eb" />
+<text x="439.18" y="304.21" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">veh_2</text>
+</g>
+<g class="track track-vehicle">
+<polyline points="566.77,365.84 666.41,358.72 766.06,351.61" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.78" />
+<polyline points="566.77,365.84 666.41,358.72 766.06,351.61" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.92" />
+<circle cx="566.77" cy="365.84" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
+<circle cx="766.06" cy="351.61" r="8" fill="#2563eb" stroke="#ffffff" stroke-width="2.5" />
+<rect x="778.06" y="317.61" width="59.00" height="24.00" rx="12" fill="#ffffff" stroke="#d8e2ee" opacity="0.96" />
+<rect x="785.06" y="324.61" width="4" height="10" rx="2" fill="#2563eb" />
+<text x="795.06" y="334.11" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">veh_3</text>
+</g>
+<g class="baseline-prediction prediction-vehicle">
+<polyline points="509.82,286.12 595.24,296.09" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
+<polyline points="509.82,286.12 595.24,296.09" fill="none" stroke="#2563eb" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
+</g>
+<g class="baseline-prediction prediction-vehicle">
+<polyline points="282.06,321.71 410.18,321.71" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
+<polyline points="282.06,321.71 410.18,321.71" fill="none" stroke="#2563eb" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
+</g>
+<g class="baseline-prediction prediction-vehicle">
+<polyline points="666.41,358.72 766.06,351.61" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
+<polyline points="666.41,358.72 766.06,351.61" fill="none" stroke="#2563eb" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
+</g>
+</g>
+<rect x="56" y="585" width="120" height="30" rx="15" fill="#ffffff" stroke="#d8e2ee" />
+<circle cx="74" cy="600" r="6" fill="#2563eb" />
+<text x="88" y="604" fill="#334155" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">Vehicle</text>
+<circle cx="204" cy="600" r="5" fill="#ffffff" stroke="#0f172a" stroke-width="2" />
+<circle cx="270" cy="600" r="6" fill="#0f172a" />
+<text x="216" y="604" fill="#64748b" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">start</text>
+<text x="282" y="604" fill="#64748b" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">latest</text>
+<line x1="332" y1="600" x2="366" y2="600" stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 7" opacity="0.76" />
+<text x="376" y="604" fill="#64748b" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">baseline forecast</text>
 </svg>

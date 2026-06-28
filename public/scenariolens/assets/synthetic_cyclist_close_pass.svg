@@ -1,35 +1,86 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="920" height="640" viewBox="0 0 920 640" role="img">
+<title>synthetic_cyclist_close_pass trajectory preview</title>
+<desc>Scenario synthetic_cyclist_close_pass from synthetic. Score 27.354. 2 agents. Tags: vulnerable_road_user, cyclist_interaction, close_interaction.</desc>
+<defs>
+<clipPath id="scenario-plot-clip"><rect x="56" y="84" width="808" height="474" rx="10" /></clipPath>
+</defs>
 <rect x="0" y="0" width="920" height="640" fill="#f8fafc" />
-<line x1="56" y1="56" x2="56" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="136" y1="56" x2="136" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="216" y1="56" x2="216" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="296" y1="56" x2="296" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="376" y1="56" x2="376" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="456" y1="56" x2="456" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="536" y1="56" x2="536" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="616" y1="56" x2="616" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="696" y1="56" x2="696" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="776" y1="56" x2="776" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="856" y1="56" x2="856" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="56" x2="864" y2="56" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="136" x2="864" y2="136" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="216" x2="864" y2="216" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="296" x2="864" y2="296" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="376" x2="864" y2="376" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="456" x2="864" y2="456" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="536" x2="864" y2="536" stroke="#dbe3ee" stroke-width="1" />
-<text x="56" y="34" fill="#0f172a" font-size="20" font-family="Arial, sans-serif" font-weight="700">synthetic_cyclist_close_pass</text>
-<text x="56" y="56" fill="#475569" font-size="13" font-family="Arial, sans-serif">score 27.158 | vulnerable_road_user, cyclist_interaction, close_interaction</text>
-<circle cx="56" cy="608" r="6" fill="#2563eb" />
-<text x="68" y="612" fill="#334155" font-size="12" font-family="Arial, sans-serif">vehicle</text>
-<circle cx="194" cy="608" r="6" fill="#16a34a" />
-<text x="206" y="612" fill="#334155" font-size="12" font-family="Arial, sans-serif">cyclist</text>
-<polyline points="56.00,372.83 428.92,372.83 801.85,372.83" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1.0" />
-<circle cx="56.00" cy="372.83" r="4" fill="#2563eb" opacity="0.45" />
-<circle cx="801.85" cy="372.83" r="6" fill="#2563eb" />
-<text x="809.85" y="364.83" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">ego</text>
-<polyline points="304.62,267.17 584.31,279.60 864.00,292.03" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" />
-<circle cx="304.62" cy="267.17" r="4" fill="#16a34a" opacity="0.45" />
-<circle cx="864.00" cy="292.03" r="6" fill="#16a34a" />
-<text x="872.00" y="284.03" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">cyclist_1</text>
+<text x="56" y="36" fill="#0f172a" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="800">Synthetic Cyclist Close Pass</text>
+<text x="56" y="60" fill="#64748b" font-size="13" font-family="Inter, Arial, sans-serif" font-weight="650">score 27.35 / 2 agents / Vulnerable Road User / Cyclist Interaction / Close Interaction</text>
+<text x="864" y="38" fill="#64748b" font-size="12" font-family="Inter, Arial, sans-serif" text-anchor="end">synthetic</text>
+<rect x="56" y="84" width="808" height="474" rx="10" fill="#f9fbfd" stroke="#d8e2ee" stroke-width="1.2" />
+<g clip-path="url(#scenario-plot-clip)">
+<line x1="120" y1="84" x2="120" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="184" y1="84" x2="184" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="248" y1="84" x2="248" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="312" y1="84" x2="312" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="376" y1="84" x2="376" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="440" y1="84" x2="440" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="504" y1="84" x2="504" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="568" y1="84" x2="568" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="632" y1="84" x2="632" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="696" y1="84" x2="696" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="760" y1="84" x2="760" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="824" y1="84" x2="824" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="148" x2="864" y2="148" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="212" x2="864" y2="212" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="276" x2="864" y2="276" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="340" x2="864" y2="340" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="404" x2="864" y2="404" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="468" x2="864" y2="468" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="532" x2="864" y2="532" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<rect x="56.00" y="204.05" width="808.00" height="306.19" fill="#e4eaf2" stroke="#c7d3e1" stroke-width="1" opacity="0.92" />
+<rect x="30.48" y="157.27" width="306.19" height="327.45" fill="#e4eaf2" stroke="#c7d3e1" stroke-width="1" opacity="0.92" />
+<line x1="56.00" y1="357.15" x2="864.00" y2="357.15" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="22 18" opacity="0.88" />
+<line x1="183.58" y1="157.27" x2="183.58" y2="484.73" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="22 18" opacity="0.88" />
+<line x1="56.00" y1="204.05" x2="864.00" y2="204.05" stroke="#c7d3e1" stroke-width="1.5" opacity="0.72" />
+<line x1="56.00" y1="510.24" x2="864.00" y2="510.24" stroke="#c7d3e1" stroke-width="1.5" opacity="0.72" />
+<line x1="30.48" y1="157.27" x2="30.48" y2="484.73" stroke="#c7d3e1" stroke-width="1.5" opacity="0.72" />
+<line x1="336.67" y1="157.27" x2="336.67" y2="484.73" stroke="#c7d3e1" stroke-width="1.5" opacity="0.72" />
+<line x1="56.00" y1="280.60" x2="864.00" y2="280.60" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="22 18" opacity="0.35" />
+<line x1="56.00" y1="433.69" x2="864.00" y2="433.69" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="22 18" opacity="0.35" />
+<rect x="352.83" y="218.94" width="27.22" height="276.42" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<rect x="384.30" y="218.94" width="27.22" height="276.42" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<rect x="415.77" y="218.94" width="27.22" height="276.42" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<rect x="447.24" y="218.94" width="27.22" height="276.42" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<rect x="478.71" y="218.94" width="27.22" height="276.42" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<rect x="510.18" y="218.94" width="27.22" height="276.42" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<rect x="541.65" y="218.94" width="27.22" height="276.42" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<circle cx="715.16" cy="329.51" r="49.08" fill="#f59e0b" opacity="0.13" />
+<circle cx="715.16" cy="329.51" r="49.08" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.38" />
+<g class="track track-vehicle">
+<polyline points="183.58,357.15 438.74,357.15 693.89,357.15" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" opacity="0.78" />
+<polyline points="183.58,357.15 438.74,357.15 693.89,357.15" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="1.0" />
+<circle cx="183.58" cy="357.15" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
+<circle cx="693.89" cy="357.15" r="8" fill="#2563eb" stroke="#ffffff" stroke-width="2.5" />
+<rect x="705.89" y="323.15" width="44.20" height="24.00" rx="12" fill="#ffffff" stroke="#d8e2ee" opacity="0.96" />
+<rect x="712.89" y="330.15" width="4" height="10" rx="2" fill="#2563eb" />
+<text x="722.89" y="339.65" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">ego</text>
+</g>
+<g class="track track-cyclist">
+<polyline points="353.68,284.85 545.05,293.36 736.42,301.86" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.78" />
+<polyline points="353.68,284.85 545.05,293.36 736.42,301.86" fill="none" stroke="#16a34a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.92" />
+<circle cx="353.68" cy="284.85" r="6" fill="#ffffff" stroke="#16a34a" stroke-width="2.5" />
+<circle cx="736.42" cy="301.86" r="8" fill="#16a34a" stroke="#ffffff" stroke-width="2.5" />
+<rect x="748.42" y="267.86" width="88.60" height="24.00" rx="12" fill="#ffffff" stroke="#d8e2ee" opacity="0.96" />
+<rect x="755.42" y="274.86" width="4" height="10" rx="2" fill="#16a34a" />
+<text x="765.42" y="284.36" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">cyclist_1</text>
+</g>
+<g class="baseline-prediction prediction-cyclist">
+<polyline points="545.05,293.36 736.42,297.61" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
+<polyline points="545.05,293.36 736.42,297.61" fill="none" stroke="#16a34a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
+</g>
+</g>
+<rect x="56" y="585" width="120" height="30" rx="15" fill="#ffffff" stroke="#d8e2ee" />
+<circle cx="74" cy="600" r="6" fill="#2563eb" />
+<text x="88" y="604" fill="#334155" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">Vehicle</text>
+<rect x="186" y="585" width="120" height="30" rx="15" fill="#ffffff" stroke="#d8e2ee" />
+<circle cx="204" cy="600" r="6" fill="#16a34a" />
+<text x="218" y="604" fill="#334155" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">Cyclist</text>
+<circle cx="334" cy="600" r="5" fill="#ffffff" stroke="#0f172a" stroke-width="2" />
+<circle cx="400" cy="600" r="6" fill="#0f172a" />
+<text x="346" y="604" fill="#64748b" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">start</text>
+<text x="412" y="604" fill="#64748b" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">latest</text>
+<line x1="462" y1="600" x2="496" y2="600" stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 7" opacity="0.76" />
+<text x="506" y="604" fill="#64748b" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">baseline forecast</text>
 </svg>

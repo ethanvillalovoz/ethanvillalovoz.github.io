@@ -12,8 +12,17 @@ python3 -m http.server 8000 --directory docs
 Then visit `http://localhost:8000`. The `docs/index.html` entrypoint redirects
 to this explorer.
 
-When GitHub Pages is configured to publish from `main` / `docs`, the repository
-root redirects to this explorer through `docs/index.html`.
+The production copy is embedded in Ethan's personal portfolio site at
+`https://ethanvillalovoz.com/scenariolens/`.
+
+The demo data is intentionally small: synthetic scenarios plus tiny
+Waymo Motion-shaped fixtures. Each scenario includes interaction-risk metrics,
+a constant-velocity prediction baseline, and lane-aware comparison fields when
+map context is available so the explorer can surface cases where a simple
+forecast fails. See
+[`docs/data_provenance.md`](https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/data_provenance.md) for the exact data status.
+See [`docs/project_strategy.md`](https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/project_strategy.md) for the product goal
+and [`docs/architecture.md`](https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/architecture.md) for the data-flow map.
 
 Generated files:
 
@@ -23,11 +32,20 @@ Generated files:
 - `scenarios.json`: ranked dashboard payload.
 - `assets/*.svg`: trajectory views referenced by `scenarios.json`.
 - `assets/scenariolens-explorer.png`: README screenshot of the dashboard.
+- The evidence band and baseline-failure card are code-native UI backed by
+  `scenarios.json`.
+
+The explorer also links to
+[`docs/reports/waymo_motion_case_study.md`](https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_motion_case_study.md)
+as the public-safe summary of the local real Waymo Motion smoke test.
+The first viewport links to the failure study, stability study, shard expansion
+plan, lane-aware comparison study, and portfolio packet so reviewers can jump
+from the product surface to the evidence behind it.
 
 Regenerate with:
 
 ```bash
-PYTHONPATH=src python3 -m scenariolens.cli dashboard-data \
+scenariolens dashboard-data \
   --output docs/demo/scenarios.json \
   --assets-dir docs/demo/assets
 ```
@@ -40,7 +58,11 @@ PYTHONPATH=src python3 -m scenariolens.cli dashboard-data \
 - available filter values,
 - ranked scenarios,
 - score totals and component scores,
-- metrics used in ranking,
+- raw and scored-context metrics used in ranking,
+- constant-velocity baseline ADE/FDE, miss rate, target source, and failure score,
+- lane-aware ADE/FDE, miss rate, FDE improvement, map-used count, and fallback count,
+- Waymo metadata credibility fields such as SDC presence, prediction targets,
+  and objects of interest when available,
 - taxonomy tags,
 - explanation reasons,
 - SVG asset paths,

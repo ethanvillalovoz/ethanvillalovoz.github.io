@@ -1,39 +1,99 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="920" height="640" viewBox="0 0 920 640" role="img">
+<title>synthetic_occluded_pedestrian trajectory preview</title>
+<desc>Scenario synthetic_occluded_pedestrian from synthetic. Score 33.028. 3 agents. Tags: vulnerable_road_user, pedestrian_crossing, blocked_lane, close_interaction.</desc>
+<defs>
+<clipPath id="scenario-plot-clip"><rect x="56" y="84" width="808" height="474" rx="10" /></clipPath>
+</defs>
 <rect x="0" y="0" width="920" height="640" fill="#f8fafc" />
-<line x1="56" y1="56" x2="56" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="136" y1="56" x2="136" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="216" y1="56" x2="216" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="296" y1="56" x2="296" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="376" y1="56" x2="376" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="456" y1="56" x2="456" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="536" y1="56" x2="536" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="616" y1="56" x2="616" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="696" y1="56" x2="696" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="776" y1="56" x2="776" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="856" y1="56" x2="856" y2="584" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="56" x2="864" y2="56" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="136" x2="864" y2="136" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="216" x2="864" y2="216" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="296" x2="864" y2="296" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="376" x2="864" y2="376" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="456" x2="864" y2="456" stroke="#dbe3ee" stroke-width="1" />
-<line x1="56" y1="536" x2="864" y2="536" stroke="#dbe3ee" stroke-width="1" />
-<text x="56" y="34" fill="#0f172a" font-size="20" font-family="Arial, sans-serif" font-weight="700">synthetic_occluded_pedestrian</text>
-<text x="56" y="56" fill="#475569" font-size="13" font-family="Arial, sans-serif">score 32.728 | vulnerable_road_user, pedestrian_crossing, blocked_lane, close_interaction</text>
-<circle cx="56" cy="608" r="6" fill="#2563eb" />
-<text x="68" y="612" fill="#334155" font-size="12" font-family="Arial, sans-serif">vehicle</text>
-<circle cx="194" cy="608" r="6" fill="#dc2626" />
-<text x="206" y="612" fill="#334155" font-size="12" font-family="Arial, sans-serif">pedestrian</text>
-<polyline points="56.00,143.25 460.00,143.25 864.00,143.25" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1.0" />
-<circle cx="56.00" cy="143.25" r="4" fill="#2563eb" opacity="0.45" />
-<circle cx="864.00" cy="143.25" r="6" fill="#2563eb" />
-<text x="872.00" y="135.25" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">ego</text>
-<polyline points="662.00,365.45 662.00,365.45 662.00,365.45" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" />
-<circle cx="662.00" cy="365.45" r="4" fill="#2563eb" opacity="0.45" />
-<circle cx="662.00" cy="365.45" r="6" fill="#2563eb" />
-<text x="670.00" y="357.45" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">parked_truck</text>
-<polyline points="712.50,496.75 712.50,355.35 712.50,213.95" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" />
-<circle cx="712.50" cy="496.75" r="4" fill="#dc2626" opacity="0.45" />
-<circle cx="712.50" cy="213.95" r="6" fill="#dc2626" />
-<text x="720.50" y="205.95" fill="#0f172a" font-size="12" font-family="Arial, sans-serif">ped_1</text>
+<text x="56" y="36" fill="#0f172a" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="800">Synthetic Occluded Pedestrian</text>
+<text x="56" y="60" fill="#64748b" font-size="13" font-family="Inter, Arial, sans-serif" font-weight="650">score 33.03 / 3 agents / Vulnerable Road User / Pedestrian Crossing / Blocked Lane / +1 tags</text>
+<text x="864" y="38" fill="#64748b" font-size="12" font-family="Inter, Arial, sans-serif" text-anchor="end">synthetic</text>
+<rect x="56" y="84" width="808" height="474" rx="10" fill="#f9fbfd" stroke="#d8e2ee" stroke-width="1.2" />
+<g clip-path="url(#scenario-plot-clip)">
+<line x1="120" y1="84" x2="120" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="184" y1="84" x2="184" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="248" y1="84" x2="248" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="312" y1="84" x2="312" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="376" y1="84" x2="376" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="440" y1="84" x2="440" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="504" y1="84" x2="504" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="568" y1="84" x2="568" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="632" y1="84" x2="632" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="696" y1="84" x2="696" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="760" y1="84" x2="760" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="824" y1="84" x2="824" y2="558" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="148" x2="864" y2="148" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="212" x2="864" y2="212" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="276" x2="864" y2="276" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="340" x2="864" y2="340" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="404" x2="864" y2="404" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="468" x2="864" y2="468" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<line x1="56" y1="532" x2="864" y2="532" stroke="#d7e1ee" stroke-width="1" opacity="0.52" />
+<rect x="110.74" y="54.06" width="698.53" height="359.24" fill="#e4eaf2" stroke="#c7d3e1" stroke-width="1" opacity="0.92" />
+<rect x="80.80" y="84.00" width="359.24" height="474.00" fill="#e4eaf2" stroke="#c7d3e1" stroke-width="1" opacity="0.92" />
+<line x1="110.74" y1="233.68" x2="809.26" y2="233.68" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="22 18" opacity="0.88" />
+<line x1="260.42" y1="84.00" x2="260.42" y2="558.00" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="22 18" opacity="0.88" />
+<line x1="110.74" y1="54.06" x2="809.26" y2="54.06" stroke="#c7d3e1" stroke-width="1.5" opacity="0.72" />
+<line x1="110.74" y1="413.31" x2="809.26" y2="413.31" stroke="#c7d3e1" stroke-width="1.5" opacity="0.72" />
+<line x1="80.80" y1="84.00" x2="80.80" y2="558.00" stroke="#c7d3e1" stroke-width="1.5" opacity="0.72" />
+<line x1="440.04" y1="84.00" x2="440.04" y2="558.00" stroke="#c7d3e1" stroke-width="1.5" opacity="0.72" />
+<line x1="110.74" y1="143.87" x2="809.26" y2="143.87" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="22 18" opacity="0.35" />
+<line x1="110.74" y1="323.49" x2="809.26" y2="323.49" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="22 18" opacity="0.35" />
+<rect x="459.00" y="71.53" width="31.93" height="324.32" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<rect x="495.92" y="71.53" width="31.93" height="324.32" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<rect x="532.85" y="71.53" width="31.93" height="324.32" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<rect x="569.77" y="71.53" width="31.93" height="324.32" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<rect x="606.69" y="71.53" width="31.93" height="324.32" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<rect x="643.61" y="71.53" width="31.93" height="324.32" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<rect x="680.53" y="71.53" width="31.93" height="324.32" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.78" />
+<circle cx="572.26" cy="340.96" r="50.00" fill="#f59e0b" opacity="0.13" />
+<circle cx="572.26" cy="340.96" r="50.00" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.38" />
+<g class="track track-vehicle">
+<polyline points="260.42,233.68 460.00,233.68 659.58,233.68" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" opacity="0.78" />
+<polyline points="260.42,233.68 460.00,233.68 659.58,233.68" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="1.0" />
+<circle cx="260.42" cy="233.68" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
+<circle cx="659.58" cy="233.68" r="8" fill="#2563eb" stroke="#ffffff" stroke-width="2.5" />
+<rect x="671.58" y="199.68" width="44.20" height="24.00" rx="12" fill="#ffffff" stroke="#d8e2ee" opacity="0.96" />
+<rect x="678.58" y="206.68" width="4" height="10" rx="2" fill="#2563eb" />
+<text x="688.58" y="216.18" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">ego</text>
+</g>
+<g class="track track-vehicle">
+<polyline points="559.79,343.45 559.79,343.45 559.79,343.45" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.78" />
+<polyline points="559.79,343.45 559.79,343.45 559.79,343.45" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.92" />
+<circle cx="559.79" cy="343.45" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
+<circle cx="559.79" cy="343.45" r="8" fill="#2563eb" stroke="#ffffff" stroke-width="2.5" />
+<rect x="571.79" y="309.45" width="110.80" height="24.00" rx="12" fill="#ffffff" stroke="#d8e2ee" opacity="0.96" />
+<rect x="578.79" y="316.45" width="4" height="10" rx="2" fill="#2563eb" />
+<text x="588.79" y="325.95" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">parked_truck</text>
+</g>
+<g class="track track-pedestrian">
+<polyline points="584.74,408.32 584.74,338.46 584.74,268.61" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.78" />
+<polyline points="584.74,408.32 584.74,338.46 584.74,268.61" fill="none" stroke="#dc2626" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.92" />
+<circle cx="584.74" cy="408.32" r="6" fill="#ffffff" stroke="#dc2626" stroke-width="2.5" />
+<circle cx="584.74" cy="268.61" r="8" fill="#dc2626" stroke="#ffffff" stroke-width="2.5" />
+<rect x="596.74" y="234.61" width="59.00" height="24.00" rx="12" fill="#ffffff" stroke="#d8e2ee" opacity="0.96" />
+<rect x="603.74" y="241.61" width="4" height="10" rx="2" fill="#dc2626" />
+<text x="613.74" y="251.11" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">ped_1</text>
+</g>
+<g class="baseline-prediction prediction-vehicle">
+<polyline points="559.79,343.45 559.79,343.45" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
+<polyline points="559.79,343.45 559.79,343.45" fill="none" stroke="#2563eb" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
+</g>
+<g class="baseline-prediction prediction-pedestrian">
+<polyline points="584.74,338.46 584.74,268.61" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
+<polyline points="584.74,338.46 584.74,268.61" fill="none" stroke="#dc2626" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
+</g>
+</g>
+<rect x="56" y="585" width="120" height="30" rx="15" fill="#ffffff" stroke="#d8e2ee" />
+<circle cx="74" cy="600" r="6" fill="#2563eb" />
+<text x="88" y="604" fill="#334155" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">Vehicle</text>
+<rect x="186" y="585" width="132" height="30" rx="15" fill="#ffffff" stroke="#d8e2ee" />
+<circle cx="204" cy="600" r="6" fill="#dc2626" />
+<text x="218" y="604" fill="#334155" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">Pedestrian</text>
+<circle cx="346" cy="600" r="5" fill="#ffffff" stroke="#0f172a" stroke-width="2" />
+<circle cx="412" cy="600" r="6" fill="#0f172a" />
+<text x="358" y="604" fill="#64748b" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">start</text>
+<text x="424" y="604" fill="#64748b" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">latest</text>
+<line x1="474" y1="600" x2="508" y2="600" stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 7" opacity="0.76" />
+<text x="518" y="604" fill="#64748b" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="700">baseline forecast</text>
 </svg>

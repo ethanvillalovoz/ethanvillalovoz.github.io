@@ -1,12 +1,12 @@
 {
   "format": "scenariolens.dashboard.v1",
-  "scenario_count": 13,
-  "reported_count": 13,
+  "scenario_count": 14,
+  "reported_count": 14,
   "datasets": [
     {
       "dataset_id": "synthetic",
       "label": "Synthetic scenarios",
-      "scenario_count": 10
+      "scenario_count": 11
     },
     {
       "dataset_id": "waymo_native_json",
@@ -32,6 +32,7 @@
       "dense_multi_agent",
       "hard_braking",
       "low_interaction",
+      "map_context",
       "merge_conflict",
       "objects_of_interest",
       "pedestrian_crossing",
@@ -41,6 +42,7 @@
       "vulnerable_road_user"
     ],
     "component_names": [
+      "baseline_failure",
       "density",
       "dynamics",
       "path_conflict",
@@ -68,36 +70,57 @@
       "reasons": [
         "contains 2 vulnerable road user(s)",
         "minimum agent distance is 0.632 m",
-        "minimum constant-velocity TTC proxy is 0.136 s",
+        "screened constant-velocity TTC proxy is 0.317 s",
         "closest vehicle-to-VRU distance is 0.632 m",
         "agent paths come within 0.632 m",
-        "dense scene with 4 tracked agents",
+        "dense scene with 4 tracked agents (4 scored)",
         "high-value taxonomy tags: Vulnerable road user, Pedestrian crossing, Cyclist interaction"
       ],
       "score": {
-        "interaction": 34.658,
+        "interaction": 34.882,
         "taxonomy": 9.0,
         "components": {
           "density": 1.0,
           "vru": 3.0,
           "taxonomy": 9.0,
           "proximity": 7.368,
-          "ttc": 7.33,
+          "ttc": 7.104,
           "vru_proximity": 4.776,
           "path_conflict": 2.184,
-          "dynamics": 0.0
+          "dynamics": 0.0,
+          "baseline_failure": 0.45
         }
       },
       "metrics": {
         "agent_count": 4,
+        "scoring_agent_count": 4,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
         "vulnerable_road_user_count": 2,
+        "scoring_vulnerable_road_user_count": 2,
+        "sdc_track_present": true,
+        "prediction_target_count": 0,
+        "object_of_interest_count": 0,
         "min_pairwise_distance_m": 0.632,
         "min_vru_distance_m": 0.632,
         "min_path_distance_m": 0.632,
-        "min_time_to_collision_s": 0.136,
+        "min_time_to_collision_s": 0.317,
         "max_speed_mps": 5.0,
         "ego_max_speed_mps": 4.0,
-        "max_deceleration_mps2": 0.0
+        "max_deceleration_mps2": null,
+        "prediction_target_source": "non_ego_tracks",
+        "prediction_target_evaluated_count": 3,
+        "baseline_ade_m": 0.0,
+        "baseline_fde_m": 0.0,
+        "baseline_max_fde_m": 0.0,
+        "baseline_miss_rate": 0.0,
+        "baseline_failure_score": 0.45,
+        "lane_aware_ade_m": 0.0,
+        "lane_aware_fde_m": 0.0,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 0.0,
+        "lane_aware_map_used_count": 0,
+        "lane_aware_fallback_count": 3
       },
       "tracks": {
         "count": 4,
@@ -125,13 +148,13 @@
       "reasons": [
         "contains 1 vulnerable road user(s)",
         "minimum agent distance is 0.510 m",
-        "minimum constant-velocity TTC proxy is 0.500 s",
+        "screened constant-velocity TTC proxy is 0.500 s",
         "closest vehicle-to-VRU distance is 0.510 m",
         "agent paths come within 0.510 m",
         "high-value taxonomy tags: Vulnerable road user, Pedestrian crossing, Blocked lane, Close interaction"
       ],
       "score": {
-        "interaction": 32.728,
+        "interaction": 33.028,
         "taxonomy": 9.0,
         "components": {
           "density": 0.75,
@@ -141,19 +164,40 @@
           "ttc": 6.875,
           "vru_proximity": 4.868,
           "path_conflict": 2.245,
-          "dynamics": 0.0
+          "dynamics": 0.0,
+          "baseline_failure": 0.3
         }
       },
       "metrics": {
         "agent_count": 3,
+        "scoring_agent_count": 3,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
         "vulnerable_road_user_count": 1,
+        "scoring_vulnerable_road_user_count": 1,
+        "sdc_track_present": true,
+        "prediction_target_count": 0,
+        "object_of_interest_count": 0,
         "min_pairwise_distance_m": 0.51,
         "min_vru_distance_m": 0.51,
         "min_path_distance_m": 0.51,
         "min_time_to_collision_s": 0.5,
         "max_speed_mps": 4.0,
         "ego_max_speed_mps": 4.0,
-        "max_deceleration_mps2": 1.0
+        "max_deceleration_mps2": 1.0,
+        "prediction_target_source": "non_ego_tracks",
+        "prediction_target_evaluated_count": 2,
+        "baseline_ade_m": 0.0,
+        "baseline_fde_m": 0.0,
+        "baseline_max_fde_m": 0.0,
+        "baseline_miss_rate": 0.0,
+        "baseline_failure_score": 0.3,
+        "lane_aware_ade_m": 0.0,
+        "lane_aware_fde_m": 0.0,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 0.0,
+        "lane_aware_map_used_count": 0,
+        "lane_aware_fallback_count": 2
       },
       "tracks": {
         "count": 3,
@@ -173,42 +217,66 @@
       "svg_path": "assets/waymo_native_sample_interaction.svg",
       "tags": [
         "vulnerable_road_user",
+        "map_context",
         "objects_of_interest",
         "tracks_to_predict"
       ],
       "reasons": [
         "contains 1 vulnerable road user(s)",
+        "includes 1 Waymo prediction target(s)",
+        "includes 1 object(s) of interest",
         "minimum agent distance is 0.863 m",
-        "minimum constant-velocity TTC proxy is 0.012 s",
+        "screened constant-velocity TTC proxy is 0.281 s",
         "closest vehicle-to-VRU distance is 0.863 m",
         "agent paths come within 0.863 m",
-        "max deceleration is 10.000 m/s^2",
+        "robust max deceleration is 10.000 m/s^2",
         "high-value taxonomy tags: Vulnerable road user"
       ],
       "score": {
-        "interaction": 31.542,
+        "interaction": 31.355,
         "taxonomy": 2.0,
         "components": {
           "density": 0.75,
           "vru": 1.5,
           "taxonomy": 2.0,
           "proximity": 7.137,
-          "ttc": 7.485,
+          "ttc": 7.148,
           "vru_proximity": 4.602,
           "path_conflict": 2.068,
-          "dynamics": 6.0
+          "dynamics": 6.0,
+          "baseline_failure": 0.15
         }
       },
       "metrics": {
         "agent_count": 3,
+        "scoring_agent_count": 3,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
         "vulnerable_road_user_count": 1,
+        "scoring_vulnerable_road_user_count": 1,
+        "sdc_track_present": true,
+        "prediction_target_count": 1,
+        "object_of_interest_count": 1,
         "min_pairwise_distance_m": 0.863,
         "min_vru_distance_m": 0.863,
         "min_path_distance_m": 0.863,
-        "min_time_to_collision_s": 0.012,
+        "min_time_to_collision_s": 0.281,
         "max_speed_mps": 5.0,
         "ego_max_speed_mps": 5.0,
-        "max_deceleration_mps2": 10.0
+        "max_deceleration_mps2": 10.0,
+        "prediction_target_source": "waymo_tracks_to_predict",
+        "prediction_target_evaluated_count": 1,
+        "baseline_ade_m": 0.0,
+        "baseline_fde_m": 0.0,
+        "baseline_max_fde_m": 0.0,
+        "baseline_miss_rate": 0.0,
+        "baseline_failure_score": 0.15,
+        "lane_aware_ade_m": 0.0,
+        "lane_aware_fde_m": 0.0,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 0.0,
+        "lane_aware_map_used_count": 0,
+        "lane_aware_fallback_count": 1
       },
       "tracks": {
         "count": 3,
@@ -234,13 +302,13 @@
       "reasons": [
         "contains 1 vulnerable road user(s)",
         "minimum agent distance is 1.887 m",
-        "minimum constant-velocity TTC proxy is 0.277 s",
+        "screened constant-velocity TTC proxy is 0.277 s",
         "closest vehicle-to-VRU distance is 1.887 m",
         "agent paths come within 1.000 m",
         "high-value taxonomy tags: Vulnerable road user, Pedestrian crossing, Unprotected turn"
       ],
       "score": {
-        "interaction": 28.851,
+        "interaction": 29.151,
         "taxonomy": 7.5,
         "components": {
           "density": 0.75,
@@ -250,19 +318,40 @@
           "ttc": 7.153,
           "vru_proximity": 3.835,
           "path_conflict": 2.0,
-          "dynamics": 0.0
+          "dynamics": 0.0,
+          "baseline_failure": 0.3
         }
       },
       "metrics": {
         "agent_count": 3,
+        "scoring_agent_count": 3,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
         "vulnerable_road_user_count": 1,
+        "scoring_vulnerable_road_user_count": 1,
+        "sdc_track_present": true,
+        "prediction_target_count": 0,
+        "object_of_interest_count": 0,
         "min_pairwise_distance_m": 1.887,
         "min_vru_distance_m": 1.887,
         "min_path_distance_m": 1.0,
         "min_time_to_collision_s": 0.277,
         "max_speed_mps": 6.0,
         "ego_max_speed_mps": 3.606,
-        "max_deceleration_mps2": 0.181
+        "max_deceleration_mps2": 0.181,
+        "prediction_target_source": "non_ego_tracks",
+        "prediction_target_evaluated_count": 2,
+        "baseline_ade_m": 0.0,
+        "baseline_fde_m": 0.0,
+        "baseline_max_fde_m": 0.0,
+        "baseline_miss_rate": 0.0,
+        "baseline_failure_score": 0.3,
+        "lane_aware_ade_m": 0.0,
+        "lane_aware_fde_m": 0.0,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 0.0,
+        "lane_aware_map_used_count": 0,
+        "lane_aware_fallback_count": 2
       },
       "tracks": {
         "count": 3,
@@ -288,13 +377,13 @@
       "reasons": [
         "contains 1 vulnerable road user(s)",
         "minimum agent distance is 1.887 m",
-        "minimum constant-velocity TTC proxy is 0.277 s",
+        "screened constant-velocity TTC proxy is 0.277 s",
         "closest vehicle-to-VRU distance is 1.887 m",
         "agent paths come within 1.000 m",
         "high-value taxonomy tags: Vulnerable road user, Unprotected turn, Close interaction"
       ],
       "score": {
-        "interaction": 27.851,
+        "interaction": 28.151,
         "taxonomy": 6.5,
         "components": {
           "density": 0.75,
@@ -304,19 +393,40 @@
           "ttc": 7.153,
           "vru_proximity": 3.835,
           "path_conflict": 2.0,
-          "dynamics": 0.0
+          "dynamics": 0.0,
+          "baseline_failure": 0.3
         }
       },
       "metrics": {
         "agent_count": 3,
+        "scoring_agent_count": 3,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
         "vulnerable_road_user_count": 1,
+        "scoring_vulnerable_road_user_count": 1,
+        "sdc_track_present": true,
+        "prediction_target_count": 0,
+        "object_of_interest_count": 0,
         "min_pairwise_distance_m": 1.887,
         "min_vru_distance_m": 1.887,
         "min_path_distance_m": 1.0,
         "min_time_to_collision_s": 0.277,
         "max_speed_mps": 6.0,
         "ego_max_speed_mps": 3.606,
-        "max_deceleration_mps2": 0.181
+        "max_deceleration_mps2": 0.181,
+        "prediction_target_source": "non_ego_tracks",
+        "prediction_target_evaluated_count": 2,
+        "baseline_ade_m": 0.0,
+        "baseline_fde_m": 0.0,
+        "baseline_max_fde_m": 0.0,
+        "baseline_miss_rate": 0.0,
+        "baseline_failure_score": 0.3,
+        "lane_aware_ade_m": 0.0,
+        "lane_aware_fde_m": 0.0,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 0.0,
+        "lane_aware_map_used_count": 0,
+        "lane_aware_fallback_count": 2
       },
       "tracks": {
         "count": 3,
@@ -342,13 +452,13 @@
       "reasons": [
         "contains 1 vulnerable road user(s)",
         "minimum agent distance is 1.640 m",
-        "minimum constant-velocity TTC proxy is 0.721 s",
+        "screened constant-velocity TTC proxy is 0.721 s",
         "closest vehicle-to-VRU distance is 1.640 m",
         "agent paths come within 1.640 m",
         "high-value taxonomy tags: Vulnerable road user, Cyclist interaction, Close interaction"
       ],
       "score": {
-        "interaction": 27.158,
+        "interaction": 27.354,
         "taxonomy": 6.5,
         "components": {
           "density": 0.5,
@@ -358,19 +468,40 @@
           "ttc": 6.598,
           "vru_proximity": 4.02,
           "path_conflict": 1.68,
-          "dynamics": 0.0
+          "dynamics": 0.0,
+          "baseline_failure": 0.196
         }
       },
       "metrics": {
         "agent_count": 2,
+        "scoring_agent_count": 2,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
         "vulnerable_road_user_count": 1,
+        "scoring_vulnerable_road_user_count": 1,
+        "sdc_track_present": true,
+        "prediction_target_count": 0,
+        "object_of_interest_count": 0,
         "min_pairwise_distance_m": 1.64,
         "min_vru_distance_m": 1.64,
         "min_path_distance_m": 1.64,
         "min_time_to_collision_s": 0.721,
         "max_speed_mps": 6.0,
         "ego_max_speed_mps": 6.0,
-        "max_deceleration_mps2": 0.0
+        "max_deceleration_mps2": null,
+        "prediction_target_source": "non_ego_tracks",
+        "prediction_target_evaluated_count": 1,
+        "baseline_ade_m": 0.1,
+        "baseline_fde_m": 0.1,
+        "baseline_max_fde_m": 0.1,
+        "baseline_miss_rate": 0.0,
+        "baseline_failure_score": 0.196,
+        "lane_aware_ade_m": 0.1,
+        "lane_aware_fde_m": 0.1,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 0.0,
+        "lane_aware_map_used_count": 0,
+        "lane_aware_fallback_count": 1
       },
       "tracks": {
         "count": 2,
@@ -396,12 +527,12 @@
       "reasons": [
         "contains 1 vulnerable road user(s)",
         "minimum agent distance is 2.236 m",
-        "minimum constant-velocity TTC proxy is 0.688 s",
+        "screened constant-velocity TTC proxy is 0.688 s",
         "closest vehicle-to-VRU distance is 2.236 m",
         "high-value taxonomy tags: Vulnerable road user, Pedestrian crossing, Close interaction"
       ],
       "score": {
-        "interaction": 26.359,
+        "interaction": 26.509,
         "taxonomy": 7.0,
         "components": {
           "density": 0.5,
@@ -411,19 +542,40 @@
           "ttc": 6.64,
           "vru_proximity": 3.573,
           "path_conflict": 1.382,
-          "dynamics": 0.0
+          "dynamics": 0.0,
+          "baseline_failure": 0.15
         }
       },
       "metrics": {
         "agent_count": 2,
+        "scoring_agent_count": 2,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
         "vulnerable_road_user_count": 1,
+        "scoring_vulnerable_road_user_count": 1,
+        "sdc_track_present": true,
+        "prediction_target_count": 0,
+        "object_of_interest_count": 0,
         "min_pairwise_distance_m": 2.236,
         "min_vru_distance_m": 2.236,
         "min_path_distance_m": 2.236,
         "min_time_to_collision_s": 0.688,
         "max_speed_mps": 5.0,
         "ego_max_speed_mps": 5.0,
-        "max_deceleration_mps2": 1.0
+        "max_deceleration_mps2": 1.0,
+        "prediction_target_source": "non_ego_tracks",
+        "prediction_target_evaluated_count": 1,
+        "baseline_ade_m": 0.0,
+        "baseline_fde_m": 0.0,
+        "baseline_max_fde_m": 0.0,
+        "baseline_miss_rate": 0.0,
+        "baseline_failure_score": 0.15,
+        "lane_aware_ade_m": 0.0,
+        "lane_aware_fde_m": 0.0,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 0.0,
+        "lane_aware_map_used_count": 0,
+        "lane_aware_fallback_count": 1
       },
       "tracks": {
         "count": 2,
@@ -452,7 +604,7 @@
         "high-value taxonomy tags: Vulnerable road user, Cyclist interaction, Close interaction"
       ],
       "score": {
-        "interaction": 23.179,
+        "interaction": 23.421,
         "taxonomy": 6.5,
         "components": {
           "density": 0.5,
@@ -462,19 +614,40 @@
           "ttc": 5.343,
           "vru_proximity": 3.063,
           "path_conflict": 1.188,
-          "dynamics": 0.0
+          "dynamics": 0.0,
+          "baseline_failure": 0.242
         }
       },
       "metrics": {
         "agent_count": 2,
+        "scoring_agent_count": 2,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
         "vulnerable_road_user_count": 1,
+        "scoring_vulnerable_road_user_count": 1,
+        "sdc_track_present": true,
+        "prediction_target_count": 0,
+        "object_of_interest_count": 0,
         "min_pairwise_distance_m": 2.915,
         "min_vru_distance_m": 2.915,
         "min_path_distance_m": 2.625,
         "min_time_to_collision_s": 1.726,
         "max_speed_mps": 6.0,
         "ego_max_speed_mps": 6.0,
-        "max_deceleration_mps2": 0.0
+        "max_deceleration_mps2": null,
+        "prediction_target_source": "non_ego_tracks",
+        "prediction_target_evaluated_count": 1,
+        "baseline_ade_m": 0.2,
+        "baseline_fde_m": 0.2,
+        "baseline_max_fde_m": 0.2,
+        "baseline_miss_rate": 0.0,
+        "baseline_failure_score": 0.242,
+        "lane_aware_ade_m": 0.2,
+        "lane_aware_fde_m": 0.2,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 0.0,
+        "lane_aware_map_used_count": 0,
+        "lane_aware_fallback_count": 1
       },
       "tracks": {
         "count": 2,
@@ -497,33 +670,54 @@
         "blocked_lane"
       ],
       "reasons": [
-        "minimum constant-velocity TTC proxy is 0.400 s",
+        "screened constant-velocity TTC proxy is 0.683 s",
         "high-value taxonomy tags: Merge conflict, Blocked lane"
       ],
       "score": {
-        "interaction": 17.845,
+        "interaction": 17.792,
         "taxonomy": 4.0,
         "components": {
           "density": 0.75,
           "vru": 0.0,
           "taxonomy": 4.0,
           "proximity": 4.895,
-          "ttc": 7.0,
+          "ttc": 6.647,
           "vru_proximity": 0.0,
           "path_conflict": 1.2,
-          "dynamics": 0.0
+          "dynamics": 0.0,
+          "baseline_failure": 0.3
         }
       },
       "metrics": {
         "agent_count": 3,
+        "scoring_agent_count": 3,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
         "vulnerable_road_user_count": 0,
+        "scoring_vulnerable_road_user_count": 0,
+        "sdc_track_present": true,
+        "prediction_target_count": 0,
+        "object_of_interest_count": 0,
         "min_pairwise_distance_m": 3.105,
         "min_vru_distance_m": null,
         "min_path_distance_m": 2.6,
-        "min_time_to_collision_s": 0.4,
+        "min_time_to_collision_s": 0.683,
         "max_speed_mps": 5.0,
         "ego_max_speed_mps": 5.0,
-        "max_deceleration_mps2": 0.921
+        "max_deceleration_mps2": 0.921,
+        "prediction_target_source": "non_ego_tracks",
+        "prediction_target_evaluated_count": 2,
+        "baseline_ade_m": 0.0,
+        "baseline_fde_m": 0.0,
+        "baseline_max_fde_m": 0.0,
+        "baseline_miss_rate": 0.0,
+        "baseline_failure_score": 0.3,
+        "lane_aware_ade_m": 0.0,
+        "lane_aware_fde_m": 0.0,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 0.0,
+        "lane_aware_map_used_count": 0,
+        "lane_aware_fallback_count": 2
       },
       "tracks": {
         "count": 3,
@@ -546,11 +740,11 @@
         "close_interaction"
       ],
       "reasons": [
-        "max deceleration is 6.000 m/s^2",
+        "robust max deceleration is 6.000 m/s^2",
         "high-value taxonomy tags: Hard braking, Close interaction"
       ],
       "score": {
-        "interaction": 14.488,
+        "interaction": 15.098,
         "taxonomy": 5.5,
         "components": {
           "density": 0.5,
@@ -560,19 +754,40 @@
           "ttc": 4.688,
           "vru_proximity": 0.0,
           "path_conflict": 1.0,
-          "dynamics": 2.8
+          "dynamics": 2.8,
+          "baseline_failure": 0.61
         }
       },
       "metrics": {
         "agent_count": 2,
+        "scoring_agent_count": 2,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
         "vulnerable_road_user_count": 0,
+        "scoring_vulnerable_road_user_count": 0,
+        "sdc_track_present": true,
+        "prediction_target_count": 0,
+        "object_of_interest_count": 0,
         "min_pairwise_distance_m": 9.0,
         "min_vru_distance_m": null,
         "min_path_distance_m": 3.0,
         "min_time_to_collision_s": 2.25,
         "max_speed_mps": 9.0,
         "ego_max_speed_mps": 9.0,
-        "max_deceleration_mps2": 6.0
+        "max_deceleration_mps2": 6.0,
+        "prediction_target_source": "non_ego_tracks",
+        "prediction_target_evaluated_count": 1,
+        "baseline_ade_m": 1.0,
+        "baseline_fde_m": 1.0,
+        "baseline_max_fde_m": 1.0,
+        "baseline_miss_rate": 0.0,
+        "baseline_failure_score": 0.61,
+        "lane_aware_ade_m": 1.0,
+        "lane_aware_fde_m": 1.0,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 0.0,
+        "lane_aware_map_used_count": 0,
+        "lane_aware_fallback_count": 1
       },
       "tracks": {
         "count": 2,
@@ -595,11 +810,11 @@
       ],
       "reasons": [
         "agent paths come within 2.000 m",
-        "dense scene with 4 tracked agents",
+        "dense scene with 4 tracked agents (4 scored)",
         "high-value taxonomy tags: Merge conflict"
       ],
       "score": {
-        "interaction": 11.982,
+        "interaction": 12.432,
         "taxonomy": 3.5,
         "components": {
           "density": 1.0,
@@ -609,19 +824,40 @@
           "ttc": 2.991,
           "vru_proximity": 0.0,
           "path_conflict": 1.5,
-          "dynamics": 0.0
+          "dynamics": 0.0,
+          "baseline_failure": 0.45
         }
       },
       "metrics": {
         "agent_count": 4,
+        "scoring_agent_count": 4,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
         "vulnerable_road_user_count": 0,
+        "scoring_vulnerable_road_user_count": 0,
+        "sdc_track_present": true,
+        "prediction_target_count": 0,
+        "object_of_interest_count": 0,
         "min_pairwise_distance_m": 5.009,
         "min_vru_distance_m": null,
         "min_path_distance_m": 2.0,
         "min_time_to_collision_s": 3.607,
         "max_speed_mps": 9.0,
         "ego_max_speed_mps": 8.002,
-        "max_deceleration_mps2": 0.0
+        "max_deceleration_mps2": null,
+        "prediction_target_source": "non_ego_tracks",
+        "prediction_target_evaluated_count": 3,
+        "baseline_ade_m": 0.0,
+        "baseline_fde_m": 0.0,
+        "baseline_max_fde_m": 0.0,
+        "baseline_miss_rate": 0.0,
+        "baseline_failure_score": 0.45,
+        "lane_aware_ade_m": 0.0,
+        "lane_aware_fde_m": 0.0,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 0.0,
+        "lane_aware_map_used_count": 0,
+        "lane_aware_fallback_count": 3
       },
       "tracks": {
         "count": 4,
@@ -633,6 +869,77 @@
     },
     {
       "rank": 12,
+      "scenario_id": "synthetic_curved_lane_prediction",
+      "dataset_id": "synthetic",
+      "dataset_label": "Synthetic scenarios",
+      "source": "synthetic",
+      "svg_path": "assets/synthetic_curved_lane_prediction.svg",
+      "tags": [
+        "map_context",
+        "tracks_to_predict"
+      ],
+      "reasons": [
+        "includes 1 Waymo prediction target(s)",
+        "agent paths come within 2.000 m",
+        "constant-velocity baseline FDE is 5.831 m across 1 target(s)",
+        "baseline miss rate is 100.0%"
+      ],
+      "score": {
+        "interaction": 6.902,
+        "taxonomy": 0,
+        "components": {
+          "density": 0.5,
+          "vru": 0.0,
+          "taxonomy": 0,
+          "proximity": 0.174,
+          "ttc": 0.0,
+          "vru_proximity": 0.0,
+          "path_conflict": 1.5,
+          "dynamics": 0.0,
+          "baseline_failure": 4.728
+        }
+      },
+      "metrics": {
+        "agent_count": 2,
+        "scoring_agent_count": 2,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
+        "vulnerable_road_user_count": 0,
+        "scoring_vulnerable_road_user_count": 0,
+        "sdc_track_present": true,
+        "prediction_target_count": 1,
+        "object_of_interest_count": 0,
+        "min_pairwise_distance_m": 7.826,
+        "min_vru_distance_m": null,
+        "min_path_distance_m": 2.0,
+        "min_time_to_collision_s": null,
+        "max_speed_mps": 4.031,
+        "ego_max_speed_mps": 4.0,
+        "max_deceleration_mps2": 0.646,
+        "prediction_target_source": "waymo_tracks_to_predict",
+        "prediction_target_evaluated_count": 1,
+        "baseline_ade_m": 3.817,
+        "baseline_fde_m": 5.831,
+        "baseline_max_fde_m": 5.831,
+        "baseline_miss_rate": 1.0,
+        "baseline_failure_score": 4.728,
+        "lane_aware_ade_m": 0.63,
+        "lane_aware_fde_m": 0.615,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 5.216,
+        "lane_aware_map_used_count": 1,
+        "lane_aware_fallback_count": 0
+      },
+      "tracks": {
+        "count": 2,
+        "ego_track_id": "ego",
+        "agent_types": [
+          "vehicle"
+        ]
+      }
+    },
+    {
+      "rank": 13,
       "scenario_id": "synthetic_easy_following",
       "dataset_id": "synthetic",
       "dataset_label": "Synthetic scenarios",
@@ -645,7 +952,7 @@
         "included as a low-interaction baseline"
       ],
       "score": {
-        "interaction": 0.5,
+        "interaction": 0.65,
         "taxonomy": 0.0,
         "components": {
           "density": 0.5,
@@ -655,19 +962,40 @@
           "ttc": 0.0,
           "vru_proximity": 0.0,
           "path_conflict": 0.0,
-          "dynamics": 0.0
+          "dynamics": 0.0,
+          "baseline_failure": 0.15
         }
       },
       "metrics": {
         "agent_count": 2,
+        "scoring_agent_count": 2,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
         "vulnerable_road_user_count": 0,
+        "scoring_vulnerable_road_user_count": 0,
+        "sdc_track_present": true,
+        "prediction_target_count": 0,
+        "object_of_interest_count": 0,
         "min_pairwise_distance_m": 30.0,
         "min_vru_distance_m": null,
         "min_path_distance_m": 16.0,
         "min_time_to_collision_s": null,
         "max_speed_mps": 7.0,
         "ego_max_speed_mps": 7.0,
-        "max_deceleration_mps2": 0.0
+        "max_deceleration_mps2": null,
+        "prediction_target_source": "non_ego_tracks",
+        "prediction_target_evaluated_count": 1,
+        "baseline_ade_m": 0.0,
+        "baseline_fde_m": 0.0,
+        "baseline_max_fde_m": 0.0,
+        "baseline_miss_rate": 0.0,
+        "baseline_failure_score": 0.15,
+        "lane_aware_ade_m": 0.0,
+        "lane_aware_fde_m": 0.0,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 0.0,
+        "lane_aware_map_used_count": 0,
+        "lane_aware_fallback_count": 1
       },
       "tracks": {
         "count": 2,
@@ -678,7 +1006,7 @@
       }
     },
     {
-      "rank": 13,
+      "rank": 14,
       "scenario_id": "synthetic_open_road_baseline",
       "dataset_id": "synthetic",
       "dataset_label": "Synthetic scenarios",
@@ -691,7 +1019,7 @@
         "included as a low-interaction baseline"
       ],
       "score": {
-        "interaction": 0.25,
+        "interaction": 0.4,
         "taxonomy": 0.0,
         "components": {
           "density": 0.25,
@@ -701,19 +1029,40 @@
           "ttc": 0.0,
           "vru_proximity": 0.0,
           "path_conflict": 0.0,
-          "dynamics": 0.0
+          "dynamics": 0.0,
+          "baseline_failure": 0.15
         }
       },
       "metrics": {
         "agent_count": 1,
+        "scoring_agent_count": 1,
+        "excluded_track_count": 0,
+        "low_quality_track_count": 0,
         "vulnerable_road_user_count": 0,
+        "scoring_vulnerable_road_user_count": 0,
+        "sdc_track_present": true,
+        "prediction_target_count": 0,
+        "object_of_interest_count": 0,
         "min_pairwise_distance_m": null,
         "min_vru_distance_m": null,
         "min_path_distance_m": null,
         "min_time_to_collision_s": null,
         "max_speed_mps": 10.0,
         "ego_max_speed_mps": 10.0,
-        "max_deceleration_mps2": 0.0
+        "max_deceleration_mps2": null,
+        "prediction_target_source": "all_tracks",
+        "prediction_target_evaluated_count": 1,
+        "baseline_ade_m": 0.0,
+        "baseline_fde_m": 0.0,
+        "baseline_max_fde_m": 0.0,
+        "baseline_miss_rate": 0.0,
+        "baseline_failure_score": 0.15,
+        "lane_aware_ade_m": 0.0,
+        "lane_aware_fde_m": 0.0,
+        "lane_aware_miss_rate": 0.0,
+        "baseline_fde_improvement_m": 0.0,
+        "lane_aware_map_used_count": 0,
+        "lane_aware_fallback_count": 1
       },
       "tracks": {
         "count": 1,

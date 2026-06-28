@@ -27,23 +27,46 @@ const nodes = {
   detailSubtitle: document.querySelector("#detailSubtitle"),
   detailTags: document.querySelector("#detailTags"),
   scenarioImage: document.querySelector("#scenarioImage"),
+  baselineCard: document.querySelector("#baselineCard"),
   componentBars: document.querySelector("#componentBars"),
   metricGrid: document.querySelector("#metricGrid"),
   reasonList: document.querySelector("#reasonList"),
   previousScenario: document.querySelector("#previousScenario"),
   nextScenario: document.querySelector("#nextScenario"),
+  heroScenarioCount: document.querySelector("#heroScenarioCount"),
+  heroMaxFde: document.querySelector("#heroMaxFde"),
 };
 
 const metricLabels = {
   agent_count: "Agents",
+  scoring_agent_count: "Scored agents",
+  excluded_track_count: "Excluded tracks",
+  low_quality_track_count: "Low-quality tracks",
   vulnerable_road_user_count: "VRUs",
+  scoring_vulnerable_road_user_count: "Scored VRUs",
+  sdc_track_present: "SDC present",
+  prediction_target_count: "Prediction targets",
+  object_of_interest_count: "Objects of interest",
   min_pairwise_distance_m: "Min distance",
   min_vru_distance_m: "Min VRU distance",
   min_path_distance_m: "Min path distance",
-  min_time_to_collision_s: "Min TTC",
+  min_time_to_collision_s: "Screened TTC",
   max_speed_mps: "Max speed",
   ego_max_speed_mps: "Ego speed",
-  max_deceleration_mps2: "Max decel",
+  max_deceleration_mps2: "Robust max decel",
+  prediction_target_source: "Target source",
+  prediction_target_evaluated_count: "Evaluated targets",
+  baseline_ade_m: "Baseline ADE",
+  baseline_fde_m: "Baseline FDE",
+  baseline_max_fde_m: "Max baseline FDE",
+  baseline_miss_rate: "Baseline miss rate",
+  baseline_failure_score: "Baseline failure",
+  lane_aware_ade_m: "Lane-aware ADE",
+  lane_aware_fde_m: "Lane-aware FDE",
+  lane_aware_miss_rate: "Lane-aware miss rate",
+  baseline_fde_improvement_m: "FDE improvement",
+  lane_aware_map_used_count: "Lane map used",
+  lane_aware_fallback_count: "Lane fallback",
 };
 
 const metricUnits = {
@@ -54,6 +77,12 @@ const metricUnits = {
   max_speed_mps: "m/s",
   ego_max_speed_mps: "m/s",
   max_deceleration_mps2: "m/s^2",
+  baseline_ade_m: "m",
+  baseline_fde_m: "m",
+  baseline_max_fde_m: "m",
+  lane_aware_ade_m: "m",
+  lane_aware_fde_m: "m",
+  baseline_fde_improvement_m: "m",
 };
 
 async function boot() {
@@ -64,6 +93,7 @@ async function boot() {
     }
     state.payload = await response.json();
     state.datasets = new Set(state.payload.filters.datasets);
+    renderHeroStats();
     renderFilters();
     render();
   } catch (error) {
@@ -71,10 +101,20 @@ async function boot() {
     nodes.datasetSummary.textContent = error.message;
     nodes.scenarioRows.innerHTML = `
       <tr class="empty-row">
-        <td colspan="6">Dashboard data could not be loaded.</td>
+        <td colspan="7">Dashboard data could not be loaded.</td>
       </tr>
     `;
   }
+}
+
+function renderHeroStats() {
+  const scenarios = state.payload.scenarios;
+  const maxFde = Math.max(
+    0,
+    ...scenarios.map((scenario) => scenario.metrics.baseline_fde_m ?? 0),
+  );
+  nodes.heroScenarioCount.textContent = String(state.payload.scenario_count);
+  nodes.heroMaxFde.textContent = `${formatNumber(maxFde)} m`;
 }
 
 function renderFilters() {
@@ -140,7 +180,7 @@ function renderRows(scenarios) {
   if (scenarios.length === 0) {
     nodes.scenarioRows.innerHTML = `
       <tr class="empty-row">
-        <td colspan="6">No scenarios match the active filters.</td>
+        <td colspan="7">No scenarios match the active filters.</td>
       </tr>
     `;
     return;
@@ -150,11 +190,12 @@ function renderRows(scenarios) {
     <tr data-scenario-id="${escapeHtml(scenario.scenario_id)}" class="${scenario.scenario_id === state.selectedId ? "selected" : ""}" tabindex="0">
       <td><span class="rank-cell">#${scenario.rank}</span></td>
       <td>
-        <span class="scenario-name">${escapeHtml(scenario.scenario_id)}</span>
-        <span class="scenario-source">${escapeHtml(scenario.source)}</span>
+        <span class="scenario-name">${escapeHtml(scenarioLabel(scenario.scenario_id))}</span>
+        <span class="scenario-source">${escapeHtml(scenario.scenario_id)} / ${escapeHtml(scenario.source)}</span>
       </td>
       <td><span class="dataset-chip">${escapeHtml(shortDatasetLabel(scenario.dataset_id))}</span></td>
       <td><span class="score-chip">${formatNumber(scenario.score.interaction)}</span></td>
+      <td><span class="failure-chip">${formatMetric(scenario.metrics.baseline_fde_m, "m")}</span></td>
       <td><div class="tag-cell">${tagChips(scenario.tags, 4)}</div></td>
       <td><div class="reason-snippet">${escapeHtml(scenario.reasons[0] ?? "Included for comparison.")}</div></td>
     </tr>
@@ -168,17 +209,19 @@ function renderDetail(scenario, scenarios) {
     nodes.detailTags.innerHTML = "";
     nodes.scenarioImage.removeAttribute("src");
     nodes.scenarioImage.alt = "";
+    nodes.baselineCard.innerHTML = "";
     nodes.componentBars.innerHTML = "";
     nodes.metricGrid.innerHTML = "";
     nodes.reasonList.innerHTML = "";
     return;
   }
 
-  nodes.detailTitle.textContent = scenario.scenario_id;
-  nodes.detailSubtitle.textContent = `${scenario.dataset_label} / score ${formatNumber(scenario.score.interaction)}`;
+  nodes.detailTitle.textContent = scenarioLabel(scenario.scenario_id);
+  nodes.detailSubtitle.textContent = `${scenario.scenario_id} / ${scenario.dataset_label} / score ${formatNumber(scenario.score.interaction)}`;
   nodes.detailTags.innerHTML = tagChips(scenario.tags, scenario.tags.length);
   nodes.scenarioImage.src = scenario.svg_path;
   nodes.scenarioImage.alt = `Trajectory preview for ${scenario.scenario_id}`;
+  nodes.baselineCard.innerHTML = baselineCard(scenario);
   nodes.componentBars.innerHTML = componentBars(scenario.score.components);
   nodes.metricGrid.innerHTML = metrics(scenario.metrics);
   nodes.reasonList.innerHTML = scenario.reasons
@@ -190,6 +233,84 @@ function renderDetail(scenario, scenarios) {
   nodes.nextScenario.disabled = scenarios.length <= 1;
   nodes.previousScenario.dataset.index = String(index <= 0 ? scenarios.length - 1 : index - 1);
   nodes.nextScenario.dataset.index = String(index >= scenarios.length - 1 ? 0 : index + 1);
+}
+
+function baselineCard(scenario) {
+  const metrics = scenario.metrics;
+  const cvMissRate = percentMetric(metrics.baseline_miss_rate);
+  const laneMissRate = percentMetric(metrics.lane_aware_miss_rate);
+  const evaluatedTargets = formatMetric(metrics.prediction_target_evaluated_count);
+  const laneFde = metrics.lane_aware_fde_m;
+  const hasLaneComparison = laneFde !== null && laneFde !== undefined;
+  if (!hasLaneComparison) {
+    return `
+      <div class="baseline-grid">
+        <div>
+          <dt>ADE</dt>
+          <dd>${formatMetric(metrics.baseline_ade_m, "m")}</dd>
+        </div>
+        <div>
+          <dt>FDE</dt>
+          <dd>${formatMetric(metrics.baseline_fde_m, "m")}</dd>
+        </div>
+        <div>
+          <dt>Miss rate</dt>
+          <dd>${cvMissRate}</dd>
+        </div>
+        <div>
+          <dt>Targets</dt>
+          <dd>${evaluatedTargets}</dd>
+        </div>
+      </div>
+      <p>${escapeHtml(baselineInterpretation(metrics))}</p>
+    `;
+  }
+
+  return `
+    <div class="baseline-grid compare-grid">
+      <div>
+        <dt>CV FDE</dt>
+        <dd>${formatMetric(metrics.baseline_fde_m, "m")}</dd>
+      </div>
+      <div>
+        <dt>Lane FDE</dt>
+        <dd>${formatMetric(metrics.lane_aware_fde_m, "m")}</dd>
+      </div>
+      <div>
+        <dt>FDE delta</dt>
+        <dd>${formatDelta(metrics.baseline_fde_improvement_m)}</dd>
+      </div>
+      <div>
+        <dt>Lane miss</dt>
+        <dd>${laneMissRate}</dd>
+      </div>
+      <div>
+        <dt>Map used</dt>
+        <dd>${formatMetric(metrics.lane_aware_map_used_count)}</dd>
+      </div>
+      <div>
+        <dt>Targets</dt>
+        <dd>${evaluatedTargets}</dd>
+      </div>
+    </div>
+    <p>${escapeHtml(baselineInterpretation(metrics))}</p>
+  `;
+}
+
+function baselineInterpretation(metrics) {
+  if (metrics.baseline_fde_m === null || metrics.baseline_fde_m === undefined) {
+    return "No evaluable future target was available for this scenario.";
+  }
+  if (metrics.baseline_fde_m >= 20 || (metrics.baseline_miss_rate ?? 0) >= 0.75) {
+    return "The constant-velocity baseline struggles here, making this a useful scenario for deeper prediction or replay analysis.";
+  }
+  if ((metrics.baseline_fde_improvement_m ?? 0) > 1.0 && (metrics.lane_aware_map_used_count ?? 0) > 0) {
+    return "The lane-aware baseline reduces final displacement error here, showing why map context can matter for prediction evaluation.";
+  }
+  if (metrics.baseline_fde_m >= 5) {
+    return "The baseline has moderate error here, useful for comparing against stronger forecasting assumptions.";
+  }
+  return "The baseline explains this short fixture well; this scenario is mainly useful for interaction scoring and visual sanity checks.";
 }
 
 function componentBars(components) {
@@ -240,6 +361,8 @@ function sortScenarios(scenarios) {
       return sorted.sort((a, b) => optional(a.metrics.min_pairwise_distance_m) - optional(b.metrics.min_pairwise_distance_m));
     case "ttc-asc":
       return sorted.sort((a, b) => optional(a.metrics.min_time_to_collision_s) - optional(b.metrics.min_time_to_collision_s));
+    case "fde-desc":
+      return sorted.sort((a, b) => (b.metrics.baseline_fde_m ?? -1) - (a.metrics.baseline_fde_m ?? -1));
     case "rank-asc":
       return sorted.sort((a, b) => a.rank - b.rank);
     case "score-desc":
@@ -399,6 +522,18 @@ function componentLabel(value) {
   return value.replaceAll("_", " ");
 }
 
+function scenarioLabel(value) {
+  const acronyms = new Set(["csv", "json", "sdc", "ttc", "vru"]);
+  return value
+    .split("_")
+    .filter(Boolean)
+    .map((word) => {
+      if (acronyms.has(word.toLowerCase())) return word.toUpperCase();
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
+}
+
 function shortDatasetLabel(datasetId) {
   const labels = {
     synthetic: "Synthetic",
@@ -412,7 +547,28 @@ function formatMetric(value, unit) {
   if (value === null || value === undefined) {
     return "n/a";
   }
+  if (typeof value === "boolean") {
+    return value ? "yes" : "no";
+  }
+  if (typeof value === "string") {
+    return value.replaceAll("_", " ");
+  }
+  if (unit === undefined && String(value).includes(".")) {
+    return formatNumber(value);
+  }
   return `${formatNumber(value)}${unit ? ` ${unit}` : ""}`;
+}
+
+function percentMetric(value) {
+  return value === null || value === undefined ? "n/a" : `${formatNumber(value * 100)}%`;
+}
+
+function formatDelta(value) {
+  if (value === null || value === undefined) {
+    return "n/a";
+  }
+  const formatted = formatNumber(value);
+  return value > 0 ? `+${formatted} m` : `${formatted} m`;
 }
 
 function formatNumber(value) {
