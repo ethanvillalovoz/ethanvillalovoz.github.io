@@ -32,6 +32,8 @@ Generated files:
 - `scenarios.json`: ranked dashboard payload.
 - `assets/*.svg`: trajectory views referenced by `scenarios.json`.
 - `assets/scenariolens-explorer.png`: README screenshot of the dashboard.
+- `assets/scenariolens-demo.gif`: short README demo loop showing filtering,
+  trajectory inspection, and baseline comparison.
 - The evidence band and baseline-failure card are code-native UI backed by
   `scenarios.json`.
 
@@ -61,6 +63,7 @@ scenariolens dashboard-data \
 - raw and scored-context metrics used in ranking,
 - constant-velocity baseline ADE/FDE, miss rate, target source, and failure score,
 - lane-aware ADE/FDE, miss rate, FDE improvement, map-used count, and fallback count,
+- lane-aware fallback reason summaries,
 - Waymo metadata credibility fields such as SDC presence, prediction targets,
   and objects of interest when available,
 - taxonomy tags,

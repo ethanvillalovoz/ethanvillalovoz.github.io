@@ -120,7 +120,11 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 0.0,
         "lane_aware_map_used_count": 0,
-        "lane_aware_fallback_count": 3
+        "lane_aware_fallback_count": 3,
+        "lane_aware_fallback_reasons": [
+          "no_lane_map_features (2)",
+          "non_vehicle_or_cyclist_target (1)"
+        ]
       },
       "tracks": {
         "count": 4,
@@ -197,7 +201,11 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 0.0,
         "lane_aware_map_used_count": 0,
-        "lane_aware_fallback_count": 2
+        "lane_aware_fallback_count": 2,
+        "lane_aware_fallback_reasons": [
+          "no_lane_map_features (1)",
+          "non_vehicle_or_cyclist_target (1)"
+        ]
       },
       "tracks": {
         "count": 3,
@@ -276,7 +284,10 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 0.0,
         "lane_aware_map_used_count": 0,
-        "lane_aware_fallback_count": 1
+        "lane_aware_fallback_count": 1,
+        "lane_aware_fallback_reasons": [
+          "non_vehicle_or_cyclist_target (1)"
+        ]
       },
       "tracks": {
         "count": 3,
@@ -351,7 +362,11 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 0.0,
         "lane_aware_map_used_count": 0,
-        "lane_aware_fallback_count": 2
+        "lane_aware_fallback_count": 2,
+        "lane_aware_fallback_reasons": [
+          "no_lane_map_features (1)",
+          "non_vehicle_or_cyclist_target (1)"
+        ]
       },
       "tracks": {
         "count": 3,
@@ -426,7 +441,11 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 0.0,
         "lane_aware_map_used_count": 0,
-        "lane_aware_fallback_count": 2
+        "lane_aware_fallback_count": 2,
+        "lane_aware_fallback_reasons": [
+          "no_lane_map_features (1)",
+          "non_vehicle_or_cyclist_target (1)"
+        ]
       },
       "tracks": {
         "count": 3,
@@ -501,7 +520,10 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 0.0,
         "lane_aware_map_used_count": 0,
-        "lane_aware_fallback_count": 1
+        "lane_aware_fallback_count": 1,
+        "lane_aware_fallback_reasons": [
+          "no_lane_map_features (1)"
+        ]
       },
       "tracks": {
         "count": 2,
@@ -575,7 +597,10 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 0.0,
         "lane_aware_map_used_count": 0,
-        "lane_aware_fallback_count": 1
+        "lane_aware_fallback_count": 1,
+        "lane_aware_fallback_reasons": [
+          "non_vehicle_or_cyclist_target (1)"
+        ]
       },
       "tracks": {
         "count": 2,
@@ -647,7 +672,10 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 0.0,
         "lane_aware_map_used_count": 0,
-        "lane_aware_fallback_count": 1
+        "lane_aware_fallback_count": 1,
+        "lane_aware_fallback_reasons": [
+          "no_lane_map_features (1)"
+        ]
       },
       "tracks": {
         "count": 2,
@@ -717,7 +745,10 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 0.0,
         "lane_aware_map_used_count": 0,
-        "lane_aware_fallback_count": 2
+        "lane_aware_fallback_count": 2,
+        "lane_aware_fallback_reasons": [
+          "no_lane_map_features (2)"
+        ]
       },
       "tracks": {
         "count": 3,
@@ -787,7 +818,10 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 0.0,
         "lane_aware_map_used_count": 0,
-        "lane_aware_fallback_count": 1
+        "lane_aware_fallback_count": 1,
+        "lane_aware_fallback_reasons": [
+          "no_lane_map_features (1)"
+        ]
       },
       "tracks": {
         "count": 2,
@@ -857,7 +891,10 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 0.0,
         "lane_aware_map_used_count": 0,
-        "lane_aware_fallback_count": 3
+        "lane_aware_fallback_count": 3,
+        "lane_aware_fallback_reasons": [
+          "no_lane_map_features (3)"
+        ]
       },
       "tracks": {
         "count": 4,
@@ -928,7 +965,8 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 5.216,
         "lane_aware_map_used_count": 1,
-        "lane_aware_fallback_count": 0
+        "lane_aware_fallback_count": 0,
+        "lane_aware_fallback_reasons": []
       },
       "tracks": {
         "count": 2,
@@ -995,7 +1033,10 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 0.0,
         "lane_aware_map_used_count": 0,
-        "lane_aware_fallback_count": 1
+        "lane_aware_fallback_count": 1,
+        "lane_aware_fallback_reasons": [
+          "no_lane_map_features (1)"
+        ]
       },
       "tracks": {
         "count": 2,
@@ -1062,7 +1103,10 @@
         "lane_aware_miss_rate": 0.0,
         "baseline_fde_improvement_m": 0.0,
         "lane_aware_map_used_count": 0,
-        "lane_aware_fallback_count": 1
+        "lane_aware_fallback_count": 1,
+        "lane_aware_fallback_reasons": [
+          "no_lane_map_features (1)"
+        ]
       },
       "tracks": {
         "count": 1,

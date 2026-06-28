@@ -801,6 +801,11 @@ a {
   line-height: 1.42;
 }
 
+.baseline-card p.fallback-note {
+  border-left-color: var(--amber);
+  background: #fffbeb;
+}
+
 .component-bars {
   display: grid;
   gap: 10px;

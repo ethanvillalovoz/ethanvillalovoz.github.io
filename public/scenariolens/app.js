@@ -242,6 +242,9 @@ function baselineCard(scenario) {
   const evaluatedTargets = formatMetric(metrics.prediction_target_evaluated_count);
   const laneFde = metrics.lane_aware_fde_m;
   const hasLaneComparison = laneFde !== null && laneFde !== undefined;
+  const fallbackReasons = Array.isArray(metrics.lane_aware_fallback_reasons)
+    ? metrics.lane_aware_fallback_reasons
+    : [];
   if (!hasLaneComparison) {
     return `
       <div class="baseline-grid">
@@ -294,6 +297,7 @@ function baselineCard(scenario) {
       </div>
     </div>
     <p>${escapeHtml(baselineInterpretation(metrics))}</p>
+    ${fallbackReasons.length ? `<p class="fallback-note">Fallback reasons: ${escapeHtml(fallbackReasons.join(", "))}</p>` : ""}
   `;
 }
 
