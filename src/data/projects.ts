@@ -172,6 +172,25 @@ export const projects: Project[] = [
 		date: "June 2026",
 		status: "Active",
 	},
+	{
+		title: "MetricDrive: Metric-Aligned Planning Lab",
+		description:
+			"A Waymo-aligned autonomy research project that turns synthetic long-tail driving scenarios into metric-ranked trajectories, preference pairs, learned reward choices, VLM-style planning rows, and a tiny RL-alignment analogue.",
+		image: "/metricdrive/assets/metricdrive-explorer.svg",
+		tags: ["Autonomous Driving", "Reward Modeling", "VLM Planning", "Python"],
+		extraLinks: [
+			{
+				label: "Live Demo",
+				url: "/metricdrive/",
+			},
+			{
+				label: "Code",
+				url: "https://github.com/ethanvillalovoz/metricdrive",
+			},
+		],
+		date: "June 2026",
+		status: "Active",
+	},
 ];
 
 export const projectsNewestFirst = [...projects].reverse();

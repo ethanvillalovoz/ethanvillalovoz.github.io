@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MetricDrive Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="./">MetricDrive</a>
+      <nav aria-label="Primary navigation">
+        <a href="#demo">Demo</a>
+        <a href="#vlm">VLM examples</a>
+        <a href="#rl">RL analogue</a>
+        <a href="https://github.com/ethanvillalovoz/metricdrive">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <h1 id="page-title">Metric-aligned planning lab for autonomous-driving trajectory choices.</h1>
+          <p>
+            A public, laptop-scale analogue for planning representations, metric-derived preferences,
+            learned reward selection, hard negatives, and tiny reward-optimization experiments.
+          </p>
+        </div>
+        <div class="proof-grid" id="summary"></div>
+      </section>
+
+      <section class="workbench" id="demo" aria-label="Interactive planning demo">
+        <aside class="scenario-rail">
+          <h2>Scenarios</h2>
+          <div id="scenarioButtons" class="scenario-buttons"></div>
+        </aside>
+
+        <section class="viewer">
+          <div class="viewer-head">
+            <div>
+              <h2 id="scenarioTitle">Loading...</h2>
+              <p id="scenarioPrompt"></p>
+            </div>
+            <div class="status-stack">
+              <span id="metricBest"></span>
+              <span id="learnedChoice"></span>
+            </div>
+          </div>
+          <img id="scenarioImage" alt="Scenario trajectory visualization">
+        </section>
+
+        <section class="inspector">
+          <h2>Metric-ranked candidates</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Candidate</th>
+                  <th>Score</th>
+                  <th>Clearance</th>
+                  <th>Progress</th>
+                </tr>
+              </thead>
+              <tbody id="candidateRows"></tbody>
+            </table>
+          </div>
+          <div class="preference" id="preferenceBox"></div>
+        </section>
+      </section>
+
+      <section class="evidence-grid">
+        <article>
+          <h2>Hard-negative stress test</h2>
+          <div id="ablationBars" class="bars"></div>
+        </article>
+        <article id="vlm">
+          <h2>VLM planning row</h2>
+          <pre id="vlmExample"></pre>
+        </article>
+        <article id="rl">
+          <h2>RL post-training analogue</h2>
+          <div id="rlTable" class="table-wrap"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

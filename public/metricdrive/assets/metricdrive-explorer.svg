@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-label="MetricDrive Explorer preview">
+<style>
+text{font-family:Inter,Arial,Helvetica,sans-serif;fill:#0f172a}
+.title{font-size:54px;font-weight:800}.sub{font-size:24px;fill:#475569}.label{font-size:18px;font-weight:700}.tiny{font-size:15px;fill:#475569}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+</style>
+<rect width="1440" height="900" fill="#f8fafc"/>
+<rect x="44" y="40" width="1352" height="820" rx="24" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="84" y="118" class="title">MetricDrive Explorer</text>
+<text x="84" y="158" class="sub">Metric-aligned planning loop for trajectory choices</text>
+<rect x="84" y="204" width="760" height="470" rx="18" fill="#f1f5f9" stroke="#cbd5e1"/>
+<rect x="130" y="260" width="660" height="318" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+<path d="M160 520 C280 500, 430 390, 708 320" fill="none" stroke="#0f766e" stroke-width="10" stroke-linecap="round"/>
+<path d="M160 525 C320 475, 430 335, 735 250" fill="none" stroke="#dc2626" stroke-width="5" stroke-dasharray="12 12" stroke-linecap="round"/>
+<path d="M160 530 C300 560, 455 520, 730 500" fill="none" stroke="#2563eb" stroke-width="5" stroke-dasharray="8 12" stroke-linecap="round"/>
+<circle cx="520" cy="362" r="18" fill="#c026d3" opacity="0.82"/>
+<circle cx="662" cy="340" r="18" fill="#334155" opacity="0.75"/>
+<circle cx="740" cy="312" r="14" fill="#facc15" stroke="#854d0e" stroke-width="4"/>
+<text x="130" y="632" class="tiny">teal: metric best    red: unsafe hard negative    blue: logged/reference</text>
+<rect x="900" y="204" width="430" height="146" rx="18" fill="#ecfeff" stroke="#99f6e4"/>
+<text x="928" y="248" class="label">Hard negatives</text>
+<text x="928" y="294" class="title" style="font-size:42px">18</text>
+<text x="1014" y="294" class="tiny">generated candidates, 90 preference pairs</text>
+<rect x="900" y="376" width="430" height="148" rx="18" fill="#eff6ff" stroke="#bfdbfe"/>
+<text x="928" y="420" class="label">Learned reward recovery</text>
+<text x="928" y="468" class="title" style="font-size:42px">6/6</text>
+<text x="1018" y="468" class="tiny">held-out metric-best matches, zero unsafe selections</text>
+<text x="900" y="570" class="label">Stress ablations</text>
+<text x="920" y="600" class="tiny">Full objective</text>
+<rect x="1040" y="586" width="260" height="12" rx="6" fill="#e2e8f0"/>
+<rect x="1040" y="586" width="260.0" height="12" rx="6" fill="#0f766e"/>
+<text x="920" y="642" class="tiny">No collision</text>
+<rect x="1040" y="628" width="260" height="12" rx="6" fill="#e2e8f0"/>
+<rect x="1040" y="628" width="86.6" height="12" rx="6" fill="#dc2626"/>
+<text x="920" y="684" class="tiny">Progress only</text>
+<rect x="1040" y="670" width="260" height="12" rx="6" fill="#e2e8f0"/>
+<rect x="1040" y="670" width="43.4" height="12" rx="6" fill="#f59e0b"/>
+<text x="920" y="726" class="tiny">Safety only</text>
+<rect x="1040" y="712" width="260" height="12" rx="6" fill="#e2e8f0"/>
+<rect x="1040" y="712" width="86.6" height="12" rx="6" fill="#2563eb"/>
+<rect x="84" y="710" width="760" height="98" rx="18" fill="#0f172a"/>
+<text x="116" y="756" fill="#ffffff" class="label">Pedestrian crossing with tempting fast progress</text>
+<text x="116" y="790" fill="#cbd5e1" class="tiny mono">prompt -> candidate trajectories -> metric preferences -> learned reward -> policy update</text>
+</svg>

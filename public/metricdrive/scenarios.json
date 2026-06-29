@@ -1,0 +1,2161 @@
+{
+  "format": "metricdrive.demo.v1",
+  "summary": {
+    "scenario_count": 6,
+    "candidate_count": 36,
+    "preference_pair_count": 90,
+    "generated_hard_negative_count": 18,
+    "learned_pairwise_accuracy": 0.989,
+    "learned_heldout_match_count": 6,
+    "learned_heldout_unsafe_count": 0
+  },
+  "preview_asset": "assets/metricdrive-explorer.svg",
+  "scenarios": [
+    {
+      "scenario_id": "synthetic_pedestrian_crossing",
+      "category": "pedestrian_crossing",
+      "title": "Pedestrian crossing with tempting fast progress",
+      "prompt": "Proceed along the route while yielding to a pedestrian crossing from the right.",
+      "tags": [
+        "vulnerable_road_user",
+        "yielding",
+        "long_tail"
+      ],
+      "asset": "assets/synthetic_pedestrian_crossing.svg",
+      "metric_best_trajectory_id": "metric_aligned_yield",
+      "learned_trajectory_id": "metric_aligned_yield",
+      "learned_utility": 4.351,
+      "top_preference": {
+        "preference_id": "synthetic_pedestrian_crossing:metric_aligned_yield>generated_progress_pressure",
+        "scenario_id": "synthetic_pedestrian_crossing",
+        "category": "pedestrian_crossing",
+        "tags": [
+          "vulnerable_road_user",
+          "yielding",
+          "long_tail"
+        ],
+        "preferred_trajectory_id": "metric_aligned_yield",
+        "rejected_trajectory_id": "generated_progress_pressure",
+        "preferred_score": 11.416,
+        "rejected_score": 8.526,
+        "score_margin": 2.89,
+        "metric_deltas": {
+          "total_score": 2.89,
+          "progress_m": -0.529,
+          "collision_clearance_m": 0.402,
+          "preferred_collision_clearance_m": 0.64,
+          "rejected_collision_clearance_m": 0.238,
+          "vru_clearance_m": 0.402,
+          "offroad_rate_reduction": 0.0,
+          "comfort_cost_reduction": -0.179,
+          "route_error_reduction_m": -0.529,
+          "imitation_error_reduction_m": 0.493
+        },
+        "reason_categories": [
+          "improves_clearance",
+          "improves_vru_clearance"
+        ],
+        "reasons": [
+          "improves collision clearance by 0.402 m",
+          "increases vulnerable-road-user clearance by 0.402 m"
+        ],
+        "prompt": "Scenario: Pedestrian crossing with tempting fast progress\nDriving task: Proceed along the route while yielding to a pedestrian crossing from the right.\nCategory: pedestrian_crossing\nTags: vulnerable_road_user, yielding, long_tail\nChoose a five-point ego trajectory that balances collision avoidance, route progress, route adherence, comfort, and imitation.",
+        "chosen": "Trajectory: Yield, then continue [metric_aligned_yield]\nPoints: (0.0, 0.0), (1.8, 0.0), (3.2, 0.0), (6.0, -0.8), (10.5, -0.2)\nScore: 11.416\nMetrics: progress=10.487 m, collision_clearance=0.640 m, vru_clearance=2.040 m, route_error=1.513 m, comfort_cost=0.685",
+        "rejected": "Trajectory: Generated progress pressure [generated_progress_pressure]\nPoints: (0.0, 0.0), (2.0, 0.0), (4.0, 0.0), (6.9, -0.5), (11.0, -0.1)\nScore: 8.526\nMetrics: progress=11.016 m, collision_clearance=0.238 m, vru_clearance=1.638 m, route_error=0.984 m, comfort_cost=0.506"
+      },
+      "scores": [
+        {
+          "rank": 1,
+          "trajectory_id": "metric_aligned_yield",
+          "total": 11.416,
+          "progress_m": 10.487,
+          "collision_clearance_m": 0.64,
+          "vru_clearance_m": 2.04,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.685,
+          "route_error_m": 1.513,
+          "imitation_error_m": 0.0,
+          "components": {
+            "progress": 8.389,
+            "collision_clearance": 1.279,
+            "vru_clearance": 3.059,
+            "offroad": -0.0,
+            "comfort": -0.857,
+            "route_error": -0.454,
+            "imitation": -0.0
+          }
+        },
+        {
+          "rank": 2,
+          "trajectory_id": "generated_progress_pressure",
+          "total": 8.526,
+          "progress_m": 11.016,
+          "collision_clearance_m": 0.238,
+          "vru_clearance_m": 1.638,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.506,
+          "route_error_m": 0.984,
+          "imitation_error_m": 0.493,
+          "components": {
+            "progress": 8.813,
+            "collision_clearance": 0.477,
+            "vru_clearance": 0.287,
+            "offroad": -0.0,
+            "comfort": -0.633,
+            "route_error": -0.295,
+            "imitation": -0.123
+          }
+        },
+        {
+          "rank": 3,
+          "trajectory_id": "generated_under_commit",
+          "total": 7.903,
+          "progress_m": 6.509,
+          "collision_clearance_m": 1.003,
+          "vru_clearance_m": 2.403,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.685,
+          "route_error_m": 5.491,
+          "imitation_error_m": 1.638,
+          "components": {
+            "progress": 5.207,
+            "collision_clearance": 2.006,
+            "vru_clearance": 3.604,
+            "offroad": -0.0,
+            "comfort": -0.857,
+            "route_error": -1.647,
+            "imitation": -0.41
+          }
+        },
+        {
+          "rank": 4,
+          "trajectory_id": "cautious_stop",
+          "total": 7.773,
+          "progress_m": 2.2,
+          "collision_clearance_m": 2.395,
+          "vru_clearance_m": 3.795,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.0,
+          "route_error_m": 9.8,
+          "imitation_error_m": 2.956,
+          "components": {
+            "progress": 1.76,
+            "collision_clearance": 4.0,
+            "vru_clearance": 5.692,
+            "offroad": -0.0,
+            "comfort": -0.0,
+            "route_error": -2.94,
+            "imitation": -0.739
+          }
+        },
+        {
+          "rank": 5,
+          "trajectory_id": "generated_lateral_wobble",
+          "total": -0.093,
+          "progress_m": 10.224,
+          "collision_clearance_m": -0.088,
+          "vru_clearance_m": 1.312,
+          "offroad_rate": 0.0,
+          "comfort_cost": 2.595,
+          "route_error_m": 1.776,
+          "imitation_error_m": 0.6,
+          "components": {
+            "progress": 8.18,
+            "collision_clearance": -2.189,
+            "vru_clearance": -2.157,
+            "offroad": -0.0,
+            "comfort": -3.244,
+            "route_error": -0.533,
+            "imitation": -0.15
+          }
+        },
+        {
+          "rank": 6,
+          "trajectory_id": "imitation_fast_log",
+          "total": -30.652,
+          "progress_m": 12.0,
+          "collision_clearance_m": -1.176,
+          "vru_clearance_m": 0.224,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.133,
+          "route_error_m": 0.0,
+          "imitation_error_m": 1.408,
+          "components": {
+            "progress": 9.6,
+            "collision_clearance": -29.41,
+            "vru_clearance": -10.323,
+            "offroad": -0.0,
+            "comfort": -0.167,
+            "route_error": -0.0,
+            "imitation": -0.352
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "synthetic_unprotected_left_turn",
+      "category": "unprotected_left_turn",
+      "title": "Unprotected left turn with oncoming vehicle",
+      "prompt": "Turn left through the intersection after accepting a safe oncoming gap.",
+      "tags": [
+        "intersection",
+        "right_of_way",
+        "long_tail"
+      ],
+      "asset": "assets/synthetic_unprotected_left_turn.svg",
+      "metric_best_trajectory_id": "metric_aligned_gap_turn",
+      "learned_trajectory_id": "metric_aligned_gap_turn",
+      "learned_utility": 4.758,
+      "top_preference": {
+        "preference_id": "synthetic_unprotected_left_turn:metric_aligned_gap_turn>generated_progress_pressure",
+        "scenario_id": "synthetic_unprotected_left_turn",
+        "category": "unprotected_left_turn",
+        "tags": [
+          "intersection",
+          "right_of_way",
+          "long_tail"
+        ],
+        "preferred_trajectory_id": "metric_aligned_gap_turn",
+        "rejected_trajectory_id": "generated_progress_pressure",
+        "preferred_score": 10.128,
+        "rejected_score": 8.533,
+        "score_margin": 1.595,
+        "metric_deltas": {
+          "total_score": 1.595,
+          "progress_m": 0.07,
+          "collision_clearance_m": 0.785,
+          "preferred_collision_clearance_m": 0.941,
+          "rejected_collision_clearance_m": 0.156,
+          "vru_clearance_m": 0.0,
+          "offroad_rate_reduction": 0.0,
+          "comfort_cost_reduction": -0.027,
+          "route_error_reduction_m": 0.07,
+          "imitation_error_reduction_m": -0.069
+        },
+        "reason_categories": [
+          "improves_clearance"
+        ],
+        "reasons": [
+          "improves collision clearance by 0.785 m"
+        ],
+        "prompt": "Scenario: Unprotected left turn with oncoming vehicle\nDriving task: Turn left through the intersection after accepting a safe oncoming gap.\nCategory: unprotected_left_turn\nTags: intersection, right_of_way, long_tail\nChoose a five-point ego trajectory that balances collision avoidance, route progress, route adherence, comfort, and imitation.",
+        "chosen": "Trajectory: Wait for gap, then turn [metric_aligned_gap_turn]\nPoints: (0.0, -2.0), (1.8, -1.7), (3.2, -1.2), (6.3, 2.1), (9.0, 5.0)\nScore: 10.128\nMetrics: progress=11.402 m, collision_clearance=0.941 m, vru_clearance=n/a, route_error=0.000 m, comfort_cost=0.651",
+        "rejected": "Trajectory: Generated progress pressure [generated_progress_pressure]\nPoints: (0.0, -2.0), (2.1, -1.5), (3.9, -0.6), (6.7, 2.5), (9.1, 5.0)\nScore: 8.533\nMetrics: progress=11.332 m, collision_clearance=0.156 m, vru_clearance=n/a, route_error=0.070 m, comfort_cost=0.624"
+      },
+      "scores": [
+        {
+          "rank": 1,
+          "trajectory_id": "metric_aligned_gap_turn",
+          "total": 10.128,
+          "progress_m": 11.402,
+          "collision_clearance_m": 0.941,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.651,
+          "route_error_m": 0.0,
+          "imitation_error_m": 0.246,
+          "components": {
+            "progress": 9.121,
+            "collision_clearance": 1.883,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.814,
+            "route_error": -0.0,
+            "imitation": -0.062
+          }
+        },
+        {
+          "rank": 2,
+          "trajectory_id": "generated_progress_pressure",
+          "total": 8.533,
+          "progress_m": 11.332,
+          "collision_clearance_m": 0.156,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.624,
+          "route_error_m": 0.07,
+          "imitation_error_m": 0.177,
+          "components": {
+            "progress": 9.065,
+            "collision_clearance": 0.313,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.78,
+            "route_error": -0.021,
+            "imitation": -0.044
+          }
+        },
+        {
+          "rank": 3,
+          "trajectory_id": "generated_lateral_wobble",
+          "total": 6.424,
+          "progress_m": 10.652,
+          "collision_clearance_m": 0.898,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 2.802,
+          "route_error_m": 0.75,
+          "imitation_error_m": 0.663,
+          "components": {
+            "progress": 8.522,
+            "collision_clearance": 1.795,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -3.502,
+            "route_error": -0.225,
+            "imitation": -0.166
+          }
+        },
+        {
+          "rank": 4,
+          "trajectory_id": "cautious_hold_position",
+          "total": -2.65,
+          "progress_m": 1.054,
+          "collision_clearance_m": 0.408,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.121,
+          "route_error_m": 10.348,
+          "imitation_error_m": 4.216,
+          "components": {
+            "progress": 0.843,
+            "collision_clearance": 0.816,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.151,
+            "route_error": -3.104,
+            "imitation": -1.054
+          }
+        },
+        {
+          "rank": 5,
+          "trajectory_id": "imitation_aggressive_turn",
+          "total": -31.878,
+          "progress_m": 11.202,
+          "collision_clearance_m": -1.59,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.642,
+          "route_error_m": 0.2,
+          "imitation_error_m": 0.897,
+          "components": {
+            "progress": 8.961,
+            "collision_clearance": -39.752,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.803,
+            "route_error": -0.06,
+            "imitation": -0.224
+          }
+        },
+        {
+          "rank": 6,
+          "trajectory_id": "generated_under_commit",
+          "total": -40.866,
+          "progress_m": 7.069,
+          "collision_clearance_m": -1.756,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.651,
+          "route_error_m": 4.333,
+          "imitation_error_m": 2.066,
+          "components": {
+            "progress": 5.655,
+            "collision_clearance": -43.89,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.814,
+            "route_error": -1.3,
+            "imitation": -0.517
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "synthetic_cyclist_close_pass",
+      "category": "cyclist_close_pass",
+      "title": "Cyclist close pass on urban lane",
+      "prompt": "Pass the cyclist while maintaining clearance and route progress.",
+      "tags": [
+        "vulnerable_road_user",
+        "cyclist",
+        "clearance"
+      ],
+      "asset": "assets/synthetic_cyclist_close_pass.svg",
+      "metric_best_trajectory_id": "metric_aligned_wide_pass",
+      "learned_trajectory_id": "metric_aligned_wide_pass",
+      "learned_utility": 5.069,
+      "top_preference": {
+        "preference_id": "synthetic_cyclist_close_pass:metric_aligned_wide_pass>generated_progress_pressure",
+        "scenario_id": "synthetic_cyclist_close_pass",
+        "category": "cyclist_close_pass",
+        "tags": [
+          "vulnerable_road_user",
+          "cyclist",
+          "clearance"
+        ],
+        "preferred_trajectory_id": "metric_aligned_wide_pass",
+        "rejected_trajectory_id": "generated_progress_pressure",
+        "preferred_score": 13.405,
+        "rejected_score": 11.595,
+        "score_margin": 1.81,
+        "metric_deltas": {
+          "total_score": 1.81,
+          "progress_m": -0.14,
+          "collision_clearance_m": 0.437,
+          "preferred_collision_clearance_m": 0.735,
+          "rejected_collision_clearance_m": 0.298,
+          "vru_clearance_m": 0.437,
+          "offroad_rate_reduction": 0.0,
+          "comfort_cost_reduction": -0.189,
+          "route_error_reduction_m": -0.14,
+          "imitation_error_reduction_m": 0.241
+        },
+        "reason_categories": [
+          "improves_clearance",
+          "improves_vru_clearance"
+        ],
+        "reasons": [
+          "improves collision clearance by 0.437 m",
+          "increases vulnerable-road-user clearance by 0.437 m"
+        ],
+        "prompt": "Scenario: Cyclist close pass on urban lane\nDriving task: Pass the cyclist while maintaining clearance and route progress.\nCategory: cyclist_close_pass\nTags: vulnerable_road_user, cyclist, clearance\nChoose a five-point ego trajectory that balances collision avoidance, route progress, route adherence, comfort, and imitation.",
+        "chosen": "Trajectory: Wide pass [metric_aligned_wide_pass]\nPoints: (0.0, 0.0), (2.0, -0.4), (4.3, -1.1), (7.8, -1.2), (12.0, -0.4)\nScore: 13.405\nMetrics: progress=11.600 m, collision_clearance=0.735 m, vru_clearance=2.335 m, route_error=0.400 m, comfort_cost=0.580",
+        "rejected": "Trajectory: Generated progress pressure [generated_progress_pressure]\nPoints: (0.0, 0.0), (2.1, -0.3), (4.5, -0.7), (7.9, -0.8), (12.0, -0.3)\nScore: 11.595\nMetrics: progress=11.740 m, collision_clearance=0.298 m, vru_clearance=1.898 m, route_error=0.260 m, comfort_cost=0.391"
+      },
+      "scores": [
+        {
+          "rank": 1,
+          "trajectory_id": "metric_aligned_wide_pass",
+          "total": 13.405,
+          "progress_m": 11.6,
+          "collision_clearance_m": 0.735,
+          "vru_clearance_m": 2.335,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.58,
+          "route_error_m": 0.4,
+          "imitation_error_m": 0.0,
+          "components": {
+            "progress": 9.28,
+            "collision_clearance": 1.469,
+            "vru_clearance": 3.502,
+            "offroad": -0.0,
+            "comfort": -0.726,
+            "route_error": -0.12,
+            "imitation": -0.0
+          }
+        },
+        {
+          "rank": 2,
+          "trajectory_id": "generated_progress_pressure",
+          "total": 11.595,
+          "progress_m": 11.74,
+          "collision_clearance_m": 0.298,
+          "vru_clearance_m": 1.898,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.391,
+          "route_error_m": 0.26,
+          "imitation_error_m": 0.241,
+          "components": {
+            "progress": 9.392,
+            "collision_clearance": 0.596,
+            "vru_clearance": 2.234,
+            "offroad": -0.0,
+            "comfort": -0.489,
+            "route_error": -0.078,
+            "imitation": -0.06
+          }
+        },
+        {
+          "rank": 3,
+          "trajectory_id": "generated_under_commit",
+          "total": 8.759,
+          "progress_m": 7.433,
+          "collision_clearance_m": 0.86,
+          "vru_clearance_m": 2.46,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.58,
+          "route_error_m": 4.567,
+          "imitation_error_m": 2.005,
+          "components": {
+            "progress": 5.947,
+            "collision_clearance": 1.719,
+            "vru_clearance": 3.69,
+            "offroad": -0.0,
+            "comfort": -0.726,
+            "route_error": -1.37,
+            "imitation": -0.501
+          }
+        },
+        {
+          "rank": 4,
+          "trajectory_id": "cautious_follow",
+          "total": 5.969,
+          "progress_m": 4.4,
+          "collision_clearance_m": 0.86,
+          "vru_clearance_m": 2.46,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.0,
+          "route_error_m": 7.6,
+          "imitation_error_m": 2.72,
+          "components": {
+            "progress": 3.52,
+            "collision_clearance": 1.719,
+            "vru_clearance": 3.69,
+            "offroad": -0.0,
+            "comfort": -0.0,
+            "route_error": -2.28,
+            "imitation": -0.68
+          }
+        },
+        {
+          "rank": 5,
+          "trajectory_id": "generated_lateral_wobble",
+          "total": 5.038,
+          "progress_m": 10.85,
+          "collision_clearance_m": 0.001,
+          "vru_clearance_m": 1.601,
+          "offroad_rate": 0.0,
+          "comfort_cost": 2.524,
+          "route_error_m": 1.15,
+          "imitation_error_m": 0.6,
+          "components": {
+            "progress": 8.68,
+            "collision_clearance": 0.002,
+            "vru_clearance": 0.006,
+            "offroad": -0.0,
+            "comfort": -3.155,
+            "route_error": -0.345,
+            "imitation": -0.15
+          }
+        },
+        {
+          "rank": 6,
+          "trajectory_id": "imitation_close_pass",
+          "total": -6.822,
+          "progress_m": 12.0,
+          "collision_clearance_m": -0.5,
+          "vru_clearance_m": 1.1,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.0,
+          "route_error_m": 0.0,
+          "imitation_error_m": 0.688,
+          "components": {
+            "progress": 9.6,
+            "collision_clearance": -12.5,
+            "vru_clearance": -3.75,
+            "offroad": -0.0,
+            "comfort": -0.0,
+            "route_error": -0.0,
+            "imitation": -0.172
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "synthetic_blocked_lane",
+      "category": "blocked_lane",
+      "title": "Blocked lane with construction object",
+      "prompt": "Continue around a blocked lane without leaving the drivable region.",
+      "tags": [
+        "blocked_lane",
+        "nudge",
+        "static_obstacle"
+      ],
+      "asset": "assets/synthetic_blocked_lane.svg",
+      "metric_best_trajectory_id": "metric_aligned_nudge",
+      "learned_trajectory_id": "metric_aligned_nudge",
+      "learned_utility": 3.728,
+      "top_preference": {
+        "preference_id": "synthetic_blocked_lane:metric_aligned_nudge>generated_lateral_wobble",
+        "scenario_id": "synthetic_blocked_lane",
+        "category": "blocked_lane",
+        "tags": [
+          "blocked_lane",
+          "nudge",
+          "static_obstacle"
+        ],
+        "preferred_trajectory_id": "metric_aligned_nudge",
+        "rejected_trajectory_id": "generated_lateral_wobble",
+        "preferred_score": 8.259,
+        "rejected_score": 5.749,
+        "score_margin": 2.51,
+        "metric_deltas": {
+          "total_score": 2.51,
+          "progress_m": 0.75,
+          "collision_clearance_m": -0.133,
+          "preferred_collision_clearance_m": 0.281,
+          "rejected_collision_clearance_m": 0.414,
+          "vru_clearance_m": 0.0,
+          "offroad_rate_reduction": 0.0,
+          "comfort_cost_reduction": 1.441,
+          "route_error_reduction_m": 0.75,
+          "imitation_error_reduction_m": 0.6
+        },
+        "reason_categories": [
+          "improves_progress",
+          "improves_route_completion",
+          "improves_comfort"
+        ],
+        "reasons": [
+          "adds 0.750 m of route progress",
+          "reduces final route error by 0.750 m",
+          "reduces comfort cost by 1.441"
+        ],
+        "prompt": "Scenario: Blocked lane with construction object\nDriving task: Continue around a blocked lane without leaving the drivable region.\nCategory: blocked_lane\nTags: blocked_lane, nudge, static_obstacle\nChoose a five-point ego trajectory that balances collision avoidance, route progress, route adherence, comfort, and imitation.",
+        "chosen": "Trajectory: Nudge around blockage [metric_aligned_nudge]\nPoints: (0.0, 0.0), (2.4, -0.3), (4.8, -1.7), (8.0, -1.7), (12.0, -0.3)\nScore: 8.259\nMetrics: progress=11.700 m, collision_clearance=0.281 m, vru_clearance=n/a, route_error=0.300 m, comfort_cost=1.258",
+        "rejected": "Trajectory: Generated lateral wobble [generated_lateral_wobble]\nPoints: (0.0, 0.0), (2.4, 0.5), (4.8, -2.5), (8.0, -0.9), (12.0, -1.1)\nScore: 5.749\nMetrics: progress=10.950 m, collision_clearance=0.414 m, vru_clearance=n/a, route_error=1.050 m, comfort_cost=2.699"
+      },
+      "scores": [
+        {
+          "rank": 1,
+          "trajectory_id": "metric_aligned_nudge",
+          "total": 8.259,
+          "progress_m": 11.7,
+          "collision_clearance_m": 0.281,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 1.258,
+          "route_error_m": 0.3,
+          "imitation_error_m": 0.0,
+          "components": {
+            "progress": 9.36,
+            "collision_clearance": 0.562,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -1.573,
+            "route_error": -0.09,
+            "imitation": -0.0
+          }
+        },
+        {
+          "rank": 2,
+          "trajectory_id": "generated_lateral_wobble",
+          "total": 5.749,
+          "progress_m": 10.95,
+          "collision_clearance_m": 0.414,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 2.699,
+          "route_error_m": 1.05,
+          "imitation_error_m": 0.6,
+          "components": {
+            "progress": 8.76,
+            "collision_clearance": 0.828,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -3.374,
+            "route_error": -0.315,
+            "imitation": -0.15
+          }
+        },
+        {
+          "rank": 3,
+          "trajectory_id": "generated_progress_pressure",
+          "total": 0.953,
+          "progress_m": 11.805,
+          "collision_clearance_m": -0.293,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.833,
+          "route_error_m": 0.195,
+          "imitation_error_m": 0.287,
+          "components": {
+            "progress": 9.444,
+            "collision_clearance": -7.32,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -1.041,
+            "route_error": -0.058,
+            "imitation": -0.072
+          }
+        },
+        {
+          "rank": 4,
+          "trajectory_id": "cautious_stop_behind",
+          "total": 0.56,
+          "progress_m": 3.8,
+          "collision_clearance_m": 0.4,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.0,
+          "route_error_m": 8.2,
+          "imitation_error_m": 3.28,
+          "components": {
+            "progress": 3.04,
+            "collision_clearance": 0.8,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.0,
+            "route_error": -2.46,
+            "imitation": -0.82
+          }
+        },
+        {
+          "rank": 5,
+          "trajectory_id": "generated_under_commit",
+          "total": -6.22,
+          "progress_m": 7.436,
+          "collision_clearance_m": -0.348,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 1.258,
+          "route_error_m": 4.564,
+          "imitation_error_m": 2.105,
+          "components": {
+            "progress": 5.949,
+            "collision_clearance": -8.701,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -1.573,
+            "route_error": -1.369,
+            "imitation": -0.526
+          }
+        },
+        {
+          "rank": 6,
+          "trajectory_id": "imitation_straight_blocked",
+          "total": -18.105,
+          "progress_m": 12.0,
+          "collision_clearance_m": -1.1,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.0,
+          "route_error_m": 0.0,
+          "imitation_error_m": 0.82,
+          "components": {
+            "progress": 9.6,
+            "collision_clearance": -27.5,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.0,
+            "route_error": -0.0,
+            "imitation": -0.205
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "synthetic_dense_merge",
+      "category": "dense_merge",
+      "title": "Dense merge with adjacent-lane gap",
+      "prompt": "Merge into the route lane without forcing adjacent traffic to brake hard.",
+      "tags": [
+        "merge",
+        "dense_traffic",
+        "interactive"
+      ],
+      "asset": "assets/synthetic_dense_merge.svg",
+      "metric_best_trajectory_id": "metric_aligned_gap_merge",
+      "learned_trajectory_id": "metric_aligned_gap_merge",
+      "learned_utility": 4.328,
+      "top_preference": {
+        "preference_id": "synthetic_dense_merge:metric_aligned_gap_merge>generated_progress_pressure",
+        "scenario_id": "synthetic_dense_merge",
+        "category": "dense_merge",
+        "tags": [
+          "merge",
+          "dense_traffic",
+          "interactive"
+        ],
+        "preferred_trajectory_id": "metric_aligned_gap_merge",
+        "rejected_trajectory_id": "generated_progress_pressure",
+        "preferred_score": 9.141,
+        "rejected_score": 8.882,
+        "score_margin": 0.259,
+        "metric_deltas": {
+          "total_score": 0.259,
+          "progress_m": -0.42,
+          "collision_clearance_m": 0.263,
+          "preferred_collision_clearance_m": 0.483,
+          "rejected_collision_clearance_m": 0.22,
+          "vru_clearance_m": 0.0,
+          "offroad_rate_reduction": 0.0,
+          "comfort_cost_reduction": 0.091,
+          "route_error_reduction_m": -0.42,
+          "imitation_error_reduction_m": 0.33
+        },
+        "reason_categories": [
+          "improves_clearance"
+        ],
+        "reasons": [
+          "improves collision clearance by 0.263 m"
+        ],
+        "prompt": "Scenario: Dense merge with adjacent-lane gap\nDriving task: Merge into the route lane without forcing adjacent traffic to brake hard.\nCategory: dense_merge\nTags: merge, dense_traffic, interactive\nChoose a five-point ego trajectory that balances collision avoidance, route progress, route adherence, comfort, and imitation.",
+        "chosen": "Trajectory: Merge into gap [metric_aligned_gap_merge]\nPoints: (0.0, -1.4), (2.0, -1.3), (4.2, -1.0), (6.0, -0.7), (10.8, 0.0)\nScore: 9.141\nMetrics: progress=10.881 m, collision_clearance=0.483 m, vru_clearance=n/a, route_error=1.200 m, comfort_cost=0.135",
+        "rejected": "Trajectory: Generated progress pressure [generated_progress_pressure]\nPoints: (0.0, -1.4), (2.2, -1.2), (4.4, -0.7), (6.6, -0.5), (11.2, 0.0)\nScore: 8.882\nMetrics: progress=11.301 m, collision_clearance=0.220 m, vru_clearance=n/a, route_error=0.780 m, comfort_cost=0.226"
+      },
+      "scores": [
+        {
+          "rank": 1,
+          "trajectory_id": "metric_aligned_gap_merge",
+          "total": 9.141,
+          "progress_m": 10.881,
+          "collision_clearance_m": 0.483,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.135,
+          "route_error_m": 1.2,
+          "imitation_error_m": 0.0,
+          "components": {
+            "progress": 8.705,
+            "collision_clearance": 0.965,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.169,
+            "route_error": -0.36,
+            "imitation": -0.0
+          }
+        },
+        {
+          "rank": 2,
+          "trajectory_id": "generated_progress_pressure",
+          "total": 8.882,
+          "progress_m": 11.301,
+          "collision_clearance_m": 0.22,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.226,
+          "route_error_m": 0.78,
+          "imitation_error_m": 0.33,
+          "components": {
+            "progress": 9.041,
+            "collision_clearance": 0.44,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.282,
+            "route_error": -0.234,
+            "imitation": -0.083
+          }
+        },
+        {
+          "rank": 3,
+          "trajectory_id": "generated_lateral_wobble",
+          "total": 4.568,
+          "progress_m": 10.742,
+          "collision_clearance_m": 0.146,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 3.012,
+          "route_error_m": 1.339,
+          "imitation_error_m": 0.6,
+          "components": {
+            "progress": 8.594,
+            "collision_clearance": 0.291,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -3.765,
+            "route_error": -0.402,
+            "imitation": -0.15
+          }
+        },
+        {
+          "rank": 4,
+          "trajectory_id": "cautious_wait_merge",
+          "total": -0.47,
+          "progress_m": 4.019,
+          "collision_clearance_m": -0.011,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.311,
+          "route_error_m": 8.062,
+          "imitation_error_m": 2.395,
+          "components": {
+            "progress": 3.215,
+            "collision_clearance": -0.279,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.388,
+            "route_error": -2.419,
+            "imitation": -0.599
+          }
+        },
+        {
+          "rank": 5,
+          "trajectory_id": "imitation_force_merge",
+          "total": -4.585,
+          "progress_m": 12.081,
+          "collision_clearance_m": -0.535,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.51,
+          "route_error_m": 0.0,
+          "imitation_error_m": 0.943,
+          "components": {
+            "progress": 9.665,
+            "collision_clearance": -13.377,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.637,
+            "route_error": -0.0,
+            "imitation": -0.236
+          }
+        },
+        {
+          "rank": 6,
+          "trajectory_id": "generated_under_commit",
+          "total": -12.727,
+          "progress_m": 6.751,
+          "collision_clearance_m": -0.637,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.135,
+          "route_error_m": 5.331,
+          "imitation_error_m": 1.76,
+          "components": {
+            "progress": 5.401,
+            "collision_clearance": -15.92,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.169,
+            "route_error": -1.599,
+            "imitation": -0.44
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "synthetic_hard_braking_lead_vehicle",
+      "category": "hard_braking_lead_vehicle",
+      "title": "Lead vehicle hard braking",
+      "prompt": "Maintain progress while braking smoothly behind a suddenly slowing lead vehicle.",
+      "tags": [
+        "following",
+        "hard_braking",
+        "comfort"
+      ],
+      "asset": "assets/synthetic_hard_braking_lead_vehicle.svg",
+      "metric_best_trajectory_id": "metric_aligned_smooth_brake",
+      "learned_trajectory_id": "metric_aligned_smooth_brake",
+      "learned_utility": 2.784,
+      "top_preference": {
+        "preference_id": "synthetic_hard_braking_lead_vehicle:metric_aligned_smooth_brake>generated_under_commit",
+        "scenario_id": "synthetic_hard_braking_lead_vehicle",
+        "category": "hard_braking_lead_vehicle",
+        "tags": [
+          "following",
+          "hard_braking",
+          "comfort"
+        ],
+        "preferred_trajectory_id": "metric_aligned_smooth_brake",
+        "rejected_trajectory_id": "generated_under_commit",
+        "preferred_score": 5.78,
+        "rejected_score": 5.233,
+        "score_margin": 0.547,
+        "metric_deltas": {
+          "total_score": 0.547,
+          "progress_m": 2.204,
+          "collision_clearance_m": -2.204,
+          "preferred_collision_clearance_m": 0.9,
+          "rejected_collision_clearance_m": 3.104,
+          "vru_clearance_m": 0.0,
+          "offroad_rate_reduction": 0.0,
+          "comfort_cost_reduction": 0.0,
+          "route_error_reduction_m": 2.204,
+          "imitation_error_reduction_m": 1.292
+        },
+        "reason_categories": [
+          "improves_progress",
+          "improves_route_completion"
+        ],
+        "reasons": [
+          "adds 2.204 m of route progress",
+          "reduces final route error by 2.204 m"
+        ],
+        "prompt": "Scenario: Lead vehicle hard braking\nDriving task: Maintain progress while braking smoothly behind a suddenly slowing lead vehicle.\nCategory: hard_braking_lead_vehicle\nTags: following, hard_braking, comfort\nChoose a five-point ego trajectory that balances collision avoidance, route progress, route adherence, comfort, and imitation.",
+        "chosen": "Trajectory: Smooth brake [metric_aligned_smooth_brake]\nPoints: (0.0, 0.0), (2.0, 0.0), (4.0, 0.0), (5.2, 0.0), (5.8, 0.0)\nScore: 5.780\nMetrics: progress=5.800 m, collision_clearance=0.900 m, vru_clearance=n/a, route_error=2.200 m, comfort_cost=0.000",
+        "rejected": "Trajectory: Generated under-committed progress [generated_under_commit]\nPoints: (0.0, 0.0), (1.2, 0.0), (2.5, 0.0), (3.2, 0.0), (3.6, 0.0)\nScore: 5.233\nMetrics: progress=3.596 m, collision_clearance=3.104 m, vru_clearance=n/a, route_error=4.404 m, comfort_cost=0.000"
+      },
+      "scores": [
+        {
+          "rank": 1,
+          "trajectory_id": "metric_aligned_smooth_brake",
+          "total": 5.78,
+          "progress_m": 5.8,
+          "collision_clearance_m": 0.9,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.0,
+          "route_error_m": 2.2,
+          "imitation_error_m": 0.0,
+          "components": {
+            "progress": 4.64,
+            "collision_clearance": 1.8,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.0,
+            "route_error": -0.66,
+            "imitation": -0.0
+          }
+        },
+        {
+          "rank": 2,
+          "trajectory_id": "generated_under_commit",
+          "total": 5.233,
+          "progress_m": 3.596,
+          "collision_clearance_m": 3.104,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.0,
+          "route_error_m": 4.404,
+          "imitation_error_m": 1.292,
+          "components": {
+            "progress": 2.877,
+            "collision_clearance": 4.0,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.0,
+            "route_error": -1.321,
+            "imitation": -0.323
+          }
+        },
+        {
+          "rank": 3,
+          "trajectory_id": "cautious_hard_stop",
+          "total": 3.445,
+          "progress_m": 2.1,
+          "collision_clearance_m": 3.4,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.0,
+          "route_error_m": 5.9,
+          "imitation_error_m": 1.86,
+          "components": {
+            "progress": 1.68,
+            "collision_clearance": 4.0,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.0,
+            "route_error": -1.77,
+            "imitation": -0.465
+          }
+        },
+        {
+          "rank": 4,
+          "trajectory_id": "generated_lateral_wobble",
+          "total": 0.578,
+          "progress_m": 5.676,
+          "collision_clearance_m": 0.992,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 4.081,
+          "route_error_m": 2.324,
+          "imitation_error_m": 0.6,
+          "components": {
+            "progress": 4.541,
+            "collision_clearance": 1.985,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -5.101,
+            "route_error": -0.697,
+            "imitation": -0.15
+          }
+        },
+        {
+          "rank": 5,
+          "trajectory_id": "generated_progress_pressure",
+          "total": -25.611,
+          "progress_m": 7.97,
+          "collision_clearance_m": -1.27,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.0,
+          "route_error_m": 0.03,
+          "imitation_error_m": 0.91,
+          "components": {
+            "progress": 6.376,
+            "collision_clearance": -31.75,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.0,
+            "route_error": -0.009,
+            "imitation": -0.228
+          }
+        },
+        {
+          "rank": 6,
+          "trajectory_id": "imitation_maintain_speed",
+          "total": -38.65,
+          "progress_m": 4.0,
+          "collision_clearance_m": -1.6,
+          "vru_clearance_m": null,
+          "offroad_rate": 0.0,
+          "comfort_cost": 0.0,
+          "route_error_m": 4.0,
+          "imitation_error_m": 2.6,
+          "components": {
+            "progress": 3.2,
+            "collision_clearance": -40.0,
+            "vru_clearance": 0.0,
+            "offroad": -0.0,
+            "comfort": -0.0,
+            "route_error": -1.2,
+            "imitation": -0.65
+          }
+        }
+      ]
+    }
+  ],
+  "hard_negative": {
+    "format": "metricdrive.hard_negatives.v1",
+    "summary": {
+      "scenario_count": 6,
+      "original_candidate_count": 18,
+      "generated_candidate_count": 18,
+      "augmented_candidate_count": 36,
+      "preference_pair_count": 90,
+      "unsafe_generated_count": 6,
+      "near_miss_generated_count": 4,
+      "closest_generated_score_gap": -0.259,
+      "learned_pair_count": 90,
+      "learned_correct_pair_count": 89,
+      "learned_pairwise_accuracy": 0.989,
+      "learned_heldout_match_count": 6,
+      "learned_heldout_unsafe_count": 0
+    },
+    "generated_candidates": [
+      {
+        "scenario_id": "synthetic_pedestrian_crossing",
+        "category": "pedestrian_crossing",
+        "trajectory_id": "generated_progress_pressure",
+        "label": "Generated progress pressure",
+        "rank": 2,
+        "total": 8.526,
+        "score_gap_to_best": -2.89,
+        "collision_clearance_m": 0.238,
+        "progress_m": 11.016,
+        "route_error_m": 0.984,
+        "comfort_cost": 0.506,
+        "unsafe_collision": false,
+        "risk_tags": [
+          "metric_tradeoff"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_pedestrian_crossing",
+        "category": "pedestrian_crossing",
+        "trajectory_id": "generated_under_commit",
+        "label": "Generated under-committed progress",
+        "rank": 3,
+        "total": 7.903,
+        "score_gap_to_best": -3.513,
+        "collision_clearance_m": 1.003,
+        "progress_m": 6.509,
+        "route_error_m": 5.491,
+        "comfort_cost": 0.685,
+        "unsafe_collision": false,
+        "risk_tags": [
+          "low_progress",
+          "route_error"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_pedestrian_crossing",
+        "category": "pedestrian_crossing",
+        "trajectory_id": "generated_lateral_wobble",
+        "label": "Generated lateral wobble",
+        "rank": 5,
+        "total": -0.093,
+        "score_gap_to_best": -11.509,
+        "collision_clearance_m": -0.088,
+        "progress_m": 10.224,
+        "route_error_m": 1.776,
+        "comfort_cost": 2.595,
+        "unsafe_collision": true,
+        "risk_tags": [
+          "unsafe_collision",
+          "comfort_stress"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_unprotected_left_turn",
+        "category": "unprotected_left_turn",
+        "trajectory_id": "generated_progress_pressure",
+        "label": "Generated progress pressure",
+        "rank": 2,
+        "total": 8.533,
+        "score_gap_to_best": -1.595,
+        "collision_clearance_m": 0.156,
+        "progress_m": 11.332,
+        "route_error_m": 0.07,
+        "comfort_cost": 0.624,
+        "unsafe_collision": false,
+        "risk_tags": [
+          "near_miss"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_unprotected_left_turn",
+        "category": "unprotected_left_turn",
+        "trajectory_id": "generated_under_commit",
+        "label": "Generated under-committed progress",
+        "rank": 6,
+        "total": -40.866,
+        "score_gap_to_best": -50.994,
+        "collision_clearance_m": -1.756,
+        "progress_m": 7.069,
+        "route_error_m": 4.333,
+        "comfort_cost": 0.651,
+        "unsafe_collision": true,
+        "risk_tags": [
+          "unsafe_collision",
+          "low_progress",
+          "route_error"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_unprotected_left_turn",
+        "category": "unprotected_left_turn",
+        "trajectory_id": "generated_lateral_wobble",
+        "label": "Generated lateral wobble",
+        "rank": 3,
+        "total": 6.424,
+        "score_gap_to_best": -3.704,
+        "collision_clearance_m": 0.898,
+        "progress_m": 10.652,
+        "route_error_m": 0.75,
+        "comfort_cost": 2.802,
+        "unsafe_collision": false,
+        "risk_tags": [
+          "comfort_stress"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_cyclist_close_pass",
+        "category": "cyclist_close_pass",
+        "trajectory_id": "generated_progress_pressure",
+        "label": "Generated progress pressure",
+        "rank": 2,
+        "total": 11.595,
+        "score_gap_to_best": -1.81,
+        "collision_clearance_m": 0.298,
+        "progress_m": 11.74,
+        "route_error_m": 0.26,
+        "comfort_cost": 0.391,
+        "unsafe_collision": false,
+        "risk_tags": [
+          "near_miss"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_cyclist_close_pass",
+        "category": "cyclist_close_pass",
+        "trajectory_id": "generated_under_commit",
+        "label": "Generated under-committed progress",
+        "rank": 3,
+        "total": 8.759,
+        "score_gap_to_best": -4.646,
+        "collision_clearance_m": 0.86,
+        "progress_m": 7.433,
+        "route_error_m": 4.567,
+        "comfort_cost": 0.58,
+        "unsafe_collision": false,
+        "risk_tags": [
+          "low_progress",
+          "route_error"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_cyclist_close_pass",
+        "category": "cyclist_close_pass",
+        "trajectory_id": "generated_lateral_wobble",
+        "label": "Generated lateral wobble",
+        "rank": 5,
+        "total": 5.038,
+        "score_gap_to_best": -8.367,
+        "collision_clearance_m": 0.001,
+        "progress_m": 10.85,
+        "route_error_m": 1.15,
+        "comfort_cost": 2.524,
+        "unsafe_collision": false,
+        "risk_tags": [
+          "comfort_stress"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_blocked_lane",
+        "category": "blocked_lane",
+        "trajectory_id": "generated_progress_pressure",
+        "label": "Generated progress pressure",
+        "rank": 3,
+        "total": 0.953,
+        "score_gap_to_best": -7.306,
+        "collision_clearance_m": -0.293,
+        "progress_m": 11.805,
+        "route_error_m": 0.195,
+        "comfort_cost": 0.833,
+        "unsafe_collision": true,
+        "risk_tags": [
+          "unsafe_collision"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_blocked_lane",
+        "category": "blocked_lane",
+        "trajectory_id": "generated_under_commit",
+        "label": "Generated under-committed progress",
+        "rank": 5,
+        "total": -6.22,
+        "score_gap_to_best": -14.479,
+        "collision_clearance_m": -0.348,
+        "progress_m": 7.436,
+        "route_error_m": 4.564,
+        "comfort_cost": 1.258,
+        "unsafe_collision": true,
+        "risk_tags": [
+          "unsafe_collision",
+          "low_progress",
+          "route_error"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_blocked_lane",
+        "category": "blocked_lane",
+        "trajectory_id": "generated_lateral_wobble",
+        "label": "Generated lateral wobble",
+        "rank": 2,
+        "total": 5.749,
+        "score_gap_to_best": -2.51,
+        "collision_clearance_m": 0.414,
+        "progress_m": 10.95,
+        "route_error_m": 1.05,
+        "comfort_cost": 2.699,
+        "unsafe_collision": false,
+        "risk_tags": [
+          "comfort_stress"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_dense_merge",
+        "category": "dense_merge",
+        "trajectory_id": "generated_progress_pressure",
+        "label": "Generated progress pressure",
+        "rank": 2,
+        "total": 8.882,
+        "score_gap_to_best": -0.259,
+        "collision_clearance_m": 0.22,
+        "progress_m": 11.301,
+        "route_error_m": 0.78,
+        "comfort_cost": 0.226,
+        "unsafe_collision": false,
+        "risk_tags": [
+          "near_miss"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_dense_merge",
+        "category": "dense_merge",
+        "trajectory_id": "generated_under_commit",
+        "label": "Generated under-committed progress",
+        "rank": 6,
+        "total": -12.727,
+        "score_gap_to_best": -21.868,
+        "collision_clearance_m": -0.637,
+        "progress_m": 6.751,
+        "route_error_m": 5.331,
+        "comfort_cost": 0.135,
+        "unsafe_collision": true,
+        "risk_tags": [
+          "unsafe_collision",
+          "low_progress",
+          "route_error"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_dense_merge",
+        "category": "dense_merge",
+        "trajectory_id": "generated_lateral_wobble",
+        "label": "Generated lateral wobble",
+        "rank": 3,
+        "total": 4.568,
+        "score_gap_to_best": -4.573,
+        "collision_clearance_m": 0.146,
+        "progress_m": 10.742,
+        "route_error_m": 1.339,
+        "comfort_cost": 3.012,
+        "unsafe_collision": false,
+        "risk_tags": [
+          "comfort_stress"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_hard_braking_lead_vehicle",
+        "category": "hard_braking_lead_vehicle",
+        "trajectory_id": "generated_progress_pressure",
+        "label": "Generated progress pressure",
+        "rank": 5,
+        "total": -25.611,
+        "score_gap_to_best": -31.391,
+        "collision_clearance_m": -1.27,
+        "progress_m": 7.97,
+        "route_error_m": 0.03,
+        "comfort_cost": 0.0,
+        "unsafe_collision": true,
+        "risk_tags": [
+          "unsafe_collision"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_hard_braking_lead_vehicle",
+        "category": "hard_braking_lead_vehicle",
+        "trajectory_id": "generated_under_commit",
+        "label": "Generated under-committed progress",
+        "rank": 2,
+        "total": 5.233,
+        "score_gap_to_best": -0.547,
+        "collision_clearance_m": 3.104,
+        "progress_m": 3.596,
+        "route_error_m": 4.404,
+        "comfort_cost": 0.0,
+        "unsafe_collision": false,
+        "risk_tags": [
+          "near_miss",
+          "low_progress",
+          "route_error"
+        ]
+      },
+      {
+        "scenario_id": "synthetic_hard_braking_lead_vehicle",
+        "category": "hard_braking_lead_vehicle",
+        "trajectory_id": "generated_lateral_wobble",
+        "label": "Generated lateral wobble",
+        "rank": 4,
+        "total": 0.578,
+        "score_gap_to_best": -5.202,
+        "collision_clearance_m": 0.992,
+        "progress_m": 5.676,
+        "route_error_m": 2.324,
+        "comfort_cost": 4.081,
+        "unsafe_collision": false,
+        "risk_tags": [
+          "comfort_stress"
+        ]
+      }
+    ],
+    "ablation_summaries": [
+      {
+        "ablation_id": "full_model",
+        "label": "Full objective",
+        "heldout_match_count": 6,
+        "heldout_scenario_count": 6,
+        "heldout_match_rate": 1.0,
+        "heldout_unsafe_count": 0,
+        "mean_metric_score_gap": 0.0,
+        "pairwise_accuracy": 0.989
+      },
+      {
+        "ablation_id": "no_collision",
+        "label": "No collision term",
+        "heldout_match_count": 2,
+        "heldout_scenario_count": 6,
+        "heldout_match_rate": 0.333,
+        "heldout_unsafe_count": 3,
+        "mean_metric_score_gap": -12.521,
+        "pairwise_accuracy": 0.689
+      },
+      {
+        "ablation_id": "no_vru_clearance",
+        "label": "No VRU clearance",
+        "heldout_match_count": 5,
+        "heldout_scenario_count": 6,
+        "heldout_match_rate": 0.833,
+        "heldout_unsafe_count": 0,
+        "mean_metric_score_gap": -0.091,
+        "pairwise_accuracy": 0.978
+      },
+      {
+        "ablation_id": "no_progress",
+        "label": "No progress",
+        "heldout_match_count": 4,
+        "heldout_scenario_count": 6,
+        "heldout_match_rate": 0.667,
+        "heldout_unsafe_count": 0,
+        "mean_metric_score_gap": -0.698,
+        "pairwise_accuracy": 0.956
+      },
+      {
+        "ablation_id": "no_route_error",
+        "label": "No route error",
+        "heldout_match_count": 6,
+        "heldout_scenario_count": 6,
+        "heldout_match_rate": 1.0,
+        "heldout_unsafe_count": 0,
+        "mean_metric_score_gap": 0.0,
+        "pairwise_accuracy": 0.989
+      },
+      {
+        "ablation_id": "no_imitation",
+        "label": "No imitation",
+        "heldout_match_count": 6,
+        "heldout_scenario_count": 6,
+        "heldout_match_rate": 1.0,
+        "heldout_unsafe_count": 0,
+        "mean_metric_score_gap": 0.0,
+        "pairwise_accuracy": 0.989
+      },
+      {
+        "ablation_id": "no_comfort",
+        "label": "No comfort",
+        "heldout_match_count": 5,
+        "heldout_scenario_count": 6,
+        "heldout_match_rate": 0.833,
+        "heldout_unsafe_count": 0,
+        "mean_metric_score_gap": -0.867,
+        "pairwise_accuracy": 0.944
+      },
+      {
+        "ablation_id": "progress_only",
+        "label": "Progress only",
+        "heldout_match_count": 1,
+        "heldout_scenario_count": 6,
+        "heldout_match_rate": 0.167,
+        "heldout_unsafe_count": 5,
+        "mean_metric_score_gap": -22.296,
+        "pairwise_accuracy": 0.544
+      },
+      {
+        "ablation_id": "safety_only",
+        "label": "Safety only",
+        "heldout_match_count": 2,
+        "heldout_scenario_count": 6,
+        "heldout_match_rate": 0.333,
+        "heldout_unsafe_count": 0,
+        "mean_metric_score_gap": -2.654,
+        "pairwise_accuracy": 0.789
+      }
+    ]
+  },
+  "rl_alignment": {
+    "format": "metricdrive.rl_alignment.v1",
+    "epochs": 20,
+    "learning_rate": 0.35,
+    "include_hard_negatives": true,
+    "summaries": [
+      {
+        "method_id": "token_match",
+        "label": "Token-match imitation proxy",
+        "scenario_count": 6,
+        "metric_match_count": 0,
+        "metric_match_rate": 0.0,
+        "unsafe_collision_count": 6,
+        "mean_metric_score": -21.782,
+        "mean_metric_score_gap": -31.47
+      },
+      {
+        "method_id": "progress_reward",
+        "label": "Progress reward only",
+        "scenario_count": 6,
+        "metric_match_count": 0,
+        "metric_match_rate": 0.0,
+        "unsafe_collision_count": 6,
+        "mean_metric_score": -21.782,
+        "mean_metric_score_gap": -31.47
+      },
+      {
+        "method_id": "metric_reward",
+        "label": "Metric reward rerank",
+        "scenario_count": 6,
+        "metric_match_count": 6,
+        "metric_match_rate": 1.0,
+        "unsafe_collision_count": 0,
+        "mean_metric_score": 9.688,
+        "mean_metric_score_gap": 0.0
+      },
+      {
+        "method_id": "rl_aligned",
+        "label": "Metric-RL aligned policy",
+        "scenario_count": 6,
+        "metric_match_count": 6,
+        "metric_match_rate": 1.0,
+        "unsafe_collision_count": 0,
+        "mean_metric_score": 9.688,
+        "mean_metric_score_gap": 0.0
+      }
+    ],
+    "runs": [
+      {
+        "method_id": "token_match",
+        "label": "Token-match imitation proxy",
+        "scenario_id": "synthetic_pedestrian_crossing",
+        "category": "pedestrian_crossing",
+        "selected_trajectory_id": "imitation_fast_log",
+        "selected_meta_action": "PRESS_FOR_PROGRESS",
+        "metric_best_trajectory_id": "metric_aligned_yield",
+        "selected_metric_score": -30.652,
+        "metric_best_score": 11.416,
+        "metric_score_gap": -42.068,
+        "unsafe_collision": true
+      },
+      {
+        "method_id": "token_match",
+        "label": "Token-match imitation proxy",
+        "scenario_id": "synthetic_unprotected_left_turn",
+        "category": "unprotected_left_turn",
+        "selected_trajectory_id": "imitation_aggressive_turn",
+        "selected_meta_action": "PRESS_FOR_PROGRESS",
+        "metric_best_trajectory_id": "metric_aligned_gap_turn",
+        "selected_metric_score": -31.878,
+        "metric_best_score": 10.128,
+        "metric_score_gap": -42.006,
+        "unsafe_collision": true
+      },
+      {
+        "method_id": "token_match",
+        "label": "Token-match imitation proxy",
+        "scenario_id": "synthetic_cyclist_close_pass",
+        "category": "cyclist_close_pass",
+        "selected_trajectory_id": "imitation_close_pass",
+        "selected_meta_action": "PRESS_FOR_PROGRESS",
+        "metric_best_trajectory_id": "metric_aligned_wide_pass",
+        "selected_metric_score": -6.822,
+        "metric_best_score": 13.405,
+        "metric_score_gap": -20.227,
+        "unsafe_collision": true
+      },
+      {
+        "method_id": "token_match",
+        "label": "Token-match imitation proxy",
+        "scenario_id": "synthetic_blocked_lane",
+        "category": "blocked_lane",
+        "selected_trajectory_id": "imitation_straight_blocked",
+        "selected_meta_action": "PRESS_FOR_PROGRESS",
+        "metric_best_trajectory_id": "metric_aligned_nudge",
+        "selected_metric_score": -18.105,
+        "metric_best_score": 8.259,
+        "metric_score_gap": -26.364,
+        "unsafe_collision": true
+      },
+      {
+        "method_id": "token_match",
+        "label": "Token-match imitation proxy",
+        "scenario_id": "synthetic_dense_merge",
+        "category": "dense_merge",
+        "selected_trajectory_id": "imitation_force_merge",
+        "selected_meta_action": "PRESS_FOR_PROGRESS",
+        "metric_best_trajectory_id": "metric_aligned_gap_merge",
+        "selected_metric_score": -4.585,
+        "metric_best_score": 9.141,
+        "metric_score_gap": -13.726,
+        "unsafe_collision": true
+      },
+      {
+        "method_id": "token_match",
+        "label": "Token-match imitation proxy",
+        "scenario_id": "synthetic_hard_braking_lead_vehicle",
+        "category": "hard_braking_lead_vehicle",
+        "selected_trajectory_id": "imitation_maintain_speed",
+        "selected_meta_action": "PRESS_FOR_PROGRESS",
+        "metric_best_trajectory_id": "metric_aligned_smooth_brake",
+        "selected_metric_score": -38.65,
+        "metric_best_score": 5.78,
+        "metric_score_gap": -44.43,
+        "unsafe_collision": true
+      },
+      {
+        "method_id": "progress_reward",
+        "label": "Progress reward only",
+        "scenario_id": "synthetic_pedestrian_crossing",
+        "category": "pedestrian_crossing",
+        "selected_trajectory_id": "imitation_fast_log",
+        "selected_meta_action": "PRESS_FOR_PROGRESS",
+        "metric_best_trajectory_id": "metric_aligned_yield",
+        "selected_metric_score": -30.652,
+        "metric_best_score": 11.416,
+        "metric_score_gap": -42.068,
+        "unsafe_collision": true
+      },
+      {
+        "method_id": "progress_reward",
+        "label": "Progress reward only",
+        "scenario_id": "synthetic_unprotected_left_turn",
+        "category": "unprotected_left_turn",
+        "selected_trajectory_id": "imitation_aggressive_turn",
+        "selected_meta_action": "PRESS_FOR_PROGRESS",
+        "metric_best_trajectory_id": "metric_aligned_gap_turn",
+        "selected_metric_score": -31.878,
+        "metric_best_score": 10.128,
+        "metric_score_gap": -42.006,
+        "unsafe_collision": true
+      },
+      {
+        "method_id": "progress_reward",
+        "label": "Progress reward only",
+        "scenario_id": "synthetic_cyclist_close_pass",
+        "category": "cyclist_close_pass",
+        "selected_trajectory_id": "imitation_close_pass",
+        "selected_meta_action": "PRESS_FOR_PROGRESS",
+        "metric_best_trajectory_id": "metric_aligned_wide_pass",
+        "selected_metric_score": -6.822,
+        "metric_best_score": 13.405,
+        "metric_score_gap": -20.227,
+        "unsafe_collision": true
+      },
+      {
+        "method_id": "progress_reward",
+        "label": "Progress reward only",
+        "scenario_id": "synthetic_blocked_lane",
+        "category": "blocked_lane",
+        "selected_trajectory_id": "imitation_straight_blocked",
+        "selected_meta_action": "PRESS_FOR_PROGRESS",
+        "metric_best_trajectory_id": "metric_aligned_nudge",
+        "selected_metric_score": -18.105,
+        "metric_best_score": 8.259,
+        "metric_score_gap": -26.364,
+        "unsafe_collision": true
+      },
+      {
+        "method_id": "progress_reward",
+        "label": "Progress reward only",
+        "scenario_id": "synthetic_dense_merge",
+        "category": "dense_merge",
+        "selected_trajectory_id": "imitation_force_merge",
+        "selected_meta_action": "PRESS_FOR_PROGRESS",
+        "metric_best_trajectory_id": "metric_aligned_gap_merge",
+        "selected_metric_score": -4.585,
+        "metric_best_score": 9.141,
+        "metric_score_gap": -13.726,
+        "unsafe_collision": true
+      },
+      {
+        "method_id": "progress_reward",
+        "label": "Progress reward only",
+        "scenario_id": "synthetic_hard_braking_lead_vehicle",
+        "category": "hard_braking_lead_vehicle",
+        "selected_trajectory_id": "imitation_maintain_speed",
+        "selected_meta_action": "PRESS_FOR_PROGRESS",
+        "metric_best_trajectory_id": "metric_aligned_smooth_brake",
+        "selected_metric_score": -38.65,
+        "metric_best_score": 5.78,
+        "metric_score_gap": -44.43,
+        "unsafe_collision": true
+      },
+      {
+        "method_id": "metric_reward",
+        "label": "Metric reward rerank",
+        "scenario_id": "synthetic_pedestrian_crossing",
+        "category": "pedestrian_crossing",
+        "selected_trajectory_id": "metric_aligned_yield",
+        "selected_meta_action": "YIELD_TO_VRU",
+        "metric_best_trajectory_id": "metric_aligned_yield",
+        "selected_metric_score": 11.416,
+        "metric_best_score": 11.416,
+        "metric_score_gap": 0.0,
+        "unsafe_collision": false
+      },
+      {
+        "method_id": "metric_reward",
+        "label": "Metric reward rerank",
+        "scenario_id": "synthetic_unprotected_left_turn",
+        "category": "unprotected_left_turn",
+        "selected_trajectory_id": "metric_aligned_gap_turn",
+        "selected_meta_action": "ACCEPT_INTERSECTION_GAP",
+        "metric_best_trajectory_id": "metric_aligned_gap_turn",
+        "selected_metric_score": 10.128,
+        "metric_best_score": 10.128,
+        "metric_score_gap": 0.0,
+        "unsafe_collision": false
+      },
+      {
+        "method_id": "metric_reward",
+        "label": "Metric reward rerank",
+        "scenario_id": "synthetic_cyclist_close_pass",
+        "category": "cyclist_close_pass",
+        "selected_trajectory_id": "metric_aligned_wide_pass",
+        "selected_meta_action": "MAINTAIN_VRU_CLEARANCE",
+        "metric_best_trajectory_id": "metric_aligned_wide_pass",
+        "selected_metric_score": 13.405,
+        "metric_best_score": 13.405,
+        "metric_score_gap": 0.0,
+        "unsafe_collision": false
+      },
+      {
+        "method_id": "metric_reward",
+        "label": "Metric reward rerank",
+        "scenario_id": "synthetic_blocked_lane",
+        "category": "blocked_lane",
+        "selected_trajectory_id": "metric_aligned_nudge",
+        "selected_meta_action": "NUDGE_AROUND_OBSTACLE",
+        "metric_best_trajectory_id": "metric_aligned_nudge",
+        "selected_metric_score": 8.259,
+        "metric_best_score": 8.259,
+        "metric_score_gap": 0.0,
+        "unsafe_collision": false
+      },
+      {
+        "method_id": "metric_reward",
+        "label": "Metric reward rerank",
+        "scenario_id": "synthetic_dense_merge",
+        "category": "dense_merge",
+        "selected_trajectory_id": "metric_aligned_gap_merge",
+        "selected_meta_action": "MERGE_INTO_GAP",
+        "metric_best_trajectory_id": "metric_aligned_gap_merge",
+        "selected_metric_score": 9.141,
+        "metric_best_score": 9.141,
+        "metric_score_gap": 0.0,
+        "unsafe_collision": false
+      },
+      {
+        "method_id": "metric_reward",
+        "label": "Metric reward rerank",
+        "scenario_id": "synthetic_hard_braking_lead_vehicle",
+        "category": "hard_braking_lead_vehicle",
+        "selected_trajectory_id": "metric_aligned_smooth_brake",
+        "selected_meta_action": "SLOW_FOR_LEAD",
+        "metric_best_trajectory_id": "metric_aligned_smooth_brake",
+        "selected_metric_score": 5.78,
+        "metric_best_score": 5.78,
+        "metric_score_gap": 0.0,
+        "unsafe_collision": false
+      },
+      {
+        "method_id": "rl_aligned",
+        "label": "Metric-RL aligned policy",
+        "scenario_id": "synthetic_pedestrian_crossing",
+        "category": "pedestrian_crossing",
+        "selected_trajectory_id": "metric_aligned_yield",
+        "selected_meta_action": "YIELD_TO_VRU",
+        "metric_best_trajectory_id": "metric_aligned_yield",
+        "selected_metric_score": 11.416,
+        "metric_best_score": 11.416,
+        "metric_score_gap": 0.0,
+        "unsafe_collision": false
+      },
+      {
+        "method_id": "rl_aligned",
+        "label": "Metric-RL aligned policy",
+        "scenario_id": "synthetic_unprotected_left_turn",
+        "category": "unprotected_left_turn",
+        "selected_trajectory_id": "metric_aligned_gap_turn",
+        "selected_meta_action": "ACCEPT_INTERSECTION_GAP",
+        "metric_best_trajectory_id": "metric_aligned_gap_turn",
+        "selected_metric_score": 10.128,
+        "metric_best_score": 10.128,
+        "metric_score_gap": 0.0,
+        "unsafe_collision": false
+      },
+      {
+        "method_id": "rl_aligned",
+        "label": "Metric-RL aligned policy",
+        "scenario_id": "synthetic_cyclist_close_pass",
+        "category": "cyclist_close_pass",
+        "selected_trajectory_id": "metric_aligned_wide_pass",
+        "selected_meta_action": "MAINTAIN_VRU_CLEARANCE",
+        "metric_best_trajectory_id": "metric_aligned_wide_pass",
+        "selected_metric_score": 13.405,
+        "metric_best_score": 13.405,
+        "metric_score_gap": 0.0,
+        "unsafe_collision": false
+      },
+      {
+        "method_id": "rl_aligned",
+        "label": "Metric-RL aligned policy",
+        "scenario_id": "synthetic_blocked_lane",
+        "category": "blocked_lane",
+        "selected_trajectory_id": "metric_aligned_nudge",
+        "selected_meta_action": "NUDGE_AROUND_OBSTACLE",
+        "metric_best_trajectory_id": "metric_aligned_nudge",
+        "selected_metric_score": 8.259,
+        "metric_best_score": 8.259,
+        "metric_score_gap": 0.0,
+        "unsafe_collision": false
+      },
+      {
+        "method_id": "rl_aligned",
+        "label": "Metric-RL aligned policy",
+        "scenario_id": "synthetic_dense_merge",
+        "category": "dense_merge",
+        "selected_trajectory_id": "metric_aligned_gap_merge",
+        "selected_meta_action": "MERGE_INTO_GAP",
+        "metric_best_trajectory_id": "metric_aligned_gap_merge",
+        "selected_metric_score": 9.141,
+        "metric_best_score": 9.141,
+        "metric_score_gap": 0.0,
+        "unsafe_collision": false
+      },
+      {
+        "method_id": "rl_aligned",
+        "label": "Metric-RL aligned policy",
+        "scenario_id": "synthetic_hard_braking_lead_vehicle",
+        "category": "hard_braking_lead_vehicle",
+        "selected_trajectory_id": "metric_aligned_smooth_brake",
+        "selected_meta_action": "SLOW_FOR_LEAD",
+        "metric_best_trajectory_id": "metric_aligned_smooth_brake",
+        "selected_metric_score": 5.78,
+        "metric_best_score": 5.78,
+        "metric_score_gap": 0.0,
+        "unsafe_collision": false
+      }
+    ]
+  },
+  "vlm_examples": [
+    {
+      "example_id": "vlm_0001",
+      "scenario_id": "synthetic_pedestrian_crossing",
+      "category": "pedestrian_crossing",
+      "tags": [
+        "vulnerable_road_user",
+        "yielding",
+        "long_tail"
+      ],
+      "preferred_trajectory_id": "metric_aligned_yield",
+      "rejected_trajectory_id": "generated_progress_pressure",
+      "preferred_meta_action": "YIELD_TO_VRU",
+      "rejected_meta_action": "PRESS_FOR_PROGRESS",
+      "score_margin": 2.89,
+      "reason_categories": [
+        "improves_clearance",
+        "improves_vru_clearance"
+      ],
+      "prompt": "Driving task:\nProceed along the route while yielding to a pedestrian crossing from the right.\n\nChoose the safest useful ego trajectory. Return JSON with fields `trajectory_id`, `meta_action`, `rationale`, and `metric_checks`.\n\nCandidate trajectories:\n- imitation_fast_log: action=PRESS_FOR_PROGRESS, source=candidate, progress=12.000m, collision_clearance=-1.176m, route_error=0.000m, total=-30.652\n- metric_aligned_yield: action=YIELD_TO_VRU, source=candidate, progress=10.487m, collision_clearance=0.640m, route_error=1.513m, total=11.416\n- cautious_stop: action=WAIT_OR_HOLD, source=candidate, progress=2.200m, collision_clearance=2.395m, route_error=9.800m, total=7.773\n- generated_progress_pressure: action=PRESS_FOR_PROGRESS, source=generated_negative, progress=11.016m, collision_clearance=0.238m, route_error=0.984m, total=8.526\n- generated_under_commit: action=WAIT_OR_HOLD, source=generated_negative, progress=6.509m, collision_clearance=1.003m, route_error=5.491m, total=7.903\n- generated_lateral_wobble: action=STABILIZE_LATERAL_MOTION, source=generated_negative, progress=10.224m, collision_clearance=-0.088m, route_error=1.776m, total=-0.093",
+      "chosen": "{\"meta_action\": \"YIELD_TO_VRU\", \"metric_checks\": {\"collision_clearance_m\": 0.64, \"comfort_cost\": 0.685, \"imitation_error_m\": 0.0, \"offroad_rate\": 0.0, \"progress_m\": 10.487, \"route_error_m\": 1.513, \"total_score\": 11.416, \"vru_clearance_m\": 2.04}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 2.040 m; makes 10.487 m of route progress; ends 1.513 m from the goal\", \"trajectory_id\": \"metric_aligned_yield\"}",
+      "rejected": "{\"meta_action\": \"PRESS_FOR_PROGRESS\", \"metric_checks\": {\"collision_clearance_m\": 0.238, \"comfort_cost\": 0.506, \"imitation_error_m\": 0.493, \"offroad_rate\": 0.0, \"progress_m\": 11.016, \"route_error_m\": 0.984, \"total_score\": 8.526, \"vru_clearance_m\": 1.638}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 1.638 m; makes 11.016 m of route progress; ends 0.984 m from the goal\", \"trajectory_id\": \"generated_progress_pressure\"}"
+    },
+    {
+      "example_id": "vlm_0002",
+      "scenario_id": "synthetic_pedestrian_crossing",
+      "category": "pedestrian_crossing",
+      "tags": [
+        "vulnerable_road_user",
+        "yielding",
+        "long_tail"
+      ],
+      "preferred_trajectory_id": "metric_aligned_yield",
+      "rejected_trajectory_id": "generated_under_commit",
+      "preferred_meta_action": "YIELD_TO_VRU",
+      "rejected_meta_action": "WAIT_OR_HOLD",
+      "score_margin": 3.513,
+      "reason_categories": [
+        "improves_progress",
+        "improves_route_completion"
+      ],
+      "prompt": "Driving task:\nProceed along the route while yielding to a pedestrian crossing from the right.\n\nChoose the safest useful ego trajectory. Return JSON with fields `trajectory_id`, `meta_action`, `rationale`, and `metric_checks`.\n\nCandidate trajectories:\n- imitation_fast_log: action=PRESS_FOR_PROGRESS, source=candidate, progress=12.000m, collision_clearance=-1.176m, route_error=0.000m, total=-30.652\n- metric_aligned_yield: action=YIELD_TO_VRU, source=candidate, progress=10.487m, collision_clearance=0.640m, route_error=1.513m, total=11.416\n- cautious_stop: action=WAIT_OR_HOLD, source=candidate, progress=2.200m, collision_clearance=2.395m, route_error=9.800m, total=7.773\n- generated_progress_pressure: action=PRESS_FOR_PROGRESS, source=generated_negative, progress=11.016m, collision_clearance=0.238m, route_error=0.984m, total=8.526\n- generated_under_commit: action=WAIT_OR_HOLD, source=generated_negative, progress=6.509m, collision_clearance=1.003m, route_error=5.491m, total=7.903\n- generated_lateral_wobble: action=STABILIZE_LATERAL_MOTION, source=generated_negative, progress=10.224m, collision_clearance=-0.088m, route_error=1.776m, total=-0.093",
+      "chosen": "{\"meta_action\": \"YIELD_TO_VRU\", \"metric_checks\": {\"collision_clearance_m\": 0.64, \"comfort_cost\": 0.685, \"imitation_error_m\": 0.0, \"offroad_rate\": 0.0, \"progress_m\": 10.487, \"route_error_m\": 1.513, \"total_score\": 11.416, \"vru_clearance_m\": 2.04}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 2.040 m; makes 10.487 m of route progress; ends 1.513 m from the goal\", \"trajectory_id\": \"metric_aligned_yield\"}",
+      "rejected": "{\"meta_action\": \"WAIT_OR_HOLD\", \"metric_checks\": {\"collision_clearance_m\": 1.003, \"comfort_cost\": 0.685, \"imitation_error_m\": 1.638, \"offroad_rate\": 0.0, \"progress_m\": 6.509, \"route_error_m\": 5.491, \"total_score\": 7.903, \"vru_clearance_m\": 2.403}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 2.403 m; makes 6.509 m of route progress; ends 5.491 m from the goal\", \"trajectory_id\": \"generated_under_commit\"}"
+    },
+    {
+      "example_id": "vlm_0003",
+      "scenario_id": "synthetic_pedestrian_crossing",
+      "category": "pedestrian_crossing",
+      "tags": [
+        "vulnerable_road_user",
+        "yielding",
+        "long_tail"
+      ],
+      "preferred_trajectory_id": "metric_aligned_yield",
+      "rejected_trajectory_id": "cautious_stop",
+      "preferred_meta_action": "YIELD_TO_VRU",
+      "rejected_meta_action": "WAIT_OR_HOLD",
+      "score_margin": 3.643,
+      "reason_categories": [
+        "improves_progress",
+        "improves_route_completion"
+      ],
+      "prompt": "Driving task:\nProceed along the route while yielding to a pedestrian crossing from the right.\n\nChoose the safest useful ego trajectory. Return JSON with fields `trajectory_id`, `meta_action`, `rationale`, and `metric_checks`.\n\nCandidate trajectories:\n- imitation_fast_log: action=PRESS_FOR_PROGRESS, source=candidate, progress=12.000m, collision_clearance=-1.176m, route_error=0.000m, total=-30.652\n- metric_aligned_yield: action=YIELD_TO_VRU, source=candidate, progress=10.487m, collision_clearance=0.640m, route_error=1.513m, total=11.416\n- cautious_stop: action=WAIT_OR_HOLD, source=candidate, progress=2.200m, collision_clearance=2.395m, route_error=9.800m, total=7.773\n- generated_progress_pressure: action=PRESS_FOR_PROGRESS, source=generated_negative, progress=11.016m, collision_clearance=0.238m, route_error=0.984m, total=8.526\n- generated_under_commit: action=WAIT_OR_HOLD, source=generated_negative, progress=6.509m, collision_clearance=1.003m, route_error=5.491m, total=7.903\n- generated_lateral_wobble: action=STABILIZE_LATERAL_MOTION, source=generated_negative, progress=10.224m, collision_clearance=-0.088m, route_error=1.776m, total=-0.093",
+      "chosen": "{\"meta_action\": \"YIELD_TO_VRU\", \"metric_checks\": {\"collision_clearance_m\": 0.64, \"comfort_cost\": 0.685, \"imitation_error_m\": 0.0, \"offroad_rate\": 0.0, \"progress_m\": 10.487, \"route_error_m\": 1.513, \"total_score\": 11.416, \"vru_clearance_m\": 2.04}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 2.040 m; makes 10.487 m of route progress; ends 1.513 m from the goal\", \"trajectory_id\": \"metric_aligned_yield\"}",
+      "rejected": "{\"meta_action\": \"WAIT_OR_HOLD\", \"metric_checks\": {\"collision_clearance_m\": 2.395, \"comfort_cost\": 0.0, \"imitation_error_m\": 2.956, \"offroad_rate\": 0.0, \"progress_m\": 2.2, \"route_error_m\": 9.8, \"total_score\": 7.773, \"vru_clearance_m\": 3.795}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 3.795 m; makes 2.200 m of route progress; ends 9.800 m from the goal\", \"trajectory_id\": \"cautious_stop\"}"
+    },
+    {
+      "example_id": "vlm_0004",
+      "scenario_id": "synthetic_pedestrian_crossing",
+      "category": "pedestrian_crossing",
+      "tags": [
+        "vulnerable_road_user",
+        "yielding",
+        "long_tail"
+      ],
+      "preferred_trajectory_id": "metric_aligned_yield",
+      "rejected_trajectory_id": "generated_lateral_wobble",
+      "preferred_meta_action": "YIELD_TO_VRU",
+      "rejected_meta_action": "STABILIZE_LATERAL_MOTION",
+      "score_margin": 11.509,
+      "reason_categories": [
+        "avoids_collision",
+        "improves_vru_clearance",
+        "improves_comfort"
+      ],
+      "prompt": "Driving task:\nProceed along the route while yielding to a pedestrian crossing from the right.\n\nChoose the safest useful ego trajectory. Return JSON with fields `trajectory_id`, `meta_action`, `rationale`, and `metric_checks`.\n\nCandidate trajectories:\n- imitation_fast_log: action=PRESS_FOR_PROGRESS, source=candidate, progress=12.000m, collision_clearance=-1.176m, route_error=0.000m, total=-30.652\n- metric_aligned_yield: action=YIELD_TO_VRU, source=candidate, progress=10.487m, collision_clearance=0.640m, route_error=1.513m, total=11.416\n- cautious_stop: action=WAIT_OR_HOLD, source=candidate, progress=2.200m, collision_clearance=2.395m, route_error=9.800m, total=7.773\n- generated_progress_pressure: action=PRESS_FOR_PROGRESS, source=generated_negative, progress=11.016m, collision_clearance=0.238m, route_error=0.984m, total=8.526\n- generated_under_commit: action=WAIT_OR_HOLD, source=generated_negative, progress=6.509m, collision_clearance=1.003m, route_error=5.491m, total=7.903\n- generated_lateral_wobble: action=STABILIZE_LATERAL_MOTION, source=generated_negative, progress=10.224m, collision_clearance=-0.088m, route_error=1.776m, total=-0.093",
+      "chosen": "{\"meta_action\": \"YIELD_TO_VRU\", \"metric_checks\": {\"collision_clearance_m\": 0.64, \"comfort_cost\": 0.685, \"imitation_error_m\": 0.0, \"offroad_rate\": 0.0, \"progress_m\": 10.487, \"route_error_m\": 1.513, \"total_score\": 11.416, \"vru_clearance_m\": 2.04}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 2.040 m; makes 10.487 m of route progress; ends 1.513 m from the goal\", \"trajectory_id\": \"metric_aligned_yield\"}",
+      "rejected": "{\"meta_action\": \"STABILIZE_LATERAL_MOTION\", \"metric_checks\": {\"collision_clearance_m\": -0.088, \"comfort_cost\": 2.595, \"imitation_error_m\": 0.6, \"offroad_rate\": 0.0, \"progress_m\": 10.224, \"route_error_m\": 1.776, \"total_score\": -0.093, \"vru_clearance_m\": 1.312}, \"rationale\": \"has negative collision clearance; keeps VRU clearance at 1.312 m; makes 10.224 m of route progress; ends 1.776 m from the goal\", \"trajectory_id\": \"generated_lateral_wobble\"}"
+    },
+    {
+      "example_id": "vlm_0005",
+      "scenario_id": "synthetic_pedestrian_crossing",
+      "category": "pedestrian_crossing",
+      "tags": [
+        "vulnerable_road_user",
+        "yielding",
+        "long_tail"
+      ],
+      "preferred_trajectory_id": "metric_aligned_yield",
+      "rejected_trajectory_id": "imitation_fast_log",
+      "preferred_meta_action": "YIELD_TO_VRU",
+      "rejected_meta_action": "PRESS_FOR_PROGRESS",
+      "score_margin": 42.068,
+      "reason_categories": [
+        "avoids_collision",
+        "improves_vru_clearance"
+      ],
+      "prompt": "Driving task:\nProceed along the route while yielding to a pedestrian crossing from the right.\n\nChoose the safest useful ego trajectory. Return JSON with fields `trajectory_id`, `meta_action`, `rationale`, and `metric_checks`.\n\nCandidate trajectories:\n- imitation_fast_log: action=PRESS_FOR_PROGRESS, source=candidate, progress=12.000m, collision_clearance=-1.176m, route_error=0.000m, total=-30.652\n- metric_aligned_yield: action=YIELD_TO_VRU, source=candidate, progress=10.487m, collision_clearance=0.640m, route_error=1.513m, total=11.416\n- cautious_stop: action=WAIT_OR_HOLD, source=candidate, progress=2.200m, collision_clearance=2.395m, route_error=9.800m, total=7.773\n- generated_progress_pressure: action=PRESS_FOR_PROGRESS, source=generated_negative, progress=11.016m, collision_clearance=0.238m, route_error=0.984m, total=8.526\n- generated_under_commit: action=WAIT_OR_HOLD, source=generated_negative, progress=6.509m, collision_clearance=1.003m, route_error=5.491m, total=7.903\n- generated_lateral_wobble: action=STABILIZE_LATERAL_MOTION, source=generated_negative, progress=10.224m, collision_clearance=-0.088m, route_error=1.776m, total=-0.093",
+      "chosen": "{\"meta_action\": \"YIELD_TO_VRU\", \"metric_checks\": {\"collision_clearance_m\": 0.64, \"comfort_cost\": 0.685, \"imitation_error_m\": 0.0, \"offroad_rate\": 0.0, \"progress_m\": 10.487, \"route_error_m\": 1.513, \"total_score\": 11.416, \"vru_clearance_m\": 2.04}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 2.040 m; makes 10.487 m of route progress; ends 1.513 m from the goal\", \"trajectory_id\": \"metric_aligned_yield\"}",
+      "rejected": "{\"meta_action\": \"PRESS_FOR_PROGRESS\", \"metric_checks\": {\"collision_clearance_m\": -1.176, \"comfort_cost\": 0.133, \"imitation_error_m\": 1.408, \"offroad_rate\": 0.0, \"progress_m\": 12.0, \"route_error_m\": 0.0, \"total_score\": -30.652, \"vru_clearance_m\": 0.224}, \"rationale\": \"has negative collision clearance; keeps VRU clearance at 0.224 m; makes 12.000 m of route progress; ends 0.000 m from the goal\", \"trajectory_id\": \"imitation_fast_log\"}"
+    },
+    {
+      "example_id": "vlm_0006",
+      "scenario_id": "synthetic_pedestrian_crossing",
+      "category": "pedestrian_crossing",
+      "tags": [
+        "vulnerable_road_user",
+        "yielding",
+        "long_tail"
+      ],
+      "preferred_trajectory_id": "generated_progress_pressure",
+      "rejected_trajectory_id": "generated_under_commit",
+      "preferred_meta_action": "PRESS_FOR_PROGRESS",
+      "rejected_meta_action": "WAIT_OR_HOLD",
+      "score_margin": 0.623,
+      "reason_categories": [
+        "improves_progress",
+        "improves_route_completion"
+      ],
+      "prompt": "Driving task:\nProceed along the route while yielding to a pedestrian crossing from the right.\n\nChoose the safest useful ego trajectory. Return JSON with fields `trajectory_id`, `meta_action`, `rationale`, and `metric_checks`.\n\nCandidate trajectories:\n- imitation_fast_log: action=PRESS_FOR_PROGRESS, source=candidate, progress=12.000m, collision_clearance=-1.176m, route_error=0.000m, total=-30.652\n- metric_aligned_yield: action=YIELD_TO_VRU, source=candidate, progress=10.487m, collision_clearance=0.640m, route_error=1.513m, total=11.416\n- cautious_stop: action=WAIT_OR_HOLD, source=candidate, progress=2.200m, collision_clearance=2.395m, route_error=9.800m, total=7.773\n- generated_progress_pressure: action=PRESS_FOR_PROGRESS, source=generated_negative, progress=11.016m, collision_clearance=0.238m, route_error=0.984m, total=8.526\n- generated_under_commit: action=WAIT_OR_HOLD, source=generated_negative, progress=6.509m, collision_clearance=1.003m, route_error=5.491m, total=7.903\n- generated_lateral_wobble: action=STABILIZE_LATERAL_MOTION, source=generated_negative, progress=10.224m, collision_clearance=-0.088m, route_error=1.776m, total=-0.093",
+      "chosen": "{\"meta_action\": \"PRESS_FOR_PROGRESS\", \"metric_checks\": {\"collision_clearance_m\": 0.238, \"comfort_cost\": 0.506, \"imitation_error_m\": 0.493, \"offroad_rate\": 0.0, \"progress_m\": 11.016, \"route_error_m\": 0.984, \"total_score\": 8.526, \"vru_clearance_m\": 1.638}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 1.638 m; makes 11.016 m of route progress; ends 0.984 m from the goal\", \"trajectory_id\": \"generated_progress_pressure\"}",
+      "rejected": "{\"meta_action\": \"WAIT_OR_HOLD\", \"metric_checks\": {\"collision_clearance_m\": 1.003, \"comfort_cost\": 0.685, \"imitation_error_m\": 1.638, \"offroad_rate\": 0.0, \"progress_m\": 6.509, \"route_error_m\": 5.491, \"total_score\": 7.903, \"vru_clearance_m\": 2.403}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 2.403 m; makes 6.509 m of route progress; ends 5.491 m from the goal\", \"trajectory_id\": \"generated_under_commit\"}"
+    },
+    {
+      "example_id": "vlm_0007",
+      "scenario_id": "synthetic_pedestrian_crossing",
+      "category": "pedestrian_crossing",
+      "tags": [
+        "vulnerable_road_user",
+        "yielding",
+        "long_tail"
+      ],
+      "preferred_trajectory_id": "generated_progress_pressure",
+      "rejected_trajectory_id": "cautious_stop",
+      "preferred_meta_action": "PRESS_FOR_PROGRESS",
+      "rejected_meta_action": "WAIT_OR_HOLD",
+      "score_margin": 0.753,
+      "reason_categories": [
+        "improves_progress",
+        "improves_route_completion"
+      ],
+      "prompt": "Driving task:\nProceed along the route while yielding to a pedestrian crossing from the right.\n\nChoose the safest useful ego trajectory. Return JSON with fields `trajectory_id`, `meta_action`, `rationale`, and `metric_checks`.\n\nCandidate trajectories:\n- imitation_fast_log: action=PRESS_FOR_PROGRESS, source=candidate, progress=12.000m, collision_clearance=-1.176m, route_error=0.000m, total=-30.652\n- metric_aligned_yield: action=YIELD_TO_VRU, source=candidate, progress=10.487m, collision_clearance=0.640m, route_error=1.513m, total=11.416\n- cautious_stop: action=WAIT_OR_HOLD, source=candidate, progress=2.200m, collision_clearance=2.395m, route_error=9.800m, total=7.773\n- generated_progress_pressure: action=PRESS_FOR_PROGRESS, source=generated_negative, progress=11.016m, collision_clearance=0.238m, route_error=0.984m, total=8.526\n- generated_under_commit: action=WAIT_OR_HOLD, source=generated_negative, progress=6.509m, collision_clearance=1.003m, route_error=5.491m, total=7.903\n- generated_lateral_wobble: action=STABILIZE_LATERAL_MOTION, source=generated_negative, progress=10.224m, collision_clearance=-0.088m, route_error=1.776m, total=-0.093",
+      "chosen": "{\"meta_action\": \"PRESS_FOR_PROGRESS\", \"metric_checks\": {\"collision_clearance_m\": 0.238, \"comfort_cost\": 0.506, \"imitation_error_m\": 0.493, \"offroad_rate\": 0.0, \"progress_m\": 11.016, \"route_error_m\": 0.984, \"total_score\": 8.526, \"vru_clearance_m\": 1.638}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 1.638 m; makes 11.016 m of route progress; ends 0.984 m from the goal\", \"trajectory_id\": \"generated_progress_pressure\"}",
+      "rejected": "{\"meta_action\": \"WAIT_OR_HOLD\", \"metric_checks\": {\"collision_clearance_m\": 2.395, \"comfort_cost\": 0.0, \"imitation_error_m\": 2.956, \"offroad_rate\": 0.0, \"progress_m\": 2.2, \"route_error_m\": 9.8, \"total_score\": 7.773, \"vru_clearance_m\": 3.795}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 3.795 m; makes 2.200 m of route progress; ends 9.800 m from the goal\", \"trajectory_id\": \"cautious_stop\"}"
+    },
+    {
+      "example_id": "vlm_0008",
+      "scenario_id": "synthetic_pedestrian_crossing",
+      "category": "pedestrian_crossing",
+      "tags": [
+        "vulnerable_road_user",
+        "yielding",
+        "long_tail"
+      ],
+      "preferred_trajectory_id": "generated_progress_pressure",
+      "rejected_trajectory_id": "generated_lateral_wobble",
+      "preferred_meta_action": "PRESS_FOR_PROGRESS",
+      "rejected_meta_action": "STABILIZE_LATERAL_MOTION",
+      "score_margin": 8.619,
+      "reason_categories": [
+        "avoids_collision",
+        "improves_vru_clearance",
+        "improves_progress",
+        "improves_route_completion",
+        "improves_comfort"
+      ],
+      "prompt": "Driving task:\nProceed along the route while yielding to a pedestrian crossing from the right.\n\nChoose the safest useful ego trajectory. Return JSON with fields `trajectory_id`, `meta_action`, `rationale`, and `metric_checks`.\n\nCandidate trajectories:\n- imitation_fast_log: action=PRESS_FOR_PROGRESS, source=candidate, progress=12.000m, collision_clearance=-1.176m, route_error=0.000m, total=-30.652\n- metric_aligned_yield: action=YIELD_TO_VRU, source=candidate, progress=10.487m, collision_clearance=0.640m, route_error=1.513m, total=11.416\n- cautious_stop: action=WAIT_OR_HOLD, source=candidate, progress=2.200m, collision_clearance=2.395m, route_error=9.800m, total=7.773\n- generated_progress_pressure: action=PRESS_FOR_PROGRESS, source=generated_negative, progress=11.016m, collision_clearance=0.238m, route_error=0.984m, total=8.526\n- generated_under_commit: action=WAIT_OR_HOLD, source=generated_negative, progress=6.509m, collision_clearance=1.003m, route_error=5.491m, total=7.903\n- generated_lateral_wobble: action=STABILIZE_LATERAL_MOTION, source=generated_negative, progress=10.224m, collision_clearance=-0.088m, route_error=1.776m, total=-0.093",
+      "chosen": "{\"meta_action\": \"PRESS_FOR_PROGRESS\", \"metric_checks\": {\"collision_clearance_m\": 0.238, \"comfort_cost\": 0.506, \"imitation_error_m\": 0.493, \"offroad_rate\": 0.0, \"progress_m\": 11.016, \"route_error_m\": 0.984, \"total_score\": 8.526, \"vru_clearance_m\": 1.638}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 1.638 m; makes 11.016 m of route progress; ends 0.984 m from the goal\", \"trajectory_id\": \"generated_progress_pressure\"}",
+      "rejected": "{\"meta_action\": \"STABILIZE_LATERAL_MOTION\", \"metric_checks\": {\"collision_clearance_m\": -0.088, \"comfort_cost\": 2.595, \"imitation_error_m\": 0.6, \"offroad_rate\": 0.0, \"progress_m\": 10.224, \"route_error_m\": 1.776, \"total_score\": -0.093, \"vru_clearance_m\": 1.312}, \"rationale\": \"has negative collision clearance; keeps VRU clearance at 1.312 m; makes 10.224 m of route progress; ends 1.776 m from the goal\", \"trajectory_id\": \"generated_lateral_wobble\"}"
+    },
+    {
+      "example_id": "vlm_0009",
+      "scenario_id": "synthetic_pedestrian_crossing",
+      "category": "pedestrian_crossing",
+      "tags": [
+        "vulnerable_road_user",
+        "yielding",
+        "long_tail"
+      ],
+      "preferred_trajectory_id": "generated_progress_pressure",
+      "rejected_trajectory_id": "imitation_fast_log",
+      "preferred_meta_action": "PRESS_FOR_PROGRESS",
+      "rejected_meta_action": "PRESS_FOR_PROGRESS",
+      "score_margin": 39.178,
+      "reason_categories": [
+        "avoids_collision",
+        "improves_vru_clearance"
+      ],
+      "prompt": "Driving task:\nProceed along the route while yielding to a pedestrian crossing from the right.\n\nChoose the safest useful ego trajectory. Return JSON with fields `trajectory_id`, `meta_action`, `rationale`, and `metric_checks`.\n\nCandidate trajectories:\n- imitation_fast_log: action=PRESS_FOR_PROGRESS, source=candidate, progress=12.000m, collision_clearance=-1.176m, route_error=0.000m, total=-30.652\n- metric_aligned_yield: action=YIELD_TO_VRU, source=candidate, progress=10.487m, collision_clearance=0.640m, route_error=1.513m, total=11.416\n- cautious_stop: action=WAIT_OR_HOLD, source=candidate, progress=2.200m, collision_clearance=2.395m, route_error=9.800m, total=7.773\n- generated_progress_pressure: action=PRESS_FOR_PROGRESS, source=generated_negative, progress=11.016m, collision_clearance=0.238m, route_error=0.984m, total=8.526\n- generated_under_commit: action=WAIT_OR_HOLD, source=generated_negative, progress=6.509m, collision_clearance=1.003m, route_error=5.491m, total=7.903\n- generated_lateral_wobble: action=STABILIZE_LATERAL_MOTION, source=generated_negative, progress=10.224m, collision_clearance=-0.088m, route_error=1.776m, total=-0.093",
+      "chosen": "{\"meta_action\": \"PRESS_FOR_PROGRESS\", \"metric_checks\": {\"collision_clearance_m\": 0.238, \"comfort_cost\": 0.506, \"imitation_error_m\": 0.493, \"offroad_rate\": 0.0, \"progress_m\": 11.016, \"route_error_m\": 0.984, \"total_score\": 8.526, \"vru_clearance_m\": 1.638}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 1.638 m; makes 11.016 m of route progress; ends 0.984 m from the goal\", \"trajectory_id\": \"generated_progress_pressure\"}",
+      "rejected": "{\"meta_action\": \"PRESS_FOR_PROGRESS\", \"metric_checks\": {\"collision_clearance_m\": -1.176, \"comfort_cost\": 0.133, \"imitation_error_m\": 1.408, \"offroad_rate\": 0.0, \"progress_m\": 12.0, \"route_error_m\": 0.0, \"total_score\": -30.652, \"vru_clearance_m\": 0.224}, \"rationale\": \"has negative collision clearance; keeps VRU clearance at 0.224 m; makes 12.000 m of route progress; ends 0.000 m from the goal\", \"trajectory_id\": \"imitation_fast_log\"}"
+    },
+    {
+      "example_id": "vlm_0010",
+      "scenario_id": "synthetic_pedestrian_crossing",
+      "category": "pedestrian_crossing",
+      "tags": [
+        "vulnerable_road_user",
+        "yielding",
+        "long_tail"
+      ],
+      "preferred_trajectory_id": "generated_under_commit",
+      "rejected_trajectory_id": "cautious_stop",
+      "preferred_meta_action": "WAIT_OR_HOLD",
+      "rejected_meta_action": "WAIT_OR_HOLD",
+      "score_margin": 0.13,
+      "reason_categories": [
+        "improves_progress",
+        "improves_route_completion"
+      ],
+      "prompt": "Driving task:\nProceed along the route while yielding to a pedestrian crossing from the right.\n\nChoose the safest useful ego trajectory. Return JSON with fields `trajectory_id`, `meta_action`, `rationale`, and `metric_checks`.\n\nCandidate trajectories:\n- imitation_fast_log: action=PRESS_FOR_PROGRESS, source=candidate, progress=12.000m, collision_clearance=-1.176m, route_error=0.000m, total=-30.652\n- metric_aligned_yield: action=YIELD_TO_VRU, source=candidate, progress=10.487m, collision_clearance=0.640m, route_error=1.513m, total=11.416\n- cautious_stop: action=WAIT_OR_HOLD, source=candidate, progress=2.200m, collision_clearance=2.395m, route_error=9.800m, total=7.773\n- generated_progress_pressure: action=PRESS_FOR_PROGRESS, source=generated_negative, progress=11.016m, collision_clearance=0.238m, route_error=0.984m, total=8.526\n- generated_under_commit: action=WAIT_OR_HOLD, source=generated_negative, progress=6.509m, collision_clearance=1.003m, route_error=5.491m, total=7.903\n- generated_lateral_wobble: action=STABILIZE_LATERAL_MOTION, source=generated_negative, progress=10.224m, collision_clearance=-0.088m, route_error=1.776m, total=-0.093",
+      "chosen": "{\"meta_action\": \"WAIT_OR_HOLD\", \"metric_checks\": {\"collision_clearance_m\": 1.003, \"comfort_cost\": 0.685, \"imitation_error_m\": 1.638, \"offroad_rate\": 0.0, \"progress_m\": 6.509, \"route_error_m\": 5.491, \"total_score\": 7.903, \"vru_clearance_m\": 2.403}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 2.403 m; makes 6.509 m of route progress; ends 5.491 m from the goal\", \"trajectory_id\": \"generated_under_commit\"}",
+      "rejected": "{\"meta_action\": \"WAIT_OR_HOLD\", \"metric_checks\": {\"collision_clearance_m\": 2.395, \"comfort_cost\": 0.0, \"imitation_error_m\": 2.956, \"offroad_rate\": 0.0, \"progress_m\": 2.2, \"route_error_m\": 9.8, \"total_score\": 7.773, \"vru_clearance_m\": 3.795}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 3.795 m; makes 2.200 m of route progress; ends 9.800 m from the goal\", \"trajectory_id\": \"cautious_stop\"}"
+    },
+    {
+      "example_id": "vlm_0011",
+      "scenario_id": "synthetic_pedestrian_crossing",
+      "category": "pedestrian_crossing",
+      "tags": [
+        "vulnerable_road_user",
+        "yielding",
+        "long_tail"
+      ],
+      "preferred_trajectory_id": "generated_under_commit",
+      "rejected_trajectory_id": "generated_lateral_wobble",
+      "preferred_meta_action": "WAIT_OR_HOLD",
+      "rejected_meta_action": "STABILIZE_LATERAL_MOTION",
+      "score_margin": 7.996,
+      "reason_categories": [
+        "avoids_collision",
+        "improves_vru_clearance",
+        "improves_comfort"
+      ],
+      "prompt": "Driving task:\nProceed along the route while yielding to a pedestrian crossing from the right.\n\nChoose the safest useful ego trajectory. Return JSON with fields `trajectory_id`, `meta_action`, `rationale`, and `metric_checks`.\n\nCandidate trajectories:\n- imitation_fast_log: action=PRESS_FOR_PROGRESS, source=candidate, progress=12.000m, collision_clearance=-1.176m, route_error=0.000m, total=-30.652\n- metric_aligned_yield: action=YIELD_TO_VRU, source=candidate, progress=10.487m, collision_clearance=0.640m, route_error=1.513m, total=11.416\n- cautious_stop: action=WAIT_OR_HOLD, source=candidate, progress=2.200m, collision_clearance=2.395m, route_error=9.800m, total=7.773\n- generated_progress_pressure: action=PRESS_FOR_PROGRESS, source=generated_negative, progress=11.016m, collision_clearance=0.238m, route_error=0.984m, total=8.526\n- generated_under_commit: action=WAIT_OR_HOLD, source=generated_negative, progress=6.509m, collision_clearance=1.003m, route_error=5.491m, total=7.903\n- generated_lateral_wobble: action=STABILIZE_LATERAL_MOTION, source=generated_negative, progress=10.224m, collision_clearance=-0.088m, route_error=1.776m, total=-0.093",
+      "chosen": "{\"meta_action\": \"WAIT_OR_HOLD\", \"metric_checks\": {\"collision_clearance_m\": 1.003, \"comfort_cost\": 0.685, \"imitation_error_m\": 1.638, \"offroad_rate\": 0.0, \"progress_m\": 6.509, \"route_error_m\": 5.491, \"total_score\": 7.903, \"vru_clearance_m\": 2.403}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 2.403 m; makes 6.509 m of route progress; ends 5.491 m from the goal\", \"trajectory_id\": \"generated_under_commit\"}",
+      "rejected": "{\"meta_action\": \"STABILIZE_LATERAL_MOTION\", \"metric_checks\": {\"collision_clearance_m\": -0.088, \"comfort_cost\": 2.595, \"imitation_error_m\": 0.6, \"offroad_rate\": 0.0, \"progress_m\": 10.224, \"route_error_m\": 1.776, \"total_score\": -0.093, \"vru_clearance_m\": 1.312}, \"rationale\": \"has negative collision clearance; keeps VRU clearance at 1.312 m; makes 10.224 m of route progress; ends 1.776 m from the goal\", \"trajectory_id\": \"generated_lateral_wobble\"}"
+    },
+    {
+      "example_id": "vlm_0012",
+      "scenario_id": "synthetic_pedestrian_crossing",
+      "category": "pedestrian_crossing",
+      "tags": [
+        "vulnerable_road_user",
+        "yielding",
+        "long_tail"
+      ],
+      "preferred_trajectory_id": "generated_under_commit",
+      "rejected_trajectory_id": "imitation_fast_log",
+      "preferred_meta_action": "WAIT_OR_HOLD",
+      "rejected_meta_action": "PRESS_FOR_PROGRESS",
+      "score_margin": 38.555,
+      "reason_categories": [
+        "avoids_collision",
+        "improves_vru_clearance"
+      ],
+      "prompt": "Driving task:\nProceed along the route while yielding to a pedestrian crossing from the right.\n\nChoose the safest useful ego trajectory. Return JSON with fields `trajectory_id`, `meta_action`, `rationale`, and `metric_checks`.\n\nCandidate trajectories:\n- imitation_fast_log: action=PRESS_FOR_PROGRESS, source=candidate, progress=12.000m, collision_clearance=-1.176m, route_error=0.000m, total=-30.652\n- metric_aligned_yield: action=YIELD_TO_VRU, source=candidate, progress=10.487m, collision_clearance=0.640m, route_error=1.513m, total=11.416\n- cautious_stop: action=WAIT_OR_HOLD, source=candidate, progress=2.200m, collision_clearance=2.395m, route_error=9.800m, total=7.773\n- generated_progress_pressure: action=PRESS_FOR_PROGRESS, source=generated_negative, progress=11.016m, collision_clearance=0.238m, route_error=0.984m, total=8.526\n- generated_under_commit: action=WAIT_OR_HOLD, source=generated_negative, progress=6.509m, collision_clearance=1.003m, route_error=5.491m, total=7.903\n- generated_lateral_wobble: action=STABILIZE_LATERAL_MOTION, source=generated_negative, progress=10.224m, collision_clearance=-0.088m, route_error=1.776m, total=-0.093",
+      "chosen": "{\"meta_action\": \"WAIT_OR_HOLD\", \"metric_checks\": {\"collision_clearance_m\": 1.003, \"comfort_cost\": 0.685, \"imitation_error_m\": 1.638, \"offroad_rate\": 0.0, \"progress_m\": 6.509, \"route_error_m\": 5.491, \"total_score\": 7.903, \"vru_clearance_m\": 2.403}, \"rationale\": \"keeps positive collision clearance; keeps VRU clearance at 2.403 m; makes 6.509 m of route progress; ends 5.491 m from the goal\", \"trajectory_id\": \"generated_under_commit\"}",
+      "rejected": "{\"meta_action\": \"PRESS_FOR_PROGRESS\", \"metric_checks\": {\"collision_clearance_m\": -1.176, \"comfort_cost\": 0.133, \"imitation_error_m\": 1.408, \"offroad_rate\": 0.0, \"progress_m\": 12.0, \"route_error_m\": 0.0, \"total_score\": -30.652, \"vru_clearance_m\": 0.224}, \"rationale\": \"has negative collision clearance; keeps VRU clearance at 0.224 m; makes 12.000 m of route progress; ends 0.000 m from the goal\", \"trajectory_id\": \"imitation_fast_log\"}"
+    }
+  ]
+}

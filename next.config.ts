@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
+      { source: "/metricdrive/", destination: "/metricdrive/index.html" },
       { source: "/scenariolens/", destination: "/scenariolens/index.html" },
       { source: "/rag/", destination: "/data/capstone/index.html" },
       { source: "/rag/static/:path*", destination: "/data/capstone/static/:path*" },
