@@ -42,9 +42,9 @@ The explorer also links to
 as the public-safe summary of the local real Waymo Motion smoke test.
 The first viewport links to the failure study, cross-shard stability study,
 shard expansion plan, real lane-aware cross-shard diagnostic, baseline-debug
-casebook, replay candidate plan, open-loop replay prototype, and portfolio
-packet so reviewers can jump from the product surface to the evidence behind
-it.
+casebook, replay candidate plan, open-loop replay prototype, map-match audit,
+and portfolio packet so reviewers can jump from the product surface to the
+evidence behind it.
 
 Regenerate with:
 
