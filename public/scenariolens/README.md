@@ -41,9 +41,9 @@ The explorer also links to
 [`docs/reports/waymo_motion_case_study.md`](https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_motion_case_study.md)
 as the public-safe summary of the local real Waymo Motion smoke test.
 The first viewport links to the failure study, cross-shard stability study,
-shard expansion plan, real lane-aware cross-shard diagnostic, and portfolio
-packet so reviewers can jump from the product surface to the evidence behind
-it.
+shard expansion plan, real lane-aware cross-shard diagnostic, baseline-debug
+casebook, and portfolio packet so reviewers can jump from the product surface
+to the evidence behind it.
 
 Regenerate with:
 
