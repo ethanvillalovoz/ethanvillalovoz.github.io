@@ -66,7 +66,7 @@
 <rect x="755.42" y="274.86" width="4" height="10" rx="2" fill="#16a34a" />
 <text x="765.42" y="284.36" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">cyclist_1</text>
 </g>
-<g class="baseline-prediction prediction-cyclist">
+<g class="baseline-prediction baseline-constant_velocity prediction-cyclist">
 <polyline points="545.05,293.36 736.42,297.61" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
 <polyline points="545.05,293.36 736.42,297.61" fill="none" stroke="#16a34a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
 </g>

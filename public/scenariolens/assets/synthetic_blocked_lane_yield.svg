@@ -68,11 +68,11 @@
 <rect x="652.82" y="235.24" width="4" height="10" rx="2" fill="#2563eb" />
 <text x="662.82" y="244.74" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">adjacent_1</text>
 </g>
-<g class="baseline-prediction prediction-vehicle">
+<g class="baseline-prediction baseline-constant_velocity prediction-vehicle">
 <polyline points="643.64,379.76 643.64,379.76" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
 <polyline points="643.64,379.76 643.64,379.76" fill="none" stroke="#2563eb" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
 </g>
-<g class="baseline-prediction prediction-vehicle">
+<g class="baseline-prediction baseline-constant_velocity prediction-vehicle">
 <polyline points="570.18,262.24 753.82,262.24" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
 <polyline points="570.18,262.24 753.82,262.24" fill="none" stroke="#2563eb" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
 </g>

@@ -49,7 +49,7 @@
 <rect x="785.06" y="294.00" width="4" height="10" rx="2" fill="#2563eb" />
 <text x="795.06" y="303.50" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">ego</text>
 </g>
-<g class="baseline-prediction prediction-vehicle">
+<g class="baseline-prediction baseline-constant_velocity prediction-vehicle">
 <polyline points="460.00,321.00 766.06,321.00" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
 <polyline points="460.00,321.00 766.06,321.00" fill="none" stroke="#2563eb" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
 </g>

@@ -50,7 +50,7 @@
 <rect x="681.32" y="236.20" width="4" height="10" rx="2" fill="#2563eb" />
 <text x="691.32" y="245.70" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">curving_veh</text>
 </g>
-<g class="baseline-prediction prediction-vehicle">
+<g class="baseline-prediction baseline-constant_velocity prediction-vehicle">
 <polyline points="517.80,407.71 633.41,407.71 749.02,407.71" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
 <polyline points="517.80,407.71 633.41,407.71 749.02,407.71" fill="none" stroke="#2563eb" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
 </g>

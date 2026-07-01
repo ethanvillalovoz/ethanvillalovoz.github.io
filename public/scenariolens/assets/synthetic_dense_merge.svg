@@ -77,15 +77,15 @@
 <rect x="785.06" y="324.61" width="4" height="10" rx="2" fill="#2563eb" />
 <text x="795.06" y="334.11" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">veh_3</text>
 </g>
-<g class="baseline-prediction prediction-vehicle">
+<g class="baseline-prediction baseline-constant_velocity prediction-vehicle">
 <polyline points="509.82,286.12 595.24,296.09" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
 <polyline points="509.82,286.12 595.24,296.09" fill="none" stroke="#2563eb" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
 </g>
-<g class="baseline-prediction prediction-vehicle">
+<g class="baseline-prediction baseline-constant_velocity prediction-vehicle">
 <polyline points="282.06,321.71 410.18,321.71" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
 <polyline points="282.06,321.71 410.18,321.71" fill="none" stroke="#2563eb" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
 </g>
-<g class="baseline-prediction prediction-vehicle">
+<g class="baseline-prediction baseline-constant_velocity prediction-vehicle">
 <polyline points="666.41,358.72 766.06,351.61" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
 <polyline points="666.41,358.72 766.06,351.61" fill="none" stroke="#2563eb" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
 </g>

@@ -7,6 +7,7 @@ const state = {
   tagSearch: "",
   minScore: 0,
   sort: "score-desc",
+  diagnosticGroup: null,
 };
 
 const nodes = {
@@ -31,6 +32,11 @@ const nodes = {
   componentBars: document.querySelector("#componentBars"),
   metricGrid: document.querySelector("#metricGrid"),
   reasonList: document.querySelector("#reasonList"),
+  diagnosticsPanel: document.querySelector("#diagnosticsPanel"),
+  diagnosticSummary: document.querySelector("#diagnosticSummary"),
+  diagnosticReportLink: document.querySelector("#diagnosticReportLink"),
+  diagnosticTabs: document.querySelector("#diagnosticTabs"),
+  diagnosticRows: document.querySelector("#diagnosticRows"),
   previousScenario: document.querySelector("#previousScenario"),
   nextScenario: document.querySelector("#nextScenario"),
   heroScenarioCount: document.querySelector("#heroScenarioCount"),
@@ -163,6 +169,7 @@ function render() {
   state.selectedId = selected?.scenario_id ?? null;
 
   renderCounts(scenarios);
+  renderDiagnostics();
   renderRows(scenarios);
   renderDetail(selected, scenarios);
   updateFilterChrome();
@@ -200,6 +207,117 @@ function renderRows(scenarios) {
       <td><div class="reason-snippet">${escapeHtml(scenario.reasons[0] ?? "Included for comparison.")}</div></td>
     </tr>
   `).join("");
+}
+
+function renderDiagnostics() {
+  const diagnostics = state.payload.case_diagnostics;
+  if (!diagnostics || !Array.isArray(diagnostics.groups) || diagnostics.groups.length === 0) {
+    nodes.diagnosticsPanel.hidden = true;
+    return;
+  }
+
+  nodes.diagnosticsPanel.hidden = false;
+  const groups = diagnostics.groups.filter((group) => Array.isArray(group.cases) && group.cases.length > 0);
+  if (groups.length === 0) {
+    nodes.diagnosticsPanel.hidden = true;
+    return;
+  }
+
+  if (!state.diagnosticGroup || !groups.some((group) => group.group_id === state.diagnosticGroup)) {
+    state.diagnosticGroup = groups[0].group_id;
+  }
+
+  const selectedGroup = groups.find((group) => group.group_id === state.diagnosticGroup) ?? groups[0];
+  const summary = diagnostics.summary ?? {};
+  nodes.diagnosticSummary.textContent = diagnosticSummaryText(diagnostics, summary);
+  nodes.diagnosticReportLink.href = diagnostics.report_path ?? "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_heading_aware_lane_selection_study.md";
+  nodes.diagnosticTabs.innerHTML = groups
+    .map((group) => `
+      <button
+        type="button"
+        role="tab"
+        aria-selected="${group.group_id === selectedGroup.group_id ? "true" : "false"}"
+        data-diagnostic-group="${escapeHtml(group.group_id)}"
+      >
+        ${escapeHtml(group.label)}
+        <span>${group.cases.length}</span>
+      </button>
+    `)
+    .join("");
+  nodes.diagnosticRows.innerHTML = selectedGroup.cases
+    .map((row, index) => diagnosticCaseCard(row, selectedGroup.group_id, index))
+    .join("");
+}
+
+function diagnosticSummaryText(diagnostics, summary) {
+  const scenarioCount = formatMetric(diagnostics.scenario_count);
+  const targetCount = formatMetric(summary.evaluated_target_count);
+  const nearestDelta = improvementPhrase(summary.heading_vs_nearest_fde_improvement_m, "vs nearest lane");
+  const cvDelta = improvementPhrase(summary.heading_vs_constant_velocity_fde_improvement_m, "vs constant velocity");
+  return `${scenarioCount} real scenarios / ${targetCount} targets; heading-aware ${nearestDelta} and ${cvDelta}.`;
+}
+
+function diagnosticCaseCard(row, groupId, index) {
+  const tone = diagnosticTone(row, groupId);
+  const delta = row.heading_vs_nearest_fde_improvement_m;
+  return `
+    <article class="diagnostic-case ${tone}">
+      <header>
+        <span>${index + 1}</span>
+        <div>
+          <strong>${escapeHtml(row.scenario_id)}</strong>
+          <small>${escapeHtml(row.source_name)} / case ${formatMetric(row.scenario_index)}</small>
+        </div>
+        <em>${formatDelta(delta)}</em>
+      </header>
+      <dl>
+        <div>
+          <dt>CV FDE</dt>
+          <dd>${formatMetric(row.constant_velocity_fde_m, "m")}</dd>
+        </div>
+        <div>
+          <dt>Nearest</dt>
+          <dd>${formatMetric(row.nearest_lane_fde_m, "m")}</dd>
+        </div>
+        <div>
+          <dt>Heading</dt>
+          <dd>${formatMetric(row.heading_lane_fde_m, "m")}</dd>
+        </div>
+        <div>
+          <dt>Targets</dt>
+          <dd>${formatMetric(row.evaluated_target_count)}</dd>
+        </div>
+        <div>
+          <dt>Map used</dt>
+          <dd>${formatMetric(row.heading_map_used_count)}</dd>
+        </div>
+        <div>
+          <dt>Fallbacks</dt>
+          <dd>${formatMetric(row.heading_fallback_count)}</dd>
+        </div>
+      </dl>
+      <p>${escapeHtml(diagnosticInterpretation(row, groupId))}</p>
+    </article>
+  `;
+}
+
+function diagnosticTone(row, groupId) {
+  if (groupId === "fallbacks") return "fallback";
+  if ((row.heading_vs_nearest_fde_improvement_m ?? 0) < 0) return "regression";
+  return "improvement";
+}
+
+function diagnosticInterpretation(row, groupId) {
+  const reason = row.top_heading_fallback_reason && row.top_heading_fallback_reason !== "none"
+    ? ` Top fallback: ${row.top_heading_fallback_reason}.`
+    : "";
+  if (groupId === "fallbacks") {
+    return `High fallback counts point to map-match coverage, threshold, or target-type limits.${reason}`;
+  }
+  if ((row.heading_vs_nearest_fde_improvement_m ?? 0) < 0) {
+    return `Nearest-lane selection scored better here, making this a useful regression case for matcher debugging.${reason}`;
+  }
+  return `Heading alignment avoided a worse nearest-lane hypothesis on this case.${reason}`;
 }
 
 function renderDetail(scenario, scenarios) {
@@ -455,6 +573,14 @@ nodes.datasetFilters.addEventListener("change", onDatasetChange);
 nodes.tagFilters.addEventListener("change", onTagChange);
 nodes.componentFilters.addEventListener("change", onComponentChange);
 
+nodes.diagnosticTabs.addEventListener("click", (event) => {
+  if (!(event.target instanceof Element)) return;
+  const button = event.target.closest("button[data-diagnostic-group]");
+  if (!button) return;
+  state.diagnosticGroup = button.dataset.diagnosticGroup;
+  renderDiagnostics();
+});
+
 nodes.tagSearch.addEventListener("input", (event) => {
   state.tagSearch = event.target.value;
   const existing = new Set(state.tags);
@@ -557,6 +683,9 @@ function formatMetric(value, unit) {
   if (typeof value === "string") {
     return value.replaceAll("_", " ");
   }
+  if (unit === undefined && Number.isInteger(value)) {
+    return String(value);
+  }
   if (unit === undefined && String(value).includes(".")) {
     return formatNumber(value);
   }
@@ -573,6 +702,14 @@ function formatDelta(value) {
   }
   const formatted = formatNumber(value);
   return value > 0 ? `+${formatted} m` : `${formatted} m`;
+}
+
+function improvementPhrase(value, label) {
+  if (value === null || value === undefined) {
+    return `has n/a ${label}`;
+  }
+  const verb = value >= 0 ? "improved" : "regressed";
+  return `${verb} ${formatDelta(value)} ${label}`;
 }
 
 function formatNumber(value) {

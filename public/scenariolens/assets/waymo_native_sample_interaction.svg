@@ -62,7 +62,7 @@
 <rect x="616.46" y="206.31" width="4" height="10" rx="2" fill="#2563eb" />
 <text x="626.46" y="215.81" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">99</text>
 </g>
-<g class="baseline-prediction prediction-pedestrian">
+<g class="baseline-prediction baseline-constant_velocity prediction-pedestrian">
 <polyline points="445.78,372.19 445.78,366.50 445.78,360.82" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
 <polyline points="445.78,372.19 445.78,366.50 445.78,360.82" fill="none" stroke="#dc2626" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
 </g>

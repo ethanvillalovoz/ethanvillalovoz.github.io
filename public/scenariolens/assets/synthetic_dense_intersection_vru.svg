@@ -84,15 +84,15 @@
 <rect x="641.94" y="214.01" width="4" height="10" rx="2" fill="#16a34a" />
 <text x="651.94" y="223.51" fill="#0f172a" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="750">cyclist_1</text>
 </g>
-<g class="baseline-prediction prediction-vehicle">
+<g class="baseline-prediction baseline-constant_velocity prediction-vehicle">
 <polyline points="474.81,321.00 474.81,172.88" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
 <polyline points="474.81,321.00 474.81,172.88" fill="none" stroke="#2563eb" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
 </g>
-<g class="baseline-prediction prediction-pedestrian">
+<g class="baseline-prediction baseline-constant_velocity prediction-pedestrian">
 <polyline points="539.99,318.04 516.29,285.45" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
 <polyline points="539.99,318.04 516.29,285.45" fill="none" stroke="#dc2626" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
 </g>
-<g class="baseline-prediction prediction-cyclist">
+<g class="baseline-prediction baseline-constant_velocity prediction-cyclist">
 <polyline points="504.44,229.16 622.94,241.01" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9" opacity="0.82" />
 <polyline points="504.44,229.16 622.94,241.01" fill="none" stroke="#16a34a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8" opacity="0.88" />
 </g>

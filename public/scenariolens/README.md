@@ -23,6 +23,9 @@ forecast fails. See
 [`docs/data_provenance.md`](https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/data_provenance.md) for the exact data status.
 See [`docs/project_strategy.md`](https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/project_strategy.md) for the product goal
 and [`docs/architecture.md`](https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/architecture.md) for the data-flow map.
+The Explorer also embeds a public-safe case-diagnostics slice from the local
+100-scenario heading-aware lane-selection study: top improvements, regressions,
+and fallback-heavy cases, with raw Waymo records and derived packets excluded.
 
 Generated files:
 
@@ -34,8 +37,8 @@ Generated files:
 - `assets/scenariolens-explorer.png`: README screenshot of the dashboard.
 - `assets/scenariolens-demo.gif`: short README demo loop showing filtering,
   trajectory inspection, and baseline comparison.
-- The evidence band and baseline-failure card are code-native UI backed by
-  `scenarios.json`.
+- The evidence band, baseline-failure card, and heading-aware case diagnostics
+  are code-native UI backed by `scenarios.json`.
 
 The explorer also links to
 [`docs/reports/waymo_motion_case_study.md`](https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_motion_case_study.md)
@@ -51,7 +54,8 @@ Regenerate with:
 ```bash
 scenariolens dashboard-data \
   --output docs/demo/scenarios.json \
-  --assets-dir docs/demo/assets
+  --assets-dir docs/demo/assets \
+  --lane-selection-manifest data/processed/waymo_lane_selection_study/manifest.json
 ```
 
 ## Payload Shape
@@ -66,6 +70,8 @@ scenariolens dashboard-data \
 - constant-velocity baseline ADE/FDE, miss rate, target source, and failure score,
 - lane-aware ADE/FDE, miss rate, FDE improvement, map-used count, and fallback count,
 - lane-aware fallback reason summaries,
+- public-safe heading-aware lane-selection case diagnostics when a study
+  manifest is available,
 - Waymo metadata credibility fields such as SDC presence, prediction targets,
   and objects of interest when available,
 - taxonomy tags,
