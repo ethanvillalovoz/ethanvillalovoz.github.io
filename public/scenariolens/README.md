@@ -28,8 +28,9 @@ The Explorer also embeds a public-safe case-diagnostics slice from the local
 and fallback-heavy cases, with raw Waymo records and derived packets excluded.
 The diagnostics panel links to the public heading-aware debug casebook, while
 local SVG overlays and per-case manifests remain ignored under `data/processed/`.
-The report rail also links to the heading-aware replay candidate plan, which
-turns those cases into a public-safe queue for the next selector replay step.
+The report rail also links to the heading-aware replay candidate plan and
+heading-aware replay prototype, connecting those cases to a public-safe selector
+stability check.
 
 Generated files:
 
@@ -51,8 +52,9 @@ The first viewport links to the failure study, cross-shard stability study,
 shard expansion plan, real lane-aware cross-shard diagnostic, baseline-debug
 casebook, replay candidate plan, open-loop replay prototype, map-match audit,
 heading-aware lane-selection study, heading-aware debug casebook,
-heading-aware replay candidate plan, and portfolio packet so reviewers can jump
-from the product surface to the evidence behind it.
+heading-aware replay candidate plan, heading-aware replay prototype, and
+portfolio packet so reviewers can jump from the product surface to the evidence
+behind it.
 
 Regenerate with:
 
