@@ -53,7 +53,8 @@ shard expansion plan, map/signal context study, real lane-aware cross-shard
 diagnostic, context-joined failure study, context evaluation set,
 context eval debug casebook, context replay candidate plan, context open-loop
 replay prototype, context route/intent audit, lane-link continuation prototype,
-lane-continuation validation study, baseline-debug casebook, replay candidate plan, open-loop
+lane-continuation validation study, lane-continuation candidate plan,
+baseline-debug casebook, replay candidate plan, open-loop
 replay prototype, map-match audit, heading-aware lane-selection study,
 heading-aware debug casebook,
 heading-aware replay candidate plan, heading-aware replay prototype, and
