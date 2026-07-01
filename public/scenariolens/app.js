@@ -230,7 +230,9 @@ function renderDiagnostics() {
   const selectedGroup = groups.find((group) => group.group_id === state.diagnosticGroup) ?? groups[0];
   const summary = diagnostics.summary ?? {};
   nodes.diagnosticSummary.textContent = diagnosticSummaryText(diagnostics, summary);
-  nodes.diagnosticReportLink.href = diagnostics.report_path ?? "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_heading_aware_lane_selection_study.md";
+  nodes.diagnosticReportLink.href = diagnostics.debug_report_path
+    ?? diagnostics.report_path
+    ?? "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_heading_aware_debug_casebook.md";
   nodes.diagnosticTabs.innerHTML = groups
     .map((group) => `
       <button

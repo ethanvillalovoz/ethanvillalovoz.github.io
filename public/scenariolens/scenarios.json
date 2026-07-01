@@ -1121,6 +1121,7 @@
     "format": "scenariolens.dashboard.case_diagnostics.v1",
     "study": "Heading-aware lane selection",
     "report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_heading_aware_lane_selection_study.md",
+    "debug_report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_heading_aware_debug_casebook.md",
     "scope_note": "Heading-aware lane selection is an ablation beside the default nearest-lane baseline; it does not change ScenarioLens scoring and does not claim production map matching.",
     "source_count": 4,
     "scenario_count": 100,
