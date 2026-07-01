@@ -51,9 +51,10 @@ as the public-safe summary of the local real Waymo Motion smoke test.
 The first viewport links to the failure study, cross-shard stability study,
 shard expansion plan, map/signal context study, real lane-aware cross-shard
 diagnostic, context-joined failure study, context evaluation set,
-context eval debug casebook, context replay candidate plan, baseline-debug
-casebook, replay candidate plan, open-loop replay prototype, map-match audit,
-heading-aware lane-selection study, heading-aware debug casebook,
+context eval debug casebook, context replay candidate plan, context open-loop
+replay prototype, baseline-debug casebook, replay candidate plan, open-loop
+replay prototype, map-match audit, heading-aware lane-selection study,
+heading-aware debug casebook,
 heading-aware replay candidate plan, heading-aware replay prototype, and
 portfolio packet plus data provenance so reviewers can jump from the product
 surface to the evidence behind it.
