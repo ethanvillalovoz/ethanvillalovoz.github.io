@@ -54,7 +54,7 @@ diagnostic, context-joined failure study, context evaluation set,
 context eval debug casebook, context replay candidate plan, context open-loop
 replay prototype, context route/intent audit, lane-link continuation prototype,
 lane-continuation validation study, lane-continuation candidate plan,
-lane-continuation replay prototype,
+lane-continuation replay prototype, lane-continuation route diagnostics,
 baseline-debug casebook, replay candidate plan, open-loop
 replay prototype, map-match audit, heading-aware lane-selection study,
 heading-aware debug casebook,
