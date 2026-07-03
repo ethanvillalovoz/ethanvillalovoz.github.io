@@ -58,8 +58,9 @@ replay prototype, context route/intent audit, lane-link continuation prototype,
 lane-continuation validation study, lane-continuation candidate plan,
 lane-continuation replay prototype, lane-continuation route diagnostics,
 lane-continuation branch-selection diagnostic, motion-context branch replay,
-branch rollout gate, route-context guard, branch coverage audit, topology gap
-audit, terminal neighborhood audit, terminal replay gate, terminal selector,
+branch rollout gate, route-context guard, guard calibration, branch coverage
+audit, topology gap audit, terminal neighborhood audit, terminal replay gate,
+terminal selector,
 baseline-debug casebook, replay candidate plan, open-loop
 replay prototype, map-match audit, heading-aware lane-selection study,
 heading-aware debug casebook,
