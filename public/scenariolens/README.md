@@ -29,10 +29,10 @@ and fallback-heavy cases, with raw Waymo records and derived packets excluded.
 The diagnostics panel links to the public heading-aware debug casebook, while
 local SVG overlays and per-case manifests remain ignored under `data/processed/`.
 The report rail also links to the heading-aware replay candidate plan,
-heading-aware replay prototype, lane-continuation topology gap audit, terminal
-neighborhood audit, terminal replay gate, and terminal selector experiment,
-connecting those cases to public-safe selector stability and topology coverage
-checks.
+heading-aware replay prototype, expanded lane-continuation topology gap audit,
+expanded terminal-neighborhood audit, expanded terminal replay gate, and
+expanded terminal selector experiment, connecting those cases to public-safe
+selector stability and topology coverage checks.
 
 Generated files:
 
@@ -59,9 +59,11 @@ lane-continuation validation study, lane-continuation candidate plan,
 lane-continuation replay prototype, lane-continuation route diagnostics,
 lane-continuation branch-selection diagnostic, motion-context branch replay,
 branch rollout gate, route-context guard, guard calibration, branch coverage
-audit, expanded branch coverage and guard validation, topology gap audit,
-terminal neighborhood audit, terminal replay gate, terminal selector,
-baseline-debug casebook, replay candidate plan, open-loop
+audit, expanded branch coverage and guard validation, expanded topology gap
+audit, expanded terminal neighborhood audit, expanded terminal replay gate,
+expanded terminal selector, topology gap audit, terminal neighborhood audit,
+terminal replay gate, terminal selector, baseline-debug casebook,
+replay candidate plan, open-loop
 replay prototype, map-match audit, heading-aware lane-selection study,
 heading-aware debug casebook,
 heading-aware replay candidate plan, heading-aware replay prototype, and
