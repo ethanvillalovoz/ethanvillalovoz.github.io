@@ -33,8 +33,9 @@ heading-aware replay prototype, expanded lane-continuation topology gap audit,
 expanded terminal-neighborhood audit, expanded terminal replay gate, and
 expanded terminal selector experiment, calibration, and visual casebook,
 plus the 200-scenario continuation/terminal-selector scale-up and selector
-transfer/error/route-context/candidate validation, connecting those cases to
-public-safe selector stability and topology coverage checks.
+transfer/error/route-context/candidate validation and visual decision atlas,
+connecting those cases to public-safe selector stability and topology coverage
+checks.
 
 Generated files:
 
@@ -42,12 +43,16 @@ Generated files:
 - `styles.css`: dashboard visual system.
 - `app.js`: filtering, sorting, and detail-panel interactions.
 - `scenarios.json`: ranked dashboard payload.
+- `selector_decisions.json`: public-safe terminal-selector decision atlas
+  payload joined to the 200-scenario candidate-validation labels.
 - `assets/*.svg`: trajectory views referenced by `scenarios.json`.
+- `assets/terminal_selector_casebook_200_*.svg`: derived selector decision
+  cards referenced by `selector_decisions.json`.
 - `assets/scenariolens-explorer.png`: README screenshot of the dashboard.
 - `assets/scenariolens-demo.gif`: short README demo loop showing filtering,
   trajectory inspection, and baseline comparison.
-- The evidence band, baseline-failure card, and heading-aware case diagnostics
-  are code-native UI backed by `scenarios.json`.
+- The evidence band, baseline-failure card, heading-aware case diagnostics, and
+  terminal-selector decision atlas are code-native UI backed by checked-in JSON.
 
 The explorer also links to
 [`docs/reports/waymo_motion_case_study.md`](https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_motion_case_study.md)
@@ -68,7 +73,7 @@ terminal selector visual casebook, the 200-scenario continuation study,
 200-scenario topology audit, 200-scenario selector calibration, 200-scenario
 selector transfer validation, 200-scenario selector error audit, 200-scenario
 selector route/context audit, 200-scenario selector candidate validation,
-200-scenario selector visual casebook, topology
+200-scenario selector decision atlas, 200-scenario selector visual casebook, topology
 gap audit, terminal neighborhood audit, terminal replay gate, terminal
 selector, baseline-debug casebook,
 replay candidate plan, open-loop
@@ -85,6 +90,14 @@ scenariolens dashboard-data \
   --output docs/demo/scenarios.json \
   --assets-dir docs/demo/assets \
   --lane-selection-manifest data/processed/waymo_lane_selection_study/manifest.json
+
+scenariolens lane-continuation-terminal-neighborhood-selector-decision-atlas \
+  --casebook-manifest data/processed/waymo_lane_continuation_terminal_neighborhood_casebook_200/manifest.json \
+  --candidate-validation-manifest data/processed/waymo_lane_continuation_terminal_neighborhood_selector_candidate_validation_200/manifest.json \
+  --output-dir data/processed/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200 \
+  --public-report docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md \
+  --demo-json docs/demo/selector_decisions.json \
+  --demo-assets-dir docs/demo/assets
 ```
 
 ## Payload Shape
@@ -108,6 +121,13 @@ scenariolens dashboard-data \
 - explanation reasons,
 - SVG asset paths,
 - basic track metadata.
+
+`selector_decisions.json` uses format
+`scenariolens.lane_continuation_terminal_neighborhood_selector_decision_atlas.v1`
+and includes the 7 public-safe selector cards, candidate-validation categories,
+agreement counts, recovered false-hold count, negative controls, and copied SVG
+asset paths. It does not include raw Waymo records, raw trajectories, or raw map
+geometry.
 
 The payload is deterministic and does not include timestamps, so it can be
 checked into git and reviewed in pull requests.

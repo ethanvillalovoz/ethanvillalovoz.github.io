@@ -8,6 +8,8 @@ const state = {
   minScore: 0,
   sort: "score-desc",
   diagnosticGroup: null,
+  selectorAtlas: null,
+  selectorAtlasCategory: null,
 };
 
 const nodes = {
@@ -37,6 +39,12 @@ const nodes = {
   diagnosticReportLink: document.querySelector("#diagnosticReportLink"),
   diagnosticTabs: document.querySelector("#diagnosticTabs"),
   diagnosticRows: document.querySelector("#diagnosticRows"),
+  selectorAtlasPanel: document.querySelector("#selectorAtlasPanel"),
+  selectorAtlasSummary: document.querySelector("#selectorAtlasSummary"),
+  selectorAtlasReportLink: document.querySelector("#selectorAtlasReportLink"),
+  selectorAtlasMetrics: document.querySelector("#selectorAtlasMetrics"),
+  selectorAtlasTabs: document.querySelector("#selectorAtlasTabs"),
+  selectorAtlasCards: document.querySelector("#selectorAtlasCards"),
   previousScenario: document.querySelector("#previousScenario"),
   nextScenario: document.querySelector("#nextScenario"),
   heroScenarioCount: document.querySelector("#heroScenarioCount"),
@@ -98,6 +106,7 @@ async function boot() {
       throw new Error(`Unable to load scenarios.json (${response.status})`);
     }
     state.payload = await response.json();
+    state.selectorAtlas = await optionalJson("selector_decisions.json");
     state.datasets = new Set(state.payload.filters.datasets);
     renderHeroStats();
     renderFilters();
@@ -110,6 +119,16 @@ async function boot() {
         <td colspan="7">Dashboard data could not be loaded.</td>
       </tr>
     `;
+  }
+}
+
+async function optionalJson(path) {
+  try {
+    const response = await fetch(path);
+    if (!response.ok) return null;
+    return await response.json();
+  } catch {
+    return null;
   }
 }
 
@@ -169,6 +188,7 @@ function render() {
   state.selectedId = selected?.scenario_id ?? null;
 
   renderCounts(scenarios);
+  renderSelectorAtlas();
   renderDiagnostics();
   renderRows(scenarios);
   renderDetail(selected, scenarios);
@@ -207,6 +227,133 @@ function renderRows(scenarios) {
       <td><div class="reason-snippet">${escapeHtml(scenario.reasons[0] ?? "Included for comparison.")}</div></td>
     </tr>
   `).join("");
+}
+
+function renderSelectorAtlas() {
+  const atlas = state.selectorAtlas;
+  if (!atlas || !Array.isArray(atlas.cases) || atlas.cases.length === 0) {
+    nodes.selectorAtlasPanel.hidden = true;
+    return;
+  }
+
+  nodes.selectorAtlasPanel.hidden = false;
+  const groups = selectorAtlasGroups(atlas);
+  if (groups.length === 0) {
+    nodes.selectorAtlasPanel.hidden = true;
+    return;
+  }
+
+  if (!state.selectorAtlasCategory || !groups.some((group) => group.category === state.selectorAtlasCategory)) {
+    state.selectorAtlasCategory = groups[0].category;
+  }
+
+  const selectedGroup = groups.find((group) => group.category === state.selectorAtlasCategory) ?? groups[0];
+  const aggregate = atlas.aggregate ?? {};
+  nodes.selectorAtlasSummary.textContent = selectorAtlasSummaryText(aggregate);
+  nodes.selectorAtlasReportLink.href = atlas.report_path
+    ?? "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md";
+  nodes.selectorAtlasMetrics.innerHTML = selectorAtlasMetricCards(aggregate);
+  nodes.selectorAtlasTabs.innerHTML = groups
+    .map((group) => `
+      <button
+        type="button"
+        role="tab"
+        aria-selected="${group.category === selectedGroup.category ? "true" : "false"}"
+        data-selector-category="${escapeHtml(group.category)}"
+      >
+        ${escapeHtml(group.label)}
+        <span>${group.cases.length}</span>
+      </button>
+    `)
+    .join("");
+  nodes.selectorAtlasCards.innerHTML = selectedGroup.cases
+    .map(selectorAtlasCard)
+    .join("");
+}
+
+function selectorAtlasGroups(atlas) {
+  const labels = [
+    ["candidate_recovery", "Recovered false holds"],
+    ["accepted_recovery", "Accepted recoveries"],
+    ["negative_control", "Negative controls"],
+    ["retained_hold", "Remaining holds"],
+    ["false_promotion", "False promotions"],
+  ];
+  const groups = labels
+    .map(([category, label]) => ({
+      category,
+      label,
+      cases: atlas.cases.filter((item) => item.category === category),
+    }))
+    .filter((group) => group.cases.length > 0);
+  const known = new Set(labels.map(([category]) => category));
+  const extras = atlas.cases.filter((item) => !known.has(item.category));
+  if (extras.length > 0) {
+    groups.push({ category: "other", label: "Other", cases: extras });
+  }
+  return groups;
+}
+
+function selectorAtlasSummaryText(aggregate) {
+  const matches = formatMetric(aggregate.candidate_match_count);
+  const total = formatMetric(aggregate.case_count);
+  const recovered = formatMetric(aggregate.recovered_false_hold_count);
+  const falsePromotes = formatMetric(aggregate.candidate_false_promote_count);
+  const falseHolds = formatMetric(aggregate.candidate_false_hold_count);
+  return `${matches}/${total} candidate-label agreement; ${recovered} recovered false hold, ${falsePromotes} false promotions, ${falseHolds} remaining false hold.`;
+}
+
+function selectorAtlasMetricCards(aggregate) {
+  const rows = [
+    ["Cards", aggregate.visual_asset_count],
+    ["Matches", `${formatMetric(aggregate.candidate_match_count)}/${formatMetric(aggregate.case_count)}`],
+    ["Recovered", aggregate.recovered_false_hold_count],
+    ["Negatives held", aggregate.negative_control_count],
+    ["False promotes", aggregate.candidate_false_promote_count],
+    ["False holds", aggregate.candidate_false_hold_count],
+  ];
+  return rows
+    .map(([label, value]) => `
+      <div>
+        <dt>${escapeHtml(label)}</dt>
+        <dd>${escapeHtml(formatMetric(value))}</dd>
+      </div>
+    `)
+    .join("");
+}
+
+function selectorAtlasCard(row) {
+  return `
+    <article class="selector-atlas-card ${escapeHtml(row.category)}">
+      <img src="${escapeHtml(row.asset_path)}" alt="${escapeHtml(row.case_label)} selector decision card" />
+      <div class="selector-card-body">
+        <header>
+          <span>${escapeHtml(row.case_label)}</span>
+          <strong>${escapeHtml(row.decision_label)}</strong>
+        </header>
+        <p>${escapeHtml(row.scenario_id)} / track ${escapeHtml(row.track_id)}</p>
+        <dl>
+          <div>
+            <dt>Gain</dt>
+            <dd>${formatDelta(row.replay_gain_m)}</dd>
+          </div>
+          <div>
+            <dt>Route ext</dt>
+            <dd>${formatMetric(row.route_extension_m, "m")}</dd>
+          </div>
+          <div>
+            <dt>Alt heading</dt>
+            <dd>${formatMetric(row.alternate_heading_alignment)}</dd>
+          </div>
+          <div>
+            <dt>Candidate</dt>
+            <dd>${escapeHtml(shortDecision(row.candidate_decision))}</dd>
+          </div>
+        </dl>
+        <p>${escapeHtml(row.candidate_rationale)}</p>
+      </div>
+    </article>
+  `;
 }
 
 function renderDiagnostics() {
@@ -583,6 +730,14 @@ nodes.diagnosticTabs.addEventListener("click", (event) => {
   renderDiagnostics();
 });
 
+nodes.selectorAtlasTabs.addEventListener("click", (event) => {
+  if (!(event.target instanceof Element)) return;
+  const button = event.target.closest("button[data-selector-category]");
+  if (!button) return;
+  state.selectorAtlasCategory = button.dataset.selectorCategory;
+  renderSelectorAtlas();
+});
+
 nodes.tagSearch.addEventListener("input", (event) => {
   state.tagSearch = event.target.value;
   const existing = new Set(state.tags);
@@ -673,6 +828,12 @@ function shortDatasetLabel(datasetId) {
     waymo_normalized_csv: "Waymo CSV",
   };
   return labels[datasetId] ?? datasetId;
+}
+
+function shortDecision(value) {
+  if (value === "promote_terminal_neighborhood_alternate") return "promote";
+  if (value === "hold_for_terminal_neighborhood_context") return "hold";
+  return formatMetric(value);
 }
 
 function formatMetric(value, unit) {

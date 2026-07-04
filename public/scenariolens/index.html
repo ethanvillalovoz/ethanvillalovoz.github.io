@@ -205,6 +205,10 @@
             <span>200 selector candidate</span>
             6/7 agreement, 0 false promotions
           </a>
+          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md">
+            <span>200 selector atlas</span>
+            7 visual decisions joined to candidate labels
+          </a>
           <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_casebook_200.md">
             <span>200 selector casebook</span>
             7 cards with 1 remaining false hold
@@ -341,7 +345,7 @@
           <section class="credibility-panel" aria-label="Real-data validation status">
             <div>
               <span class="credibility-kicker">Real-data validation path</span>
-              <p>Scenario triage, lane-aware diagnostics, replay prototypes, route/intent audits, lane-link continuation and expanded branch-selection/replay/guard/calibration/coverage/topology/terminal-neighborhood studies, a 200-scenario terminal selector scale-up with transfer, error, route/context, and candidate validation, map-match audits, and heading-aware replay checks tested on four local Waymo Motion validation shards; raw files stay outside git.</p>
+              <p>Scenario triage, lane-aware diagnostics, replay prototypes, route/intent audits, lane-link continuation and expanded branch-selection/replay/guard/calibration/coverage/topology/terminal-neighborhood studies, a 200-scenario terminal selector scale-up with transfer, error, route/context, candidate validation, and a visual decision atlas, map-match audits, and heading-aware replay checks tested on four local Waymo Motion validation shards; raw files stay outside git.</p>
             </div>
             <dl>
               <div>
@@ -357,6 +361,19 @@
                 <dd><a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_branch_coverage_expanded.md">branch expansion</a></dd>
               </div>
             </dl>
+          </section>
+
+          <section id="selectorAtlasPanel" class="selector-atlas-panel" aria-label="Terminal selector decision atlas">
+            <div class="selector-atlas-header">
+              <div>
+                <span class="credibility-kicker">Terminal selector decision atlas</span>
+                <p id="selectorAtlasSummary">Loading selector decision cards</p>
+              </div>
+              <a id="selectorAtlasReportLink" href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md">Open atlas</a>
+            </div>
+            <dl id="selectorAtlasMetrics" class="selector-atlas-metrics"></dl>
+            <div id="selectorAtlasTabs" class="diagnostic-tabs" role="tablist" aria-label="Selector decision categories"></div>
+            <div id="selectorAtlasCards" class="selector-atlas-cards"></div>
           </section>
 
           <section id="diagnosticsPanel" class="diagnostics-panel" aria-label="Heading-aware lane-selection case diagnostics">

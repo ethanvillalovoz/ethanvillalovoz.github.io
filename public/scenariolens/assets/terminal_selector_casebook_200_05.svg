@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520" role="img">
+<title>Case 05 terminal-neighborhood selector diagnostic</title>
+<style>
+.bg{fill:#f8fafc}.panel{fill:#ffffff;stroke:#cbd5e1;stroke-width:1.5}.muted{fill:#64748b}.text{fill:#0f172a;font:600 20px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.small{fill:#334155;font:500 14px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.tiny{fill:#475569;font:500 12px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.label{fill:#0f172a;font:700 13px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.chip{fill:#e2e8f0}.promote{fill:#dcfce7}.hold{fill:#fee2e2}.accept{fill:#dbeafe}.barbg{fill:#e2e8f0}.green{fill:#16a34a}.red{fill:#dc2626}.blue{fill:#2563eb}.amber{fill:#d97706}.slate{fill:#64748b}.gate{stroke:#0f172a;stroke-width:2;stroke-dasharray:5 5}
+</style>
+<rect class="bg" x="0" y="0" width="920" height="520"/>
+<rect class="panel" x="24" y="24" width="872" height="472" rx="16"/>
+<text class="text" x="48" y="62">Case 05: scenario 8abe59aee39f351e / track 4650</text>
+<text class="small muted" x="48" y="89">Source: validation.tfrecord-00010-of-00150</text>
+<g><rect class="accept" x="48" y="112" width="170" height="38" rx="19"/><text class="tiny" x="64" y="128">Replay</text><text class="label" x="64" y="143">accept</text></g>
+<g><rect class="promote" x="244" y="112" width="170" height="38" rx="19"/><text class="tiny" x="260" y="128">Current</text><text class="label" x="260" y="143">promote</text></g>
+<g><rect class="promote" x="440" y="112" width="170" height="38" rx="19"/><text class="tiny" x="456" y="128">Recommended</text><text class="label" x="456" y="143">promote</text></g>
+<text class="small" x="48" y="184">Selected chain: 161</text>
+<text class="small" x="48" y="208">Alternate chain: 143 -&gt; 174</text>
+<text class="small" x="48" y="232">Hold flags: none</text>
+<text class="label" x="48" y="276">Route extension</text>
+<rect class="barbg" x="48" y="292" width="370" height="16" rx="8"/>
+<rect class="blue" x="48" y="292" width="121" height="16" rx="8"/>
+<line class="gate" x1="107" y1="286" x2="107" y2="314"/>
+<text class="tiny" x="48" y="330">81.794 m</text>
+<text class="tiny muted" x="268" y="330">40.000 m recommended gate</text>
+<text class="label" x="48" y="350">Heading alignment min</text>
+<rect class="barbg" x="48" y="366" width="370" height="16" rx="8"/>
+<rect class="green" x="48" y="366" width="370" height="16" rx="8"/>
+<line class="gate" x1="400" y1="360" x2="400" y2="388"/>
+<text class="tiny" x="48" y="404">0.999</text>
+<text class="tiny muted" x="268" y="404">0.950 gate</text>
+<text class="label" x="500" y="276">Alternate distance</text>
+<rect class="barbg" x="500" y="292" width="340" height="16" rx="8"/>
+<rect class="green" x="500" y="292" width="251" height="16" rx="8"/>
+<line class="gate" x1="783" y1="286" x2="783" y2="314"/>
+<text class="tiny" x="500" y="330">4.426 m</text>
+<text class="tiny muted" x="690" y="330">5.000 m gate</text>
+<text class="label" x="500" y="350">Replay gain</text>
+<rect class="barbg" x="500" y="366" width="340" height="16" rx="8"/>
+<line class="gate" x1="670" y1="360" x2="670" y2="388"/>
+<rect class="green" x="670" y="366" width="22" height="16" rx="8"/>
+<text class="tiny" x="500" y="404">+16.623 m</text>
+<text class="tiny muted" x="678" y="404">zero gain</text>
+<text class="tiny" x="48" y="454">Clean recovery: current gates already promote the replay-accepted alternate.</text>
+</svg>
