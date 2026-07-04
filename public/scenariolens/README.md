@@ -32,8 +32,8 @@ The report rail also links to the heading-aware replay candidate plan,
 heading-aware replay prototype, expanded lane-continuation topology gap audit,
 expanded terminal-neighborhood audit, expanded terminal replay gate, and
 expanded terminal selector experiment, calibration, and visual casebook,
-connecting those cases to public-safe selector stability and topology coverage
-checks.
+plus the 200-scenario continuation/terminal-selector scale-up, connecting
+those cases to public-safe selector stability and topology coverage checks.
 
 Generated files:
 
@@ -63,7 +63,9 @@ branch rollout gate, route-context guard, guard calibration, branch coverage
 audit, expanded branch coverage and guard validation, expanded topology gap
 audit, expanded terminal neighborhood audit, expanded terminal replay gate,
 expanded terminal selector, expanded terminal selector calibration, expanded
-terminal selector visual casebook, topology
+terminal selector visual casebook, the 200-scenario continuation study,
+200-scenario topology audit, 200-scenario selector calibration, 200-scenario
+selector visual casebook, topology
 gap audit, terminal neighborhood audit, terminal replay gate, terminal
 selector, baseline-debug casebook,
 replay candidate plan, open-loop
