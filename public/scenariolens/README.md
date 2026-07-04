@@ -33,8 +33,8 @@ heading-aware replay prototype, expanded lane-continuation topology gap audit,
 expanded terminal-neighborhood audit, expanded terminal replay gate, and
 expanded terminal selector experiment, calibration, and visual casebook,
 plus the 200-scenario continuation/terminal-selector scale-up and selector
-transfer/error/route-context validation, connecting those cases to public-safe
-selector stability and topology coverage checks.
+transfer/error/route-context/candidate validation, connecting those cases to
+public-safe selector stability and topology coverage checks.
 
 Generated files:
 
@@ -67,7 +67,8 @@ expanded terminal selector, expanded terminal selector calibration, expanded
 terminal selector visual casebook, the 200-scenario continuation study,
 200-scenario topology audit, 200-scenario selector calibration, 200-scenario
 selector transfer validation, 200-scenario selector error audit, 200-scenario
-selector route/context audit, 200-scenario selector visual casebook, topology
+selector route/context audit, 200-scenario selector candidate validation,
+200-scenario selector visual casebook, topology
 gap audit, terminal neighborhood audit, terminal replay gate, terminal
 selector, baseline-debug casebook,
 replay candidate plan, open-loop
