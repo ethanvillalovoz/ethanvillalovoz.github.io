@@ -61,8 +61,9 @@ lane-continuation branch-selection diagnostic, motion-context branch replay,
 branch rollout gate, route-context guard, guard calibration, branch coverage
 audit, expanded branch coverage and guard validation, expanded topology gap
 audit, expanded terminal neighborhood audit, expanded terminal replay gate,
-expanded terminal selector, topology gap audit, terminal neighborhood audit,
-terminal replay gate, terminal selector, baseline-debug casebook,
+expanded terminal selector, expanded terminal selector calibration, topology
+gap audit, terminal neighborhood audit, terminal replay gate, terminal
+selector, baseline-debug casebook,
 replay candidate plan, open-loop
 replay prototype, map-match audit, heading-aware lane-selection study,
 heading-aware debug casebook,
