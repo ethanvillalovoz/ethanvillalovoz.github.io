@@ -1,0 +1,518 @@
+{
+  "format": "scenariolens.evidence_index.v1",
+  "ready": true,
+  "generated_by": "scenariolens evidence-index",
+  "scope_note": "This evidence index is generated from a curated public artifact catalog and verifies that required reports, payloads, and CI files exist in the repository. It is a recruiter-facing map of evidence, not a Waymo benchmark claim.",
+  "aggregate": {
+    "artifact_count": 15,
+    "present_count": 15,
+    "missing_count": 0,
+    "required_count": 15,
+    "stage_count": 8,
+    "proof_type_counts": {
+      "interactive demo": 1,
+      "provenance": 1,
+      "real-data aggregate study": 1,
+      "context diagnostic": 1,
+      "baseline comparison": 1,
+      "map-matching ablation": 1,
+      "open-loop replay": 2,
+      "real-data map diagnostic": 1,
+      "policy calibration": 1,
+      "transfer validation": 1,
+      "candidate validation": 1,
+      "visual decision atlas": 1,
+      "static data contract": 1,
+      "automation": 1
+    },
+    "stage_counts": {
+      "product_surface": 2,
+      "data_boundary": 1,
+      "scenario_mining": 2,
+      "baseline_models": 2,
+      "replay_bridge": 1,
+      "lane_continuation": 2,
+      "selector_validation": 4,
+      "release_readiness": 1
+    },
+    "public_safe_artifact_count": 15,
+    "local_real_data_artifact_count": 13
+  },
+  "stages": [
+    {
+      "stage": "product_surface",
+      "label": "Product surface",
+      "artifact_count": 2,
+      "present_count": 2,
+      "artifact_ids": [
+        "live_explorer",
+        "selector_demo_payload"
+      ],
+      "summary": "Makes the repo understandable quickly through static public artifacts."
+    },
+    {
+      "stage": "data_boundary",
+      "label": "Data boundary",
+      "artifact_count": 1,
+      "present_count": 1,
+      "artifact_ids": [
+        "data_provenance"
+      ],
+      "summary": "Documents what data is trusted, derived, local, and excluded from git."
+    },
+    {
+      "stage": "scenario_mining",
+      "label": "Scenario mining",
+      "artifact_count": 2,
+      "present_count": 2,
+      "artifact_ids": [
+        "failure_stability_cross_shard",
+        "context_failure_study"
+      ],
+      "summary": "Shows ScenarioLens can rank and explain real motion scenarios."
+    },
+    {
+      "stage": "baseline_models",
+      "label": "Baseline models",
+      "artifact_count": 2,
+      "present_count": 2,
+      "artifact_ids": [
+        "lane_aware_baseline",
+        "heading_lane_selection"
+      ],
+      "summary": "Compares lightweight prediction baselines with honest wins and regressions."
+    },
+    {
+      "stage": "replay_bridge",
+      "label": "Replay bridge",
+      "artifact_count": 1,
+      "present_count": 1,
+      "artifact_ids": [
+        "heading_replay_prototype"
+      ],
+      "summary": "Connects mined cases to laptop-safe open-loop replay diagnostics."
+    },
+    {
+      "stage": "lane_continuation",
+      "label": "Lane continuation",
+      "artifact_count": 2,
+      "present_count": 2,
+      "artifact_ids": [
+        "lane_continuation_200",
+        "lane_continuation_replay_200"
+      ],
+      "summary": "Audits map-link and lane-continuation failure modes at larger scale."
+    },
+    {
+      "stage": "selector_validation",
+      "label": "Selector validation",
+      "artifact_count": 4,
+      "present_count": 4,
+      "artifact_ids": [
+        "terminal_selector_calibration_200",
+        "terminal_selector_transfer_200",
+        "terminal_selector_candidate_validation_200",
+        "terminal_selector_decision_atlas_200"
+      ],
+      "summary": "Validates conservative selector gates before changing default behavior."
+    },
+    {
+      "stage": "release_readiness",
+      "label": "Release readiness",
+      "artifact_count": 1,
+      "present_count": 1,
+      "artifact_ids": [
+        "ci_workflow"
+      ],
+      "summary": "Keeps the public repo tested and contribution-ready."
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "live_explorer",
+      "title": "Static Scenario Explorer",
+      "stage": "product_surface",
+      "stage_label": "Product surface",
+      "proof_type": "interactive demo",
+      "scope": "14 public demo scenarios plus real-data evidence links",
+      "path": "docs/demo/index.html",
+      "link_path": "./index.html",
+      "present": true,
+      "required": true,
+      "size_bytes": 21113,
+      "command": "scenariolens dashboard-data --output docs/demo/scenarios.json",
+      "data_status": "public fixtures plus aggregate/derived real-data links",
+      "why_it_matters": "Gives a reviewer a zero-install first look at ranking, filtering, trajectory previews, failure cards, and selector diagnostics.",
+      "limitation": "The explorer is static and does not expose raw Waymo data.",
+      "metrics": [
+        {
+          "label": "Explorer scenarios",
+          "value": "14"
+        },
+        {
+          "label": "Live route",
+          "value": "GitHub Pages/portfolio friendly"
+        }
+      ]
+    },
+    {
+      "id": "data_provenance",
+      "title": "Data Provenance Boundary",
+      "stage": "data_boundary",
+      "stage_label": "Data boundary",
+      "proof_type": "provenance",
+      "scope": "Public-safe data handling and raw-data exclusion policy",
+      "path": "docs/data_provenance.md",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/data_provenance.md",
+      "present": true,
+      "required": true,
+      "size_bytes": 26097,
+      "command": "documented local Waymo Motion workflow",
+      "data_status": "raw Waymo files ignored; public artifacts are derived",
+      "why_it_matters": "Makes the project credible without implying private-data access or publishing restricted raw records.",
+      "limitation": "External users need their own Waymo Open Dataset access.",
+      "metrics": [
+        {
+          "label": "Raw TFRecords in git",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "id": "failure_stability_cross_shard",
+      "title": "Cross-Shard Failure Stability",
+      "stage": "scenario_mining",
+      "stage_label": "Scenario mining",
+      "proof_type": "real-data aggregate study",
+      "scope": "100 scenarios across 4 local Waymo Motion validation shards",
+      "path": "docs/reports/waymo_motion_failure_stability_cross_shard.md",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_motion_failure_stability_cross_shard.md",
+      "present": true,
+      "required": true,
+      "size_bytes": 3475,
+      "command": "scenariolens failure-study-stability --input ...",
+      "data_status": "aggregate public report from local validation shards",
+      "why_it_matters": "Shows that the ranking and baseline-failure workflow runs beyond one toy fixture or hand-picked scene.",
+      "limitation": "This is a local diagnostic slice, not a Waymo benchmark.",
+      "metrics": [
+        {
+          "label": "Scenarios",
+          "value": "100"
+        },
+        {
+          "label": "Validation shards",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "id": "context_failure_study",
+      "title": "Context-Joined Failure Study",
+      "stage": "scenario_mining",
+      "stage_label": "Scenario mining",
+      "proof_type": "context diagnostic",
+      "scope": "Map, route, signal, and failure metrics over the 100-scenario slice",
+      "path": "docs/reports/waymo_context_failure_study_cross_shard.md",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_context_failure_study_cross_shard.md",
+      "present": true,
+      "required": true,
+      "size_bytes": 10225,
+      "command": "scenariolens context-failure-study --input ...",
+      "data_status": "public scenario IDs and aggregate context counts",
+      "why_it_matters": "Connects scenario mining to map/signal context so failures are actionable, not just high numeric scores.",
+      "limitation": "Context fields are derived from the lightweight parser boundary.",
+      "metrics": [
+        {
+          "label": "Scenarios",
+          "value": "100"
+        }
+      ]
+    },
+    {
+      "id": "lane_aware_baseline",
+      "title": "Lane-Aware Baseline Diagnostic",
+      "stage": "baseline_models",
+      "stage_label": "Baseline models",
+      "proof_type": "baseline comparison",
+      "scope": "Constant-velocity vs lane-aware estimates on 100 real scenarios",
+      "path": "docs/reports/waymo_lane_aware_baseline_cross_shard.md",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_aware_baseline_cross_shard.md",
+      "present": true,
+      "required": true,
+      "size_bytes": 7640,
+      "command": "scenariolens baseline-compare-study --input ...",
+      "data_status": "aggregate public report with wins and regressions",
+      "why_it_matters": "Demonstrates honest model evaluation: the map-aware baseline helps some cases and regresses others.",
+      "limitation": "The lane-aware baseline is diagnostic, not a production predictor.",
+      "metrics": [
+        {
+          "label": "Scenarios",
+          "value": "100"
+        },
+        {
+          "label": "Published regressions",
+          "value": "yes"
+        }
+      ]
+    },
+    {
+      "id": "heading_lane_selection",
+      "title": "Heading-Aware Lane Selection Study",
+      "stage": "baseline_models",
+      "stage_label": "Baseline models",
+      "proof_type": "map-matching ablation",
+      "scope": "418 evaluated prediction targets from the 100-scenario slice",
+      "path": "docs/reports/waymo_heading_aware_lane_selection_study.md",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_heading_aware_lane_selection_study.md",
+      "present": true,
+      "required": true,
+      "size_bytes": 8138,
+      "command": "scenariolens lane-selection-study --input ...",
+      "data_status": "aggregate target-level comparison",
+      "why_it_matters": "Turns a failed naive map baseline into a specific matcher ablation with measured improvement over nearest-lane selection.",
+      "limitation": "Heading-aware selection still trails constant velocity overall.",
+      "metrics": [
+        {
+          "label": "Evaluated targets",
+          "value": "418"
+        },
+        {
+          "label": "FDE vs nearest lane",
+          "value": "+0.489 m improvement"
+        }
+      ]
+    },
+    {
+      "id": "heading_replay_prototype",
+      "title": "Heading-Aware Replay Prototype",
+      "stage": "replay_bridge",
+      "stage_label": "Replay bridge",
+      "proof_type": "open-loop replay",
+      "scope": "Selected heading-aware cases with deterministic perturbations",
+      "path": "docs/reports/waymo_heading_aware_replay_prototype.md",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_heading_aware_replay_prototype.md",
+      "present": true,
+      "required": true,
+      "size_bytes": 13827,
+      "command": "scenariolens heading-replay-prototype --candidate-manifest ...",
+      "data_status": "public-safe replay summary; local packets ignored",
+      "why_it_matters": "Shows the path from mined cases to replay-style validation while staying laptop-safe.",
+      "limitation": "Open-loop diagnostic only; no closed-loop Waymax/JAX claim.",
+      "metrics": [
+        {
+          "label": "Perturbation mode",
+          "value": "deterministic"
+        }
+      ]
+    },
+    {
+      "id": "lane_continuation_200",
+      "title": "200-Scenario Lane-Continuation Study",
+      "stage": "lane_continuation",
+      "stage_label": "Lane continuation",
+      "proof_type": "real-data map diagnostic",
+      "scope": "451 lane-continuation targets across four local validation shards",
+      "path": "docs/reports/waymo_lane_continuation_study_200.md",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_study_200.md",
+      "present": true,
+      "required": true,
+      "size_bytes": 13953,
+      "command": "scenariolens lane-continuation-study --input ...",
+      "data_status": "aggregate public report from local shards",
+      "why_it_matters": "Scales the lane-continuation diagnosis from isolated examples to a larger real-data target set.",
+      "limitation": "Still bounded to four local validation shards.",
+      "metrics": [
+        {
+          "label": "Scenarios",
+          "value": "200"
+        },
+        {
+          "label": "Continuation targets",
+          "value": "451"
+        }
+      ]
+    },
+    {
+      "id": "lane_continuation_replay_200",
+      "title": "200-Scenario Continuation Replay",
+      "stage": "lane_continuation",
+      "stage_label": "Lane continuation",
+      "proof_type": "open-loop replay",
+      "scope": "Replay/probe queue derived from the 200-scenario continuation study",
+      "path": "docs/reports/waymo_lane_continuation_replay_prototype_200.md",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_replay_prototype_200.md",
+      "present": true,
+      "required": true,
+      "size_bytes": 72904,
+      "command": "scenariolens lane-continuation-replay-prototype --candidate-manifest ...",
+      "data_status": "public-safe replay summary; local trajectories ignored",
+      "why_it_matters": "Checks whether continuation candidates survive bounded replay and topology probes.",
+      "limitation": "Open-loop rollouts only, with local per-case artifacts ignored.",
+      "metrics": [
+        {
+          "label": "Queued cases",
+          "value": "45"
+        },
+        {
+          "label": "Raw trajectories committed",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "id": "terminal_selector_calibration_200",
+      "title": "200-Scenario Terminal Selector Calibration",
+      "stage": "selector_validation",
+      "stage_label": "Selector validation",
+      "proof_type": "policy calibration",
+      "scope": "Zero-false-promotion gate sweep over terminal-neighborhood cases",
+      "path": "docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_calibration_200.md",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_calibration_200.md",
+      "present": true,
+      "required": true,
+      "size_bytes": 6340,
+      "command": "scenariolens lane-continuation-terminal-neighborhood-selector-calibration ...",
+      "data_status": "derived candidate labels and aggregate counts",
+      "why_it_matters": "Makes selector promotion conservative and measurable instead of silently changing behavior.",
+      "limitation": "The selected gate is provisional and queue-bounded.",
+      "metrics": [
+        {
+          "label": "False promotions",
+          "value": "0"
+        },
+        {
+          "label": "Default selector changed",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "id": "terminal_selector_transfer_200",
+      "title": "Terminal Selector Transfer Validation",
+      "stage": "selector_validation",
+      "stage_label": "Selector validation",
+      "proof_type": "transfer validation",
+      "scope": "7-case validation queue, including 4 novel transfer cases",
+      "path": "docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_transfer_200.md",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_transfer_200.md",
+      "present": true,
+      "required": true,
+      "size_bytes": 4203,
+      "command": "scenariolens lane-continuation-terminal-neighborhood-selector-transfer ...",
+      "data_status": "derived replay labels and selector outcomes",
+      "why_it_matters": "Tests whether the selector gate transfers beyond the calibration queue without false promotions.",
+      "limitation": "The transfer queue is intentionally small and diagnostic.",
+      "metrics": [
+        {
+          "label": "Validation cases",
+          "value": "7"
+        },
+        {
+          "label": "Novel cases",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "id": "terminal_selector_candidate_validation_200",
+      "title": "Context-Aware Selector Candidate Validation",
+      "stage": "selector_validation",
+      "stage_label": "Selector validation",
+      "proof_type": "candidate validation",
+      "scope": "Candidate policy joined to transfer and route/context audits",
+      "path": "docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_candidate_validation_200.md",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_candidate_validation_200.md",
+      "present": true,
+      "required": true,
+      "size_bytes": 4781,
+      "command": "scenariolens lane-continuation-terminal-neighborhood-selector-candidate-validation ...",
+      "data_status": "public-safe candidate labels and rationale",
+      "why_it_matters": "Shows one narrow improvement path: recover a false hold while preserving negative controls.",
+      "limitation": "The default selector remains unchanged pending broader validation.",
+      "metrics": [
+        {
+          "label": "Agreement",
+          "value": "6/7"
+        },
+        {
+          "label": "False promotions",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "id": "terminal_selector_decision_atlas_200",
+      "title": "Terminal Selector Decision Atlas",
+      "stage": "selector_validation",
+      "stage_label": "Selector validation",
+      "proof_type": "visual decision atlas",
+      "scope": "7 derived selector cards joined to candidate-validation labels",
+      "path": "docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md",
+      "present": true,
+      "required": true,
+      "size_bytes": 8849,
+      "command": "scenariolens lane-continuation-terminal-neighborhood-selector-decision-atlas ...",
+      "data_status": "SVG decision cards plus public-safe JSON payload",
+      "why_it_matters": "Turns the selector validation into visual evidence a reviewer can inspect quickly.",
+      "limitation": "No raw Waymo trajectories or map geometry are published.",
+      "metrics": [
+        {
+          "label": "Visual cards",
+          "value": "7"
+        },
+        {
+          "label": "Candidate agreement",
+          "value": "6/7"
+        }
+      ]
+    },
+    {
+      "id": "selector_demo_payload",
+      "title": "Selector Atlas Demo Payload",
+      "stage": "product_surface",
+      "stage_label": "Product surface",
+      "proof_type": "static data contract",
+      "scope": "Public-safe selector decision cards loaded by the static Explorer",
+      "path": "docs/demo/selector_decisions.json",
+      "link_path": "./selector_decisions.json",
+      "present": true,
+      "required": true,
+      "size_bytes": 17483,
+      "command": "scenariolens lane-continuation-terminal-neighborhood-selector-decision-atlas --demo-json ...",
+      "data_status": "derived public JSON, no raw trajectories",
+      "why_it_matters": "Keeps the Explorer a thin presentation layer over generated, tested artifacts.",
+      "limitation": "The payload mirrors selected public report fields only.",
+      "metrics": [
+        {
+          "label": "Cards",
+          "value": "7"
+        }
+      ]
+    },
+    {
+      "id": "ci_workflow",
+      "title": "CI Validation Workflow",
+      "stage": "release_readiness",
+      "stage_label": "Release readiness",
+      "proof_type": "automation",
+      "scope": "Unit tests plus CLI smoke workflows on every push",
+      "path": ".github/workflows/ci.yml",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/.github/workflows/ci.yml",
+      "present": true,
+      "required": true,
+      "size_bytes": 3440,
+      "command": "python -m unittest discover; CLI smoke commands",
+      "data_status": "CI-safe fixtures only",
+      "why_it_matters": "Shows the framework is maintained as software, not just a set of static reports.",
+      "limitation": "Live Waymo shards remain local and are not required in CI.",
+      "metrics": [
+        {
+          "label": "CI raw Waymo dependency",
+          "value": "none"
+        }
+      ]
+    }
+  ],
+  "missing_artifacts": []
+}

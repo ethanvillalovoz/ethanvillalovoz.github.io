@@ -32,10 +32,11 @@ The report rail also links to the heading-aware replay candidate plan,
 heading-aware replay prototype, expanded lane-continuation topology gap audit,
 expanded terminal-neighborhood audit, expanded terminal replay gate, and
 expanded terminal selector experiment, calibration, and visual casebook,
-plus the 200-scenario continuation/terminal-selector scale-up and selector
+plus the generated v1 evidence index, 200-scenario
+continuation/terminal-selector scale-up, and selector
 transfer/error/route-context/candidate validation and visual decision atlas,
-connecting those cases to public-safe selector stability and topology coverage
-checks.
+connecting those cases to public-safe selector stability, topology coverage,
+and repo-readiness checks.
 
 Generated files:
 
@@ -43,6 +44,8 @@ Generated files:
 - `styles.css`: dashboard visual system.
 - `app.js`: filtering, sorting, and detail-panel interactions.
 - `scenarios.json`: ranked dashboard payload.
+- `evidence_index.json`: generated v1 public evidence spine used to verify
+  the demo, reports, provenance docs, and CI artifacts.
 - `selector_decisions.json`: public-safe terminal-selector decision atlas
   payload joined to the 200-scenario candidate-validation labels.
 - `assets/*.svg`: trajectory views referenced by `scenarios.json`.
@@ -58,7 +61,7 @@ The explorer also links to
 [`docs/reports/waymo_motion_case_study.md`](https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_motion_case_study.md)
 as the public-safe summary of the local real Waymo Motion smoke test.
 The first viewport links to the failure study, cross-shard stability study,
-shard expansion plan, map/signal context study, real lane-aware cross-shard
+v1 evidence index, shard expansion plan, map/signal context study, real lane-aware cross-shard
 diagnostic, context-joined failure study, context evaluation set,
 context eval debug casebook, context replay candidate plan, context open-loop
 replay prototype, context route/intent audit, lane-link continuation prototype,
@@ -98,6 +101,12 @@ scenariolens lane-continuation-terminal-neighborhood-selector-decision-atlas \
   --public-report docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md \
   --demo-json docs/demo/selector_decisions.json \
   --demo-assets-dir docs/demo/assets
+
+scenariolens evidence-index \
+  --output-dir data/processed/scenariolens_evidence_index \
+  --public-report docs/reports/scenariolens_evidence_index.md \
+  --demo-json docs/demo/evidence_index.json \
+  --repo-root .
 ```
 
 ## Payload Shape
@@ -128,6 +137,11 @@ and includes the 7 public-safe selector cards, candidate-validation categories,
 agreement counts, recovered false-hold count, negative controls, and copied SVG
 asset paths. It does not include raw Waymo records, raw trajectories, or raw map
 geometry.
+
+`evidence_index.json` uses format `scenariolens.evidence_index.v1` and includes
+the generated v1 artifact catalog, stage summaries, required-file readiness,
+proof types, commands, public-safe data status notes, and limitations. It
+verifies repository artifacts only; it does not require local raw Waymo shards.
 
 The payload is deterministic and does not include timestamps, so it can be
 checked into git and reviewed in pull requests.
