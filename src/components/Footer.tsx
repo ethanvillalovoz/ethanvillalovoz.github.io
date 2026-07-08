@@ -37,7 +37,7 @@ const Footer = () => {
         {/* Right: Social Icons */}
         <div className="flex justify-center md:justify-end gap-5">
           <a
-            href="https://www.linkedin.com/in/evillalovoz27/"
+            href="https://www.linkedin.com/in/ethanvillalovoz/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1"
@@ -64,7 +64,7 @@ const Footer = () => {
             <SiGooglescholar size={18} />
           </a>
           <a
-            href="https://x.com/etvillalovoz"
+            href="https://x.com/ethanvillalovoz"
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-400 hover:text-foreground transition-all duration-300 ease-in-out hover:-translate-y-1"
