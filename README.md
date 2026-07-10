@@ -2,32 +2,54 @@
 
 [![CI](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml)
 
-Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com), built with Next.js, TypeScript, Tailwind CSS, and Vercel.
-
-The repo is intentionally small around the main public surface:
-
-- Home
-- Publications
-- Projects
-- Teaching
-
-Project microsites linked from the main pages are kept under `public/data/`, including the RAG capstone page and the Gaussian splatting project page.
-
-## Preview
+Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a concise homepage, a reverse-chronological Work archive, technical writing, a Research page, and a small set of standalone project microsites.
 
 ![Homepage preview](public/visuals/homepage.png)
 
-## Tech Stack
+## Public Routes
+
+| Route | Purpose |
+| --- | --- |
+| `/` | Introduction, experience, contact links, and selected work |
+| `/writing/` | Technical notes and research writeups |
+| `/writing/tests-turn-prompting-into-search/` | BODE-GEN evaluation essay |
+| `/work/` | Unified archive of writing, research, and projects |
+| `/research/` | Publications, paper resources, and teaching history |
+| `/scenariolens/` | ScenarioLens interactive explorer |
+| `/metricdrive/` | MetricDrive research preview |
+| `/rag/` | Knowledge Graph RAG Assistant project page |
+
+Legacy `/projects/`, `/publications/`, and `/teaching/` URLs redirect to the current information architecture.
+
+## Design And Content Model
+
+The homepage is intentionally compact. It offers enough context to understand Ethan's current work, then points visitors toward deeper evidence.
+
+Work uses one reverse-chronological feed with three supported content types:
+
+- `Writing`
+- `Research`
+- `Project`
+
+Writing belongs in that shared feed, using the same image, title, date/type, and concise-summary structure as the other entries. The Writing index contains only complete, substantive essays; it does not expose drafts or placeholder entries.
+
+## Stack
 
 - Next.js App Router
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- next-themes
-- next-sitemap
+- React and TypeScript
+- Plain CSS with light and dark themes
+- `next-themes`
+- `next-sitemap`
 - Vercel
 
-## Getting Started
+Standalone project pages under `public/` use dependency-free HTML, CSS, and JavaScript where practical.
+
+## Local Development
+
+Requirements:
+
+- Node.js 20.9 or newer
+- npm
 
 ```bash
 git clone https://github.com/ethanvillalovoz/ethanvillalovoz.github.io.git
@@ -41,86 +63,62 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Scripts
 
 ```bash
-npm run dev        # local development
-npm run lint       # ESLint
-npm run typecheck  # TypeScript
-npm run build      # production build and sitemap generation
-npm run check      # lint, typecheck, and build
+npm run dev        # Start the local development server
+npm run validate   # Check routes, assets, sitemap, and repository invariants
+npm run lint       # Run ESLint
+npm run typecheck  # Generate Next.js route types and run TypeScript
+npm run build      # Build the site and regenerate sitemap files
+npm run check      # Run validation, lint, typecheck, and production build
 ```
 
-## Project Structure
+## Repository Structure
 
 ```text
 src/app/
-  page.tsx          # Home
-  publications/     # Publications page
-  projects/         # Projects page
-  teaching/         # Teaching page
-  layout.tsx        # Site metadata, nav, footer, structured data
+  page.tsx                    Home metadata and server entry
+  (secondary)/layout.tsx      Shared header and footer
+  (secondary)/writing/        Writing index and essays
+  (secondary)/work/           Work archive
+  (secondary)/research/       Publications and teaching
 
 src/components/
-  Navbar.tsx
-  Footer.tsx
-  ThemeToggle.tsx
-  ui/FadeIn.tsx
+  HomePageClient.tsx          Locked homepage experience
+  Navbar.tsx                  Secondary navigation
+  Footer.tsx                  Secondary footer
+  ThemeToggle.tsx             Light/dark theme control
 
 src/data/
-  projects.ts       # Project cards
-  publications.ts   # Publication entries
-  teaching.ts       # Teaching entries
-
-docs/
-  ARCHITECTURE.md
-  CUSTOMIZATION.md
+  work.ts                     Work feed entries
+  writing.ts                  Published essay metadata
+  research.ts                 Publications and teaching records
 
 public/
-  data/             # Resume, CV, papers, and static project microsites
-  images/           # Site, project, and timeline images
-  visuals/          # README screenshots
+  data/                       Resume, CV, papers, and RAG microsite
+  images/                     Identity, organization, and active project images
+  metricdrive/                MetricDrive microsite
+  scenariolens/               ScenarioLens microsite
+  visuals/                    README screenshots
+
+scripts/
+  validate-repository.mjs     Repository integrity checks
 ```
 
-## Customizing The Template
-
-To adapt this site for your own portfolio:
-
-1. Update personal metadata in `src/app/layout.tsx`.
-2. Replace reusable content in `src/data/`.
-3. Update home-page narrative content in `src/app/page.tsx`.
-4. Replace images in `public/images/`.
-5. Replace documents and static project pages in `public/data/`.
-6. Update `siteUrl` in `next-sitemap.config.js`.
-7. Configure your domain in Vercel.
-
-More detail:
-
-- [Architecture](docs/ARCHITECTURE.md)
-- [Customization Guide](docs/CUSTOMIZATION.md)
-
-## Routes
-
-| Route | Purpose |
-| --- | --- |
-| `/` | Home, news, experience, education, featured work |
-| `/publications/` | Research publications and preprints |
-| `/projects/` | Technical project gallery |
-| `/teaching/` | Teaching, mentoring, and talks |
-| `/rag/` | Static senior-design RAG project page |
-| `/gaussian-splatting-physics/` | Static Gaussian splatting project page |
+See [Architecture](docs/ARCHITECTURE.md) and [Customization](docs/CUSTOMIZATION.md) for implementation details.
 
 ## Deployment
 
-The site is deployed on Vercel. The production build runs:
+Vercel is the intended deployment target. The production command is:
 
 ```bash
 npm run build
 ```
 
-`next-sitemap` generates `robots.txt` and `sitemap.xml` during the build using `https://ethanvillalovoz.com` as the canonical site URL.
+The build runs Next.js and then generates `robots.txt` and `sitemap.xml` for `https://ethanvillalovoz.com`.
 
-## Project Microsites
+## Contributing
 
-The static microsites under `public/data/` are adapted academic project pages. Each microsite folder includes its own README with route, asset, and attribution notes.
+Focused bug fixes, accessibility improvements, and documentation corrections are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Security reports should follow [SECURITY.md](SECURITY.md).
 
 ## License
 
-This project is available under the [MIT License](LICENSE).
+The site code is available under the [MIT License](LICENSE). Research papers, project media, organization marks, and adapted third-party microsite material may have separate terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

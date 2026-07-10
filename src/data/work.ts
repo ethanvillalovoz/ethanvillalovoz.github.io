@@ -1,3 +1,5 @@
+import { promptSearchEssay } from "@/data/writing";
+
 export type WorkKind = "Project" | "Research" | "Writing";
 
 export interface WorkItem {
@@ -9,9 +11,21 @@ export interface WorkItem {
 	image: string;
 	imageAlt: string;
 	imageFit?: "cover" | "contain";
+	openInNewTab?: boolean;
 }
 
 export const workItems: WorkItem[] = [
+	{
+		title: promptSearchEssay.title,
+		href: promptSearchEssay.href,
+		date: promptSearchEssay.date,
+		kind: "Writing",
+		description: promptSearchEssay.summary,
+		image: promptSearchEssay.image,
+		imageAlt: promptSearchEssay.imageAlt,
+		imageFit: "contain",
+		openInNewTab: false,
+	},
 	{
 		title: "ScenarioLens",
 		href: "/scenariolens/",
@@ -55,17 +69,6 @@ export const workItems: WorkItem[] = [
 		imageAlt: "Self-driving car simulator displaying a road from the vehicle camera",
 	},
 	{
-		title: "DDPG Reimplementation",
-		href: "https://github.com/ethanvillalovoz/ddpg-reimplementation",
-		date: "Jul 2025",
-		kind: "Project",
-		description:
-			"A TensorFlow 2 reimplementation of Deep Deterministic Policy Gradient for reproducible continuous-control experiments.",
-		image: "/images/projects/ddpg.png",
-		imageAlt: "Training results from the DDPG reinforcement-learning implementation",
-		imageFit: "contain",
-	},
-	{
 		title: "IntelliCrawl",
 		href: "https://github.com/ethanvillalovoz/intellicrawl",
 		date: "Jul 2025",
@@ -86,33 +89,12 @@ export const workItems: WorkItem[] = [
 		imageAlt: "SentiSync dashboard showing sentiment analysis for YouTube comments",
 	},
 	{
-		title: "CodePrep.AI",
-		href: "https://github.com/ethanvillalovoz/codeprep-ai",
-		date: "Jul 2025",
-		kind: "Project",
-		description:
-			"A full-stack coding practice platform that generates challenges and real-time explanations with an open language model.",
-		image: "/images/projects/codeprep.png",
-		imageAlt: "CodePrep.AI coding interview practice interface",
-	},
-	{
-		title: "LaTeX Resume Template",
-		href: "https://github.com/ethanvillalovoz/latex-resume-template",
-		date: "Jul 2025",
-		kind: "Project",
-		description:
-			"An ATS-friendly resume and academic CV template with reusable LaTeX macros and automated build validation.",
-		image: "/images/projects/latex-thumb.jpg",
-		imageAlt: "Preview of the LaTeX resume and academic CV template",
-		imageFit: "contain",
-	},
-	{
 		title: "Knowledge Graph RAG Assistant",
 		href: "/rag/",
 		date: "May 2025",
 		kind: "Project",
 		description:
-			"A retrieval assistant combining vector search and DBpedia knowledge-graph context in a full-stack conversational interface.",
+			"For this team-built knowledge-graph RAG assistant, I generated and indexed 5GB+ of Wikipedia embeddings and refined FAISS retrieval toward a 10,000+ article knowledge base.",
 		image: "/images/projects/rag.jpg",
 		imageAlt: "Knowledge Graph RAG Assistant chat interface",
 	},

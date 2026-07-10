@@ -147,6 +147,12 @@ h2 {
 }
 
 .scenario-rail,
+.viewer,
+.inspector {
+  min-width: 0;
+}
+
+.scenario-rail,
 .inspector,
 .evidence-grid article {
   padding: 18px;
@@ -242,7 +248,7 @@ td {
 th {
   color: var(--muted);
   font-size: 11px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -273,9 +279,13 @@ pre {
 
 .evidence-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
   margin-top: 18px;
+}
+
+.evidence-grid article {
+  min-width: 0;
 }
 
 .bar-row {
@@ -316,10 +326,13 @@ pre {
 }
 
 @media (max-width: 1180px) {
-  .intro,
+  .intro {
+    grid-template-columns: 1fr;
+  }
+
   .workbench,
   .evidence-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .status-stack {

@@ -1,74 +1,90 @@
 # Customization Guide
 
-This repository can be used as a personal academic or technical portfolio template. The goal is to keep the public site easy to adapt without requiring a redesign.
+This repository can be adapted into a compact technical or academic portfolio without changing its information architecture.
 
-## Personal Metadata
+## Identity And Metadata
 
-Update global metadata in `src/app/layout.tsx`:
+Update `src/app/layout.tsx` for:
 
-- Name and title
-- Site description
-- Canonical URL
-- Open Graph metadata
-- JSON-LD structured data
+- Name and site description
+- Canonical domain
+- Favicons and compact social metadata
+- Open Graph and X metadata
+- Person and website JSON-LD
 
-Update `CNAME`, `vercel.json`, and `next-sitemap.config.js` when changing the production domain.
+Also update `CNAME`, `next-sitemap.config.js`, and deployment settings when changing domains.
 
-## Main Pages
+## Homepage
 
-Use `src/data/` for repeatable content:
+The homepage experience lives in `src/components/HomePageClient.tsx`. It contains:
 
-- `src/data/projects.ts` for project cards
-- `src/data/publications.ts` for publications and preprints
-- `src/data/teaching.ts` for teaching entries
+- Short technical introduction
+- Location and contact method
+- Profile links
+- Selected prior experience
+- Three selected Work entries
 
-Use `src/app/page.tsx` for home-page narrative content such as the hero, short bio, news, experience highlights, and education.
+Keep this page selective. It should introduce the person and create clear paths into deeper evidence, not reproduce a resume.
 
-## Assets
+## Work
 
-Place reusable site images in:
+Edit `src/data/work.ts` to add or reorder entries. Items are displayed newest first and support these kinds:
+
+- `Writing`
+- `Research`
+- `Project`
+
+Every entry needs a title, destination, month/year, kind, concise description, image, and useful alt text.
+
+Writing should follow the same card model as research and projects. Define published essay metadata in `src/data/writing.ts`, add the article under `src/app/(secondary)/writing/`, and reuse that metadata in Work. Do not publish placeholder entries.
+
+## Writing
+
+The Writing index is intentionally text-first: title, date, and one-sentence summary. Individual essays use a focused reading column, optional contents navigation, technical figures or tables, explicit limitations, and a citation block when appropriate.
+
+## Research
+
+Edit `src/data/research.ts` for publications and teaching.
+
+For publications, preserve:
+
+- Published author order
+- Accurate venue and year
+- Primary paper URL
+- Local PDF or BibTeX links when distribution is appropriate
+- Plain-language summary
+- Descriptive figure alt text
+
+Do not imply first authorship, lead authorship, acceptance, or awards unless the source record supports the claim.
+
+## Static Project Pages
+
+Active standalone pages live under `public/`:
 
 ```text
-public/images/
+public/scenariolens/
+public/metricdrive/
+public/data/capstone/
 ```
 
-Place papers, resumes, CVs, and research artifacts in:
+Add a rewrite in `next.config.ts` when exposing a new static page at a clean route. Keep local assets relative to the page folder and include a README describing the route, files, and attribution.
+
+## Documents And Images
 
 ```text
-public/data/
+public/data/     Resume, CV, papers, and research artifacts
+public/images/   Identity, organization, and active Work images
 ```
 
-Keep filenames stable when they are linked from resumes, CVs, GitHub READMEs, or external profiles.
+Only keep assets used by an active route, README, metadata record, or document link. Update `THIRD_PARTY_NOTICES.md` when adding third-party templates, fonts, icons, or media.
 
-## Project Microsites
+## Validation
 
-Standalone project pages live under `public/data/<project>/`. Add a rewrite in `next.config.ts` when a microsite should be available at a clean route.
-
-Example:
-
-```ts
-{
-  source: "/my-project/",
-  destination: "/data/my_project/index.html",
-}
-```
-
-When adding a microsite, include a local `README.md` that explains the route, source files, asset folders, and template attribution.
-
-## Validation Checklist
-
-Before publishing changes:
+Before publishing:
 
 ```bash
 npm run check
+npm audit
 ```
 
-Then inspect the important routes locally:
-
-- `/`
-- `/publications/`
-- `/projects/`
-- `/teaching/`
-- Any project microsite routes
-
-Check for console errors, broken images, broken internal links, stale PDFs, and text that wraps awkwardly on mobile.
+Then inspect Home, Writing, Work, Research, all active microsites, legacy redirects, and the 404 page at desktop and mobile sizes. Check keyboard focus, theme switching, horizontal overflow, broken images, and console errors.

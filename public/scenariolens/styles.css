@@ -326,7 +326,7 @@ a {
 }
 
 .section-heading h2,
-.detail-section h2 {
+.detail-section h3 {
   margin: 0;
   color: var(--ink);
   font-size: 12px;
@@ -1033,7 +1033,7 @@ a {
   min-width: 0;
 }
 
-.detail-header h1 {
+.detail-header h2 {
   margin: 0 0 6px;
   max-width: 100%;
   font-size: 20px;
@@ -1441,7 +1441,7 @@ a {
     max-height: 620px;
   }
 
-  .detail-header h1 {
+  .detail-header h2 {
     font-size: 18px;
   }
 

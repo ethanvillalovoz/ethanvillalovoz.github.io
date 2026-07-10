@@ -1,33 +1,46 @@
 {
   "name": "ethanvillalovoz-portfolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "Ethan Villalovoz's personal portfolio and research website.",
+  "license": "MIT",
+  "homepage": "https://ethanvillalovoz.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethanvillalovoz/ethanvillalovoz.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/issues"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build && next-sitemap",
     "start": "next start",
+    "validate": "node scripts/validate-repository.mjs",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
-    "check": "npm run lint && npm run typecheck && npm run build"
+    "typecheck": "next typegen && tsc --noEmit",
+    "check": "npm run validate && npm run lint && npm run typecheck && npm run build"
   },
   "dependencies": {
-    "framer-motion": "^12.12.2",
-    "next": "^16.2.4",
-    "next-sitemap": "^4.2.3",
+    "next": "^16.2.10",
     "next-themes": "^0.4.6",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-icons": "^5.5.0"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-icons": "^5.7.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19.1.5",
-    "@types/react-dom": "^19.1.5",
+    "@types/node": "^20.19.43",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.4",
-    "eslint-config-next": "^16.2.9",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "eslint-config-next": "^16.2.10",
+    "next-sitemap": "^4.2.3",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "postcss": "8.5.16"
   }
 }

@@ -10,7 +10,6 @@ const eslintConfig = [
       "out/**",
       "node_modules/**",
       "public/data/capstone/**",
-      "public/data/cgai_dream_worlds/**",
     ],
   },
 ];

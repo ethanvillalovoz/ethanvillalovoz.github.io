@@ -4,10 +4,10 @@
   "generated_by": "scenariolens evidence-index",
   "scope_note": "This evidence index is generated from a curated public artifact catalog and verifies that required reports, payloads, and CI files exist in the repository. It is a recruiter-facing map of evidence, not a Waymo benchmark claim.",
   "aggregate": {
-    "artifact_count": 15,
-    "present_count": 15,
+    "artifact_count": 16,
+    "present_count": 16,
     "missing_count": 0,
-    "required_count": 15,
+    "required_count": 16,
     "stage_count": 8,
     "proof_type_counts": {
       "interactive demo": 1,
@@ -23,7 +23,8 @@
       "candidate validation": 1,
       "visual decision atlas": 1,
       "static data contract": 1,
-      "automation": 1
+      "automation": 1,
+      "readiness gate": 1
     },
     "stage_counts": {
       "product_surface": 2,
@@ -33,9 +34,9 @@
       "replay_bridge": 1,
       "lane_continuation": 2,
       "selector_validation": 4,
-      "release_readiness": 1
+      "release_readiness": 2
     },
-    "public_safe_artifact_count": 15,
+    "public_safe_artifact_count": 16,
     "local_real_data_artifact_count": 13
   },
   "stages": [
@@ -119,10 +120,11 @@
     {
       "stage": "release_readiness",
       "label": "Release readiness",
-      "artifact_count": 1,
-      "present_count": 1,
+      "artifact_count": 2,
+      "present_count": 2,
       "artifact_ids": [
-        "ci_workflow"
+        "ci_workflow",
+        "public_surface_check"
       ],
       "summary": "Keeps the public repo tested and contribution-ready."
     }
@@ -139,7 +141,7 @@
       "link_path": "./index.html",
       "present": true,
       "required": true,
-      "size_bytes": 21113,
+      "size_bytes": 21298,
       "command": "scenariolens dashboard-data --output docs/demo/scenarios.json",
       "data_status": "public fixtures plus aggregate/derived real-data links",
       "why_it_matters": "Gives a reviewer a zero-install first look at ranking, filtering, trajectory previews, failure cards, and selector diagnostics.",
@@ -501,7 +503,7 @@
       "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/.github/workflows/ci.yml",
       "present": true,
       "required": true,
-      "size_bytes": 3440,
+      "size_bytes": 3978,
       "command": "python -m unittest discover; CLI smoke commands",
       "data_status": "CI-safe fixtures only",
       "why_it_matters": "Shows the framework is maintained as software, not just a set of static reports.",
@@ -510,6 +512,33 @@
         {
           "label": "CI raw Waymo dependency",
           "value": "none"
+        }
+      ]
+    },
+    {
+      "id": "public_surface_check",
+      "title": "Public Surface Check",
+      "stage": "release_readiness",
+      "stage_label": "Release readiness",
+      "proof_type": "readiness gate",
+      "scope": "Offline check for public links, payload contracts, raw-data boundary, and CI smoke coverage",
+      "path": "docs/reports/scenariolens_public_surface_check.md",
+      "link_path": "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/scenariolens_public_surface_check.md",
+      "present": true,
+      "required": true,
+      "size_bytes": 4432,
+      "command": "scenariolens public-surface-check --repo-root .",
+      "data_status": "CI-safe repository metadata and derived public artifacts only",
+      "why_it_matters": "Turns the public repo surface into a testable release gate instead of relying on manual README/demo inspection.",
+      "limitation": "External links are counted but not fetched to keep CI deterministic.",
+      "metrics": [
+        {
+          "label": "Offline checks",
+          "value": "7"
+        },
+        {
+          "label": "Raw-data guard",
+          "value": "yes"
         }
       ]
     }

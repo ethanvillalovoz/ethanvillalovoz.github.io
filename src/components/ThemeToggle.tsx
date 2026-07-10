@@ -11,25 +11,25 @@ export default function ThemeToggle() {
 		<button
 			type="button"
 			onClick={() => setTheme(isNight ? "light" : "dark")}
-			className="maddie-theme-toggle"
+			className="portfolio-theme-toggle"
 			aria-label="Toggle color theme"
 			title="Toggle color theme"
 		>
 			<Image
-				src="/maddie/sun.svg"
+				src="/images/theme/sun.svg"
 				alt=""
 				width={21}
 				height={21}
 				priority
-				className="maddie-theme-icon-day"
+				className="portfolio-theme-icon-day"
 			/>
 			<Image
-				src="/maddie/moon.svg"
+				src="/images/theme/moon.svg"
 				alt=""
 				width={24}
 				height={25}
 				priority
-				className="maddie-theme-icon-night"
+				className="portfolio-theme-icon-night"
 			/>
 		</button>
 	);

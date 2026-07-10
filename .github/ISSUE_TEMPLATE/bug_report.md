@@ -1,31 +1,32 @@
 ---
-name: "🐛 Bug Report"
-description: "Report a bug to help us improve."
+name: Bug report
+description: Report a reproducible problem with the portfolio or a project page.
 title: "[Bug] "
 labels: [bug]
 assignees: []
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## Route
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '...'
-3. Scroll down to '...'
-4. See error
+Which URL or page is affected?
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+## What Happened
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+Describe the problem and what you expected instead.
 
-**Environment (please complete the following information):**
-- OS: [e.g. macOS, Windows, Linux]
-- Browser [e.g. Chrome, Safari]
-- Version [e.g. 22]
+## Reproduction
 
-**Additional context**
-Add any other context about the problem here.
+1. Open...
+2. Select or scroll to...
+3. Observe...
+
+## Environment
+
+- Operating system:
+- Browser and version:
+- Viewport or device:
+- Light or dark theme:
+
+## Evidence
+
+Add a screenshot, console message, or broken-link destination when useful. Remove personal data before attaching logs.

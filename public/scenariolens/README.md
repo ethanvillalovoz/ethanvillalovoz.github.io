@@ -32,7 +32,7 @@ The report rail also links to the heading-aware replay candidate plan,
 heading-aware replay prototype, expanded lane-continuation topology gap audit,
 expanded terminal-neighborhood audit, expanded terminal replay gate, and
 expanded terminal selector experiment, calibration, and visual casebook,
-plus the generated v1 evidence index, 200-scenario
+plus the generated v1 evidence index and public-surface check, 200-scenario
 continuation/terminal-selector scale-up, and selector
 transfer/error/route-context/candidate validation and visual decision atlas,
 connecting those cases to public-safe selector stability, topology coverage,
@@ -61,7 +61,7 @@ The explorer also links to
 [`docs/reports/waymo_motion_case_study.md`](https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_motion_case_study.md)
 as the public-safe summary of the local real Waymo Motion smoke test.
 The first viewport links to the failure study, cross-shard stability study,
-v1 evidence index, shard expansion plan, map/signal context study, real lane-aware cross-shard
+v1 evidence index, public-surface check, shard expansion plan, map/signal context study, real lane-aware cross-shard
 diagnostic, context-joined failure study, context evaluation set,
 context eval debug casebook, context replay candidate plan, context open-loop
 replay prototype, context route/intent audit, lane-link continuation prototype,
@@ -106,6 +106,11 @@ scenariolens evidence-index \
   --output-dir data/processed/scenariolens_evidence_index \
   --public-report docs/reports/scenariolens_evidence_index.md \
   --demo-json docs/demo/evidence_index.json \
+  --repo-root .
+
+scenariolens public-surface-check \
+  --output-dir data/processed/scenariolens_public_surface_check \
+  --public-report docs/reports/scenariolens_public_surface_check.md \
   --repo-root .
 ```
 

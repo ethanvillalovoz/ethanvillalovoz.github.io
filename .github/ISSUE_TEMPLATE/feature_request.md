@@ -1,19 +1,23 @@
 ---
-name: "✨ Feature Request"
-description: "Suggest an idea for this project."
-title: "[Feature] "
+name: Improvement proposal
+description: Suggest a focused accessibility, content, documentation, or maintenance improvement.
+title: "[Proposal] "
 labels: [enhancement]
 assignees: []
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex: I'm always frustrated when [...]
+## Problem
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+What visitor or maintainer problem would this solve?
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## Proposed Change
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+Describe the smallest useful change and the route or file it affects.
+
+## Evidence
+
+Include references, screenshots, or examples that support the proposal.
+
+## Scope Notes
+
+Call out any changes to the locked homepage, publication claims, public routes, dependencies, or third-party assets.

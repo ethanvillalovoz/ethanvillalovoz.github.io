@@ -4,9 +4,10 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   autoLastmod: false,
-  exclude: ['/projects'],
+  exclude: ['/projects', '/publications', '/teaching', '/gaussian-splatting-physics'],
   additionalPaths: async (config) => [
     await config.transform(config, '/rag/'),
-    await config.transform(config, '/gaussian-splatting-physics/'),
+    await config.transform(config, '/scenariolens/'),
+    await config.transform(config, '/metricdrive/'),
   ],
 };

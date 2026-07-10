@@ -3,7 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Explore and rank long-tail autonomous-driving scenarios with interpretable interaction, risk, and baseline-failure metrics." />
+    <meta property="og:title" content="ScenarioLens Explorer" />
+    <meta property="og:description" content="Explore and rank long-tail autonomous-driving scenarios with interpretable interaction, risk, and baseline-failure metrics." />
+    <meta property="og:url" content="https://ethanvillalovoz.com/scenariolens/" />
+    <meta property="og:site_name" content="Ethan Villalovoz" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png" />
+    <meta property="og:image:width" content="1440" />
+    <meta property="og:image:height" content="1000" />
+    <meta property="og:image:alt" content="ScenarioLens interface ranking long-tail autonomous-driving scenarios" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ScenarioLens Explorer" />
+    <meta name="twitter:description" content="Explore and rank long-tail autonomous-driving scenarios with interpretable interaction, risk, and baseline-failure metrics." />
+    <meta name="twitter:image" content="https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png" />
     <title>ScenarioLens Explorer</title>
+    <link rel="canonical" href="https://ethanvillalovoz.com/scenariolens/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312355b'/%3E%3Cpath d='M18 42c5 3 15 3 15-4 0-9-15-5-15-13 0-7 10-7 16-4M42 18v28h12' stroke='white' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -63,7 +78,11 @@
         <div class="report-rail" aria-label="Public evidence reports">
           <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/scenariolens_evidence_index.md">
             <span>Evidence index</span>
-            15 public artifacts verified for v1 review
+            16 public artifacts verified for v1 review
+          </a>
+          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/scenariolens_public_surface_check.md">
+            <span>Surface check</span>
+            7/7 public link, payload, raw-data, and CI checks
           </a>
           <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_motion_failure_study.md">
             <span>Failure study</span>
@@ -299,17 +318,17 @@
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="m21 21-4.35-4.35m1.35-5.65a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
               </svg>
-              <input id="tagSearch" type="search" placeholder="Search tags" />
+              <input id="tagSearch" type="search" placeholder="Search tags" aria-label="Search tags" />
             </label>
             <div id="tagFilters" class="check-list tag-list"></div>
           </section>
 
           <section class="filter-section">
             <div class="section-heading">
-              <h2>Minimum Score</h2>
+              <h2><label for="scoreRange">Minimum Score</label></h2>
               <span id="scoreLabel">0.00</span>
             </div>
-            <input id="scoreRange" class="score-range" type="range" min="0" max="50" step="0.25" value="0" />
+            <input id="scoreRange" class="score-range" type="range" min="0" max="50" step="0.25" value="0" aria-describedby="scoreLabel" />
           </section>
 
           <section class="filter-section">
@@ -413,7 +432,7 @@
         <aside class="detail-panel" aria-label="Selected scenario details">
           <div class="detail-header">
             <div>
-              <h1 id="detailTitle">ScenarioLens Explorer</h1>
+              <h2 id="detailTitle">ScenarioLens Explorer</h2>
               <p id="detailSubtitle">Select a scenario to inspect its ranking evidence.</p>
             </div>
             <div class="detail-actions">
@@ -429,29 +448,29 @@
           <div id="detailTags" class="tag-strip"></div>
 
           <section class="detail-section">
-            <h2>Trajectory Preview</h2>
+            <h3>Trajectory Preview</h3>
             <div class="svg-frame">
               <img id="scenarioImage" alt="" />
             </div>
           </section>
 
           <section class="detail-section">
-            <h2>Baseline Failure</h2>
+            <h3>Baseline Failure</h3>
             <div id="baselineCard" class="baseline-card"></div>
           </section>
 
           <section class="detail-section">
-            <h2>Score Components</h2>
+            <h3>Score Components</h3>
             <div id="componentBars" class="component-bars"></div>
           </section>
 
           <section class="detail-section">
-            <h2>Key Metrics</h2>
+            <h3>Key Metrics</h3>
             <dl id="metricGrid" class="metric-grid"></dl>
           </section>
 
           <section class="detail-section">
-            <h2>Why This Scenario?</h2>
+            <h3>Why This Scenario?</h3>
             <ul id="reasonList" class="reason-list"></ul>
           </section>
         </aside>

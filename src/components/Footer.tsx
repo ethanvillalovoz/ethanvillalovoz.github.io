@@ -1,7 +1,7 @@
 const footerLinks = [
 	{ label: "Resume", href: "/data/EthanVillalovoz-Resume.pdf" },
 	{ label: "CV", href: "/data/EthanVillalovoz-CV.pdf" },
-	{ label: "LinkedIn", href: "https://www.linkedin.com/in/ethanvillalovoz/" },
+	{ label: "LinkedIn", href: "https://www.linkedin.com/in/evillalovoz27/" },
 	{
 		label: "Scholar",
 		href: "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
@@ -21,7 +21,7 @@ export default function Footer() {
 							href={link.href}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="secondary-footer-link maddie-link"
+							className="secondary-footer-link portfolio-link"
 						>
 							{link.label}
 						</a>

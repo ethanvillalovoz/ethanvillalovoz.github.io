@@ -1,27 +1,29 @@
-# Pull Request
+# Summary
 
-Thank you for your contribution! Please fill out the following checklist and provide as much detail as possible.
+Describe what changed and why.
 
-## Description
-<!-- Please include a summary of the change and which issue is fixed. Also include relevant motivation and context. -->
+## Affected Surfaces
 
-Fixes #(issue)
+- Routes or microsites:
+- Content or metadata:
+- Dependencies or tooling:
 
-## Type of change
-- [ ] Bug fix
-- [ ] New feature
-- [ ] Breaking change
-- [ ] Documentation update
-- [ ] Other (please describe):
+## Verification
 
-## Checklist
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works (if applicable)
-- [ ] New and existing unit tests pass locally with my changes (if applicable)
+- [ ] `npm ci`
+- [ ] `npm run check`
+- [ ] `npm audit`
+- [ ] Desktop browser check, when visible behavior changed
+- [ ] Mobile browser check, when visible behavior changed
+- [ ] Keyboard and theme check, when interaction changed
 
-## Additional context
-<!-- Add any other context or screenshots about the pull request here. -->
+## Screenshots
+
+Include before/after screenshots for visible changes.
+
+## Content Integrity
+
+- [ ] Publication authorship, venue, dates, and links remain accurate
+- [ ] New images and third-party material are attributed
+- [ ] No placeholder Writing route or entry was added
+- [ ] The locked homepage was unchanged unless this pull request explicitly targets it

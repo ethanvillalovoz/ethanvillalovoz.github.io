@@ -52,14 +52,6 @@ export const metadata: Metadata = {
     description: siteDescription,
     url: "https://ethanvillalovoz.com",
     siteName: "Ethan Villalovoz",
-    images: [
-      {
-        url: "/images/identity/icon-512.png",
-        width: 512,
-        height: 512,
-        alt: "Lowercase e mark for Ethan Villalovoz",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -67,7 +59,6 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Ethan Villalovoz",
     description: siteDescription,
-    images: ["/images/identity/icon-512.png"],
     creator: "@ethanvillalovoz",
   },
 };
@@ -79,10 +70,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`antialiased flex flex-col min-h-screen`}
-        suppressHydrationWarning
-      >
+      <body className="site-body" suppressHydrationWarning>
         {/* WebSite structured data for Google site name. */}
         <script
           type="application/ld+json"
@@ -105,12 +93,12 @@ export default function RootLayout({
               "@type": "Person",
               name: "Ethan Villalovoz",
               url: "https://ethanvillalovoz.com",
-              image: "https://ethanvillalovoz.com/images/EthanVillalovozPic.jpeg",
+              image: "https://ethanvillalovoz.com/images/EthanVillalovozPic-optimized.jpg",
               sameAs: [
                 "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
                 "https://github.com/ethanvillalovoz",
                 "https://x.com/ethanvillalovoz",
-                "https://www.linkedin.com/in/ethanvillalovoz/",
+                "https://www.linkedin.com/in/evillalovoz27/",
                 "https://ethanvillalovoz.github.io/",
               ],
               jobTitle: "MSCS @ Georgia Tech",
@@ -122,9 +110,9 @@ export default function RootLayout({
             }),
           }}
         />
-				<Providers>
-					<div className="flex-1">{children}</div>
-				</Providers>
+        <Providers>
+          <div className="site-content">{children}</div>
+        </Providers>
       </body>
     </html>
   );
