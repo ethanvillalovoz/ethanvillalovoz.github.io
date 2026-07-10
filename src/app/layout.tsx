@@ -4,22 +4,46 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Providers } from "./providers";
 
+const siteDescription =
+  "I work on robot learning at Georgia Tech and multi-agent systems at Microsoft.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://ethanvillalovoz.com"),
   title: {
     default: "Ethan Villalovoz",
     template: "%s | Ethan Villalovoz",
   },
-  description:
-    "Master's student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics.",
+  description: siteDescription,
   applicationName: "Ethan Villalovoz",
   icons: {
     icon: [
-      { url: "/images/website_icon_white.png", media: "(prefers-color-scheme: dark)", type: "image/png" },
-      { url: "/images/website_icon.png", media: "(prefers-color-scheme: light)", type: "image/png" },
+      {
+        url: "/images/identity/favicon-16.png",
+        sizes: "16x16",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/images/identity/favicon-32.png",
+        sizes: "32x32",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/images/identity/favicon-on-dark-16.png",
+        sizes: "16x16",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/images/identity/favicon-on-dark-32.png",
+        sizes: "32x32",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
     ],
     apple: [
-      { url: "/images/website_icon.png" },
+      { url: "/images/identity/apple-touch-icon-180.png", sizes: "180x180", type: "image/png" },
     ],
   },
   verification: {
@@ -27,16 +51,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Ethan Villalovoz",
-    description:
-      "Master's student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics.",
+    description: siteDescription,
     url: "https://ethanvillalovoz.com",
     siteName: "Ethan Villalovoz",
     images: [
       {
-        url: "/images/website_icon.png",
-        width: 800,
-        height: 800,
-        alt: "Ethan Villalovoz Logo",
+        url: "/images/identity/icon-512.png",
+        width: 512,
+        height: 512,
+        alt: "Lowercase e mark for Ethan Villalovoz",
       },
     ],
     locale: "en_US",
@@ -45,10 +68,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Ethan Villalovoz",
-    description:
-      "Master's student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics.",
-    images: ["/images/website_icon.png"],
-    creator: "@etvillalovoz",
+    description: siteDescription,
+    images: ["/images/identity/icon-512.png"],
+    creator: "@ethanvillalovoz",
   },
 };
 
@@ -89,8 +111,8 @@ export default function RootLayout({
               sameAs: [
                 "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
                 "https://github.com/ethanvillalovoz",
-                "https://x.com/etvillalovoz",
-                "https://www.linkedin.com/in/evillalovoz27/",
+                "https://x.com/ethanvillalovoz",
+                "https://www.linkedin.com/in/ethanvillalovoz/",
                 "https://ethanvillalovoz.github.io/",
               ],
               jobTitle: "MSCS @ Georgia Tech",
@@ -98,8 +120,7 @@ export default function RootLayout({
                 "@type": "CollegeOrUniversity",
                 name: "Washington State University",
               },
-              description:
-                "Master's student in Computer Science at Georgia Tech, specializing in Computational Perception and Robotics.",
+              description: siteDescription,
             }),
           }}
         />

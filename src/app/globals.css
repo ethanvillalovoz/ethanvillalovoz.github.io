@@ -2,54 +2,493 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "NeueHaas";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/NHaasGroteskTXPro-55Rg.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NeueHaasMedium";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/NHaasGroteskTXPro-65Md.ttf") format("truetype");
+}
+
 :root {
-  /* Apple Inspired - Light Mode */
-  --background: 255 255 255;      /* Pure White */
-  --foreground: 29 29 31;         /* Apple Dark Gray/Black */
-  
-  --primary: 0 102 204;           /* Apple Blue (Classic) */
-  --primary-foreground: 255 255 255; 
-  --primary-light: 134 134 139;   /* Apple Gray for secondary text */
-  --primary-dark: 0 0 0;    
-  
-  --card: 245 245 247;            /* Light Gray for cards/sections */
+  --background: 246 246 247;
+  --foreground: 64 62 67;
+  --heading: 64 62 67;
+  --muted: 113 112 117;
+  --underline: 138 137 140;
+
+  --primary: 64 62 67;
+  --primary-foreground: 255 255 255;
+  --primary-light: 138 137 140;
+  --primary-dark: 34 31 38;
+  --card: 255 255 255;
 }
 
 .dark {
-  /* Apple Inspired - Dark Mode */
-  --background: 34 31 38;         /* Custom Dark Background #221F26 */
-  --foreground: 245 245 247;      /* Off White */
-  
-  --primary: 41 151 255;          /* Apple Blue (Dark Mode) */
-  --primary-foreground: 0 0 0; 
-  --primary-light: 134 134 139;   /* Apple Gray */
-  --primary-dark: 255 255 255;    
-  
-  --card: 28 28 30;               /* Dark Gray for cards */
+  --background: 34 31 38;
+  --foreground: 200 200 201;
+  --heading: 255 255 255;
+  --muted: 138 137 140;
+  --underline: 138 137 140;
+
+  --primary: 200 200 201;
+  --primary-foreground: 34 31 38;
+  --primary-light: 138 137 140;
+  --primary-dark: 255 255 255;
+  --card: 40 38 43;
+}
+
+html,
+body {
+  background: rgb(var(--background));
 }
 
 body {
   color: rgb(var(--foreground));
-  background: rgb(var(--background));
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "NeueHaas", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600; /* Semi-bold for headings */
-  letter-spacing: -0.015em; /* Tight tracking */
+@keyframes maddieFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
-/* Glassmorphism Utilities */
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+.maddie-site {
+  background: rgb(var(--background));
+  color: rgb(var(--foreground));
+  min-height: 100vh;
+  position: relative;
 }
 
-.dark .glass {
-  background: rgba(28, 28, 30, 0.7);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+.maddie-theme-corner {
+  position: absolute;
+  right: max(12px, calc((100vw - 672px) / 2 + 12px));
+  top: 24px;
+  z-index: 1;
+}
+
+.maddie-container {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 672px;
+  padding: 96px 24px 64px;
+  width: 100%;
+}
+
+.maddie-intro {
+  margin-bottom: 48px;
+}
+
+.maddie-identity {
+  align-items: flex-start;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.maddie-identity-copy {
+  min-width: 0;
+}
+
+.maddie-profile-image {
+  border-radius: 4px;
+  display: block;
+  flex: 0 0 auto;
+  height: 72px;
+  object-fit: cover;
+  width: 72px;
+}
+
+.maddie-h1 {
+  color: rgb(var(--heading));
+  font-family: "NeueHaasMedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 0.25px;
+  line-height: 32px;
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+.maddie-location {
+  align-items: center;
+  color: rgb(var(--muted));
+  display: flex;
+  font-family: "NeueHaas", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  gap: 6px;
+  line-height: 20px;
+  margin: 0;
+}
+
+.maddie-location svg {
+  flex: 0 0 auto;
+  height: 14px;
+  width: 14px;
+}
+
+.maddie-p {
+  color: rgb(var(--foreground));
+  font-family: "NeueHaas", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.maddie-contact-copy {
+  margin-top: 25px;
+}
+
+.maddie-profile-links {
+  align-items: baseline;
+  display: grid;
+  gap: 8px 16px;
+  grid-template-columns: repeat(4, max-content);
+  margin-top: 24px;
+}
+
+.maddie-profile-link-item {
+  display: block;
+  white-space: nowrap;
+}
+
+.maddie-section + .maddie-section {
+  margin-top: 52px;
+}
+
+.maddie-section-label {
+  color: rgb(var(--muted));
+  font-family: "NeueHaas", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  line-height: 20px;
+  margin: 0 0 20px;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.maddie-experience-list {
+  display: grid;
+  gap: 18px;
+}
+
+.maddie-experience-row {
+  align-items: baseline;
+  display: grid;
+  gap: 2px 16px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.maddie-row-title {
+  color: rgb(var(--heading));
+  font-family: "NeueHaasMedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.25px;
+  line-height: 24px;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.maddie-row-role {
+  color: rgb(var(--foreground));
+  font-family: "NeueHaas", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.35px;
+  grid-column: 1 / 3;
+  grid-row: 2;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.maddie-row-date,
+.maddie-work-date {
+  color: rgb(var(--muted));
+  font-family: "NeueHaas", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.maddie-row-date {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+}
+
+.maddie-work-list {
+  display: grid;
+  gap: 30px;
+}
+
+.maddie-work-item {
+  min-width: 0;
+}
+
+.maddie-work-heading {
+  display: block;
+}
+
+.maddie-work-title {
+  color: rgb(var(--heading));
+  font-family: "NeueHaasMedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.25px;
+  line-height: 24px;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.maddie-work-date {
+  display: inline;
+  margin-left: 3px;
+  text-align: left;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.maddie-work-description {
+  color: rgb(var(--foreground));
+  font-family: "NeueHaas", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 24px;
+  margin: 4px 0 0;
+  padding: 0;
+}
+
+.maddie-more-content {
+  font-family: "NeueHaas", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 30px;
+}
+
+.maddie-organization-link {
+  color: rgb(var(--heading));
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.maddie-organization-mark {
+  border-radius: 2px;
+  display: inline-block;
+  height: 15px;
+  margin-right: 5px;
+  object-fit: cover;
+  vertical-align: -2px;
+  width: 15px;
+}
+
+.maddie-link {
+  color: rgb(var(--heading));
+  display: inline;
+  font-family: "NeueHaasMedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+}
+
+.maddie-link::after {
+  background: rgb(var(--underline));
+  bottom: -3px;
+  content: "";
+  height: 1.5px;
+  left: 0;
+  position: absolute;
+  right: 100%;
+  transition-duration: 0.2s;
+  transition-property: left, right;
+  transition-timing-function: ease-out;
+  z-index: -1;
+}
+
+.maddie-link:hover::after,
+.maddie-link:focus-visible::after,
+.maddie-link:active::after,
+.maddie-organization-link:hover .maddie-organization-name::after,
+.maddie-organization-link:focus-visible .maddie-organization-name::after,
+.maddie-organization-link:active .maddie-organization-name::after {
+  right: 0;
+}
+
+.maddie-copy-email {
+  display: inline-block;
+  position: relative;
+}
+
+.maddie-copy-button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+.maddie-copy-status {
+  color: rgb(var(--muted));
+  font-family: "NeueHaas", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  left: calc(100% + 8px);
+  letter-spacing: 1px;
+  line-height: 16px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+.maddie-theme-toggle {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  color: inherit;
+  cursor: pointer;
+  display: grid;
+  height: 44px;
+  line-height: 0;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  place-items: center;
+  width: 44px;
+}
+
+.maddie-theme-toggle:focus-visible {
+  outline: 2px solid rgb(var(--heading));
+  outline-offset: 2px;
+}
+
+.maddie-theme-toggle img {
+  display: block;
+  grid-area: 1 / 1;
+  height: auto;
+  width: 20px;
+}
+
+.maddie-theme-toggle .maddie-theme-icon-night,
+.dark .maddie-theme-toggle .maddie-theme-icon-day {
+  display: none;
+}
+
+.dark .maddie-theme-toggle .maddie-theme-icon-night {
+  display: block;
+}
+
+.maddie-fade {
+  animation-duration: 1000ms;
+  animation-fill-mode: both;
+  animation-name: maddieFadeIn;
+}
+
+.maddie-fade-one {
+  animation-delay: 100ms;
+}
+
+.maddie-fade-two {
+  animation-delay: 180ms;
+}
+
+.maddie-fade-three {
+  animation-delay: 260ms;
+}
+
+@media (max-width: 350px) {
+  .maddie-identity {
+    gap: 16px;
+  }
+
+  .maddie-profile-image {
+    height: 64px;
+    width: 64px;
+  }
+}
+
+@media (min-width: 400px) {
+  .maddie-h1 {
+    font-size: 26px;
+    line-height: 34px;
+  }
+}
+
+@media (min-width: 600px) {
+  .maddie-container {
+    padding-bottom: 80px;
+    padding-top: 112px;
+  }
+
+  .maddie-profile-image {
+    height: 88px;
+    width: 88px;
+  }
+
+  .maddie-profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+  }
+
+  .maddie-experience-row {
+    gap: 20px;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) auto;
+  }
+
+  .maddie-row-role {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .maddie-row-date {
+    grid-column: 3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .maddie-fade {
+    animation-delay: 0s;
+    animation-duration: 0.01ms;
+  }
 }
