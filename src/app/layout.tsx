@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { Providers } from "./providers";
 
 const siteDescription =
@@ -125,9 +123,7 @@ export default function RootLayout({
           }}
         />
 				<Providers>
-					<Navbar />
 					<div className="flex-1">{children}</div>
-					<Footer />
 				</Providers>
       </body>
     </html>

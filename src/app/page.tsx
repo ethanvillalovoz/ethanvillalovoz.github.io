@@ -308,7 +308,9 @@ export default function Home() {
 						className="maddie-more-content maddie-fade"
 						style={{ animationDelay: "980ms" }}
 					>
-						<TextLink href="/projects/">More work</TextLink>
+						<a href="/work/" className="maddie-link">
+							More work
+						</a>
 					</div>
 				</section>
 			</div>
