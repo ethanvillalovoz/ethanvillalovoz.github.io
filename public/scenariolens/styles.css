@@ -109,8 +109,9 @@ a {
   font-weight: 650;
 }
 
-.topnav-link:hover,
-.topnav-link.active {
+.topnav-link.active,
+.topnav-link:focus-visible,
+.topnav-link:active {
   color: var(--ink);
   background: var(--surface-subtle);
 }
@@ -265,8 +266,10 @@ a {
   line-height: 1.35;
 }
 
-.report-rail a:hover,
-.hero-actions a:hover {
+.report-rail a:focus-visible,
+.report-rail a:active,
+.hero-actions a:focus-visible,
+.hero-actions a:active {
   border-color: var(--blue);
 }
 
@@ -421,9 +424,12 @@ a {
   cursor: pointer;
 }
 
-.clear-button:hover,
-.repo-link:hover,
-.detail-actions button:hover {
+.clear-button:focus-visible,
+.clear-button:active,
+.repo-link:focus-visible,
+.repo-link:active,
+.detail-actions button:focus-visible,
+.detail-actions button:active {
   border-color: var(--blue);
   color: var(--blue);
 }
@@ -565,8 +571,10 @@ a {
   font-weight: 800;
 }
 
-.diagnostics-header a:hover,
-.selector-atlas-header a:hover {
+.diagnostics-header a:focus-visible,
+.diagnostics-header a:active,
+.selector-atlas-header a:focus-visible,
+.selector-atlas-header a:active {
   border-color: var(--blue);
 }
 
@@ -909,9 +917,14 @@ a {
   cursor: pointer;
 }
 
-.scenario-table tr:hover td,
+.scenario-table tr:focus-visible td,
 .scenario-table tr.selected td {
   background: #f8fbff;
+}
+
+.scenario-table tr:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: -2px;
 }
 
 .rank-cell {
@@ -1239,6 +1252,31 @@ a {
   height: 6px;
   border-radius: 999px;
   background: var(--blue);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .topnav-link:hover {
+    color: var(--ink);
+    background: var(--surface-subtle);
+  }
+
+  .report-rail a:hover,
+  .hero-actions a:hover,
+  .diagnostics-header a:hover,
+  .selector-atlas-header a:hover {
+    border-color: var(--blue);
+  }
+
+  .clear-button:hover,
+  .repo-link:hover,
+  .detail-actions button:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
+  .scenario-table tr:hover td {
+    background: #f8fbff;
+  }
 }
 
 @media (max-width: 1368px) {

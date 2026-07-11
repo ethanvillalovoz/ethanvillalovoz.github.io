@@ -66,7 +66,7 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 	return (
 		<li
 			className="work-card work-page-fade"
-			style={{ animationDelay: `${100 + index * 70}ms` }}
+			style={{ animationDelay: `${60 + index * 35}ms` }}
 		>
 			<a
 				href={item.href}

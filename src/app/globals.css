@@ -37,6 +37,9 @@ img {
   --primary-light: 138 137 140;
   --primary-dark: 34 31 38;
   --card: 255 255 255;
+  --motion-fast: 140ms;
+  --motion-standard: 200ms;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   color-scheme: light;
 }
 
@@ -69,6 +72,11 @@ body {
   line-height: 24px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a,
+button {
+  touch-action: manipulation;
 }
 
 .site-body {
@@ -351,20 +359,32 @@ body {
   height: 1.5px;
   left: 0;
   position: absolute;
-  right: 100%;
-  transition-duration: 0.2s;
-  transition-property: left, right;
-  transition-timing-function: ease-out;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition-duration: var(--motion-standard);
+  transition-property: transform;
+  transition-timing-function: var(--ease-out);
   z-index: -1;
 }
 
-.portfolio-link:hover::after,
 .portfolio-link:focus-visible::after,
 .portfolio-link:active::after,
-.portfolio-organization-link:hover .portfolio-organization-name::after,
 .portfolio-organization-link:focus-visible .portfolio-organization-name::after,
 .portfolio-organization-link:active .portfolio-organization-name::after {
-  right: 0;
+  transform: scaleX(1);
+}
+
+.portfolio-link:focus-visible::after,
+.portfolio-organization-link:focus-visible .portfolio-organization-name::after {
+  transition-duration: 0ms;
+}
+
+.portfolio-link:focus-visible,
+.portfolio-organization-link:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid rgb(var(--heading) / 0.85);
+  outline-offset: 3px;
 }
 
 .portfolio-copy-email {
@@ -383,7 +403,13 @@ body {
   margin: 0;
   overflow: visible;
   padding: 0;
+  transform-origin: center;
+  transition: transform var(--motion-fast) var(--ease-out);
   vertical-align: baseline;
+}
+
+.portfolio-copy-button:active {
+  transform: scale(0.98);
 }
 
 .portfolio-copy-status {
@@ -414,7 +440,12 @@ body {
   outline: none;
   padding: 0;
   place-items: center;
+  transition: transform var(--motion-fast) var(--ease-out);
   width: 44px;
+}
+
+.portfolio-theme-toggle:active {
+  transform: scale(0.96);
 }
 
 .portfolio-theme-toggle:focus-visible {
@@ -439,21 +470,22 @@ body {
 }
 
 .portfolio-fade {
-  animation-duration: 1000ms;
+  animation-duration: 350ms;
   animation-fill-mode: both;
   animation-name: portfolioFadeIn;
+  animation-timing-function: var(--ease-out);
 }
 
 .portfolio-fade-one {
-  animation-delay: 100ms;
+  animation-delay: 40ms;
 }
 
 .portfolio-fade-two {
-  animation-delay: 180ms;
+  animation-delay: 80ms;
 }
 
 .portfolio-fade-three {
-  animation-delay: 260ms;
+  animation-delay: 120ms;
 }
 
 .secondary-site {
@@ -469,7 +501,7 @@ body {
 }
 
 .secondary-header.work-page-fade {
-  animation-delay: 100ms;
+  animation-delay: 40ms;
 }
 
 .secondary-header-inner {
@@ -493,7 +525,7 @@ body {
   letter-spacing: 0;
   line-height: 24px;
   text-decoration: none;
-  transition: color 180ms ease;
+  transition: color var(--motion-fast) ease;
 }
 
 .secondary-brand {
@@ -525,13 +557,11 @@ body {
   color: rgb(var(--heading));
 }
 
-.secondary-brand:hover,
 .secondary-brand:focus-visible,
-.secondary-nav-link:hover,
 .secondary-nav-link:focus-visible,
-.secondary-footer-link:hover,
 .secondary-footer-link:focus-visible {
   color: rgb(var(--heading));
+  transition-duration: 0ms;
 }
 
 .secondary-header .portfolio-theme-toggle {
@@ -550,7 +580,7 @@ body {
 }
 
 .work-intro {
-  animation-delay: 100ms;
+  animation-delay: 40ms;
   margin-bottom: 48px;
 }
 
@@ -612,7 +642,7 @@ body {
   display: block;
   height: 100%;
   object-fit: cover;
-  transition: transform 200ms ease-out;
+  transition: transform var(--motion-standard) var(--ease-out);
   width: 100%;
 }
 
@@ -625,7 +655,7 @@ body {
   grid-template-rows: repeat(2, minmax(0, 1fr));
   height: 100%;
   overflow: hidden;
-  transition: transform 200ms ease-out;
+  transition: transform var(--motion-standard) var(--ease-out);
   width: 100%;
 }
 
@@ -659,13 +689,6 @@ body {
   width: 197.63%;
 }
 
-.work-card-link:hover .work-card-image,
-.work-card-link:focus-visible .work-card-image,
-.work-card-link:hover .work-card-prompt-stack,
-.work-card-link:focus-visible .work-card-prompt-stack {
-  transform: scale(1.022);
-}
-
 .work-card-copy {
   display: block;
   margin-top: 13px;
@@ -686,9 +709,9 @@ body {
   color: inherit;
 }
 
-.work-card-link:hover .work-card-title-link::after,
 .work-card-link:focus-visible .work-card-title-link::after {
-  right: 0;
+  transform: scaleX(1);
+  transition-duration: 0ms;
 }
 
 .work-card-meta {
@@ -775,9 +798,9 @@ body {
   margin: 3px 0 0;
 }
 
-.writing-entry-link:hover .writing-entry-title-link::after,
 .writing-entry-link:focus-visible .writing-entry-title-link::after {
-  right: 0;
+  transform: scaleX(1);
+  transition-duration: 0ms;
 }
 
 .essay-container {
@@ -877,13 +900,16 @@ body {
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
-  transition: color 0.2s ease;
+  transition: color var(--motion-standard) ease;
 }
 
-.essay-contents a:hover,
 .essay-contents a:focus-visible,
 .essay-contents a[aria-current="location"] {
   color: rgb(var(--heading));
+}
+
+.essay-contents a:focus-visible {
+  transition-duration: 0ms;
 }
 
 .essay-contents a[aria-current="location"] {
@@ -1220,10 +1246,10 @@ body {
 }
 
 .work-page-fade {
-  animation-duration: 1000ms;
+  animation-duration: 250ms;
   animation-fill-mode: both;
   animation-name: portfolioFadeIn;
-  animation-timing-function: ease-out;
+  animation-timing-function: var(--ease-out);
 }
 
 .secondary-footer {
@@ -1232,7 +1258,7 @@ body {
 }
 
 .secondary-footer.work-page-fade {
-  animation-delay: 260ms;
+  animation-delay: 120ms;
 }
 
 .secondary-footer-inner {
@@ -1267,6 +1293,30 @@ body {
   color: rgb(var(--muted));
   font-size: 14px;
   line-height: 20px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-link:hover::after,
+  .portfolio-organization-link:hover .portfolio-organization-name::after {
+    transform: scaleX(1);
+  }
+
+  .secondary-brand:hover,
+  .secondary-nav-link:hover,
+  .secondary-footer-link:hover,
+  .essay-contents a:hover {
+    color: rgb(var(--heading));
+  }
+
+  .work-card-link:hover .work-card-image,
+  .work-card-link:hover .work-card-prompt-stack {
+    transform: scale(1.022);
+  }
+
+  .work-card-link:hover .work-card-title-link::after,
+  .writing-entry-link:hover .writing-entry-title-link::after {
+    transform: scaleX(1);
+  }
 }
 
 @media (min-width: 640px) {
@@ -1501,25 +1551,30 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .portfolio-fade {
-    animation-delay: 0s;
-    animation-duration: 0.01ms;
+  html:focus-within {
+    scroll-behavior: auto;
   }
 
+  .portfolio-fade,
   .work-page-fade {
     animation-delay: 0s !important;
-    animation-duration: 0.01ms;
+    animation-duration: var(--motion-fast) !important;
+    animation-iteration-count: 1 !important;
   }
 
-  .work-card-image,
-  .work-card-prompt-stack,
-  .work-card-link,
-  .secondary-brand,
-  .secondary-nav-link,
-  .secondary-footer-link,
-  .work-card-title-link,
-  .essay-contents-link,
-  .research-resource-link {
-    transition-duration: 0.01ms;
+  .portfolio-link::after {
+    transition-duration: 0.01ms !important;
+  }
+
+  .portfolio-copy-button:active,
+  .portfolio-theme-toggle:active {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (hover: hover) and (pointer: fine) {
+  .work-card-link:hover .work-card-image,
+  .work-card-link:hover .work-card-prompt-stack {
+    transform: none;
   }
 }

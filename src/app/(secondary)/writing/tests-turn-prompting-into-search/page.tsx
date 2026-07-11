@@ -103,7 +103,7 @@ export default function PromptSearchEssayPage() {
 					</div>
 				</header>
 
-				<div className="essay-layout work-page-fade" style={{ animationDelay: "180ms" }}>
+				<div className="essay-layout work-page-fade" style={{ animationDelay: "80ms" }}>
 					<EssayContents items={contents} />
 
 					<div className="essay-body">

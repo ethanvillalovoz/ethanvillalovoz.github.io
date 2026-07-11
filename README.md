@@ -119,7 +119,7 @@ scripts/
   validate-repository.mjs     Repository integrity checks
 ```
 
-See [Architecture](docs/ARCHITECTURE.md) and [Customization](docs/CUSTOMIZATION.md) for implementation details.
+See [Architecture](docs/ARCHITECTURE.md), [Design Contract](docs/DESIGN.md), and [Customization](docs/CUSTOMIZATION.md) for implementation details.
 
 ## Deployment
 

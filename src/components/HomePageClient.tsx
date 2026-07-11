@@ -138,7 +138,7 @@ function ExperienceRow({
 	return (
 		<article
 			className="portfolio-experience-row portfolio-fade"
-			style={{ animationDelay: `${320 + index * 70}ms` }}
+			style={{ animationDelay: `${160 + index * 45}ms` }}
 		>
 			<h3 className="portfolio-row-title">
 				<OrganizationLink href={href} iconSrc={iconSrc}>
@@ -167,7 +167,7 @@ function SelectedWorkRow({
 	return (
 		<article
 			className="portfolio-work-item portfolio-fade"
-			style={{ animationDelay: `${660 + index * 90}ms` }}
+			style={{ animationDelay: `${340 + index * 45}ms` }}
 		>
 			<div className="portfolio-work-heading">
 				<h3 className="portfolio-work-title">
@@ -295,7 +295,7 @@ export default function HomePageClient() {
 					<h2
 						id="selected-work-heading"
 						className="portfolio-section-label portfolio-fade"
-						style={{ animationDelay: "580ms" }}
+						style={{ animationDelay: "300ms" }}
 					>
 						Selected work
 					</h2>
@@ -307,7 +307,7 @@ export default function HomePageClient() {
 
 					<div
 						className="portfolio-more-content portfolio-fade"
-						style={{ animationDelay: "980ms" }}
+						style={{ animationDelay: "500ms" }}
 					>
 						<a href="/work/" className="portfolio-link">
 							More work

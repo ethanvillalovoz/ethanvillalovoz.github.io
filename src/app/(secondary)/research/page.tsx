@@ -95,7 +95,13 @@ function AuthorList({ authors }: { authors: ResearchAuthor[] }) {
 	);
 }
 
-function PublicationRow({ publication }: { publication: ResearchPublication }) {
+function PublicationRow({
+	publication,
+	index,
+}: {
+	publication: ResearchPublication;
+	index: number;
+}) {
 	return (
 		<li className="research-publication work-page-fade">
 			<div className="research-publication-media">
@@ -106,6 +112,7 @@ function PublicationRow({ publication }: { publication: ResearchPublication }) {
 					height={500}
 					quality={90}
 					sizes="(min-width: 760px) 280px, 100vw"
+					loading={index === 0 ? "eager" : "lazy"}
 					className="research-publication-image"
 				/>
 			</div>
@@ -167,8 +174,12 @@ export default function ResearchPage() {
 								Publications
 							</h2>
 							<ol className="research-publications">
-								{researchPublications.map((publication) => (
-									<PublicationRow key={publication.title} publication={publication} />
+								{researchPublications.map((publication, index) => (
+									<PublicationRow
+										key={publication.title}
+										publication={publication}
+										index={index}
+									/>
 								))}
 							</ol>
 						</section>

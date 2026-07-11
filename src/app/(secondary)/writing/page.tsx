@@ -66,7 +66,7 @@ export default function WritingPage() {
 							<li
 								key={post.href}
 								className="writing-entry work-page-fade"
-								style={{ animationDelay: `${160 + index * 70}ms` }}
+								style={{ animationDelay: `${70 + index * 40}ms` }}
 							>
 								<Link href={post.href} className="writing-entry-link">
 									<h2 className="writing-entry-title">
