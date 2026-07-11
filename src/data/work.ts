@@ -11,6 +11,7 @@ export interface WorkItem {
 	image: string;
 	imageAlt: string;
 	imageFit?: "cover" | "contain";
+	imageVariant?: "prompt-stack";
 	openInNewTab?: boolean;
 }
 
@@ -21,9 +22,10 @@ export const workItems: WorkItem[] = [
 		date: promptSearchEssay.date,
 		kind: "Writing",
 		description: promptSearchEssay.summary,
-		image: promptSearchEssay.image,
-		imageAlt: promptSearchEssay.imageAlt,
-		imageFit: "contain",
+		image:
+			"/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-prompt-comparison.png",
+		imageAlt: "Original code-generation prompt before BODE-GEN optimization",
+		imageVariant: "prompt-stack",
 		openInNewTab: false,
 	},
 	{
@@ -54,8 +56,10 @@ export const workItems: WorkItem[] = [
 		kind: "Research",
 		description:
 			"Bayesian prompt optimization for test-driven code generation, evaluated across HumanEval+ tasks and multiple code models.",
-		image: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/ICSE_BO_figure.png",
-		imageAlt: "BODE-GEN Bayesian prompt optimization method diagram",
+		image:
+			"/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-results.png",
+		imageAlt:
+			"BODE-GEN correctness results compared with initial prompts, chain-of-thought, and OPRO",
 		imageFit: "contain",
 	},
 	{

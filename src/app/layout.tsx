@@ -1,18 +1,31 @@
 import type { Metadata } from "next";
+import { personReference, site } from "@/data/site";
 import "./globals.css";
 import { Providers } from "./providers";
 
-const siteDescription =
-  "I work on robot learning at Georgia Tech and multi-agent systems at Microsoft.";
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ethanvillalovoz.com"),
+  metadataBase: new URL(site.url),
   title: {
-    default: "Ethan Villalovoz",
-    template: "%s | Ethan Villalovoz",
+    default: site.name,
+    template: `%s | ${site.name}`,
   },
-  description: siteDescription,
-  applicationName: "Ethan Villalovoz",
+  description: site.description,
+  applicationName: site.name,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
+  category: "technology",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: [
       {
@@ -39,6 +52,30 @@ export const metadata: Metadata = {
         type: "image/png",
         media: "(prefers-color-scheme: dark)",
       },
+      {
+        url: "/images/identity/favicon-96.png",
+        sizes: "96x96",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/images/identity/favicon-on-dark-96.png",
+        sizes: "96x96",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/images/identity/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/images/identity/icon-on-dark-512.png",
+        sizes: "512x512",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
     ],
     apple: [
       { url: "/images/identity/apple-touch-icon-180.png", sizes: "180x180", type: "image/png" },
@@ -48,17 +85,17 @@ export const metadata: Metadata = {
     google: "YI1L3YOtnukh0nVwoZ-TVjTTp9_PN65NylPHNUshHII",
   },
   openGraph: {
-    title: "Ethan Villalovoz",
-    description: siteDescription,
-    url: "https://ethanvillalovoz.com",
-    siteName: "Ethan Villalovoz",
+    title: site.name,
+    description: site.description,
+    url: `${site.url}/`,
+    siteName: site.name,
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Ethan Villalovoz",
-    description: siteDescription,
+    title: site.name,
+    description: site.description,
     creator: "@ethanvillalovoz",
   },
 };
@@ -78,35 +115,12 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Ethan Villalovoz",
-              url: "https://ethanvillalovoz.com",
+              "@id": `${site.url}/#website`,
+              name: site.name,
+              url: `${site.url}/`,
               alternateName: ["ethanvillalovoz.com", "Ethan Villalovoz"],
-            }),
-          }}
-        />
-        {/* Person structured data. */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Ethan Villalovoz",
-              url: "https://ethanvillalovoz.com",
-              image: "https://ethanvillalovoz.com/images/EthanVillalovozPic-optimized.jpg",
-              sameAs: [
-                "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
-                "https://github.com/ethanvillalovoz",
-                "https://x.com/ethanvillalovoz",
-                "https://www.linkedin.com/in/evillalovoz27/",
-                "https://ethanvillalovoz.github.io/",
-              ],
-              jobTitle: "MSCS @ Georgia Tech",
-              alumniOf: {
-                "@type": "CollegeOrUniversity",
-                name: "Washington State University",
-              },
-              description: siteDescription,
+              author: personReference,
+              inLanguage: "en-US",
             }),
           }}
         />

@@ -12,6 +12,8 @@ Update `src/app/layout.tsx` for:
 - Open Graph and X metadata
 - Person and website JSON-LD
 
+Update `src/data/site.ts` first when changing the name, canonical URL, profile image, or social profiles. Route metadata and structured data reuse those values to avoid drift.
+
 Also update `CNAME`, `next-sitemap.config.js`, and deployment settings when changing domains.
 
 ## Homepage
@@ -77,6 +79,8 @@ public/images/   Identity, organization, and active Work images
 ```
 
 Only keep assets used by an active route, README, metadata record, or document link. Update `THIRD_PARTY_NOTICES.md` when adding third-party templates, fonts, icons, or media.
+
+Use descriptive filenames and alt text. Images rendered by Next.js should declare their intrinsic dimensions and an accurate `sizes` value. Static microsite images should include numeric `width` and `height`, use `loading="lazy"` when below the first viewport, and prefer WebP derivatives over multi-megabyte source captures.
 
 ## Validation
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { absoluteUrl, personReference, site } from "@/data/site";
 import {
 	researchPublications,
 	teachingExperiences,
@@ -17,10 +18,10 @@ export const metadata: Metadata = {
 		canonical: "/research/",
 	},
 	openGraph: {
-		title: "Research | Ethan Villalovoz",
+		title: `Research | ${site.name}`,
 		description: researchDescription,
-		url: "https://ethanvillalovoz.com/research/",
-		siteName: "Ethan Villalovoz",
+		url: `${site.url}/research/`,
+		siteName: site.name,
 		locale: "en_US",
 		type: "website",
 	},
@@ -29,6 +30,44 @@ export const metadata: Metadata = {
 		title: "Research | Ethan Villalovoz",
 		description: researchDescription,
 		creator: "@ethanvillalovoz",
+	},
+};
+
+const researchCollectionJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "CollectionPage",
+	"@id": `${site.url}/research/#collection`,
+	url: `${site.url}/research/`,
+	name: `Research | ${site.name}`,
+	description: researchDescription,
+	author: personReference,
+	mainEntity: {
+		"@type": "ItemList",
+		numberOfItems: researchPublications.length,
+		itemListElement: researchPublications.map((publication, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			url: publication.href,
+			item: {
+				"@type": "ScholarlyArticle",
+				headline: publication.title,
+				name: publication.shortTitle,
+				url: publication.href,
+				description: publication.description,
+				datePublished: publication.datePublished,
+				identifier: publication.identifier,
+				image: absoluteUrl(publication.image),
+				author: publication.authors.map((author) =>
+					author.isEthan
+						? personReference
+						: {
+								"@type": "Person",
+								name: author.schemaName,
+								...(author.href ? { url: author.href } : {}),
+							},
+				),
+			},
+		})),
 	},
 };
 
@@ -65,6 +104,7 @@ function PublicationRow({ publication }: { publication: ResearchPublication }) {
 					alt={publication.imageAlt}
 					width={800}
 					height={500}
+					quality={90}
 					sizes="(min-width: 760px) 280px, 100vw"
 					className="research-publication-image"
 				/>
@@ -110,44 +150,50 @@ function PublicationRow({ publication }: { publication: ResearchPublication }) {
 
 export default function ResearchPage() {
 	return (
-		<main className="research-main">
-			<div className="research-container">
-				<header className="work-intro work-page-fade">
-					<h1>Research</h1>
-					<p>Publications and teaching.</p>
-				</header>
+		<>
+			<script
+				type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(researchCollectionJsonLd) }}
+				/>
+				<main className="research-main">
+					<div className="research-container">
+						<header className="work-intro work-page-fade">
+							<h1>Research</h1>
+							<p>Publications and teaching.</p>
+						</header>
 
-				<section aria-labelledby="publications-heading">
-					<h2 id="publications-heading" className="secondary-section-label">
-						Publications
-					</h2>
-					<ol className="research-publications">
-						{researchPublications.map((publication) => (
-							<PublicationRow key={publication.title} publication={publication} />
-						))}
-					</ol>
-				</section>
+						<section aria-labelledby="publications-heading">
+							<h2 id="publications-heading" className="secondary-section-label">
+								Publications
+							</h2>
+							<ol className="research-publications">
+								{researchPublications.map((publication) => (
+									<PublicationRow key={publication.title} publication={publication} />
+								))}
+							</ol>
+						</section>
 
-				<section className="research-teaching" aria-labelledby="teaching-heading">
-					<h2 id="teaching-heading" className="secondary-section-label">
-						Teaching
-					</h2>
-					<ol className="teaching-list">
-						{teachingExperiences.map((experience) => (
-							<li key={`${experience.course}-${experience.term}`} className="teaching-row">
-								<div>
-									<h3>{experience.course}</h3>
-									<p className="teaching-role">
-										{experience.role}, {experience.institution}
-									</p>
-								</div>
-								<p className="teaching-term">{experience.term}</p>
-								<p className="teaching-description">{experience.description}</p>
-							</li>
-						))}
-					</ol>
-				</section>
-			</div>
-		</main>
+						<section className="research-teaching" aria-labelledby="teaching-heading">
+							<h2 id="teaching-heading" className="secondary-section-label">
+								Teaching
+							</h2>
+							<ol className="teaching-list">
+								{teachingExperiences.map((experience) => (
+									<li key={`${experience.course}-${experience.term}`} className="teaching-row">
+										<div>
+											<h3>{experience.course}</h3>
+											<p className="teaching-role">
+												{experience.role}, {experience.institution}
+											</p>
+										</div>
+										<p className="teaching-term">{experience.term}</p>
+										<p className="teaching-description">{experience.description}</p>
+									</li>
+								))}
+							</ol>
+						</section>
+					</div>
+				</main>
+		</>
 	);
 }

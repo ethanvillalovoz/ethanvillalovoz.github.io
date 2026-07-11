@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="author" content="Ethan Villalovoz and the ACME10-HE-RAGApp team">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <meta name="description"
         content="A Washington State University senior design project for HackerEarth that combines FAISS vector search, DBpedia/SPARQL knowledge-graph retrieval, and OpenAI generation in a React/FastAPI RAG application.">
-  <meta name="keywords" content="RAG, Knowledge Graph, Vector Search, FAISS, DBpedia, SPARQL, FastAPI, React, LLM, NLP, AI">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Knowledge Graph RAG Assistant">
+  <meta property="og:title" content="Knowledge Graph RAG Assistant | Ethan Villalovoz">
   <meta property="og:description" content="A Washington State University senior design project for HackerEarth combining React, FastAPI, FAISS vector search, DBpedia/SPARQL knowledge-graph context, and OpenAI generation.">
   <meta property="og:url" content="https://ethanvillalovoz.com/rag/">
   <meta property="og:site_name" content="Ethan Villalovoz">
+  <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://ethanvillalovoz.com/images/projects/rag.jpg">
   <meta property="og:image:secure_url" content="https://ethanvillalovoz.com/images/projects/rag.jpg">
@@ -17,19 +19,34 @@
   <meta property="og:image:height" content="256">
   <meta property="og:image:alt" content="Knowledge Graph RAG Assistant project pipeline preview">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Knowledge Graph RAG Assistant">
+  <meta name="twitter:title" content="Knowledge Graph RAG Assistant | Ethan Villalovoz">
   <meta name="twitter:description" content="A React and FastAPI RAG assistant with FAISS vector search, DBpedia/SPARQL context, and OpenAI generation.">
   <meta name="twitter:image" content="https://ethanvillalovoz.com/images/projects/rag.jpg">
-  <title>Retrieval-Augmented Generation Application Using Knowledge Graph and Vector Search</title>
+  <meta name="twitter:creator" content="@ethanvillalovoz">
+  <title>Knowledge Graph RAG Assistant | Ethan Villalovoz</title>
   <link rel="canonical" href="https://ethanvillalovoz.com/rag/">
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "Knowledge Graph RAG Assistant",
+      "url": "https://ethanvillalovoz.com/rag/",
+      "description": "A React and FastAPI retrieval-augmented generation system combining FAISS vector search, DBpedia knowledge-graph context, and OpenAI generation.",
+      "codeRepository": "https://github.com/ethanvillalovoz/knowledge-graph-rag-assistant",
+      "programmingLanguage": ["Python", "TypeScript"],
+      "image": "https://ethanvillalovoz.com/images/projects/rag.jpg",
+      "author": [
+        { "@type": "Person", "name": "Molly Iverson" },
+        { "@type": "Person", "@id": "https://ethanvillalovoz.com/#ethan-villalovoz", "name": "Ethan Villalovoz" },
+        { "@type": "Person", "name": "Chandler Juego" },
+        { "@type": "Person", "name": "Adam Shtrikman" },
+        { "@type": "Person", "name": "Vikas Aditya" },
+        { "@type": "Person", "name": "Parteek Kumar" }
+      ]
+    }
+  </script>
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="/images/identity/favicon-32.png" sizes="32x32" type="image/png">
 </head>
@@ -66,35 +83,26 @@
           </div>
 
           <br />
-          <img src="./static/images/wsu_logo.png" alt="Washington State University logo" width="20%" />
-          <img src="./static/images/hackerearth_logo.png" alt="HackerEarth logo" width="20%" />
+          <img class="partner-logo" src="./static/images/wsu_logo.png" alt="Washington State University logo" width="512" height="104" decoding="async" />
+          <img class="partner-logo" src="./static/images/hackerearth_logo.png" alt="HackerEarth logo" width="512" height="103" decoding="async" />
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
                 <a href="./static/data/paper.pdf" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
                   <span>Paper</span>
                 </a>
               </span>
               <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=YWdR3FAdq1o" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
                   <span>Video</span>
                 </a>
               </span>
               <span class="link-block">
                 <a href="https://github.com/ethanvillalovoz/knowledge-graph-rag-assistant" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
                   <span>Code</span>
                   </a>
               </span>
@@ -110,7 +118,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./static/images/figures/fig_1.png" alt="End-to-end RAG pipeline diagram from document loading to LLM response generation" style="width: 100%; height: auto;">
+      <img src="./static/images/figures/rag-pipeline.webp" alt="End-to-end RAG pipeline diagram from document loading to LLM response generation" width="2400" height="683" loading="lazy" decoding="async" style="width: 100%; height: auto;">
       <h2 class="subtitle has-text-centered">
         End-to-end RAG pipeline: Documents are loaded, chunked, and stored in
         a vector database. When a user submits a query, the system retrieves relevant
@@ -126,13 +134,13 @@
     <div class="container">
       <div class="columns is-centered" style="align-items: flex-end;">
         <div class="column">
-          <img src="./static/images/figures/figure_2_4.png" alt="RAG assistant query input interface" style="width: 100%; height: auto;" />
+          <img src="./static/images/figures/rag-query-input.webp" alt="RAG assistant query input interface" width="1200" height="1378" loading="lazy" decoding="async" style="width: 100%; height: auto;" />
         </div>
         <div class="column">
-          <img src="./static/images/figures/figure_2_5.png" alt="RAG assistant retrieval and response processing interface" style="width: 100%; height: auto;" />
+          <img src="./static/images/figures/rag-retrieval-processing.webp" alt="RAG assistant retrieval and response processing interface" width="1200" height="1358" loading="lazy" decoding="async" style="width: 100%; height: auto;" />
         </div>
         <div class="column">
-          <img src="./static/images/figures/figure_2_6.png" alt="RAG assistant generated answer interface" style="width: 100%; height: auto;" />
+          <img src="./static/images/figures/rag-generated-answer.webp" alt="RAG assistant generated answer interface" width="1200" height="1373" loading="lazy" decoding="async" style="width: 100%; height: auto;" />
         </div>
       </div>
       <h2 class="subtitle has-text-centered">
@@ -177,7 +185,9 @@
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
           <iframe src="https://www.youtube.com/embed/YWdR3FAdq1o?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  title="Knowledge Graph RAG Assistant video demo"
+                  loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+                  allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -207,7 +217,7 @@
             This design improves factual grounding while keeping retrieval, graph lookup, and
             generation components independently testable.
           </p>
-          <img src="./static/images/figures/figure_3.png" alt="Knowledge graph and vector search system architecture diagram" style="width: 100%; height: auto;">
+          <img src="./static/images/figures/rag-system-architecture.webp" alt="Knowledge graph and vector search system architecture diagram" width="638" height="391" loading="lazy" decoding="async" style="width: 100%; height: auto;">
         </div>
       </div>
 
@@ -222,7 +232,7 @@
             <li>Live performance logging of modules (e.g., NLP, KG, VS)</li>
             <li>Frontend user interface built in React</li>
           </ul>
-          <img src="./static/images/figures/figure_4.png" alt="RAG assistant feature and module overview" style="width: 100%; height: auto;">
+          <img src="./static/images/figures/rag-feature-overview.webp" alt="RAG assistant feature and module overview" width="1800" height="1385" loading="lazy" decoding="async" style="width: 100%; height: auto;">
         </div>
       </div>
     </div>

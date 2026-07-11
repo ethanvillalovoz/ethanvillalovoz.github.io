@@ -4,7 +4,7 @@
 
 Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a concise homepage, a reverse-chronological Work archive, technical writing, a Research page, and a small set of standalone project microsites.
 
-![Homepage preview](public/visuals/homepage.png)
+![Homepage preview](public/visuals/homepage.jpg)
 
 ## Public Routes
 
@@ -44,12 +44,27 @@ Writing belongs in that shared feed, using the same image, title, date/type, and
 
 Standalone project pages under `public/` use dependency-free HTML, CSS, and JavaScript where practical.
 
+## Discovery And Performance
+
+- Route-specific canonical, Open Graph, and X metadata
+- `ProfilePage`, `Blog`, `TechArticle`, `ScholarlyArticle`, and software-project JSON-LD
+- XML sitemap coverage for every public route and its representative images
+- Responsive `next/image` delivery for portfolio, research, and writing media
+- Explicit image dimensions and lazy decoding for below-the-fold microsite figures
+- Compact favicon-based sharing for the homepage and visual previews for standalone projects
+
 ## Local Development
 
 Requirements:
 
 - Node.js 20.9 or newer
 - npm
+
+The tested local and CI runtime is recorded in `.nvmrc`:
+
+```bash
+nvm use
+```
 
 ```bash
 git clone https://github.com/ethanvillalovoz/ethanvillalovoz.github.io.git
@@ -88,6 +103,7 @@ src/components/
   ThemeToggle.tsx             Light/dark theme control
 
 src/data/
+  site.ts                     Canonical identity and metadata constants
   work.ts                     Work feed entries
   writing.ts                  Published essay metadata
   research.ts                 Publications and teaching records
@@ -97,7 +113,7 @@ public/
   images/                     Identity, organization, and active project images
   metricdrive/                MetricDrive microsite
   scenariolens/               ScenarioLens microsite
-  visuals/                    README screenshots
+  visuals/                    README screenshot
 
 scripts/
   validate-repository.mjs     Repository integrity checks

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import EssayContents from "@/components/EssayContents";
+import { absoluteUrl, personReference, site } from "@/data/site";
 import { promptSearchEssay } from "@/data/writing";
 
 const articleDescription = promptSearchEssay.summary;
@@ -12,18 +13,20 @@ export const metadata: Metadata = {
 		canonical: promptSearchEssay.href,
 	},
 	openGraph: {
-		title: `${promptSearchEssay.title} | Ethan Villalovoz`,
+		title: `${promptSearchEssay.title} | ${site.name}`,
 		description: articleDescription,
-		url: `https://ethanvillalovoz.com${promptSearchEssay.href}`,
-		siteName: "Ethan Villalovoz",
+		url: absoluteUrl(promptSearchEssay.href),
+		siteName: site.name,
 		locale: "en_US",
 		type: "article",
 		publishedTime: promptSearchEssay.dateTime,
-		authors: ["Ethan Villalovoz"],
+		modifiedTime: promptSearchEssay.dateTime,
+		authors: [site.name],
+		tags: ["Bayesian optimization", "Code generation", "LLM evaluation", "HumanEval+"],
 	},
 	twitter: {
 		card: "summary",
-		title: `${promptSearchEssay.title} | Ethan Villalovoz`,
+		title: `${promptSearchEssay.title} | ${site.name}`,
 		description: articleDescription,
 		creator: "@ethanvillalovoz",
 	},
@@ -49,7 +52,8 @@ const results = [
 ];
 
 export default function PromptSearchEssayPage() {
-	const articleUrl = `https://ethanvillalovoz.com${promptSearchEssay.href}`;
+	const articleUrl = absoluteUrl(promptSearchEssay.href);
+	const articleImage = absoluteUrl(promptSearchEssay.image);
 
 	return (
 		<main className="essay-main">
@@ -64,11 +68,25 @@ export default function PromptSearchEssayPage() {
 						datePublished: promptSearchEssay.dateTime,
 						dateModified: promptSearchEssay.dateTime,
 						mainEntityOfPage: articleUrl,
-						author: {
-							"@type": "Person",
-							name: "Ethan Villalovoz",
-							url: "https://ethanvillalovoz.com",
-						},
+						image: articleImage,
+						thumbnailUrl: articleImage,
+						author: personReference,
+						publisher: personReference,
+						isPartOf: { "@id": `${site.url}/writing/#blog` },
+						inLanguage: "en-US",
+						isAccessibleForFree: true,
+						keywords: [
+							"Bayesian optimization",
+							"Prompt optimization",
+							"Code generation",
+							"Large language models",
+							"HumanEval+",
+						],
+						about: [
+							"Test-driven code generation",
+							"Machine learning evaluation",
+							"Prompt search",
+						],
 						citation: "https://arxiv.org/abs/2512.15076",
 					}),
 				}}
@@ -153,6 +171,7 @@ export default function PromptSearchEssayPage() {
 									alt={promptSearchEssay.imageAlt}
 									width={1200}
 									height={750}
+									quality={90}
 									sizes="(min-width: 1024px) 720px, 100vw"
 									className="essay-figure-image"
 								/>
@@ -233,6 +252,7 @@ for candidate in optimizer:
 									alt="Bar charts comparing initial prompts, BODE-GEN, chain-of-thought, and OPRO on ChatGPT 3.5 and CodeLlama 7B"
 									width={1000}
 									height={435}
+									quality={90}
 									sizes="(min-width: 1024px) 720px, 100vw"
 									className="essay-figure-image"
 								/>
@@ -291,6 +311,7 @@ for candidate in optimizer:
 									alt="Side-by-side comparison of an original HumanEval+ prompt and a more explicit BODE-GEN optimized prompt"
 									width={1000}
 									height={270}
+									quality={90}
 									sizes="(min-width: 1024px) 720px, 100vw"
 									className="essay-figure-image"
 								/>

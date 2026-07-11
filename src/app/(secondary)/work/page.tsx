@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { absoluteUrl, personReference, site } from "@/data/site";
 import { workItems, type WorkItem } from "@/data/work";
 
-const workDescription = "Writing, research, and projects by Ethan Villalovoz.";
+const workDescription =
+	"Robotics research, autonomous-driving tools, AI agent projects, and technical writing by Ethan Villalovoz.";
 
 export const metadata: Metadata = {
 	title: "Work",
@@ -11,10 +13,10 @@ export const metadata: Metadata = {
 		canonical: "/work/",
 	},
 	openGraph: {
-		title: "Work | Ethan Villalovoz",
+		title: `Work | ${site.name}`,
 		description: workDescription,
-		url: "https://ethanvillalovoz.com/work/",
-		siteName: "Ethan Villalovoz",
+		url: `${site.url}/work/`,
+		siteName: site.name,
 		locale: "en_US",
 		type: "website",
 	},
@@ -23,6 +25,40 @@ export const metadata: Metadata = {
 		title: "Work | Ethan Villalovoz",
 		description: workDescription,
 		creator: "@ethanvillalovoz",
+	},
+};
+
+const workType = {
+	Writing: "TechArticle",
+	Research: "ScholarlyArticle",
+	Project: "SoftwareSourceCode",
+} as const;
+
+const workCollectionJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "CollectionPage",
+	"@id": `${site.url}/work/#collection`,
+	url: `${site.url}/work/`,
+	name: `Work | ${site.name}`,
+	description: workDescription,
+	author: personReference,
+	mainEntity: {
+		"@type": "ItemList",
+		itemListOrder: "https://schema.org/ItemListOrderDescending",
+		numberOfItems: workItems.length,
+		itemListElement: workItems.map((item, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			url: absoluteUrl(item.href),
+			item: {
+				"@type": workType[item.kind],
+				name: item.title,
+				url: absoluteUrl(item.href),
+				description: item.description,
+				image: absoluteUrl(item.image),
+				author: personReference,
+			},
+		})),
 	},
 };
 
@@ -40,16 +76,46 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 				aria-label={`Open ${item.title}`}
 			>
 				<span className="work-card-media">
-					<Image
-						src={item.image}
-						alt={item.imageAlt}
-						width={800}
-						height={500}
-						sizes="(min-width: 1024px) 23vw, (min-width: 640px) 48vw, 100vw"
-						loading={index === 0 ? "eager" : "lazy"}
-						unoptimized={item.image.endsWith(".svg")}
-						className={`work-card-image${item.imageFit === "contain" ? " work-card-image-contain" : ""}`}
-					/>
+					{item.imageVariant === "prompt-stack" ? (
+						<span className="work-card-prompt-stack">
+							<span className="work-card-prompt-panel">
+								<Image
+									src={item.image}
+									alt={item.imageAlt}
+									width={1000}
+									height={270}
+									quality={90}
+									sizes="(min-width: 1024px) 46vw, (min-width: 640px) 96vw, 200vw"
+									loading="eager"
+									className="work-card-prompt-image work-card-prompt-image-original"
+								/>
+							</span>
+							<span className="work-card-prompt-panel">
+								<Image
+									src={item.image}
+									alt="BODE-GEN optimized prompt with explicit examples and edge cases"
+									width={1000}
+									height={270}
+									quality={90}
+									sizes="(min-width: 1024px) 46vw, (min-width: 640px) 96vw, 200vw"
+									loading="eager"
+									className="work-card-prompt-image work-card-prompt-image-optimized"
+								/>
+							</span>
+						</span>
+					) : (
+						<Image
+							src={item.image}
+							alt={item.imageAlt}
+							width={800}
+							height={500}
+							quality={90}
+							sizes="(min-width: 1024px) 23vw, (min-width: 640px) 48vw, 100vw"
+							loading={index === 0 ? "eager" : "lazy"}
+							unoptimized={item.image.endsWith(".svg")}
+							className={`work-card-image${item.imageFit === "contain" ? " work-card-image-contain" : ""}`}
+						/>
+					)}
 				</span>
 
 				<div className="work-card-copy">
@@ -70,19 +136,25 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 
 export default function WorkPage() {
 	return (
-		<main className="work-main">
-			<div className="work-container">
-				<header className="work-intro work-page-fade">
-					<h1>Work</h1>
-					<p>Writing, research, and projects.</p>
-				</header>
+		<>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(workCollectionJsonLd) }}
+			/>
+			<main className="work-main">
+				<div className="work-container">
+					<header className="work-intro work-page-fade">
+						<h1>Work</h1>
+						<p>Writing, research, and projects.</p>
+					</header>
 
-				<ol className="work-grid">
-					{workItems.map((item, index) => (
-						<WorkCard key={item.title} item={item} index={index} />
-					))}
-				</ol>
-			</div>
-		</main>
+					<ol className="work-grid">
+						{workItems.map((item, index) => (
+							<WorkCard key={item.title} item={item} index={index} />
+						))}
+					</ol>
+				</div>
+			</main>
+		</>
 	);
 }

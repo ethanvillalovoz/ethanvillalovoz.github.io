@@ -3,22 +3,44 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Ethan Villalovoz" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
     <meta name="description" content="Explore and rank long-tail autonomous-driving scenarios with interpretable interaction, risk, and baseline-failure metrics." />
-    <meta property="og:title" content="ScenarioLens Explorer" />
+    <meta property="og:title" content="ScenarioLens | Autonomous-Driving Scenario Evaluation" />
     <meta property="og:description" content="Explore and rank long-tail autonomous-driving scenarios with interpretable interaction, risk, and baseline-failure metrics." />
     <meta property="og:url" content="https://ethanvillalovoz.com/scenariolens/" />
     <meta property="og:site_name" content="Ethan Villalovoz" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png" />
     <meta property="og:image:width" content="1440" />
     <meta property="og:image:height" content="1000" />
     <meta property="og:image:alt" content="ScenarioLens interface ranking long-tail autonomous-driving scenarios" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ScenarioLens Explorer" />
+    <meta name="twitter:title" content="ScenarioLens | Autonomous-Driving Scenario Evaluation" />
     <meta name="twitter:description" content="Explore and rank long-tail autonomous-driving scenarios with interpretable interaction, risk, and baseline-failure metrics." />
     <meta name="twitter:image" content="https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png" />
-    <title>ScenarioLens Explorer</title>
+    <meta name="twitter:creator" content="@ethanvillalovoz" />
+    <title>ScenarioLens | Autonomous-Driving Scenario Evaluation</title>
     <link rel="canonical" href="https://ethanvillalovoz.com/scenariolens/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ScenarioLens",
+        "url": "https://ethanvillalovoz.com/scenariolens/",
+        "description": "An autonomy-evaluation tool for ranking and inspecting long-tail driving scenarios with interpretable risk and baseline-failure metrics.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "image": "https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png",
+        "codeRepository": "https://github.com/ethanvillalovoz/scenariolens",
+        "author": {
+          "@type": "Person",
+          "@id": "https://ethanvillalovoz.com/#ethan-villalovoz",
+          "name": "Ethan Villalovoz"
+        }
+      }
+    </script>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312355b'/%3E%3Cpath d='M18 42c5 3 15 3 15-4 0-9-15-5-15-13 0-7 10-7 16-4M42 18v28h12' stroke='white' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -450,7 +472,7 @@
           <section class="detail-section">
             <h3>Trajectory Preview</h3>
             <div class="svg-frame">
-              <img id="scenarioImage" alt="" />
+              <img id="scenarioImage" alt="" decoding="async" />
             </div>
           </section>
 

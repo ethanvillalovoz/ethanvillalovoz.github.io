@@ -26,6 +26,7 @@ The secondary route group adds navigation and a footer to Writing, Work, and Res
 src/data/work.ts       Reverse-chronological Writing, Research, and Project entries
 src/data/writing.ts    Published essay titles, dates, summaries, and imagery
 src/data/research.ts   Publication authorship, resources, and teaching history
+src/data/site.ts       Canonical site identity, URL, profile image, and social profiles
 ```
 
 Work is intentionally one mixed feed. Writing metadata is defined once in `writing.ts`, appears in the Writing index, and is reused by `work.ts`. Only complete essays belong in either surface.
@@ -61,10 +62,16 @@ Legacy `/projects/`, `/publications/`, `/teaching/`, `/DreamWorlds/`, and `/gaus
 
 ## Metadata And Discovery
 
-- `src/app/layout.tsx` owns global metadata, compact social metadata, favicons, and JSON-LD.
+- `src/app/layout.tsx` owns global metadata, compact social metadata, favicons, and website JSON-LD.
+- Home publishes `ProfilePage` and `Person` structured data without changing its rendered design.
+- Writing, Work, Research, the technical essay, and each microsite publish page-appropriate structured data.
 - Home, Writing, Work, and Research define canonical URLs at the route level.
 - Static microsites define their own canonical and social metadata in HTML.
-- `next-sitemap.config.js` generates `public/sitemap.xml` and `public/robots.txt` after a production build.
+- `next-sitemap.config.js` generates `public/sitemap.xml` with representative image entries and `public/robots.txt` after a production build.
+
+## Image Delivery
+
+Next.js routes use responsive image generation with an additional high-quality setting for technical figures and screenshots. Static RAG figures are checked-in WebP derivatives sized for their rendered surfaces; the original paper remains the archival source for print-resolution figures.
 
 ## Quality Gates
 

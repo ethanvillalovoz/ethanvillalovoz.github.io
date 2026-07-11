@@ -1,5 +1,6 @@
 export interface ResearchAuthor {
 	name: string;
+	schemaName: string;
 	href?: string;
 	isEthan?: boolean;
 }
@@ -16,6 +17,8 @@ export interface ResearchPublication {
 	authors: ResearchAuthor[];
 	venue: string;
 	date: string;
+	datePublished: string;
+	identifier: string;
 	description: string;
 	contribution: string;
 	image: string;
@@ -38,15 +41,17 @@ export const researchPublications: ResearchPublication[] = [
 			"An Exploratory Study of Bayesian Prompt Optimization for Test-Driven Code Generation with Large Language Models",
 		href: "https://arxiv.org/abs/2512.15076",
 		authors: [
-			{ name: "S. Tomar", href: "https://shlok-crypto.github.io/" },
-			{ name: "A. Deshwal", href: "https://aryandeshwal.github.io/" },
-			{ name: "E. Villalovoz", isEthan: true },
-			{ name: "M. Fazzini", href: "https://www-users.cse.umn.edu/~mfazzini/" },
-			{ name: "H. Cai", href: "https://chapering.github.io/" },
-			{ name: "J.R. Doppa", href: "https://eecs.wsu.edu/~jana/" },
+			{ name: "S. Tomar", schemaName: "Shlok Tomar", href: "https://shlok-crypto.github.io/" },
+			{ name: "A. Deshwal", schemaName: "Aryan Deshwal", href: "https://aryandeshwal.github.io/" },
+			{ name: "E. Villalovoz", schemaName: "Ethan Villalovoz", isEthan: true },
+			{ name: "M. Fazzini", schemaName: "Mattia Fazzini", href: "https://www-users.cse.umn.edu/~mfazzini/" },
+			{ name: "H. Cai", schemaName: "Haipeng Cai", href: "https://chapering.github.io/" },
+			{ name: "J.R. Doppa", schemaName: "Janardhan Rao Doppa", href: "https://eecs.wsu.edu/~jana/" },
 		],
 		venue: "arXiv:2512.15076",
 		date: "2025",
+		datePublished: "2025-12-17",
+		identifier: "https://doi.org/10.48550/arXiv.2512.15076",
 		description:
 			"Studies Bayesian optimization for automated prompt search in test-driven LLM code generation, evaluated across HumanEval+ tasks and multiple code models.",
 		contribution:
@@ -74,15 +79,18 @@ export const researchPublications: ResearchPublication[] = [
 		authors: [
 			{
 				name: "A. Bacula",
+				schemaName: "Alexandra Bacula",
 				href: "https://sites.google.com/plu.edu/alexandra-bacula",
 			},
-			{ name: "E. Villalovoz", isEthan: true },
-			{ name: "D. Flynn", href: "https://deannaflynn.wixsite.com/deanna-flynn" },
-			{ name: "A. Mehta", href: "https://uclalemur.com/" },
-			{ name: "H. Knight", href: "https://www.charismarobotics.com/" },
+			{ name: "E. Villalovoz", schemaName: "Ethan Villalovoz", isEthan: true },
+			{ name: "D. Flynn", schemaName: "Deanna Flynn", href: "https://deannaflynn.wixsite.com/deanna-flynn" },
+			{ name: "A. Mehta", schemaName: "Ankur Mehta", href: "https://uclalemur.com/" },
+			{ name: "H. Knight", schemaName: "Heather Knight", href: "https://www.charismarobotics.com/" },
 		],
 		venue: "IEEE/RSJ International Conference on Intelligent Robots and Systems",
 		date: "2023",
+		datePublished: "2023",
+		identifier: "IEEE 10342372",
 		description:
 			"Studies how multi-robot formation geometry shapes human navigation and approach behavior by comparing social triangles with aggressive lines.",
 		contribution:

@@ -9,9 +9,6 @@ The MIT license in this repository applies to the portfolio's original source co
 The microsite uses:
 
 - [Bulma](https://bulma.io/) under the MIT License
-- [Font Awesome Free](https://fontawesome.com/) through a hosted stylesheet
-- [Academicons](https://jpswalsh.github.io/academicons/) through a hosted stylesheet
-- Hosted Google Fonts
 
 Project content and artifacts belong to the ACME10-HE-RAGApp team and their respective authors.
 

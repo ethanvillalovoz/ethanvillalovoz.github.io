@@ -221,6 +221,7 @@ export default function HomePageClient() {
 							alt="Portrait of Ethan Villalovoz"
 							width={88}
 							height={88}
+							quality={90}
 							priority
 							className="portfolio-profile-image"
 						/>
@@ -229,16 +230,16 @@ export default function HomePageClient() {
 					<div className="portfolio-fade portfolio-fade-two">
 						<p className="portfolio-p">
 							I work on robot learning at{" "}
-				<OrganizationLink
-					href="https://www.gatech.edu/"
-					iconSrc="/images/organizations/gatech.ico"
+							<OrganizationLink
+								href="https://www.gatech.edu/"
+								iconSrc="/images/organizations/gatech.ico"
 							>
 								Georgia Tech
 							</OrganizationLink>{" "}
 							and multi-agent systems at{" "}
-				<OrganizationLink
-					href="https://www.microsoft.com/"
-					iconSrc="/images/organizations/microsoft.ico"
+							<OrganizationLink
+								href="https://www.microsoft.com/"
+								iconSrc="/images/organizations/microsoft.ico"
 							>
 								Microsoft
 							</OrganizationLink>

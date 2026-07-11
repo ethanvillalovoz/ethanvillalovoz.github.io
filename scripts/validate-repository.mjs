@@ -6,6 +6,7 @@ const root = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 const failures = [];
 
 const requiredPaths = [
+	".nvmrc",
 	"src/app/page.tsx",
 	"src/app/(secondary)/writing/page.tsx",
 	"src/app/(secondary)/writing/tests-turn-prompting-into-search/page.tsx",
@@ -15,6 +16,7 @@ const requiredPaths = [
 	"src/data/work.ts",
 	"src/data/writing.ts",
 	"src/data/research.ts",
+	"src/data/site.ts",
 	"public/scenariolens/index.html",
 	"public/metricdrive/index.html",
 	"public/data/capstone/index.html",
@@ -22,6 +24,16 @@ const requiredPaths = [
 	"public/data/EthanVillalovoz-CV.pdf",
 	"public/images/theme/sun.svg",
 	"public/images/theme/moon.svg",
+	"public/images/identity/favicon-96.png",
+	"public/images/identity/favicon-on-dark-96.png",
+	"public/metricdrive/assets/metricdrive-explorer.png",
+	"public/visuals/homepage.jpg",
+	"public/data/capstone/static/images/figures/rag-pipeline.webp",
+	"public/data/capstone/static/images/figures/rag-query-input.webp",
+	"public/data/capstone/static/images/figures/rag-retrieval-processing.webp",
+	"public/data/capstone/static/images/figures/rag-generated-answer.webp",
+	"public/data/capstone/static/images/figures/rag-system-architecture.webp",
+	"public/data/capstone/static/images/figures/rag-feature-overview.webp",
 ];
 
 const forbiddenPaths = [
@@ -36,6 +48,16 @@ const forbiddenPaths = [
 	"src/data/teaching.ts",
 	"tailwind.config.ts",
 	"postcss.config.mjs",
+	"public/visuals/homepage.png",
+	"public/data/capstone/static/images/figures/fig_1.png",
+	"public/data/capstone/static/images/figures/figure_2_1.png",
+	"public/data/capstone/static/images/figures/figure_2_2.png",
+	"public/data/capstone/static/images/figures/figure_2_3.png",
+	"public/data/capstone/static/images/figures/figure_2_4.png",
+	"public/data/capstone/static/images/figures/figure_2_5.png",
+	"public/data/capstone/static/images/figures/figure_2_6.png",
+	"public/data/capstone/static/images/figures/figure_3.png",
+	"public/data/capstone/static/images/figures/figure_4.png",
 ];
 
 const exists = async (relativePath) => {
@@ -71,6 +93,33 @@ for (const relativeHtmlPath of micrositeFiles) {
 	if (!(await exists(relativeHtmlPath))) continue;
 
 	const html = await readFile(absoluteHtmlPath, "utf8");
+	const requiredMetadata = [
+		'<meta name="description"',
+		'<meta name="author"',
+		'<meta name="robots"',
+		'<meta property="og:locale"',
+		'<meta name="twitter:creator"',
+		'<link rel="canonical"',
+		'<script type="application/ld+json">',
+	];
+
+	for (const marker of requiredMetadata) {
+		if (!html.includes(marker)) {
+			failures.push(`${relativeHtmlPath} is missing metadata marker: ${marker}`);
+		}
+	}
+
+	const structuredDataBlocks = [
+		...html.matchAll(/<script type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/g),
+	];
+	for (const [, structuredData] of structuredDataBlocks) {
+		try {
+			JSON.parse(structuredData);
+		} catch {
+			failures.push(`${relativeHtmlPath} contains invalid JSON-LD`);
+		}
+	}
+
 	const references = [...html.matchAll(/(?:href|src)=["']([^"']+)["']/g)].map(
 		(match) => match[1],
 	);
@@ -87,6 +136,37 @@ for (const relativeHtmlPath of micrositeFiles) {
 			await access(assetPath);
 		} catch {
 			failures.push(`${relativeHtmlPath} references missing asset: ${reference}`);
+		}
+	}
+}
+
+const ragHtmlPath = "public/data/capstone/index.html";
+if (await exists(ragHtmlPath)) {
+	const ragHtml = await readFile(path.join(root, ragHtmlPath), "utf8");
+	const figureTags = [
+		...ragHtml.matchAll(/<img\b[^>]*src=["'][^"']*\/figures\/[^"']+["'][^>]*>/g),
+	].map((match) => match[0]);
+
+	if (figureTags.length === 0) failures.push(`${ragHtmlPath} has no project figures`);
+
+	for (const tag of figureTags) {
+		for (const attribute of ["width", "height", "loading", "decoding"]) {
+			if (!new RegExp(`\\b${attribute}=["'][^"']+["']`).test(tag)) {
+				failures.push(`${ragHtmlPath} figure is missing ${attribute}: ${tag}`);
+			}
+		}
+		if (!/\bloading=["']lazy["']/.test(tag)) {
+			failures.push(`${ragHtmlPath} figure is not lazy-loaded: ${tag}`);
+		}
+	}
+
+	for (const staleOrigin of [
+		"fonts.googleapis.com",
+		"cdnjs.cloudflare.com/ajax/libs/font-awesome",
+		"cdn.jsdelivr.net/gh/jpswalsh/academicons",
+	]) {
+		if (ragHtml.includes(staleOrigin)) {
+			failures.push(`${ragHtmlPath} still loads unused third-party asset: ${staleOrigin}`);
 		}
 	}
 }
@@ -160,13 +240,36 @@ if (await exists(sitemapPath)) {
 		"https://ethanvillalovoz.com/metricdrive/",
 	];
 	const excludedUrls = ["/projects/", "/publications/", "/teaching/", "/gaussian-splatting-physics/"];
+	const requiredImages = [
+		"https://ethanvillalovoz.com/images/EthanVillalovozPic-optimized.jpg",
+		"https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png",
+		"https://ethanvillalovoz.com/metricdrive/assets/metricdrive-explorer.png",
+		"https://ethanvillalovoz.com/data/research/2025_WSU_Bayesian_Prompt_Optimization/ICSE_BO_figure.png",
+		"https://ethanvillalovoz.com/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/STAL_Multi_Robot_Formations.png",
+		"https://ethanvillalovoz.com/data/capstone/static/images/figures/rag-pipeline.webp",
+	];
 
 	for (const url of requiredUrls) {
 		if (!sitemap.includes(`<loc>${url}</loc>`)) failures.push(`Sitemap is missing ${url}`);
 	}
 
 	for (const route of excludedUrls) {
-		if (sitemap.includes(route)) failures.push(`Sitemap still includes legacy route: ${route}`);
+		const legacyUrl = `https://ethanvillalovoz.com${route}`;
+		if (sitemap.includes(`<loc>${legacyUrl}</loc>`)) {
+			failures.push(`Sitemap still includes legacy route: ${route}`);
+		}
+	}
+
+	for (const imageUrl of requiredImages) {
+		if (!sitemap.includes(`<image:loc>${imageUrl}</image:loc>`)) {
+			failures.push(`Sitemap is missing image: ${imageUrl}`);
+		}
+	}
+
+	for (const ignoredSignal of ["<changefreq>", "<priority>"]) {
+		if (sitemap.includes(ignoredSignal)) {
+			failures.push(`Sitemap includes ignored crawl hint: ${ignoredSignal}`);
+		}
 	}
 } else {
 	failures.push(`Missing required path: ${sitemapPath}`);
