@@ -60,6 +60,10 @@ export const researchPublications: ResearchPublication[] = [
 				label: "PDF",
 				href: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/paper.pdf",
 			},
+			{
+				label: "BibTeX",
+				href: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/bode-gen.bib",
+			},
 		],
 	},
 	{

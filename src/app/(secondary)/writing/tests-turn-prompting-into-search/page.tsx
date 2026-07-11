@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import EssayContents from "@/components/EssayContents";
 import { promptSearchEssay } from "@/data/writing";
 
 const articleDescription = promptSearchEssay.summary;
@@ -29,16 +30,16 @@ export const metadata: Metadata = {
 };
 
 const contents = [
-	["evaluation", "The evaluation is the objective"],
-	["search", "Searching without losing language"],
-	["loop", "The loop"],
-	["my-work", "What I built"],
-	["setup", "Experimental setup"],
-	["results", "Results"],
-	["prompt-changes", "What optimized prompts changed"],
-	["limits", "What the results do not say"],
-	["lesson", "The broader lesson"],
-	["citation", "Citation"],
+	{ id: "evaluation", label: "The evaluation is the objective" },
+	{ id: "search", label: "Searching without losing language" },
+	{ id: "loop", label: "The loop" },
+	{ id: "my-work", label: "What I built" },
+	{ id: "setup", label: "Experimental setup" },
+	{ id: "results", label: "Results" },
+	{ id: "prompt-changes", label: "What optimized prompts changed" },
+	{ id: "limits", label: "What the results do not say" },
+	{ id: "lesson", label: "The broader lesson" },
+	{ id: "citation", label: "Citation" },
 ] as const;
 
 const results = [
@@ -85,20 +86,7 @@ export default function PromptSearchEssayPage() {
 				</header>
 
 				<div className="essay-layout work-page-fade" style={{ animationDelay: "180ms" }}>
-					<aside className="essay-contents" aria-label="Article contents">
-						<p>Contents</p>
-						<nav>
-							<ol>
-								{contents.map(([id, label]) => (
-									<li key={id}>
-										<a href={`#${id}`} className="portfolio-link">
-											{label}
-										</a>
-									</li>
-								))}
-							</ol>
-						</nav>
-					</aside>
+					<EssayContents items={contents} />
 
 					<div className="essay-body">
 						<p className="essay-lede">
@@ -239,6 +227,21 @@ for candidate in optimizer:
 								base models in our setup.
 							</p>
 
+							<figure className="essay-figure">
+								<Image
+									src="/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-results.png"
+									alt="Bar charts comparing initial prompts, BODE-GEN, chain-of-thought, and OPRO on ChatGPT 3.5 and CodeLlama 7B"
+									width={1000}
+									height={435}
+									sizes="(min-width: 1024px) 720px, 100vw"
+									className="essay-figure-image"
+								/>
+								<figcaption>
+									BODE-GEN achieved the highest aggregate correctness for both ChatGPT 3.5
+									and CodeLlama-7B in our evaluation. Figure 2 from the paper.
+								</figcaption>
+							</figure>
+
 							<div className="essay-table-wrap">
 								<table className="essay-results-table">
 									<caption>Share of tasks solved to 100% correctness</caption>
@@ -281,6 +284,21 @@ for candidate in optimizer:
 								optimized prompts did not converge on one magic phrase. They repeatedly made
 								the task easier to parse:
 							</p>
+
+							<figure className="essay-figure">
+								<Image
+									src="/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-prompt-comparison.png"
+									alt="Side-by-side comparison of an original HumanEval+ prompt and a more explicit BODE-GEN optimized prompt"
+									width={1000}
+									height={270}
+									sizes="(min-width: 1024px) 720px, 100vw"
+									className="essay-figure-image"
+								/>
+								<figcaption>
+									One optimized prompt moves examples out of the docstring, names edge cases,
+									and states the task in direct language. Excerpt from Figure 8 of the paper.
+								</figcaption>
+							</figure>
 							<ul>
 								<li><strong>Examples became visible.</strong> Inputs and outputs were separated from dense docstrings.</li>
 								<li><strong>Instructions became explicit.</strong> Short requirements were expanded into plain-language descriptions.</li>
@@ -348,8 +366,8 @@ for candidate in optimizer:
 									className="portfolio-link"
 								>
 									arXiv
-								</a>{" "}
-								and as a local{" "}
+								</a>
+								, as a local{" "}
 								<a
 									href="/data/research/2025_WSU_Bayesian_Prompt_Optimization/paper.pdf"
 									target="_blank"
@@ -358,7 +376,16 @@ for candidate in optimizer:
 								>
 									PDF
 								</a>
-								.
+								, and as a{" "}
+								<a
+									href="/data/research/2025_WSU_Bayesian_Prompt_Optimization/bode-gen.bib"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="portfolio-link"
+								>
+									BibTeX
+								</a>{" "}
+								record.
 							</p>
 							<p>Please cite this essay as:</p>
 							<pre className="essay-code"><code>{`Ethan Villalovoz, "Tests Turn Prompting into Search," ethanvillalovoz.com, Jul 2026. ${articleUrl}`}</code></pre>

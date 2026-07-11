@@ -836,11 +836,17 @@ body {
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
+  transition: color 0.2s ease;
 }
 
 .essay-contents a:hover,
-.essay-contents a:focus-visible {
+.essay-contents a:focus-visible,
+.essay-contents a[aria-current="location"] {
   color: rgb(var(--heading));
+}
+
+.essay-contents a[aria-current="location"] {
+  font-weight: 500;
 }
 
 .essay-body {
@@ -1128,6 +1134,11 @@ body {
 .research-resource-links a {
   font-size: 14px;
   line-height: 22px;
+}
+
+.research-resource-link {
+  display: inline-block;
+  overflow: visible;
 }
 
 .research-teaching {
@@ -1464,7 +1475,9 @@ body {
   .secondary-brand,
   .secondary-nav-link,
   .secondary-footer-link,
-  .work-card-title-link {
+  .work-card-title-link,
+  .essay-contents-link,
+  .research-resource-link {
     transition-duration: 0.01ms;
   }
 }

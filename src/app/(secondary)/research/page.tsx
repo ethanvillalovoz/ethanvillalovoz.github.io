@@ -97,7 +97,7 @@ function PublicationRow({ publication }: { publication: ResearchPublication }) {
 							href={resource.href}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="portfolio-link"
+							className="portfolio-link research-resource-link"
 						>
 							{resource.label}
 						</a>
