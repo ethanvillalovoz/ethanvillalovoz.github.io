@@ -43,7 +43,12 @@ export const researchPublications: ResearchPublication[] = [
 		authors: [
 			{ name: "S. Tomar", schemaName: "Shlok Tomar", href: "https://shlok-crypto.github.io/" },
 			{ name: "A. Deshwal", schemaName: "Aryan Deshwal", href: "https://aryandeshwal.github.io/" },
-			{ name: "E. Villalovoz", schemaName: "Ethan Villalovoz", isEthan: true },
+			{
+				name: "Ethan Villalovoz",
+				schemaName: "Ethan Villalovoz",
+				href: "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
+				isEthan: true,
+			},
 			{ name: "M. Fazzini", schemaName: "Mattia Fazzini", href: "https://www-users.cse.umn.edu/~mfazzini/" },
 			{ name: "H. Cai", schemaName: "Haipeng Cai", href: "https://chapering.github.io/" },
 			{ name: "J.R. Doppa", schemaName: "Janardhan Rao Doppa", href: "https://eecs.wsu.edu/~jana/" },
@@ -82,7 +87,12 @@ export const researchPublications: ResearchPublication[] = [
 				schemaName: "Alexandra Bacula",
 				href: "https://sites.google.com/plu.edu/alexandra-bacula",
 			},
-			{ name: "E. Villalovoz", schemaName: "Ethan Villalovoz", isEthan: true },
+			{
+				name: "Ethan Villalovoz",
+				schemaName: "Ethan Villalovoz",
+				href: "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
+				isEthan: true,
+			},
 			{ name: "D. Flynn", schemaName: "Deanna Flynn", href: "https://deannaflynn.wixsite.com/deanna-flynn" },
 			{ name: "A. Mehta", schemaName: "Ankur Mehta", href: "https://uclalemur.com/" },
 			{ name: "H. Knight", schemaName: "Heather Knight", href: "https://www.charismarobotics.com/" },
