@@ -111,8 +111,9 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 							height={500}
 							quality={90}
 							sizes="(min-width: 1024px) 23vw, (min-width: 640px) 48vw, 100vw"
-							loading={index === 0 ? "eager" : "lazy"}
-							unoptimized={item.image.endsWith(".svg")}
+							loading={index < 2 ? "eager" : "lazy"}
+							fetchPriority={index === 1 ? "high" : undefined}
+							unoptimized={item.unoptimized ?? item.image.endsWith(".svg")}
 							className={`work-card-image${item.imageFit === "contain" ? " work-card-image-contain" : ""}`}
 						/>
 					)}

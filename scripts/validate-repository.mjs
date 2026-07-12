@@ -26,6 +26,7 @@ const requiredPaths = [
 	"public/images/theme/moon.svg",
 	"public/images/identity/favicon-96.png",
 	"public/images/identity/favicon-on-dark-96.png",
+	"public/images/projects/intellicrawl-preview.webp",
 	"public/metricdrive/assets/metricdrive-explorer.png",
 	"public/visuals/homepage.jpg",
 	"public/data/capstone/static/images/figures/rag-pipeline.webp",
@@ -58,6 +59,7 @@ const forbiddenPaths = [
 	"public/data/capstone/static/images/figures/figure_2_6.png",
 	"public/data/capstone/static/images/figures/figure_3.png",
 	"public/data/capstone/static/images/figures/figure_4.png",
+	"public/images/projects/intellicrawl-thumb.jpg",
 ];
 
 const exists = async (relativePath) => {
@@ -244,6 +246,7 @@ if (await exists(sitemapPath)) {
 		"https://ethanvillalovoz.com/images/EthanVillalovozPic-optimized.jpg",
 		"https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png",
 		"https://ethanvillalovoz.com/metricdrive/assets/metricdrive-explorer.png",
+		"https://ethanvillalovoz.com/images/projects/intellicrawl-preview.webp",
 		"https://ethanvillalovoz.com/data/research/2025_WSU_Bayesian_Prompt_Optimization/ICSE_BO_figure.png",
 		"https://ethanvillalovoz.com/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/STAL_Multi_Robot_Formations.png",
 		"https://ethanvillalovoz.com/data/capstone/static/images/figures/rag-pipeline.webp",
