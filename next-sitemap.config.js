@@ -18,7 +18,7 @@ const imageEntries = {
     ['/metricdrive/assets/metricdrive-explorer.png', 'MetricDrive Explorer'],
     ['/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-results.png', 'BODE-GEN results'],
     ['/images/projects/self_driving-thumb.jpg', 'Self-driving car simulation'],
-    ['/images/projects/intellicrawl-thumb.jpg', 'IntelliCrawl research agent'],
+    ['/images/projects/intellicrawl-preview.webp', 'IntelliCrawl source-backed research agent'],
     ['/images/projects/sentisync-thumb.jpg', 'SentiSync sentiment-analysis workflow'],
     ['/images/projects/rag.jpg', 'Knowledge Graph RAG Assistant'],
     ['/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/STAL_Multi_Robot_Formations.png', 'Social Triangles multi-robot formations'],

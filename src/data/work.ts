@@ -13,6 +13,7 @@ export interface WorkItem {
 	imageFit?: "cover" | "contain";
 	imageVariant?: "prompt-stack";
 	openInNewTab?: boolean;
+	unoptimized?: boolean;
 }
 
 export const workItems: WorkItem[] = [
@@ -78,9 +79,11 @@ export const workItems: WorkItem[] = [
 		date: "Jul 2025",
 		kind: "Project",
 		description:
-			"An autonomous research agent that orchestrates web crawling, synthesis, and structured comparisons of developer tools.",
-		image: "/images/projects/intellicrawl-thumb.jpg",
-		imageAlt: "IntelliCrawl autonomous research agent interface",
+			"A source-backed research agent that discovers, profiles, and compares developer tools while preserving field-level evidence and explicit unknowns.",
+		image: "/images/projects/intellicrawl-preview.webp",
+		imageAlt: "Animated IntelliCrawl pipeline moving from source discovery to evidence-backed comparison",
+		imageFit: "contain",
+		unoptimized: true,
 	},
 	{
 		title: "SentiSync",
