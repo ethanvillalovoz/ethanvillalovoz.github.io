@@ -124,8 +124,9 @@ export const workItems: WorkItem[] = [
 		description:
 			"An IROS study of how multi-robot formation geometry shapes human navigation and approach behavior.",
 		image:
-			"/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/STAL_Multi_Robot_Formations.png",
-		imageAlt: "Diagram of social-triangle and aggressive-line multi-robot formations",
+			"/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/social-triangles-study-conditions.jpg",
+		imageAlt:
+			"Wedge and V-shape robot formations approaching participants during the Social Triangles study",
 		imageFit: "contain",
 	},
 ];

@@ -16,7 +16,7 @@ export const promptSearchEssay: WritingPost = {
 	summary:
 		"What I learned building the evaluation pipeline behind BODE-GEN, where executable tests turn code prompting into an optimization problem.",
 	image:
-		"/data/research/2025_WSU_Bayesian_Prompt_Optimization/ICSE_BO_figure.png",
+		"/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-method.png",
 	imageAlt: "BODE-GEN test-driven Bayesian prompt optimization pipeline",
 };
 

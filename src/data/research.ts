@@ -62,7 +62,7 @@ export const researchPublications: ResearchPublication[] = [
 		contribution:
 			"I built the test-driven evaluation pipeline and ran reproducible experiments across 164 HumanEval+ tasks and three code models.",
 		image:
-			"/data/research/2025_WSU_Bayesian_Prompt_Optimization/ICSE_BO_figure.png",
+			"/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-method.png",
 		imageAlt: "BODE-GEN Bayesian prompt optimization method diagram",
 		resources: [
 			{ label: "arXiv", href: "https://arxiv.org/abs/2512.15076" },
@@ -106,8 +106,9 @@ export const researchPublications: ResearchPublication[] = [
 		contribution:
 			"I developed geometric motion primitives and Python tooling for the Pioneer 3DX formations evaluated in the study.",
 		image:
-			"/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/STAL_Multi_Robot_Formations.png",
-		imageAlt: "Social-triangle and aggressive-line multi-robot formations",
+			"/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/social-triangles-threat-results.jpg",
+		imageAlt:
+			"Threatening-to-harmless ratings for V-shape, wedge, vertical-line, and horizontal-line robot formations",
 		resources: [
 			{
 				label: "IEEE",
