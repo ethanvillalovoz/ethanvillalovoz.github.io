@@ -26,7 +26,13 @@ const requiredPaths = [
 	"public/images/theme/moon.svg",
 	"public/images/identity/favicon-96.png",
 	"public/images/identity/favicon-on-dark-96.png",
-	"public/images/projects/intellicrawl-preview.webp",
+	"public/images/projects/self-driving-poster.webp",
+	"public/images/projects/self-driving-demo.mp4",
+	"public/images/projects/intellicrawl-evidence.png",
+	"public/images/projects/sentisync-poster.webp",
+	"public/images/projects/sentisync-demo.mp4",
+	"public/images/projects/rag-poster.webp",
+	"public/images/projects/rag-demo.mp4",
 	"public/metricdrive/assets/metricdrive-explorer.png",
 	"public/visuals/homepage.jpg",
 	"public/data/capstone/static/images/figures/rag-pipeline.webp",
@@ -185,10 +191,13 @@ for (const dataPath of imageDataPaths) {
 	const imagePaths = [...data.matchAll(/image:\s*["']([^"']+)["']/g)].map(
 		(match) => match[1],
 	);
+	const videoPaths = [...data.matchAll(/video:\s*["']([^"']+)["']/g)].map(
+		(match) => match[1],
+	);
 
-	for (const imagePath of imagePaths) {
-		if (!(await exists(path.join("public", imagePath)))) {
-			failures.push(`${relativeDataPath} references missing image: ${imagePath}`);
+	for (const mediaPath of [...imagePaths, ...videoPaths]) {
+		if (!(await exists(path.join("public", mediaPath)))) {
+			failures.push(`${relativeDataPath} references missing media: ${mediaPath}`);
 		}
 	}
 }
@@ -246,7 +255,10 @@ if (await exists(sitemapPath)) {
 		"https://ethanvillalovoz.com/images/EthanVillalovozPic-optimized.jpg",
 		"https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png",
 		"https://ethanvillalovoz.com/metricdrive/assets/metricdrive-explorer.png",
-		"https://ethanvillalovoz.com/images/projects/intellicrawl-preview.webp",
+		"https://ethanvillalovoz.com/images/projects/self-driving-poster.webp",
+		"https://ethanvillalovoz.com/images/projects/intellicrawl-evidence.png",
+		"https://ethanvillalovoz.com/images/projects/sentisync-poster.webp",
+		"https://ethanvillalovoz.com/images/projects/rag-poster.webp",
 		"https://ethanvillalovoz.com/data/research/2025_WSU_Bayesian_Prompt_Optimization/ICSE_BO_figure.png",
 		"https://ethanvillalovoz.com/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/STAL_Multi_Robot_Formations.png",
 		"https://ethanvillalovoz.com/data/capstone/static/images/figures/rag-pipeline.webp",

@@ -17,10 +17,10 @@ const imageEntries = {
     ['/scenariolens/assets/scenariolens-explorer.png', 'ScenarioLens Explorer'],
     ['/metricdrive/assets/metricdrive-explorer.png', 'MetricDrive Explorer'],
     ['/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-results.png', 'BODE-GEN results'],
-    ['/images/projects/self_driving-thumb.jpg', 'Self-driving car simulation'],
-    ['/images/projects/intellicrawl-preview.webp', 'IntelliCrawl source-backed research agent'],
-    ['/images/projects/sentisync-thumb.jpg', 'SentiSync sentiment-analysis workflow'],
-    ['/images/projects/rag.jpg', 'Knowledge Graph RAG Assistant'],
+    ['/images/projects/self-driving-poster.webp', 'Self-driving car offline replay'],
+    ['/images/projects/intellicrawl-evidence.png', 'IntelliCrawl source-backed research report'],
+    ['/images/projects/sentisync-poster.webp', 'SentiSync sentiment-analysis extension'],
+    ['/images/projects/rag-poster.webp', 'Knowledge Graph RAG retrieval workspace'],
     ['/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/STAL_Multi_Robot_Formations.png', 'Social Triangles multi-robot formations'],
   ],
   '/research/': [
@@ -34,7 +34,7 @@ const imageEntries = {
     ['/metricdrive/assets/metricdrive-explorer.png', 'MetricDrive Explorer', 'Metric-aligned autonomous-driving trajectory research interface'],
   ],
   '/rag/': [
-    ['/images/projects/rag.jpg', 'Knowledge Graph RAG Assistant'],
+    ['/images/projects/rag-poster.webp', 'Knowledge Graph RAG retrieval workspace'],
     ['/data/capstone/static/images/figures/rag-pipeline.webp', 'Knowledge Graph RAG pipeline'],
     ['/data/capstone/static/images/figures/rag-system-architecture.webp', 'Knowledge Graph RAG system architecture'],
   ],

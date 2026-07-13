@@ -12,6 +12,7 @@ export interface WorkItem {
 	imageAlt: string;
 	imageFit?: "cover" | "contain";
 	imageVariant?: "prompt-stack";
+	video?: string;
 	openInNewTab?: boolean;
 	unoptimized?: boolean;
 }
@@ -70,8 +71,11 @@ export const workItems: WorkItem[] = [
 		kind: "Project",
 		description:
 			"An end-to-end behavioral-cloning system that predicts steering from camera images and drives in the Udacity simulator.",
-		image: "/images/projects/self_driving-thumb.jpg",
-		imageAlt: "Self-driving car simulator displaying a road from the vehicle camera",
+		image: "/images/projects/self-driving-poster.webp",
+		imageAlt:
+			"Offline replay of recorded Udacity simulator frames, actual model input, and predicted steering",
+		imageFit: "contain",
+		video: "/images/projects/self-driving-demo.mp4",
 	},
 	{
 		title: "IntelliCrawl",
@@ -80,10 +84,10 @@ export const workItems: WorkItem[] = [
 		kind: "Project",
 		description:
 			"A source-backed research agent that discovers, profiles, and compares developer tools while preserving field-level evidence and explicit unknowns.",
-		image: "/images/projects/intellicrawl-preview.webp",
-		imageAlt: "Animated IntelliCrawl pipeline moving from source discovery to evidence-backed comparison",
+		image: "/images/projects/intellicrawl-evidence.png",
+		imageAlt:
+			"IntelliCrawl deterministic terminal output beside its validated source-backed report",
 		imageFit: "contain",
-		unoptimized: true,
 	},
 	{
 		title: "SentiSync",
@@ -92,8 +96,11 @@ export const workItems: WorkItem[] = [
 		kind: "Project",
 		description:
 			"A YouTube sentiment-analysis extension backed by an MLflow, DVC, Docker, and AWS machine-learning workflow.",
-		image: "/images/projects/sentisync-thumb.jpg",
-		imageAlt: "SentiSync dashboard showing sentiment analysis for YouTube comments",
+		image: "/images/projects/sentisync-poster.webp",
+		imageAlt:
+			"SentiSync extension analyzing a YouTube discussion and switching between overview and comments",
+		imageFit: "contain",
+		video: "/images/projects/sentisync-demo.mp4",
 	},
 	{
 		title: "Knowledge Graph RAG Assistant",
@@ -102,8 +109,11 @@ export const workItems: WorkItem[] = [
 		kind: "Project",
 		description:
 			"For this team-built knowledge-graph RAG assistant, I generated and indexed 5GB+ of Wikipedia embeddings and refined FAISS retrieval toward a 10,000+ article knowledge base.",
-		image: "/images/projects/rag.jpg",
-		imageAlt: "Knowledge Graph RAG Assistant chat interface",
+		image: "/images/projects/rag-poster.webp",
+		imageAlt:
+			"Knowledge Graph RAG Assistant answering a question while exposing evidence topology and source context",
+		imageFit: "contain",
+		video: "/images/projects/rag-demo.mp4",
 	},
 	{
 		title: "Social Triangles",

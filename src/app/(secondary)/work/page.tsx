@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { WorkCardVideo } from "@/components/WorkCardVideo";
 import { absoluteUrl, personReference, site } from "@/data/site";
 import { workItems, type WorkItem } from "@/data/work";
 
@@ -103,6 +104,13 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 								/>
 							</span>
 						</span>
+					) : item.video ? (
+						<WorkCardVideo
+							fit={item.imageFit}
+							label={item.imageAlt}
+							poster={item.image}
+							src={item.video}
+						/>
 					) : (
 						<Image
 							src={item.image}
@@ -111,8 +119,9 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 							height={500}
 							quality={90}
 							sizes="(min-width: 1024px) 23vw, (min-width: 640px) 48vw, 100vw"
-							loading={index < 2 ? "eager" : "lazy"}
-							fetchPriority={index === 1 ? "high" : undefined}
+							{...(index === 0
+								? { preload: true }
+								: { loading: index === 1 ? "eager" : "lazy" })}
 							unoptimized={item.unoptimized ?? item.image.endsWith(".svg")}
 							className={`work-card-image${item.imageFit === "contain" ? " work-card-image-contain" : ""}`}
 						/>

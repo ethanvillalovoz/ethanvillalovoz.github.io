@@ -646,6 +646,18 @@ button {
   width: 100%;
 }
 
+.work-card-video {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--motion-standard) var(--ease-out);
+  width: 100%;
+}
+
+.work-card-video-contain {
+  object-fit: contain;
+}
+
 .work-card-image-contain {
   object-fit: contain;
 }
@@ -1309,6 +1321,7 @@ button {
   }
 
   .work-card-link:hover .work-card-image,
+  .work-card-link:hover .work-card-video,
   .work-card-link:hover .work-card-prompt-stack {
     transform: scale(1.022);
   }
@@ -1574,6 +1587,7 @@ button {
 
 @media (prefers-reduced-motion: reduce) and (hover: hover) and (pointer: fine) {
   .work-card-link:hover .work-card-image,
+  .work-card-link:hover .work-card-video,
   .work-card-link:hover .work-card-prompt-stack {
     transform: none;
   }
