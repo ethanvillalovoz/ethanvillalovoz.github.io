@@ -2,19 +2,9 @@
 
 The MIT license in this repository applies to the portfolio's original source code. The following material has separate ownership or attribution requirements.
 
-## Knowledge Graph RAG Assistant Microsite
-
-`public/data/capstone/` is adapted from the [NeRFies website template](https://github.com/nerfies/nerfies.github.io). The page retains an on-page attribution. Adapted template portions remain subject to the original template's terms.
-
-The microsite uses:
-
-- [Bulma](https://bulma.io/) under the MIT License
-
-Project content and artifacts belong to the ACME10-HE-RAGApp team and their respective authors.
-
 ## Research Material
 
-Papers, figures, BibTeX records, and publication metadata under `public/data/research/` belong to their authors and publishers. Their inclusion here does not relicense them under MIT.
+Papers, figures, BibTeX records, and publication metadata under `public/data/research/` belong to their authors and publishers. The Knowledge Graph RAG final report and original project artifacts under `public/data/capstone/` belong to the ACME10-HE-RAGApp team. Their inclusion here does not relicense them under MIT.
 
 ## Marks And Media
 

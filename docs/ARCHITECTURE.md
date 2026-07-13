@@ -1,6 +1,6 @@
 # Architecture
 
-This repository is a small Next.js App Router site with a separate static layer for research artifacts and standalone project pages.
+This repository is a small Next.js App Router site with a separate static layer for research artifacts and two standalone research previews.
 
 ## Application Routes
 
@@ -14,11 +14,12 @@ src/app/
     writing/*/page.tsx        Long-form technical essays
     work/page.tsx             Work archive
     research/page.tsx         Publications and teaching
+    rag/page.tsx              Knowledge Graph RAG project case study
 ```
 
 The homepage's rendered experience lives in `src/components/HomePageClient.tsx`. Keeping the client component behind a server route allows page-level metadata without changing the locked homepage markup or interactions.
 
-The secondary route group adds navigation and a footer to Writing, Work, and Research without adding either element to Home.
+The secondary route group adds navigation and a footer to Writing, Work, Research, and the RAG case study without adding either element to Home.
 
 ## Content Sources
 
@@ -48,15 +49,18 @@ The shared visual system is defined in `src/app/globals.css` and uses:
 
 ## Static Microsites
 
-Standalone project pages remain static so their project-specific presentation can evolve independently of the portfolio shell.
+Standalone research previews remain static so their interactive presentation can evolve independently of the portfolio shell.
 
 | Public route | Static source |
 | --- | --- |
 | `/scenariolens/` | `public/scenariolens/index.html` |
 | `/metricdrive/` | `public/metricdrive/index.html` |
-| `/rag/` | `public/data/capstone/index.html` |
 
 Rewrites in `next.config.ts` expose those pages at clean URLs. Static assets use relative paths so each microsite can be tested in isolation.
+
+## Native Project Case Study
+
+`/rag/` is implemented at `src/app/(secondary)/rag/page.tsx`. It uses the shared portfolio shell, responsive image delivery, theme tokens, and interaction language. Archival evidence for the page lives under `public/data/capstone/`, including the final report, the report's system architecture figure, and an original prototype capture.
 
 Legacy `/projects/`, `/publications/`, `/teaching/`, `/DreamWorlds/`, and `/gaussian-splatting-physics/` paths redirect to active pages.
 
@@ -64,14 +68,14 @@ Legacy `/projects/`, `/publications/`, `/teaching/`, `/DreamWorlds/`, and `/gaus
 
 - `src/app/layout.tsx` owns global metadata, compact social metadata, favicons, and website JSON-LD.
 - Home publishes `ProfilePage` and `Person` structured data without changing its rendered design.
-- Writing, Work, Research, the technical essay, and each microsite publish page-appropriate structured data.
-- Home, Writing, Work, and Research define canonical URLs at the route level.
-- Static microsites define their own canonical and social metadata in HTML.
+- Writing, Work, Research, the technical essay, the RAG case study, and each microsite publish page-appropriate structured data.
+- Home, Writing, Work, Research, and the RAG case study define canonical URLs at the route level.
+- Static research previews define their own canonical and social metadata in HTML.
 - `next-sitemap.config.js` generates `public/sitemap.xml` with representative image entries and `public/robots.txt` after a production build.
 
 ## Image Delivery
 
-Next.js routes use responsive image generation with an additional high-quality setting for technical figures and screenshots. Static RAG figures are checked-in WebP derivatives sized for their rendered surfaces; the original paper remains the archival source for print-resolution figures.
+Next.js routes use responsive image generation with an additional high-quality setting for technical figures and screenshots. The RAG page uses a direct crop of the final report's architecture figure and a WebP prototype capture; the report remains the archival source.
 
 ## Quality Gates
 

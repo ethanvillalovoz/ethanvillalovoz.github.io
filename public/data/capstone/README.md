@@ -1,40 +1,22 @@
-# Knowledge Graph RAG Assistant Microsite
+# Knowledge Graph RAG Assistant Evidence
 
-This folder contains the standalone project page for the Washington State University senior design project built with HackerEarth.
-
-## Route
-
-The microsite is served from:
-
-```text
-/rag/
-```
-
-The route is configured through `next.config.ts` and maps to:
-
-```text
-public/data/capstone/index.html
-```
+This folder contains archival evidence used by the native Knowledge Graph RAG Assistant case study at `/rag/`.
 
 ## Contents
 
-```text
-index.html          Static project page
-static/css/         Bulma and project-specific page styles
-static/images/      Logos and web-optimized project figures
-static/data/        Project paper PDF
-```
+| Path | Purpose |
+| --- | --- |
+| `report.pdf` | Team final report submitted in Spring 2025 |
+| `figures/system-architecture.png` | Direct crop of Figure 2 from the report |
+| `figures/original-prototype.webp` | Original capstone interface shown in the report |
 
 ## Editing Notes
 
-- Keep asset paths relative to this folder so the page works through the Next.js rewrite.
-- Update figure alt text when replacing screenshots or diagrams.
-- Keep numeric image dimensions and lazy decoding on below-the-fold figures.
-- Export descriptive WebP derivatives instead of committing source-resolution captures.
-- Keep external links using `target="_blank"` and `rel="noopener noreferrer"`.
-- The page bundles its styles and media; the only external runtime embed is the YouTube demo.
-- Validate the page locally at `/rag/` after changes.
+- The page implementation lives at `src/app/(secondary)/rag/page.tsx`.
+- Preserve the report as the archival source when regenerating figures.
+- Keep figure captions and alt text synchronized with replacement assets.
+- Run `npm run check` and inspect `/rag/` on desktop and mobile after changes.
 
-## Attribution
+## Ownership
 
-The page is adapted from the [NeRFies website template](https://github.com/nerfies/nerfies.github.io). Project content and artifacts belong to the ACME10-HE-RAGApp team.
+Project content and artifacts belong to Molly Iverson, Ethan Villalovoz, Chandler Juego, Adam Shtrikman, and the ACME10-HE-RAGApp project stakeholders.

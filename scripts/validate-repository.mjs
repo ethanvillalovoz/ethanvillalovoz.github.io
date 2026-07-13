@@ -12,6 +12,7 @@ const requiredPaths = [
 	"src/app/(secondary)/writing/tests-turn-prompting-into-search/page.tsx",
 	"src/app/(secondary)/work/page.tsx",
 	"src/app/(secondary)/research/page.tsx",
+	"src/app/(secondary)/rag/page.tsx",
 	"src/components/HomePageClient.tsx",
 	"src/data/work.ts",
 	"src/data/writing.ts",
@@ -19,7 +20,9 @@ const requiredPaths = [
 	"src/data/site.ts",
 	"public/scenariolens/index.html",
 	"public/metricdrive/index.html",
-	"public/data/capstone/index.html",
+	"public/data/capstone/report.pdf",
+	"public/data/capstone/figures/system-architecture.png",
+	"public/data/capstone/figures/original-prototype.webp",
 	"public/data/EthanVillalovoz-Resume.pdf",
 	"public/data/EthanVillalovoz-CV.pdf",
 	"public/images/theme/sun.svg",
@@ -36,12 +39,6 @@ const requiredPaths = [
 	"public/images/projects/rag-demo.mp4",
 	"public/metricdrive/assets/metricdrive-explorer.png",
 	"public/visuals/homepage.jpg",
-	"public/data/capstone/static/images/figures/rag-pipeline.webp",
-	"public/data/capstone/static/images/figures/rag-query-input.webp",
-	"public/data/capstone/static/images/figures/rag-retrieval-processing.webp",
-	"public/data/capstone/static/images/figures/rag-generated-answer.webp",
-	"public/data/capstone/static/images/figures/rag-system-architecture.webp",
-	"public/data/capstone/static/images/figures/rag-feature-overview.webp",
 ];
 
 const forbiddenPaths = [
@@ -57,15 +54,8 @@ const forbiddenPaths = [
 	"tailwind.config.ts",
 	"postcss.config.mjs",
 	"public/visuals/homepage.png",
-	"public/data/capstone/static/images/figures/fig_1.png",
-	"public/data/capstone/static/images/figures/figure_2_1.png",
-	"public/data/capstone/static/images/figures/figure_2_2.png",
-	"public/data/capstone/static/images/figures/figure_2_3.png",
-	"public/data/capstone/static/images/figures/figure_2_4.png",
-	"public/data/capstone/static/images/figures/figure_2_5.png",
-	"public/data/capstone/static/images/figures/figure_2_6.png",
-	"public/data/capstone/static/images/figures/figure_3.png",
-	"public/data/capstone/static/images/figures/figure_4.png",
+	"public/data/capstone/index.html",
+	"public/data/capstone/static",
 	"public/images/projects/intellicrawl-thumb.jpg",
 ];
 
@@ -94,7 +84,6 @@ const isRemoteOrRoute = (value) =>
 const micrositeFiles = [
 	"public/scenariolens/index.html",
 	"public/metricdrive/index.html",
-	"public/data/capstone/index.html",
 ];
 
 for (const relativeHtmlPath of micrositeFiles) {
@@ -145,37 +134,6 @@ for (const relativeHtmlPath of micrositeFiles) {
 			await access(assetPath);
 		} catch {
 			failures.push(`${relativeHtmlPath} references missing asset: ${reference}`);
-		}
-	}
-}
-
-const ragHtmlPath = "public/data/capstone/index.html";
-if (await exists(ragHtmlPath)) {
-	const ragHtml = await readFile(path.join(root, ragHtmlPath), "utf8");
-	const figureTags = [
-		...ragHtml.matchAll(/<img\b[^>]*src=["'][^"']*\/figures\/[^"']+["'][^>]*>/g),
-	].map((match) => match[0]);
-
-	if (figureTags.length === 0) failures.push(`${ragHtmlPath} has no project figures`);
-
-	for (const tag of figureTags) {
-		for (const attribute of ["width", "height", "loading", "decoding"]) {
-			if (!new RegExp(`\\b${attribute}=["'][^"']+["']`).test(tag)) {
-				failures.push(`${ragHtmlPath} figure is missing ${attribute}: ${tag}`);
-			}
-		}
-		if (!/\bloading=["']lazy["']/.test(tag)) {
-			failures.push(`${ragHtmlPath} figure is not lazy-loaded: ${tag}`);
-		}
-	}
-
-	for (const staleOrigin of [
-		"fonts.googleapis.com",
-		"cdnjs.cloudflare.com/ajax/libs/font-awesome",
-		"cdn.jsdelivr.net/gh/jpswalsh/academicons",
-	]) {
-		if (ragHtml.includes(staleOrigin)) {
-			failures.push(`${ragHtmlPath} still loads unused third-party asset: ${staleOrigin}`);
 		}
 	}
 }
@@ -263,7 +221,8 @@ if (await exists(sitemapPath)) {
 		"https://ethanvillalovoz.com/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-method.png",
 		"https://ethanvillalovoz.com/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/social-triangles-study-conditions.jpg",
 		"https://ethanvillalovoz.com/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/social-triangles-threat-results.jpg",
-		"https://ethanvillalovoz.com/data/capstone/static/images/figures/rag-pipeline.webp",
+		"https://ethanvillalovoz.com/data/capstone/figures/system-architecture.png",
+		"https://ethanvillalovoz.com/data/capstone/figures/original-prototype.webp",
 	];
 
 	for (const url of requiredUrls) {

@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml)
 
-Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a concise homepage, a reverse-chronological Work archive, technical writing, a Research page, and a small set of standalone project microsites.
+Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a concise homepage, a reverse-chronological Work archive, technical writing, a Research page, a native project case study, and a small set of standalone research previews.
 
 ![Homepage preview](public/visuals/homepage.jpg)
 
@@ -17,7 +17,7 @@ Personal portfolio and research website for [ethanvillalovoz.com](https://ethanv
 | `/research/` | Publications, paper resources, and teaching history |
 | `/scenariolens/` | ScenarioLens interactive explorer |
 | `/metricdrive/` | MetricDrive research preview |
-| `/rag/` | Knowledge Graph RAG Assistant project page |
+| `/rag/` | Knowledge Graph RAG Assistant case study, report, and measured results |
 
 Legacy `/projects/`, `/publications/`, and `/teaching/` URLs redirect to the current information architecture.
 
@@ -42,7 +42,7 @@ Writing belongs in that shared feed, using the same image, title, date/type, and
 - `next-sitemap`
 - Vercel
 
-Standalone project pages under `public/` use dependency-free HTML, CSS, and JavaScript where practical.
+Standalone research previews under `public/` use dependency-free HTML, CSS, and JavaScript where practical. The RAG case study is a native Next.js route so it shares the portfolio shell and design system.
 
 ## Discovery And Performance
 
@@ -95,6 +95,7 @@ src/app/
   (secondary)/writing/        Writing index and essays
   (secondary)/work/           Work archive
   (secondary)/research/       Publications and teaching
+  (secondary)/rag/            Knowledge Graph RAG case study
 
 src/components/
   HomePageClient.tsx          Locked homepage experience
@@ -109,7 +110,7 @@ src/data/
   research.ts                 Publications and teaching records
 
 public/
-  data/                       Resume, CV, papers, and RAG microsite
+  data/                       Resume, CV, papers, and project evidence
   images/                     Identity, organization, and active project images
   metricdrive/                MetricDrive microsite
   scenariolens/               ScenarioLens microsite

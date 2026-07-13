@@ -59,6 +59,12 @@ For publications, preserve:
 
 Do not imply first authorship, lead authorship, acceptance, or awards unless the source record supports the claim.
 
+## Project Case Studies
+
+The Knowledge Graph RAG case study lives at `src/app/(secondary)/rag/page.tsx`. Use this route as the model when a project has enough evidence to warrant more than a Work card: a concrete problem, attributable contribution, system design, measured results, original artifacts, and honest limitations.
+
+Keep case studies inside the shared secondary layout unless a genuinely interactive research artifact needs an independent canvas. Store reports and archival figures under a descriptive folder in `public/data/`, and distinguish original project evidence from later presentation work.
+
 ## Static Project Pages
 
 Active standalone pages live under `public/`:
@@ -66,7 +72,6 @@ Active standalone pages live under `public/`:
 ```text
 public/scenariolens/
 public/metricdrive/
-public/data/capstone/
 ```
 
 Add a rewrite in `next.config.ts` when exposing a new static page at a clean route. Keep local assets relative to the page folder and include a README describing the route, files, and attribution.
