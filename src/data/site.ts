@@ -8,7 +8,7 @@ export const site = {
 	socialProfiles: [
 		"https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
 		"https://github.com/ethanvillalovoz",
-		"https://www.linkedin.com/in/evillalovoz27/",
+		"https://www.linkedin.com/in/ethanvillalovoz/",
 		"https://x.com/ethanvillalovoz",
 		"https://www.youtube.com/@ethanvillalovoz",
 	],

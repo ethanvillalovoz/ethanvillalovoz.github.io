@@ -1,7 +1,7 @@
 const footerLinks = [
 	{ label: "Resume", href: "/data/EthanVillalovoz-Resume.pdf" },
 	{ label: "CV", href: "/data/EthanVillalovoz-CV.pdf" },
-	{ label: "LinkedIn", href: "https://www.linkedin.com/in/evillalovoz27/" },
+	{ label: "LinkedIn", href: "https://www.linkedin.com/in/ethanvillalovoz/" },
 	{
 		label: "Scholar",
 		href: "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",

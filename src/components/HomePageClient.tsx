@@ -39,7 +39,7 @@ const profileLinks = [
 	},
 	{
 		label: "LinkedIn",
-		href: "https://www.linkedin.com/in/evillalovoz27/",
+		href: "https://www.linkedin.com/in/ethanvillalovoz/",
 	},
 	{ label: "X", href: "https://x.com/ethanvillalovoz" },
 	{ label: "YouTube", href: "https://www.youtube.com/@ethanvillalovoz" },
