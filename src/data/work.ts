@@ -84,10 +84,11 @@ export const workItems: WorkItem[] = [
 		kind: "Project",
 		description:
 			"A source-backed research agent that discovers, profiles, and compares developer tools while preserving field-level evidence and explicit unknowns.",
-		image: "/images/projects/intellicrawl-evidence.png",
+		image: "/images/projects/intellicrawl-poster.webp",
 		imageAlt:
-			"IntelliCrawl deterministic terminal output beside its validated source-backed report",
+			"IntelliCrawl running a source-backed comparison inside macOS Terminal",
 		imageFit: "contain",
+		video: "/images/projects/intellicrawl-demo.mp4",
 	},
 	{
 		title: "SentiSync",
