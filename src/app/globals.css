@@ -347,26 +347,32 @@ button {
   display: inline;
   font-family: var(--font-sans);
   font-weight: 500;
-  text-decoration-color: transparent;
-  text-decoration-line: underline;
-  text-decoration-skip-ink: none;
-  text-decoration-style: solid;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 4px;
-  transition-duration: var(--motion-standard);
-  transition-property: text-decoration-color;
-  transition-timing-function: var(--ease-out);
+  position: relative;
+  text-decoration: none;
 }
 
-.portfolio-link:focus-visible,
-.portfolio-link:active,
-.portfolio-organization-link:focus-visible .portfolio-organization-name,
-.portfolio-organization-link:active .portfolio-organization-name {
-  text-decoration-color: rgb(var(--underline));
+.portfolio-link::after {
+  background: rgb(var(--underline));
+  bottom: -3px;
+  clip-path: inset(0 100% 0 0);
+  content: "";
+  height: 1.5px;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  transition: clip-path var(--motion-standard) var(--ease-out);
 }
 
-.portfolio-link:focus-visible,
-.portfolio-organization-link:focus-visible .portfolio-organization-name {
+.portfolio-link:focus-visible::after,
+.portfolio-link:active::after,
+.portfolio-organization-link:focus-visible .portfolio-organization-name::after,
+.portfolio-organization-link:active .portfolio-organization-name::after {
+  clip-path: inset(0);
+}
+
+.portfolio-link:focus-visible::after,
+.portfolio-organization-link:focus-visible .portfolio-organization-name::after {
   transition-duration: 0ms;
 }
 
@@ -394,9 +400,7 @@ button {
   overflow: visible;
   padding: 0;
   transform-origin: center;
-  transition:
-    transform var(--motion-fast) var(--ease-out),
-    text-decoration-color var(--motion-standard) var(--ease-out);
+  transition: transform var(--motion-fast) var(--ease-out);
   vertical-align: baseline;
 }
 
@@ -713,8 +717,12 @@ button {
   color: inherit;
 }
 
-.work-card-link:focus-visible .work-card-title-link {
-  text-decoration-color: rgb(var(--underline));
+.work-card-link:focus-visible .work-card-title-link::after,
+.work-card-link:active .work-card-title-link::after {
+  clip-path: inset(0);
+}
+
+.work-card-link:focus-visible .work-card-title-link::after {
   transition-duration: 0ms;
 }
 
@@ -802,8 +810,12 @@ button {
   margin: 3px 0 0;
 }
 
-.writing-entry-link:focus-visible .writing-entry-title-link {
-  text-decoration-color: rgb(var(--underline));
+.writing-entry-link:focus-visible .writing-entry-title-link::after,
+.writing-entry-link:active .writing-entry-title-link::after {
+  clip-path: inset(0);
+}
+
+.writing-entry-link:focus-visible .writing-entry-title-link::after {
   transition-duration: 0ms;
 }
 
@@ -904,9 +916,7 @@ button {
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
-  transition:
-    color var(--motion-standard) var(--ease-out),
-    text-decoration-color var(--motion-standard) var(--ease-out);
+  transition: color var(--motion-standard) var(--ease-out);
 }
 
 .essay-contents a:focus-visible,
@@ -1624,9 +1634,9 @@ button {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .portfolio-link:hover,
-  .portfolio-organization-link:hover .portfolio-organization-name {
-    text-decoration-color: rgb(var(--underline));
+  .portfolio-link:hover::after,
+  .portfolio-organization-link:hover .portfolio-organization-name::after {
+    clip-path: inset(0);
   }
 
   .secondary-brand:hover,
@@ -1646,9 +1656,9 @@ button {
     border-color: rgb(var(--heading) / 0.34);
   }
 
-  .work-card-link:hover .work-card-title-link,
-  .writing-entry-link:hover .writing-entry-title-link {
-    text-decoration-color: rgb(var(--underline));
+  .work-card-link:hover .work-card-title-link::after,
+  .writing-entry-link:hover .writing-entry-title-link::after {
+    clip-path: inset(0);
   }
 }
 
@@ -1984,6 +1994,7 @@ button {
   }
 
   .portfolio-link,
+  .portfolio-link::after,
   .rag-figure-link {
     transition-duration: 0.01ms !important;
   }

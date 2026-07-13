@@ -12,7 +12,7 @@ This document records the interaction and presentation rules that keep new pages
 ## Links And Controls
 
 - Underlines indicate links. Non-interactive emphasis uses weight or color instead.
-- Text-link underlines appear on hover, keyboard focus, or active press; they are not permanently visible.
+- Text-link underlines draw from left to right on hover, keyboard focus, or active press; reveal the fixed-thickness line without scaling it, and do not leave it permanently visible.
 - Hover-only behavior must be gated by `@media (hover: hover) and (pointer: fine)` so taps do not leave sticky states.
 - Interactive controls need visible `:focus-visible` treatment and accurate, action-oriented accessible names.
 - Icon controls use a 44px target. Text controls must retain at least a 24px target and comfortable separation from adjacent actions.
