@@ -1,0 +1,158 @@
+{
+  "format": "scenariolens.explorer_run.v1",
+  "ready": true,
+  "mode": "public_demo",
+  "summary": {
+    "scenariolens_version": "0.2.0",
+    "source_count": 4,
+    "scenario_count": 1193,
+    "rendered_case_count": 14,
+    "stage_count": 3,
+    "duration_seconds": 459.495,
+    "peak_rss_bytes": 1915289600,
+    "analysis_digest": "ce156efea15a18b3b69c2b20c79c085c66da3c57b41f17dcf6844583d5ff9d8e"
+  },
+  "configuration": {
+    "input_format": "native",
+    "max_scenarios_per_input": 400,
+    "top": 50
+  },
+  "inputs": [
+    {
+      "source_index": 1,
+      "source_name": "validation.tfrecord-00007-of-00150",
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "source_index": 2,
+      "source_name": "validation.tfrecord-00008-of-00150",
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "source_index": 3,
+      "source_name": "validation.tfrecord-00009-of-00150",
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "source_index": 4,
+      "source_name": "validation.tfrecord-00010-of-00150",
+      "size_bytes": null,
+      "sha256": null
+    }
+  ],
+  "stages": [
+    {
+      "stage_id": "baseline_comparison",
+      "label": "Constant-velocity vs lane-aware baseline",
+      "ready": true,
+      "scenario_count": 1193,
+      "evaluated_count": 5274,
+      "duration_seconds": 116.036,
+      "aggregate": {
+        "evaluated_target_count": 5274,
+        "constant_velocity_ade_m": 9.143,
+        "constant_velocity_fde_m": 25.004,
+        "constant_velocity_miss_rate": 0.935,
+        "lane_aware_ade_m": 14.958,
+        "lane_aware_fde_m": 35.692,
+        "lane_aware_miss_rate": 0.939,
+        "fde_improvement_m": -10.688,
+        "map_used_count": 3249,
+        "fallback_count": 2025
+      },
+      "report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/425a4316c1f1524c989264a95f0960cbfd6ec5fa/docs/reports/scenariolens_v1_run_validation.md"
+    },
+    {
+      "stage_id": "lane_selection",
+      "label": "Nearest-lane vs heading-aware selection",
+      "ready": true,
+      "scenario_count": 1193,
+      "evaluated_count": 5274,
+      "duration_seconds": 149.201,
+      "aggregate": {
+        "evaluated_target_count": 5274,
+        "constant_velocity_fde_m": 25.004,
+        "nearest_lane_fde_m": 35.692,
+        "heading_lane_fde_m": 35.338,
+        "heading_vs_nearest_fde_improvement_m": 0.355,
+        "heading_vs_constant_velocity_fde_improvement_m": -10.333,
+        "constant_velocity_miss_rate": 0.935,
+        "nearest_lane_miss_rate": 0.939,
+        "heading_lane_miss_rate": 0.938,
+        "nearest_map_used_count": 3249,
+        "heading_map_used_count": 3211,
+        "nearest_fallback_count": 2025,
+        "heading_fallback_count": 2063
+      },
+      "report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/425a4316c1f1524c989264a95f0960cbfd6ec5fa/docs/reports/scenariolens_v1_run_validation.md"
+    },
+    {
+      "stage_id": "lane_continuation",
+      "label": "Linked-lane continuation diagnostic",
+      "ready": true,
+      "scenario_count": 1193,
+      "evaluated_count": 2772,
+      "duration_seconds": 193.859,
+      "aggregate": {
+        "evaluated_track_count": 2772,
+        "linked_lane_track_count": 2618,
+        "improved_over_nearest_count": 1819,
+        "regressed_vs_nearest_count": 699,
+        "topology_gap_count": 154,
+        "still_clamped_count": 826,
+        "mean_nearest_fde_m": 49.59,
+        "mean_lane_link_fde_m": 31.479,
+        "mean_lane_link_improvement_m": 18.111
+      },
+      "report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/425a4316c1f1524c989264a95f0960cbfd6ec5fa/docs/reports/scenariolens_v1_run_validation.md"
+    }
+  ],
+  "reports": [
+    {
+      "report_id": "v1_run_validation",
+      "label": "Full-corpus run validation",
+      "description": "Two complete 1,193-scenario runs with matching digest and 7/7 checks.",
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/425a4316c1f1524c989264a95f0960cbfd6ec5fa/docs/reports/scenariolens_v1_run_validation.md"
+    },
+    {
+      "report_id": "selector_holdout_993",
+      "label": "Frozen selector holdout",
+      "description": "993 withheld scenarios and 78 decisions; the candidate remains disabled after 12 false promotions.",
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/425a4316c1f1524c989264a95f0960cbfd6ec5fa/docs/reports/waymo_selector_holdout_993.md"
+    },
+    {
+      "report_id": "evidence_index",
+      "label": "V1 evidence index",
+      "description": "The generated map of public reports, payloads, provenance, and CI evidence.",
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/425a4316c1f1524c989264a95f0960cbfd6ec5fa/docs/reports/scenariolens_evidence_index.md"
+    },
+    {
+      "report_id": "baseline_comparison",
+      "label": "Lane-aware baseline study",
+      "description": "A 100-scenario cross-shard diagnostic with improvements and regressions.",
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/425a4316c1f1524c989264a95f0960cbfd6ec5fa/docs/reports/waymo_lane_aware_baseline_cross_shard.md"
+    },
+    {
+      "report_id": "lane_continuation",
+      "label": "Lane-continuation study",
+      "description": "A 200-scenario study of lane-end clamps, linked lanes, and topology gaps.",
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/425a4316c1f1524c989264a95f0960cbfd6ec5fa/docs/reports/waymo_lane_continuation_study_200.md"
+    },
+    {
+      "report_id": "selector_atlas",
+      "label": "Terminal selector atlas",
+      "description": "Seven visual decisions joined to frozen candidate-policy labels.",
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/425a4316c1f1524c989264a95f0960cbfd6ec5fa/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md"
+    },
+    {
+      "report_id": "provenance",
+      "label": "Data provenance",
+      "description": "Fixture, real-data, local-only, and public-artifact trust boundaries.",
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/425a4316c1f1524c989264a95f0960cbfd6ec5fa/docs/data_provenance.md"
+    }
+  ],
+  "scope_note": "This public Explorer joins aggregate full-corpus run evidence to checked-in synthetic and Waymo-shaped fixture trajectories. It does not publish raw Waymo records, claim benchmark status, or present a production prediction model."
+}

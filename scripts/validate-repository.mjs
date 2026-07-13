@@ -17,8 +17,10 @@ const requiredPaths = [
 	"src/data/work.ts",
 	"src/data/writing.ts",
 	"src/data/research.ts",
+	"scripts/sync-scenariolens.mjs",
 	"src/data/site.ts",
 	"public/scenariolens/index.html",
+	"public/scenariolens/run.json",
 	"public/metricdrive/index.html",
 	"public/data/capstone/report.pdf",
 	"public/data/capstone/figures/system-architecture.png",
@@ -138,6 +140,31 @@ for (const relativeHtmlPath of micrositeFiles) {
 	}
 }
 
+const scenarioLensRunPath = "public/scenariolens/run.json";
+if (await exists(scenarioLensRunPath)) {
+	try {
+		const run = JSON.parse(await readFile(path.join(root, scenarioLensRunPath), "utf8"));
+		if (run.format !== "scenariolens.explorer_run.v1") {
+			failures.push(`${scenarioLensRunPath} has an unexpected format`);
+		}
+		if (run.ready !== true || run.summary?.scenario_count !== 1193) {
+			failures.push(`${scenarioLensRunPath} is not the completed 1,193-scenario public run`);
+		}
+		if (!Array.isArray(run.reports) || run.reports.length < 7) {
+			failures.push(`${scenarioLensRunPath} is missing the v1 evidence report set`);
+		}
+		if (!run.reports?.some((report) => report.report_id === "selector_holdout_993")) {
+			failures.push(`${scenarioLensRunPath} is missing the frozen selector holdout`);
+		}
+		for (const report of run.reports ?? []) {
+			if (!String(report.path).startsWith("https://github.com/ethanvillalovoz/scenariolens/blob/")) {
+				failures.push(`${scenarioLensRunPath} contains a non-public report link: ${report.path}`);
+			}
+		}
+	} catch {
+		failures.push(`${scenarioLensRunPath} is not valid JSON`);
+	}
+}
 const workDataPath = path.join(root, "src/data/work.ts");
 const writingDataPath = path.join(root, "src/data/writing.ts");
 const imageDataPaths = [workDataPath, writingDataPath];

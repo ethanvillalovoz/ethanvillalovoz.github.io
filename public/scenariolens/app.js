@@ -1,5 +1,6 @@
 const state = {
   payload: null,
+  run: null,
   selectedId: null,
   datasets: new Set(),
   tags: new Set(),
@@ -49,6 +50,18 @@ const nodes = {
   nextScenario: document.querySelector("#nextScenario"),
   heroScenarioCount: document.querySelector("#heroScenarioCount"),
   heroMaxFde: document.querySelector("#heroMaxFde"),
+  heroAnalyzedCount: document.querySelector("#heroAnalyzedCount"),
+  heroSourceCount: document.querySelector("#heroSourceCount"),
+  heroDuration: document.querySelector("#heroDuration"),
+  heroPeakMemory: document.querySelector("#heroPeakMemory"),
+  runStatus: document.querySelector("#runStatus"),
+  runDigest: document.querySelector("#runDigest"),
+  runSubtitle: document.querySelector("#runSubtitle"),
+  runScope: document.querySelector("#runScope"),
+  pipelineStatus: document.querySelector("#pipelineStatus"),
+  stageSummary: document.querySelector("#stageSummary"),
+  primaryReportLink: document.querySelector("#primaryReportLink"),
+  reportLinks: document.querySelector("#reportLinks"),
 };
 
 const metricLabels = {
@@ -106,8 +119,12 @@ async function boot() {
       throw new Error(`Unable to load scenarios.json (${response.status})`);
     }
     state.payload = await response.json();
-    state.selectorAtlas = await optionalJson("selector_decisions.json");
+    state.run = await optionalJson("run.json");
+    state.selectorAtlas = state.run?.mode === "public_demo"
+      ? await optionalJson("selector_decisions.json")
+      : null;
     state.datasets = new Set(state.payload.filters.datasets);
+    renderRunOverview();
     renderHeroStats();
     renderFilters();
     render();
@@ -138,8 +155,112 @@ function renderHeroStats() {
     0,
     ...scenarios.map((scenario) => scenario.metrics.baseline_fde_m ?? 0),
   );
-  nodes.heroScenarioCount.textContent = String(state.payload.scenario_count);
+  nodes.heroScenarioCount.textContent = String(state.payload.reported_count ?? scenarios.length);
   nodes.heroMaxFde.textContent = `${formatNumber(maxFde)} m`;
+}
+
+function renderRunOverview() {
+  const run = state.run;
+  const summary = run?.summary ?? {};
+  const stages = Array.isArray(run?.stages) ? run.stages : [];
+  const reports = Array.isArray(run?.reports) ? run.reports : [];
+  const readyCount = stages.filter((stage) => stage.ready).length;
+  const analyzedCount = summary.scenario_count ?? state.payload.scenario_count;
+  const sourceCount = summary.source_count ?? state.payload.datasets.length;
+  const digest = String(summary.analysis_digest ?? "");
+  const runState = nodes.runStatus.closest(".run-state");
+
+  nodes.heroAnalyzedCount.textContent = formatInteger(analyzedCount);
+  nodes.heroSourceCount.textContent = formatInteger(sourceCount);
+  nodes.heroDuration.textContent = formatDuration(summary.duration_seconds);
+  nodes.heroPeakMemory.textContent = formatBytes(summary.peak_rss_bytes);
+  nodes.runStatus.textContent = run ? (run.ready ? "Run ready" : "Run needs review") : "Demo payload";
+  nodes.runDigest.textContent = digest ? digest.slice(0, 12) : "";
+  nodes.runDigest.title = digest;
+  runState.classList.toggle("ready", Boolean(run?.ready));
+  runState.classList.toggle("not-ready", Boolean(run && !run.ready));
+
+  const mode = run?.mode === "public_demo" ? "Public evidence" : "Local analysis";
+  nodes.runSubtitle.textContent = `${mode}: ${formatInteger(analyzedCount)} scenarios across ${formatInteger(sourceCount)} source${Number(sourceCount) === 1 ? "" : "s"}, with ${formatInteger(state.payload.reported_count)} ranked cases rendered for inspection.`;
+  nodes.runScope.textContent = run?.scope_note ?? "Ranked scenario evidence generated from the loaded dashboard payload.";
+  nodes.pipelineStatus.textContent = `${readyCount}/${stages.length} ready`;
+  nodes.pipelineStatus.classList.toggle("not-ready", stages.length > 0 && readyCount !== stages.length);
+
+  nodes.stageSummary.innerHTML = stages.length > 0
+    ? stages.map(stageSummaryTemplate).join("")
+    : `<div class="stage-card"><header><h3>Run metadata unavailable</h3><span class="not-ready">payload only</span></header><p>The scenario table remains available.</p></div>`;
+
+  if (reports.length > 0) {
+    nodes.primaryReportLink.href = reports[0].path;
+    nodes.reportLinks.innerHTML = reports.map((report) => `
+      <a href="${escapeHtml(report.path)}">
+        <strong>${escapeHtml(report.label)}</strong>
+        <span>${escapeHtml(report.description ?? "Open generated analysis report.")}</span>
+      </a>
+    `).join("");
+  } else {
+    nodes.reportLinks.innerHTML = `<a href="./scenarios.json"><strong>Scenario data</strong><span>Open the loaded dashboard payload.</span></a>`;
+  }
+}
+
+function stageSummaryTemplate(stage) {
+  const metrics = stageMetrics(stage);
+  return `
+    <article class="stage-card">
+      <header>
+        <h3>${escapeHtml(stage.label ?? stage.stage_id)}</h3>
+        <span class="${stage.ready ? "" : "not-ready"}">${stage.ready ? "ready" : "review"}</span>
+      </header>
+      <dl>
+        ${metrics.map((metric) => `
+          <div>
+            <dt>${escapeHtml(metric.label)}</dt>
+            <dd class="${escapeHtml(metric.className ?? "")}">${escapeHtml(metric.value)}</dd>
+          </div>
+        `).join("")}
+      </dl>
+      <a href="${escapeHtml(stage.report_path)}">Open stage report</a>
+    </article>
+  `;
+}
+
+function stageMetrics(stage) {
+  const aggregate = stage.aggregate ?? {};
+  if (stage.stage_id === "baseline_comparison") {
+    return [
+      { label: "Targets", value: formatInteger(stage.evaluated_count) },
+      { label: "Lane FDE", value: formatMetric(aggregate.lane_aware_fde_m, "m") },
+      deltaMetric("FDE delta", aggregate.fde_improvement_m),
+    ];
+  }
+  if (stage.stage_id === "lane_selection") {
+    return [
+      { label: "Targets", value: formatInteger(stage.evaluated_count) },
+      { label: "Heading FDE", value: formatMetric(aggregate.heading_lane_fde_m, "m") },
+      deltaMetric("Vs nearest", aggregate.heading_vs_nearest_fde_improvement_m),
+    ];
+  }
+  if (stage.stage_id === "lane_continuation") {
+    return [
+      { label: "Targets", value: formatInteger(stage.evaluated_count) },
+      { label: "Improved", value: formatInteger(aggregate.improved_over_nearest_count) },
+      deltaMetric("Link gain", aggregate.mean_lane_link_improvement_m),
+    ];
+  }
+  return [
+    { label: "Scenarios", value: formatInteger(stage.scenario_count) },
+    { label: "Evaluated", value: formatInteger(stage.evaluated_count) },
+    { label: "Duration", value: formatDuration(stage.duration_seconds) },
+  ];
+}
+
+function deltaMetric(label, value) {
+  const numeric = Number(value);
+  return {
+    label,
+    value: value === null || value === undefined ? "n/a" : formatDelta(numeric),
+    className: numeric > 0 ? "delta-positive" : numeric < 0 ? "delta-negative" : "",
+  };
 }
 
 function renderFilters() {
@@ -251,7 +372,7 @@ function renderSelectorAtlas() {
   const aggregate = atlas.aggregate ?? {};
   nodes.selectorAtlasSummary.textContent = selectorAtlasSummaryText(aggregate);
   nodes.selectorAtlasReportLink.href = atlas.report_path
-    ?? "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md";
+    ?? "../reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md";
   nodes.selectorAtlasMetrics.innerHTML = selectorAtlasMetricCards(aggregate);
   nodes.selectorAtlasTabs.innerHTML = groups
     .map((group) => `
@@ -379,7 +500,7 @@ function renderDiagnostics() {
   nodes.diagnosticSummary.textContent = diagnosticSummaryText(diagnostics, summary);
   nodes.diagnosticReportLink.href = diagnostics.debug_report_path
     ?? diagnostics.report_path
-    ?? "https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_heading_aware_debug_casebook.md";
+    ?? "../reports/waymo_heading_aware_debug_casebook.md";
   nodes.diagnosticTabs.innerHTML = groups
     .map((group) => `
       <button
@@ -877,6 +998,39 @@ function improvementPhrase(value, label) {
 
 function formatNumber(value) {
   return Number(value).toFixed(2);
+}
+
+function formatInteger(value) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) {
+    return "n/a";
+  }
+  return Math.round(Number(value)).toLocaleString("en-US");
+}
+
+function formatDuration(value) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) {
+    return "n/a";
+  }
+  const seconds = Number(value);
+  if (seconds < 60) {
+    return `${seconds.toFixed(seconds < 10 ? 1 : 0)} s`;
+  }
+  const minutes = Math.floor(seconds / 60);
+  return `${minutes}m ${Math.round(seconds % 60)}s`;
+}
+
+function formatBytes(value) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) {
+    return "n/a";
+  }
+  const bytes = Number(value);
+  if (bytes >= 1_000_000_000) {
+    return `${(bytes / 1_000_000_000).toFixed(2)} GB`;
+  }
+  if (bytes >= 1_000_000) {
+    return `${(bytes / 1_000_000).toFixed(1)} MB`;
+  }
+  return `${formatInteger(bytes)} B`;
 }
 
 function escapeHtml(value) {

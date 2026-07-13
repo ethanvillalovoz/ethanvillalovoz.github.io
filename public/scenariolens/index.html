@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Ethan Villalovoz" />
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
-    <meta name="description" content="Explore and rank long-tail autonomous-driving scenarios with interpretable interaction, risk, and baseline-failure metrics." />
+    <meta name="description" content="Inspect a reproducible 1,193-scenario autonomy evaluation run, ranked cases, lane-aware diagnostics, and a frozen 993-scenario selector holdout." />
     <meta property="og:title" content="ScenarioLens | Autonomous-Driving Scenario Evaluation" />
-    <meta property="og:description" content="Explore and rank long-tail autonomous-driving scenarios with interpretable interaction, risk, and baseline-failure metrics." />
+    <meta property="og:description" content="A run-backed explorer for long-tail motion scenarios, baseline failures, lane-continuation diagnostics, and frozen-policy holdout evidence." />
     <meta property="og:url" content="https://ethanvillalovoz.com/scenariolens/" />
     <meta property="og:site_name" content="Ethan Villalovoz" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png" />
-    <meta property="og:image:width" content="1440" />
+    <meta property="og:image:width" content="1600" />
     <meta property="og:image:height" content="1000" />
-    <meta property="og:image:alt" content="ScenarioLens interface ranking long-tail autonomous-driving scenarios" />
+    <meta property="og:image:alt" content="ScenarioLens interface showing a completed autonomy evaluation run and ranked driving scenarios" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="ScenarioLens | Autonomous-Driving Scenario Evaluation" />
-    <meta name="twitter:description" content="Explore and rank long-tail autonomous-driving scenarios with interpretable interaction, risk, and baseline-failure metrics." />
+    <meta name="twitter:description" content="Explore reproducible run evidence, ranked motion scenarios, and frozen-policy holdout results." />
     <meta name="twitter:image" content="https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png" />
     <meta name="twitter:creator" content="@ethanvillalovoz" />
     <title>ScenarioLens | Autonomous-Driving Scenario Evaluation</title>
@@ -29,7 +29,7 @@
         "@type": "SoftwareApplication",
         "name": "ScenarioLens",
         "url": "https://ethanvillalovoz.com/scenariolens/",
-        "description": "An autonomy-evaluation tool for ranking and inspecting long-tail driving scenarios with interpretable risk and baseline-failure metrics.",
+        "description": "A run-backed autonomy-evaluation framework for ranking long-tail motion scenarios and auditing prediction baselines.",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Web",
         "image": "https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png",
@@ -41,7 +41,7 @@
         }
       }
     </script>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312355b'/%3E%3Cpath d='M18 42c5 3 15 3 15-4 0-9-15-5-15-13 0-7 10-7 16-4M42 18v28h12' stroke='white' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f172a'/%3E%3Cpath d='M18 42c5 3 15 3 15-4 0-9-15-5-15-13 0-7 10-7 16-4M42 18v28h12' stroke='white' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -51,274 +51,73 @@
           <span class="brand-mark" aria-hidden="true">SL</span>
           <span>ScenarioLens</span>
         </a>
+        <div class="run-state" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="runStatus">Loading run</span>
+          <code id="runDigest"></code>
+        </div>
         <nav class="topnav" aria-label="Primary">
           <a class="topnav-link active" href="./">Explorer</a>
           <a class="topnav-link" href="./scenarios.json">Data</a>
-          <a class="topnav-link" href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_motion_failure_stability.md">Reports</a>
-          <a class="topnav-link" href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/project_strategy.md">Strategy</a>
-          <a class="topnav-link" href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/data_provenance.md">Provenance</a>
+          <a id="primaryReportLink" class="topnav-link" href="./run.json">Run report</a>
+          <details class="report-menu">
+            <summary>Reports</summary>
+            <div id="reportLinks" class="report-menu-panel"></div>
+          </details>
         </nav>
         <a class="repo-link" href="https://github.com/ethanvillalovoz/scenariolens">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 .7a11.3 11.3 0 0 0-3.6 22c.6.1.8-.2.8-.5v-2c-3.3.7-4-1.4-4-1.4-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.4-1.3-5.4-5.6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.7.8 1.2 1.9 1.2 3.1 0 4.4-2.8 5.3-5.4 5.6.4.4.8 1 .8 2.1v3.1c0 .3.2.6.8.5A11.3 11.3 0 0 0 12 .7Z" />
           </svg>
-          View repo
+          GitHub
         </a>
       </header>
 
-      <section class="evidence-hero" aria-label="ScenarioLens product overview">
-        <div class="hero-copy">
-          <h1>Mine long-tail motion scenarios before they become evaluation gaps.</h1>
-          <p>
-            ScenarioLens ranks autonomy scenarios, measures constant-velocity
-            baseline failures, and turns Waymo Motion slices into public-safe
-            evidence for review.
-          </p>
-          <div class="hero-actions">
-            <a href="#scenarioRows">Explore scenarios</a>
-            <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_motion_failure_study.md">Read failure study</a>
-          </div>
-        </div>
-        <dl class="hero-stats">
+      <section class="run-overview" aria-labelledby="runTitle">
+        <div class="run-title-row">
           <div>
-            <dt>Explorer scenarios</dt>
+            <h1 id="runTitle">Scenario Explorer</h1>
+            <p id="runSubtitle">Loading analysis provenance and ranked cases.</p>
+          </div>
+          <a class="primary-action" href="#scenarioRows">Inspect cases</a>
+        </div>
+        <dl class="run-stats">
+          <div>
+            <dt>Analyzed</dt>
+            <dd id="heroAnalyzedCount">--</dd>
+          </div>
+          <div>
+            <dt>Rendered</dt>
             <dd id="heroScenarioCount">--</dd>
           </div>
           <div>
-            <dt>Max demo FDE</dt>
+            <dt>Sources</dt>
+            <dd id="heroSourceCount">--</dd>
+          </div>
+          <div>
+            <dt>Run time</dt>
+            <dd id="heroDuration">--</dd>
+          </div>
+          <div>
+            <dt>Peak memory</dt>
+            <dd id="heroPeakMemory">--</dd>
+          </div>
+          <div>
+            <dt>Max case FDE</dt>
             <dd id="heroMaxFde">--</dd>
           </div>
-          <div>
-            <dt>Real-data study</dt>
-            <dd>100 scenarios</dd>
-          </div>
-          <div>
-            <dt>CI-backed tests</dt>
-            <dd>100+</dd>
-          </div>
         </dl>
-        <div class="report-rail" aria-label="Public evidence reports">
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/scenariolens_evidence_index.md">
-            <span>Evidence index</span>
-            16 public artifacts verified for v1 review
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/scenariolens_public_surface_check.md">
-            <span>Surface check</span>
-            7/7 public link, payload, raw-data, and CI checks
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_motion_failure_study.md">
-            <span>Failure study</span>
-            Baseline failures from the first real shard
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_motion_failure_stability_cross_shard.md">
-            <span>Cross-shard</span>
-            100 real scenarios across 4 validation shards
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_motion_shard_plan.md">
-            <span>Shard plan</span>
-            Local inventory plus next expansion downloads
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_context_study_cross_shard.md">
-            <span>Context study</span>
-            Map, signal, and route hints over 100 scenarios
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_context_failure_study_cross_shard.md">
-            <span>Context failures</span>
-            Hard cases grouped by map and signal evidence
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_context_eval_set.md">
-            <span>Eval set</span>
-            14 scenario IDs grouped for follow-up experiments
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_context_eval_debug_casebook.md">
-            <span>Context debug</span>
-            Five eval seeds reloaded into local diagnostics
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_context_replay_candidate_plan.md">
-            <span>Context replay</span>
-            Replay-ready queue plus map-match audits
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_context_open_loop_replay_prototype.md">
-            <span>Context replay proto</span>
-            2 context seeds with perturbation stability checks
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_context_route_intent_audit.md">
-            <span>Route/intent audit</span>
-            Stable replay warning diagnosed as lane-continuity risk
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_prototype.md">
-            <span>Lane-link proto</span>
-            Linked-lane chain cuts nearest-lane FDE on stable warning
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_study.md">
-            <span>Continuation study</span>
-            223 lane-end clamp candidates across 100 real scenarios
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_candidate_plan.md">
-            <span>Continuation queue</span>
-            15 replay and topology-audit candidates
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_replay_prototype.md">
-            <span>Continuation replay</span>
-            10 target replays plus 5 topology probes
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_route_diagnostics.md">
-            <span>Route diagnostics</span>
-            Stable regressions and topology blockers
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_branch_selection.md">
-            <span>Branch selection</span>
-            3 motion-context branch improvements
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_branch_replay.md">
-            <span>Branch replay</span>
-            1 accepted branch, 1 held margin
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_branch_rollout_gate.md">
-            <span>Rollout gate</span>
-            Promote/hold triage for branch replay
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_route_context_guard.md">
-            <span>Route guard</span>
-            Endpoint and speed-limit guardrails
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_route_context_guard_calibration.md">
-            <span>Guard calibration</span>
-            0 false holds on guard sweep
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_branch_coverage.md">
-            <span>Branch coverage</span>
-            Funnel and expansion queue for v1.0
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_branch_coverage_expanded.md">
-            <span>Branch expansion</span>
-            30 candidates and 6 branchable cases
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_route_context_guard_calibration_expanded.md">
-            <span>Guard validation</span>
-            1 replay-held negative control
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_topology_gap_audit_expanded.md">
-            <span>Expanded topology</span>
-            10 blockers split into cap and terminal work
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_audit_expanded.md">
-            <span>Expanded terminal</span>
-            6 nearby recoveries, 4 directional gaps
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_replay_expanded.md">
-            <span>Expanded terminal replay</span>
-            3 accepted recoveries, 3 held regressions
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_expanded.md">
-            <span>Expanded selector</span>
-            1 promotion, 5 holds, 0 false promotions
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_calibration_expanded.md">
-            <span>Selector calibration</span>
-            30-gate sweep, 6/6 replay agreement
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_casebook_expanded.md">
-            <span>Selector casebook</span>
-            6 visual cards: 3 recoveries, 3 holds
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_study_200.md">
-            <span>200-scenario continuation</span>
-            451 targets over 4 local validation shards
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_topology_gap_audit_200.md">
-            <span>200 topology audit</span>
-            15 blockers: 2 cap gaps, 13 terminal lanes
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_calibration_200.md">
-            <span>200 selector stress</span>
-            6/7 agreement, 0 false promotions
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_transfer_200.md">
-            <span>200 selector transfer</span>
-            4 novel cases, 0 false promotions
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_error_audit_200.md">
-            <span>200 selector audit</span>
-            2 false holds, 5 counterfactual gates
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_route_context_audit_200.md">
-            <span>200 selector context</span>
-            1 heading candidate, 1 context hold
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_candidate_validation_200.md">
-            <span>200 selector candidate</span>
-            6/7 agreement, 0 false promotions
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md">
-            <span>200 selector atlas</span>
-            7 visual decisions joined to candidate labels
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_casebook_200.md">
-            <span>200 selector casebook</span>
-            7 cards with 1 remaining false hold
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_topology_gap_audit.md">
-            <span>Topology gaps</span>
-            0 cap-recoverable blocker cases
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_audit.md">
-            <span>Terminal lanes</span>
-            2 nearby recovery candidates plus 3 directional gaps
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_replay.md">
-            <span>Terminal replay</span>
-            1 accepted recovery, 1 held regression
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector.md">
-            <span>Terminal selector</span>
-            1 promote, 1 hold, 2/2 replay agreement
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_aware_baseline_cross_shard.md">
-            <span>Lane-aware</span>
-            100-scenario map baseline diagnostic
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_aware_debug_casebook.md">
-            <span>Debug casebook</span>
-            Improvement, regression, and fallback examples
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_replay_candidate_plan.md">
-            <span>Replay plan</span>
-            Candidate queue for replay/simulation follow-up
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_open_loop_replay_prototype.md">
-            <span>Replay prototype</span>
-            2 real scenarios with perturbation stability checks
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_map_match_audit.md">
-            <span>Map-match audit</span>
-            Threshold sweep for fallback-heavy real case
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_heading_aware_lane_selection_study.md">
-            <span>Heading-aware</span>
-            Lane-selection ablation over 418 targets
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_heading_aware_debug_casebook.md">
-            <span>Heading debug</span>
-            Six case diagnostics with local artifact pointers
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_heading_aware_replay_candidate_plan.md">
-            <span>Heading replay</span>
-            Replay-readiness queue for selector wins and regressions
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_heading_aware_replay_prototype.md">
-            <span>Heading replay proto</span>
-            5 real cases with selector perturbation stability
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/portfolio_report.md">
-            <span>Portfolio packet</span>
-            Architecture, metrics, and demo provenance
-          </a>
-          <a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/data_provenance.md">
-            <span>Provenance</span>
-            Fixture and real-slice trust boundaries
-          </a>
+      </section>
+
+      <section class="pipeline-panel" aria-labelledby="pipelineTitle">
+        <div class="pipeline-heading">
+          <div>
+            <h2 id="pipelineTitle">Analysis pipeline</h2>
+            <p id="runScope">Loading run scope.</p>
+          </div>
+          <span id="pipelineStatus" class="pipeline-status">0/0 ready</span>
         </div>
+        <div id="stageSummary" class="stage-summary"></div>
       </section>
 
       <main class="workspace">
@@ -340,17 +139,17 @@
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="m21 21-4.35-4.35m1.35-5.65a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
               </svg>
-              <input id="tagSearch" type="search" placeholder="Search tags" aria-label="Search tags" />
+              <input id="tagSearch" type="search" placeholder="Search tags" />
             </label>
             <div id="tagFilters" class="check-list tag-list"></div>
           </section>
 
           <section class="filter-section">
             <div class="section-heading">
-              <h2><label for="scoreRange">Minimum Score</label></h2>
+              <h2>Minimum score</h2>
               <span id="scoreLabel">0.00</span>
             </div>
-            <input id="scoreRange" class="score-range" type="range" min="0" max="50" step="0.25" value="0" aria-describedby="scoreLabel" />
+            <input id="scoreRange" class="score-range" type="range" min="0" max="50" step="0.25" value="0" />
           </section>
 
           <section class="filter-section">
@@ -387,52 +186,6 @@
             </label>
           </div>
 
-          <section class="credibility-panel" aria-label="Real-data validation status">
-            <div>
-              <span class="credibility-kicker">Real-data validation path</span>
-              <p>Scenario triage, lane-aware diagnostics, replay prototypes, route/intent audits, lane-link continuation and expanded branch-selection/replay/guard/calibration/coverage/topology/terminal-neighborhood studies, a 200-scenario terminal selector scale-up with transfer, error, route/context, candidate validation, and a visual decision atlas, map-match audits, and heading-aware replay checks tested on four local Waymo Motion validation shards; raw files stay outside git.</p>
-            </div>
-            <dl>
-              <div>
-                <dt>Shards</dt>
-                <dd>4</dd>
-              </div>
-              <div>
-                <dt>Scenarios</dt>
-                <dd>100</dd>
-              </div>
-              <div>
-                <dt>Public artifact</dt>
-                <dd><a href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_branch_coverage_expanded.md">branch expansion</a></dd>
-              </div>
-            </dl>
-          </section>
-
-          <section id="selectorAtlasPanel" class="selector-atlas-panel" aria-label="Terminal selector decision atlas">
-            <div class="selector-atlas-header">
-              <div>
-                <span class="credibility-kicker">Terminal selector decision atlas</span>
-                <p id="selectorAtlasSummary">Loading selector decision cards</p>
-              </div>
-              <a id="selectorAtlasReportLink" href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md">Open atlas</a>
-            </div>
-            <dl id="selectorAtlasMetrics" class="selector-atlas-metrics"></dl>
-            <div id="selectorAtlasTabs" class="diagnostic-tabs" role="tablist" aria-label="Selector decision categories"></div>
-            <div id="selectorAtlasCards" class="selector-atlas-cards"></div>
-          </section>
-
-          <section id="diagnosticsPanel" class="diagnostics-panel" aria-label="Heading-aware lane-selection case diagnostics">
-            <div class="diagnostics-header">
-              <div>
-                <span class="credibility-kicker">Heading-aware lane diagnostics</span>
-                <p id="diagnosticSummary">Loading case diagnostics</p>
-              </div>
-              <a id="diagnosticReportLink" href="https://github.com/ethanvillalovoz/scenariolens/blob/main/docs/reports/waymo_heading_aware_debug_casebook.md">Open casebook</a>
-            </div>
-            <div id="diagnosticTabs" class="diagnostic-tabs" role="tablist" aria-label="Diagnostic case groups"></div>
-            <div id="diagnosticRows" class="diagnostic-cases"></div>
-          </section>
-
           <div class="table-wrap">
             <table class="scenario-table">
               <thead>
@@ -449,19 +202,44 @@
               <tbody id="scenarioRows"></tbody>
             </table>
           </div>
+
+          <section id="diagnosticsPanel" class="diagnostics-panel" aria-label="Heading-aware lane-selection case diagnostics">
+            <div class="diagnostics-header">
+              <div>
+                <span class="credibility-kicker">Lane-selection diagnostics</span>
+                <p id="diagnosticSummary">Loading case diagnostics</p>
+              </div>
+              <a id="diagnosticReportLink" href="./run.json">Open report</a>
+            </div>
+            <div id="diagnosticTabs" class="diagnostic-tabs" role="tablist" aria-label="Diagnostic case groups"></div>
+            <div id="diagnosticRows" class="diagnostic-cases"></div>
+          </section>
+
+          <section id="selectorAtlasPanel" class="selector-atlas-panel" aria-label="Terminal selector decision atlas">
+            <div class="selector-atlas-header">
+              <div>
+                <span class="credibility-kicker">Terminal selector atlas</span>
+                <p id="selectorAtlasSummary">Loading selector decision cards</p>
+              </div>
+              <a id="selectorAtlasReportLink" href="https://github.com/ethanvillalovoz/scenariolens/blob/425a4316c1f1524c989264a95f0960cbfd6ec5fa/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md">Open atlas</a>
+            </div>
+            <dl id="selectorAtlasMetrics" class="selector-atlas-metrics"></dl>
+            <div id="selectorAtlasTabs" class="diagnostic-tabs" role="tablist" aria-label="Selector decision categories"></div>
+            <div id="selectorAtlasCards" class="selector-atlas-cards"></div>
+          </section>
         </section>
 
         <aside class="detail-panel" aria-label="Selected scenario details">
           <div class="detail-header">
             <div>
-              <h2 id="detailTitle">ScenarioLens Explorer</h2>
+              <h1 id="detailTitle">ScenarioLens Explorer</h1>
               <p id="detailSubtitle">Select a scenario to inspect its ranking evidence.</p>
             </div>
             <div class="detail-actions">
-              <button id="previousScenario" type="button" aria-label="Previous scenario">
+              <button id="previousScenario" type="button" aria-label="Previous scenario" title="Previous scenario">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
               </button>
-              <button id="nextScenario" type="button" aria-label="Next scenario">
+              <button id="nextScenario" type="button" aria-label="Next scenario" title="Next scenario">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
               </button>
             </div>
@@ -470,29 +248,29 @@
           <div id="detailTags" class="tag-strip"></div>
 
           <section class="detail-section">
-            <h3>Trajectory Preview</h3>
+            <h2>Trajectory preview</h2>
             <div class="svg-frame">
-              <img id="scenarioImage" alt="" decoding="async" />
+              <img id="scenarioImage" alt="" />
             </div>
           </section>
 
           <section class="detail-section">
-            <h3>Baseline Failure</h3>
+            <h2>Baseline failure</h2>
             <div id="baselineCard" class="baseline-card"></div>
           </section>
 
           <section class="detail-section">
-            <h3>Score Components</h3>
+            <h2>Score components</h2>
             <div id="componentBars" class="component-bars"></div>
           </section>
 
           <section class="detail-section">
-            <h3>Key Metrics</h3>
+            <h2>Key metrics</h2>
             <dl id="metricGrid" class="metric-grid"></dl>
           </section>
 
           <section class="detail-section">
-            <h3>Why This Scenario?</h3>
+            <h2>Why this scenario?</h2>
             <ul id="reasonList" class="reason-list"></ul>
           </section>
         </aside>

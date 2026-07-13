@@ -19,6 +19,7 @@
     "dev": "next dev --turbopack",
     "build": "next build && next-sitemap",
     "start": "next start",
+    "sync:scenariolens": "node scripts/sync-scenariolens.mjs",
     "validate": "node scripts/validate-repository.mjs",
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",
