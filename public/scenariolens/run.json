@@ -63,7 +63,7 @@
         "map_used_count": 3249,
         "fallback_count": 2025
       },
-      "report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/reports/scenariolens_v1_run_validation.md"
+      "report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/reports/scenariolens_v1_run_validation.md"
     },
     {
       "stage_id": "lane_selection",
@@ -87,7 +87,7 @@
         "nearest_fallback_count": 2025,
         "heading_fallback_count": 2063
       },
-      "report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/reports/scenariolens_v1_run_validation.md"
+      "report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/reports/scenariolens_v1_run_validation.md"
     },
     {
       "stage_id": "lane_continuation",
@@ -107,7 +107,7 @@
         "mean_lane_link_fde_m": 31.479,
         "mean_lane_link_improvement_m": 18.111
       },
-      "report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/reports/scenariolens_v1_run_validation.md"
+      "report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/reports/scenariolens_v1_run_validation.md"
     }
   ],
   "reports": [
@@ -115,49 +115,49 @@
       "report_id": "v1_run_validation",
       "label": "Full-corpus run validation",
       "description": "Two complete 1,193-scenario RC product runs with matching digest, generated Explorers, and 7/7 checks.",
-      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/reports/scenariolens_v1_run_validation.md"
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/reports/scenariolens_v1_run_validation.md"
     },
     {
       "report_id": "v1_release_check",
       "label": "Clean-package release check",
       "description": "15/15 checks for reproducible wheels, isolated install, failure diagnostics, and verified resume.",
-      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/reports/scenariolens_v1_release_check.md"
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/reports/scenariolens_v1_release_check.md"
     },
     {
       "report_id": "selector_holdout_993",
       "label": "Frozen selector holdout",
       "description": "993 withheld scenarios and 78 decisions; the candidate remains disabled after 12 false promotions.",
-      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/reports/waymo_selector_holdout_993.md"
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/reports/waymo_selector_holdout_993.md"
     },
     {
       "report_id": "evidence_index",
       "label": "V1 evidence index",
       "description": "The generated map of public reports, payloads, provenance, and CI evidence.",
-      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/reports/scenariolens_evidence_index.md"
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/reports/scenariolens_evidence_index.md"
     },
     {
       "report_id": "baseline_comparison",
       "label": "Lane-aware baseline study",
       "description": "A 100-scenario cross-shard diagnostic with improvements and regressions.",
-      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/reports/waymo_lane_aware_baseline_cross_shard.md"
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/reports/waymo_lane_aware_baseline_cross_shard.md"
     },
     {
       "report_id": "lane_continuation",
       "label": "Lane-continuation study",
       "description": "A 200-scenario study of lane-end clamps, linked lanes, and topology gaps.",
-      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/reports/waymo_lane_continuation_study_200.md"
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/reports/waymo_lane_continuation_study_200.md"
     },
     {
       "report_id": "selector_atlas",
       "label": "Terminal selector atlas",
       "description": "Seven visual decisions joined to frozen candidate-policy labels.",
-      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md"
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md"
     },
     {
       "report_id": "provenance",
       "label": "Data provenance",
       "description": "Fixture, real-data, local-only, and public-artifact trust boundaries.",
-      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/data_provenance.md"
+      "path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/data_provenance.md"
     }
   ],
   "scope_note": "This public Explorer joins aggregate full-corpus run evidence to checked-in synthetic and Waymo-shaped fixture trajectories. It does not publish raw Waymo records, claim benchmark status, or present a production prediction model."

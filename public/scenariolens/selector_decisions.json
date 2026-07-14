@@ -7,9 +7,9 @@
   "output_dir": "data/processed/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200",
   "ready": true,
   "study": "Terminal-neighborhood selector decision atlas",
-  "report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md",
-  "casebook_report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/reports/waymo_lane_continuation_terminal_neighborhood_casebook_200.md",
-  "candidate_validation_report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/865a751/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_candidate_validation_200.md",
+  "report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_decision_atlas_200.md",
+  "casebook_report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/reports/waymo_lane_continuation_terminal_neighborhood_casebook_200.md",
+  "candidate_validation_report_path": "https://github.com/ethanvillalovoz/scenariolens/blob/v1.0.1/docs/reports/waymo_lane_continuation_terminal_neighborhood_selector_candidate_validation_200.md",
   "asset_base_path": "assets",
   "source_scope": {
     "casebook": {
