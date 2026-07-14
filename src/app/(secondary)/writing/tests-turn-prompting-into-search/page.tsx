@@ -172,6 +172,7 @@ export default function PromptSearchEssayPage() {
 									width={1200}
 									height={750}
 									quality={90}
+									preload
 									sizes="(min-width: 1024px) 720px, 100vw"
 									className="essay-figure-image"
 								/>

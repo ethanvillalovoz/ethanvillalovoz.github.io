@@ -274,6 +274,7 @@ export default function RagProjectPage() {
 											width={1950}
 											height={1390}
 											quality={90}
+											preload
 											sizes="(min-width: 1024px) 720px, calc(100vw - 48px)"
 											className="rag-figure-image"
 										/>
