@@ -59,7 +59,6 @@ module.exports = {
     })),
   }),
   additionalPaths: async (config) => [
-    await config.transform(config, '/rag/'),
     await config.transform(config, '/scenariolens/'),
     await config.transform(config, '/metricdrive/'),
   ],
