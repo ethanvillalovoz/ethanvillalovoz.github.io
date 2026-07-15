@@ -1337,7 +1337,7 @@ button {
 }
 
 .rag-demo-frame {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 14 / 9;
   background: rgb(var(--card));
   border: 1px solid rgb(var(--foreground) / 0.12);
   border-radius: 4px;

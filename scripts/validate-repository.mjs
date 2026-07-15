@@ -245,9 +245,10 @@ if (await exists(sitemapPath)) {
 		"https://ethanvillalovoz.com/images/projects/intellicrawl-poster.webp",
 		"https://ethanvillalovoz.com/images/projects/sentisync-poster.webp",
 		"https://ethanvillalovoz.com/images/projects/rag-poster.webp",
-		"https://ethanvillalovoz.com/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-method.png",
-		"https://ethanvillalovoz.com/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/social-triangles-study-conditions.jpg",
-		"https://ethanvillalovoz.com/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/social-triangles-threat-results.jpg",
+		"https://ethanvillalovoz.com/images/projects/bodegen-results-thumbnail.webp",
+		"https://ethanvillalovoz.com/images/projects/social-triangles-thumbnail.webp",
+		"https://ethanvillalovoz.com/images/projects/bodegen-method-thumbnail.webp",
+		"https://ethanvillalovoz.com/images/projects/social-triangles-threat-thumbnail.webp",
 		"https://ethanvillalovoz.com/data/capstone/figures/system-architecture.png",
 		"https://ethanvillalovoz.com/data/capstone/figures/original-prototype.webp",
 	];

@@ -61,8 +61,7 @@ export const researchPublications: ResearchPublication[] = [
 			"Studies Bayesian optimization for automated prompt search in test-driven LLM code generation, evaluated across HumanEval+ tasks and multiple code models.",
 		contribution:
 			"I built the test-driven evaluation pipeline and ran reproducible experiments across 164 HumanEval+ tasks and three code models.",
-		image:
-			"/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-method.png",
+		image: "/images/projects/bodegen-method-thumbnail.webp",
 		imageAlt: "BODE-GEN Bayesian prompt optimization method diagram",
 		resources: [
 			{ label: "arXiv", href: "https://arxiv.org/abs/2512.15076" },
@@ -105,8 +104,7 @@ export const researchPublications: ResearchPublication[] = [
 			"Studies how multi-robot formation geometry shapes human navigation and approach behavior by comparing social triangles with aggressive lines.",
 		contribution:
 			"I developed geometric motion primitives and Python tooling for the Pioneer 3DX formations evaluated in the study.",
-		image:
-			"/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/social-triangles-threat-results.jpg",
+		image: "/images/projects/social-triangles-threat-thumbnail.webp",
 		imageAlt:
 			"Threatening-to-harmless ratings for V-shape, wedge, vertical-line, and horizontal-line robot formations",
 		resources: [

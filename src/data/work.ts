@@ -49,7 +49,6 @@ export const workItems: WorkItem[] = [
 			"A research preview for studying metric-aligned trajectory choices, preference pairs, hard negatives, and VLM-style planning rows.",
 		image: "/metricdrive/assets/metricdrive-explorer.svg",
 		imageAlt: "MetricDrive interface comparing autonomous-driving trajectory choices",
-		imageFit: "contain",
 	},
 	{
 		title: "BODE-GEN",
@@ -58,11 +57,9 @@ export const workItems: WorkItem[] = [
 		kind: "Research",
 		description:
 			"Bayesian prompt optimization for test-driven code generation, evaluated across HumanEval+ tasks and multiple code models.",
-		image:
-			"/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-results.png",
+		image: "/images/projects/bodegen-results-thumbnail.webp",
 		imageAlt:
 			"BODE-GEN correctness results compared with initial prompts, chain-of-thought, and OPRO",
-		imageFit: "contain",
 	},
 	{
 		title: "Self-Driving Car",
@@ -74,7 +71,6 @@ export const workItems: WorkItem[] = [
 		image: "/images/projects/self-driving-poster.webp",
 		imageAlt:
 			"Offline replay of recorded Udacity simulator frames, actual model input, and predicted steering",
-		imageFit: "contain",
 		video: "/images/projects/self-driving-demo.mp4",
 	},
 	{
@@ -87,7 +83,6 @@ export const workItems: WorkItem[] = [
 		image: "/images/projects/intellicrawl-poster.webp",
 		imageAlt:
 			"IntelliCrawl running a source-backed comparison inside macOS Terminal",
-		imageFit: "contain",
 		video: "/images/projects/intellicrawl-demo.mp4",
 	},
 	{
@@ -100,7 +95,6 @@ export const workItems: WorkItem[] = [
 		image: "/images/projects/sentisync-poster.webp",
 		imageAlt:
 			"SentiSync extension analyzing a YouTube discussion and switching between overview and comments",
-		imageFit: "contain",
 		video: "/images/projects/sentisync-demo.mp4",
 	},
 	{
@@ -114,7 +108,6 @@ export const workItems: WorkItem[] = [
 		image: "/images/projects/rag-poster.webp",
 		imageAlt:
 			"Knowledge Graph RAG Assistant answering a question while exposing evidence topology and source context",
-		imageFit: "contain",
 		video: "/images/projects/rag-demo.mp4",
 	},
 	{
@@ -124,10 +117,8 @@ export const workItems: WorkItem[] = [
 		kind: "Research",
 		description:
 			"An IROS study of how multi-robot formation geometry shapes human navigation and approach behavior.",
-		image:
-			"/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/social-triangles-study-conditions.jpg",
+		image: "/images/projects/social-triangles-thumbnail.webp",
 		imageAlt:
 			"Wedge and V-shape robot formations approaching participants during the Social Triangles study",
-		imageFit: "contain",
 	},
 ];
