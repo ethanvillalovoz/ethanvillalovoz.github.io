@@ -4,7 +4,7 @@
 
 Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a concise homepage, a reverse-chronological Work archive, technical writing, a Research page, and a small set of standalone project previews.
 
-![Homepage preview](public/visuals/homepage.jpg)
+![Homepage preview](public/visuals/homepage-preview.jpg)
 
 ## Public Routes
 

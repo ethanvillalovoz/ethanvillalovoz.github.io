@@ -36,7 +36,7 @@ const requiredPaths = [
 	"public/images/projects/rag-poster.webp",
 	"public/images/projects/rag-demo.mp4",
 	"public/metricdrive/assets/metricdrive-explorer.png",
-	"public/visuals/homepage.jpg",
+	"public/visuals/homepage-preview.jpg",
 ];
 
 const forbiddenPaths = [
@@ -52,6 +52,7 @@ const forbiddenPaths = [
 	"src/data/teaching.ts",
 	"tailwind.config.ts",
 	"postcss.config.mjs",
+	"public/visuals/homepage.jpg",
 	"public/visuals/homepage.png",
 	"public/data/capstone/index.html",
 	"public/data/capstone/static",
