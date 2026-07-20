@@ -26,8 +26,7 @@ export default function Navbar() {
 							const isCurrent =
 								item.href === "/"
 									? pathname === "/"
-									: pathname.startsWith(item.href) ||
-										(item.href === "/work/" && pathname.startsWith("/rag/"));
+									: pathname.startsWith(item.href);
 
 							return (
 								<Link

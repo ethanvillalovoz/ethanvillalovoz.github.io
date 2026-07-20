@@ -12,7 +12,6 @@ const requiredPaths = [
 	"src/app/(secondary)/writing/tests-turn-prompting-into-search/page.tsx",
 	"src/app/(secondary)/work/page.tsx",
 	"src/app/(secondary)/research/page.tsx",
-	"src/app/(secondary)/rag/page.tsx",
 	"src/components/HomePageClient.tsx",
 	"src/data/work.ts",
 	"src/data/writing.ts",
@@ -22,9 +21,6 @@ const requiredPaths = [
 	"public/scenariolens/index.html",
 	"public/scenariolens/run.json",
 	"public/metricdrive/index.html",
-	"public/data/capstone/report.pdf",
-	"public/data/capstone/figures/system-architecture.png",
-	"public/data/capstone/figures/original-prototype.webp",
 	"public/data/EthanVillalovoz-Resume.pdf",
 	"public/data/EthanVillalovoz-CV.pdf",
 	"public/images/theme/sun.svg",
@@ -50,6 +46,7 @@ const forbiddenPaths = [
 	"src/app/projects",
 	"src/app/publications",
 	"src/app/teaching",
+	"src/app/(secondary)/rag",
 	"src/data/projects.ts",
 	"src/data/publications.ts",
 	"src/data/teaching.ts",
@@ -58,6 +55,7 @@ const forbiddenPaths = [
 	"public/visuals/homepage.png",
 	"public/data/capstone/index.html",
 	"public/data/capstone/static",
+	"public/data/capstone",
 	"public/images/projects/intellicrawl-thumb.jpg",
 ];
 
@@ -232,11 +230,16 @@ if (await exists(sitemapPath)) {
 		"https://ethanvillalovoz.com/writing/tests-turn-prompting-into-search/",
 		"https://ethanvillalovoz.com/work/",
 		"https://ethanvillalovoz.com/research/",
-		"https://ethanvillalovoz.com/rag/",
 		"https://ethanvillalovoz.com/scenariolens/",
 		"https://ethanvillalovoz.com/metricdrive/",
 	];
-	const excludedUrls = ["/projects/", "/publications/", "/teaching/", "/gaussian-splatting-physics/"];
+	const excludedUrls = [
+		"/projects/",
+		"/publications/",
+		"/teaching/",
+		"/rag/",
+		"/gaussian-splatting-physics/",
+	];
 	const requiredImages = [
 		"https://ethanvillalovoz.com/images/EthanVillalovozPic-optimized.jpg",
 		"https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png",
@@ -249,8 +252,6 @@ if (await exists(sitemapPath)) {
 		"https://ethanvillalovoz.com/images/projects/social-triangles-thumbnail.webp",
 		"https://ethanvillalovoz.com/images/projects/bodegen-method-thumbnail.webp",
 		"https://ethanvillalovoz.com/images/projects/social-triangles-threat-thumbnail.webp",
-		"https://ethanvillalovoz.com/data/capstone/figures/system-architecture.png",
-		"https://ethanvillalovoz.com/data/capstone/figures/original-prototype.webp",
 	];
 
 	for (const url of requiredUrls) {

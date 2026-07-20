@@ -99,8 +99,8 @@ export const workItems: WorkItem[] = [
 	},
 	{
 		title: "Knowledge Graph RAG Assistant",
-		href: "/rag/",
-		openInNewTab: false,
+		href: "https://knowledge-graph-rag.github.io/",
+		openInNewTab: true,
 		date: "May 2025",
 		kind: "Project",
 		description:

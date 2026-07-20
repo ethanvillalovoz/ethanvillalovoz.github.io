@@ -63,11 +63,11 @@ const selectedWork = [
 			"Bayesian prompt optimization for test-driven code generation, evaluated across 164 HumanEval+ tasks and three code models.",
 	},
 	{
-		title: "Social Triangles",
-		href: "https://ieeexplore.ieee.org/abstract/document/10342372",
-		date: "IROS 2023",
+		title: "Knowledge Graph RAG Assistant",
+		href: "https://knowledge-graph-rag.github.io/",
+		date: "2025",
 		description:
-			"How multi-robot formation geometry shapes human navigation and approach behavior.",
+			"A graph-augmented retrieval system combining semantic search, DBpedia relationships, and source-grounded answers across a 10,000+ article knowledge base.",
 	},
 ];
 

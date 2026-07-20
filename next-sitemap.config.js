@@ -33,11 +33,6 @@ const imageEntries = {
   '/metricdrive/': [
     ['/metricdrive/assets/metricdrive-explorer.png', 'MetricDrive Explorer', 'Metric-aligned autonomous-driving trajectory research interface'],
   ],
-  '/rag/': [
-    ['/images/projects/rag-poster.webp', 'Knowledge Graph RAG retrieval workspace'],
-    ['/data/capstone/figures/system-architecture.png', 'Knowledge Graph RAG system architecture'],
-    ['/data/capstone/figures/original-prototype.webp', 'Original Knowledge Graph RAG prototype'],
-  ],
 };
 
 const normalizePath = (path) => path === '/' ? '/' : `${path.replace(/\/+$/, '')}/`;
