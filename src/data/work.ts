@@ -86,6 +86,30 @@ export const workItems: WorkItem[] = [
 		video: "/images/projects/intellicrawl-demo.mp4",
 	},
 	{
+		title: "CodePrep",
+		href: "https://github.com/ethanvillalovoz/codeprep",
+		date: "Jul 2025",
+		kind: "Project",
+		description:
+			"An interview-practice workspace that reveals rationale after answer commitment and validates live four-option challenges before an atomic challenge-and-quota write.",
+		image: "/images/projects/codeprep-decision-flow.svg",
+		imageAlt:
+			"CodePrep committed-answer interface beside deterministic demo and authenticated live execution rails",
+		imageFit: "contain",
+	},
+	{
+		title: "FaceTrack",
+		href: "https://github.com/ethanvillalovoz/facetrack",
+		date: "Jul 2025",
+		kind: "Project",
+		description:
+			"A local-first face-matching reference that exposes identity decisions and maintains a deduplicated attendance ledger without sending images to a hosted service.",
+		image: "/images/projects/facetrack-decision-trace.svg",
+		imageAlt:
+			"FaceTrack session workspace, auditable match decision trace, and deduplicated attendance outcome",
+		imageFit: "contain",
+	},
+	{
 		title: "SentiSync",
 		href: "https://github.com/ethanvillalovoz/sentisync",
 		date: "Jul 2025",
@@ -96,6 +120,18 @@ export const workItems: WorkItem[] = [
 		imageAlt:
 			"SentiSync extension analyzing a YouTube discussion and switching between overview and comments",
 		video: "/images/projects/sentisync-demo.mp4",
+	},
+	{
+		title: "DDPG Reimplementation",
+		href: "https://github.com/ethanvillalovoz/ddpg-reimplementation",
+		date: "Jun 2025",
+		kind: "Project",
+		description:
+			"A correctness-first TensorFlow DDPG reference with explicit online and target updates, deterministic tests, guarded legacy sweeps, and reproducible artifacts.",
+		image: "/images/projects/ddpg-update-circuit.svg",
+		imageAlt:
+			"DDPG update circuit showing actor, critic, replay, target networks, and soft-update paths",
+		imageFit: "contain",
 	},
 	{
 		title: "Knowledge Graph RAG Assistant",
