@@ -56,13 +56,6 @@ const contactEmail = "ethan.villalovoz@gmail.com";
 
 const selectedWork = [
 	{
-		title: "ScenarioLens",
-		href: "/scenariolens/",
-		date: "2026",
-		description:
-			"An autonomy-evaluation tool for ranking and inspecting long-tail driving scenarios with interpretable risk and baseline-failure metrics.",
-	},
-	{
 		title: "BODE-GEN",
 		href: "https://arxiv.org/abs/2512.15076",
 		date: "arXiv 2025",
