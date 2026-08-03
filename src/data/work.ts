@@ -31,26 +31,6 @@ export const workItems: WorkItem[] = [
 		openInNewTab: false,
 	},
 	{
-		title: "ScenarioLens",
-		href: "/scenariolens/",
-		date: "Jun 2026",
-		kind: "Project",
-		description:
-			"An autonomy-evaluation tool for ranking and inspecting long-tail driving scenarios with interpretable risk and baseline-failure metrics.",
-		image: "/scenariolens/assets/scenariolens-explorer.png",
-		imageAlt: "ScenarioLens interface ranking long-tail autonomous-driving scenarios",
-	},
-	{
-		title: "MetricDrive",
-		href: "/metricdrive/",
-		date: "Jun 2026",
-		kind: "Research",
-		description:
-			"A research preview for studying metric-aligned trajectory choices, preference pairs, hard negatives, and VLM-style planning rows.",
-		image: "/metricdrive/assets/metricdrive-explorer.svg",
-		imageAlt: "MetricDrive interface comparing autonomous-driving trajectory choices",
-	},
-	{
 		title: "BODE-GEN",
 		href: "https://arxiv.org/abs/2512.15076",
 		date: "Dec 2025",
@@ -60,42 +40,6 @@ export const workItems: WorkItem[] = [
 		image: "/images/projects/bodegen-results-thumbnail.webp",
 		imageAlt:
 			"BODE-GEN correctness results compared with initial prompts, chain-of-thought, and OPRO",
-	},
-	{
-		title: "Self-Driving Car",
-		href: "https://github.com/ethanvillalovoz/self-driving-car-simulation",
-		date: "Sep 2025",
-		kind: "Project",
-		description:
-			"An end-to-end behavioral-cloning system that predicts steering from camera images and drives in the Udacity simulator.",
-		image: "/images/projects/self-driving-poster.webp",
-		imageAlt:
-			"Offline replay of recorded Udacity simulator frames, actual model input, and predicted steering",
-		video: "/images/projects/self-driving-demo.mp4",
-	},
-	{
-		title: "IntelliCrawl",
-		href: "https://github.com/ethanvillalovoz/intellicrawl",
-		date: "Jul 2025",
-		kind: "Project",
-		description:
-			"A source-backed research agent that discovers, profiles, and compares developer tools while preserving field-level evidence and explicit unknowns.",
-		image: "/images/projects/intellicrawl-poster.webp",
-		imageAlt:
-			"IntelliCrawl running a source-backed comparison inside macOS Terminal",
-		video: "/images/projects/intellicrawl-demo.mp4",
-	},
-	{
-		title: "SentiSync",
-		href: "https://github.com/ethanvillalovoz/sentisync",
-		date: "Jul 2025",
-		kind: "Project",
-		description:
-			"A YouTube sentiment-analysis extension backed by an MLflow, DVC, Docker, and AWS machine-learning workflow.",
-		image: "/images/projects/sentisync-poster.webp",
-		imageAlt:
-			"SentiSync extension analyzing a YouTube discussion and switching between overview and comments",
-		video: "/images/projects/sentisync-demo.mp4",
 	},
 	{
 		title: "Knowledge Graph RAG Assistant",
