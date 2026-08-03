@@ -7,6 +7,13 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 const previousExperience = [
 	{
+		title: "Microsoft",
+		href: "https://www.microsoft.com/",
+		iconSrc: "/images/organizations/microsoft.ico",
+		role: "Software Engineer Intern",
+		date: "2026",
+	},
+	{
 		title: "CMU Robotics Institute",
 		href: "https://www.ri.cmu.edu/",
 		iconSrc: "/images/organizations/cmu.png",
@@ -235,8 +242,8 @@ export default function HomePageClient() {
 								iconSrc="/images/organizations/gatech.ico"
 							>
 								Georgia Tech
-							</OrganizationLink>{" "}
-							and multi-agent systems at{" "}
+							</OrganizationLink>
+							. Most recently, I built and evaluated enterprise AI agent systems at{" "}
 							<OrganizationLink
 								href="https://www.microsoft.com/"
 								iconSrc="/images/organizations/microsoft.ico"

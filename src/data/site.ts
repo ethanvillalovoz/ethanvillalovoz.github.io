@@ -2,7 +2,7 @@ export const site = {
 	name: "Ethan Villalovoz",
 	url: "https://ethanvillalovoz.com",
 	description:
-		"Ethan Villalovoz works on robot learning at Georgia Tech and multi-agent systems at Microsoft, with research spanning robotics, AI agents, and human feedback.",
+		"Ethan Villalovoz works on robot learning at Georgia Tech and most recently built enterprise AI agent systems at Microsoft, with research spanning robotics, AI agents, and human feedback.",
 	image: "/images/EthanVillalovozPic-optimized.jpg",
 	personId: "https://ethanvillalovoz.com/#ethan-villalovoz",
 	socialProfiles: [

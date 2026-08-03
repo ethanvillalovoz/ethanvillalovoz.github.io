@@ -34,11 +34,6 @@ export default function HomePage() {
 								height: 900,
 							},
 							jobTitle: "Graduate Researcher and Software Engineer",
-							worksFor: {
-								"@type": "Organization",
-								name: "Microsoft",
-								url: "https://www.microsoft.com/",
-							},
 							affiliation: {
 								"@type": "CollegeOrUniversity",
 								name: "Georgia Institute of Technology",
