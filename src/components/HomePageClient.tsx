@@ -243,7 +243,7 @@ export default function HomePageClient() {
 							>
 								Microsoft
 							</OrganizationLink>
-							. I&apos;m interested in how robots learn from imperfect human feedback, reason under uncertainty, and align their behavior with human intent.
+							. I&apos;m interested in how robots can understand the physical world and the people they interact with.
 						</p>
 
 						<p className="portfolio-p portfolio-contact-copy">
