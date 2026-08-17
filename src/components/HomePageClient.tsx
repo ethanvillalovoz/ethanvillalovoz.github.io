@@ -280,17 +280,6 @@ export default function HomePageClient() {
 					</div>
 				</header>
 
-				<section className="portfolio-section" aria-labelledby="previously-heading">
-					<h2 id="previously-heading" className="portfolio-section-label portfolio-fade portfolio-fade-three">
-						Previously
-					</h2>
-					<div className="portfolio-experience-list">
-						{previousExperience.map((item, index) => (
-							<ExperienceRow key={item.title} {...item} index={index} />
-						))}
-					</div>
-				</section>
-
 				<section className="portfolio-section" aria-labelledby="selected-work-heading">
 					<h2
 						id="selected-work-heading"
@@ -312,6 +301,17 @@ export default function HomePageClient() {
 						<a href="/research/" className="portfolio-link">
 							More work
 						</a>
+					</div>
+				</section>
+
+				<section className="portfolio-section" aria-labelledby="previously-heading">
+					<h2 id="previously-heading" className="portfolio-section-label portfolio-fade portfolio-fade-three">
+						Previously
+					</h2>
+					<div className="portfolio-experience-list">
+						{previousExperience.map((item, index) => (
+							<ExperienceRow key={item.title} {...item} index={index} />
+						))}
 					</div>
 				</section>
 			</div>
