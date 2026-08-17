@@ -285,21 +285,21 @@ export default function HomePageClient() {
 
 					<div className="portfolio-fade portfolio-fade-two">
 						<p className="portfolio-p">
-							I work on robot learning at{" "}
+							I&apos;m an M.S. student in Computer Science at{" "}
 							<OrganizationLink
 								href="https://www.gatech.edu/"
 								iconSrc="/images/organizations/gatech.ico"
 							>
 								Georgia Tech
 							</OrganizationLink>
-							. Most recently, I built and evaluated enterprise AI agent systems at{" "}
+							, where I work on robot learning. I&apos;m interested in how robots can understand the physical world and the people they interact with. Previously, I built and evaluated enterprise AI agent systems at{" "}
 							<OrganizationLink
 								href="https://www.microsoft.com/"
 								iconSrc="/images/organizations/microsoft.ico"
 							>
 								Microsoft
 							</OrganizationLink>
-							. I&apos;m interested in how robots can understand the physical world and the people they interact with.
+							.
 						</p>
 
 						<p className="portfolio-p portfolio-contact-copy">
