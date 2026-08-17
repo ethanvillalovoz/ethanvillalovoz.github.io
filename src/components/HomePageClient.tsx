@@ -39,6 +39,7 @@ const previousExperience = [
 const profileLinks = [
 	{ label: "Resume", href: "/data/EthanVillalovoz-Resume.pdf" },
 	{ label: "CV", href: "/data/EthanVillalovoz-CV.pdf" },
+	{ label: "Research", href: "/research/" },
 	{ label: "GitHub", href: "https://github.com/ethanvillalovoz" },
 	{
 		label: "Scholar",
@@ -49,7 +50,6 @@ const profileLinks = [
 		href: "https://www.linkedin.com/in/ethanvillalovoz/",
 	},
 	{ label: "X", href: "https://x.com/ethanvillalovoz" },
-	{ label: "YouTube", href: "https://www.youtube.com/@ethanvillalovoz" },
 ];
 
 const contactEmail = "ethan.villalovoz@gmail.com";
@@ -78,11 +78,12 @@ function TextLink({
 	href: string;
 	children: ReactNode;
 }) {
+	const isExternal = href.startsWith("http") || href.startsWith("mailto:");
+
 	return (
 		<a
 			href={href}
-			target="_blank"
-			rel="noopener noreferrer"
+			{...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
 			className="portfolio-link"
 		>
 			{children}
@@ -229,14 +230,14 @@ export default function HomePageClient() {
 
 					<div className="portfolio-fade portfolio-fade-two">
 						<p className="portfolio-p">
-							I work on robot learning at{" "}
+							I&apos;m an M.S. student in Computer Science at{" "}
 							<OrganizationLink
 								href="https://www.gatech.edu/"
 								iconSrc="/images/organizations/gatech.ico"
 							>
 								Georgia Tech
 							</OrganizationLink>
-							. Most recently, I built and evaluated enterprise AI agent systems at{" "}
+							, where I work on robot learning. Most recently, I built and evaluated enterprise AI agent systems at{" "}
 							<OrganizationLink
 								href="https://www.microsoft.com/"
 								iconSrc="/images/organizations/microsoft.ico"
