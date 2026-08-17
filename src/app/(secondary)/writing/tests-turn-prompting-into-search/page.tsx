@@ -123,11 +123,12 @@ export default function PromptSearchEssayPage() {
 							>
 								BODE-GEN
 							</a>
-							, our study of Bayesian optimization for test-driven code generation. I
-							built the evaluation pipeline and ran reproducible experiments across 164
-							HumanEval+ tasks and three code models. The headline numbers were strong, but
-							the more durable lesson was about evaluation: tests can turn an ambiguous
-							prompting process into a search problem with an explicit objective.
+							, a study I co-authored with Shlok Tomar, Aryan Deshwal, Mattia Fazzini,
+							Haipeng Cai, and Janardhan Rao Doppa. I built the evaluation pipeline and
+							ran reproducible experiments across 164 HumanEval+ tasks and three code
+							models. The headline numbers were strong, but the more durable lesson was
+							about evaluation: tests can turn an ambiguous prompting process into a
+							search problem with an explicit objective.
 						</p>
 
 						<section id="evaluation">
