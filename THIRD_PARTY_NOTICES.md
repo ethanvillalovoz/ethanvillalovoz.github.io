@@ -4,13 +4,13 @@ The MIT license in this repository applies to the portfolio's original source co
 
 ## Research Material
 
-Papers, figures, BibTeX records, and publication metadata under `public/data/research/` belong to their authors and publishers. The Knowledge Graph RAG final report and original project artifacts under `public/data/capstone/` belong to the ACME10-HE-RAGApp team. Their inclusion here does not relicense them under MIT.
+Papers, figures, and publication metadata under `public/data/research/` belong to their authors and publishers. Their inclusion here does not relicense them under MIT.
 
 ## Marks And Media
 
 Organization names and marks under `public/images/organizations/` belong to their respective organizations and are used for identification. See `public/images/organizations/SOURCES.md` for source links.
 
-Personal photographs and project screenshots are not offered as reusable template assets unless their source explicitly states otherwise.
+Personal photographs and research figures are not offered as reusable template assets unless their source explicitly states otherwise.
 
 ## Design References
 

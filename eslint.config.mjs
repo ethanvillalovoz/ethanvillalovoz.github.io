@@ -9,7 +9,6 @@ const eslintConfig = [
       ".next/**",
       "out/**",
       "node_modules/**",
-      "public/data/capstone/**",
     ],
   },
 ];

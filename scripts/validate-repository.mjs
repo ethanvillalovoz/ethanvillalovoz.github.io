@@ -21,14 +21,6 @@ const requiredPaths = [
 	"public/images/theme/moon.svg",
 	"public/images/identity/favicon-96.png",
 	"public/images/identity/favicon-on-dark-96.png",
-	"public/images/projects/self-driving-poster.webp",
-	"public/images/projects/self-driving-demo.mp4",
-	"public/images/projects/intellicrawl-poster.webp",
-	"public/images/projects/intellicrawl-demo.mp4",
-	"public/images/projects/sentisync-poster.webp",
-	"public/images/projects/sentisync-demo.mp4",
-	"public/images/projects/rag-poster.webp",
-	"public/images/projects/rag-demo.mp4",
 	"public/visuals/homepage-preview.jpg",
 ];
 
@@ -56,6 +48,22 @@ const forbiddenPaths = [
 	"public/scenariolens",
 	"public/metricdrive",
 	"scripts/sync-scenariolens.mjs",
+	"public/images/projects/self-driving-demo.mp4",
+	"public/images/projects/self-driving-poster.webp",
+	"public/images/projects/intellicrawl-demo.mp4",
+	"public/images/projects/intellicrawl-poster.webp",
+	"public/images/projects/sentisync-demo.mp4",
+	"public/images/projects/sentisync-poster.webp",
+	"public/images/projects/rag-demo.mp4",
+	"public/images/projects/rag-poster.webp",
+	"public/images/projects/bodegen-results-thumbnail.webp",
+	"public/images/projects/social-triangles-thumbnail.webp",
+	"public/data/research/2025_WSU_Bayesian_Prompt_Optimization/paper.pdf",
+	"public/data/research/2025_WSU_Bayesian_Prompt_Optimization/ICSE_BO_figure.pdf",
+	"public/data/research/2025_WSU_Bayesian_Prompt_Optimization/bode-gen.bib",
+	"public/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/social-triangles-study-conditions.jpg",
+	"public/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/social-triangles-threat-results.jpg",
+	"public/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.bib",
 ];
 
 const exists = async (relativePath) => {
