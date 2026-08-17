@@ -1082,7 +1082,6 @@ button {
 
 .research-authors,
 .research-publication-description,
-.research-publication-contribution,
 .teaching-role {
   color: rgb(var(--foreground));
   font-family: var(--font-sans);
@@ -1126,15 +1125,6 @@ button {
 
 .research-publication-description {
   margin: 8px 0 0;
-}
-
-.research-publication-contribution {
-  margin: 8px 0 0;
-}
-
-.research-publication-contribution strong {
-  color: rgb(var(--heading));
-  font-weight: 500;
 }
 
 .research-resource-links {

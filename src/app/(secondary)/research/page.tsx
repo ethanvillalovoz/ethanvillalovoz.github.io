@@ -131,9 +131,6 @@ function PublicationRow({
 					))}
 				</nav>
 				<p className="research-publication-description">{publication.description}</p>
-				<p className="research-publication-contribution">
-					<strong>My contribution:</strong> {publication.contribution}
-				</p>
 			</div>
 		</li>
 	);

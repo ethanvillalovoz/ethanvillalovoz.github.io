@@ -20,7 +20,6 @@ export interface ResearchPublication {
 	datePublished: string;
 	identifier: string;
 	description: string;
-	contribution: string;
 	image: string;
 	imageAlt: string;
 	resources: ResearchResource[];
@@ -58,8 +57,6 @@ export const researchPublications: ResearchPublication[] = [
 		identifier: "https://doi.org/10.48550/arXiv.2512.15076",
 		description:
 			"Uses Bayesian optimization to improve test-driven LLM code generation across HumanEval+ and multiple code models.",
-		contribution:
-			"I built the test-driven evaluation pipeline and ran reproducible experiments across 164 HumanEval+ tasks and three code models.",
 		image: "/images/projects/bodegen-method-thumbnail.webp",
 		imageAlt: "BODE-GEN Bayesian prompt optimization method diagram",
 		resources: [
@@ -93,8 +90,6 @@ export const researchPublications: ResearchPublication[] = [
 		identifier: "IEEE 10342372",
 		description:
 			"Shows that triangular robot formations are perceived more positively and navigate more robustly than line formations.",
-		contribution:
-			"I developed geometric motion primitives and Python tooling for the Pioneer 3DX formations evaluated in the study.",
 		image: "/images/projects/social-triangles-threat-thumbnail.webp",
 		imageAlt:
 			"Threatening-to-harmless ratings for V-shape, wedge, vertical-line, and horizontal-line robot formations",
