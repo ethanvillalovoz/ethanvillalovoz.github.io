@@ -1,6 +1,6 @@
 # Architecture
 
-This repository is a small Next.js App Router site with a separate static layer for research artifacts and two standalone research previews.
+This repository is a small Next.js App Router site for a focused academic and technical portfolio.
 
 ## Application Routes
 
@@ -44,26 +44,14 @@ The shared visual system is defined in `src/app/globals.css` and uses:
 
 `next-themes` stores the selected theme. Tailwind and Framer Motion are not part of the current stack.
 
-## Static Microsites
-
-Standalone research previews remain static so their interactive presentation can evolve independently of the portfolio shell.
-
-| Public route | Static source |
-| --- | --- |
-| `/scenariolens/` | `public/scenariolens/index.html` |
-| `/metricdrive/` | `public/metricdrive/index.html` |
-
-Rewrites in `next.config.ts` expose those pages at clean URLs. Static assets use relative paths so each microsite can be tested in isolation.
-
 Legacy `/work/`, `/projects/`, `/publications/`, `/teaching/`, `/DreamWorlds/`, and `/gaussian-splatting-physics/` paths redirect to Research.
 
 ## Metadata And Discovery
 
 - `src/app/layout.tsx` owns global metadata, compact social metadata, favicons, and website JSON-LD.
 - Home publishes `ProfilePage` and `Person` structured data without changing its rendered design.
-- Writing, Research, the technical essay, and each microsite publish page-appropriate structured data.
+- Writing, Research, and the technical essay publish page-appropriate structured data.
 - Home, Writing, and Research define canonical URLs at the route level.
-- Static research previews define their own canonical and social metadata in HTML.
 - `next-sitemap.config.js` generates `public/sitemap.xml` with representative image entries and `public/robots.txt` after a production build.
 
 ## Image Delivery
@@ -79,4 +67,4 @@ Next.js routes use responsive image generation with an additional high-quality s
 3. Next.js route type generation and TypeScript
 4. Production build and sitemap generation
 
-`scripts/validate-repository.mjs` verifies required routes, forbidden retired paths, active content images, microsite asset references, stale template markers, and sitemap membership.
+`scripts/validate-repository.mjs` verifies required routes, forbidden retired paths, active content images, stale template markers, and sitemap membership.

@@ -161,6 +161,7 @@ function SelectedPublicationRow({
 					width={800}
 					height={500}
 					quality={90}
+					loading={index === 0 ? "eager" : "lazy"}
 					sizes="(max-width: 599px) calc(100vw - 48px), 196px"
 					className="portfolio-work-image"
 				/>

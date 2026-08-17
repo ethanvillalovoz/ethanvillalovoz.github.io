@@ -1128,15 +1128,21 @@ button {
 }
 
 .research-resource-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  display: block;
   margin-top: 4px;
 }
 
 .research-resource-links a {
   font-size: 14px;
   line-height: 21px;
+}
+
+.research-resource-item {
+  display: inline;
+}
+
+.research-resource-separator {
+  color: rgb(var(--foreground));
 }
 
 .research-teaching {

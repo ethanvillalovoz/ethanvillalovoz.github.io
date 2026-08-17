@@ -40,12 +40,6 @@ const nextConfig: NextConfig = {
 			},
 		];
 	},
-	async rewrites() {
-		return [
-			{ source: "/metricdrive/", destination: "/metricdrive/index.html" },
-			{ source: "/scenariolens/", destination: "/scenariolens/index.html" },
-		];
-	},
 };
 
 export default nextConfig;

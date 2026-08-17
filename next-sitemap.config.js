@@ -4,9 +4,6 @@ const imageEntries = {
   '/': [
     ['/images/EthanVillalovozPic-optimized.jpg', 'Ethan Villalovoz', 'Portrait of Ethan Villalovoz'],
   ],
-  '/writing/': [
-    ['/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-method.png', 'BODE-GEN method', 'Bayesian prompt optimization loop for test-driven code generation'],
-  ],
   '/writing/tests-turn-prompting-into-search/': [
     ['/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-method.png', 'BODE-GEN method', 'Bayesian prompt optimization loop for test-driven code generation'],
     ['/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-results.png', 'BODE-GEN results', 'Correctness results across code-generation models and prompting baselines'],
@@ -15,12 +12,6 @@ const imageEntries = {
   '/research/': [
     ['/images/projects/bodegen-method-thumbnail.webp', 'BODE-GEN method'],
     ['/images/projects/social-triangles-threat-thumbnail.webp', 'Social Triangles threat results', 'Threatening-to-harmless ratings across four multi-robot formations'],
-  ],
-  '/scenariolens/': [
-    ['/scenariolens/assets/scenariolens-explorer.png', 'ScenarioLens Explorer', 'Autonomous-driving scenario evaluation and failure-analysis interface'],
-  ],
-  '/metricdrive/': [
-    ['/metricdrive/assets/metricdrive-explorer.png', 'MetricDrive Explorer', 'Metric-aligned autonomous-driving trajectory research interface'],
   ],
 };
 
@@ -33,7 +24,15 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   autoLastmod: false,
-  exclude: ['/work', '/projects', '/publications', '/teaching', '/gaussian-splatting-physics'],
+  exclude: [
+    '/work',
+    '/projects',
+    '/publications',
+    '/teaching',
+    '/gaussian-splatting-physics',
+    '/scenariolens',
+    '/metricdrive',
+  ],
   transform: async (_config, path) => ({
     loc: path,
     images: (imageEntries[normalizePath(path)] ?? []).map(([imagePath, title, caption]) => ({
@@ -42,8 +41,4 @@ module.exports = {
       caption,
     })),
   }),
-  additionalPaths: async (config) => [
-    await config.transform(config, '/scenariolens/'),
-    await config.transform(config, '/metricdrive/'),
-  ],
 };

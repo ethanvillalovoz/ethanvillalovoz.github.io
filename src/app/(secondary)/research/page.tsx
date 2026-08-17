@@ -118,16 +118,22 @@ function PublicationRow({
 					{publication.venue}, {publication.date}
 				</p>
 				<nav className="research-resource-links" aria-label={`${publication.shortTitle} resources`}>
-					{publication.resources.map((resource) => (
-						<a
-							key={resource.label}
-							href={resource.href}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="portfolio-link research-resource-link"
-						>
-							{resource.label}
-						</a>
+					{publication.resources.map((resource, resourceIndex) => (
+						<span key={resource.label} className="research-resource-item">
+							<a
+								href={resource.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="portfolio-link research-resource-link"
+							>
+								{resource.label}
+							</a>
+							{resourceIndex < publication.resources.length - 1 ? (
+								<span className="research-resource-separator" aria-hidden="true">
+									{" / "}
+								</span>
+							) : null}
+						</span>
 					))}
 				</nav>
 				<p className="research-publication-description">{publication.description}</p>

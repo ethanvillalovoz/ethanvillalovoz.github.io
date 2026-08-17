@@ -47,17 +47,6 @@ For publications, preserve:
 
 Do not imply first authorship, lead authorship, acceptance, or awards unless the source record supports the claim.
 
-## Static Project Pages
-
-Active standalone pages live under `public/`:
-
-```text
-public/scenariolens/
-public/metricdrive/
-```
-
-Add a rewrite in `next.config.ts` when exposing a new static page at a clean route. Keep local assets relative to the page folder and include a README describing the route, files, and attribution.
-
 ## Documents And Images
 
 ```text
@@ -80,4 +69,4 @@ npm run check
 npm audit
 ```
 
-Then inspect Home, Writing, Research, all active microsites, legacy redirects, and the 404 page at desktop and mobile sizes. Check keyboard focus, theme switching, horizontal overflow, broken images, and console errors.
+Then inspect Home, Writing, Research, legacy redirects, and the 404 page at desktop and mobile sizes. Check keyboard focus, theme switching, horizontal overflow, broken images, and console errors.

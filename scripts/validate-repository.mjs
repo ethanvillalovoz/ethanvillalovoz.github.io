@@ -14,11 +14,7 @@ const requiredPaths = [
 	"src/components/HomePageClient.tsx",
 	"src/data/writing.ts",
 	"src/data/research.ts",
-	"scripts/sync-scenariolens.mjs",
 	"src/data/site.ts",
-	"public/scenariolens/index.html",
-	"public/scenariolens/run.json",
-	"public/metricdrive/index.html",
 	"public/data/EthanVillalovoz-Resume.pdf",
 	"public/data/EthanVillalovoz-CV.pdf",
 	"public/images/theme/sun.svg",
@@ -33,7 +29,6 @@ const requiredPaths = [
 	"public/images/projects/sentisync-demo.mp4",
 	"public/images/projects/rag-poster.webp",
 	"public/images/projects/rag-demo.mp4",
-	"public/metricdrive/assets/metricdrive-explorer.png",
 	"public/visuals/homepage-preview.jpg",
 ];
 
@@ -58,6 +53,9 @@ const forbiddenPaths = [
 	"public/data/capstone/static",
 	"public/data/capstone",
 	"public/images/projects/intellicrawl-thumb.jpg",
+	"public/scenariolens",
+	"public/metricdrive",
+	"scripts/sync-scenariolens.mjs",
 ];
 
 const exists = async (relativePath) => {
@@ -77,93 +75,6 @@ for (const forbiddenPath of forbiddenPaths) {
 	if (await exists(forbiddenPath)) failures.push(`Stale path still present: ${forbiddenPath}`);
 }
 
-const stripUrlSuffix = (value) => value.split("#", 1)[0].split("?", 1)[0];
-const isRemoteOrRoute = (value) =>
-	/^(?:https?:|mailto:|tel:|data:|javascript:|#|\/\/)/.test(value) ||
-	(value.startsWith("/") && !path.extname(stripUrlSuffix(value)));
-
-const micrositeFiles = [
-	"public/scenariolens/index.html",
-	"public/metricdrive/index.html",
-];
-
-for (const relativeHtmlPath of micrositeFiles) {
-	const absoluteHtmlPath = path.join(root, relativeHtmlPath);
-	if (!(await exists(relativeHtmlPath))) continue;
-
-	const html = await readFile(absoluteHtmlPath, "utf8");
-	const requiredMetadata = [
-		'<meta name="description"',
-		'<meta name="author"',
-		'<meta name="robots"',
-		'<meta property="og:locale"',
-		'<meta name="twitter:creator"',
-		'<link rel="canonical"',
-		'<script type="application/ld+json">',
-	];
-
-	for (const marker of requiredMetadata) {
-		if (!html.includes(marker)) {
-			failures.push(`${relativeHtmlPath} is missing metadata marker: ${marker}`);
-		}
-	}
-
-	const structuredDataBlocks = [
-		...html.matchAll(/<script type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/g),
-	];
-	for (const [, structuredData] of structuredDataBlocks) {
-		try {
-			JSON.parse(structuredData);
-		} catch {
-			failures.push(`${relativeHtmlPath} contains invalid JSON-LD`);
-		}
-	}
-
-	const references = [...html.matchAll(/(?:href|src)=["']([^"']+)["']/g)].map(
-		(match) => match[1],
-	);
-
-	for (const reference of references) {
-		if (isRemoteOrRoute(reference)) continue;
-
-		const cleanReference = stripUrlSuffix(reference);
-		const assetPath = cleanReference.startsWith("/")
-			? path.join(root, "public", cleanReference)
-			: path.resolve(path.dirname(absoluteHtmlPath), cleanReference);
-
-		try {
-			await access(assetPath);
-		} catch {
-			failures.push(`${relativeHtmlPath} references missing asset: ${reference}`);
-		}
-	}
-}
-
-const scenarioLensRunPath = "public/scenariolens/run.json";
-if (await exists(scenarioLensRunPath)) {
-	try {
-		const run = JSON.parse(await readFile(path.join(root, scenarioLensRunPath), "utf8"));
-		if (run.format !== "scenariolens.explorer_run.v1") {
-			failures.push(`${scenarioLensRunPath} has an unexpected format`);
-		}
-		if (run.ready !== true || run.summary?.scenario_count !== 1193) {
-			failures.push(`${scenarioLensRunPath} is not the completed 1,193-scenario public run`);
-		}
-		if (!Array.isArray(run.reports) || run.reports.length < 7) {
-			failures.push(`${scenarioLensRunPath} is missing the v1 evidence report set`);
-		}
-		if (!run.reports?.some((report) => report.report_id === "selector_holdout_993")) {
-			failures.push(`${scenarioLensRunPath} is missing the frozen selector holdout`);
-		}
-		for (const report of run.reports ?? []) {
-			if (!String(report.path).startsWith("https://github.com/ethanvillalovoz/scenariolens/blob/")) {
-				failures.push(`${scenarioLensRunPath} contains a non-public report link: ${report.path}`);
-			}
-		}
-	} catch {
-		failures.push(`${scenarioLensRunPath} is not valid JSON`);
-	}
-}
 const writingDataPath = path.join(root, "src/data/writing.ts");
 const imageDataPaths = [writingDataPath];
 
@@ -229,8 +140,6 @@ if (await exists(sitemapPath)) {
 		"https://ethanvillalovoz.com/writing/",
 		"https://ethanvillalovoz.com/writing/tests-turn-prompting-into-search/",
 		"https://ethanvillalovoz.com/research/",
-		"https://ethanvillalovoz.com/scenariolens/",
-		"https://ethanvillalovoz.com/metricdrive/",
 	];
 	const excludedUrls = [
 		"/work/",
@@ -239,11 +148,11 @@ if (await exists(sitemapPath)) {
 		"/teaching/",
 		"/rag/",
 		"/gaussian-splatting-physics/",
+		"/scenariolens/",
+		"/metricdrive/",
 	];
 	const requiredImages = [
 		"https://ethanvillalovoz.com/images/EthanVillalovozPic-optimized.jpg",
-		"https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png",
-		"https://ethanvillalovoz.com/metricdrive/assets/metricdrive-explorer.png",
 		"https://ethanvillalovoz.com/images/projects/bodegen-method-thumbnail.webp",
 		"https://ethanvillalovoz.com/images/projects/social-triangles-threat-thumbnail.webp",
 	];

@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml)
 
-Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a concise homepage, technical writing, a Research page, and a small set of standalone research previews.
+Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a concise homepage, technical writing, and a Research page.
 
 ![Homepage preview](public/visuals/homepage-preview.jpg)
 
@@ -14,8 +14,6 @@ Personal portfolio and research website for [ethanvillalovoz.com](https://ethanv
 | `/writing/` | Technical notes and research writeups |
 | `/writing/tests-turn-prompting-into-search/` | BODE-GEN evaluation essay |
 | `/research/` | Publications, paper resources, and teaching history |
-| `/scenariolens/` | ScenarioLens interactive explorer |
-| `/metricdrive/` | MetricDrive research preview |
 
 Legacy `/work/`, `/projects/`, `/publications/`, and `/teaching/` URLs redirect to the current information architecture.
 
@@ -34,8 +32,6 @@ The Writing index contains only complete, substantive essays; it does not expose
 - `next-sitemap`
 - Vercel
 
-Standalone project previews under `public/` use dependency-free HTML, CSS, and JavaScript where practical.
-
 ## Discovery And Performance
 
 - Route-specific canonical, Open Graph, and X metadata
@@ -43,7 +39,7 @@ Standalone project previews under `public/` use dependency-free HTML, CSS, and J
 - XML sitemap coverage for every public route and its representative images
 - Responsive `next/image` delivery for portfolio, research, and writing media
 - Explicit image dimensions and lazy decoding for below-the-fold microsite figures
-- Compact favicon-based sharing for the homepage and visual previews for standalone projects
+- Compact favicon-based sharing for the homepage and route-specific social metadata
 
 ## Local Development
 
@@ -101,8 +97,6 @@ src/data/
 public/
   data/                       Resume, CV, papers, and project evidence
   images/                     Identity, organization, and active project images
-  metricdrive/                MetricDrive microsite
-  scenariolens/               ScenarioLens microsite
   visuals/                    README screenshot
 
 scripts/
@@ -127,4 +121,4 @@ Focused bug fixes, accessibility improvements, and documentation corrections are
 
 ## License
 
-The site code is available under the [MIT License](LICENSE). Research papers, project media, organization marks, and adapted third-party microsite material may have separate terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+The site code is available under the [MIT License](LICENSE). Research papers, project media, and organization marks may have separate terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

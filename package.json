@@ -18,8 +18,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build && next-sitemap",
-    "start": "next start",
-    "sync:scenariolens": "node scripts/sync-scenariolens.mjs",
+		"start": "next start",
     "validate": "node scripts/validate-repository.mjs",
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",

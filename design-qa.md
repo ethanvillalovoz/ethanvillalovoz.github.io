@@ -8,10 +8,10 @@
 
 ## Verification
 
-- Reviewed `/`, `/research/`, `/rag/`, `/writing/`, and `/writing/tests-turn-prompting-into-search/` in the in-app browser.
+- Reviewed `/`, `/research/`, `/writing/`, and `/writing/tests-turn-prompting-into-search/` in the in-app browser.
 - Checked 1440 x 900 desktop and 390 x 844 mobile layouts with no horizontal overflow.
 - Confirmed deferred paper and capstone figures load when they enter the viewport.
 - Browser console contains no application warnings or errors.
-- `npm run check` passes repository validation, ESLint, TypeScript, the Next.js production build, and sitemap generation after the ScenarioLens v1.0.1 sync.
+- `npm run check` passes repository validation, ESLint, TypeScript, the Next.js production build, and sitemap generation.
 
 final result: passed
