@@ -1,3 +1,5 @@
+import { promptSearchEssay } from "@/data/writing";
+
 export interface ResearchAuthor {
 	name: string;
 	schemaName: string;
@@ -61,6 +63,7 @@ export const researchPublications: ResearchPublication[] = [
 		imageAlt: "BODE-GEN Bayesian prompt optimization method diagram",
 		resources: [
 			{ label: "Paper", href: "https://arxiv.org/abs/2512.15076" },
+			{ label: "Blog", href: promptSearchEssay.href },
 		],
 	},
 	{

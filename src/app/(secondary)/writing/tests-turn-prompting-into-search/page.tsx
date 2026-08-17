@@ -23,12 +23,21 @@ export const metadata: Metadata = {
 		modifiedTime: promptSearchEssay.dateTime,
 		authors: [site.name],
 		tags: ["Bayesian optimization", "Code generation", "LLM evaluation", "HumanEval+"],
+		images: [
+			{
+				url: absoluteUrl(promptSearchEssay.image),
+				width: 1600,
+				height: 1000,
+				alt: promptSearchEssay.imageAlt,
+			},
+		],
 	},
 	twitter: {
-		card: "summary",
+		card: "summary_large_image",
 		title: `${promptSearchEssay.title} | ${site.name}`,
 		description: articleDescription,
 		creator: "@ethanvillalovoz",
+		images: [absoluteUrl(promptSearchEssay.image)],
 	},
 };
 
@@ -42,7 +51,7 @@ const contents = [
 	{ id: "prompt-changes", label: "What optimized prompts changed" },
 	{ id: "limits", label: "What the results do not say" },
 	{ id: "lesson", label: "The broader lesson" },
-	{ id: "citation", label: "Citation" },
+	{ id: "paper", label: "Paper" },
 ] as const;
 
 const results = [
@@ -377,10 +386,10 @@ for candidate in optimizer:
 							</p>
 						</section>
 
-						<section id="citation" className="essay-citation">
-							<h2>Citation</h2>
+						<section id="paper" className="essay-paper">
+							<h2>Paper</h2>
 							<p>
-								The underlying research is available on{" "}
+								This essay is based on BODE-GEN. Read the full paper on{" "}
 								<a
 									href="https://arxiv.org/abs/2512.15076"
 									target="_blank"
@@ -389,36 +398,8 @@ for candidate in optimizer:
 								>
 									arXiv
 								</a>
-								, as a local{" "}
-								<a
-									href="/data/research/2025_WSU_Bayesian_Prompt_Optimization/paper.pdf"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="portfolio-link"
-								>
-									PDF
-								</a>
-								, and as a{" "}
-								<a
-									href="/data/research/2025_WSU_Bayesian_Prompt_Optimization/bode-gen.bib"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="portfolio-link"
-								>
-									BibTeX
-								</a>{" "}
-								record.
+								.
 							</p>
-							<p>Please cite this essay as:</p>
-							<pre className="essay-code"><code>{`Ethan Villalovoz, "Tests Turn Prompting into Search," ethanvillalovoz.com, Jul 2026. ${articleUrl}`}</code></pre>
-							<p>Or use BibTeX:</p>
-							<pre className="essay-code"><code>{`@misc{villalovoz2026promptsearch,
-  author = {Ethan Villalovoz},
-  title = {Tests Turn Prompting into Search},
-  year = {2026},
-  howpublished = {ethanvillalovoz.com},
-  note = {${articleUrl}}
-}`}</code></pre>
 						</section>
 					</div>
 				</div>

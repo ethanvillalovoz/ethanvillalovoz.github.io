@@ -11,7 +11,7 @@ export interface WritingPost {
 export const promptSearchEssay: WritingPost = {
 	title: "Tests Turn Prompting into Search",
 	href: "/writing/tests-turn-prompting-into-search/",
-	date: "Jul 2026",
+	date: "July 10, 2026",
 	dateTime: "2026-07-10",
 	summary:
 		"What I learned building the evaluation pipeline behind BODE-GEN, where executable tests turn code prompting into an optimization problem.",
