@@ -41,38 +41,30 @@ export const researchPublications: ResearchPublication[] = [
 			"An Exploratory Study of Bayesian Prompt Optimization for Test-Driven Code Generation with Large Language Models",
 		href: "https://arxiv.org/abs/2512.15076",
 		authors: [
-			{ name: "S. Tomar", schemaName: "Shlok Tomar", href: "https://shlok-crypto.github.io/" },
-			{ name: "A. Deshwal", schemaName: "Aryan Deshwal", href: "https://aryandeshwal.github.io/" },
+			{ name: "Shlok Tomar", schemaName: "Shlok Tomar", href: "https://shlok-crypto.github.io/" },
+			{ name: "Aryan Deshwal", schemaName: "Aryan Deshwal", href: "https://aryandeshwal.github.io/" },
 			{
 				name: "Ethan Villalovoz",
 				schemaName: "Ethan Villalovoz",
 				href: "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
 				isEthan: true,
 			},
-			{ name: "M. Fazzini", schemaName: "Mattia Fazzini", href: "https://www-users.cse.umn.edu/~mfazzini/" },
-			{ name: "H. Cai", schemaName: "Haipeng Cai", href: "https://chapering.github.io/" },
-			{ name: "J.R. Doppa", schemaName: "Janardhan Rao Doppa", href: "https://eecs.wsu.edu/~jana/" },
+			{ name: "Mattia Fazzini", schemaName: "Mattia Fazzini", href: "https://www-users.cse.umn.edu/~mfazzini/" },
+			{ name: "Haipeng Cai", schemaName: "Haipeng Cai", href: "https://chapering.github.io/" },
+			{ name: "Janardhan Rao Doppa", schemaName: "Janardhan Rao Doppa", href: "https://eecs.wsu.edu/~jana/" },
 		],
-		venue: "arXiv:2512.15076",
+		venue: "arXiv",
 		date: "2025",
 		datePublished: "2025-12-17",
 		identifier: "https://doi.org/10.48550/arXiv.2512.15076",
 		description:
-			"Studies Bayesian optimization for automated prompt search in test-driven LLM code generation, evaluated across HumanEval+ tasks and multiple code models.",
+			"Uses Bayesian optimization to improve test-driven LLM code generation across HumanEval+ and multiple code models.",
 		contribution:
 			"I built the test-driven evaluation pipeline and ran reproducible experiments across 164 HumanEval+ tasks and three code models.",
 		image: "/images/projects/bodegen-method-thumbnail.webp",
 		imageAlt: "BODE-GEN Bayesian prompt optimization method diagram",
 		resources: [
-			{ label: "arXiv", href: "https://arxiv.org/abs/2512.15076" },
-			{
-				label: "PDF",
-				href: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/paper.pdf",
-			},
-			{
-				label: "BibTeX",
-				href: "/data/research/2025_WSU_Bayesian_Prompt_Optimization/bode-gen.bib",
-			},
+			{ label: "Paper", href: "https://arxiv.org/abs/2512.15076" },
 		],
 	},
 	{
@@ -82,7 +74,7 @@ export const researchPublications: ResearchPublication[] = [
 		href: "https://ieeexplore.ieee.org/abstract/document/10342372",
 		authors: [
 			{
-				name: "A. Bacula",
+				name: "Alexandra Bacula",
 				schemaName: "Alexandra Bacula",
 				href: "https://sites.google.com/plu.edu/alexandra-bacula",
 			},
@@ -92,16 +84,16 @@ export const researchPublications: ResearchPublication[] = [
 				href: "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
 				isEthan: true,
 			},
-			{ name: "D. Flynn", schemaName: "Deanna Flynn", href: "https://deannaflynn.wixsite.com/deanna-flynn" },
-			{ name: "A. Mehta", schemaName: "Ankur Mehta", href: "https://uclalemur.com/" },
-			{ name: "H. Knight", schemaName: "Heather Knight", href: "https://www.charismarobotics.com/" },
+			{ name: "Deanna Flynn", schemaName: "Deanna Flynn", href: "https://deannaflynn.wixsite.com/deanna-flynn" },
+			{ name: "Ankur Mehta", schemaName: "Ankur Mehta", href: "https://uclalemur.com/" },
+			{ name: "Heather Knight", schemaName: "Heather Knight", href: "https://www.charismarobotics.com/" },
 		],
-		venue: "IEEE/RSJ International Conference on Intelligent Robots and Systems",
+		venue: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
 		date: "2023",
 		datePublished: "2023",
 		identifier: "IEEE 10342372",
 		description:
-			"Studies how multi-robot formation geometry shapes human navigation and approach behavior by comparing social triangles with aggressive lines.",
+			"Shows that triangular robot formations are perceived more positively and navigate more robustly than line formations.",
 		contribution:
 			"I developed geometric motion primitives and Python tooling for the Pioneer 3DX formations evaluated in the study.",
 		image: "/images/projects/social-triangles-threat-thumbnail.webp",
@@ -109,16 +101,8 @@ export const researchPublications: ResearchPublication[] = [
 			"Threatening-to-harmless ratings for V-shape, wedge, vertical-line, and horizontal-line robot formations",
 		resources: [
 			{
-				label: "IEEE",
-				href: "https://ieeexplore.ieee.org/abstract/document/10342372",
-			},
-			{
-				label: "PDF",
+				label: "Paper",
 				href: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.pdf",
-			},
-			{
-				label: "BibTeX",
-				href: "/data/research/2023_OSU_Social_Triangles_and_Aggressive_Lines/2023_IROS_Social_Triangles_Agressive_Lines_bacula.bib",
 			},
 		],
 	},

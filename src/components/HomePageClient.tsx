@@ -4,6 +4,11 @@ import Image from "next/image";
 import { useEffect, useState, type ReactNode } from "react";
 import { FiMapPin } from "react-icons/fi";
 import ThemeToggle from "@/components/ThemeToggle";
+import {
+	researchPublications,
+	type ResearchAuthor,
+	type ResearchPublication,
+} from "@/data/research";
 
 const previousExperience = [
 	{
@@ -53,23 +58,6 @@ const profileLinks = [
 ];
 
 const contactEmail = "ethan.villalovoz@gmail.com";
-
-const selectedWork = [
-	{
-		title: "BODE-GEN",
-		href: "https://arxiv.org/abs/2512.15076",
-		date: "arXiv 2025",
-		description:
-			"Bayesian prompt optimization for test-driven code generation, evaluated across 164 HumanEval+ tasks and three code models.",
-	},
-	{
-		title: "Social Triangles",
-		href: "https://ieeexplore.ieee.org/abstract/document/10342372",
-		date: "IROS 2023",
-		description:
-			"How multi-robot formation geometry shapes human navigation and approach behavior, comparing social triangles with aggressive lines.",
-	},
-];
 
 function TextLink({
 	href,
@@ -151,17 +139,50 @@ function ExperienceRow({
 	);
 }
 
-function SelectedWorkRow({
-	title,
-	href,
-	date,
-	description,
+function SelectedPublicationAuthors({ authors }: { authors: ResearchAuthor[] }) {
+	return (
+		<p className="portfolio-work-authors">
+			{authors.map((author, index) => (
+				<span key={author.name}>
+					{author.isEthan ? (
+						<strong>
+							{author.href ? (
+								<a
+									href={author.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="portfolio-link"
+								>
+									{author.name}
+								</a>
+							) : (
+								author.name
+							)}
+						</strong>
+					) : author.href ? (
+						<a
+							href={author.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="portfolio-link"
+						>
+							{author.name}
+						</a>
+					) : (
+						author.name
+					)}
+					{index < authors.length - 1 ? ", " : ""}
+				</span>
+			))}
+		</p>
+	);
+}
+
+function SelectedPublicationRow({
+	publication,
 	index,
 }: {
-	title: string;
-	href: string;
-	date: string;
-	description: string;
+	publication: ResearchPublication;
 	index: number;
 }) {
 	return (
@@ -169,13 +190,48 @@ function SelectedWorkRow({
 			className="portfolio-work-item portfolio-fade"
 			style={{ animationDelay: `${340 + index * 45}ms` }}
 		>
-			<div className="portfolio-work-heading">
+			<a
+				href={publication.href}
+				target="_blank"
+				rel="noopener noreferrer"
+				className="portfolio-work-media"
+				aria-label={`View ${publication.title}`}
+			>
+				<Image
+					src={publication.image}
+					alt={publication.imageAlt}
+					width={800}
+					height={500}
+					quality={90}
+					sizes="(max-width: 599px) calc(100vw - 48px), 196px"
+					className="portfolio-work-image"
+				/>
+			</a>
+			<div className="portfolio-work-copy">
 				<h3 className="portfolio-work-title">
-					<TextLink href={href}>{title}</TextLink>{" "}
-					<span className="portfolio-work-date">({date})</span>
+					<TextLink href={publication.href}>{publication.title}</TextLink>
 				</h3>
+				<SelectedPublicationAuthors authors={publication.authors} />
+				<p className="portfolio-work-venue">
+					{publication.venue}, {publication.date}
+				</p>
+				<nav
+					className="portfolio-work-resources"
+					aria-label={`${publication.shortTitle} resources`}
+				>
+					{publication.resources.map((resource, resourceIndex) => (
+						<span key={resource.label} className="portfolio-work-resource-item">
+							<TextLink href={resource.href}>{resource.label}</TextLink>
+							{resourceIndex < publication.resources.length - 1 ? (
+								<span className="portfolio-work-resource-separator" aria-hidden="true">
+									{" / "}
+								</span>
+							) : null}
+						</span>
+					))}
+				</nav>
+				<p className="portfolio-work-description">{publication.description}</p>
 			</div>
-			<p className="portfolio-work-description">{description}</p>
 		</article>
 	);
 }
@@ -280,17 +336,24 @@ export default function HomePageClient() {
 					</div>
 				</header>
 
-				<section className="portfolio-section" aria-labelledby="selected-work-heading">
+				<section
+					className="portfolio-section portfolio-publications-section"
+					aria-labelledby="selected-work-heading"
+				>
 					<h2
 						id="selected-work-heading"
 						className="portfolio-section-label portfolio-fade"
 						style={{ animationDelay: "300ms" }}
 					>
-						Selected work
+						Selected publications
 					</h2>
 					<div className="portfolio-work-list">
-						{selectedWork.map((item, index) => (
-							<SelectedWorkRow key={item.title} {...item} index={index} />
+						{researchPublications.map((publication, index) => (
+							<SelectedPublicationRow
+								key={publication.title}
+								publication={publication}
+								index={index}
+							/>
 						))}
 					</div>
 

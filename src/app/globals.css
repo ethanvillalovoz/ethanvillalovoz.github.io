@@ -277,15 +277,35 @@ button {
 
 .portfolio-work-list {
   display: grid;
-  gap: 30px;
+  gap: 32px;
 }
 
 .portfolio-work-item {
+  align-items: start;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 196px minmax(0, 1fr);
   min-width: 0;
 }
 
-.portfolio-work-heading {
+.portfolio-work-media {
+  aspect-ratio: 16 / 10;
+  background: rgb(var(--card));
+  border: 1px solid rgb(var(--foreground) / 0.12);
+  border-radius: 4px;
   display: block;
+  overflow: hidden;
+}
+
+.portfolio-work-image {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.portfolio-work-copy {
+  min-width: 0;
 }
 
 .portfolio-work-title {
@@ -300,23 +320,76 @@ button {
   padding: 0;
 }
 
-.portfolio-work-date {
-  display: inline;
-  margin-left: 3px;
-  text-align: left;
-  text-transform: none;
-  white-space: nowrap;
+.portfolio-work-title .portfolio-link {
+  font-weight: 500;
+}
+
+.portfolio-work-authors,
+.portfolio-work-venue {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 21px;
+  padding: 0;
 }
 
 .portfolio-work-description {
-  color: rgb(var(--foreground));
   font-family: var(--font-sans);
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0;
   line-height: 24px;
-  margin: 4px 0 0;
   padding: 0;
+}
+
+.portfolio-work-authors {
+  color: rgb(var(--foreground));
+  margin: 6px 0 0;
+}
+
+.portfolio-work-authors .portfolio-link {
+  font-weight: 400;
+}
+
+.portfolio-work-authors strong {
+  color: rgb(var(--heading));
+  font-weight: 500;
+}
+
+.portfolio-work-authors strong .portfolio-link {
+  font-weight: 500;
+}
+
+.portfolio-work-authors strong .portfolio-link::after {
+  bottom: -2px;
+  clip-path: inset(0);
+}
+
+.portfolio-work-venue {
+  color: rgb(var(--heading));
+  font-style: italic;
+  margin: 4px 0 0;
+}
+
+.portfolio-work-resources {
+  display: block;
+  font-size: 14px;
+  line-height: 21px;
+  margin-top: 4px;
+}
+
+.portfolio-work-resource-item {
+  display: inline;
+}
+
+.portfolio-work-resource-separator {
+  color: rgb(var(--foreground));
+}
+
+.portfolio-work-description {
+  color: rgb(var(--foreground));
+  margin: 8px 0 0;
 }
 
 .portfolio-more-content {
@@ -1336,6 +1409,11 @@ button {
     left: 0;
     top: calc(100% + 1px);
     transform: none;
+  }
+
+  .portfolio-work-item {
+    gap: 16px;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
