@@ -31,7 +31,6 @@ export interface TeachingExperience {
 	role: string;
 	institution: string;
 	term: string;
-	description: string;
 }
 
 export const researchPublications: ResearchPublication[] = [
@@ -110,35 +109,27 @@ export const researchPublications: ResearchPublication[] = [
 
 export const teachingExperiences: TeachingExperience[] = [
 	{
-		course: "CPT_S 315: Introduction to Data Mining",
+		course: "CPT S 315: Introduction to Data Mining",
 		role: "Undergraduate Teaching Assistant",
 		institution: "Washington State University",
 		term: "Spring 2025",
-		description:
-			"Supported 90 students through office hours, grading, exam feedback, and applied Python and data-mining support; delivered guest lectures for final-project preparation.",
 	},
 	{
-		course: "CPT_S 350: Design and Analysis of Algorithms",
+		course: "CPT S 350: Design and Analysis of Algorithms",
 		role: "Undergraduate Teaching Assistant",
 		institution: "Washington State University",
 		term: "Fall 2024",
-		description:
-			"Supported 83 students across algorithm design, data structures, and computational complexity; oversaw the course's main Python project.",
 	},
 	{
-		course: "CPT_S 355: Programming Language Design",
+		course: "CPT S 355: Programming Language Design",
 		role: "Undergraduate Teaching Assistant",
 		institution: "Washington State University",
 		term: "Fall 2023",
-		description:
-			"Guided 86 students through programming-language concepts and assignments in Haskell, Python, PostScript, and Java.",
 	},
 	{
-		course: "CPT_S 121: Program Design and Development C/C++",
+		course: "CPT S 121: Program Design and Development C/C++",
 		role: "Undergraduate Teaching Assistant",
 		institution: "Washington State University",
 		term: "Fall 2022",
-		description:
-			"Led lab sessions and office hours for 17 students learning introductory programming and computer science in C/C++.",
 	},
 ];

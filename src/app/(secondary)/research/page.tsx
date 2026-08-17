@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import PublicationAuthors from "@/components/PublicationAuthors";
 import { absoluteUrl, personReference, site } from "@/data/site";
 import {
 	researchPublications,
 	teachingExperiences,
-	type ResearchAuthor,
 	type ResearchPublication,
 } from "@/data/research";
 
@@ -71,30 +71,6 @@ const researchCollectionJsonLd = {
 	},
 };
 
-function AuthorList({ authors }: { authors: ResearchAuthor[] }) {
-	return (
-		<p className="research-authors">
-			{authors.map((author, index) => (
-				<span key={author.name}>
-					{author.href ? (
-						<a
-							href={author.href}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="portfolio-link"
-						>
-							{author.name}
-						</a>
-					) : (
-						<strong>{author.name}</strong>
-					)}
-					{index < authors.length - 1 ? ", " : ""}
-				</span>
-			))}
-		</p>
-	);
-}
-
 function PublicationRow({
 	publication,
 	index,
@@ -104,7 +80,13 @@ function PublicationRow({
 }) {
 	return (
 		<li className="research-publication work-page-fade">
-			<div className="research-publication-media">
+			<a
+				href={publication.href}
+				target="_blank"
+				rel="noopener noreferrer"
+				className="research-publication-media"
+				aria-label={`View ${publication.title}`}
+			>
 				<Image
 					src={publication.image}
 					alt={publication.imageAlt}
@@ -112,15 +94,12 @@ function PublicationRow({
 					height={500}
 					quality={90}
 					sizes="(min-width: 760px) 280px, 100vw"
-					loading={index === 0 ? "eager" : "lazy"}
+					loading={index < 2 ? "eager" : "lazy"}
 					className="research-publication-image"
 				/>
-			</div>
+			</a>
 
 			<div className="research-publication-copy">
-				<p className="research-publication-meta">
-					{publication.venue}, {publication.date}
-				</p>
 				<h3 className="research-publication-title">
 					<a
 						href={publication.href}
@@ -128,14 +107,15 @@ function PublicationRow({
 						rel="noopener noreferrer"
 						className="portfolio-link"
 					>
-						{publication.shortTitle}
+						{publication.title}
 					</a>
 				</h3>
-				<p className="research-publication-full-title">{publication.title}</p>
-				<AuthorList authors={publication.authors} />
-				<p className="research-publication-description">{publication.description}</p>
-				<p className="research-publication-contribution">
-					<strong>My contribution:</strong> {publication.contribution}
+				<PublicationAuthors
+					authors={publication.authors}
+					className="research-authors"
+				/>
+				<p className="research-publication-meta">
+					{publication.venue}, {publication.date}
 				</p>
 				<nav className="research-resource-links" aria-label={`${publication.shortTitle} resources`}>
 					{publication.resources.map((resource) => (
@@ -150,6 +130,10 @@ function PublicationRow({
 						</a>
 					))}
 				</nav>
+				<p className="research-publication-description">{publication.description}</p>
+				<p className="research-publication-contribution">
+					<strong>My contribution:</strong> {publication.contribution}
+				</p>
 			</div>
 		</li>
 	);
@@ -166,7 +150,6 @@ export default function ResearchPage() {
 					<div className="research-container">
 						<header className="work-intro work-page-fade">
 							<h1>Research</h1>
-							<p>Publications and teaching.</p>
 						</header>
 
 						<section aria-labelledby="publications-heading">
@@ -198,7 +181,6 @@ export default function ResearchPage() {
 											</p>
 										</div>
 										<p className="teaching-term">{experience.term}</p>
-										<p className="teaching-description">{experience.description}</p>
 									</li>
 								))}
 							</ol>

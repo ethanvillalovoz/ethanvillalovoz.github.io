@@ -3,12 +3,9 @@
 import Image from "next/image";
 import { useEffect, useState, type ReactNode } from "react";
 import { FiMapPin } from "react-icons/fi";
+import PublicationAuthors from "@/components/PublicationAuthors";
 import ThemeToggle from "@/components/ThemeToggle";
-import {
-	researchPublications,
-	type ResearchAuthor,
-	type ResearchPublication,
-} from "@/data/research";
+import { researchPublications, type ResearchPublication } from "@/data/research";
 
 const previousExperience = [
 	{
@@ -139,45 +136,6 @@ function ExperienceRow({
 	);
 }
 
-function SelectedPublicationAuthors({ authors }: { authors: ResearchAuthor[] }) {
-	return (
-		<p className="portfolio-work-authors">
-			{authors.map((author, index) => (
-				<span key={author.name}>
-					{author.isEthan ? (
-						<strong>
-							{author.href ? (
-								<a
-									href={author.href}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="portfolio-link"
-								>
-									{author.name}
-								</a>
-							) : (
-								author.name
-							)}
-						</strong>
-					) : author.href ? (
-						<a
-							href={author.href}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="portfolio-link"
-						>
-							{author.name}
-						</a>
-					) : (
-						author.name
-					)}
-					{index < authors.length - 1 ? ", " : ""}
-				</span>
-			))}
-		</p>
-	);
-}
-
 function SelectedPublicationRow({
 	publication,
 	index,
@@ -211,7 +169,10 @@ function SelectedPublicationRow({
 				<h3 className="portfolio-work-title">
 					<TextLink href={publication.href}>{publication.title}</TextLink>
 				</h3>
-				<SelectedPublicationAuthors authors={publication.authors} />
+				<PublicationAuthors
+					authors={publication.authors}
+					className="portfolio-work-authors"
+				/>
 				<p className="portfolio-work-venue">
 					{publication.venue}, {publication.date}
 				</p>
