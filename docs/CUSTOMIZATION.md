@@ -24,21 +24,9 @@ The homepage experience lives in `src/components/HomePageClient.tsx`. It contain
 - Location and contact method
 - Profile links
 - Selected prior experience
-- Three selected Work entries
+- Selected research work
 
 Keep this page selective. It should introduce the person and create clear paths into deeper evidence, not reproduce a resume.
-
-## Work
-
-Edit `src/data/work.ts` to add or reorder entries. Items are displayed newest first and support these kinds:
-
-- `Writing`
-- `Research`
-- `Project`
-
-Every entry needs a title, destination, month/year, kind, concise description, image, and useful alt text.
-
-Writing should follow the same card model as research and projects. Define published essay metadata in `src/data/writing.ts`, add the article under `src/app/(secondary)/writing/`, and reuse that metadata in Work. Do not publish placeholder entries.
 
 ## Writing
 
@@ -74,7 +62,7 @@ Add a rewrite in `next.config.ts` when exposing a new static page at a clean rou
 
 ```text
 public/data/     Resume, CV, papers, and research artifacts
-public/images/   Identity, organization, and active Work images
+public/images/   Identity, organization, and active project images
 ```
 
 The public resume and CV are built from the separate [LaTeX Resume + Academic CV repository](https://github.com/ethanvillalovoz/latex-resume-template). Keep their PDF metadata, visible content, links, and website copies synchronized when publishing an update.
@@ -92,4 +80,4 @@ npm run check
 npm audit
 ```
 
-Then inspect Home, Writing, Work, Research, all active microsites, legacy redirects, and the 404 page at desktop and mobile sizes. Check keyboard focus, theme switching, horizontal overflow, broken images, and console errors.
+Then inspect Home, Writing, Research, all active microsites, legacy redirects, and the 404 page at desktop and mobile sizes. Check keyboard focus, theme switching, horizontal overflow, broken images, and console errors.

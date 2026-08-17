@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml)
 
-Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a concise homepage, a reverse-chronological Work archive, technical writing, a Research page, and a small set of standalone project previews.
+Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a concise homepage, technical writing, a Research page, and a small set of standalone research previews.
 
 ![Homepage preview](public/visuals/homepage-preview.jpg)
 
@@ -13,24 +13,17 @@ Personal portfolio and research website for [ethanvillalovoz.com](https://ethanv
 | `/` | Introduction, experience, contact links, and selected work |
 | `/writing/` | Technical notes and research writeups |
 | `/writing/tests-turn-prompting-into-search/` | BODE-GEN evaluation essay |
-| `/work/` | Unified archive of writing, research, and projects |
 | `/research/` | Publications, paper resources, and teaching history |
 | `/scenariolens/` | ScenarioLens interactive explorer |
 | `/metricdrive/` | MetricDrive research preview |
 
-Legacy `/projects/`, `/publications/`, and `/teaching/` URLs redirect to the current information architecture.
+Legacy `/work/`, `/projects/`, `/publications/`, and `/teaching/` URLs redirect to the current information architecture.
 
 ## Design And Content Model
 
 The homepage is intentionally compact. It offers enough context to understand Ethan's current work, then points visitors toward deeper evidence.
 
-Work uses one reverse-chronological feed with three supported content types:
-
-- `Writing`
-- `Research`
-- `Project`
-
-Writing belongs in that shared feed, using the same image, title, date/type, and concise-summary structure as the other entries. The Writing index contains only complete, substantive essays; it does not expose drafts or placeholder entries.
+The Writing index contains only complete, substantive essays; it does not expose drafts or placeholder entries. Research remains the canonical destination for publications and research projects.
 
 ## Stack
 
@@ -92,7 +85,6 @@ src/app/
   page.tsx                    Home metadata and server entry
   (secondary)/layout.tsx      Shared header and footer
   (secondary)/writing/        Writing index and essays
-  (secondary)/work/           Work archive
   (secondary)/research/       Publications and teaching
 
 src/components/
@@ -103,7 +95,6 @@ src/components/
 
 src/data/
   site.ts                     Canonical identity and metadata constants
-  work.ts                     Work feed entries
   writing.ts                  Published essay metadata
   research.ts                 Publications and teaching records
 

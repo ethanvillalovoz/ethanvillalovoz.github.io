@@ -9,7 +9,6 @@ export default function Navbar() {
 	const navItems = [
 		{ label: "Home", href: "/" },
 		{ label: "Writing", href: "/writing/" },
-		{ label: "Work", href: "/work/" },
 		{ label: "Research", href: "/research/" },
 	];
 

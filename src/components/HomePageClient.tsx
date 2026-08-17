@@ -309,7 +309,7 @@ export default function HomePageClient() {
 						className="portfolio-more-content portfolio-fade"
 						style={{ animationDelay: "500ms" }}
 					>
-						<a href="/work/" className="portfolio-link">
+						<a href="/research/" className="portfolio-link">
 							More work
 						</a>
 					</div>

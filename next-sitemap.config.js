@@ -12,17 +12,6 @@ const imageEntries = {
     ['/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-results.png', 'BODE-GEN results', 'Correctness results across code-generation models and prompting baselines'],
     ['/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-prompt-comparison.png', 'BODE-GEN prompt comparison', 'Original and optimized code-generation prompts'],
   ],
-  '/work/': [
-    ['/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-prompt-comparison.png', 'BODE-GEN prompt comparison'],
-    ['/scenariolens/assets/scenariolens-explorer.png', 'ScenarioLens Explorer'],
-    ['/metricdrive/assets/metricdrive-explorer.png', 'MetricDrive Explorer'],
-    ['/images/projects/bodegen-results-thumbnail.webp', 'BODE-GEN results'],
-    ['/images/projects/self-driving-poster.webp', 'Self-driving car offline replay'],
-    ['/images/projects/intellicrawl-poster.webp', 'IntelliCrawl source-backed research terminal demo'],
-    ['/images/projects/sentisync-poster.webp', 'SentiSync sentiment-analysis extension'],
-    ['/images/projects/rag-poster.webp', 'Knowledge Graph RAG retrieval workspace'],
-    ['/images/projects/social-triangles-thumbnail.webp', 'Social Triangles study conditions', 'Wedge and V-shape robot formations approaching participants'],
-  ],
   '/research/': [
     ['/images/projects/bodegen-method-thumbnail.webp', 'BODE-GEN method'],
     ['/images/projects/social-triangles-threat-thumbnail.webp', 'Social Triangles threat results', 'Threatening-to-harmless ratings across four multi-robot formations'],
@@ -44,7 +33,7 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   autoLastmod: false,
-  exclude: ['/projects', '/publications', '/teaching', '/gaussian-splatting-physics'],
+  exclude: ['/work', '/projects', '/publications', '/teaching', '/gaussian-splatting-physics'],
   transform: async (_config, path) => ({
     loc: path,
     images: (imageEntries[normalizePath(path)] ?? []).map(([imagePath, title, caption]) => ({

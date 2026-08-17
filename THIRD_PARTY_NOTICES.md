@@ -14,4 +14,4 @@ Personal photographs and project screenshots are not offered as reusable templat
 
 ## Design References
 
-The portfolio's restrained typography, spacing, and mixed Work archive were developed with public portfolio references including [Maddie Simens](https://maddie.ai/) and [Rajan Agarwal](https://www.rajan.sh/). The implementation and content in this repository are maintained for Ethan Villalovoz's site.
+The portfolio's restrained typography and spacing were developed with public portfolio references including [Maddie Simens](https://maddie.ai/) and [Rajan Agarwal](https://www.rajan.sh/). The implementation and content in this repository are maintained for Ethan Villalovoz's site.

@@ -10,10 +10,8 @@ const requiredPaths = [
 	"src/app/page.tsx",
 	"src/app/(secondary)/writing/page.tsx",
 	"src/app/(secondary)/writing/tests-turn-prompting-into-search/page.tsx",
-	"src/app/(secondary)/work/page.tsx",
 	"src/app/(secondary)/research/page.tsx",
 	"src/components/HomePageClient.tsx",
-	"src/data/work.ts",
 	"src/data/writing.ts",
 	"src/data/research.ts",
 	"scripts/sync-scenariolens.mjs",
@@ -47,7 +45,9 @@ const forbiddenPaths = [
 	"src/app/publications",
 	"src/app/teaching",
 	"src/app/(secondary)/rag",
+	"src/app/(secondary)/work",
 	"src/data/projects.ts",
+	"src/data/work.ts",
 	"src/data/publications.ts",
 	"src/data/teaching.ts",
 	"tailwind.config.ts",
@@ -164,9 +164,8 @@ if (await exists(scenarioLensRunPath)) {
 		failures.push(`${scenarioLensRunPath} is not valid JSON`);
 	}
 }
-const workDataPath = path.join(root, "src/data/work.ts");
 const writingDataPath = path.join(root, "src/data/writing.ts");
-const imageDataPaths = [workDataPath, writingDataPath];
+const imageDataPaths = [writingDataPath];
 
 for (const dataPath of imageDataPaths) {
 	const relativeDataPath = path.relative(root, dataPath);
@@ -229,12 +228,12 @@ if (await exists(sitemapPath)) {
 		"https://ethanvillalovoz.com/",
 		"https://ethanvillalovoz.com/writing/",
 		"https://ethanvillalovoz.com/writing/tests-turn-prompting-into-search/",
-		"https://ethanvillalovoz.com/work/",
 		"https://ethanvillalovoz.com/research/",
 		"https://ethanvillalovoz.com/scenariolens/",
 		"https://ethanvillalovoz.com/metricdrive/",
 	];
 	const excludedUrls = [
+		"/work/",
 		"/projects/",
 		"/publications/",
 		"/teaching/",
@@ -245,12 +244,6 @@ if (await exists(sitemapPath)) {
 		"https://ethanvillalovoz.com/images/EthanVillalovozPic-optimized.jpg",
 		"https://ethanvillalovoz.com/scenariolens/assets/scenariolens-explorer.png",
 		"https://ethanvillalovoz.com/metricdrive/assets/metricdrive-explorer.png",
-		"https://ethanvillalovoz.com/images/projects/self-driving-poster.webp",
-		"https://ethanvillalovoz.com/images/projects/intellicrawl-poster.webp",
-		"https://ethanvillalovoz.com/images/projects/sentisync-poster.webp",
-		"https://ethanvillalovoz.com/images/projects/rag-poster.webp",
-		"https://ethanvillalovoz.com/images/projects/bodegen-results-thumbnail.webp",
-		"https://ethanvillalovoz.com/images/projects/social-triangles-thumbnail.webp",
 		"https://ethanvillalovoz.com/images/projects/bodegen-method-thumbnail.webp",
 		"https://ethanvillalovoz.com/images/projects/social-triangles-threat-thumbnail.webp",
 	];

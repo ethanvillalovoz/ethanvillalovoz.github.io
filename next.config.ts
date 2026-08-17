@@ -8,8 +8,13 @@ const nextConfig: NextConfig = {
 	async redirects() {
 		return [
 			{
+				source: "/work/:path*",
+				destination: "/research/",
+				permanent: true,
+			},
+			{
 				source: "/projects/:path*",
-				destination: "/work/",
+				destination: "/research/",
 				permanent: true,
 			},
 			{
@@ -24,12 +29,12 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: "/DreamWorlds/:path*",
-				destination: "/work/",
+				destination: "/research/",
 				permanent: true,
 			},
 			{
 				source: "/gaussian-splatting-physics/:path*",
-				destination: "/work/",
+				destination: "/research/",
 				permanent: true,
 			},
 		];

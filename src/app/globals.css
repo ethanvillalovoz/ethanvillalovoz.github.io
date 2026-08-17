@@ -564,17 +564,6 @@ button {
   margin-right: -12px;
 }
 
-.work-main {
-  flex: 1 0 auto;
-  padding: 64px 24px 104px;
-}
-
-.work-container {
-  margin: 0 auto;
-  max-width: 1120px;
-  width: 100%;
-}
-
 .work-intro {
   animation-delay: 40ms;
   margin-bottom: 48px;
@@ -598,154 +587,6 @@ button {
   letter-spacing: 0;
   line-height: 24px;
   margin: 0;
-}
-
-.work-grid {
-  display: grid;
-  gap: 48px 24px;
-  grid-template-columns: minmax(0, 1fr);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.work-card {
-  min-width: 0;
-}
-
-.work-card-link {
-  color: inherit;
-  display: block;
-  text-decoration: none;
-}
-
-.work-card-link:focus-visible {
-  outline: 2px solid rgb(var(--heading));
-  outline-offset: 4px;
-}
-
-.work-card-media {
-  aspect-ratio: 16 / 10;
-  background: rgb(var(--card));
-  border: 1px solid rgb(var(--foreground) / 0.12);
-  border-radius: 4px;
-  display: block;
-  overflow: hidden;
-  position: relative;
-}
-
-.work-card-image {
-  display: block;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--motion-standard) var(--ease-out);
-  width: 100%;
-}
-
-.work-card-video {
-  display: block;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--motion-standard) var(--ease-out);
-  width: 100%;
-}
-
-.work-card-video-contain {
-  object-fit: contain;
-}
-
-.work-card-image-contain {
-  object-fit: contain;
-}
-
-.work-card-prompt-stack {
-  display: grid;
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  height: 100%;
-  overflow: hidden;
-  transition: transform var(--motion-standard) var(--ease-out);
-  width: 100%;
-}
-
-.work-card-prompt-panel {
-  background: #fff;
-  display: block;
-  min-height: 0;
-  overflow: hidden;
-  position: relative;
-}
-
-.work-card-prompt-panel + .work-card-prompt-panel {
-  border-top: 1px solid rgb(var(--foreground) / 0.12);
-}
-
-.work-card-prompt-image {
-  display: block;
-  height: auto;
-  max-width: none;
-  position: absolute;
-  top: 0;
-}
-
-.work-card-prompt-image-original {
-  left: 0;
-  width: 207.5%;
-}
-
-.work-card-prompt-image-optimized {
-  left: -95.25%;
-  width: 197.63%;
-}
-
-.work-card-copy {
-  display: block;
-  margin-top: 13px;
-}
-
-.work-card-title {
-  color: rgb(var(--heading));
-  display: block;
-  font-family: var(--font-sans);
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 24px;
-  margin: 0;
-}
-
-.work-card-title-link {
-  color: inherit;
-}
-
-.work-card-link:focus-visible .work-card-title-link::after,
-.work-card-link:active .work-card-title-link::after {
-  clip-path: inset(0);
-}
-
-.work-card-link:focus-visible .work-card-title-link::after {
-  transition-duration: 0ms;
-}
-
-.work-card-meta {
-  color: rgb(var(--muted));
-  display: block;
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 20px;
-  margin: 3px 0 0;
-}
-
-.work-card-description {
-  color: rgb(var(--foreground));
-  display: block;
-  font-family: var(--font-sans);
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 24px;
-  margin: 8px 0 0;
 }
 
 .writing-main,
@@ -1319,21 +1160,8 @@ button {
     color: rgb(var(--heading));
   }
 
-  .work-card-link:hover .work-card-image,
-  .work-card-link:hover .work-card-video,
-  .work-card-link:hover .work-card-prompt-stack {
-    transform: scale(1.022);
-  }
-
-  .work-card-link:hover .work-card-title-link::after,
   .writing-entry-link:hover .writing-entry-title-link::after {
     clip-path: inset(0);
-  }
-}
-
-@media (min-width: 640px) {
-  .work-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1344,10 +1172,6 @@ button {
 }
 
 @media (min-width: 1024px) {
-  .work-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .essay-layout {
     display: grid;
     gap: 48px;
@@ -1390,10 +1214,6 @@ button {
     justify-self: end;
   }
 
-  .work-main {
-    padding: 48px 24px 80px;
-  }
-
   .writing-main,
   .essay-main {
     padding: 48px 24px 80px;
@@ -1410,10 +1230,6 @@ button {
   .work-intro h1 {
     font-size: 26px;
     line-height: 34px;
-  }
-
-  .work-grid {
-    row-gap: 42px;
   }
 
   .research-teaching {
@@ -1581,14 +1397,6 @@ button {
 
   .portfolio-copy-button:active,
   .portfolio-theme-toggle:active {
-    transform: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) and (hover: hover) and (pointer: fine) {
-  .work-card-link:hover .work-card-image,
-  .work-card-link:hover .work-card-video,
-  .work-card-link:hover .work-card-prompt-stack {
     transform: none;
   }
 }
