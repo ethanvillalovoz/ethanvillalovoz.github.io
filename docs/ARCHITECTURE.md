@@ -29,7 +29,7 @@ src/data/site.ts       Canonical site identity, URL, profile image, and social p
 
 Writing metadata is defined once in `writing.ts` and appears in the Writing index. Only complete essays belong on that surface.
 
-Publication records retain author order, venue, primary URLs, local PDFs, and BibTeX resources. Teaching remains a compact section of Research instead of a separate top-level page.
+Publication records retain author order, venue, primary URLs, local PDFs, and available supporting resources. Teaching remains a compact section of Research instead of a separate top-level page.
 
 ## Styling
 

@@ -10,7 +10,7 @@ Personal portfolio and research website for [ethanvillalovoz.com](https://ethanv
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Introduction, experience, contact links, and selected work |
+| `/` | Introduction, experience, contact links, and selected publications |
 | `/writing/` | Technical notes and research writeups |
 | `/writing/tests-turn-prompting-into-search/` | BODE-GEN evaluation essay |
 | `/research/` | Publications, paper resources, and teaching history |
