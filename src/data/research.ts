@@ -29,6 +29,7 @@ export interface ResearchPublication {
 
 export interface TeachingExperience {
 	course: string;
+	href?: string;
 	role: string;
 	institution: string;
 	term: string;
@@ -106,6 +107,13 @@ export const researchPublications: ResearchPublication[] = [
 ];
 
 export const teachingExperiences: TeachingExperience[] = [
+	{
+		course: "CS 8803 O27: Computer Graphics in the AI Era",
+		href: "https://omscs.gatech.edu/cs-8803-o27-computer-graphics-ai-era",
+		role: "Graduate Assistant",
+		institution: "Georgia Institute of Technology",
+		term: "Fall 2026",
+	},
 	{
 		course: "CPT S 315: Introduction to Data Mining",
 		role: "Undergraduate Teaching Assistant",

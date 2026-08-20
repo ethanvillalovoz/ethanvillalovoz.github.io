@@ -178,7 +178,20 @@ export default function ResearchPage() {
 								{teachingExperiences.map((experience) => (
 									<li key={`${experience.course}-${experience.term}`} className="teaching-row">
 										<div>
-											<h3>{experience.course}</h3>
+											<h3>
+												{experience.href ? (
+													<a
+														href={experience.href}
+														target="_blank"
+														rel="noopener noreferrer"
+														className="portfolio-link"
+													>
+														{experience.course}
+													</a>
+												) : (
+													experience.course
+												)}
+											</h3>
 											<p className="teaching-role">
 												{experience.role}, {experience.institution}
 											</p>
