@@ -37,7 +37,7 @@ const previousExperience = [
 		date: "2023",
 	},
 	{
-		title: "Oregon State",
+		title: "Oregon State University",
 		href: "https://oregonstate.edu/",
 		iconSrc: "/images/organizations/oregon-state.png",
 		role: "NSF REU Fellow",
