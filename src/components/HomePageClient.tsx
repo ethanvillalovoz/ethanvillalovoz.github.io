@@ -261,7 +261,7 @@ export default function HomePageClient() {
 							>
 								Georgia Tech
 							</OrganizationLink>
-							, where I work on robot learning. I&apos;m interested in how robots can understand the physical world and the people they interact with. Previously, I built and evaluated enterprise AI agent systems at{" "}
+							. I&apos;m interested in how robots can understand the physical world and the people they interact with. Previously, I built and evaluated enterprise AI agent systems at{" "}
 							<OrganizationLink
 								href="https://www.microsoft.com/"
 								iconSrc="/images/organizations/microsoft.ico"
