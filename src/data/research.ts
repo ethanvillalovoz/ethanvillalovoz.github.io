@@ -106,7 +106,7 @@ export const researchPublications: ResearchPublication[] = [
 export const teachingExperiences: TeachingExperience[] = [
 	{
 		course: "CS 8803 O27: Computer Graphics in the AI Era",
-		href: "https://omscs.gatech.edu/cs-8803-o27-computer-graphics-ai-era",
+		href: "https://cgai-gatech.vercel.app/",
 		role: "Graduate Assistant",
 		institution: "Georgia Institute of Technology",
 		term: "Fall 2026",
