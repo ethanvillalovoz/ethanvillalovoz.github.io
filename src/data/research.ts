@@ -130,7 +130,7 @@ export const teachingExperiences: TeachingExperience[] = [
 		term: "Fall 2023",
 	},
 	{
-		course: "CPT S 121: Program Design and Development C/C++",
+		course: "CPT S 121: Program Design and Development in C",
 		role: "Undergraduate Teaching Assistant",
 		institution: "Washington State University",
 		term: "Fall 2022",

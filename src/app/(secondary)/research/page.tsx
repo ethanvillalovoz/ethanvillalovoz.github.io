@@ -142,6 +142,11 @@ function PublicationRow({
 	);
 }
 
+const teachingGroups = Array.from(new Set(teachingExperiences.map((entry) => entry.institution))).map((institution) => ({
+	institution,
+	experiences: teachingExperiences.filter((entry) => entry.institution === institution),
+}));
+
 export default function ResearchPage() {
 	return (
 		<>
@@ -174,32 +179,28 @@ export default function ResearchPage() {
 							<h2 id="teaching-heading" className="secondary-section-label">
 								Teaching
 							</h2>
-							<ol className="teaching-list">
-								{teachingExperiences.map((experience) => (
-									<li key={`${experience.course}-${experience.term}`} className="teaching-row">
-										<div>
-											<h3>
-												{experience.href ? (
-													<a
-														href={experience.href}
-														target="_blank"
-														rel="noopener noreferrer"
-														className="portfolio-link"
-													>
-														{experience.course}
-													</a>
-												) : (
-													experience.course
-												)}
-											</h3>
-											<p className="teaching-role">
-												{experience.role}, {experience.institution}
-											</p>
-										</div>
-										<p className="teaching-term">{experience.term}</p>
-									</li>
+							<div className="teaching-groups">
+								{teachingGroups.map(({ institution, experiences }) => (
+									<section className="teaching-institution" key={institution} aria-label={institution}>
+										<h3 className="teaching-institution-name">{institution}</h3>
+										<ol className="teaching-list">
+											{experiences.map((experience) => (
+												<li key={`${experience.course}-${experience.term}`} className="teaching-row">
+													<div className="teaching-role-heading">
+														<h4 className="teaching-role">{experience.role}</h4>
+														<p className="teaching-term">{experience.term}</p>
+													</div>
+													<p className="teaching-course">
+														{experience.href ? (
+															<a href={experience.href} target="_blank" rel="noopener noreferrer" className="portfolio-link">{experience.course}</a>
+														) : experience.course}
+													</p>
+												</li>
+											))}
+										</ol>
+									</section>
 								))}
-							</ol>
+							</div>
 						</section>
 					</div>
 				</main>

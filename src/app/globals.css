@@ -1069,8 +1069,7 @@ button {
   margin: 0 0 6px;
 }
 
-.research-publication-title,
-.teaching-row h3 {
+.research-publication-title {
   color: rgb(var(--heading));
   font-family: var(--font-sans);
   font-size: 18px;
@@ -1149,31 +1148,56 @@ button {
   margin-top: 72px;
 }
 
-.teaching-row {
+.teaching-institution {
   border-top: 1px solid rgb(var(--foreground) / 0.14);
-  display: grid;
-  gap: 6px 24px;
-  grid-template-columns: minmax(0, 1fr) auto;
-  padding: 22px 0;
+  padding: 28px 0 32px;
 }
 
-.teaching-row:last-child {
+.teaching-institution:last-child {
   border-bottom: 1px solid rgb(var(--foreground) / 0.14);
 }
 
-.teaching-row h3 {
-  font-size: 16px;
-  line-height: 24px;
+.teaching-institution-name {
+  color: rgb(var(--heading));
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  margin: 0 0 20px;
+}
+
+.teaching-row + .teaching-row {
+  margin-top: 28px;
+}
+
+.teaching-role-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 24px;
+  flex-wrap: wrap;
 }
 
 .teaching-role {
   color: rgb(var(--muted));
-  margin: 3px 0 0;
+  font-style: italic;
+  margin: 0;
 }
 
 .teaching-term {
-  margin: 2px 0 0;
+  margin: 0;
   white-space: nowrap;
+}
+
+.teaching-course {
+  color: rgb(var(--foreground));
+  font-size: 14px;
+  line-height: 22px;
+  margin: 6px 0 0;
+}
+
+.teaching-course {
+  color: rgb(var(--heading));
+  font-weight: 500;
 }
 
 .work-page-fade {
