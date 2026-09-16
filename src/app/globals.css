@@ -363,7 +363,7 @@ button {
 
 .portfolio-work-authors strong .portfolio-link::after {
   bottom: -2px;
-  clip-path: inset(0);
+  background-size: 100% 100%;
 }
 
 .portfolio-work-venue {
@@ -425,23 +425,25 @@ button {
 }
 
 .portfolio-link::after {
-  background: rgb(var(--underline));
+  /* Paint the reveal without an animated clip mask, which can blink on completion. */
+  background-image: linear-gradient(rgb(var(--underline)), rgb(var(--underline)));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
   bottom: -3px;
-  clip-path: inset(0 100% 0 0);
   content: "";
   height: 1.5px;
   left: 0;
   pointer-events: none;
   position: absolute;
   right: 0;
-  transition: clip-path var(--motion-standard) var(--ease-out);
+  transition: background-size var(--motion-standard) var(--ease-out);
 }
 
 .portfolio-link:focus-visible::after,
 .portfolio-link:active::after,
 .portfolio-organization-link:focus-visible .portfolio-organization-name::after,
 .portfolio-organization-link:active .portfolio-organization-name::after {
-  clip-path: inset(0);
+  background-size: 100% 100%;
 }
 
 .portfolio-link:focus-visible::after,
@@ -726,7 +728,7 @@ button {
 
 .writing-entry-link:focus-visible .writing-entry-title-link::after,
 .writing-entry-link:active .writing-entry-title-link::after {
-  clip-path: inset(0);
+  background-size: 100% 100%;
 }
 
 .writing-entry-link:focus-visible .writing-entry-title-link::after {
@@ -1119,7 +1121,7 @@ button {
 
 .research-authors strong .portfolio-link::after {
   bottom: -2px;
-  clip-path: inset(0);
+  background-size: 100% 100%;
 }
 
 .research-publication-description {
@@ -1253,7 +1255,7 @@ button {
 @media (hover: hover) and (pointer: fine) {
   .portfolio-link:hover::after,
   .portfolio-organization-link:hover .portfolio-organization-name::after {
-    clip-path: inset(0);
+    background-size: 100% 100%;
   }
 
   .secondary-brand:hover,
@@ -1264,7 +1266,7 @@ button {
   }
 
   .writing-entry-link:hover .writing-entry-title-link::after {
-    clip-path: inset(0);
+    background-size: 100% 100%;
   }
 }
 
