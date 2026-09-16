@@ -3,6 +3,9 @@
 import Image from "next/image";
 import { useEffect, useState, type ReactNode } from "react";
 import { FiMapPin } from "react-icons/fi";
+import type { IconType } from "react-icons";
+import { FaLinkedin } from "react-icons/fa6";
+import { SiGithub, SiGooglescholar, SiX, SiYoutube } from "react-icons/si";
 import PublicationAuthors from "@/components/PublicationAuthors";
 import ThemeToggle from "@/components/ThemeToggle";
 import { researchPublications, type ResearchPublication } from "@/data/research";
@@ -60,6 +63,14 @@ const profileLinks = [
 	{ label: "X", href: "https://x.com/ethanvillalovoz" },
 	{ label: "YouTube", href: "https://www.youtube.com/@ethanvillalovoz" },
 ];
+
+const profileIcons: Record<string, IconType> = {
+	GitHub: SiGithub,
+	Scholar: SiGooglescholar,
+	LinkedIn: FaLinkedin,
+	X: SiX,
+	YouTube: SiYoutube,
+};
 
 const contactEmail = "ethan.villalovoz@gmail.com";
 
@@ -239,6 +250,34 @@ export default function HomePageClient() {
 								<FiMapPin aria-hidden="true" />
 								<span>Sacramento, California, United States</span>
 							</p>
+
+							<nav className="portfolio-profile-links" aria-label="Ethan's profiles and contact links">
+								{[profileLinks.slice(0, 2), profileLinks.slice(2)].map((group) => (
+									<span className="portfolio-profile-group" key={group[0].label}>
+										{group.map((link) => {
+											const Icon = profileIcons[link.label];
+											return (
+												<span key={link.label} className="portfolio-profile-link-item">
+													{Icon ? (
+														<a
+															href={link.href}
+															target="_blank"
+															rel="noopener noreferrer"
+															className="portfolio-link portfolio-profile-icon"
+															aria-label={link.label}
+															title={link.label}
+														>
+															<Icon aria-hidden="true" />
+														</a>
+													) : (
+														<TextLink href={link.href}>{link.label}</TextLink>
+													)}
+												</span>
+											);
+										})}
+									</span>
+								))}
+							</nav>
 						</div>
 
 						<Image
@@ -294,14 +333,6 @@ export default function HomePageClient() {
 								</span>
 							</span>
 						</p>
-
-						<nav className="portfolio-profile-links" aria-label="Ethan's profiles and contact links">
-							{profileLinks.map((link) => (
-								<span key={link.label} className="portfolio-profile-link-item">
-									<TextLink href={link.href}>{link.label}</TextLink>
-								</span>
-							))}
-						</nav>
 					</div>
 				</header>
 

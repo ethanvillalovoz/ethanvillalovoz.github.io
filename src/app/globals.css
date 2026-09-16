@@ -200,16 +200,36 @@ button {
 }
 
 .portfolio-profile-links {
-  align-items: baseline;
-  display: grid;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px 16px;
-  grid-template-columns: repeat(4, max-content);
-  margin-top: 24px;
+  margin-top: 16px;
+}
+
+.portfolio-profile-group {
+  align-items: center;
+  display: flex;
+  gap: inherit;
 }
 
 .portfolio-profile-link-item {
   display: block;
   white-space: nowrap;
+}
+
+.portfolio-link.portfolio-profile-icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  vertical-align: middle;
+}
+
+.portfolio-profile-icon svg {
+  height: 18px;
+  width: 18px;
 }
 
 .portfolio-section + .portfolio-section {
@@ -1087,8 +1107,6 @@ button {
   }
 
   .portfolio-profile-links {
-    display: flex;
-    flex-wrap: wrap;
     column-gap: 24px;
   }
 
