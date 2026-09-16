@@ -22,7 +22,7 @@ Node.js 20.9 or newer is required.
 - Documentation corrections
 - Dependency updates that pass the full verification suite
 
-Content changes should remain evidence-backed. Preserve publication author order, venues, dates, and links. Do not add placeholder Writing entries or an empty Writing page.
+Content changes should remain evidence-backed. Preserve publication author order, venues, dates, and links.
 
 The homepage is intentionally locked. Changes to its copy, order, spacing, typography, or interactions should only be made when the issue explicitly targets that surface.
 

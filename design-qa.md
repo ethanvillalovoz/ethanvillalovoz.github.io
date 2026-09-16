@@ -8,7 +8,7 @@
 
 ## Verification
 
-- Reviewed `/`, `/research/`, `/writing/`, and `/writing/tests-turn-prompting-into-search/` in the in-app browser.
+- Reviewed `/` and `/research/` in the in-app browser.
 - Checked 1440 x 900 desktop and 390 x 844 mobile layouts with no horizontal overflow.
 - Confirmed deferred paper figures load when they enter the viewport.
 - Browser console contains no application warnings or errors.

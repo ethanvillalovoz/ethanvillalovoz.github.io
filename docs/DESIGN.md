@@ -37,7 +37,6 @@ This document records the interaction and presentation rules that keep new pages
 ## Content
 
 - Prefer concrete technical nouns and evidence over broad claims.
-- Writing should emerge from completed work: decisions, experiments, failures, tradeoffs, and reusable lessons.
 - Preserve publication titles, author order, venues, dates, and contribution language exactly as supported by source material.
 
 ## Review Checklist

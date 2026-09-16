@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml)
 
-Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a concise homepage, technical writing, and a Research page.
+Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a concise homepage and a Research page.
 
 ![Homepage preview](public/visuals/homepage-preview.jpg)
 
@@ -11,17 +11,15 @@ Personal portfolio and research website for [ethanvillalovoz.com](https://ethanv
 | Route | Purpose |
 | --- | --- |
 | `/` | Introduction, experience, contact links, and selected publications |
-| `/writing/` | Technical notes and research writeups |
-| `/writing/tests-turn-prompting-into-search/` | BODE-GEN evaluation essay |
 | `/research/` | Publications, paper resources, and teaching history |
 
-Legacy `/work/`, `/projects/`, `/publications/`, and `/teaching/` URLs redirect to the current information architecture.
+Legacy `/writing/`, `/work/`, `/projects/`, `/publications/`, and `/teaching/` URLs redirect to the current information architecture.
 
 ## Design And Content Model
 
 The homepage is intentionally compact. It offers enough context to understand Ethan's current work, then points visitors toward deeper evidence.
 
-The Writing index contains only complete, substantive essays; it does not expose drafts or placeholder entries. Research remains the canonical destination for publications and research projects.
+Research remains the canonical destination for publications and research projects.
 
 ## Stack
 
@@ -35,9 +33,9 @@ The Writing index contains only complete, substantive essays; it does not expose
 ## Discovery And Performance
 
 - Route-specific canonical, Open Graph, and X metadata
-- `ProfilePage`, `Blog`, `TechArticle`, `ScholarlyArticle`, and software-project JSON-LD
+- `ProfilePage`, `ScholarlyArticle`, and software-project JSON-LD
 - XML sitemap coverage for every public route and its representative images
-- Responsive `next/image` delivery for portfolio, research, and writing media
+- Responsive `next/image` delivery for portfolio and research media
 - Explicit image dimensions and lazy decoding for below-the-fold microsite figures
 - Compact favicon-based sharing for the homepage and route-specific social metadata
 
@@ -80,7 +78,6 @@ npm run check      # Run validation, lint, typecheck, and production build
 src/app/
   page.tsx                    Home metadata and server entry
   (secondary)/layout.tsx      Shared header and footer
-  (secondary)/writing/        Writing index and essays
   (secondary)/research/       Publications and teaching
 
 src/components/
@@ -91,7 +88,6 @@ src/components/
 
 src/data/
   site.ts                     Canonical identity and metadata constants
-  writing.ts                  Published essay metadata
   research.ts                 Publications and teaching records
 
 public/

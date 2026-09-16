@@ -8,7 +8,6 @@ export default function Navbar() {
 	const pathname = usePathname();
 	const navItems = [
 		{ label: "Home", href: "/" },
-		{ label: "Writing", href: "/writing/" },
 		{ label: "Research", href: "/research/" },
 	];
 

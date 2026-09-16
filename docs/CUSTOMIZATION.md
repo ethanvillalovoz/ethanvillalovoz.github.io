@@ -28,10 +28,6 @@ The homepage experience lives in `src/components/HomePageClient.tsx`. It contain
 
 Keep this page selective. It should introduce the person and create clear paths into deeper evidence, not reproduce a resume.
 
-## Writing
-
-The Writing index is intentionally text-first: title, date, and one-sentence summary. Individual essays use a focused reading column, optional contents navigation, technical figures or tables, explicit limitations, and a citation block when appropriate.
-
 ## Research
 
 Edit `src/data/research.ts` for publications and teaching.
@@ -69,4 +65,4 @@ npm run check
 npm audit
 ```
 
-Then inspect Home, Writing, Research, legacy redirects, and the 404 page at desktop and mobile sizes. Check keyboard focus, theme switching, horizontal overflow, broken images, and console errors.
+Then inspect Home, Research, legacy redirects, and the 404 page at desktop and mobile sizes. Check keyboard focus, theme switching, horizontal overflow, broken images, and console errors.

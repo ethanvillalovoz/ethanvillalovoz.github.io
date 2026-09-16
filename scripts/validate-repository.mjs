@@ -8,11 +8,8 @@ const failures = [];
 const requiredPaths = [
 	".nvmrc",
 	"src/app/page.tsx",
-	"src/app/(secondary)/writing/page.tsx",
-	"src/app/(secondary)/writing/tests-turn-prompting-into-search/page.tsx",
 	"src/app/(secondary)/research/page.tsx",
 	"src/components/HomePageClient.tsx",
-	"src/data/writing.ts",
 	"src/data/research.ts",
 	"src/data/site.ts",
 	"public/data/EthanVillalovoz-Resume.pdf",
@@ -31,6 +28,12 @@ const requiredPaths = [
 ];
 
 const forbiddenPaths = [
+	"src/app/(secondary)/writing",
+	"src/components/EssayContents.tsx",
+	"src/data/writing.ts",
+	"public/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-method.png",
+	"public/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-results.png",
+	"public/data/research/2025_WSU_Bayesian_Prompt_Optimization/bodegen-prompt-comparison.png",
 	"public/data/cgai_dream_worlds",
 	"public/fonts/NHaasGroteskTXPro-55Rg.ttf",
 	"public/fonts/NHaasGroteskTXPro-65Md.ttf",
@@ -89,8 +92,7 @@ for (const forbiddenPath of forbiddenPaths) {
 	if (await exists(forbiddenPath)) failures.push(`Stale path still present: ${forbiddenPath}`);
 }
 
-const writingDataPath = path.join(root, "src/data/writing.ts");
-const imageDataPaths = [writingDataPath];
+const imageDataPaths = [path.join(root, "src/data/research.ts")];
 
 for (const dataPath of imageDataPaths) {
 	const relativeDataPath = path.relative(root, dataPath);
@@ -151,11 +153,11 @@ if (await exists(sitemapPath)) {
 	const sitemap = await readFile(path.join(root, sitemapPath), "utf8");
 	const requiredUrls = [
 		"https://ethanvillalovoz.com/",
-		"https://ethanvillalovoz.com/writing/",
-		"https://ethanvillalovoz.com/writing/tests-turn-prompting-into-search/",
 		"https://ethanvillalovoz.com/research/",
 	];
 	const excludedUrls = [
+		"/writing/",
+		"/writing/tests-turn-prompting-into-search/",
 		"/work/",
 		"/projects/",
 		"/publications/",
