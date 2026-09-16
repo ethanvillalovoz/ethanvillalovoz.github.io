@@ -88,6 +88,7 @@ button {
 }
 
 .site-body {
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -108,7 +109,7 @@ button {
 }
 
 .portfolio-site {
-  background: rgb(var(--background));
+  background: transparent;
   color: rgb(var(--foreground));
   min-height: 100vh;
   position: relative;
@@ -568,16 +569,21 @@ button {
 }
 
 .secondary-site {
-  background: rgb(var(--background));
+  background: transparent;
   color: rgb(var(--foreground));
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-/* Both themes share a fixed violet gradient with an off-center lavender opening. */
-.portfolio-site,
-.secondary-site {
+/* A separate viewport layer keeps the gradient at the edge during elastic overscroll. */
+.site-body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: 280px;
+  pointer-events: none;
+  z-index: -1;
   background-image:
     linear-gradient(
       to bottom,
@@ -599,7 +605,6 @@ button {
     );
   background-repeat: no-repeat;
   background-size: 100% 280px;
-  background-attachment: fixed;
 }
 
 .secondary-header {

@@ -7,7 +7,7 @@ This document records the interaction and presentation rules that keep new pages
 - Home is the visual source of truth. Preserve its copy hierarchy, 672px column, typography, spacing, organization marks, profile image, and absence of global navigation.
 - Secondary pages may use wider containers when their content requires grids, technical figures, or publication metadata.
 - Use the system Helvetica/Arial stack and the light/dark color tokens in `src/app/globals.css`.
-- Home and Research share a fixed, 280px violet gradient with a soft lavender opening just right of center. Preserve the approved light palette; dark mode uses deeper violet tokens with the same pattern and fade.
+- Home and Research share a fixed, 280px violet gradient with a soft lavender opening just right of center. Render it on a separate fixed viewport layer so elastic overscroll does not expose a blank strip above it. Preserve the approved light palette; dark mode uses deeper violet tokens with the same pattern and fade.
 - Keep the interface quiet. Add visual variation only when it improves comprehension.
 
 ## Links And Controls
