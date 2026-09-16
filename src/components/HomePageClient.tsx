@@ -244,8 +244,8 @@ export default function HomePageClient() {
 						<Image
 							src="/images/EthanVillalovozPic-optimized.jpg"
 							alt="Portrait of Ethan Villalovoz"
-							width={88}
-							height={88}
+							width={112}
+							height={112}
 							quality={90}
 							priority
 							className="portfolio-profile-image"
