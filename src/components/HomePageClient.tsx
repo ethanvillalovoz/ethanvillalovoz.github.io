@@ -49,7 +49,6 @@ const previousExperience = [
 ];
 
 const profileLinks = [
-	{ label: "Resume", href: "/data/EthanVillalovoz-Resume.pdf" },
 	{ label: "CV", href: "/data/EthanVillalovoz-CV.pdf" },
 	{ label: "GitHub", href: "https://github.com/ethanvillalovoz" },
 	{
@@ -252,7 +251,7 @@ export default function HomePageClient() {
 							</p>
 
 							<nav className="portfolio-profile-links" aria-label="Ethan's profiles and contact links">
-								{[profileLinks.slice(0, 2), profileLinks.slice(2)].map((group) => (
+								{[profileLinks.slice(0, 1), profileLinks.slice(1)].map((group) => (
 									<span className="portfolio-profile-group" key={group[0].label}>
 										{group.map((link) => {
 											const Icon = profileIcons[link.label];
