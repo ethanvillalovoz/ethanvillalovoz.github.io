@@ -6,6 +6,8 @@
 
 html {
   min-width: 320px;
+  /* Safari can move fixed layers during rubber-banding and expose the canvas. */
+  overscroll-behavior-y: none;
 }
 
 body {
@@ -596,7 +598,7 @@ button {
   flex-direction: column;
 }
 
-/* A separate viewport layer keeps the gradient at the edge during elastic overscroll. */
+/* Keep the gradient anchored to the viewport during normal scrolling. */
 .site-body::before {
   content: "";
   position: fixed;
