@@ -37,6 +37,8 @@ img {
   --heading: 64 62 67;
   --muted: 113 112 117;
   --underline: 138 137 140;
+  --interaction-accent: 102 85 190;
+  --selection-background: 224 216 248;
 
   --primary: 64 62 67;
   --primary-foreground: 255 255 255;
@@ -59,6 +61,8 @@ img {
   --heading: 255 255 255;
   --muted: 138 137 140;
   --underline: 138 137 140;
+  --interaction-accent: 183 165 238;
+  --selection-background: 79 61 112;
 
   --primary: 200 200 201;
   --primary-foreground: 34 31 38;
@@ -66,6 +70,11 @@ img {
   --primary-dark: 255 255 255;
   --card: 40 38 43;
   color-scheme: dark;
+}
+
+::selection {
+  background: rgb(var(--selection-background));
+  color: rgb(var(--heading));
 }
 
 html,
@@ -447,6 +456,22 @@ button {
   margin-top: 30px;
 }
 
+.portfolio-link.portfolio-more-link {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.portfolio-more-arrow {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform var(--motion-standard) var(--ease-out);
+}
+
+.portfolio-more-link:focus-visible .portfolio-more-arrow {
+  transform: translateX(3px);
+  transition-duration: 0ms;
+}
+
 .portfolio-organization-link {
   color: rgb(var(--heading));
   text-decoration: none;
@@ -491,6 +516,7 @@ button {
 .portfolio-link:active::after,
 .portfolio-organization-link:focus-visible .portfolio-organization-name::after,
 .portfolio-organization-link:active .portfolio-organization-name::after {
+  background-image: linear-gradient(rgb(var(--interaction-accent)), rgb(var(--interaction-accent)));
   background-size: 100% 100%;
 }
 
@@ -502,7 +528,7 @@ button {
 .portfolio-link:focus-visible,
 .portfolio-organization-link:focus-visible {
   border-radius: 2px;
-  outline: 2px solid rgb(var(--heading) / 0.85);
+  outline: 2px solid rgb(var(--interaction-accent));
   outline-offset: 3px;
 }
 
@@ -568,7 +594,7 @@ button {
 }
 
 .portfolio-theme-toggle:focus-visible {
-  outline: 2px solid rgb(var(--heading));
+  outline: 2px solid rgb(var(--interaction-accent));
   outline-offset: 2px;
 }
 
@@ -715,6 +741,8 @@ button {
 .secondary-nav-link:focus-visible,
 .secondary-footer-link:focus-visible {
   color: rgb(var(--heading));
+  outline: 2px solid rgb(var(--interaction-accent));
+  outline-offset: 3px;
   transition-duration: 0ms;
 }
 
@@ -798,8 +826,9 @@ button {
   overflow: hidden;
 }
 
+.portfolio-work-media:focus-visible,
 .research-publication-media:focus-visible {
-  outline: 2px solid rgb(var(--heading) / 0.85);
+  outline: 2px solid rgb(var(--interaction-accent));
   outline-offset: 3px;
 }
 
@@ -1014,7 +1043,12 @@ button {
 @media (hover: hover) and (pointer: fine) {
   .portfolio-link:hover::after,
   .portfolio-organization-link:hover .portfolio-organization-name::after {
+    background-image: linear-gradient(rgb(var(--interaction-accent)), rgb(var(--interaction-accent)));
     background-size: 100% 100%;
+  }
+
+  .portfolio-more-link:hover .portfolio-more-arrow {
+    transform: translateX(3px);
   }
 
   .secondary-brand:hover,
@@ -1162,6 +1196,15 @@ button {
 
   .portfolio-copy-button:active,
   .portfolio-theme-toggle:active {
+    transform: none;
+  }
+
+  .portfolio-more-arrow {
+    transition: none;
+  }
+
+  .portfolio-more-link:hover .portfolio-more-arrow,
+  .portfolio-more-link:focus-visible .portfolio-more-arrow {
     transform: none;
   }
 }

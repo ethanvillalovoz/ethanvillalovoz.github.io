@@ -371,8 +371,9 @@ export default function HomePageClient() {
 						className="portfolio-more-content portfolio-fade"
 						style={{ animationDelay: "500ms" }}
 					>
-						<a href="/research/" className="portfolio-link">
+						<a href="/research/" className="portfolio-link portfolio-more-link">
 							More work
+							<span className="portfolio-more-arrow" aria-hidden="true">→</span>
 						</a>
 					</div>
 				</section>
