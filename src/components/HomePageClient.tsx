@@ -19,13 +19,14 @@ const previousExperience = [
 		role: "Software Engineer Intern",
 		date: "May 2026 – Jul 2026",
 	},
-	{
+	// Temporarily hidden from Previously; uncomment this entry to restore it.
+	/* {
 		title: "Washington State University",
 		href: "https://wsu.edu/",
 		iconSrc: "/images/organizations/washington-state.svg",
 		role: "Undergraduate Research Assistant",
 		date: "Jan 2024 – May 2025",
-	},
+	}, */
 	{
 		title: "CMU Robotics Institute",
 		href: "https://www.ri.cmu.edu/",
@@ -40,13 +41,14 @@ const previousExperience = [
 		role: "STEP Intern",
 		date: "May 2023 – Aug 2023",
 	},
-	{
+	// Temporarily hidden from Previously; uncomment this entry to restore it.
+	/* {
 		title: "Oregon State University",
 		href: "https://oregonstate.edu/",
 		iconSrc: "/images/organizations/oregon-state.png",
 		role: "NSF REU Fellow",
 		date: "Jun 2022 – Aug 2022",
-	},
+	}, */
 ];
 
 const profileLinks = [
