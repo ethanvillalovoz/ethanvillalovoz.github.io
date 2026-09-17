@@ -1,6 +1,7 @@
 import type { IconType } from "react-icons";
 import { FaLinkedin } from "react-icons/fa6";
 import { SiGooglescholar, SiX } from "react-icons/si";
+import ProfileIconLink from "@/components/ProfileIconLink";
 
 const footerLinks = [
 	{ label: "CV", href: "/data/EthanVillalovoz-CV.pdf" },
@@ -26,17 +27,22 @@ export default function Footer() {
 				<nav className="secondary-footer-links" aria-label="Additional links">
 					{footerLinks.map((link) => {
 						const Icon = footerIcons[link.label];
+						if (Icon) {
+							return (
+								<ProfileIconLink key={link.label} href={link.href} label={link.label} className="secondary-footer-link">
+									<Icon aria-hidden="true" />
+								</ProfileIconLink>
+							);
+						}
 						return (
 							<a
 								key={link.label}
 								href={link.href}
 								target="_blank"
 								rel="noopener noreferrer"
-								className={`secondary-footer-link portfolio-link${Icon ? " portfolio-profile-icon" : ""}`}
-								aria-label={Icon ? link.label : undefined}
-								title={Icon ? link.label : undefined}
+								className="secondary-footer-link portfolio-link"
 							>
-								{Icon ? <Icon aria-hidden="true" /> : link.label}
+								{link.label}
 							</a>
 						);
 					})}

@@ -243,6 +243,48 @@ button {
   width: 18px;
 }
 
+.portfolio-icon-tooltip {
+  background: rgb(var(--card));
+  border: 1px solid rgb(var(--foreground) / 0.16);
+  border-radius: 4px;
+  color: rgb(var(--heading));
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  padding: 4px 8px;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  visibility: hidden;
+  white-space: nowrap;
+  z-index: 5;
+}
+
+/* Bridge the gap so the pointer can move onto the label without hiding it. */
+.portfolio-icon-tooltip::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 9px;
+}
+
+.secondary-footer .portfolio-icon-tooltip {
+  top: auto;
+  bottom: calc(100% + 8px);
+}
+
+.secondary-footer .portfolio-icon-tooltip::before {
+  bottom: auto;
+  top: 100%;
+}
+
+.portfolio-profile-icon:focus-visible[data-tooltip-dismissed="false"] .portfolio-icon-tooltip {
+  visibility: visible;
+}
+
 .portfolio-section + .portfolio-section {
   margin-top: 52px;
 }
@@ -828,8 +870,10 @@ button {
 
 .portfolio-work-media:focus-visible,
 .research-publication-media:focus-visible {
+  border-color: rgb(var(--interaction-accent));
   outline: 2px solid rgb(var(--interaction-accent));
   outline-offset: 3px;
+  transition-duration: 0ms;
 }
 
 .research-publication-image {
@@ -1041,6 +1085,20 @@ button {
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .portfolio-profile-icon:hover[data-tooltip-dismissed="false"] .portfolio-icon-tooltip {
+    visibility: visible;
+  }
+
+  .portfolio-work-media,
+  .research-publication-media {
+    transition: border-color var(--motion-fast) var(--ease-out);
+  }
+
+  .portfolio-work-media:hover,
+  .research-publication-media:hover {
+    border-color: rgb(var(--interaction-accent));
+  }
+
   .portfolio-link:hover::after,
   .portfolio-organization-link:hover .portfolio-organization-name::after {
     background-image: linear-gradient(rgb(var(--interaction-accent)), rgb(var(--interaction-accent)));

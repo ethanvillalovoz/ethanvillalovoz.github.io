@@ -7,6 +7,7 @@ import type { IconType } from "react-icons";
 import { FaLinkedin } from "react-icons/fa6";
 import { SiGithub, SiGooglescholar, SiX, SiYoutube } from "react-icons/si";
 import PublicationAuthors from "@/components/PublicationAuthors";
+import ProfileIconLink from "@/components/ProfileIconLink";
 import ThemeToggle from "@/components/ThemeToggle";
 import { researchPublications, type ResearchPublication } from "@/data/research";
 
@@ -258,16 +259,12 @@ export default function HomePageClient() {
 											return (
 												<span key={link.label} className="portfolio-profile-link-item">
 													{Icon ? (
-														<a
+														<ProfileIconLink
 															href={link.href}
-															target="_blank"
-															rel="noopener noreferrer"
-															className="portfolio-link portfolio-profile-icon"
-															aria-label={link.label}
-															title={link.label}
+															label={link.label}
 														>
 															<Icon aria-hidden="true" />
-														</a>
+														</ProfileIconLink>
 													) : (
 														<TextLink href={link.href}>{link.label}</TextLink>
 													)}
