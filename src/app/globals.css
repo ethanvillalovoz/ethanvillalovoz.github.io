@@ -35,7 +35,7 @@ img {
   --gradient-glow: 224 218 255;
   --foreground: 64 62 67;
   --heading: 64 62 67;
-  --muted: 113 112 117;
+  --muted: 90 89 94;
   --underline: 138 137 140;
   --interaction-accent: 102 85 190;
   --selection-background: 224 216 248;
@@ -59,7 +59,7 @@ img {
   --gradient-glow: 121 100 169;
   --foreground: 200 200 201;
   --heading: 255 255 255;
-  --muted: 138 137 140;
+  --muted: 155 154 157;
   --underline: 138 137 140;
   --interaction-accent: 183 165 238;
   --selection-background: 79 61 112;
