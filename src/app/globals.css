@@ -828,10 +828,10 @@ button {
 .research-publication-title {
   color: rgb(var(--heading));
   font-family: var(--font-sans);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 26px;
+  line-height: 24px;
   margin: 0;
 }
 
@@ -879,11 +879,15 @@ button {
 }
 
 .research-publication-description {
+  font-size: 16px;
+  line-height: 24px;
   margin: 8px 0 0;
 }
 
 .research-resource-links {
   display: block;
+  font-size: 14px;
+  line-height: 21px;
   margin-top: 4px;
 }
 
@@ -915,9 +919,9 @@ button {
 
 .teaching-institution-name {
   color: rgb(var(--heading));
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 26px;
+  line-height: 24px;
   margin: 0 0 20px;
 }
 
@@ -934,12 +938,13 @@ button {
 }
 
 .teaching-role {
-  color: rgb(var(--muted));
-  font-style: italic;
+  color: rgb(var(--foreground));
+  line-height: 20px;
   margin: 0;
 }
 
 .teaching-term {
+  font-size: 14px;
   margin: 0;
   white-space: nowrap;
 }
@@ -947,7 +952,7 @@ button {
 .teaching-course {
   color: rgb(var(--foreground));
   font-size: 14px;
-  line-height: 22px;
+  line-height: 21px;
   margin: 6px 0 0;
 }
 
@@ -1091,6 +1096,13 @@ button {
   .portfolio-profile-image {
     height: 64px;
     width: 64px;
+  }
+}
+
+@media (max-width: 399px) {
+  .work-intro h1 {
+    font-size: 24px;
+    line-height: 32px;
   }
 }
 
