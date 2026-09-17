@@ -15,11 +15,12 @@ export const site = {
 } as const;
 
 // Explicitly identify the site when shared; do not let previews select a paper figure.
-// Keep the existing small square mark rather than introducing a large preview banner.
+// Apple treats this sub-150px image as a compact icon. A 180px image creates a large card.
+// Keep the Apple touch icon separately at 180px and the X summary image at 512px.
 export const siteShareImage = {
-	url: "/images/identity/share-icon-purple-180.png",
-	width: 180,
-	height: 180,
+	url: "/images/identity/favicon-purple-96.png",
+	width: 96,
+	height: 96,
 	type: "image/png",
 	alt: "White lowercase e on a purple mesh gradient for Ethan Villalovoz",
 };

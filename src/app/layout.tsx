@@ -33,11 +33,11 @@ export const metadata: Metadata = {
       { url: "/images/identity/favicon-purple-32.png", sizes: "32x32", type: "image/png" },
       { url: "/images/identity/favicon-purple-48.png", sizes: "48x48", type: "image/png" },
       { url: "/images/identity/favicon-purple-96.png", sizes: "96x96", type: "image/png" },
-      { url: siteShareImage.url, sizes: "180x180", type: "image/png" },
+      { url: "/images/identity/share-icon-purple-180.png", sizes: "180x180", type: "image/png" },
       { url: "/images/identity/share-icon-purple-512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [
-      { url: siteShareImage.url, sizes: "180x180", type: "image/png" },
+      { url: "/images/identity/share-icon-purple-180.png", sizes: "180x180", type: "image/png" },
     ],
   },
   verification: {
