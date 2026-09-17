@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PublicationAuthors from "@/components/PublicationAuthors";
-import { absoluteUrl, personReference, site } from "@/data/site";
+import { absoluteUrl, personReference, site, siteShareImage } from "@/data/site";
 import {
 	researchPublications,
 	teachingExperiences,
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 		canonical: "/research/",
 	},
 	openGraph: {
+		images: [siteShareImage],
 		title: `Research | ${site.name}`,
 		description: researchDescription,
 		url: `${site.url}/research/`,
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary",
+		images: ["/images/identity/share-icon-purple-512.png"],
 		title: "Research | Ethan Villalovoz",
 		description: researchDescription,
 		creator: "@ethanvillalovoz",

@@ -14,6 +14,16 @@ export const site = {
 	],
 } as const;
 
+// Explicitly identify the site when shared; do not let previews select a paper figure.
+// Keep the existing small square mark rather than introducing a large preview banner.
+export const siteShareImage = {
+	url: "/images/identity/share-icon-purple-180.png",
+	width: 180,
+	height: 180,
+	type: "image/png",
+	alt: "White lowercase e on a purple mesh gradient for Ethan Villalovoz",
+};
+
 export const personReference = {
 	"@type": "Person",
 	"@id": site.personId,
