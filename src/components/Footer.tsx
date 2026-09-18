@@ -1,5 +1,5 @@
 import type { IconType } from "react-icons";
-import { FaLinkedin } from "react-icons/fa6";
+import { FaFileLines, FaLinkedin } from "react-icons/fa6";
 import { SiGooglescholar, SiX } from "react-icons/si";
 import ProfileIconLink from "@/components/ProfileIconLink";
 
@@ -14,6 +14,7 @@ const footerLinks = [
 ];
 
 const footerIcons: Partial<Record<string, IconType>> = {
+	CV: FaFileLines,
 	LinkedIn: FaLinkedin,
 	Scholar: SiGooglescholar,
 	X: SiX,

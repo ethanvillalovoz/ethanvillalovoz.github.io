@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState, type ReactNode } from "react";
 import { FiMapPin } from "react-icons/fi";
 import type { IconType } from "react-icons";
-import { FaLinkedin } from "react-icons/fa6";
+import { FaFileLines, FaLinkedin } from "react-icons/fa6";
 import { SiGithub, SiGooglescholar, SiX, SiYoutube } from "react-icons/si";
 import PublicationAuthors from "@/components/PublicationAuthors";
 import ProfileIconLink from "@/components/ProfileIconLink";
@@ -67,6 +67,7 @@ const profileLinks = [
 ];
 
 const profileIcons: Record<string, IconType> = {
+	CV: FaFileLines,
 	GitHub: SiGithub,
 	Scholar: SiGooglescholar,
 	LinkedIn: FaLinkedin,

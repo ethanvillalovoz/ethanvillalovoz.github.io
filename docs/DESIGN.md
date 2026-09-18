@@ -7,7 +7,11 @@ This document records the interaction and presentation rules that keep new pages
 - Home is the visual source of truth. Preserve its copy hierarchy, 672px column, typography, spacing, organization marks, profile image, and absence of global navigation.
 - Secondary pages may use wider containers when their content requires grids, technical figures, or publication metadata.
 - Use the system Helvetica/Arial stack and the light/dark color tokens in `src/app/globals.css`.
-- Home and Research share a fixed, 280px violet gradient with a soft lavender opening just right of center. Render it on a separate fixed viewport layer. Disable vertical overscroll on the root to prevent Safari's rubber-banding from moving the layer and exposing the page canvas. This also disables vertical pull-to-refresh; normal scrolling and horizontal navigation gestures remain available. Preserve the approved light palette; dark mode uses deeper violet tokens with the same pattern and fade.
+- Home and Research use a monochrome palette: white (#FFFFFF) in light mode and neutral charcoal (#171717) in dark mode, with neutral text, dividers, focus rings, and selection colors. No decorative background gradient. Keep vertical overscroll disabled to preserve the existing scroll behavior.
+- The reference is the black-and-white contrast of the MIT mark supplied by the user; retain Ethan’s own lowercase e identity and all existing layout, typography, content, and interactions. Company marks and publication figures keep their original colors.
+- New visitors follow their system color preference. An explicit manual choice is remembered; toggling back to the system’s current appearance resumes automatic following.
+- Browser favicons use a self-contained adaptive SVG: black e on white in light browser chrome, white e on black in dark browser chrome. Keep static PNG/ICO fallbacks for search crawlers and clients without SVG support.
+- Sharing uses the monochrome 96px icon for compact Apple previews, a separate 180px touch icon, and a 512px X summary icon.
 - Keep the interface quiet. Add visual variation only when it improves comprehension.
 
 ## Links And Controls

@@ -28,16 +28,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=purple-1", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
-      { url: "/images/identity/favicon-purple-16.png", sizes: "16x16", type: "image/png" },
-      { url: "/images/identity/favicon-purple-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/images/identity/favicon-purple-48.png", sizes: "48x48", type: "image/png" },
-      { url: "/images/identity/favicon-purple-96.png", sizes: "96x96", type: "image/png" },
-      { url: "/images/identity/share-icon-purple-180.png", sizes: "180x180", type: "image/png" },
-      { url: "/images/identity/share-icon-purple-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico?v=mono-2", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
+      { url: "/images/identity/icon-light-v2-96.png", sizes: "96x96", type: "image/png" },
+      { url: "/images/identity/icon-light-v2-32.png", sizes: "32x32", type: "image/png", media: "(prefers-color-scheme: light)" },
+      { url: "/images/identity/icon-dark-v2-32.png", sizes: "32x32", type: "image/png", media: "(prefers-color-scheme: dark)" },
+      { url: "/images/identity/favicon-adaptive.svg?v=3", sizes: "any", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/images/identity/share-icon-purple-180.png", sizes: "180x180", type: "image/png" },
+      { url: "/images/identity/icon-light-v2-180.png", sizes: "180x180", type: "image/png" },
     ],
   },
   verification: {
@@ -54,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    images: ["/images/identity/share-icon-purple-512.png"],
+    images: ["/images/identity/icon-light-v2-512.png"],
     title: site.name,
     description: site.description,
     creator: "@ethanvillalovoz",

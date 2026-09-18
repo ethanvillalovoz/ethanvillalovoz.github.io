@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary",
-		images: ["/images/identity/share-icon-purple-512.png"],
+		images: ["/images/identity/icon-light-v2-512.png"],
 		title: "Research | Ethan Villalovoz",
 		description: researchDescription,
 		creator: "@ethanvillalovoz",

@@ -6,7 +6,7 @@
 
 html {
   min-width: 320px;
-  /* Safari can move fixed layers during rubber-banding and expose the canvas. */
+  /* Preserve the existing scroll-boundary behavior in Safari and Chrome. */
   overscroll-behavior-y: none;
 }
 
@@ -28,22 +28,19 @@ img {
 
 :root {
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --background: 246 246 247;
-  --gradient-start: 102 85 216;
-  --gradient-middle: 142 122 227;
-  --gradient-end: 145 128 229;
-  --gradient-glow: 224 218 255;
-  --foreground: 64 62 67;
-  --heading: 64 62 67;
-  --muted: 90 89 94;
-  --underline: 138 137 140;
-  --interaction-accent: 102 85 190;
-  --selection-background: 224 216 248;
+  --background: 255 255 255;
+  --foreground: 51 51 51;
+  --heading: 23 23 23;
+  --muted: 102 102 102;
+  --underline: 138 138 138;
+  --interaction-accent: 23 23 23;
+  --selection-background: 229 229 229;
+  --divider: 229 229 229;
 
-  --primary: 64 62 67;
+  --primary: 51 51 51;
   --primary-foreground: 255 255 255;
-  --primary-light: 138 137 140;
-  --primary-dark: 34 31 38;
+  --primary-light: 138 138 138;
+  --primary-dark: 23 23 23;
   --card: 255 255 255;
   --motion-fast: 140ms;
   --motion-standard: 200ms;
@@ -52,23 +49,20 @@ img {
 }
 
 .dark {
-  --background: 34 31 38;
-  --gradient-start: 81 65 139;
-  --gradient-middle: 98 80 149;
-  --gradient-end: 105 87 151;
-  --gradient-glow: 121 100 169;
-  --foreground: 200 200 201;
-  --heading: 255 255 255;
-  --muted: 155 154 157;
-  --underline: 138 137 140;
-  --interaction-accent: 183 165 238;
-  --selection-background: 79 61 112;
+  --background: 23 23 23;
+  --foreground: 212 212 212;
+  --heading: 245 245 245;
+  --muted: 163 163 163;
+  --underline: 138 138 138;
+  --interaction-accent: 245 245 245;
+  --selection-background: 64 64 64;
+  --divider: 54 54 54;
 
-  --primary: 200 200 201;
-  --primary-foreground: 34 31 38;
-  --primary-light: 138 137 140;
-  --primary-dark: 255 255 255;
-  --card: 40 38 43;
+  --primary: 212 212 212;
+  --primary-foreground: 23 23 23;
+  --primary-light: 138 138 138;
+  --primary-dark: 245 245 245;
+  --card: 38 38 38;
   color-scheme: dark;
 }
 
@@ -683,37 +677,6 @@ button {
   flex-direction: column;
 }
 
-/* Keep the gradient anchored to the viewport during normal scrolling. */
-.site-body::before {
-  content: "";
-  position: fixed;
-  inset: 0 0 auto;
-  height: 280px;
-  pointer-events: none;
-  z-index: -1;
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgb(var(--background) / 0.24) 0%,
-      rgb(var(--background) / 0.5) 26%,
-      rgb(var(--background) / 0.88) 62%,
-      rgb(var(--background)) 100%
-    ),
-    radial-gradient(
-      ellipse at 62% 0%,
-      rgb(var(--gradient-glow) / 0.45) 0%,
-      rgb(var(--gradient-glow) / 0) 75%
-    ),
-    linear-gradient(
-      108deg,
-      rgb(var(--gradient-start)) 0%,
-      rgb(var(--gradient-middle)) 50%,
-      rgb(var(--gradient-end)) 100%
-    );
-  background-repeat: no-repeat;
-  background-size: 100% 280px;
-}
-
 .secondary-header {
   flex: 0 0 auto;
 }
@@ -847,7 +810,7 @@ button {
 }
 
 .research-publication {
-  border-top: 1px solid rgb(var(--foreground) / 0.14);
+  border-top: 1px solid rgb(var(--divider));
   display: grid;
   gap: 24px;
   grid-template-columns: minmax(0, 1fr);
@@ -855,7 +818,7 @@ button {
 }
 
 .research-publication:last-child {
-  border-bottom: 1px solid rgb(var(--foreground) / 0.14);
+  border-bottom: 1px solid rgb(var(--divider));
 }
 
 .research-publication-media {
@@ -982,12 +945,12 @@ button {
 }
 
 .teaching-institution {
-  border-top: 1px solid rgb(var(--foreground) / 0.14);
+  border-top: 1px solid rgb(var(--divider));
   padding: 28px 0 32px;
 }
 
 .teaching-institution:last-child {
-  border-bottom: 1px solid rgb(var(--foreground) / 0.14);
+  border-bottom: 1px solid rgb(var(--divider));
 }
 
 .teaching-institution-name {

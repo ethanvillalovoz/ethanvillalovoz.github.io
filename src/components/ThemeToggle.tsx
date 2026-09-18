@@ -9,7 +9,7 @@ const getClientHydrationSnapshot = () => true;
 const getServerHydrationSnapshot = () => false;
 
 export default function ThemeToggle() {
-	const { resolvedTheme, setTheme } = useTheme();
+	const { resolvedTheme, systemTheme, setTheme } = useTheme();
 	const mounted = useSyncExternalStore(
 		subscribeToHydration,
 		getClientHydrationSnapshot,
@@ -24,7 +24,7 @@ export default function ThemeToggle() {
 	return (
 		<button
 			type="button"
-			onClick={() => setTheme(targetTheme)}
+			onClick={() => setTheme(targetTheme === systemTheme ? "system" : targetTheme)}
 			className="portfolio-theme-toggle"
 			aria-label={accessibleLabel}
 			title={accessibleLabel}
