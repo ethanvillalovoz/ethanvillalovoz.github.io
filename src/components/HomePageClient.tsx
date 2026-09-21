@@ -189,7 +189,7 @@ export default function HomePageClient() {
 							<h1 className="portfolio-h1">Ethan Villalovoz</h1>
 							<p className="portfolio-location">
 								<FiMapPin aria-hidden="true" />
-								<span>Sacramento, California, United States</span>
+								<span>Sacramento, California</span>
 							</p>
 							<nav className="portfolio-profile-links" aria-label="Ethan's profiles">
 								{profileLinks.map(({ label, href, icon: Icon }) => (
