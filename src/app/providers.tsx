@@ -1,7 +1,6 @@
 "use client";
 
 import { ThemeProvider } from "next-themes";
-import SystemFavicon from "@/components/SystemFavicon";
 
 export function Providers({ children }: { children: React.ReactNode }) {
 	return (
@@ -12,7 +11,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
 			enableSystem
 			storageKey="ethan-theme"
 		>
-			<SystemFavicon />
 			{children}
 		</ThemeProvider>
 	);

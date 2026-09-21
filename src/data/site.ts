@@ -18,11 +18,11 @@ export const site = {
 // Apple treats this sub-150px image as a compact icon. A 180px image creates a large card.
 // Keep the Apple touch icon separately at 180px and the X summary image at 512px.
 export const siteShareImage = {
-	url: "/images/identity/icon-light-rounded-v3-96.png",
+	url: "/images/identity/icon-circle-v4-96.png",
 	width: 96,
 	height: 96,
 	type: "image/png",
-	alt: "Black lowercase e on white for Ethan Villalovoz",
+	alt: "White lowercase e on a black circle for Ethan Villalovoz",
 };
 
 export const personReference = {

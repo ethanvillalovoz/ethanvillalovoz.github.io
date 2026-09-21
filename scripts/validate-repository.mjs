@@ -22,8 +22,10 @@ const requiredPaths = [
 	"public/images/organizations/cmu-ri.svg",
 	"public/images/organizations/google.png",
 	"public/images/organizations/oregon-state.png",
-	"public/images/identity/favicon-96.png",
-	"public/images/identity/favicon-on-dark-96.png",
+	"public/favicon.ico",
+	"public/images/identity/icon-circle-v4-96.png",
+	"public/images/identity/icon-circle-v4-180.png",
+	"public/images/identity/icon-circle-v4-512.png",
 	"public/visuals/homepage-preview.jpg",
 ];
 

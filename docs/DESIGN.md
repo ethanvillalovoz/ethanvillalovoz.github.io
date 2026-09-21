@@ -10,9 +10,8 @@ This document records the interaction and presentation rules that keep new pages
 - Home and Research use a monochrome palette: white (#FFFFFF) in light mode and neutral charcoal (#171717) in dark mode, with neutral text, dividers, focus rings, and selection colors. No decorative background gradient. Keep vertical overscroll disabled to preserve the existing scroll behavior.
 - The reference is the black-and-white contrast of the MIT mark supplied by the user; retain Ethan’s own lowercase e identity and all existing layout, typography, content, and interactions. Company marks and publication figures keep their original colors.
 - New visitors follow their system color preference. An explicit manual choice is remembered; toggling back to the system’s current appearance resumes automatic following.
-- Browser favicons have rounded backgrounds: black e on white in light system appearance, white e on black in dark system appearance. SystemFavicon owns one React-rendered PNG icon link and updates it on system preference changes; do not rely on browsers repainting an internal SVG media query. The static light PNG and root ICO remain available to crawlers and clients without JavaScript.
-- Safari can retain its cached favicon instead of repainting after system appearance changes (WebKit issue 266426). Do not promise live favicon switching on Safari or per-viewer theme changes for social preview images.
-- Sharing uses the static rounded monochrome 96px icon for compact Apple previews, a separate 180px touch icon, and a 512px X summary icon.
+- Browser favicons and sharing images always use the same white lowercase e on a black circle, with transparent corners. They do not change with system appearance or the website theme. Use static metadata and the matching root ICO; no runtime favicon switching. Keep `/favicon.ico` synchronized for direct PDFs and other files that do not have HTML metadata.
+- Sharing uses the circular 96px icon for compact Apple previews, a separate 180px touch icon, and a 512px X summary icon. Platforms control their own card layout and caching.
 - Keep the interface quiet. Add visual variation only when it improves comprehension.
 
 ## Links And Controls
