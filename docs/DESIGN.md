@@ -40,7 +40,7 @@ This document records the interaction and presentation rules that keep new pages
 - Show only available resources, ordered Website, Paper, arXiv, Code, Video. Paper opens a PDF; arXiv opens its abstract page.
 - Do not create unofficial project pages for coauthored papers.
 - Experience and Teaching share 16px/24px institution headings and 14px/20px role/date text. Use 2px from institution to first role, 16px between roles, and 20px between institutions. Teaching courses follow their role with a 6px gap.
-- Dividers appear only between publications. The footer contains copyright and Back to top, with no divider.
+- Dividers appear only between publications. The footer contains copyright and Back to top, with no divider. Back to top restores focus to the page start and scrolls smoothly, or instantly when reduced motion is requested.
 
 ## Content
 

@@ -308,7 +308,7 @@ export default function HomePageClient() {
 					<a href="#top" className="portfolio-link" onClick={(event) => {
 						event.preventDefault();
 						document.getElementById("top")?.focus({ preventScroll: true });
-						window.scrollTo({ top: 0, behavior: "auto" });
+						window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
 					}}>
 						<span className="portfolio-link-text">Back to top</span>
 					</a>
