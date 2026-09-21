@@ -61,7 +61,8 @@ export const researchPublications: ResearchPublication[] = [
 		image: "/images/projects/bodegen-method-thumbnail.webp",
 		imageAlt: "BODE-GEN Bayesian prompt optimization method diagram",
 		resources: [
-			{ label: "Paper", href: "https://arxiv.org/abs/2512.15076" },
+			{ label: "Paper", href: "https://arxiv.org/pdf/2512.15076" },
+			{ label: "arXiv", href: "https://arxiv.org/abs/2512.15076" },
 		],
 	},
 	{
@@ -85,15 +86,15 @@ export const researchPublications: ResearchPublication[] = [
 			{ name: "Ankur Mehta", schemaName: "Ankur Mehta", href: "https://uclalemur.com/" },
 			{ name: "Heather Knight", schemaName: "Heather Knight", href: "https://www.charismarobotics.com/" },
 		],
-		venue: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+		venue: "IROS",
 		date: "2023",
 		datePublished: "2023",
 		identifier: "IEEE 10342372",
 		description:
 			"Shows that triangular robot formations are perceived more positively and navigate more robustly than line formations.",
-		image: "/images/projects/social-triangles-threat-thumbnail.webp",
+		image: "/images/projects/social-triangles-wedge-study.png",
 		imageAlt:
-			"Threatening-to-harmless ratings for V-shape, wedge, vertical-line, and horizontal-line robot formations",
+			"Three turtle-shaped robots approaching a participant in the wedge condition of the Social Triangles study",
 		resources: [
 			{
 				label: "Paper",

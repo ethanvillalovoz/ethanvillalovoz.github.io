@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { publicationsJsonLd } from "@/data/publication-schema";
 import HomePageClient from "@/components/HomePageClient";
 import { absoluteUrl, personReference, site } from "@/data/site";
 
@@ -33,7 +34,7 @@ export default function HomePage() {
 								width: 900,
 								height: 900,
 							},
-							jobTitle: "Graduate Researcher and Software Engineer",
+							jobTitle: "M.S. student in Computer Science",
 							affiliation: {
 								"@type": "CollegeOrUniversity",
 								name: "Georgia Institute of Technology",
@@ -60,6 +61,10 @@ export default function HomePage() {
 						},
 					}),
 				}}
+			/>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(publicationsJsonLd) }}
 			/>
 			<HomePageClient />
 		</>

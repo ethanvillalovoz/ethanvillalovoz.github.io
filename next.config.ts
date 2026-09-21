@@ -9,38 +9,43 @@ const nextConfig: NextConfig = {
 	async redirects() {
 		return [
 			{
+				source: "/research/:path*",
+				destination: "/#publications",
+				permanent: true,
+			},
+			{
 				source: "/writing/:path*",
-				destination: "/research/",
+				destination: "/#publications",
 				permanent: true,
 			},
 			{
 				source: "/work/:path*",
-				destination: "/research/",
+				destination: "/#publications",
 				permanent: true,
 			},
 			{
 				source: "/projects/:path*",
-				destination: "/research/",
+				destination: "/#publications",
 				permanent: true,
 			},
 			{
 				source: "/publications/:path*",
-				destination: "/research/",
+				destination: "/#publications",
 				permanent: true,
 			},
 			{
 				source: "/teaching/:path*",
-				destination: "/research/",
+				destination: "/#teaching",
 				permanent: true,
 			},
 			{
 				source: "/DreamWorlds/:path*",
-				destination: "/research/",
+				destination: "/#publications",
 				permanent: true,
 			},
 			{
 				source: "/gaussian-splatting-physics/:path*",
-				destination: "/research/",
+				destination: "/#publications",
 				permanent: true,
 			},
 		];

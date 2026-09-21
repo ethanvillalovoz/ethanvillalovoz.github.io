@@ -2,16 +2,17 @@
 
 [![CI](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml)
 
-Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a concise homepage and a Research page.
-
-![Homepage preview](public/visuals/homepage-preview.jpg)
+Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a single page with an introduction, publications, experience, and teaching.
 
 ## Public Routes
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Introduction, experience, contact links, and selected publications |
-| `/research/` | Publications, paper resources, and teaching history |
+| `/` | Introduction, contact links, publications, experience, and teaching |
+| `/#publications` | Publications and paper resources |
+| `/#experience` | Prior roles and dates |
+| `/#teaching` | Teaching history |
+| `/research/` | Compatibility redirect to `/#publications` |
 
 Legacy `/writing/`, `/work/`, `/projects/`, `/publications/`, and `/teaching/` URLs redirect to the current information architecture.
 
@@ -19,7 +20,7 @@ Legacy `/writing/`, `/work/`, `/projects/`, `/publications/`, and `/teaching/` U
 
 The homepage is intentionally compact. It offers enough context to understand Ethan's current work, then points visitors toward deeper evidence.
 
-Research remains the canonical destination for publications and research projects.
+The homepage is the canonical destination for publications and teaching.
 
 ## Stack
 
@@ -32,12 +33,12 @@ Research remains the canonical destination for publications and research project
 
 ## Discovery And Performance
 
-- Route-specific canonical, Open Graph, and X metadata
-- `ProfilePage`, `ScholarlyArticle`, and software-project JSON-LD
+- Canonical, Open Graph, and X metadata
+- `ProfilePage`, `Person`, and publication collection JSON-LD
 - XML sitemap coverage for every public route and its representative images
 - Responsive `next/image` delivery for portfolio and research media
-- Explicit image dimensions and lazy decoding for below-the-fold microsite figures
-- Compact favicon-based sharing for the homepage and route-specific social metadata
+- Explicit image dimensions and lazy decoding for below-the-fold publication figures
+- Compact favicon-based sharing for the homepage
 
 ## Local Development
 
@@ -77,23 +78,21 @@ npm run check      # Run validation, lint, typecheck, and production build
 ```text
 src/app/
   page.tsx                    Home metadata and server entry
-  (secondary)/layout.tsx      Shared header and footer
-  (secondary)/research/       Publications and teaching
 
 src/components/
-  HomePageClient.tsx          Locked homepage experience
-  Navbar.tsx                  Secondary navigation
-  Footer.tsx                  Secondary footer
+  HomePageClient.tsx          Homepage introduction, publications, and experience
+  TeachingSection.tsx         Grouped teaching history
   ThemeToggle.tsx             Light/dark theme control
 
 src/data/
   site.ts                     Canonical identity and metadata constants
   research.ts                 Publications and teaching records
+  publication-schema.ts       Publication structured data
 
 public/
   data/                       Resume, CV, papers, and project evidence
   images/                     Identity, organization, and active project images
-  visuals/                    README screenshot
+  visuals/                    Archived design screenshot
 
 scripts/
   validate-repository.mjs     Repository integrity checks

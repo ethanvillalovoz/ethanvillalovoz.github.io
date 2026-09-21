@@ -1,17 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState } from "react";
 import { FiMapPin } from "react-icons/fi";
-import type { IconType } from "react-icons";
 import { FaFileLines, FaLinkedin } from "react-icons/fa6";
 import { SiGithub, SiGooglescholar, SiX, SiYoutube } from "react-icons/si";
+import OrganizationLink from "@/components/OrganizationLink";
+import PublicationResources from "@/components/PublicationResources";
 import PublicationAuthors from "@/components/PublicationAuthors";
-import ProfileIconLink from "@/components/ProfileIconLink";
+import TeachingSection from "@/components/TeachingSection";
+import TextLink from "@/components/TextLink";
 import ThemeToggle from "@/components/ThemeToggle";
 import { researchPublications, type ResearchPublication } from "@/data/research";
 
-const previousExperience = [
+const experiences = [
 	{
 		title: "Microsoft",
 		href: "https://www.microsoft.com/",
@@ -19,7 +21,7 @@ const previousExperience = [
 		role: "Software Engineer Intern",
 		date: "May 2026 – Jul 2026",
 	},
-	// Temporarily hidden from Previously; uncomment this entry to restore it.
+	// Temporarily hidden from Experience; uncomment this entry to restore it.
 	/* {
 		title: "Washington State University",
 		href: "https://wsu.edu/",
@@ -41,90 +43,33 @@ const previousExperience = [
 		role: "STEP Intern",
 		date: "May 2023 – Aug 2023",
 	},
-	// Temporarily hidden from Previously; uncomment this entry to restore it.
-	/* {
+	{
 		title: "Oregon State University",
 		href: "https://oregonstate.edu/",
-		iconSrc: "/images/organizations/oregon-state.png",
+		iconSrc: "/images/organizations/oregon-state-crest.svg",
 		role: "NSF REU Fellow",
 		date: "Jun 2022 – Aug 2022",
-	}, */
+	},
 ];
 
 const profileLinks = [
-	{ label: "CV", href: "/data/EthanVillalovoz-CV.pdf" },
-	{ label: "GitHub", href: "https://github.com/ethanvillalovoz" },
+	{ label: "CV", icon: FaFileLines, href: "/data/EthanVillalovoz-CV.pdf" },
+	{ label: "GitHub", icon: SiGithub, href: "https://github.com/ethanvillalovoz" },
 	{
 		label: "Scholar",
+		icon: SiGooglescholar,
 		href: "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
 	},
 	{
 		label: "LinkedIn",
+		icon: FaLinkedin,
 		href: "https://www.linkedin.com/in/ethanvillalovoz/",
 	},
-	{ label: "X", href: "https://x.com/ethanvillalovoz" },
-	{ label: "YouTube", href: "https://www.youtube.com/@ethanvillalovoz" },
+	{ label: "X", icon: SiX, href: "https://x.com/ethanvillalovoz" },
+	{ label: "YouTube", icon: SiYoutube, href: "https://www.youtube.com/@ethanvillalovoz" },
 ];
 
-const profileIcons: Record<string, IconType> = {
-	CV: FaFileLines,
-	GitHub: SiGithub,
-	Scholar: SiGooglescholar,
-	LinkedIn: FaLinkedin,
-	X: SiX,
-	YouTube: SiYoutube,
-};
-
 const contactEmail = "ethan.villalovoz@gmail.com";
-
-function TextLink({
-	href,
-	children,
-}: {
-	href: string;
-	children: ReactNode;
-}) {
-	return (
-		<a
-			href={href}
-			target="_blank"
-			rel="noopener noreferrer"
-			className="portfolio-link"
-		>
-			{children}
-		</a>
-	);
-}
-
-function OrganizationLink({
-	href,
-	iconSrc,
-	children,
-}: {
-	href: string;
-	iconSrc: string;
-	children: ReactNode;
-}) {
-	return (
-		<a
-			href={href}
-			target="_blank"
-			rel="noopener noreferrer"
-			className="portfolio-organization-link"
-		>
-			<Image
-				src={iconSrc}
-				alt=""
-				aria-hidden="true"
-				width={16}
-				height={16}
-				unoptimized
-				className="portfolio-organization-mark"
-			/>
-			<span className="portfolio-link portfolio-organization-name">{children}</span>
-		</a>
-	);
-}
 
 function ExperienceRow({
 	title,
@@ -141,23 +86,30 @@ function ExperienceRow({
 	date: string;
 	index: number;
 }) {
+	const stints = [{ role, date }];
 	return (
 		<article
-			className="portfolio-experience-row portfolio-fade"
-			style={{ animationDelay: `${160 + index * 45}ms` }}
+			className="portfolio-experience-group portfolio-fade"
+			style={{ animationDelay: `${380 + index * 45}ms` }}
 		>
 			<h3 className="portfolio-row-title">
 				<OrganizationLink href={href} iconSrc={iconSrc}>
 					{title}
 				</OrganizationLink>
 			</h3>
-			<p className="portfolio-row-role">{role}</p>
-			<p className="portfolio-row-date">{date}</p>
+			<div className="portfolio-experience-stints">
+				{stints.map((stint) => (
+					<div className="portfolio-experience-row" key={stint.date}>
+						<p className="portfolio-row-role">{stint.role}</p>
+						<p className="portfolio-row-date">{stint.date}</p>
+					</div>
+				))}
+			</div>
 		</article>
 	);
 }
 
-function SelectedPublicationRow({
+function PublicationRow({
 	publication,
 	index,
 }: {
@@ -167,7 +119,7 @@ function SelectedPublicationRow({
 	return (
 		<article
 			className="portfolio-work-item portfolio-fade"
-			style={{ animationDelay: `${340 + index * 45}ms` }}
+			style={{ animationDelay: `${160 + index * 45}ms` }}
 		>
 			<a
 				href={publication.href}
@@ -183,7 +135,7 @@ function SelectedPublicationRow({
 					height={500}
 					quality={90}
 					loading={index === 0 ? "eager" : "lazy"}
-					sizes="(max-width: 599px) calc(100vw - 48px), 196px"
+					sizes="(max-width: 599px) calc(100vw - 48px), (max-width: 759px) 196px, 250px"
 					className="portfolio-work-image"
 				/>
 			</a>
@@ -196,23 +148,9 @@ function SelectedPublicationRow({
 					className="portfolio-work-authors"
 				/>
 				<p className="portfolio-work-venue">
-					{publication.venue}, {publication.date}
+					{publication.venue} {publication.date}
 				</p>
-				<nav
-					className="portfolio-work-resources"
-					aria-label={`${publication.shortTitle} resources`}
-				>
-					{publication.resources.map((resource, resourceIndex) => (
-						<span key={resource.label} className="portfolio-work-resource-item">
-							<TextLink href={resource.href}>{resource.label}</TextLink>
-							{resourceIndex < publication.resources.length - 1 ? (
-								<span className="portfolio-work-resource-separator" aria-hidden="true">
-									{" / "}
-								</span>
-							) : null}
-						</span>
-					))}
-				</nav>
+				<PublicationResources resources={publication.resources} label={`${publication.shortTitle} resources`} />
 				<p className="portfolio-work-description">{publication.description}</p>
 			</div>
 		</article>
@@ -239,7 +177,7 @@ export default function HomePageClient() {
 	};
 
 	return (
-		<main className="portfolio-site">
+		<main className="portfolio-site" id="top" tabIndex={-1}>
 			<div className="portfolio-theme-corner portfolio-fade portfolio-fade-one">
 				<ThemeToggle />
 			</div>
@@ -253,44 +191,33 @@ export default function HomePageClient() {
 								<FiMapPin aria-hidden="true" />
 								<span>Sacramento, California, United States</span>
 							</p>
-
-							<nav className="portfolio-profile-links" aria-label="Ethan's profiles and contact links">
-								{[profileLinks.slice(0, 1), profileLinks.slice(1)].map((group) => (
-									<span className="portfolio-profile-group" key={group[0].label}>
-										{group.map((link) => {
-											const Icon = profileIcons[link.label];
-											return (
-												<span key={link.label} className="portfolio-profile-link-item">
-													{Icon ? (
-														<ProfileIconLink
-															href={link.href}
-															label={link.label}
-														>
-															<Icon aria-hidden="true" />
-														</ProfileIconLink>
-													) : (
-														<TextLink href={link.href}>{link.label}</TextLink>
-													)}
-												</span>
-											);
-										})}
-									</span>
+							<nav className="portfolio-profile-links" aria-label="Ethan's profiles">
+								{profileLinks.map(({ label, href, icon: Icon }) => (
+									<a key={label} href={href} target="_blank" rel="noopener noreferrer" className="portfolio-link" aria-label={label} title={label === "X" ? "X" : undefined}>
+										{label === "X" ? (
+											<span className="portfolio-link-text"><Icon className="portfolio-profile-mark portfolio-profile-mark-only" aria-hidden="true" /></span>
+										) : (
+											<><Icon className="portfolio-profile-mark" data-profile={label} aria-hidden="true" /><span className="portfolio-link-text">{label}</span></>
+										)}
+									</a>
 								))}
 							</nav>
-						</div>
 
-						<Image
-							src="/images/EthanVillalovozPic-optimized.jpg"
-							alt="Portrait of Ethan Villalovoz"
-							width={112}
-							height={112}
-							quality={90}
-							priority
-							className="portfolio-profile-image"
-						/>
+						</div>
 					</div>
 
-					<div className="portfolio-fade portfolio-fade-two">
+					<Image
+						src="/images/EthanVillalovozPic-optimized.jpg"
+						alt="Portrait of Ethan Villalovoz"
+						width={104}
+						height={104}
+						sizes="(max-width: 599px) 80px, 104px"
+						quality={90}
+						priority
+						className="portfolio-profile-image"
+					/>
+
+					<div className="portfolio-intro-copy portfolio-fade portfolio-fade-two">
 						<p className="portfolio-p">
 							I&apos;m an M.S. student in Computer Science at{" "}
 							<OrganizationLink
@@ -299,7 +226,7 @@ export default function HomePageClient() {
 							>
 								Georgia Tech
 							</OrganizationLink>
-							. I&apos;m interested in how robots can understand the physical world and the people they interact with. Previously, I built and evaluated enterprise AI agent systems at{" "}
+							. I&apos;m interested in how robots can understand people and the physical world, make decisions under uncertainty, and adapt through interaction. Previously, I built and evaluated enterprise AI agent systems at{" "}
 							<OrganizationLink
 								href="https://www.microsoft.com/"
 								iconSrc="/images/organizations/microsoft.ico"
@@ -319,7 +246,7 @@ export default function HomePageClient() {
 									aria-label={`Copy ${contactEmail} to clipboard`}
 									title="Copy email address"
 								>
-									{contactEmail}
+									<span className="portfolio-link-text">{contactEmail}</span>
 								</button>
 								.
 								<span
@@ -332,51 +259,60 @@ export default function HomePageClient() {
 								</span>
 							</span>
 						</p>
+
 					</div>
 				</header>
 
-				<section className="portfolio-section" aria-labelledby="previously-heading">
-					<h2 id="previously-heading" className="portfolio-section-label portfolio-fade portfolio-fade-three">
-						Previously
-					</h2>
-					<div className="portfolio-experience-list">
-						{previousExperience.map((item, index) => (
-							<ExperienceRow key={item.title} {...item} index={index} />
-						))}
-					</div>
-				</section>
-
 				<section
+					id="publications"
 					className="portfolio-section portfolio-publications-section"
-					aria-labelledby="selected-work-heading"
+					aria-labelledby="publications-heading"
 				>
 					<h2
-						id="selected-work-heading"
+						id="publications-heading"
 						className="portfolio-section-label portfolio-fade"
-						style={{ animationDelay: "300ms" }}
+						style={{ animationDelay: "120ms" }}
 					>
-						Selected publications
+						Publications
 					</h2>
 					<div className="portfolio-work-list">
 						{researchPublications.map((publication, index) => (
-							<SelectedPublicationRow
+							<PublicationRow
 								key={publication.title}
 								publication={publication}
 								index={index}
 							/>
 						))}
 					</div>
+				</section>
 
-					<div
-						className="portfolio-more-content portfolio-fade"
-						style={{ animationDelay: "500ms" }}
+				<section className="portfolio-section" id="experience" aria-labelledby="experience-heading">
+					<h2
+						id="experience-heading"
+						className="portfolio-section-label portfolio-fade"
+						style={{ animationDelay: "340ms" }}
 					>
-						<a href="/research/" className="portfolio-link portfolio-more-link">
-							More work
-							<span className="portfolio-more-arrow" aria-hidden="true">→</span>
-						</a>
+						Experience
+					</h2>
+					<div className="portfolio-experience-list">
+						{experiences.map((item, index) => (
+							<ExperienceRow key={item.title} {...item} index={index} />
+						))}
 					</div>
 				</section>
+
+				<TeachingSection />
+
+				<footer className="portfolio-footer" aria-label="Site footer">
+					<p>© {new Date().getFullYear()} Ethan Villalovoz</p>
+					<a href="#top" className="portfolio-link" onClick={(event) => {
+						event.preventDefault();
+						document.getElementById("top")?.focus({ preventScroll: true });
+						window.scrollTo({ top: 0, behavior: "auto" });
+					}}>
+						<span className="portfolio-link-text">Back to top</span>
+					</a>
+				</footer>
 			</div>
 		</main>
 	);

@@ -8,7 +8,8 @@ const failures = [];
 const requiredPaths = [
 	".nvmrc",
 	"src/app/page.tsx",
-	"src/app/(secondary)/research/page.tsx",
+	"src/components/TeachingSection.tsx",
+	"src/data/publication-schema.ts",
 	"src/components/HomePageClient.tsx",
 	"src/data/research.ts",
 	"src/data/site.ts",
@@ -21,7 +22,7 @@ const requiredPaths = [
 	"public/images/organizations/washington-state.svg",
 	"public/images/organizations/cmu-ri.svg",
 	"public/images/organizations/google.png",
-	"public/images/organizations/oregon-state.png",
+	"public/images/organizations/oregon-state-crest.svg",
 	"public/favicon.ico",
 	"public/images/identity/icon-circle-v4-96.png",
 	"public/images/identity/icon-circle-v4-180.png",
@@ -30,6 +31,9 @@ const requiredPaths = [
 ];
 
 const forbiddenPaths = [
+	"src/app/(secondary)",
+	"src/components/Navbar.tsx",
+	"src/components/Footer.tsx",
 	"src/app/(secondary)/writing",
 	"src/components/EssayContents.tsx",
 	"src/data/writing.ts",
@@ -155,9 +159,9 @@ if (await exists(sitemapPath)) {
 	const sitemap = await readFile(path.join(root, sitemapPath), "utf8");
 	const requiredUrls = [
 		"https://ethanvillalovoz.com/",
-		"https://ethanvillalovoz.com/research/",
 	];
 	const excludedUrls = [
+		"/research/",
 		"/writing/",
 		"/writing/tests-turn-prompting-into-search/",
 		"/work/",
@@ -172,7 +176,7 @@ if (await exists(sitemapPath)) {
 	const requiredImages = [
 		"https://ethanvillalovoz.com/images/EthanVillalovozPic-optimized.jpg",
 		"https://ethanvillalovoz.com/images/projects/bodegen-method-thumbnail.webp",
-		"https://ethanvillalovoz.com/images/projects/social-triangles-threat-thumbnail.webp",
+		"https://ethanvillalovoz.com/images/projects/social-triangles-wedge-study.png",
 	];
 
 	for (const url of requiredUrls) {

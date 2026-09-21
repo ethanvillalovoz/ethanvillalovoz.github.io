@@ -3,10 +3,8 @@ const siteUrl = 'https://ethanvillalovoz.com';
 const imageEntries = {
   '/': [
     ['/images/EthanVillalovozPic-optimized.jpg', 'Ethan Villalovoz', 'Portrait of Ethan Villalovoz'],
-  ],
-  '/research/': [
     ['/images/projects/bodegen-method-thumbnail.webp', 'BODE-GEN method'],
-    ['/images/projects/social-triangles-threat-thumbnail.webp', 'Social Triangles threat results', 'Threatening-to-harmless ratings across four multi-robot formations'],
+    ['/images/projects/social-triangles-wedge-study.png', 'Social Triangles robot study', 'Three robots approaching a participant in the wedge formation'],
   ],
 };
 
@@ -20,6 +18,8 @@ module.exports = {
   generateIndexSitemap: false,
   autoLastmod: false,
   exclude: [
+    '/research',
+    '/research/*',
     '/writing',
     '/writing/*',
     '/work',

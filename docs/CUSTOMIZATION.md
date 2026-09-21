@@ -23,8 +23,9 @@ The homepage experience lives in `src/components/HomePageClient.tsx`. It contain
 - Short technical introduction
 - Location and contact method
 - Profile links
+- Publications
 - Selected prior experience
-- Selected research work
+- Teaching history
 
 Keep this page selective. It should introduce the person and create clear paths into deeper evidence, not reproduce a resume.
 
@@ -40,6 +41,8 @@ For publications, preserve:
 - Local PDF or BibTeX links when distribution is appropriate
 - Plain-language summary
 - Descriptive figure alt text
+
+Publication resource labels use `Website`, `Paper`, `arXiv`, `Code`, and `Video`, displayed in that order with matching icons by `PublicationResources.tsx`. GitHub code and YouTube video URLs use their platform logos; other hosts use generic code/video icons. Additional labels (for example, `Dataset` or `Slides`) remain supported with a generic link icon. Add only resources that exist; no placeholders are shown.
 
 Do not imply first authorship, lead authorship, acceptance, or awards unless the source record supports the claim.
 
@@ -65,4 +68,4 @@ npm run check
 npm audit
 ```
 
-Then inspect Home, Research, legacy redirects, and the 404 page at desktop and mobile sizes. Check keyboard focus, theme switching, horizontal overflow, broken images, and console errors.
+Then inspect all homepage sections, legacy redirects, and the 404 page at desktop and mobile sizes. Check keyboard focus, theme switching, horizontal overflow, broken images, and console errors.

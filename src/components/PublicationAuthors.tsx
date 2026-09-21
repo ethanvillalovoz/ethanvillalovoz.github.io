@@ -1,3 +1,4 @@
+import TextLink from "@/components/TextLink";
 import type { ResearchAuthor } from "@/data/research";
 
 export default function PublicationAuthors({
@@ -14,27 +15,13 @@ export default function PublicationAuthors({
 					{author.isEthan ? (
 						<strong>
 							{author.href ? (
-								<a
-									href={author.href}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="portfolio-link"
-								>
-									{author.name}
-								</a>
+								<TextLink href={author.href}>{author.name}</TextLink>
 							) : (
 								author.name
 							)}
 						</strong>
 					) : author.href ? (
-						<a
-							href={author.href}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="portfolio-link"
-						>
-							{author.name}
-						</a>
+						<TextLink href={author.href}>{author.name}</TextLink>
 					) : (
 						author.name
 					)}
