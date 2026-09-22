@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { FiMapPin } from "react-icons/fi";
+import { FiCheck, FiMapPin } from "react-icons/fi";
 import { FaFileLines, FaLinkedin } from "react-icons/fa6";
 import { SiGithub, SiGooglescholar, SiX, SiYoutube } from "react-icons/si";
 import OrganizationLink from "@/components/OrganizationLink";
@@ -255,7 +255,7 @@ export default function HomePageClient() {
 									aria-live="polite"
 									aria-atomic="true"
 								>
-									{copyState === "copied" ? "Copied" : copyState === "failed" ? "Copy failed" : ""}
+									{copyState === "copied" ? <span className="portfolio-copy-confirmation"><FiCheck aria-hidden="true" />Copied</span> : copyState === "failed" ? "Copy failed" : ""}
 								</span>
 							</span>
 						</p>

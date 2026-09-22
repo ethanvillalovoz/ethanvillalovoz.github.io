@@ -567,7 +567,31 @@ button {
   white-space: nowrap;
 }
 
+.portfolio-copy-confirmation {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  animation: copy-confirmation 2s ease both;
+}
+.portfolio-copy-confirmation svg { width: 13px; height: 13px; }
+.portfolio-copy-confirmation polyline {
+  stroke-dasharray: 24;
+  animation: copy-check 180ms var(--ease-out) both;
+}
+@keyframes copy-check { from { stroke-dashoffset: 24; } to { stroke-dashoffset: 0; } }
+@keyframes copy-confirmation {
+  0%, 100% { opacity: 0; }
+  8%, 90% { opacity: 1; }
+}
+.portfolio-copy-email:has(.portfolio-copy-button:focus-visible) .portfolio-copy-confirmation,
+.portfolio-copy-email:has(.portfolio-copy-button:focus-visible) .portfolio-copy-confirmation polyline { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-copy-confirmation,
+  .portfolio-copy-confirmation polyline { animation: none; }
+}
+
 .portfolio-theme-toggle {
+  view-transition-name: theme-toggle;
   appearance: none;
   background: transparent;
   border: 0;
@@ -583,6 +607,29 @@ button {
   place-items: center;
   transition: transform var(--motion-fast) var(--ease-out);
   width: 44px;
+}
+
+/* A short crossfade preserves the page's position while changing appearance. */
+::view-transition { pointer-events: none; }
+::view-transition-group(root),
+::view-transition-group(theme-toggle) { animation-duration: 200ms; }
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 200ms;
+  animation-timing-function: var(--ease-out);
+}
+::view-transition-old(theme-toggle) { animation: theme-icon-out 160ms var(--ease-out) both; }
+::view-transition-new(theme-toggle) { animation: theme-icon-in 200ms var(--ease-out) both; }
+@keyframes theme-icon-out {
+  to { opacity: 0; transform: rotate(-15deg) scale(0.9); }
+}
+@keyframes theme-icon-in {
+  from { opacity: 0; transform: rotate(15deg) scale(0.9); }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
 }
 
 .portfolio-theme-toggle:active {
