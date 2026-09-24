@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FiCheck, FiMapPin } from "react-icons/fi";
 import { FaFileLines, FaLinkedin } from "react-icons/fa6";
-import { SiGithub, SiGooglescholar, SiX, SiYoutube } from "react-icons/si";
+import { SiArxiv, SiGithub, SiGooglescholar, SiX, SiYoutube } from "react-icons/si";
 import OrganizationLink from "@/components/OrganizationLink";
 import PublicationResources from "@/components/PublicationResources";
 import PublicationAuthors from "@/components/PublicationAuthors";
@@ -147,8 +147,19 @@ function PublicationRow({
 					authors={publication.authors}
 					className="portfolio-work-authors"
 				/>
-				<p className="portfolio-work-venue">
-					{publication.venue} {publication.date}
+				<p className="portfolio-work-venue" data-venue={publication.venue === "arXiv" ? "arxiv" : publication.venue === "IROS" && publication.date === "2023" ? "iros-2023" : undefined}>
+					<a
+						href={publication.venue === "IROS" ? `https://${publication.date}.ieee-iros.org/` : "https://arxiv.org/"}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="portfolio-link portfolio-venue-link"
+					>
+					{publication.venue === "arXiv" && <SiArxiv className="portfolio-venue-icon" aria-hidden="true" />}
+					{publication.venue === "IROS" && publication.date === "2023" && (
+						<Image src="/images/venues/iros-2023.svg" alt="" width={14} height={14} className="portfolio-venue-icon" />
+					)}
+					<span className="portfolio-link-text">{publication.venue} {publication.date}</span>
+					</a>
 				</p>
 				<PublicationResources resources={publication.resources} label={`${publication.shortTitle} resources`} />
 				<p className="portfolio-work-description">{publication.description}</p>

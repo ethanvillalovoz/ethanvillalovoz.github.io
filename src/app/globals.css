@@ -448,10 +448,19 @@ button {
 }
 
 .portfolio-work-venue {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   color: rgb(var(--muted));
   font-style: normal;
   margin: 4px 0 0;
 }
+
+.portfolio-work-venue[data-venue="arxiv"] { color: #a12830; }
+.portfolio-work-venue[data-venue="iros-2023"] { color: #176f65; }
+.dark .portfolio-work-venue[data-venue="arxiv"] { color: #df969b; }
+.dark .portfolio-work-venue[data-venue="iros-2023"] { color: #77c9b9; }
+.portfolio-venue-icon { width: 14px; height: 14px; object-fit: contain; flex-shrink: 0; }
 
 .portfolio-work-resources {
   display: flex;
@@ -883,4 +892,12 @@ button {
 
 .portfolio-footer .portfolio-link {
   font-weight: 400;
+}
+
+.portfolio-venue-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: inherit;
+  font-weight: inherit;
 }
