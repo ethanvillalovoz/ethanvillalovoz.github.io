@@ -698,13 +698,6 @@ button {
   padding: 0 0 0 20px;
 }
 
-.portfolio-work-media:focus-visible {
-  border-color: rgb(var(--interaction-accent));
-  outline: 2px solid rgb(var(--interaction-accent));
-  outline-offset: 3px;
-  transition-duration: 0ms;
-}
-
 .teaching-term {
   color: rgb(var(--muted));
   font-family: var(--font-sans);
@@ -764,32 +757,10 @@ button {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .portfolio-work-media {
-    transition: border-color var(--motion-fast) var(--ease-out);
-  }
-
-  .portfolio-work-media:hover {
-    border-color: rgb(var(--interaction-accent));
-  }
-
   .portfolio-link:hover .portfolio-link-text,
   .portfolio-organization-link:hover .portfolio-link-text {
     background-image: linear-gradient(rgb(var(--interaction-accent)), rgb(var(--interaction-accent)));
     background-size: 100% 1.5px;
-  }
-}
-
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .portfolio-work-media {
-    transition: border-color var(--motion-fast) var(--ease-out),
-      transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
-  }
-  .portfolio-work-media:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgb(0 0 0 / 0.12);
-  }
-  .dark .portfolio-work-media:hover {
-    box-shadow: 0 4px 12px rgb(0 0 0 / 0.28);
   }
 }
 

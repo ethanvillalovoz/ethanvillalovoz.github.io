@@ -121,13 +121,7 @@ function PublicationRow({
 			className="portfolio-work-item portfolio-fade"
 			style={{ animationDelay: `${160 + index * 45}ms` }}
 		>
-			<a
-				href={publication.href}
-				target="_blank"
-				rel="noopener noreferrer"
-				className="portfolio-work-media"
-				aria-label={`View ${publication.title}`}
-			>
+			<div className="portfolio-work-media">
 				<Image
 					src={publication.image}
 					alt={publication.imageAlt}
@@ -138,7 +132,7 @@ function PublicationRow({
 					sizes="(max-width: 599px) calc(100vw - 48px), (max-width: 759px) 196px, 250px"
 					className="portfolio-work-image"
 				/>
-			</a>
+			</div>
 			<div className="portfolio-work-copy">
 				<h3 className="portfolio-work-title">
 					<TextLink href={publication.href}>{publication.title}</TextLink>
