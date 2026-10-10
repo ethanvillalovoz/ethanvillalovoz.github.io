@@ -78,9 +78,9 @@ body {
 body {
   color: rgb(var(--foreground));
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 1.5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -168,10 +168,10 @@ button {
 .portfolio-h1 {
   color: rgb(var(--heading));
   font-family: var(--font-sans);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: -0.025em;
-  line-height: 28px;
+  line-height: 1.75rem;
   margin: 0 0 4px;
   padding: 0;
   text-wrap: balance;
@@ -182,10 +182,10 @@ button {
   color: rgb(var(--muted));
   display: flex;
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 400;
   gap: 6px;
-  line-height: 20px;
+  line-height: 1.25rem;
   margin: 0;
 }
 
@@ -198,7 +198,7 @@ button {
 .portfolio-p {
   color: rgb(var(--foreground));
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.65;
@@ -212,8 +212,8 @@ button {
 
 .portfolio-contact-copy {
   margin-top: 24px;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: rgb(var(--muted));
 }
 
@@ -228,8 +228,8 @@ button {
 
 .portfolio-profile-links .portfolio-link {
   display: inline-block;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   white-space: nowrap;
   padding: 4px 0;
   min-height: 32px;
@@ -271,10 +271,10 @@ button {
 .portfolio-section-label {
   color: rgb(var(--heading));
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 550;
   letter-spacing: -0.015em;
-  line-height: 24px;
+  line-height: 1.5rem;
   margin: 0 0 24px;
   padding: 0;
   text-transform: none;
@@ -302,10 +302,10 @@ button {
   grid-column: 1 / -1;
   color: rgb(var(--heading));
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 24px;
+  line-height: 1.5rem;
   margin: 0;
   min-width: 0;
   padding: 0;
@@ -314,12 +314,12 @@ button {
 .portfolio-row-role {
   color: rgb(var(--foreground));
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0;
   grid-column: 1;
   grid-row: 1;
-  line-height: 20px;
+  line-height: 1.25rem;
   margin: 0;
   padding: 0 0 0 20px;
 }
@@ -328,17 +328,17 @@ button {
 .portfolio-work-date {
   color: rgb(var(--muted));
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 20px;
+  line-height: 1.25rem;
   margin: 0;
   padding: 0;
   text-transform: uppercase;
 }
 
 .portfolio-row-date {
-  font-size: 14px;
+  font-size: 0.875rem;
   grid-column: 2;
   grid-row: 1;
   text-align: right;
@@ -406,10 +406,10 @@ button {
 .portfolio-work-title {
   color: rgb(var(--heading));
   font-family: var(--font-sans);
-  font-size: 17px;
+  font-size: 1.0625rem;
   font-weight: 550;
   letter-spacing: -0.012em;
-  line-height: 26px;
+  line-height: 1.625rem;
   margin: 0;
   min-width: 0;
   padding: 0;
@@ -424,16 +424,16 @@ button {
 .portfolio-work-authors,
 .portfolio-work-venue {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 21px;
+  line-height: 1.3125rem;
   padding: 0;
 }
 
 .portfolio-work-description {
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.65;
@@ -491,8 +491,8 @@ button {
   align-items: center;
   flex-wrap: wrap;
   gap: 4px 20px;
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
   margin-top: 8px;
 }
 
@@ -590,10 +590,10 @@ button {
 .portfolio-copy-status {
   color: rgb(var(--muted));
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 0.75rem;
   left: 0;
   letter-spacing: 0;
-  line-height: 16px;
+  line-height: 1rem;
   position: absolute;
   text-transform: none;
   top: calc(100% + 2px);
@@ -605,12 +605,9 @@ button {
 
 .portfolio-copy-status[data-state="copied"],
 .portfolio-copy-status[data-state="failed"] { opacity: 1; }
-.portfolio-copy-confirmation { display: inline-flex; align-items: center; gap: 4px; }
-.portfolio-copy-confirmation svg { width: 13px; height: 13px; }
 .portfolio-copy-email:has(:focus-visible) .portfolio-copy-status { transition: none; }
 
 .portfolio-theme-toggle {
-  view-transition-name: theme-toggle;
   appearance: none;
   background: transparent;
   border: 0;
@@ -628,23 +625,14 @@ button {
   width: 44px;
 }
 
-/* A short crossfade preserves the page's position while changing appearance. */
+/* Theme reveal is driven from the existing button; snapshots never capture input. */
 ::view-transition { pointer-events: none; }
-::view-transition-group(root),
-::view-transition-group(theme-toggle) { animation-duration: 200ms; }
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 200ms;
-  animation-timing-function: var(--ease-out);
+::view-transition-old(root), ::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
-::view-transition-old(theme-toggle) { animation: theme-icon-out 160ms var(--ease-out) both; }
-::view-transition-new(theme-toggle) { animation: theme-icon-in 200ms var(--ease-out) both; }
-@keyframes theme-icon-out {
-  to { opacity: 0; transform: rotate(-15deg) scale(0.9); }
-}
-@keyframes theme-icon-in {
-  from { opacity: 0; transform: rotate(15deg) scale(0.9); }
-}
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*),
   ::view-transition-old(*),
@@ -691,10 +679,10 @@ button {
 .teaching-term {
   color: rgb(var(--muted));
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 20px;
+  line-height: 1.25rem;
   margin: 0;
   white-space: nowrap;
 }
@@ -702,10 +690,10 @@ button {
 .teaching-role {
   color: rgb(var(--foreground));
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 20px;
+  line-height: 1.25rem;
   margin: 0;
 }
 
@@ -716,9 +704,9 @@ button {
 
 .teaching-institution-name {
   color: rgb(var(--heading));
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
-  line-height: 24px;
+  line-height: 1.5rem;
   margin: 0 0 2px;
 }
 
@@ -740,9 +728,9 @@ button {
 
 .teaching-course {
   color: rgb(var(--heading));
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
-  line-height: 21px;
+  line-height: 1.3125rem;
   margin: 6px 0 0;
 }
 
@@ -826,8 +814,8 @@ button {
   gap: 12px 24px;
   margin-top: 96px;
   color: rgb(var(--muted));
-  font-size: 13px;
-  line-height: 24px;
+  font-size: 0.8125rem;
+  line-height: 1.5rem;
 }
 
 .portfolio-footer p {
@@ -879,7 +867,7 @@ button {
   position: absolute; z-index: 10; inset: auto auto calc(100% + 8px) 50%;
   width: max-content; max-width: min(250px, 80vw); padding: 6px 9px;
   background: rgb(var(--heading)); color: rgb(var(--background));
-  border-radius: 6px; font-size: 12px; font-weight: 450; line-height: 18px;
+  border-radius: 6px; font-size: 0.75rem; font-weight: 450; line-height: 1.125rem;
   pointer-events: none; visibility: hidden; opacity: 0;
   transform: translateX(-50%) translateY(3px) scale(.97); transform-origin: bottom center;
   transition: opacity 125ms var(--ease-out), transform 125ms var(--ease-out), visibility 125ms;
@@ -892,8 +880,6 @@ button {
 .portfolio-copy-status { max-width: min(280px, 75vw); white-space: normal; transform: translateY(-2px); transition: opacity 140ms var(--ease-out), transform 140ms var(--ease-out); }
 .portfolio-copy-status[data-state="copied"] { transform: none; }
 .portfolio-copy-status[data-instant="true"] { transition: none; }
-.portfolio-copy-confirmation { align-items: baseline; }
-.portfolio-copy-confirmation svg { flex-shrink: 0; align-self: center; }
 
 .portfolio-page-entry { animation: none; }
 .portfolio-identity, .portfolio-profile-image, .portfolio-profile-links, .portfolio-intro-copy { animation: intro-arrive 220ms var(--ease-out) backwards; }
@@ -906,3 +892,26 @@ button {
   .portfolio-intro * { animation: none !important; }
   .portfolio-hint, .portfolio-copy-status { transition: none !important; }
 }
+
+/* In-place email confirmation: preserve the address's exact layout footprint. */
+.portfolio-copy-button { position: relative; }
+.portfolio-copy-address { display: inline-block; transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out), filter 160ms var(--ease-out); }
+.portfolio-copy-success { position: absolute; inset: 0; display: inline-flex; align-items: center; justify-content: center; gap: 6px; opacity: 0; transform: translateY(5px); filter: blur(2px); pointer-events: none; transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out), filter 160ms var(--ease-out); }
+.portfolio-copy-button[data-copied="true"] .portfolio-copy-address { opacity: 0; transform: translateY(-5px); filter: blur(2px); }
+.portfolio-copy-button[data-copied="true"] .portfolio-copy-success { opacity: 1; transform: none; filter: blur(0); }
+.portfolio-copy-button[data-instant="true"] > span { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-copy-button > span { transition: none; }
+  .portfolio-copy-button[data-copied="true"] .portfolio-copy-address { transform: none; filter: none; }
+}
+
+.portfolio-copy-email, .portfolio-copy-email .portfolio-hint-anchor { max-width: 100%; }
+.portfolio-copy-button { max-width: 100%; }
+.portfolio-copy-address { overflow-wrap: anywhere; }
+
+
+/* Let enlarged text reflow without widening the reading column. */
+.portfolio-container { overflow-wrap: break-word; }
+.portfolio-experience-group, .portfolio-experience-row, .portfolio-experience-stints { min-width: 0; }
+.portfolio-row-date, .portfolio-organization-link, .teaching-term { white-space: normal; }
+@media (max-width: 479px) { .portfolio-experience-row { grid-template-columns: minmax(0, 1fr); } }

@@ -45,14 +45,17 @@ export default function CopyEmail() {
     setVisible(true);
   };
 
+  const copied = visible && feedback.result === "Copied";
   return <span className="portfolio-copy-email">
     <Hint label="Copy email address" disabled={visible}>
-      <button type="button" className="portfolio-link portfolio-copy-button" onClick={copy} aria-label={`Copy ${email} to clipboard`}>
-        <span className="portfolio-link-text">{email}</span>
+      <button type="button" className="portfolio-link portfolio-copy-button" onClick={copy}
+        data-copied={copied} data-instant={feedback.instant} aria-label={`Copy ${email} to clipboard`}>
+        <span className="portfolio-copy-address portfolio-link-text" aria-hidden="true">{email}</span>
+        <span className="portfolio-copy-success" aria-hidden="true"><FiCheck /> Email copied</span>
       </button>
     </Hint>.
-    <span className="portfolio-copy-status" data-state={visible ? "copied" : "idle"} data-instant={feedback.instant} aria-hidden="true">
-      <span className="portfolio-copy-confirmation">{feedback.result === "Copied" && <FiCheck aria-hidden="true" />}{feedback.result}</span>
+    <span className="portfolio-copy-status" data-state={visible && !copied ? "failed" : "idle"} data-instant={feedback.instant} aria-hidden="true">
+      {feedback.result !== "Copied" ? feedback.result : ""}
     </span>
     <span className="sr-only" role="status" aria-live="polite" aria-atomic="true">{visible ? feedback.result : ""}</span>
   </span>;

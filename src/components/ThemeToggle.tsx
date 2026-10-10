@@ -46,11 +46,21 @@ export default function ThemeToggle() {
 					pendingTheme.current = null;
 					return;
 				}
-				// Snapshot the two appearances so text and layout stay fixed during the fade.
+				const rect = event.currentTarget.getBoundingClientRect();
+                const x = rect.left + rect.width / 2;
+                const y = rect.top + rect.height / 2;
+                const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
 				const nextTransition = document.startViewTransition(() => {
 					flushSync(updateTheme);
 				});
 				transition.current = nextTransition;
+                void nextTransition.ready.then(() => {
+                    if (sequence !== changeSequence.current) return;
+                    document.documentElement.animate(
+                        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+                        { duration: 340, easing: "cubic-bezier(0.22, 1, 0.36, 1)", pseudoElement: "::view-transition-new(root)" },
+                    );
+                }).catch(() => {});
 				void nextTransition.finished.catch(() => {}).finally(() => {
 					if (transition.current === nextTransition) {
 						transition.current = null;
