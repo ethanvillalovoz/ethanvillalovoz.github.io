@@ -1,9 +1,10 @@
 "use client";
 
-import Image from "next/image";
+import { FiSun, FiMoon } from "react-icons/fi";
 import { useRef, useSyncExternalStore } from "react";
 import { flushSync } from "react-dom";
 import { useTheme } from "next-themes";
+import Hint from "./Hint";
 
 const subscribeToHydration = () => () => {};
 const getClientHydrationSnapshot = () => true;
@@ -26,6 +27,10 @@ export default function ThemeToggle() {
 		: "Toggle color theme";
 
 	return (
+		<>
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content={mounted && isNight ? "#171717" : "#fdfdfc"} />
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content={mounted && !isNight ? "#fdfdfc" : "#171717"} />
+		<Hint label={accessibleLabel}>
 		<button
 			type="button"
 			onClick={(event) => {
@@ -55,24 +60,11 @@ export default function ThemeToggle() {
 			}}
 			className="portfolio-theme-toggle"
 			aria-label={accessibleLabel}
-			title={accessibleLabel}
 		>
-			<Image
-				src="/images/theme/sun.svg"
-				alt=""
-				width={21}
-				height={21}
-				priority
-				className="portfolio-theme-icon-day"
-			/>
-			<Image
-				src="/images/theme/moon.svg"
-				alt=""
-				width={24}
-				height={25}
-				priority
-				className="portfolio-theme-icon-night"
-			/>
+			<FiSun className="portfolio-theme-icon-day" aria-hidden="true" />
+			<FiMoon className="portfolio-theme-icon-night" aria-hidden="true" />
 		</button>
+		</Hint>
+		</>
 	);
 }

@@ -20,7 +20,7 @@ const teachingGroups = Array.from(new Set(teachingExperiences.map((entry) => ent
 
 export default function TeachingSection() {
 	return (
-		<section id="teaching" className="portfolio-section portfolio-fade" style={{ animationDelay: "500ms" }} aria-labelledby="teaching-heading">
+		<section id="teaching" className="portfolio-section" aria-labelledby="teaching-heading">
 			<h2 id="teaching-heading" className="portfolio-section-label">
 				Teaching
 			</h2>

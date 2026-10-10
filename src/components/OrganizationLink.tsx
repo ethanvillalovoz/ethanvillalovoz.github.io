@@ -5,10 +5,12 @@ export default function OrganizationLink({
 	href,
 	iconSrc,
 	children,
+	eager = false,
 }: {
 	href: string;
 	iconSrc: string;
 	children: ReactNode;
+	eager?: boolean;
 }) {
 	return (
 		<a
@@ -24,6 +26,7 @@ export default function OrganizationLink({
 				width={16}
 				height={16}
 				unoptimized
+				loading={eager ? "eager" : "lazy"}
 				className="portfolio-organization-mark"
 			/>
 			<span className="portfolio-link-text portfolio-organization-name">{children}</span>

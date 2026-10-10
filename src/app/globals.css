@@ -27,16 +27,15 @@ img {
 }
 
 :root {
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --background: 255 255 255;
-  --foreground: 51 51 51;
-  --heading: 23 23 23;
-  --muted: 102 102 102;
+  --font-sans: var(--font-inter), Arial, sans-serif;
+  --background: 253 253 252;
+  --foreground: 99 99 94;
+  --heading: 33 32 28;
+  --muted: 112 112 106;
   --underline: 138 138 138;
   --interaction-accent: 23 23 23;
   --selection-background: 229 229 229;
   --divider: 229 229 229;
-
   --primary: 51 51 51;
   --primary-foreground: 255 255 255;
   --primary-light: 138 138 138;
@@ -57,7 +56,6 @@ img {
   --interaction-accent: 245 245 245;
   --selection-background: 64 64 64;
   --divider: 54 54 54;
-
   --primary: 212 212 212;
   --primary-foreground: 23 23 23;
   --primary-light: 138 138 138;
@@ -122,7 +120,7 @@ button {
 
 .portfolio-theme-corner {
   position: absolute;
-  right: max(12px, calc((100vw - 800px) / 2 + 12px));
+  right: max(12px, calc((100vw - 692px) / 2 + 12px));
   top: 24px;
   z-index: 1;
 }
@@ -130,18 +128,18 @@ button {
 .portfolio-container {
   box-sizing: border-box;
   margin: 0 auto;
-  max-width: 800px;
-  padding: 96px 24px 64px;
+  max-width: 692px;
+  padding: 72px 24px 64px;
   width: 100%;
 }
 
 .portfolio-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 80px;
-  grid-template-areas: "identity portrait" "copy copy";
+  grid-template-columns: minmax(0, 1fr) 64px;
+  grid-template-areas: "identity portrait" "profiles profiles" "copy copy";
   column-gap: 20px;
-  row-gap: 24px;
-  margin-bottom: 48px;
+  row-gap: 16px;
+  margin-bottom: 64px;
 }
 
 .portfolio-identity {
@@ -153,27 +151,30 @@ button {
 .portfolio-intro-copy {
   grid-area: copy;
   min-width: 0;
+  margin-top: 40px;
 }
 
 .portfolio-profile-image {
   grid-area: portrait;
   align-self: start;
-  border-radius: 2px;
+  border-radius: 8px;
   display: block;
-  height: 80px;
+  height: 64px;
   object-fit: cover;
-  width: 80px;
+  width: 64px;
+  box-shadow: 0 0 0 1px rgb(var(--foreground) / 0.08);
 }
 
 .portfolio-h1 {
   color: rgb(var(--heading));
   font-family: var(--font-sans);
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 500;
-  letter-spacing: 0;
-  line-height: 36px;
-  margin: 0 0 8px;
+  letter-spacing: -0.025em;
+  line-height: 28px;
+  margin: 0 0 4px;
   padding: 0;
+  text-wrap: balance;
 }
 
 .portfolio-location {
@@ -181,7 +182,7 @@ button {
   color: rgb(var(--muted));
   display: flex;
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   gap: 6px;
   line-height: 20px;
@@ -200,21 +201,29 @@ button {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 24px;
+  line-height: 1.65;
   margin: 0;
   padding: 0;
+  text-wrap: pretty;
 }
 
+/* Paragraph rhythm follows the reading column rather than a dense bio block. */
+.portfolio-p + .portfolio-p { margin-top: 16px; }
+
 .portfolio-contact-copy {
-  margin-top: 25px;
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgb(var(--muted));
 }
 
 .portfolio-profile-links {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 16px;
-  margin-top: 16px;
+  gap: 4px 20px;
+  margin-top: 0;
+  grid-area: profiles;
 }
 
 .portfolio-profile-links .portfolio-link {
@@ -222,6 +231,10 @@ button {
   font-size: 14px;
   line-height: 24px;
   white-space: nowrap;
+  padding: 4px 0;
+  min-height: 32px;
+  transition: transform var(--motion-fast) var(--ease-out);
+  transform-origin: left center;
 }
 
 /* Match the organization marks without underlining the decorative icon. */
@@ -252,24 +265,24 @@ button {
 }
 
 .portfolio-section + .portfolio-section {
-  margin-top: 52px;
+  margin-top: 64px;
 }
 
 .portfolio-section-label {
   color: rgb(var(--heading));
   font-family: var(--font-sans);
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 28px;
-  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: 550;
+  letter-spacing: -0.015em;
+  line-height: 24px;
+  margin: 0 0 24px;
   padding: 0;
   text-transform: none;
 }
 
 .portfolio-experience-list {
   display: grid;
-  gap: 20px;
+  gap: 28px;
 }
 
 .portfolio-experience-stints {
@@ -352,29 +365,31 @@ button {
 
 .portfolio-work-list {
   display: grid;
-  gap: 28px;
+  gap: 64px;
 }
 
 .portfolio-work-item + .portfolio-work-item {
-  border-top: 1px solid rgb(var(--divider));
-  padding-top: 28px;
+  border-top: 0;
+  padding-top: 0;
 }
 
 .portfolio-work-item {
   align-items: start;
   display: grid;
-  gap: 20px;
-  grid-template-columns: 196px minmax(0, 1fr);
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr);
   min-width: 0;
 }
 
 .portfolio-work-media {
   aspect-ratio: 16 / 10;
   background: rgb(var(--card));
-  border: 1px solid rgb(var(--foreground) / 0.12);
-  border-radius: 4px;
+  border: 1px solid rgb(var(--foreground) / 0.09);
+  border-radius: 10px;
   display: block;
   overflow: hidden;
+  align-self: center;
+  width: 100%;
 }
 
 .portfolio-work-image {
@@ -391,13 +406,14 @@ button {
 .portfolio-work-title {
   color: rgb(var(--heading));
   font-family: var(--font-sans);
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 0;
+  font-size: 17px;
+  font-weight: 550;
+  letter-spacing: -0.012em;
   line-height: 26px;
   margin: 0;
   min-width: 0;
   padding: 0;
+  text-wrap: pretty;
 }
 
 .portfolio-work-title .portfolio-link {
@@ -417,11 +433,12 @@ button {
 
 .portfolio-work-description {
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 23px;
+  line-height: 1.65;
   padding: 0;
+  text-wrap: pretty;
 }
 
 .portfolio-work-authors {
@@ -473,15 +490,15 @@ button {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 4px 16px;
+  gap: 4px 20px;
   font-size: 14px;
   line-height: 21px;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .portfolio-work-description {
   color: rgb(var(--foreground));
-  margin: 8px 0 0;
+  margin: 16px 0 0;
 }
 
 .portfolio-organization-link {
@@ -521,7 +538,7 @@ button {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   padding-bottom: 3px;
-  transition: background-size var(--motion-standard) var(--ease-out);
+  transition: background-size 100ms var(--ease-out);
 }
 
 .portfolio-link:focus-visible .portfolio-link-text,
@@ -554,7 +571,7 @@ button {
   background: transparent;
   border: 0;
   cursor: pointer;
-  display: inline;
+  display: inline-block;
   font-size: inherit;
   line-height: inherit;
   margin: 0;
@@ -563,6 +580,7 @@ button {
   transform-origin: center;
   transition: transform var(--motion-fast) var(--ease-out);
   vertical-align: baseline;
+  min-height: 32px;
 }
 
 .portfolio-copy-button:active {
@@ -572,39 +590,24 @@ button {
 .portfolio-copy-status {
   color: rgb(var(--muted));
   font-family: var(--font-sans);
-  font-size: 11px;
-  left: calc(100% + 8px);
+  font-size: 12px;
+  left: 0;
   letter-spacing: 0;
   line-height: 16px;
   position: absolute;
-  text-transform: uppercase;
-  top: 50%;
-  transform: translateY(-50%);
+  text-transform: none;
+  top: calc(100% + 2px);
+  transform: none;
   white-space: nowrap;
+  opacity: 0;
+  transition: opacity var(--motion-fast) var(--ease-out);
 }
 
-.portfolio-copy-confirmation {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  animation: copy-confirmation 2s ease both;
-}
+.portfolio-copy-status[data-state="copied"],
+.portfolio-copy-status[data-state="failed"] { opacity: 1; }
+.portfolio-copy-confirmation { display: inline-flex; align-items: center; gap: 4px; }
 .portfolio-copy-confirmation svg { width: 13px; height: 13px; }
-.portfolio-copy-confirmation polyline {
-  stroke-dasharray: 24;
-  animation: copy-check 180ms var(--ease-out) both;
-}
-@keyframes copy-check { from { stroke-dashoffset: 24; } to { stroke-dashoffset: 0; } }
-@keyframes copy-confirmation {
-  0%, 100% { opacity: 0; }
-  8%, 90% { opacity: 1; }
-}
-.portfolio-copy-email:has(.portfolio-copy-button:focus-visible) .portfolio-copy-confirmation,
-.portfolio-copy-email:has(.portfolio-copy-button:focus-visible) .portfolio-copy-confirmation polyline { animation: none; }
-@media (prefers-reduced-motion: reduce) {
-  .portfolio-copy-confirmation,
-  .portfolio-copy-confirmation polyline { animation: none; }
-}
+.portfolio-copy-email:has(:focus-visible) .portfolio-copy-status { transition: none; }
 
 .portfolio-theme-toggle {
   view-transition-name: theme-toggle;
@@ -657,7 +660,7 @@ button {
   outline-offset: 2px;
 }
 
-.portfolio-theme-toggle img {
+.portfolio-theme-toggle svg {
   display: block;
   grid-area: 1 / 1;
   height: auto;
@@ -673,24 +676,11 @@ button {
   display: block;
 }
 
-.portfolio-fade {
-  animation-duration: 350ms;
-  animation-fill-mode: both;
-  animation-name: portfolioFadeIn;
-  animation-timing-function: var(--ease-out);
+.portfolio-page-entry {
+  animation: portfolioFadeIn 180ms var(--ease-out) both;
 }
-
-.portfolio-fade-one {
-  animation-delay: 40ms;
-}
-
-.portfolio-fade-two {
-  animation-delay: 80ms;
-}
-
-.portfolio-fade-three {
-  animation-delay: 120ms;
-}
+/* Focusing the page during entry must never leave a keyboard target invisible. */
+.portfolio-page-entry:focus-within { animation: none; }
 
 .teaching-list {
   list-style: none;
@@ -721,7 +711,7 @@ button {
 
 .teaching-groups {
   display: grid;
-  gap: 20px;
+  gap: 28px;
 }
 
 .teaching-institution-name {
@@ -761,48 +751,23 @@ button {
   .portfolio-organization-link:hover .portfolio-link-text {
     background-image: linear-gradient(rgb(var(--interaction-accent)), rgb(var(--interaction-accent)));
     background-size: 100% 1.5px;
-  }
-}
-
-@media (min-width: 760px) {
-  .portfolio-work-item {
-    grid-template-columns: 250px minmax(0, 1fr);
-  }
-}
-
-@media (max-width: 599px) {
-  .portfolio-copy-status {
-    left: 0;
-    top: calc(100% + 1px);
-    transform: none;
-  }
-
-  .portfolio-work-item {
-    gap: 16px;
-    grid-template-columns: minmax(0, 1fr);
+    transition-duration: 160ms;
   }
 }
 
 @media (min-width: 600px) {
-  .portfolio-container {
-    padding-bottom: 80px;
-    padding-top: 112px;
-  }
-
+  .portfolio-container { padding-top: 112px; padding-bottom: 80px; }
   .portfolio-intro {
-    grid-template-columns: minmax(0, 1fr) 104px;
+    grid-template-columns: minmax(0, 1fr) 72px;
+    grid-template-areas: "identity portrait" "profiles profiles" "copy copy";
     column-gap: 32px;
+    row-gap: 16px;
+    margin-bottom: 112px;
   }
-
-  .portfolio-profile-image {
-    width: 104px;
-    height: 104px;
-  }
-
-  .portfolio-profile-links {
-    column-gap: 24px;
-  }
-
+  .portfolio-profile-image { width: 72px; height: 72px; }
+  .portfolio-intro-copy { margin-top: 64px; }
+  .portfolio-section + .portfolio-section { margin-top: 112px; }
+  .portfolio-work-list { gap: 80px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -810,14 +775,12 @@ button {
     scroll-behavior: auto;
   }
 
-  .portfolio-fade {
-    animation-delay: 0s !important;
-    animation-duration: var(--motion-fast) !important;
-    animation-iteration-count: 1 !important;
-  }
+  .portfolio-page-entry { animation: none; }
 
   .portfolio-link,
-  .portfolio-link-text {
+  .portfolio-link-text,
+  .portfolio-copy-status,
+  .portfolio-copy-button {
     transition-duration: 0.01ms !important;
   }
 
@@ -834,10 +797,13 @@ button {
 }
 
 .portfolio-work-resources .portfolio-link {
-	display: inline-block;
-	min-height: 24px;
-	color: rgb(var(--heading));
-	font-weight: 400;
+  display: inline-block;
+  min-height: 32px;
+  color: rgb(var(--heading));
+  font-weight: 400;
+  padding: 4px 0;
+  transition: transform var(--motion-fast) var(--ease-out);
+  transform-origin: left center;
 }
 
 .portfolio-resource-mark[data-brand="arxiv"] {
@@ -858,9 +824,9 @@ button {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px 24px;
-  margin-top: 52px;
+  margin-top: 96px;
   color: rgb(var(--muted));
-  font-size: 14px;
+  font-size: 13px;
   line-height: 24px;
 }
 
@@ -876,4 +842,67 @@ button {
   display: inline-block;
   color: inherit;
   font-weight: inherit;
+}
+
+/* Feedback belongs to existing actions, never the static publication images. */
+.portfolio-profile-links .portfolio-link:active,
+.portfolio-work-resources .portfolio-link:active { transform: scale(.97); }
+.portfolio-row-date, .teaching-term { font-variant-numeric: tabular-nums; }
+.portfolio-profile-links .portfolio-link:focus-visible,
+.portfolio-work-resources .portfolio-link:focus-visible { transition: none; transform: none; }
+
+@media (max-width: 599px) {
+  .portfolio-work-media { width: 100%; }
+  .portfolio-contact-copy { margin-top: 24px; }
+}
+
+@media (pointer: coarse) {
+  .portfolio-profile-links .portfolio-link,
+  .portfolio-work-resources .portfolio-link {
+    position: relative;
+    min-height: 44px;
+    padding-block: 10px;
+  }
+  /* Increase the one-tap email target without displacing its sentence. */
+  .portfolio-copy-button::after { content: ""; position: absolute; inset: -6px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-profile-links .portfolio-link:active,
+  .portfolio-work-resources .portfolio-link:active { transform: none; }
+}
+
+/* Shared detail pass: hints, feedback, and explanatory research media. */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.portfolio-hint-anchor { display: inline-block; position: relative; }
+.portfolio-hint {
+  position: absolute; z-index: 10; inset: auto auto calc(100% + 8px) 50%;
+  width: max-content; max-width: min(250px, 80vw); padding: 6px 9px;
+  background: rgb(var(--heading)); color: rgb(var(--background));
+  border-radius: 6px; font-size: 12px; font-weight: 450; line-height: 18px;
+  pointer-events: none; visibility: hidden; opacity: 0;
+  transform: translateX(-50%) translateY(3px) scale(.97); transform-origin: bottom center;
+  transition: opacity 125ms var(--ease-out), transform 125ms var(--ease-out), visibility 125ms;
+}
+.portfolio-hint::after { content: ""; position: absolute; inset: 100% 0 -10px; }
+.portfolio-hint[data-open="true"] { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0) scale(1); pointer-events: auto; }
+.portfolio-hint[data-instant="true"] { transition: none; }
+.portfolio-theme-corner .portfolio-hint { inset: calc(100% + 8px) 0 auto auto; transform: translateY(-3px) scale(.97); transform-origin: top right; }
+.portfolio-theme-corner .portfolio-hint[data-open="true"] { transform: none; }
+.portfolio-copy-status { max-width: min(280px, 75vw); white-space: normal; transform: translateY(-2px); transition: opacity 140ms var(--ease-out), transform 140ms var(--ease-out); }
+.portfolio-copy-status[data-state="copied"] { transform: none; }
+.portfolio-copy-status[data-instant="true"] { transition: none; }
+.portfolio-copy-confirmation { align-items: baseline; }
+.portfolio-copy-confirmation svg { flex-shrink: 0; align-self: center; }
+
+.portfolio-page-entry { animation: none; }
+.portfolio-identity, .portfolio-profile-image, .portfolio-profile-links, .portfolio-intro-copy { animation: intro-arrive 220ms var(--ease-out) backwards; }
+.portfolio-profile-links { animation-delay: 30ms; }
+.portfolio-intro-copy { animation-delay: 60ms; }
+@keyframes intro-arrive { from { opacity: 0; transform: translateY(4px); } }
+.portfolio-page-entry:focus-within .portfolio-intro * { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-intro * { animation: none !important; }
+  .portfolio-hint, .portfolio-copy-status { transition: none !important; }
 }

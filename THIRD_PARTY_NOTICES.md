@@ -23,3 +23,9 @@ The portfolio's restrained typography and spacing were developed with public por
 The previous results thumbnail is retained as an archived source asset. The BODE-GEN thumbnail remains its original method diagram.
 
 See [publication media provenance](docs/PUBLICATION_MEDIA.md) for extraction details.
+
+## Current Typography and Layout Reference
+
+The October 2026 reading-column treatment is informed by [Emil Kowalski's homepage and essays](https://emilkowal.ski/) and his [design-engineering skill](https://github.com/emilkowalski/skill/tree/main/skills/emil-design-eng). It uses Ethan's existing content and media; no proprietary assets from Emil's site are included.
+
+[Inter](https://rsms.me/inter/) is by Rasmus Andersson and contributors, distributed under the SIL Open Font License 1.1. Next's Google font integration self-hosts the font. The license is reproduced in `licenses/Inter-OFL.txt`.
