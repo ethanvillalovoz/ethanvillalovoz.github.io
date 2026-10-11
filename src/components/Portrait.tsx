@@ -9,7 +9,11 @@ export default function Portrait() {
   const motion = useRef({ x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0, frame: 0, time: 0 });
   useEffect(() => {
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
-    const reset = () => { cancelAnimationFrame(motion.current.frame); motion.current.frame = 0; if (image.current) image.current.style.transform = ""; };
+    const reset = () => {
+      cancelAnimationFrame(motion.current.frame);
+      Object.assign(motion.current, { x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0, frame: 0, time: 0 });
+      if (image.current) image.current.style.transform = "";
+    };
     reduced.addEventListener("change", reset);
     return () => { reset(); reduced.removeEventListener("change", reset); };
   }, []);
@@ -26,7 +30,10 @@ export default function Portrait() {
     if (Math.abs(m.tx - m.x) + Math.abs(m.ty - m.y) + Math.abs(m.vx) + Math.abs(m.vy) > .015) m.frame = requestAnimationFrame(animate);
     else { m.frame = 0; m.time = 0; }
   };
-  const start = () => { if (!motion.current.frame) motion.current.frame = requestAnimationFrame(animate); };
+  const start = () => {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!motion.current.frame) motion.current.frame = requestAnimationFrame(animate);
+  };
   return <span className="portfolio-portrait" onPointerMove={(event) => {
     if (event.pointerType !== "mouse" || !matchMedia("(hover: hover) and (pointer: fine)").matches || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const r = event.currentTarget.getBoundingClientRect();

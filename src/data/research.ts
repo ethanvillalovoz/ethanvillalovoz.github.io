@@ -92,9 +92,9 @@ export const researchPublications: ResearchPublication[] = [
 		identifier: "IEEE 10342372",
 		description:
 			"Shows that triangular robot formations are perceived more positively and navigate more robustly than line formations.",
-		image: "/images/projects/social-triangles-wedge-study.png",
+		image: "/images/projects/social-triangles-formations-thumbnail.png",
 		imageAlt:
-			"Three turtle-shaped robots approaching a participant in the wedge condition of the Social Triangles study",
+			"Four robot formations evaluated in Social Triangles: V-shape, wedge, vertical line, and horizontal line, with arrows showing the direction of travel",
 		resources: [
 			{
 				label: "Paper",

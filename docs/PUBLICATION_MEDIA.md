@@ -1,6 +1,12 @@
 # Publication media provenance
 
-**Current state:** Ethan requested removal of the experimental publication controls, illustrations, and captions on October 10. Only the original BODE-GEN method figure and Social Triangles study photo now render, without captions or clickable wrappers. Other page polish remains. The experimental-media descriptions below are historical.
+**Current state:** The publication entries show the original BODE-GEN method figure and Social Triangles four-formation diagram (Figure 3), without captions or clickable wrappers. The earlier study photo and experimental-media descriptions below are historical.
+
+## October 10, 2026: clearer Social Triangles thumbnail
+
+At Ethan's request, replaced the low-resolution study photo with the original Figure 3 diagram from page 3 of the local IROS 2023 paper. The figure explains the four evaluated formations rather than depicting a new result or animation. This is archived, coauthored research material used on Ethan's own portfolio; its adjacent publication title, authors, and Paper link provide attribution.
+
+Extraction: image `Im3.png` from `pypdf.PdfReader(source).pages[2].images`, original PNG at 1347 × 507. Export: `public/images/projects/social-triangles-formations-thumbnail.png`, 1347 × 842 PNG, with 167 white pixels added above and 168 below to fit the existing 16:10 frame. No source resampling, redrawing, within-figure cropping, or color changes. All labels and direction arrows remain intact. The previous photo is retained for easy reversal. Display remains non-clickable, up to 644px wide, with the existing responsive sizing and no caption.
 
 
 These figures appear on Ethan Villalovoz's personal coauthor portfolio, not an unofficial project page. The figure is archived paper evidence, not a new experiment or generated illustration. The user explicitly approved trying authentic figures from his papers on 2026-09-20.
@@ -29,3 +35,5 @@ The current reading layout renders the original images up to 644px wide, with `c
 | Social Triangles SVG turtles / four arrangements | Local paper, Figure 3 and Sections III–V | Original site illustration; Owned | Concept illustration | Schematic top-view positions and transitions, not recorded motion, control policy, timing, or scale. Wedge/V direction follows the paper; description distinguishes pilot and approach studies. Caption labels this. |
 
 These are a local portfolio preview for a coauthor. No new external media was downloaded or published. No authentic video was available among the inspected project assets, so the preview does not invent one. The formation transition demonstrates geometry, not measured navigation performance. A comparison slider would incorrectly imply aligned visual outputs, so the actual results use their original plot instead.
+
+Verification: PNG media audit and repository validation passed; targeted ESLint passed. The exported diagram region is pixel-identical to the extracted source. Desktop and narrow-viewport browser inspection confirmed the figure loads, all four formations and labels remain visible, and the image has no link wrapper. Export size: 131,194 bytes. Nothing published.

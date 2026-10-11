@@ -24,14 +24,19 @@ export default function Hint({ label, children, disabled = false }: {
   return (
     <span className="portfolio-hint-anchor"
       onPointerEnter={(event) => {
-        if (disabled || event.pointerType !== "mouse" || !matchMedia("(hover: hover)").matches) return;
+        if (disabled || event.pointerType !== "mouse" || !matchMedia("(hover: hover) and (pointer: fine)").matches) return;
         clear();
         if (open) return;
         const warm = Date.now() < warmUntil;
         setInstant(warm);
         timer.current = setTimeout(() => setOpen(true), warm ? 0 : 450);
       }}
-      onPointerLeave={() => { clear(); timer.current = setTimeout(close, 140); }}
+      onPointerLeave={() => {
+        clear();
+        // Warm the next hint before this one's hover bridge finishes closing.
+        if (open) warmUntil = Date.now() + 800;
+        timer.current = setTimeout(close, 140);
+      }}
       onFocusCapture={(event) => {
         if (!disabled && event.target.matches(":focus-visible")) {
           clear(); setInstant(true); setOpen(true);

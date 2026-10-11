@@ -24,9 +24,10 @@ const requiredPaths = [
 	"public/images/organizations/google.png",
 	"public/images/organizations/oregon-state-crest.svg",
 	"public/favicon.ico",
-	"public/images/identity/icon-circle-v4-96.png",
-	"public/images/identity/icon-circle-v4-180.png",
-	"public/images/identity/icon-circle-v4-512.png",
+	"public/images/identity/favicon-silver-v1-32.png",
+	"public/images/identity/favicon-silver-v1-96.png",
+	"public/images/identity/favicon-silver-v1-180.png",
+	"public/images/identity/favicon-silver-v1-512.png",
 	"public/visuals/homepage-preview.jpg",
 ];
 

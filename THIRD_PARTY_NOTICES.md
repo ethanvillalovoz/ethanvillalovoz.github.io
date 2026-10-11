@@ -18,6 +18,8 @@ The portfolio's restrained typography and spacing were developed with public por
 
 ## Publication Thumbnail Sources
 
+The current Social Triangles thumbnail, `public/images/projects/social-triangles-formations-thumbnail.png`, is Figure 3 from page 3 of the same IROS 2023 paper cited below. The original embedded 1347 × 507 image is preserved with white padding above and below for the existing thumbnail frame; no diagram labels, robot images, or arrows were modified. It is used on coauthor Ethan Villalovoz's portfolio at his request and is not covered by the repository's MIT license.
+
 `public/images/projects/social-triangles-wedge-study.png` is the original embedded image from Figure 6(a), page 4, of *Social Triangles and Aggressive Lines: Multi-Robot Formations Impact Navigation and Approach* (Bacula, Villalovoz, Flynn, Mehta, and Knight, IROS 2023). It shows the wedge study condition. It was extracted from the paper without redrawing, cropping, or color changes for the coauthor's personal portfolio, at Ethan Villalovoz's request. The adjacent title, author list, and Paper link identify its source. This research material is not covered by the repository's MIT license.
 
 The previous results thumbnail is retained as an archived source asset. The BODE-GEN thumbnail remains its original method diagram.

@@ -101,16 +101,6 @@ button {
   flex: 1 0 auto;
 }
 
-@keyframes portfolioFadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 .portfolio-site {
   background: transparent;
   color: rgb(var(--foreground));
@@ -625,14 +615,29 @@ button {
   width: 44px;
 }
 
-/* Theme reveal is driven from the existing button; snapshots never capture input. */
+/* Animate a scalar rather than a native circle() clip-path interpolation.
+   The mask is present on the first frame, centered on the theme button. */
+@property --theme-reveal-progress {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+@keyframes theme-reveal {
+  from { --theme-reveal-progress: 0; }
+  to { --theme-reveal-progress: 1; }
+}
 ::view-transition { pointer-events: none; }
+::view-transition-group(root) { animation: none; }
 ::view-transition-old(root), ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
 }
 ::view-transition-old(root) { z-index: 1; }
 ::view-transition-new(root) { z-index: 2; }
+html[data-theme-reveal="true"]::view-transition-new(root) {
+  clip-path: circle(calc(var(--theme-reveal-progress) * var(--theme-reveal-radius)) at var(--theme-reveal-x) var(--theme-reveal-y));
+  animation: theme-reveal 340ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*),
   ::view-transition-old(*),
@@ -648,6 +653,13 @@ button {
   outline-offset: 2px;
 }
 
+/* Keyboard activation keeps the control still; pointer presses retain feedback. */
+.portfolio-theme-toggle:focus-visible,
+.portfolio-copy-button:focus-visible {
+  transform: none;
+  transition: none;
+}
+
 .portfolio-theme-toggle svg {
   display: block;
   grid-area: 1 / 1;
@@ -661,12 +673,6 @@ button {
 .dark .portfolio-theme-toggle .portfolio-theme-icon-day { opacity: 0; transform: rotate(70deg) scale(.7); }
 .dark .portfolio-theme-toggle .portfolio-theme-icon-night { opacity: 1; transform: none; }
 .portfolio-theme-toggle[data-instant="true"] svg { transition: none; }
-
-.portfolio-page-entry {
-  animation: portfolioFadeIn 180ms var(--ease-out) both;
-}
-/* Focusing the page during entry must never leave a keyboard target invisible. */
-.portfolio-page-entry:focus-within { animation: none; }
 
 .teaching-list {
   list-style: none;
@@ -761,8 +767,6 @@ button {
     scroll-behavior: auto;
   }
 
-  .portfolio-page-entry { animation: none; }
-
   .portfolio-link,
   .portfolio-link-text,
   .portfolio-copy-status,
@@ -784,6 +788,9 @@ button {
 
 .portfolio-work-resources .portfolio-link {
   display: inline-block;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   min-height: 32px;
   color: rgb(var(--heading));
   font-weight: 400;
@@ -851,6 +858,15 @@ button {
   }
   /* Increase the one-tap email target without displacing its sentence. */
   .portfolio-copy-button::after { content: ""; position: absolute; inset: -6px 0; }
+  /* Expand the icon-only link's hit area without moving adjacent profiles. */
+  .portfolio-profile-links .portfolio-link[aria-label="X"]::after {
+    content: "";
+    position: absolute;
+    width: 44px;
+    min-height: 44px;
+    inset: 0 auto 0 50%;
+    transform: translateX(-50%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -880,12 +896,7 @@ button {
 .portfolio-copy-status[data-state="copied"] { transform: none; }
 .portfolio-copy-status[data-instant="true"] { transition: none; }
 
-.portfolio-page-entry { animation: none; }
-/* IntroArrival runs the entrance once per tab session; content is visible without JS. */
-.portfolio-page-entry:focus-within .portfolio-intro * { animation: none; }
-
 @media (prefers-reduced-motion: reduce) {
-  .portfolio-intro * { animation: none !important; }
   .portfolio-hint, .portfolio-copy-status { transition: none !important; }
 }
 
@@ -1014,7 +1025,7 @@ button {
   .link-outbound-arrow, .portfolio-copy-success,
   .portfolio-copy-status, .sr-only, nextjs-portal { display: none !important; }
   .portfolio-copy-address { opacity: 1 !important; transform: none !important; filter: none !important; }
-  .portfolio-portrait, .portfolio-profile-image, .portfolio-page-entry, .portfolio-work-media { transform: none !important; opacity: 1 !important; clip-path: none !important; }
+  .portfolio-portrait, .portfolio-profile-image, .portfolio-work-media { transform: none !important; opacity: 1 !important; clip-path: none !important; }
   .portfolio-intro { margin-bottom: 24pt; break-inside: avoid; }
   .portfolio-intro-copy { margin-top: 14pt; }
   .portfolio-profile-links { gap: 4pt 12pt; }

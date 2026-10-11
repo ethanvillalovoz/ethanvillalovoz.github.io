@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FiMapPin } from "react-icons/fi";
+import { FiArrowUpRight, FiMapPin } from "react-icons/fi";
 import { FaFileLines, FaLinkedin } from "react-icons/fa6";
 import { SiArxiv, SiGithub, SiGooglescholar, SiX, SiYoutube } from "react-icons/si";
 import OrganizationLink from "@/components/OrganizationLink";
@@ -12,7 +12,6 @@ import TextLink from "@/components/TextLink";
 import ThemeToggle from "@/components/ThemeToggle";
 import AnimatedLabel from "@/components/AnimatedLabel";
 import Portrait from "@/components/Portrait";
-import IntroArrival from "@/components/IntroArrival";
 import CopyEmail from "@/components/CopyEmail";
 import ResearchMedia from "@/components/research/ResearchMedia";
 import { researchPublications, type ResearchPublication } from "@/data/research";
@@ -153,8 +152,8 @@ export default function HomePageClient() {
 				<ThemeToggle />
 			</div>
 
-			<div className="portfolio-container portfolio-page-entry">
-				<IntroArrival>
+			<div className="portfolio-container">
+				<header className="portfolio-intro">
 					<div className="portfolio-identity">
 						<div className="portfolio-identity-copy">
 							<h1 className="portfolio-h1">Ethan Villalovoz</h1>
@@ -169,7 +168,7 @@ export default function HomePageClient() {
 						{profileLinks.map(({ label, href, icon: Icon }) => (
 							<a key={label} href={href} target="_blank" rel="noopener noreferrer" className="portfolio-link" aria-label={label} title={label === "X" ? "X" : undefined}>
 								{label === "X" ? (
-									<span className="portfolio-link-text"><Icon className="portfolio-profile-mark portfolio-profile-mark-only" aria-hidden="true" /></span>
+									<><span className="portfolio-link-text"><Icon className="portfolio-profile-mark portfolio-profile-mark-only" aria-hidden="true" /></span><FiArrowUpRight className="link-outbound-arrow" aria-hidden="true" /></>
 								) : (
 									<><Icon className="portfolio-profile-mark" data-profile={label} aria-hidden="true" /><AnimatedLabel>{label}</AnimatedLabel></>
 								)}
@@ -209,7 +208,7 @@ export default function HomePageClient() {
 						</p>
 
 					</div>
-				</IntroArrival>
+				</header>
 
 				<section
 					id="publications"

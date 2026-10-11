@@ -15,7 +15,7 @@ The current upstream [Emil design-engineering skill](https://github.com/emilkowa
 | Section titles use restrained 16px medium text and generous section spacing | 16px section headings, 112px desktop section gaps | 64px gaps on phones; 20px name preserves personal identity |
 | Essays place figures across the reading column | Full-width, uncropped publication images above metadata and summary | Static images; titles and resources retain their individual links |
 | Near-white surface, dark headings, softer body text | Warm near-white, neutral text hierarchy, self-hosted Inter | Inter is an open-source alternative, not Emil's proprietary font |
-| Skill emphasizes feedback, interruption, frequency, and accessibility | Retain fast underlines, subtle press feedback, stable copy confirmation, and a short theme crossfade | No extra controls or required reading steps |
+| Skill emphasizes feedback, interruption, frequency, and accessibility | Retain fast underlines, subtle press feedback, stable copy confirmation, and a theme reveal originating at the theme button | No extra controls or required reading steps |
 
 No reference code, font files, or media were copied from Emil's site. Existing research imagery retains its original attribution.
 
@@ -34,15 +34,15 @@ No reference code, font files, or media were copied from Emil's site. Existing r
 - Underlines belong to links. Ethan's author credit retains its persistent underline.
 - Fine-pointer hover draws an underline in 160ms and releases in 100ms. Focus feedback is immediate and includes a visible outline. Wrapped links keep the underline with each text line.
 - Standalone profile and resource links have 32px fine-pointer targets and 44px coarse-pointer targets. The theme control is always 44px. Email remains a one-click copy with stable success/failure feedback and a timer that resets on repeated copies.
-- Pointer theme changes use a 200ms crossfade. Rapid changes are interruptible. Keyboard activation, reduced motion, and unsupported browsers switch immediately.
-- One 180ms opacity entry applies to the page; keyboard focus cancels it. Reduced motion removes movement and entry animation. No delayed section reveals or animated static images.
+- Pointer theme changes use a 340ms circular reveal originating at the theme button. Rapid changes are interruptible. Keyboard activation, reduced motion, and unsupported browsers switch immediately.
+- Content and publication figures render without an entrance animation. Reduced motion removes nonessential movement. No delayed section reveals or animated static images.
 - Back to top restores focus to the page start. Keyboard and reduced-motion scrolling are immediate.
 
 ## Content and identity
 
 - Preserve technical claims, titles, author order, venues, dates, and contribution language. Do not invent results or unofficial project pages for coauthored work.
 - Show available resources in Website, Paper, arXiv, Code, Video order. Paper means the PDF; arXiv means the abstract.
-- Preserve the lowercase e favicon and static sharing assets. Theme changes do not alter them.
+- Preserve the approved silver orb favicon and matching static sharing assets. Theme changes do not alter them. The orb is not displayed as an interactive footer element.
 - System color preference remains the default; a manual theme choice is remembered with the existing system-following behavior.
 
 ## Review rationale
@@ -63,4 +63,4 @@ Check desktop and mobile at 320px and 390px, light/dark appearance, keyboard foc
 
 The accepted 644px column, Inter typography, and existing profile/research facts remain the foundation. Publications display only their original, non-clickable figures, with no labels above them, media tabs, interactive walkthroughs, or captions. Those experimental additions were removed at Ethan’s request.
 
-Entry is a short stagger limited to the introduction; research figures arrive once without a hidden initial state. Copy feedback retains text during exit and pauses when the page is hidden. Custom hints support focus, Escape, delayed first hover, and immediate handoff. Theme-color metadata follows the selected theme; the accepted brief crossfade remains.
+Introduction and research figures render without entry animation. Copy feedback retains text during exit and pauses when the page is hidden. Custom hints support focus, Escape, delayed first hover, and immediate handoff. Theme-color metadata follows the selected theme; the accepted circular theme reveal starts at the theme icon and cleans up when interrupted.
