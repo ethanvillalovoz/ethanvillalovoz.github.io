@@ -10,6 +10,9 @@ import PublicationAuthors from "@/components/PublicationAuthors";
 import TeachingSection from "@/components/TeachingSection";
 import TextLink from "@/components/TextLink";
 import ThemeToggle from "@/components/ThemeToggle";
+import AnimatedLabel from "@/components/AnimatedLabel";
+import Portrait from "@/components/Portrait";
+import IntroArrival from "@/components/IntroArrival";
 import CopyEmail from "@/components/CopyEmail";
 import ResearchMedia from "@/components/research/ResearchMedia";
 import { researchPublications, type ResearchPublication } from "@/data/research";
@@ -137,7 +140,7 @@ function PublicationRow({
 					</a>
 				</p>
 				<p className="portfolio-work-description">{publication.description}</p>
-				<PublicationResources resources={publication.resources} label={`${publication.shortTitle} resources`} />
+				<PublicationResources resources={publication.resources} label={`${publication.shortTitle} resources`} shortTitle={publication.shortTitle} />
 			</div>
 		</article>
 	);
@@ -151,7 +154,7 @@ export default function HomePageClient() {
 			</div>
 
 			<div className="portfolio-container portfolio-page-entry">
-				<header className="portfolio-intro">
+				<IntroArrival>
 					<div className="portfolio-identity">
 						<div className="portfolio-identity-copy">
 							<h1 className="portfolio-h1">Ethan Villalovoz</h1>
@@ -168,22 +171,13 @@ export default function HomePageClient() {
 								{label === "X" ? (
 									<span className="portfolio-link-text"><Icon className="portfolio-profile-mark portfolio-profile-mark-only" aria-hidden="true" /></span>
 								) : (
-									<><Icon className="portfolio-profile-mark" data-profile={label} aria-hidden="true" /><span className="portfolio-link-text">{label}</span></>
+									<><Icon className="portfolio-profile-mark" data-profile={label} aria-hidden="true" /><AnimatedLabel>{label}</AnimatedLabel></>
 								)}
 							</a>
 						))}
 					</nav>
 
-					<Image
-						src="/images/EthanVillalovozPic-optimized.jpg"
-						alt="Portrait of Ethan Villalovoz"
-						width={112}
-						height={112}
-						sizes="(max-width: 599px) 64px, 72px"
-						quality={90}
-						priority
-						className="portfolio-profile-image"
-					/>
+                    <Portrait />
 
 					<div className="portfolio-intro-copy">
 						<p className="portfolio-p">
@@ -215,7 +209,7 @@ export default function HomePageClient() {
 						</p>
 
 					</div>
-				</header>
+				</IntroArrival>
 
 				<section
 					id="publications"

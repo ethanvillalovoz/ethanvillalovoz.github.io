@@ -1,7 +1,7 @@
 "use client";
 
 import { FiSun, FiMoon } from "react-icons/fi";
-import { useRef, useSyncExternalStore } from "react";
+import { useRef, useState, useSyncExternalStore } from "react";
 import { flushSync } from "react-dom";
 import { useTheme } from "next-themes";
 import Hint from "./Hint";
@@ -11,6 +11,7 @@ const getClientHydrationSnapshot = () => true;
 const getServerHydrationSnapshot = () => false;
 
 export default function ThemeToggle() {
+	const [instant, setInstant] = useState(false);
 	const transition = useRef<ViewTransition | null>(null);
 	const pendingTheme = useRef<string | null>(null);
 	const changeSequence = useRef(0);
@@ -33,7 +34,9 @@ export default function ThemeToggle() {
 		<Hint label={accessibleLabel}>
 		<button
 			type="button"
-			onClick={(event) => {
+			data-instant={instant}
+            onClick={(event) => {
+                setInstant(event.detail === 0);
 				const sequence = ++changeSequence.current;
 				const nextTheme = (pendingTheme.current ?? resolvedTheme) === "dark" ? "light" : "dark";
 				pendingTheme.current = nextTheme;

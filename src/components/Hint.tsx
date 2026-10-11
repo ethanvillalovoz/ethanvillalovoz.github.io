@@ -26,11 +26,12 @@ export default function Hint({ label, children, disabled = false }: {
       onPointerEnter={(event) => {
         if (disabled || event.pointerType !== "mouse" || !matchMedia("(hover: hover)").matches) return;
         clear();
+        if (open) return;
         const warm = Date.now() < warmUntil;
         setInstant(warm);
         timer.current = setTimeout(() => setOpen(true), warm ? 0 : 450);
       }}
-      onPointerLeave={close}
+      onPointerLeave={() => { clear(); timer.current = setTimeout(close, 140); }}
       onFocusCapture={(event) => {
         if (!disabled && event.target.matches(":focus-visible")) {
           clear(); setInstant(true); setOpen(true);
@@ -38,7 +39,7 @@ export default function Hint({ label, children, disabled = false }: {
       }}
       onBlurCapture={close}
       onClickCapture={close}
-      onKeyDown={(event) => { if (event.key === "Escape") close(); }}
+      onKeyDown={(event) => { if (event.key === "Escape") { setInstant(true); close(); } }}
     >
       {cloneElement(children, { "aria-describedby": !disabled && open ? id : undefined })}
       <span id={id} role="tooltip" className="portfolio-hint" data-open={open && !disabled} data-instant={instant} aria-hidden={!open || disabled}>{label}</span>

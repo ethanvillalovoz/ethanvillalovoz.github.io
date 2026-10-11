@@ -29,3 +29,13 @@ See [publication media provenance](docs/PUBLICATION_MEDIA.md) for extraction det
 The October 2026 reading-column treatment is informed by [Emil Kowalski's homepage and essays](https://emilkowal.ski/) and his [design-engineering skill](https://github.com/emilkowalski/skill/tree/main/skills/emil-design-eng). It uses Ethan's existing content and media; no proprietary assets from Emil's site are included.
 
 [Inter](https://rsms.me/inter/) is by Rasmus Andersson and contributors, distributed under the SIL Open Font License 1.1. Next's Google font integration self-hosts the font. The license is reproduced in `licenses/Inter-OFL.txt`.
+
+## Archived BODE-GEN explanation
+
+`public/images/research-details/bode-gen-method.png` is unchanged Figure 1 from
+Tomar, Deshwal, Villalovoz, Fazzini, Cai, and Doppa, arXiv:2512.15076v1 (2025).
+Source: https://arxiv.org/html/2512.15076v1 . The original figure and the UI's
+explanatory highlights are covered by CC BY-SA 4.0:
+https://creativecommons.org/licenses/by-sa/4.0/ . This does not replace the
+repository's separate MIT code license. The walkthrough links the source and
+labels its highlights as an explanation, not experimental output.
