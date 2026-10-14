@@ -37,3 +37,19 @@ The current reading layout renders the original images up to 644px wide, with `c
 These are a local portfolio preview for a coauthor. No new external media was downloaded or published. No authentic video was available among the inspected project assets, so the preview does not invent one. The formation transition demonstrates geometry, not measured navigation performance. A comparison slider would incorrectly imply aligned visual outputs, so the actual results use their original plot instead.
 
 Verification: PNG media audit and repository validation passed; targeted ESLint passed. The exported diagram region is pixel-identical to the extracted source. Desktop and narrow-viewport browser inspection confirmed the figure loads, all four formations and labels remain visible, and the image has no link wrapper. Export size: 131,194 bytes. Nothing published.
+
+## October 13, 2026: full-quality image delivery
+
+Checkpoint: `refs/checkpoints/pre-image-quality-20261013` at `e93e10a1541fbccb293af275d55b28d0a407659d` (clean working tree).
+
+At Ethan's request, serve the existing portrait and both publication figures directly, without Next.js resizing or lossy recompression. BODE-GEN now uses the existing 2046 × 885 PNG at `public/images/research-details/bode-gen-method.png`, rather than the 1600 × 1000 compressed WebP thumbnail. This is the same coauthored Figure 1 and retains every label; the original source's whitespace differs slightly. The full figure is contained in the same 16:10 white frame. No scientific content was redrawn or generated.
+
+| Asset | Source / classification | Delivered dimensions | Bytes | Treatment |
+| --- | --- | --- | --- | --- |
+| Portrait | Existing user-owned `public/images/EthanVillalovozPic-optimized.jpg` | 900 × 900 | 199503 | Original JPEG bytes; same 64/72px display size and hover behavior |
+| BODE-GEN | Existing coauthored Figure 1 PNG, archived paper evidence | 2046 × 885 | 168149 | Original PNG bytes; contain fit; adjacent authors and paper link retained |
+| Social Triangles | Original coauthored Figure 3 extraction described above | 1347 × 842 | 131194 | Original PNG bytes and padding unchanged |
+
+Total source payload: 498846 bytes. These are the best existing files used for this preview, not newly recovered camera originals or vector figures. This removes extra delivery compression but cannot overcome a monitor's physical pixel density. No image file was edited or artificially upscaled. Icons and social-preview assets remain unchanged.
+
+Pre-publication validation: repository checks including lint, typecheck, production build passed; media dimensions and file sizes audited. Local browser confirmed all three direct source URLs loaded at their full intrinsic dimensions. Desktop and narrow viewport inspected with no horizontal overflow; publication figures remain non-clickable. Ethan approved publishing this version.

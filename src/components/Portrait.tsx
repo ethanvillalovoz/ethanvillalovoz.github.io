@@ -40,6 +40,6 @@ export default function Portrait() {
     motion.current.tx = -((event.clientY - r.top) / r.height - .5) * 12;
     motion.current.ty = ((event.clientX - r.left) / r.width - .5) * 12; start();
   }} onPointerLeave={() => { motion.current.tx = 0; motion.current.ty = 0; start(); }}>
-    <Image ref={image} src={portrait} placeholder="blur" alt="Portrait of Ethan Villalovoz" width={112} height={112} sizes="(max-width: 599px) 64px, 72px" quality={90} priority className="portfolio-profile-image" />
+    <Image ref={image} src={portrait} placeholder="blur" alt="Portrait of Ethan Villalovoz" width={112} height={112} sizes="(max-width: 599px) 64px, 72px" unoptimized priority className="portfolio-profile-image" />
   </span>;
 }

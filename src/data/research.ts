@@ -58,7 +58,7 @@ export const researchPublications: ResearchPublication[] = [
 		identifier: "https://doi.org/10.48550/arXiv.2512.15076",
 		description:
 			"Uses Bayesian optimization to improve test-driven LLM code generation across HumanEval+ and multiple code models.",
-		image: "/images/projects/bodegen-method-thumbnail.webp",
+		image: "/images/research-details/bode-gen-method.png",
 		imageAlt: "BODE-GEN Bayesian prompt optimization method diagram",
 		resources: [
 			{ label: "Paper", href: "https://arxiv.org/pdf/2512.15076" },

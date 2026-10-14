@@ -9,7 +9,7 @@ export default function ResearchMedia({ publication, index }: { publication: Res
         alt={publication.imageAlt}
         width={800}
         height={500}
-        quality={90}
+        unoptimized
         loading={index === 0 ? "eager" : "lazy"}
         sizes="(max-width: 691px) calc(100vw - 48px), 644px"
         className="portfolio-work-image"

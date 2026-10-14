@@ -383,6 +383,8 @@ button {
 }
 
 .portfolio-work-image {
+  /* Match the paper's white canvas in the existing contain-fit frame. */
+  background: #fff;
   display: block;
   height: 100%;
   object-fit: contain;
