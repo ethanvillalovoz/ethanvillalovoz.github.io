@@ -144,6 +144,14 @@ button {
   margin-top: 32px;
 }
 
+/* Optional still illustration: no interaction or animation. */
+.portfolio-robotics-illustration {
+  display: block;
+  width: min(100%, 480px);
+  height: auto;
+  margin: 28px auto 0;
+}
+
 .portfolio-profile-image {
   grid-area: portrait;
   align-self: start;

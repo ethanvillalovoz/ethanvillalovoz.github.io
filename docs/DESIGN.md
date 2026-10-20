@@ -1,5 +1,18 @@
 # Design contract
 
+## Static robotics illustration — October 20, 2026
+
+Ethan accepted the smaller still illustration below the introduction and approved
+publication. It is decorative AI-generated artwork of a person and robot in a
+workspace, not a photograph or research result. The transparent PNG is capped at
+480px wide, scales down on mobile, and uses the same artwork in both themes. It
+has no animation, link, or added control. All existing content and interactions
+remain unchanged.
+
+The pre-illustration state is saved at local tag
+`checkpoint/before-robotics-illustration-2026-10-20`
+(commit `467394d80b3effa4d2c383ca54c8f8b44ae72578`).
+
 ## Retained tutorial preview — October 20, 2026
 
 After reviewing the three-reference experiment, Ethan chose to keep only the

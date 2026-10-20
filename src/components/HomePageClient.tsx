@@ -244,6 +244,16 @@ export default function HomePageClient() {
 							<CopyEmail />
 						</p>
 
+						<Image
+							src="/images/illustrations/robotics-workspace.png"
+							loading="eager"
+							alt=""
+							width={1983}
+							height={793}
+							sizes="(max-width: 528px) calc(100vw - 48px), 480px"
+							quality={90}
+							className="portfolio-robotics-illustration"
+						/>
 					</div>
 				</header>
 
