@@ -1,7 +1,7 @@
 import { teachingExperiences } from "@/data/research";
 import TextLink from "@/components/TextLink";
 import OrganizationLink from "@/components/OrganizationLink";
-import AnimatedLabel from "@/components/AnimatedLabel";
+import { FiArrowUpRight } from "react-icons/fi";
 import { SiYoutube } from "react-icons/si";
 
 const institutionLinks: Record<string, { href: string; iconSrc: string }> = {
@@ -33,7 +33,10 @@ export default function TeachingSection() {
 							<OrganizationLink {...institutionLinks[institution]}>{institution}</OrganizationLink>
 						</h3>
 						<ol className="teaching-list">
-							{experiences.map((experience) => (
+							{experiences.map((experience) => {
+								const title = experience.tutorial?.title ?? "";
+								const lastSpace = title.lastIndexOf(" ");
+								return (
 								<li key={`${experience.course}-${experience.term}`} className="teaching-row">
 									<div className="teaching-role-heading">
 										<h4 className="teaching-role">{experience.role}</h4>
@@ -50,13 +53,20 @@ export default function TeachingSection() {
 												className="portfolio-link"
 												aria-label={`Watch tutorial: ${experience.tutorial.title} (${experience.tutorial.duration})`}>
 												<SiYoutube className="portfolio-resource-mark" data-brand="youtube" aria-hidden="true" />
-												<AnimatedLabel arrow>{experience.tutorial.title}</AnimatedLabel>
+												<span className="teaching-tutorial-label">
+													<span className="portfolio-link-text">{title.slice(0, lastSpace + 1)}</span>
+													<span className="teaching-tutorial-ending">
+														<span className="portfolio-link-text">{title.slice(lastSpace + 1)}</span>
+														<FiArrowUpRight className="link-outbound-arrow" aria-hidden="true" />
+														<span className="teaching-tutorial-duration">{experience.tutorial.duration}</span>
+													</span>
+												</span>
 											</a>
-											<span>{experience.tutorial.duration}</span>
 										</div>
 									)}
 								</li>
-							))}
+								);
+							})}
 						</ol>
 					</section>
 				))}

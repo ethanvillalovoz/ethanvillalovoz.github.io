@@ -167,6 +167,12 @@ button {
   text-wrap: balance;
 }
 
+.portfolio-top-target:focus-visible {
+  outline: 2px solid rgb(var(--interaction-accent));
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
 .portfolio-focus {
   color: rgb(var(--foreground));
   font-size: 0.875rem;
@@ -812,10 +818,28 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 .teaching-tutorial .portfolio-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 0;
   min-height: 32px;
   transition: transform var(--motion-fast) var(--ease-out);
   transform-origin: left center;
+}
+
+.teaching-tutorial-label {
+  min-width: 0;
+}
+
+.teaching-tutorial .portfolio-resource-mark {
+  flex-shrink: 0;
+}
+
+.teaching-tutorial-ending {
+  white-space: nowrap;
+}
+
+.teaching-tutorial-duration {
+  margin-left: 10px;
+  color: rgb(var(--muted));
+  font-weight: 400;
 }
 
 @media (pointer: coarse) {
@@ -989,13 +1013,12 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 
 /* In-place email confirmation: preserve the address's exact layout footprint. */
 .portfolio-copy-button { position: relative; }
-.portfolio-copy-address { display: inline-block; transition: background-size 100ms var(--ease-out), opacity 160ms var(--ease-out), transform 160ms var(--ease-out), filter 160ms var(--ease-out); }
+/* Keep the feedback wrapper's footprint; paint the underline on its inline text. */
+.portfolio-copy-address { display: inline-block; padding-bottom: 3px; transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out), filter 160ms var(--ease-out); }
 .portfolio-copy-success { position: absolute; inset: 0; display: inline-flex; align-items: center; justify-content: center; gap: 6px; opacity: 0; transform: translateY(5px); filter: blur(2px); pointer-events: none; transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out), filter 160ms var(--ease-out); }
 .portfolio-copy-button[data-copied="true"] .portfolio-copy-address { opacity: 0; transform: translateY(-5px); filter: blur(2px); }
 .portfolio-copy-button[data-copied="true"] .portfolio-copy-success { opacity: 1; transform: none; filter: blur(0); }
 .portfolio-copy-button[data-instant="true"] > span { transition: none; }
-/* Keyboard copy feedback stays instant without disabling later pointer underlines. */
-.portfolio-copy-button[data-instant="true"] > span:where(.portfolio-copy-address) { transition: background-size 100ms var(--ease-out); }
 @media (prefers-reduced-motion: reduce) {
   .portfolio-copy-button > span { transition: none; }
   .portfolio-copy-button[data-copied="true"] .portfolio-copy-address { transform: none; filter: none; }

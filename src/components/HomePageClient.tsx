@@ -194,7 +194,7 @@ function PublicationRow({
 
 export default function HomePageClient() {
 	return (
-		<main className="portfolio-site" id="top" tabIndex={-1}>
+		<main className="portfolio-site" id="top">
 			<div className="portfolio-theme-corner">
 				<ThemeToggle />
 			</div>
@@ -203,7 +203,7 @@ export default function HomePageClient() {
 				<header className="portfolio-intro">
 					<div className="portfolio-identity">
 						<div className="portfolio-identity-copy">
-							<h1 className="portfolio-h1">Ethan Villalovoz</h1>
+							<h1 className="portfolio-h1"><span id="intro-heading" className="portfolio-top-target" tabIndex={-1}>Ethan Villalovoz</span></h1>
 							<p className="portfolio-focus">Software engineering&nbsp;· Machine learning&nbsp;· Robotics</p>
 							<p className="portfolio-location">
 								<FiMapPin aria-hidden="true" />
@@ -290,7 +290,7 @@ export default function HomePageClient() {
 					<CopyEmail punctuation={false} />
 					<a href="#top" className="portfolio-link" onClick={(event) => {
 						event.preventDefault();
-						document.getElementById("top")?.focus({ preventScroll: true });
+						document.getElementById("intro-heading")?.focus({ preventScroll: true });
 						window.scrollTo({ top: 0, behavior: event.detail === 0 || window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
 					}}>
 						<span className="portfolio-link-text">Back to top</span>
