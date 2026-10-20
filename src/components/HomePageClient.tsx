@@ -16,13 +16,41 @@ import CopyEmail from "@/components/CopyEmail";
 import ResearchMedia from "@/components/research/ResearchMedia";
 import { researchPublications, type ResearchPublication } from "@/data/research";
 
-const experiences = [
+const technologies = {
+	csharp: { label: "C#", href: "https://learn.microsoft.com/en-us/dotnet/csharp/" },
+	dotnet: { label: ".NET", href: "https://dotnet.microsoft.com/" },
+	azure: { label: "Azure", href: "https://azure.microsoft.com/" },
+	graphql: { label: "GraphQL", href: "https://graphql.org/" },
+	python: { label: "Python", href: "https://www.python.org/" },
+	numpy: { label: "NumPy", href: "https://numpy.org/" },
+	matplotlib: { label: "Matplotlib", href: "https://matplotlib.org/" },
+	cpp: { label: "C++", href: "https://isocpp.org/" },
+	sql: { label: "SQL", href: "https://www.iso.org/standard/76584.html" },
+	html: { label: "HTML", href: "https://html.spec.whatwg.org/" },
+	tkinter: { label: "Tkinter", href: "https://docs.python.org/3/library/tkinter.html" },
+};
+
+type Technology = keyof typeof technologies;
+
+type Experience = {
+	title: string;
+	href: string;
+	iconSrc: string;
+	role: string;
+	date: string;
+	description: string;
+	technologies: Technology[];
+};
+
+const experiences: Experience[] = [
 	{
 		title: "Microsoft",
 		href: "https://www.microsoft.com/",
 		iconSrc: "/images/organizations/microsoft.ico",
 		role: "Software Engineer Intern",
 		date: "May 2026 – Jul 2026",
+		description: "Built and evaluated an AI-agent prototype for financial close.",
+		technologies: ["csharp", "dotnet", "azure", "graphql", "python"],
 	},
 	// Temporarily hidden from Experience; uncomment this entry to restore it.
 	/* {
@@ -38,6 +66,8 @@ const experiences = [
 		iconSrc: "/images/organizations/cmu-ri.svg",
 		role: "Summer Scholar",
 		date: "Jun 2024 – Aug 2024",
+		description: "Implemented Bayesian reward learning using human feedback in simulation.",
+		technologies: ["python", "numpy", "matplotlib"],
 	},
 	{
 		title: "Google",
@@ -45,6 +75,8 @@ const experiences = [
 		iconSrc: "/images/organizations/google.png",
 		role: "STEP Intern",
 		date: "May 2023 – Aug 2023",
+		description: "Built data pipelines and dashboards for internal database queue metrics.",
+		technologies: ["cpp", "sql", "html"],
 	},
 	{
 		title: "Oregon State University",
@@ -52,6 +84,8 @@ const experiences = [
 		iconSrc: "/images/organizations/oregon-state-crest.svg",
 		role: "NSF REU Fellow",
 		date: "Jun 2022 – Aug 2022",
+		description: "Built tools to configure robot formations for human–robot interaction studies.",
+		technologies: ["python", "tkinter"],
 	},
 ];
 
@@ -79,13 +113,9 @@ function ExperienceRow({
 	iconSrc,
 	role,
 	date,
-}: {
-	title: string;
-	href: string;
-	iconSrc: string;
-	role: string;
-	date: string;
-}) {
+	description,
+	technologies: technologyKeys,
+}: Experience) {
 	const stints = [{ role, date }];
 	return (
 		<article className="portfolio-experience-group">
@@ -101,6 +131,23 @@ function ExperienceRow({
 						<p className="portfolio-row-date">{stint.date}</p>
 					</div>
 				))}
+			</div>
+			<div className="portfolio-experience-details">
+				<p className="portfolio-experience-description">{description}</p>
+				<div className="portfolio-experience-technologies">
+					<ul aria-label={`${title} technologies`}>
+						{technologyKeys.map((key) => {
+							const { label, href } = technologies[key];
+							return (
+								<li key={key}>
+									<a href={href} target="_blank" rel="noopener noreferrer" className="portfolio-link portfolio-technology-link">
+										<span className="portfolio-link-text">{label}</span>
+									</a>
+								</li>
+							);
+						})}
+					</ul>
+				</div>
 			</div>
 		</article>
 	);
@@ -157,6 +204,7 @@ export default function HomePageClient() {
 					<div className="portfolio-identity">
 						<div className="portfolio-identity-copy">
 							<h1 className="portfolio-h1">Ethan Villalovoz</h1>
+							<p className="portfolio-focus">Software engineering&nbsp;· Machine learning&nbsp;· Robotics</p>
 							<p className="portfolio-location">
 								<FiMapPin aria-hidden="true" />
 								<span>Sacramento, California</span>
@@ -188,18 +236,7 @@ export default function HomePageClient() {
 							>
 								Georgia Tech
 							</OrganizationLink>
-							. I&apos;m interested in how robots can understand people and the physical world, make decisions under uncertainty, and adapt through interaction.
-						</p>
-						<p className="portfolio-p">
-							Previously, I built and evaluated enterprise AI agent systems at{" "}
-							<OrganizationLink
-								href="https://www.microsoft.com/"
-								iconSrc="/images/organizations/microsoft.ico"
-								eager
-							>
-								Microsoft
-							</OrganizationLink>
-							.
+							, specializing in Computational Perception &amp; Robotics. I&apos;m interested in how robots can understand people and the physical world.
 						</p>
 
 						<p className="portfolio-p portfolio-contact-copy">
@@ -209,6 +246,20 @@ export default function HomePageClient() {
 
 					</div>
 				</header>
+
+				<section className="portfolio-section" id="experience" aria-labelledby="experience-heading">
+					<h2
+						id="experience-heading"
+						className="portfolio-section-label"
+					>
+						Experience
+					</h2>
+					<div className="portfolio-experience-list">
+						{experiences.map((item) => (
+							<ExperienceRow key={item.title} {...item} />
+						))}
+					</div>
+				</section>
 
 				<section
 					id="publications"
@@ -228,20 +279,6 @@ export default function HomePageClient() {
 								publication={publication}
 								index={index}
 							/>
-						))}
-					</div>
-				</section>
-
-				<section className="portfolio-section" id="experience" aria-labelledby="experience-heading">
-					<h2
-						id="experience-heading"
-						className="portfolio-section-label"
-					>
-						Experience
-					</h2>
-					<div className="portfolio-experience-list">
-						{experiences.map((item) => (
-							<ExperienceRow key={item.title} {...item} />
 						))}
 					</div>
 				</section>

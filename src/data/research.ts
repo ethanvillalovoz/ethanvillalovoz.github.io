@@ -57,7 +57,7 @@ export const researchPublications: ResearchPublication[] = [
 		datePublished: "2025-12-17",
 		identifier: "https://doi.org/10.48550/arXiv.2512.15076",
 		description:
-			"Uses Bayesian optimization to improve test-driven LLM code generation across HumanEval+ and multiple code models.",
+			"Uses Bayesian optimization to find prompts that help language models generate code that passes tests.",
 		image: "/images/research-details/bode-gen-method.png",
 		imageAlt: "BODE-GEN Bayesian prompt optimization method diagram",
 		resources: [
@@ -91,7 +91,7 @@ export const researchPublications: ResearchPublication[] = [
 		datePublished: "2023",
 		identifier: "IEEE 10342372",
 		description:
-			"Shows that triangular robot formations are perceived more positively and navigate more robustly than line formations.",
+			"Studies how robot formations affect navigation and whether people find approaching robots welcoming or threatening.",
 		image: "/images/projects/social-triangles-formations-thumbnail.png",
 		imageAlt:
 			"Four robot formations evaluated in Social Triangles: V-shape, wedge, vertical line, and horizontal line, with arrows showing the direction of travel",

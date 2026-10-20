@@ -167,6 +167,14 @@ button {
   text-wrap: balance;
 }
 
+.portfolio-focus {
+  color: rgb(var(--foreground));
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0 0 4px;
+  text-wrap: pretty;
+}
+
 .portfolio-location {
   align-items: center;
   color: rgb(var(--muted));
@@ -273,6 +281,41 @@ button {
 .portfolio-experience-list {
   display: grid;
   gap: 28px;
+}
+
+.portfolio-experience-details {
+  margin: 6px 0 0 20px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.portfolio-experience-description {
+  color: color-mix(in srgb, rgb(var(--foreground)) 70%, rgb(var(--heading)));
+  margin: 0;
+}
+
+.portfolio-experience-technologies {
+  margin-top: 6px;
+  font-size: 0.8125rem;
+}
+
+.portfolio-experience-technologies ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.portfolio-experience-technologies li {
+  color: rgb(var(--muted));
+  white-space: nowrap;
+}
+
+.portfolio-link.portfolio-technology-link {
+  color: rgb(var(--muted));
+  font-weight: 400;
 }
 
 .portfolio-experience-stints {
@@ -741,8 +784,8 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .portfolio-link:hover .portfolio-link-text,
-  .portfolio-organization-link:hover .portfolio-link-text {
+  .portfolio-link:hover:not(:focus-visible) .portfolio-link-text,
+  .portfolio-organization-link:hover:not(:focus-visible) .portfolio-link-text {
     background-image: linear-gradient(rgb(var(--interaction-accent)), rgb(var(--interaction-accent)));
     background-size: 100% 1.5px;
     transition-duration: 160ms;
@@ -904,11 +947,13 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 
 /* In-place email confirmation: preserve the address's exact layout footprint. */
 .portfolio-copy-button { position: relative; }
-.portfolio-copy-address { display: inline-block; transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out), filter 160ms var(--ease-out); }
+.portfolio-copy-address { display: inline-block; transition: background-size 100ms var(--ease-out), opacity 160ms var(--ease-out), transform 160ms var(--ease-out), filter 160ms var(--ease-out); }
 .portfolio-copy-success { position: absolute; inset: 0; display: inline-flex; align-items: center; justify-content: center; gap: 6px; opacity: 0; transform: translateY(5px); filter: blur(2px); pointer-events: none; transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out), filter 160ms var(--ease-out); }
 .portfolio-copy-button[data-copied="true"] .portfolio-copy-address { opacity: 0; transform: translateY(-5px); filter: blur(2px); }
 .portfolio-copy-button[data-copied="true"] .portfolio-copy-success { opacity: 1; transform: none; filter: blur(0); }
 .portfolio-copy-button[data-instant="true"] > span { transition: none; }
+/* Keyboard copy feedback stays instant without disabling later pointer underlines. */
+.portfolio-copy-button[data-instant="true"] > span:where(.portfolio-copy-address) { transition: background-size 100ms var(--ease-out); }
 @media (prefers-reduced-motion: reduce) {
   .portfolio-copy-button > span { transition: none; }
   .portfolio-copy-button[data-copied="true"] .portfolio-copy-address { transform: none; filter: none; }
