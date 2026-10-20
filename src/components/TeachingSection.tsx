@@ -3,6 +3,7 @@ import TextLink from "@/components/TextLink";
 import OrganizationLink from "@/components/OrganizationLink";
 import { FiArrowUpRight } from "react-icons/fi";
 import { SiYoutube } from "react-icons/si";
+import Image from "next/image";
 
 const institutionLinks: Record<string, { href: string; iconSrc: string }> = {
 	"Georgia Institute of Technology": {
@@ -50,8 +51,12 @@ export default function TeachingSection() {
 									{experience.tutorial && (
 										<div className="teaching-tutorial">
 											<a href={experience.tutorial.href} target="_blank" rel="noopener noreferrer"
-												className="portfolio-link"
+												className="portfolio-link teaching-tutorial-preview"
 												aria-label={`Watch tutorial: ${experience.tutorial.title} (${experience.tutorial.duration})`}>
+												<span className="teaching-tutorial-poster">
+													<Image src="/images/teaching/gaussian-quadratic-form.jpg" alt="" width={480} height={360} unoptimized className="teaching-tutorial-poster-image" />
+													<span className="teaching-tutorial-play" aria-hidden="true">▶</span>
+												</span>
 												<SiYoutube className="portfolio-resource-mark" data-brand="youtube" aria-hidden="true" />
 												<span className="teaching-tutorial-label">
 													<span className="portfolio-link-text">{title.slice(0, lastSpace + 1)}</span>

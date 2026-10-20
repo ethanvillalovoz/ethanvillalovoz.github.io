@@ -1,5 +1,15 @@
 # Design contract
 
+## Retained tutorial preview — October 20, 2026
+
+After reviewing the three-reference experiment, Ethan chose to keep only the
+compact thumbnail beside the Gaussian quadratic form tutorial. The phrase marker
+and animated schematics were removed; the original static, nonclickable paper
+figures and plain intro text are restored exactly from the checkpoint. All other
+baseline design decisions remain unchanged. Ethan approved publication of the
+retained tutorial preview after a final desktop/mobile check. See [THREE-REFERENCE-PREVIEW.md](THREE-REFERENCE-PREVIEW.md)
+for the checkpoint and poster provenance.
+
 ## Accepted UX refinements — October 20, 2026
 
 Following Ethan's visual review, publications use compact rows inspired by Juntao
