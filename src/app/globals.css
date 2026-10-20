@@ -152,6 +152,15 @@ button {
   margin: 28px auto 0;
 }
 
+.portfolio-robotics-illustration-evening,
+.dark .portfolio-robotics-illustration-day {
+  display: none;
+}
+
+.dark .portfolio-robotics-illustration-evening {
+  display: block;
+}
+
 .portfolio-profile-image {
   grid-area: portrait;
   align-self: start;

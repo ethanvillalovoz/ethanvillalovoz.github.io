@@ -5,7 +5,12 @@
 Ethan accepted the smaller still illustration below the introduction and approved
 publication. It is decorative AI-generated artwork of a person and robot in a
 workspace, not a photograph or research result. The transparent PNG is capped at
-480px wide, scales down on mobile, and uses the same artwork in both themes. It
+480px wide and scales down on mobile. Ethan also accepted static lighting variants:
+warm daylight in light mode and cool evening shadows with warm highlights in dark
+mode. Both use the same scene and dimensions, selected by the existing theme
+switch. The original artwork remains available, with the pre-lighting state saved
+at local tag `checkpoint/before-illustration-lighting-2026-10-20`
+(commit `e19f844b6f5f254fd12e021b3eaff46e450c486a`). The illustration
 has no animation, link, or added control. All existing content and interactions
 remain unchanged.
 
