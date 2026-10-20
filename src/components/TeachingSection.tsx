@@ -1,6 +1,8 @@
 import { teachingExperiences } from "@/data/research";
 import TextLink from "@/components/TextLink";
 import OrganizationLink from "@/components/OrganizationLink";
+import AnimatedLabel from "@/components/AnimatedLabel";
+import { SiYoutube } from "react-icons/si";
 
 const institutionLinks: Record<string, { href: string; iconSrc: string }> = {
 	"Georgia Institute of Technology": {
@@ -42,6 +44,17 @@ export default function TeachingSection() {
 											<TextLink href={experience.href}>{experience.course}</TextLink>
 										) : experience.course}
 									</p>
+									{experience.tutorial && (
+										<div className="teaching-tutorial">
+											<a href={experience.tutorial.href} target="_blank" rel="noopener noreferrer"
+												className="portfolio-link"
+												aria-label={`Watch tutorial: ${experience.tutorial.title} (${experience.tutorial.duration})`}>
+												<SiYoutube className="portfolio-resource-mark" data-brand="youtube" aria-hidden="true" />
+												<AnimatedLabel arrow>{experience.tutorial.title}</AnimatedLabel>
+											</a>
+											<span>{experience.tutorial.duration}</span>
+										</div>
+									)}
 								</li>
 							))}
 						</ol>

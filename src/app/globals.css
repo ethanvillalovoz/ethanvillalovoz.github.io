@@ -421,7 +421,7 @@ button {
   border-radius: 10px;
   display: block;
   overflow: hidden;
-  align-self: center;
+  align-self: start;
   width: 100%;
 }
 
@@ -534,6 +534,21 @@ button {
 .portfolio-work-description {
   color: rgb(var(--foreground));
   margin: 16px 0 0;
+}
+
+@media (min-width: 692px) {
+  .portfolio-work-item {
+    grid-template-columns: 180px minmax(0, 1fr);
+  }
+}
+
+.portfolio-copy-mark {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 6px;
+  vertical-align: -1px;
+  color: rgb(var(--muted));
 }
 
 .portfolio-organization-link {
@@ -783,6 +798,30 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
   margin: 6px 0 0;
 }
 
+.teaching-tutorial {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin-top: 6px;
+  color: rgb(var(--muted));
+  font-size: 0.8125rem;
+  line-height: 1.3125rem;
+}
+
+.teaching-tutorial .portfolio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  transition: transform var(--motion-fast) var(--ease-out);
+  transform-origin: left center;
+}
+
+@media (pointer: coarse) {
+  .teaching-tutorial .portfolio-link { min-height: 44px; }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .portfolio-link:hover:not(:focus-visible) .portfolio-link-text,
   .portfolio-organization-link:hover:not(:focus-visible) .portfolio-link-text {
@@ -884,9 +923,11 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 
 /* Feedback belongs to existing actions, never the static publication images. */
 .portfolio-profile-links .portfolio-link:active,
+.teaching-tutorial .portfolio-link:active,
 .portfolio-work-resources .portfolio-link:active { transform: scale(.97); }
 .portfolio-row-date, .teaching-term { font-variant-numeric: tabular-nums; }
 .portfolio-profile-links .portfolio-link:focus-visible,
+.teaching-tutorial .portfolio-link:focus-visible,
 .portfolio-work-resources .portfolio-link:focus-visible { transition: none; transform: none; }
 
 @media (max-width: 599px) {
@@ -916,6 +957,7 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 
 @media (prefers-reduced-motion: reduce) {
   .portfolio-profile-links .portfolio-link:active,
+  .teaching-tutorial .portfolio-link:active,
   .portfolio-work-resources .portfolio-link:active { transform: none; }
 }
 

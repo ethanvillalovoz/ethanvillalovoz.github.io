@@ -1,6 +1,16 @@
 # Publication media provenance
 
-**Current state:** The publication entries show the original BODE-GEN method figure and Social Triangles four-formation diagram (Figure 3), without captions or clickable wrappers. The earlier study photo and experimental-media descriptions below are historical.
+**Current state:** BODE-GEN uses the original 2046 × 885 paper figure at
+`public/images/research-details/bode-gen-method.png`. Social Triangles retains
+its original four-formation diagram (Figure 3). Both remain noninteractive
+within the accepted compact publication rows.
+
+## October 20, 2026: original BODE-GEN figure restored
+
+The simplified method-overview experiment was rejected in favor of the original
+paper figure. The unused SVG was removed from the site and archived outside the
+repository in `outputs/ux-resources-preview/bode-gen-overview.svg` in the chat
+workspace. No changes were made to the original figure pixels.
 
 ## October 10, 2026: clearer Social Triangles thumbnail
 

@@ -1,5 +1,30 @@
 # Design contract
 
+## Accepted UX refinements — October 20, 2026
+
+Following Ethan's visual review, publications use compact rows inspired by Juntao
+Ren and Kaifeng Zhang: a 180px static figure on the left and the existing title,
+authors, venue, summary, and resource links grouped on the right. Below 692px,
+figures stack above the text to retain reading space. The 644px reading column,
+Inter typography, colors, media styling, and link interactions stay unchanged.
+The visible Paper label is PDF; data keys and destinations are unchanged.
+Email retains its copy behavior and now shows a small copy icon beside the address.
+All other design decisions below remain the baseline. Ethan approved final
+verification and publication of these refinements.
+
+The pre-preview state is commit `9a08ea5fed10e2e2ed59ee17e8a45a5dbddf534c`.
+A complete tracked-source archive and verification notes are saved outside the repo
+in the chat workspace's `outputs/ux-text-first-preview/` directory.
+The intermediate text-first preview is separately checkpointed in
+`outputs/ux-compact-publications-preview/`.
+
+The subsequent compact-row state is checkpointed in `outputs/ux-resources-preview/`.
+The retained additions are a verified CS 8803 tutorial link labeled “Gaussian
+quadratic form walkthrough” and the existing copy-email control in the footer.
+The simplified BODE-GEN thumbnail experiment was removed; the original paper
+figure is restored within the accepted compact layout. No unverified recordings
+were added to the other teaching entries.
+
 ## Direction
 
 Ethan's research portfolio uses a quiet reading column inspired by Emil Kowalski's homepage and essays. Preserve Ethan's biography, photograph, publications, author order, resource destinations, organization marks, and existing theme behavior. This direction was explicitly requested on October 10, 2026 and supersedes the earlier 800px layout contract.
@@ -13,7 +38,7 @@ The current upstream [Emil design-engineering skill](https://github.com/emilkowa
 | Emil's homepage and essays have a 644px content column at a 1280px viewport | 644px content inside a 692px outer container with 24px side padding | Fluid column below 692px |
 | Homepage header begins around 117px; body is 16px with 26.4px leading | 112px desktop top padding, 16px/1.65 body text | Retain Ethan's portrait, location, and profile links |
 | Section titles use restrained 16px medium text and generous section spacing | 16px section headings, 112px desktop section gaps | 64px gaps on phones; 20px name preserves personal identity |
-| Essays place figures across the reading column | Full-width, uncropped publication images above metadata and summary | Static images; titles and resources retain their individual links |
+| Essays use uncropped research figures; Juntao and Kaifeng group publication metadata beside thumbnails | 180px figures beside metadata on desktop, stacked above text below 692px | Static images; titles and resources retain their individual links |
 | Near-white surface, dark headings, softer body text | Warm near-white, neutral text hierarchy, self-hosted Inter | Inter is an open-source alternative, not Emil's proprietary font |
 | Skill emphasizes feedback, interruption, frequency, and accessibility | Retain fast underlines, subtle press feedback, stable copy confirmation, and a theme reveal originating at the theme button | No extra controls or required reading steps |
 
@@ -23,7 +48,7 @@ No reference code, font files, or media were copied from Emil's site. Existing r
 
 - Inter is served locally by Next's font loader, with adjusted fallback metrics and `display: swap`.
 - Name: 20px/28px, medium. Section headings: 16px/24px, weight 550. Publication titles: 17px/26px, weight 550. Body and summaries: 16px/26.4px. Metadata: 14px.
-- Portrait: 72px desktop, 64px mobile, 8px radius. Publication media: full column, 16:10 reserved aspect ratio, contain fit, 10px radius and faint edge.
+- Portrait: 72px desktop, 64px mobile, 8px radius. Publication media: 180px desktop, full column below 692px, 16:10 reserved aspect ratio, contain fit, 10px radius and faint edge.
 - Publication entries use 80px separation on desktop and 64px on mobile. Experience and teaching groups use 28px separation. Dates use tabular numerals.
 - Paragraphs have 16px separation. Contact has 24px top space. Profile links span the full column beneath the identity row.
 - Light background: #FDFDFC. Main text: #63635E. Heading: #21201C. Muted text: #70706A. Dark colors use the established neutral charcoal palette.
@@ -41,7 +66,7 @@ No reference code, font files, or media were copied from Emil's site. Existing r
 ## Content and identity
 
 - Preserve technical claims, titles, author order, venues, dates, and contribution language. Do not invent results or unofficial project pages for coauthored work.
-- Show available resources in Website, Paper, arXiv, Code, Video order. Paper means the PDF; arXiv means the abstract.
+- Show available resources in Website, PDF, arXiv, Code, Video order. The internal Paper resource key displays as PDF; arXiv means the abstract.
 - Preserve the approved silver orb favicon and matching static sharing assets. Theme changes do not alter them. The orb is not displayed as an interactive footer element.
 - System color preference remains the default; a manual theme choice is remembered with the existing system-following behavior.
 

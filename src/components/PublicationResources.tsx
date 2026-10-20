@@ -32,9 +32,9 @@ export default function PublicationResources({ resources, label, shortTitle }: {
 			{[...resources].sort((a, b) => rank(a) - rank(b)).map((resource) => {
 				const { Icon, brand } = resourceAppearance(resource);
 				return (
-					<a key={`${resource.label}-${resource.href}`} href={resource.href} target="_blank" rel="noopener noreferrer" className="portfolio-link" aria-label={resource.label === "Paper" ? `Paper: ${shortTitle}` : undefined}>
+					<a key={`${resource.label}-${resource.href}`} href={resource.href} target="_blank" rel="noopener noreferrer" className="portfolio-link" aria-label={resource.label === "Paper" ? `PDF: ${shortTitle}` : undefined}>
 						<Icon className="portfolio-resource-mark" data-brand={brand} aria-hidden="true" />
-						<AnimatedLabel arrow={resource.label !== "Paper"}>{resource.label}</AnimatedLabel>
+						<AnimatedLabel arrow={resource.label !== "Paper"}>{resource.label === "Paper" ? "PDF" : resource.label}</AnimatedLabel>
 					</a>
 				);
 			})}

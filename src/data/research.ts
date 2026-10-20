@@ -28,6 +28,7 @@ export interface ResearchPublication {
 export interface TeachingExperience {
 	course: string;
 	href?: string;
+	tutorial?: { href: string; title: string; duration: string };
 	role: string;
 	institution: string;
 	term: string;
@@ -108,6 +109,11 @@ export const teachingExperiences: TeachingExperience[] = [
 	{
 		course: "CS 8803 O27: Computer Graphics in the AI Era",
 		href: "https://cgai-gatech.vercel.app/",
+		tutorial: {
+			href: "https://www.youtube.com/watch?v=BGdA0SxCdqI",
+			title: "Gaussian quadratic form walkthrough",
+			duration: "51 min",
+		},
 		role: "Graduate Assistant",
 		institution: "Georgia Institute of Technology",
 		term: "Fall 2026",

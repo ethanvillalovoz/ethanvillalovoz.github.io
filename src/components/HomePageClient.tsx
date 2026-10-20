@@ -287,6 +287,7 @@ export default function HomePageClient() {
 
 				<footer className="portfolio-footer" aria-label="Site footer">
 					<p>© {new Date().getFullYear()} Ethan Villalovoz</p>
+					<CopyEmail punctuation={false} />
 					<a href="#top" className="portfolio-link" onClick={(event) => {
 						event.preventDefault();
 						document.getElementById("top")?.focus({ preventScroll: true });

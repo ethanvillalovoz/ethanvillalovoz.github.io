@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState, type MouseEvent } from "react";
-import { FiCheck } from "react-icons/fi";
+import { FiCheck, FiCopy } from "react-icons/fi";
 import Hint from "./Hint";
 
 const email = "ethan.villalovoz@gmail.com";
 
-export default function CopyEmail() {
+export default function CopyEmail({ punctuation = true }: { punctuation?: boolean }) {
   const [feedback, setFeedback] = useState({ result: "", sequence: 0, instant: false });
   const [visible, setVisible] = useState(false);
   const sequence = useRef(0);
@@ -50,10 +50,10 @@ export default function CopyEmail() {
     <Hint label="Copy email address" disabled={visible}>
       <button type="button" className="portfolio-link portfolio-copy-button" onClick={copy}
         data-copied={copied} data-instant={feedback.instant} aria-label={`Copy ${email} to clipboard`}>
-        <span className="portfolio-copy-address portfolio-link-text" aria-hidden="true">{email}</span>
+        <span className="portfolio-copy-address portfolio-link-text" aria-hidden="true">{email}<FiCopy className="portfolio-copy-mark" /></span>
         <span className="portfolio-copy-success" aria-hidden="true"><FiCheck /> Email copied</span>
       </button>
-    </Hint>.
+    </Hint>{punctuation && "."}
     <span className="portfolio-copy-status" data-state={visible && !copied ? "failed" : "idle"} data-instant={feedback.instant} aria-hidden="true">
       {feedback.result !== "Copied" ? feedback.result : ""}
     </span>
