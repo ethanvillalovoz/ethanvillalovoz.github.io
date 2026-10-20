@@ -826,14 +826,11 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 
 .teaching-tutorial-label {
   min-width: 0;
+  white-space: nowrap;
 }
 
 .teaching-tutorial .portfolio-resource-mark {
   flex-shrink: 0;
-}
-
-.teaching-tutorial-ending {
-  white-space: nowrap;
 }
 
 .teaching-tutorial-duration {

@@ -4,6 +4,7 @@ import OrganizationLink from "@/components/OrganizationLink";
 import { FiArrowUpRight } from "react-icons/fi";
 import { SiYoutube } from "react-icons/si";
 import Image from "next/image";
+import { Fragment } from "react";
 
 const institutionLinks: Record<string, { href: string; iconSrc: string }> = {
 	"Georgia Institute of Technology": {
@@ -36,7 +37,6 @@ export default function TeachingSection() {
 						<ol className="teaching-list">
 							{experiences.map((experience) => {
 								const title = experience.tutorial?.title ?? "";
-								const lastSpace = title.lastIndexOf(" ");
 								return (
 								<li key={`${experience.course}-${experience.term}`} className="teaching-row">
 									<div className="teaching-role-heading">
@@ -59,9 +59,11 @@ export default function TeachingSection() {
 												</span>
 												<SiYoutube className="portfolio-resource-mark" data-brand="youtube" aria-hidden="true" />
 												<span className="teaching-tutorial-label">
-													<span className="portfolio-link-text">{title.slice(0, lastSpace + 1)}</span>
+													<span className="portfolio-link-text">{title.split(" ").map((word, index) => (
+														<Fragment key={index}>{index > 0 && <> <wbr /></>}{word}</Fragment>
+													))}</span>
+													{/* Keep the arrow and duration attached without splitting the title underline. */}
 													<span className="teaching-tutorial-ending">
-														<span className="portfolio-link-text">{title.slice(lastSpace + 1)}</span>
 														<FiArrowUpRight className="link-outbound-arrow" aria-hidden="true" />
 														<span className="teaching-tutorial-duration">{experience.tutorial.duration}</span>
 													</span>
