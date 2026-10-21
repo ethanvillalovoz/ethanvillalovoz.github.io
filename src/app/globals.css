@@ -843,6 +843,11 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 
 .teaching-tutorial-label {
   min-width: 0;
+  /* Safari does not wrap <wbr> inside nowrap text. Use ordinary word wrapping. */
+  white-space: normal;
+}
+
+.teaching-tutorial-ending {
   white-space: nowrap;
 }
 
