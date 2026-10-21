@@ -19,7 +19,9 @@ export default function OrganizationLink({
 			rel="noopener noreferrer"
 			className="portfolio-organization-link"
 		>
-			<Image
+			{iconSrc === "/images/organizations/washington-state.svg" ? (
+				<span className="portfolio-organization-mark portfolio-organization-mark-wsu" aria-hidden="true" />
+			) : <Image
 				src={iconSrc}
 				alt=""
 				aria-hidden="true"
@@ -28,7 +30,7 @@ export default function OrganizationLink({
 				unoptimized
 				loading={eager ? "eager" : "lazy"}
 				className="portfolio-organization-mark"
-			/>
+			/>}
 			<span className="portfolio-link-text portfolio-organization-name">{children}</span>
 		</a>
 	);

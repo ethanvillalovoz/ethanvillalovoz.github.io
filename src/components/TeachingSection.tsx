@@ -36,6 +36,7 @@ export default function TeachingSection() {
 						<ol className="teaching-list">
 							{experiences.map((experience) => {
 								const title = experience.tutorial?.title ?? "";
+								const lastSpace = title.lastIndexOf(" ");
 								return (
 								<li key={`${experience.course}-${experience.term}`} className="teaching-row">
 									<div className="teaching-role-heading">
@@ -58,12 +59,13 @@ export default function TeachingSection() {
 												</span>
 												<SiYoutube className="portfolio-resource-mark" data-brand="youtube" aria-hidden="true" />
 												<span className="teaching-tutorial-label">
-													<span className="portfolio-link-text">{title}</span>
-													{/* Keep the arrow and duration attached without splitting the title underline. */}
-													<span className="teaching-tutorial-ending">
-														<FiArrowUpRight className="link-outbound-arrow" aria-hidden="true" />
-														<span className="teaching-tutorial-duration">{experience.tutorial.duration}</span>
+													<span className="portfolio-link-text">
+														{title.slice(0, lastSpace + 1)}
+														<span className="teaching-tutorial-ending">
+															{title.slice(lastSpace + 1)}<FiArrowUpRight className="link-outbound-arrow" aria-hidden="true" />
+														</span>
 													</span>
+													<span className="teaching-tutorial-duration">{experience.tutorial.duration}</span>
 												</span>
 											</a>
 										</div>
