@@ -1,5 +1,7 @@
 # Full refinement preview — October 10, 2026
 
+> Historical experiment record. Statements about “current,” “local only,” deployment, or available controls below refer to that pass, not today’s site. See [DESIGN.md](DESIGN.md) and [ARCHITECTURE.md](ARCHITECTURE.md) for the accepted implementation. Local checkpoint/evidence paths may not be available in another clone.
+
 ## Latest user revision
 Removed CV/paper preview popovers and the bold-text mask after the whole-site review. CV/Paper remain ordinary direct links; unused preview component, styles, and generated first-page images were removed. A reversible pre-change archive is stored outside the repository at `hey-x20/before-simplification.tar.gz`. Reduced desktop links-to-bio margin from 64px to 40px and intro bottom margin from 112px to 80px; mobile equivalents are 40px to 32px and 64px to 56px. Reading-column width and publication images are unchanged. The sections below are an implementation history, not the current feature inventory.
 

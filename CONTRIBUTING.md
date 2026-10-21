@@ -7,11 +7,12 @@ Thanks for taking a look. This is primarily a personal portfolio, but focused fi
 ```bash
 git clone https://github.com/ethanvillalovoz/ethanvillalovoz.github.io.git
 cd ethanvillalovoz.github.io
+nvm use
 npm ci
 npm run dev
 ```
 
-Node.js 20.9 or newer is required.
+Node.js 22 is selected by `.nvmrc` and CI; the package minimum is 20.9.
 
 ## Good Contributions
 
@@ -36,7 +37,9 @@ npm run check
 npm audit
 ```
 
-For visible changes, also test Home, Work, Research, and any affected microsite at desktop and mobile sizes. Include screenshots in the pull request.
+For visible changes, inspect the homepage from introduction through footer at desktop and mobile sizes, in both themes. Check legacy redirects, keyboard focus, theme switching, copy feedback, image loading, and horizontal overflow. Include screenshots in the pull request. Work and Research are legacy redirects, not active pages.
+
+See [the design contract](docs/DESIGN.md) for accepted behavior and [Design QA](design-qa.md) for the review checklist. For sitemap changes, run `npx next-sitemap` before `npm run check` so validation sees the regenerated output.
 
 ## Pull Request Scope
 

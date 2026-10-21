@@ -1,63 +1,51 @@
 # Architecture
 
-This repository is a small Next.js App Router site for a focused academic and technical portfolio.
+A single-page Next.js App Router portfolio, served on Vercel. The homepage order is introduction, static greenhouse illustration, experience, publications, teaching, and footer.
 
-## Application Routes
+## Rendering and content
 
-```text
-src/app/
-  layout.tsx                  Global metadata, structured data, and providers
-  page.tsx                    Server entry and canonical metadata for Home
-```
+- `src/app/layout.tsx` loads Inter through `next/font/google`, installs the theme provider, and defines global metadata and structured data.
+- `src/app/page.tsx` is the server entry for the homepage and its metadata.
+- `src/components/HomePageClient.tsx` renders the homepage. Its local arrays hold experience entries, technology destinations, and visible profile links; the intro and greenhouse assets are also defined here.
+- `src/data/research.ts` holds publication and teaching records. `src/data/publication-schema.ts` derives publication JSON-LD.
+- `src/data/site.ts` holds canonical identity, social-profile metadata, and sharing-image constants. Visible profile links in `HomePageClient.tsx` must be kept in sync when relevant.
+- `TeachingSection.tsx` renders grouped teaching entries and the tutorial thumbnail. `ResearchMedia.tsx`, `PublicationAuthors.tsx`, and `PublicationResources.tsx` render publication rows.
 
-The homepage's rendered experience lives in `src/components/HomePageClient.tsx`. Keeping the client component behind a server route allows page-level metadata without changing the locked homepage markup or interactions.
+The homepage has `top`, `experience`, `publications`, and `teaching` anchors. Legacy paths redirect through `next.config.ts`; there are no active Work, Research, or tutorial-detail pages in this application.
 
-The single homepage presents introduction, publications, Experience, teaching, and a compact footer in that order. `TeachingSection.tsx` preserves the grouped teaching layout. `OrganizationLink.tsx` and `TextLink.tsx` share underline behavior, while `PublicationResources.tsx` orders and labels the available paper resources.
+## Styling and interaction
 
-## Content Sources
+`src/app/globals.css` defines the shared visual system:
 
-```text
-src/data/research.ts   Publication authorship, resources, and teaching history
-src/data/site.ts       Canonical site identity, URL, profile image, and social profiles
-```
+- Self-hosted Inter with adjusted fallback metrics.
+- A 692px outer container with 24px side padding, yielding a 644px reading column.
+- Publication rows with 180px figures and a 24px gap; below 692px figures stack above text.
+- Shared link underlines, visible focus, neutral light/dark variables, and reduced-motion rules.
+- A greenhouse image capped at 480px, with static day/evening variants selected by theme.
 
+`TextLink`, `OrganizationLink`, and `AnimatedLabel` use shared link styles. `CopyEmail` manages clipboard feedback; `Hint` supplies accessible hints. `ThemeToggle` coordinates the theme and interruptible circular reveal. `Portrait` supplies the existing fine-pointer response. No page-entry animation, interactive publication figures, or animated greenhouse is mounted.
 
-Publication records retain author order, venue, primary URLs, local PDFs, and available supporting resources. Teaching is a section of the homepage.
+Some retained components and assets come from earlier experiments and are not rendered by the homepage. Their presence is not evidence of an active feature. See [Design](DESIGN.md) for the current contract and the explicitly historical preview notes for context.
 
-## Styling
+## Image delivery
 
-The shared visual system is defined in `src/app/globals.css` and uses:
+- Portrait and publication figures use `next/image` with `unoptimized`, preserving the existing source bytes rather than adding delivery compression.
+- The greenhouse uses responsive Next.js image delivery at quality 90 with an accurate `sizes` value.
+- The tutorial poster is displayed in a 16:9 frame; it links directly to YouTube without embedding a player.
+- Organization marks and favicon assets remain separate from research media.
 
-- A system Helvetica/Arial stack throughout, without downloaded web fonts
-- CSS custom properties for light and dark themes
-- A 800px homepage container with 24px side padding shared by the introduction and sections
-- Responsive publication rows with 250px media on desktop
-- Shared text links with glyph-aligned animated underlines, including wrapped lines
-- Reduced-motion fallbacks
+All visible image slots reserve dimensions. The first publication figure loads eagerly; the second is lazy-loaded. See [Publication media](PUBLICATION_MEDIA.md) for original sources and dimensions.
 
-`next-themes` stores the selected theme. Tailwind and Framer Motion are not part of the current stack.
+## Metadata and deployment
 
-Legacy `/research/`, `/writing/`, `/work/`, `/projects/`, `/publications/`, `/teaching/`, `/DreamWorlds/`, and `/gaussian-splatting-physics/` paths redirect to `/#publications`, except `/teaching/`, which redirects to `/#teaching`.
+Global and homepage metadata include canonical, Open Graph, X, Person/ProfilePage, and publication structured data. The silver favicon supplies compact sharing imagery; it does not change with theme.
 
-## Metadata And Discovery
+`next-sitemap.config.js` generates the homepage sitemap entry with the portrait and current publication figures. Anchor sections are not separate sitemap routes. Retired routes are excluded. This project uses `next-sitemap` after the build, not an App Router `sitemap.ts` route.
 
-- `src/app/layout.tsx` owns global metadata, compact social metadata, favicons, and website JSON-LD.
-- Home publishes `ProfilePage` and `Person` structured data without changing its rendered design.
-- Home also publishes publication collection structured data from `src/data/publication-schema.ts`.
-- Home defines the canonical URL; retired routes are excluded from the sitemap.
-- `next-sitemap.config.js` generates `public/sitemap.xml` with representative image entries and `public/robots.txt` after a production build.
+Vercel serves the Next.js application. The checked-in CI workflow validates it; it does not itself configure the Vercel integration. Domain or hosting changes require checking the hosting settings as well as repository files.
 
-## Image Delivery
+## Verification
 
-Next.js routes use responsive image generation with an additional high-quality setting for technical figures and screenshots.
+`npm run check` runs repository validation, ESLint, route-type generation, TypeScript, the production build, and sitemap generation. The validator checks required assets, retired paths, stale template markers, and sitemap membership. It is not a visual or end-to-end browser test.
 
-## Quality Gates
-
-`npm run check` runs:
-
-1. Repository and asset validation
-2. ESLint
-3. Next.js route type generation and TypeScript
-4. Production build and sitemap generation
-
-`scripts/validate-repository.mjs` verifies required routes, forbidden retired paths, active content images, stale template markers, and sitemap membership.
+Use [Design QA](../design-qa.md) for the browser checks that complement CI.

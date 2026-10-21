@@ -3,8 +3,8 @@ const siteUrl = 'https://ethanvillalovoz.com';
 const imageEntries = {
   '/': [
     ['/images/EthanVillalovozPic-optimized.jpg', 'Ethan Villalovoz', 'Portrait of Ethan Villalovoz'],
-    ['/images/projects/bodegen-method-thumbnail.webp', 'BODE-GEN method'],
-    ['/images/projects/social-triangles-wedge-study.png', 'Social Triangles robot study', 'Three robots approaching a participant in the wedge formation'],
+    ['/images/research-details/bode-gen-method.png', 'BODE-GEN method'],
+    ['/images/projects/social-triangles-formations-thumbnail.png', 'Social Triangles robot formations', 'V-shape, wedge, vertical line, and horizontal line robot formations'],
   ],
 };
 

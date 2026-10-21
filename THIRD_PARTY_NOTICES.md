@@ -32,12 +32,21 @@ The October 2026 reading-column treatment is informed by [Emil Kowalski's homepa
 
 [Inter](https://rsms.me/inter/) is by Rasmus Andersson and contributors, distributed under the SIL Open Font License 1.1. Next's Google font integration self-hosts the font. The license is reproduced in `licenses/Inter-OFL.txt`.
 
-## Archived BODE-GEN explanation
+## Active BODE-GEN figure
 
 `public/images/research-details/bode-gen-method.png` is unchanged Figure 1 from
 Tomar, Deshwal, Villalovoz, Fazzini, Cai, and Doppa, arXiv:2512.15076v1 (2025).
-Source: https://arxiv.org/html/2512.15076v1 . The original figure and the UI's
-explanatory highlights are covered by CC BY-SA 4.0:
+Source: https://arxiv.org/html/2512.15076v1 . The original figure is covered by CC BY-SA 4.0:
 https://creativecommons.org/licenses/by-sa/4.0/ . This does not replace the
-repository's separate MIT code license. The walkthrough links the source and
-labels its highlights as an explanation, not experimental output.
+repository's separate MIT code license. The homepage displays the original figure without explanatory highlights; the adjacent publication entry identifies the authors and links to the paper. Earlier interactive walkthroughs are not mounted.
+
+
+## Tutorial preview
+
+`public/images/teaching/gaussian-quadratic-form.jpg` is Ethan’s existing YouTube thumbnail for [Gaussian quadratic form walkthrough](https://www.youtube.com/watch?v=BGdA0SxCdqI). It is displayed in a 16:9 slot and links to the video. See [the retained-preview record](docs/THREE-REFERENCE-PREVIEW.md) for source and dimensions. It is personal media, not an MIT-licensed template asset.
+
+## Decorative identity artwork
+
+`public/images/illustrations/robotics-greenhouse-day.png` and `robotics-greenhouse-evening.png` are AI-generated decorative artwork commissioned for this portfolio. They depict a fictional robot greenhouse scene, not Ethan’s research hardware, results, or recorded experiments. Older `robotics-workspace*` images are historical alternatives and are not rendered on the homepage.
+
+The greenhouse direction was informed by DreamLabs’ illustrated presentation. These assets are not copied DreamLabs artwork and do not imply affiliation with DreamLabs or robot manufacturers. The silver favicon and sharing images are also personal identity artwork. These media are separate from the source-code MIT license; no blanket reuse permission is granted here.

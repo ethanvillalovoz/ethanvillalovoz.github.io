@@ -1,119 +1,90 @@
-# Ethan Villalovoz Portfolio
+# Ethan Villalovoz’s portfolio
 
 [![CI](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/ethanvillalovoz/ethanvillalovoz.github.io/actions/workflows/ci.yml)
 
-Personal portfolio and research website for [ethanvillalovoz.com](https://ethanvillalovoz.com). The site presents a single page with an introduction, publications, experience, and teaching.
+Source for [ethanvillalovoz.com](https://ethanvillalovoz.com), Ethan’s personal computer science and research portfolio. The single-page site introduces his interests, experience, publications, and teaching.
 
-## Public Routes
+## What’s on the site
 
-| Route | Purpose |
-| --- | --- |
-| `/` | Introduction, contact links, publications, experience, and teaching |
-| `/#publications` | Publications and paper resources |
-| `/#experience` | Prior roles and dates |
-| `/#teaching` | Teaching history |
-| `/research/` | Compatibility redirect to `/#publications` |
+- A short introduction, portrait, profile links, CV, and copyable email address.
+- Experience entries with concise descriptions and linked technologies.
+- Publications with original paper figures, authors, venues, summaries, and available resources. Figures are static and nonclickable.
+- Teaching history, including a thumbnail linking to the Gaussian quadratic form walkthrough.
+- A decorative greenhouse illustration with humanoid, manipulator, and quadruped robots. The daytime and evening versions follow the site theme; both are static.
+- Light/dark themes, shared animated link underlines, visible keyboard focus, and reduced-motion fallbacks.
 
-Legacy `/writing/`, `/work/`, `/projects/`, `/publications/`, and `/teaching/` URLs redirect to the current information architecture.
+The site uses a narrow reading column, self-hosted Inter, and neutral colors. The silver favicon also supplies the compact social-preview imagery. The illustration is AI-generated decoration, not a research result.
 
-## Design And Content Model
+## Run locally
 
-The homepage is intentionally compact. It offers enough context to understand Ethan's current work, then points visitors toward deeper evidence.
-
-The homepage is the canonical destination for publications and teaching.
-
-## Stack
-
-- Next.js App Router
-- React and TypeScript
-- Plain CSS with light and dark themes
-- `next-themes`
-- `next-sitemap`
-- Vercel
-
-## Discovery And Performance
-
-- Canonical, Open Graph, and X metadata
-- `ProfilePage`, `Person`, and publication collection JSON-LD
-- XML sitemap coverage for every public route and its representative images
-- Responsive `next/image` delivery for portfolio and research media
-- Explicit image dimensions and lazy decoding for below-the-fold publication figures
-- Compact favicon-based sharing for the homepage
-
-## Local Development
-
-Requirements:
-
-- Node.js 20.9 or newer
-- npm
-
-The tested local and CI runtime is recorded in `.nvmrc`:
-
-```bash
-nvm use
-```
+Use Node.js 22, as specified in [.nvmrc](.nvmrc) and CI. The package minimum is Node.js 20.9.
 
 ```bash
 git clone https://github.com/ethanvillalovoz/ethanvillalovoz.github.io.git
 cd ethanvillalovoz.github.io
+nvm use
 npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [localhost:3000](http://localhost:3000). No API keys or environment variables are required for the portfolio.
 
-## Scripts
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the Next.js development server |
+| `npm run validate` | Check required files, content assets, retired paths, and sitemap entries |
+| `npm run lint` | Run ESLint |
+| `npm run typecheck` | Generate Next.js route types and run TypeScript |
+| `npm run build` | Build the site and regenerate sitemap/robots files |
+| `npm start` | Serve the production build locally |
+| `npm run check` | Run validation, lint, typecheck, and production build |
 
-```bash
-npm run dev        # Start the local development server
-npm run validate   # Check routes, assets, sitemap, and repository invariants
-npm run lint       # Run ESLint
-npm run typecheck  # Generate Next.js route types and run TypeScript
-npm run build      # Build the site and regenerate sitemap files
-npm run check      # Run validation, lint, typecheck, and production build
-```
+## Routes
 
-## Repository Structure
+| URL | Destination |
+| --- | --- |
+| `/` or `/#top` | Introduction and contact links |
+| `/#experience` | Experience, descriptions, and technologies |
+| `/#publications` | Publications and paper resources |
+| `/#teaching` | Teaching and tutorial link |
 
-```text
-src/app/
-  page.tsx                    Home metadata and server entry
+These anchors belong to one homepage, not separate pages. Legacy `/research/`, `/writing/`, `/work/`, `/projects/`, `/publications/`, `/DreamWorlds/`, and `/gaussian-splatting-physics/` paths redirect to `/#publications`; `/teaching/` redirects to `/#teaching`. Rules are in [next.config.ts](next.config.ts).
 
-src/components/
-  HomePageClient.tsx          Homepage introduction, publications, and experience
-  TeachingSection.tsx         Grouped teaching history
-  ThemeToggle.tsx             Light/dark theme control
+## Where to edit
 
-src/data/
-  site.ts                     Canonical identity and metadata constants
-  research.ts                 Publications and teaching records
-  publication-schema.ts       Publication structured data
+| File or directory | Owns |
+| --- | --- |
+| [src/components/HomePageClient.tsx](src/components/HomePageClient.tsx) | Intro, profile links, experience records, greenhouse, section order, footer |
+| [src/data/research.ts](src/data/research.ts) | Publications, authors, resources, and teaching records |
+| [src/data/site.ts](src/data/site.ts) | Canonical identity and sharing metadata constants |
+| [src/components/TeachingSection.tsx](src/components/TeachingSection.tsx) | Teaching layout and tutorial preview |
+| [src/app/globals.css](src/app/globals.css) | Typography, spacing, themes, responsive layout, and interaction styles |
+| [src/app/layout.tsx](src/app/layout.tsx), [src/app/page.tsx](src/app/page.tsx) | Font/provider setup, metadata, structured data, and homepage entry |
+| [public/images/](public/images/) | Portrait, paper figures, organization marks, tutorial poster, illustration, and favicon assets |
+| [public/data/](public/data/) | Public CV, résumé, and paper files |
+| [next-sitemap.config.js](next-sitemap.config.js) | Canonical sitemap and representative image entries |
+| [scripts/validate-repository.mjs](scripts/validate-repository.mjs) | Repository integrity checks |
 
-public/
-  data/                       Resume, CV, papers, and project evidence
-  images/                     Identity, organization, and active project images
-  visuals/                    Archived design screenshot
+## Stack and deployment
 
-scripts/
-  validate-repository.mjs     Repository integrity checks
-```
+Next.js 16 App Router, React 19, TypeScript, plain CSS, `next-themes`, and `react-icons`. Exact dependency resolutions are in `package-lock.json`. The site does not use Tailwind or a general-purpose animation library.
 
-See [Architecture](docs/ARCHITECTURE.md), [Design Contract](docs/DESIGN.md), and [Customization](docs/CUSTOMIZATION.md) for implementation details.
+Vercel serves the custom domain. `npm run build` runs Next.js and then `next-sitemap`, generating `public/sitemap.xml` and `public/robots.txt`. The repository name does not mean this Next.js application is a GitHub Pages static export. GitHub Actions runs `npm run check` on pushes to `main`, pull requests, and manual dispatches.
 
-## Deployment
+Before publishing, run the checks and review any visible changes on desktop and mobile in both themes. A successful push alone does not verify deployment; confirm the deployed revision and live result.
 
-Vercel is the intended deployment target. The production command is:
+## Documentation
 
-```bash
-npm run build
-```
+- [Architecture](docs/ARCHITECTURE.md): components, content, image delivery, and metadata.
+- [Design contract](docs/DESIGN.md): the accepted appearance and interactions.
+- [Customization](docs/CUSTOMIZATION.md): how to maintain content and assets.
+- [Publication media](docs/PUBLICATION_MEDIA.md): current figure provenance and historical experiments.
+- [Design QA](design-qa.md): latest audit scope and repeatable checks.
 
-The build runs Next.js and then generates `robots.txt` and `sitemap.xml` for `https://ethanvillalovoz.com`.
+Older `*_PREVIEW.md`, `REFINEMENT_CHECKPOINT.md`, and `EMIL_APPLICATION.md` notes record experiments, including rejected features. They are historical records, not the current feature inventory. Some checkpoints and evidence folders referenced there exist only in the original local workspace.
 
-## Contributing
+## Contributing and rights
 
-Focused bug fixes, accessibility improvements, and documentation corrections are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Security reports should follow [SECURITY.md](SECURITY.md).
+Focused fixes are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md). Report security issues using [SECURITY.md](SECURITY.md).
 
-## License
-
-The site code is available under the [MIT License](LICENSE). Research papers, project media, and organization marks may have separate terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Original site code is [MIT licensed](LICENSE). Papers, photographs, figures, fonts, organization marks, and personal artwork have separate terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). This repository is a personal portfolio, not a collection of freely reusable research or identity assets.

@@ -1,5 +1,7 @@
 # October 10 refinement pass
 
+> Historical experiment record. Statements about “current,” “local only,” deployment, or available controls below refer to that pass, not today’s site. See [DESIGN.md](DESIGN.md) and [ARCHITECTURE.md](ARCHITECTURE.md) for the accepted implementation. Local checkpoint/evidence paths may not be available in another clone.
+
 ## Current decision
 The EV footer mark and research note were removed at Ethan’s request. This includes the note’s publication link, route, example component, image, styles, and sitemap entry. The email feedback, theme reveal, and enlarged-text refinements remain. The rest of this document records the earlier experiment; note-related details below are historical. Removed note files were archived outside the repository in this chat’s outputs/removed-research-note folder.
 

@@ -1,5 +1,7 @@
 # Reference experiment outcome — October 20, 2026
 
+> Historical experiment record. Statements about “current,” “local only,” deployment, or available controls below refer to that pass, not today’s site. See [DESIGN.md](DESIGN.md) and [ARCHITECTURE.md](ARCHITECTURE.md) for the accepted implementation. Local checkpoint/evidence paths may not be available in another clone.
+
 Ethan chose to retain only the tutorial thumbnail. The intro highlight and
 animated publication schematics were rejected and removed, including their
 unused component and styles. Original publication figures remain nonclickable.

@@ -1,5 +1,7 @@
 # Emil-inspired portfolio detail pass — local preview
 
+> Historical experiment record. Statements about “current,” “local only,” deployment, or available controls below refer to that pass, not today’s site. See [DESIGN.md](DESIGN.md) and [ARCHITECTURE.md](ARCHITECTURE.md) for the accepted implementation. Local checkpoint/evidence paths may not be available in another clone.
+
 **Current state:** Ethan requested removal of the experimental publication controls, illustrations, and captions on October 10. Only the original BODE-GEN method figure and Social Triangles study photo now render, without captions or clickable wrappers. Other page polish remains. The experimental-media descriptions below are historical.
 
 

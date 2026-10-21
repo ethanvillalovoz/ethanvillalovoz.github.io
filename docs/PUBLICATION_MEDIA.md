@@ -5,6 +5,19 @@
 its original four-formation diagram (Figure 3). Both remain noninteractive
 within the accepted compact publication rows.
 
+## Active asset inventory
+
+| Rendered asset | Source | Delivery |
+| --- | --- | --- |
+| `public/images/research-details/bode-gen-method.png` | BODE-GEN Figure 1, 2046 × 885 | Original PNG, no delivery recompression |
+| `public/images/projects/social-triangles-formations-thumbnail.png` | Social Triangles Figure 3, original 1347 × 507 diagram padded to 1347 × 842 | Original padded PNG, no delivery recompression |
+
+Desktop publication figures occupy 180px slots; below 692px they stack above the text. Both use contain fit inside a 16:10 frame. There are no captions, media tabs, or interactive diagram controls. The adjacent title, authors, venue, and PDF links identify the papers.
+
+## Historical extraction and experiment notes
+
+The dated notes below preserve provenance and previous verification. References to 250px/full-width layouts, study photos, tabs, walkthroughs, local-only status, or previous thumbnail paths describe those earlier states. The active inventory above takes precedence.
+
 ## October 20, 2026: original BODE-GEN figure restored
 
 The simplified method-overview experiment was rejected in favor of the original

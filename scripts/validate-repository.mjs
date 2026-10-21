@@ -29,6 +29,9 @@ const requiredPaths = [
 	"public/images/identity/favicon-silver-v1-180.png",
 	"public/images/identity/favicon-silver-v1-512.png",
 	"public/visuals/homepage-preview.jpg",
+	"public/images/illustrations/robotics-greenhouse-day.png",
+	"public/images/illustrations/robotics-greenhouse-evening.png",
+	"public/images/teaching/gaussian-quadratic-form.jpg",
 ];
 
 const forbiddenPaths = [
@@ -176,8 +179,8 @@ if (await exists(sitemapPath)) {
 	];
 	const requiredImages = [
 		"https://ethanvillalovoz.com/images/EthanVillalovozPic-optimized.jpg",
-		"https://ethanvillalovoz.com/images/projects/bodegen-method-thumbnail.webp",
-		"https://ethanvillalovoz.com/images/projects/social-triangles-wedge-study.png",
+		"https://ethanvillalovoz.com/images/research-details/bode-gen-method.png",
+		"https://ethanvillalovoz.com/images/projects/social-triangles-formations-thumbnail.png",
 	];
 
 	for (const url of requiredUrls) {

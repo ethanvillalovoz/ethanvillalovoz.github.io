@@ -1,22 +1,15 @@
 # Design contract
 
-## Static robotics illustration — October 20, 2026
+## Current static greenhouse illustration — October 20, 2026
 
-Ethan accepted the smaller still illustration below the introduction and approved
-publication. It is decorative AI-generated artwork of a person and robot in a
-workspace, not a photograph or research result. The transparent PNG is capped at
-480px wide and scales down on mobile. Ethan also accepted static lighting variants:
-warm daylight in light mode and cool evening shadows with warm highlights in dark
-mode. Both use the same scene and dimensions, selected by the existing theme
-switch. The original artwork remains available, with the pre-lighting state saved
-at local tag `checkpoint/before-illustration-lighting-2026-10-20`
-(commit `e19f844b6f5f254fd12e021b3eaff46e450c486a`). The illustration
-has no animation, link, or added control. All existing content and interactions
-remain unchanged.
+The accepted artwork is a greenhouse scene with a humanoid, manipulator, and quadruped robot working around plants. It contains no person. Both transparent PNGs are decorative AI-generated illustrations, not photographs, robot recordings, or research results:
 
-The pre-illustration state is saved at local tag
-`checkpoint/before-robotics-illustration-2026-10-20`
-(commit `467394d80b3effa4d2c383ca54c8f8b44ae72578`).
+- `public/images/illustrations/robotics-greenhouse-day.png` in light mode.
+- `public/images/illustrations/robotics-greenhouse-evening.png` in dark mode.
+
+The scene is capped at 480px wide and scales down on mobile. Both variants are static, nonclickable, and controlled by the existing site theme. There is no video, task animation, parallax, or extra control. This replaces the earlier person-and-robot workspace scene; older workspace assets are historical. The accepted static greenhouse was published in commit `708d3a9449eea80091211709c85837a4b8870950`.
+
+The homepage order is introduction, illustration, experience, publications, teaching, and footer. Neutral accents, the silver favicon, and checkmark email confirmation remain the baseline.
 
 ## Retained tutorial preview — October 20, 2026
 
@@ -75,9 +68,10 @@ No reference code, font files, or media were copied from Emil's site. Existing r
 ## Typography and spacing
 
 - Inter is served locally by Next's font loader, with adjusted fallback metrics and `display: swap`.
-- Name: 20px/28px, medium. Section headings: 16px/24px, weight 550. Publication titles: 17px/26px, weight 550. Body and summaries: 16px/26.4px. Metadata: 14px.
+- Name: 20px/28px, medium. Section headings: 16px/24px, weight 550. Publication titles: 17px/26px; the linked text renders at weight 500. Body and summaries: 16px/26.4px. Metadata: 14px; technology and tutorial links: 13px.
 - Portrait: 72px desktop, 64px mobile, 8px radius. Publication media: 180px desktop, full column below 692px, 16:10 reserved aspect ratio, contain fit, 10px radius and faint edge.
 - Publication entries use 80px separation on desktop and 64px on mobile. Experience and teaching groups use 28px separation. Dates use tabular numerals.
+- Experience descriptions sit 6px below the role/date block; technology lists sit 6px below descriptions with 10px horizontal gaps and no comma separators.
 - Paragraphs have 16px separation. Contact has 24px top space. Profile links span the full column beneath the identity row.
 - Light background: #FDFDFC. Main text: #63635E. Heading: #21201C. Muted text: #70706A. Dark colors use the established neutral charcoal palette.
 
@@ -98,21 +92,15 @@ No reference code, font files, or media were copied from Emil's site. Existing r
 - Preserve the approved silver orb favicon and matching static sharing assets. Theme changes do not alter them. The orb is not displayed as an interactive footer element.
 - System color preference remains the default; a manual theme choice is remembered with the existing system-following behavior.
 
-## Review rationale
+## Historical experiments
 
-| Before | After | Why |
-| --- | --- | --- |
-| 752px usable content and large display headings | 644px reading column with small headings | Apply the overall proportions of the reference, beyond button polish |
-| One dense biography paragraph | Existing content split into two paragraphs | Give current interests and previous work separate reading beats |
-| 250px diagram beside squeezed metadata | Full-width figure followed by metadata, summary, and resources | Make scientific imagery readable and use the essay's media rhythm |
-| 48–56px major section spacing | 112px desktop / 64px mobile section spacing | Establish clear pauses without adding dividers or cards |
-| System Helvetica stack | Self-hosted Inter | Consistent text rendering and a closer reading texture |
+The October 10 preview documents record earlier alternatives, including full-width publication figures, entry animation, document previews, research controls, and an EV mark. They are not the current design contract. Those rejected features must not be restored merely because they appear in an older note. Local checkpoint tags and evidence folders in those notes may not exist in another clone.
 
 ## Before publishing
 
 Check desktop and mobile at 320px and 390px, light/dark appearance, keyboard focus, email feedback, noninteractive figures, image loading, overflow, and browser errors. Run `npm run check` and `git diff --check`. Changes remain local until explicitly approved for publishing.
 
-## Interaction completion (local preview, October 10)
+## Retained interaction details
 
 The accepted 644px column, Inter typography, and existing profile/research facts remain the foundation. Publications display only their original, non-clickable figures, with no labels above them, media tabs, interactive walkthroughs, or captions. Those experimental additions were removed at Ethan’s request.
 

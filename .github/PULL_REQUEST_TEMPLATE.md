@@ -4,7 +4,7 @@ Describe what changed and why.
 
 ## Affected Surfaces
 
-- Routes or microsites:
+- Homepage sections or redirects:
 - Content or metadata:
 - Dependencies or tooling:
 
