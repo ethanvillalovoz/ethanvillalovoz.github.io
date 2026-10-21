@@ -25,16 +25,13 @@ The homepage experience lives in `src/components/HomePageClient.tsx`. It contain
 - Short technical introduction
 - Location and contact method
 - Profile links
-- Static day/evening greenhouse illustration
 - Selected prior experience, descriptions, and technology links
 - Publications
 - Teaching history
 
 Keep this page selective. It should introduce the person and create clear paths into deeper evidence, not reproduce a resume.
 
-## Illustration and theme assets
-
-The active artwork is `public/images/illustrations/robotics-greenhouse-day.png` and `robotics-greenhouse-evening.png`, referenced in `HomePageClient.tsx`. Keep both aligned, preserve their transparent background, and update dimensions and alt/decorative treatment if replacing them. The current scene is decorative, static, capped at 480px, and contains no person. Older workspace images are historical assets, not active variants.
+## Theme and identity assets
 
 The approved favicon uses the `favicon-silver-v1-*` assets. Check `layout.tsx`, `site.ts`, and `public/favicon.ico` together when replacing it; touch and social-preview sizes have different roles.
 

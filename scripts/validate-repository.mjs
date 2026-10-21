@@ -29,8 +29,6 @@ const requiredPaths = [
 	"public/images/identity/favicon-silver-v1-180.png",
 	"public/images/identity/favicon-silver-v1-512.png",
 	"public/visuals/homepage-preview.jpg",
-	"public/images/illustrations/robotics-greenhouse-day.png",
-	"public/images/illustrations/robotics-greenhouse-evening.png",
 	"public/images/teaching/gaussian-quadratic-form.jpg",
 ];
 

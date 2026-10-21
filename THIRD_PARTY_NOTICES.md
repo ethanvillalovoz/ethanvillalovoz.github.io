@@ -47,6 +47,6 @@ repository's separate MIT code license. The homepage displays the original figur
 
 ## Decorative identity artwork
 
-`public/images/illustrations/robotics-greenhouse-day.png` and `robotics-greenhouse-evening.png` are AI-generated decorative artwork commissioned for this portfolio. They depict a fictional robot greenhouse scene, not Ethan’s research hardware, results, or recorded experiments. Older `robotics-workspace*` images are historical alternatives and are not rendered on the homepage.
+Older `robotics-workspace*` images are AI-generated historical alternatives and are not rendered on the homepage. The greenhouse artwork and robot timeline experiment were removed.
 
-The greenhouse direction was informed by DreamLabs’ illustrated presentation. These assets are not copied DreamLabs artwork and do not imply affiliation with DreamLabs or robot manufacturers. The silver favicon and sharing images are also personal identity artwork. These media are separate from the source-code MIT license; no blanket reuse permission is granted here.
+The silver favicon and sharing images are also personal identity artwork. These media are separate from the source-code MIT license; no blanket reuse permission is granted here.

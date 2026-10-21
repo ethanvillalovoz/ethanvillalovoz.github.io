@@ -1,12 +1,12 @@
 # Architecture
 
-A single-page Next.js App Router portfolio, served on Vercel. The homepage order is introduction, static greenhouse illustration, experience, publications, teaching, and footer.
+A single-page Next.js App Router portfolio, served on Vercel. The homepage order is introduction, experience, publications, teaching, and footer.
 
 ## Rendering and content
 
 - `src/app/layout.tsx` loads Inter through `next/font/google`, installs the theme provider, and defines global metadata and structured data.
 - `src/app/page.tsx` is the server entry for the homepage and its metadata.
-- `src/components/HomePageClient.tsx` renders the homepage. Its local arrays hold experience entries, technology destinations, and visible profile links; the intro and greenhouse assets are also defined here.
+- `src/components/HomePageClient.tsx` renders the homepage. Its local arrays hold experience entries, technology destinations, and visible profile links; the intro is also defined here.
 - `src/data/research.ts` holds publication and teaching records. `src/data/publication-schema.ts` derives publication JSON-LD.
 - `src/data/site.ts` holds canonical identity, social-profile metadata, and sharing-image constants. Visible profile links in `HomePageClient.tsx` must be kept in sync when relevant.
 - `TeachingSection.tsx` renders grouped teaching entries and the tutorial thumbnail. `ResearchMedia.tsx`, `PublicationAuthors.tsx`, and `PublicationResources.tsx` render publication rows.
@@ -21,16 +21,14 @@ The homepage has `top`, `experience`, `publications`, and `teaching` anchors. Le
 - A 692px outer container with 24px side padding, yielding a 644px reading column.
 - Publication rows with 180px figures and a 24px gap; below 692px figures stack above text.
 - Shared link underlines, visible focus, neutral light/dark variables, and reduced-motion rules.
-- A greenhouse image capped at 480px, with static day/evening variants selected by theme.
 
-`TextLink`, `OrganizationLink`, and `AnimatedLabel` use shared link styles. `CopyEmail` manages clipboard feedback; `Hint` supplies accessible hints. `ThemeToggle` coordinates the theme and interruptible circular reveal. `Portrait` supplies the existing fine-pointer response. No page-entry animation, interactive publication figures, or animated greenhouse is mounted.
+`TextLink`, `OrganizationLink`, and `AnimatedLabel` use shared link styles. `CopyEmail` manages clipboard feedback; `Hint` supplies accessible hints. `ThemeToggle` coordinates the theme and interruptible circular reveal. `Portrait` supplies the existing fine-pointer response. No page-entry animation or interactive publication figures are mounted.
 
 Some retained components and assets come from earlier experiments and are not rendered by the homepage. Their presence is not evidence of an active feature. See [Design](DESIGN.md) for the current contract and the explicitly historical preview notes for context.
 
 ## Image delivery
 
 - Portrait and publication figures use `next/image` with `unoptimized`, preserving the existing source bytes rather than adding delivery compression.
-- The greenhouse uses responsive Next.js image delivery at quality 90 with an accurate `sizes` value.
 - The tutorial poster is displayed in a 16:9 frame; it links directly to YouTube without embedding a player.
 - Organization marks and favicon assets remain separate from research media.
 

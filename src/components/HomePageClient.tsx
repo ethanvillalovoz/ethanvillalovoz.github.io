@@ -243,28 +243,6 @@ export default function HomePageClient() {
 							You can reach me at{" "}
 							<CopyEmail />
 						</p>
-
-						{/* Load both stills so the existing theme reveal never waits for an image. */}
-						<Image
-							src="/images/illustrations/robotics-greenhouse-day.png"
-							loading="eager"
-							alt=""
-							width={1983}
-							height={793}
-							sizes="(max-width: 528px) calc(100vw - 48px), 480px"
-							quality={90}
-							className="portfolio-robotics-illustration portfolio-robotics-illustration-day"
-						/>
-						<Image
-							src="/images/illustrations/robotics-greenhouse-evening.png"
-							loading="eager"
-							alt=""
-							width={1983}
-							height={793}
-							sizes="(max-width: 528px) calc(100vw - 48px), 480px"
-							quality={90}
-							className="portfolio-robotics-illustration portfolio-robotics-illustration-evening"
-						/>
 					</div>
 				</header>
 

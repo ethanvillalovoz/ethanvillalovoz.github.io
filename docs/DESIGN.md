@@ -1,15 +1,12 @@
 # Design contract
 
-## Current static greenhouse illustration — October 20, 2026
+## Homepage without a decorative scene — October 21, 2026
 
-The accepted artwork is a greenhouse scene with a humanoid, manipulator, and quadruped robot working around plants. It contains no person. Both transparent PNGs are decorative AI-generated illustrations, not photographs, robot recordings, or research results:
+Ethan requested removal of the greenhouse and robot timeline experiment. The introduction now leads directly into Experience, using the existing section spacing. Neither theme renders a decorative scene or a drawing robot.
 
-- `public/images/illustrations/robotics-greenhouse-day.png` in light mode.
-- `public/images/illustrations/robotics-greenhouse-evening.png` in dark mode.
+The homepage order is introduction, experience, publications, teaching, and footer. Neutral accents, the silver favicon, portrait, tutorial thumbnail, and checkmark email confirmation remain the baseline. All other content and interactions are unchanged.
 
-The scene is capped at 480px wide and scales down on mobile. Both variants are static, nonclickable, and controlled by the existing site theme. There is no video, task animation, parallax, or extra control. This replaces the earlier person-and-robot workspace scene; older workspace assets are historical. The accepted static greenhouse was published in commit `708d3a9449eea80091211709c85837a4b8870950`.
-
-The homepage order is introduction, illustration, experience, publications, teaching, and footer. Neutral accents, the silver favicon, and checkmark email confirmation remain the baseline.
+The removed greenhouse and robot experiments are preserved in local checkpoints outside the repository. The earlier greenhouse was published in commit `708d3a9449eea80091211709c85837a4b8870950`; that historical state is no longer the current design.
 
 ## Retained tutorial preview — October 20, 2026
 
@@ -73,6 +70,7 @@ No reference code, font files, or media were copied from Emil's site. Existing r
 - Publication entries use 80px separation on desktop and 64px on mobile. Experience and teaching groups use 28px separation. Dates use tabular numerals.
 - Experience descriptions sit 6px below the role/date block; technology lists sit 6px below descriptions with 10px horizontal gaps and no comma separators.
 - Paragraphs have 16px separation. Contact has 24px top space. Profile links span the full column beneath the identity row.
+- Retain the existing spacing accepted on October 21: profile links to intro are 56px desktop / 48px mobile; hero to Experience is 80px / 56px; gaps between main sections are 112px / 64px. These are separate layout rules, not a requirement that every gap be equal.
 - Light background: #FDFDFC. Main text: #63635E. Heading: #21201C. Muted text: #70706A. Dark colors use the established neutral charcoal palette.
 
 ## Interaction contract

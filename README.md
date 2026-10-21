@@ -10,10 +10,9 @@ Source for [ethanvillalovoz.com](https://ethanvillalovoz.com), Ethan’s persona
 - Experience entries with concise descriptions and linked technologies.
 - Publications with original paper figures, authors, venues, summaries, and available resources. Figures are static and nonclickable.
 - Teaching history, including a thumbnail linking to the Gaussian quadratic form walkthrough.
-- A decorative greenhouse illustration with humanoid, manipulator, and quadruped robots. The daytime and evening versions follow the site theme; both are static.
 - Light/dark themes, shared animated link underlines, visible keyboard focus, and reduced-motion fallbacks.
 
-The site uses a narrow reading column, self-hosted Inter, and neutral colors. The silver favicon also supplies the compact social-preview imagery. The illustration is AI-generated decoration, not a research result.
+The site uses a narrow reading column, self-hosted Inter, and neutral colors. The silver favicon also supplies the compact social-preview imagery.
 
 ## Run locally
 
@@ -54,13 +53,13 @@ These anchors belong to one homepage, not separate pages. Legacy `/research/`, `
 
 | File or directory | Owns |
 | --- | --- |
-| [src/components/HomePageClient.tsx](src/components/HomePageClient.tsx) | Intro, profile links, experience records, greenhouse, section order, footer |
+| [src/components/HomePageClient.tsx](src/components/HomePageClient.tsx) | Intro, profile links, experience records, section order, footer |
 | [src/data/research.ts](src/data/research.ts) | Publications, authors, resources, and teaching records |
 | [src/data/site.ts](src/data/site.ts) | Canonical identity and sharing metadata constants |
 | [src/components/TeachingSection.tsx](src/components/TeachingSection.tsx) | Teaching layout and tutorial preview |
 | [src/app/globals.css](src/app/globals.css) | Typography, spacing, themes, responsive layout, and interaction styles |
 | [src/app/layout.tsx](src/app/layout.tsx), [src/app/page.tsx](src/app/page.tsx) | Font/provider setup, metadata, structured data, and homepage entry |
-| [public/images/](public/images/) | Portrait, paper figures, organization marks, tutorial poster, illustration, and favicon assets |
+| [public/images/](public/images/) | Portrait, paper figures, organization marks, tutorial poster, and favicon assets |
 | [public/data/](public/data/) | Public CV, résumé, and paper files |
 | [next-sitemap.config.js](next-sitemap.config.js) | Canonical sitemap and representative image entries |
 | [scripts/validate-repository.mjs](scripts/validate-repository.mjs) | Repository integrity checks |
