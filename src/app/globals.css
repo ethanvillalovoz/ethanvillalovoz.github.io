@@ -184,7 +184,12 @@ button {
   text-wrap: balance;
 }
 
-.portfolio-top-target:focus-visible {
+.portfolio-top-target:focus {
+  outline: none;
+}
+
+.portfolio-top-target:focus-visible:not([data-focus-origin="pointer"]),
+.portfolio-top-target:focus[data-focus-origin="keyboard"] {
   outline: 2px solid rgb(var(--interaction-accent));
   outline-offset: 4px;
   border-radius: 2px;

@@ -311,7 +311,12 @@ export default function HomePageClient() {
 					<CopyEmail punctuation={false} />
 					<a href="#top" className="portfolio-link" onClick={(event) => {
 						event.preventDefault();
-						document.getElementById("intro-heading")?.focus({ preventScroll: true });
+						const heading = document.getElementById("intro-heading");
+						if (heading) {
+							// Keyboard and assistive activation have no pointer click count.
+							heading.dataset.focusOrigin = event.detail === 0 ? "keyboard" : "pointer";
+							heading.focus({ preventScroll: true });
+						}
 						window.scrollTo({ top: 0, behavior: event.detail === 0 || window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
 					}}>
 						<span className="portfolio-link-text">Back to top</span>
