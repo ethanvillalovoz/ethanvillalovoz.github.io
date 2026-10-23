@@ -325,9 +325,30 @@ button {
 }
 
 .portfolio-link.portfolio-technology-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 23px;
   color: rgb(var(--muted));
   font-weight: 400;
 }
+
+.portfolio-technology-symbol {
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* Optical sizing preserves the existing layout slots and link spacing. */
+.portfolio-technology-symbol[data-technology="csharp"],
+.portfolio-technology-symbol[data-technology="cpp"] { transform: scale(0.9); }
+.portfolio-technology-symbol[data-technology="matplotlib"] { transform: scale(1.2); }
+.portfolio-technology-symbol[data-technology="numpy"] { transform: scale(0.95); }
+
+.portfolio-technology-link > .portfolio-technology-symbol { margin-top: -3px; }
+.portfolio-technology-dotnet { width: 30px; height: 20px; color: #512bd4; transform: scale(0.93); }
+.dark .portfolio-technology-dotnet { color: #b5a0ff; }
+.portfolio-technology-graphql { width: 15px; height: 15px; color: #e10098; transform: scale(0.93); }
 
 .portfolio-experience-stints {
   display: grid;

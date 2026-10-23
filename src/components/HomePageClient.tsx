@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { FiArrowUpRight, FiMapPin } from "react-icons/fi";
 import { FaFileLines, FaLinkedin } from "react-icons/fa6";
-import { SiArxiv, SiGithub, SiGooglescholar, SiX, SiYoutube } from "react-icons/si";
+import { SiArxiv, SiGithub, SiGooglescholar, SiX, SiYoutube, SiDotnet, SiGraphql } from "react-icons/si";
 import OrganizationLink from "@/components/OrganizationLink";
 import PublicationResources from "@/components/PublicationResources";
 import PublicationAuthors from "@/components/PublicationAuthors";
@@ -31,6 +31,16 @@ const technologies = {
 };
 
 type Technology = keyof typeof technologies;
+
+const technologyLogos: Partial<Record<Technology, { src: string; standalone?: boolean }>> = {
+	csharp: { src: "/images/technologies/csharp.svg", standalone: true },
+	cpp: { src: "/images/technologies/cplusplus.svg", standalone: true },
+	azure: { src: "/images/technologies/azure.svg" },
+	python: { src: "/images/technologies/python.svg" },
+	numpy: { src: "/images/technologies/numpy.svg" },
+	matplotlib: { src: "/images/technologies/matplotlib.svg" },
+	html: { src: "/images/technologies/html5.svg" },
+};
 
 type Experience = {
 	title: string;
@@ -138,10 +148,20 @@ function ExperienceRow({
 					<ul aria-label={`${title} technologies`}>
 						{technologyKeys.map((key) => {
 							const { label, href } = technologies[key];
+							const logo = technologyLogos[key];
+							const standalone = logo?.standalone || key === "dotnet";
+							const symbol = key === "dotnet" ? (
+								<SiDotnet viewBox="0 6 24 12" className="portfolio-technology-symbol portfolio-technology-dotnet" aria-hidden="true" />
+							) : key === "graphql" ? (
+								<SiGraphql className="portfolio-technology-symbol portfolio-technology-graphql" aria-hidden="true" />
+							) : logo ? (
+								<Image src={logo.src} alt="" width={standalone ? 20 : 15} height={standalone ? 20 : 15} data-technology={key} className="portfolio-technology-symbol" />
+							) : null;
 							return (
 								<li key={key}>
-									<a href={href} target="_blank" rel="noopener noreferrer" className="portfolio-link portfolio-technology-link">
-										<span className="portfolio-link-text">{label}</span>
+									<a href={href} target="_blank" rel="noopener noreferrer" className="portfolio-link portfolio-technology-link" aria-label={label} title={standalone ? label : undefined}>
+										{!standalone && symbol}
+										<span className="portfolio-link-text">{standalone ? symbol : label}</span>
 									</a>
 								</li>
 							);
