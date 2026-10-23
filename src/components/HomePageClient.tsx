@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { FiArrowUpRight, FiMapPin } from "react-icons/fi";
-import { FaFileLines, FaLinkedin } from "react-icons/fa6";
+import { FaFileLines, FaLinkedin, FaDatabase } from "react-icons/fa6";
 import { SiArxiv, SiGithub, SiGooglescholar, SiX, SiYoutube, SiDotnet, SiGraphql } from "react-icons/si";
 import OrganizationLink from "@/components/OrganizationLink";
 import PublicationResources from "@/components/PublicationResources";
@@ -40,6 +40,7 @@ const technologyLogos: Partial<Record<Technology, { src: string; standalone?: bo
 	numpy: { src: "/images/technologies/numpy.svg" },
 	matplotlib: { src: "/images/technologies/matplotlib.svg" },
 	html: { src: "/images/technologies/html5.svg" },
+	tkinter: { src: "/images/technologies/tcl-tk.png" },
 };
 
 type Experience = {
@@ -154,6 +155,8 @@ function ExperienceRow({
 								<SiDotnet viewBox="0 6 24 12" className="portfolio-technology-symbol portfolio-technology-dotnet" aria-hidden="true" />
 							) : key === "graphql" ? (
 								<SiGraphql className="portfolio-technology-symbol portfolio-technology-graphql" aria-hidden="true" />
+							) : key === "sql" ? (
+								<FaDatabase viewBox="-16 -16 480 544" className="portfolio-technology-symbol portfolio-technology-sql" aria-hidden="true" />
 							) : logo ? (
 								<Image src={logo.src} alt="" width={standalone ? 20 : 15} height={standalone ? 20 : 15} data-technology={key} className="portfolio-technology-symbol" />
 							) : null;

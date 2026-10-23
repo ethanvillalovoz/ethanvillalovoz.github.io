@@ -333,6 +333,14 @@ button {
   font-weight: 400;
 }
 
+/* Equal label boxes keep text and standalone-logo underlines level. */
+.portfolio-technology-link .portfolio-link-text {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 23px;
+}
+
 .portfolio-technology-symbol {
   display: inline-block;
   flex-shrink: 0;
@@ -344,10 +352,12 @@ button {
 .portfolio-technology-symbol[data-technology="cpp"] { transform: scale(0.9); }
 .portfolio-technology-symbol[data-technology="matplotlib"] { transform: scale(1.2); }
 .portfolio-technology-symbol[data-technology="numpy"] { transform: scale(0.95); }
+.portfolio-technology-symbol[data-technology="tkinter"] { transform: scale(1.2); }
 
 .portfolio-technology-link > .portfolio-technology-symbol { margin-top: -3px; }
 .portfolio-technology-dotnet { width: 30px; height: 20px; color: #512bd4; transform: scale(0.93); }
 .dark .portfolio-technology-dotnet { color: #b5a0ff; }
+.portfolio-technology-sql { width: 15px; height: 15px; color: #4682b4; }
 .portfolio-technology-graphql { width: 15px; height: 15px; color: #e10098; transform: scale(0.93); }
 
 .portfolio-experience-stints {
