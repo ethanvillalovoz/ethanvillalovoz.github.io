@@ -1,9 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { FiArrowUpRight, FiMapPin } from "react-icons/fi";
-import { FaFileLines, FaLinkedin, FaDatabase } from "react-icons/fa6";
-import { SiArxiv, SiGithub, SiGooglescholar, SiX, SiYoutube, SiDotnet, SiGraphql } from "react-icons/si";
+import { FiMapPin } from "react-icons/fi";
 import OrganizationLink from "@/components/OrganizationLink";
 import PublicationResources from "@/components/PublicationResources";
 import PublicationAuthors from "@/components/PublicationAuthors";
@@ -31,17 +28,6 @@ const technologies = {
 };
 
 type Technology = keyof typeof technologies;
-
-const technologyLogos: Partial<Record<Technology, { src: string; standalone?: boolean }>> = {
-	csharp: { src: "/images/technologies/csharp.svg", standalone: true },
-	cpp: { src: "/images/technologies/cplusplus.svg", standalone: true },
-	azure: { src: "/images/technologies/azure.svg" },
-	python: { src: "/images/technologies/python.svg" },
-	numpy: { src: "/images/technologies/numpy.svg" },
-	matplotlib: { src: "/images/technologies/matplotlib.svg" },
-	html: { src: "/images/technologies/html5.svg" },
-	tkinter: { src: "/images/technologies/tcl-tk.png" },
-};
 
 type Experience = {
 	title: string;
@@ -101,21 +87,36 @@ const experiences: Experience[] = [
 ];
 
 const profileLinks = [
-	{ label: "CV", icon: FaFileLines, href: "/data/EthanVillalovoz-CV.pdf" },
-	{ label: "GitHub", icon: SiGithub, href: "https://github.com/ethanvillalovoz" },
+	{ label: "CV", href: "/data/EthanVillalovoz-CV.pdf" },
+	{ label: "GitHub", href: "https://github.com/ethanvillalovoz" },
 	{
 		label: "Scholar",
-		icon: SiGooglescholar,
 		href: "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
 	},
 	{
 		label: "LinkedIn",
-		icon: FaLinkedin,
 		href: "https://www.linkedin.com/in/ethanvillalovoz/",
 	},
-	{ label: "X", icon: SiX, href: "https://x.com/ethanvillalovoz" },
-	{ label: "YouTube", icon: SiYoutube, href: "https://www.youtube.com/@ethanvillalovoz" },
+	{ label: "X", href: "https://x.com/ethanvillalovoz" },
+	{ label: "YouTube", href: "https://www.youtube.com/@ethanvillalovoz" },
 ];
+
+
+function ProfileLinks() {
+	const renderLink = ({ label, href }: (typeof profileLinks)[number]) => (
+		<a key={label} href={href} target="_blank" rel="noopener noreferrer" className="portfolio-link portfolio-destination-link" aria-label={label}>
+			<AnimatedLabel arrow={false}>{label}</AnimatedLabel>
+		</a>
+	);
+	return (
+		<nav className="portfolio-profile-links portfolio-profile-links-header" aria-label="CV and profiles">
+			{profileLinks.slice(0, 4).map(renderLink)}
+			<span className="portfolio-profile-links-pair">
+				{profileLinks.slice(4).map(renderLink)}
+			</span>
+		</nav>
+	);
+}
 
 
 function ExperienceRow({
@@ -149,22 +150,10 @@ function ExperienceRow({
 					<ul aria-label={`${title} technologies`}>
 						{technologyKeys.map((key) => {
 							const { label, href } = technologies[key];
-							const logo = technologyLogos[key];
-							const standalone = logo?.standalone || key === "dotnet";
-							const symbol = key === "dotnet" ? (
-								<SiDotnet viewBox="0 6 24 12" className="portfolio-technology-symbol portfolio-technology-dotnet" aria-hidden="true" />
-							) : key === "graphql" ? (
-								<SiGraphql className="portfolio-technology-symbol portfolio-technology-graphql" aria-hidden="true" />
-							) : key === "sql" ? (
-								<FaDatabase viewBox="-16 -16 480 544" className="portfolio-technology-symbol portfolio-technology-sql" aria-hidden="true" />
-							) : logo ? (
-								<Image src={logo.src} alt="" width={standalone ? 20 : 15} height={standalone ? 20 : 15} data-technology={key} className="portfolio-technology-symbol" />
-							) : null;
 							return (
 								<li key={key}>
-									<a href={href} target="_blank" rel="noopener noreferrer" className="portfolio-link portfolio-technology-link" aria-label={label} title={standalone ? label : undefined}>
-										{!standalone && symbol}
-										<span className="portfolio-link-text">{standalone ? symbol : label}</span>
+									<a href={href} target="_blank" rel="noopener noreferrer" className="portfolio-link portfolio-technology-link" aria-label={label}>
+										<span className="portfolio-link-text">{label}</span>
 									</a>
 								</li>
 							);
@@ -194,17 +183,13 @@ function PublicationRow({
 					authors={publication.authors}
 					className="portfolio-work-authors"
 				/>
-				<p className="portfolio-work-venue" data-venue={publication.venue === "arXiv" ? "arxiv" : publication.venue === "IROS" && publication.date === "2023" ? "iros-2023" : undefined}>
+				<p className="portfolio-work-venue">
 					<a
 						href={publication.venue === "IROS" ? `https://${publication.date}.ieee-iros.org/` : "https://arxiv.org/"}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="portfolio-link portfolio-venue-link"
 					>
-					{publication.venue === "arXiv" && <SiArxiv className="portfolio-venue-icon" aria-hidden="true" />}
-					{publication.venue === "IROS" && publication.date === "2023" && (
-						<Image src="/images/venues/iros-2023.svg" alt="" width={14} height={14} className="portfolio-venue-icon" />
-					)}
 					<span className="portfolio-link-text">{publication.venue} {publication.date}</span>
 					</a>
 				</p>
@@ -218,12 +203,11 @@ function PublicationRow({
 export default function HomePageClient() {
 	return (
 		<main className="portfolio-site" id="top">
-			<div className="portfolio-theme-corner">
-				<ThemeToggle />
-			</div>
-
 			<div className="portfolio-container">
 				<header className="portfolio-intro">
+					<div className="portfolio-theme-corner">
+						<ThemeToggle />
+					</div>
 					<div className="portfolio-identity">
 						<div className="portfolio-identity-copy">
 							<h1 className="portfolio-h1"><span id="intro-heading" className="portfolio-top-target" tabIndex={-1}>Ethan Villalovoz</span></h1>
@@ -235,21 +219,10 @@ export default function HomePageClient() {
 						</div>
 					</div>
 
-					<nav className="portfolio-profile-links" aria-label="Ethan's profiles">
-						{profileLinks.map(({ label, href, icon: Icon }) => (
-							<a key={label} href={href} target="_blank" rel="noopener noreferrer" className="portfolio-link" aria-label={label} title={label === "X" ? "X" : undefined}>
-								{label === "X" ? (
-									<><span className="portfolio-link-text"><Icon className="portfolio-profile-mark portfolio-profile-mark-only" aria-hidden="true" /></span><FiArrowUpRight className="link-outbound-arrow" aria-hidden="true" /></>
-								) : (
-									<><Icon className="portfolio-profile-mark" data-profile={label} aria-hidden="true" /><AnimatedLabel>{label}</AnimatedLabel></>
-								)}
-							</a>
-						))}
-					</nav>
-
                     <Portrait />
 
 					<div className="portfolio-intro-copy">
+						<ProfileLinks />
 						<p className="portfolio-p">
 							I&apos;m an M.S. student in Computer Science at{" "}
 							<OrganizationLink
@@ -262,10 +235,12 @@ export default function HomePageClient() {
 							, specializing in Computational Perception &amp; Robotics. I&apos;m interested in how robots can understand people and the physical world.
 						</p>
 
-						<p className="portfolio-p portfolio-contact-copy">
-							You can reach me at{" "}
-							<CopyEmail />
-						</p>
+						<div className="portfolio-contact-row">
+							<p className="portfolio-p portfolio-contact-copy">
+								You can reach me at{" "}
+								<CopyEmail />
+							</p>
+						</div>
 					</div>
 				</header>
 

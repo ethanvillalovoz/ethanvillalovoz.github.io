@@ -1,8 +1,6 @@
 import { teachingExperiences } from "@/data/research";
 import TextLink from "@/components/TextLink";
 import OrganizationLink from "@/components/OrganizationLink";
-import { FiArrowUpRight } from "react-icons/fi";
-import { SiYoutube } from "react-icons/si";
 import Image from "next/image";
 
 const institutionLinks: Record<string, { href: string; iconSrc: string }> = {
@@ -57,15 +55,16 @@ export default function TeachingSection() {
 													<Image src="/images/teaching/gaussian-quadratic-form.jpg" alt="" width={480} height={360} unoptimized className="teaching-tutorial-poster-image" />
 													<span className="teaching-tutorial-play" aria-hidden="true">▶</span>
 												</span>
-												<SiYoutube className="portfolio-resource-mark" data-brand="youtube" aria-hidden="true" />
-												<span className="teaching-tutorial-label">
-													<span className="portfolio-link-text">
-														{title.slice(0, lastSpace + 1)}
-														<span className="teaching-tutorial-ending">
-															{title.slice(lastSpace + 1)}<FiArrowUpRight className="link-outbound-arrow" aria-hidden="true" />
+												<span className="teaching-tutorial-copy">
+													<span className="teaching-tutorial-label">
+														<span className="portfolio-link-text">
+															{title.slice(0, lastSpace + 1)}
+															<span className="teaching-tutorial-ending">
+																{title.slice(lastSpace + 1)}
+															</span>
 														</span>
+														<span className="teaching-tutorial-duration">{experience.tutorial.duration}</span>
 													</span>
-													<span className="teaching-tutorial-duration">{experience.tutorial.duration}</span>
 												</span>
 											</a>
 										</div>

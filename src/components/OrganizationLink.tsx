@@ -31,7 +31,9 @@ export default function OrganizationLink({
 				loading={eager ? "eager" : "lazy"}
 				className="portfolio-organization-mark"
 			/>}
-			<span className="portfolio-link-text portfolio-organization-name">{children}</span>
+			<span className="portfolio-organization-name">
+				<span className="portfolio-link-text">{children}</span>
+			</span>
 		</a>
 	);
 }

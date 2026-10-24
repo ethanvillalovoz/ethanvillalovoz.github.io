@@ -1,7 +1,6 @@
 import AnimatedLabel from "./AnimatedLabel";
-import PaperIcon from "./PaperIcon";
 import { FiCode, FiGlobe, FiLink, FiVideo } from "react-icons/fi";
-import { SiArxiv, SiGithub, SiYoutube } from "react-icons/si";
+import { SiGithub, SiYoutube } from "react-icons/si";
 import type { ResearchResource } from "@/data/research";
 import { site } from "@/data/site";
 
@@ -12,8 +11,8 @@ function resourceAppearance(resource: ResearchResource) {
 	const hostname = new URL(resource.href, site.url).hostname.replace(/^www\./, "");
 	switch (resource.label) {
 		case "Website": return { Icon: FiGlobe, brand: undefined };
-		case "Paper": return { Icon: PaperIcon, brand: undefined };
-		case "arXiv": return { Icon: SiArxiv, brand: "arxiv" };
+		case "Paper":
+		case "arXiv": return { Icon: null, brand: undefined };
 		case "Code": return { Icon: hostname === "github.com" ? SiGithub : FiCode, brand: undefined };
 		case "Video": return hostname === "youtube.com" || hostname === "youtu.be"
 			? { Icon: SiYoutube, brand: "youtube" }
@@ -33,8 +32,8 @@ export default function PublicationResources({ resources, label, shortTitle }: {
 				const { Icon, brand } = resourceAppearance(resource);
 				return (
 					<a key={`${resource.label}-${resource.href}`} href={resource.href} target="_blank" rel="noopener noreferrer" className="portfolio-link" aria-label={resource.label === "Paper" ? `PDF: ${shortTitle}` : undefined}>
-						<Icon className="portfolio-resource-mark" data-brand={brand} aria-hidden="true" />
-						<AnimatedLabel arrow={resource.label !== "Paper"}>{resource.label === "Paper" ? "PDF" : resource.label}</AnimatedLabel>
+						{Icon && <Icon className="portfolio-resource-mark" data-brand={brand} aria-hidden="true" />}
+						<AnimatedLabel arrow={false}>{resource.label === "Paper" ? "PDF" : resource.label}</AnimatedLabel>
 					</a>
 				);
 			})}
