@@ -124,9 +124,9 @@ button {
 }
 
 .portfolio-container {
-  /* Emil reference: 16/24 reading scale, responsive sections, 128px after identity. */
+  /* Compensate for line boxes so the intro's visible gaps share a rhythm. */
   --portfolio-section-space: 64px;
-  --portfolio-intro-space: 128px;
+  --portfolio-intro-space: 25px;
   --portfolio-entry-leading: 1.5rem;
   --portfolio-entry-space: 24px;
   --portfolio-social-padding: 4px;
@@ -978,7 +978,7 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
     --portfolio-section-space: 128px;
     --portfolio-entry-space: 28px;
     --portfolio-social-prose-space: 24px;
-    --portfolio-intro-space: 128px;
+    --portfolio-intro-space: 29px;
     padding-top: 176px;
     padding-bottom: 128px;
   }
