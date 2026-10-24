@@ -90,6 +90,13 @@ button {
   touch-action: manipulation;
 }
 
+/* These controls provide their own underline or press feedback. */
+.portfolio-link,
+.portfolio-organization-link,
+.portfolio-theme-toggle {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .site-body {
   isolation: isolate;
   display: flex;
