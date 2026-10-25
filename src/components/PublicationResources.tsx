@@ -28,13 +28,16 @@ export default function PublicationResources({ resources, label, shortTitle }: {
 	};
 	return (
 		<nav className="portfolio-work-resources" aria-label={label}>
-			{[...resources].sort((a, b) => rank(a) - rank(b)).map((resource) => {
+			{[...resources].sort((a, b) => rank(a) - rank(b)).map((resource, index) => {
 				const { Icon, brand } = resourceAppearance(resource);
 				return (
-					<a key={`${resource.label}-${resource.href}`} href={resource.href} target="_blank" rel="noopener noreferrer" className="portfolio-link" aria-label={resource.label === "Paper" ? `PDF: ${shortTitle}` : undefined}>
+					<span className="portfolio-resource-item" key={`${resource.label}-${resource.href}`}>
+						{index > 0 && <span className="portfolio-resource-separator" aria-hidden="true">·</span>}
+					<a href={resource.href} target="_blank" rel="noopener noreferrer" className="portfolio-link" aria-label={resource.label === "Paper" ? `PDF: ${shortTitle}` : undefined}>
 						{Icon && <Icon className="portfolio-resource-mark" data-brand={brand} aria-hidden="true" />}
 						<AnimatedLabel arrow={false}>{resource.label === "Paper" ? "PDF" : resource.label}</AnimatedLabel>
 					</a>
+					</span>
 				);
 			})}
 		</nav>

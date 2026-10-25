@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 
 import { personReference, site, siteShareImage } from "@/data/site";
 import "./globals.css";
 import { Providers } from "./providers";
 
-const inter = localFont({
-  src: "./fonts/InterVariable.woff2",
-  weight: "100 900",
-  style: "normal",
-  variable: "--font-inter",
-  display: "swap",
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

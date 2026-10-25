@@ -11,7 +11,7 @@ export default function ResearchMedia({ publication, index }: { publication: Res
         height={500}
         unoptimized
         loading={index === 0 ? "eager" : "lazy"}
-        sizes="(max-width: 691px) calc(100vw - 48px), 172px"
+        sizes="(max-width: 691px) calc(100vw - 48px), 180px"
         className="portfolio-work-image"
       />
     </div>

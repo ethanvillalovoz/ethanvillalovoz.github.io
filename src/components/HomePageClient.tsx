@@ -1,6 +1,8 @@
 "use client";
 
 import { FiMapPin } from "react-icons/fi";
+import { FaFileLines, FaLinkedin } from "react-icons/fa6";
+import { SiGithub, SiGooglescholar, SiX, SiYoutube } from "react-icons/si";
 import OrganizationLink from "@/components/OrganizationLink";
 import PublicationResources from "@/components/PublicationResources";
 import PublicationAuthors from "@/components/PublicationAuthors";
@@ -87,37 +89,34 @@ const experiences: Experience[] = [
 ];
 
 const profileLinks = [
-	{ label: "CV", href: "/data/EthanVillalovoz-CV.pdf" },
-	{ label: "GitHub", href: "https://github.com/ethanvillalovoz" },
+	{ label: "CV", icon: FaFileLines, href: "/data/EthanVillalovoz-CV.pdf" },
+	{ label: "GitHub", icon: SiGithub, href: "https://github.com/ethanvillalovoz" },
 	{
 		label: "Scholar",
+		icon: SiGooglescholar,
 		href: "https://scholar.google.com/citations?user=CavKFp4AAAAJ&hl=en",
 	},
 	{
 		label: "LinkedIn",
+		icon: FaLinkedin,
 		href: "https://www.linkedin.com/in/ethanvillalovoz/",
 	},
-	{ label: "X", href: "https://x.com/ethanvillalovoz" },
-	{ label: "YouTube", href: "https://www.youtube.com/@ethanvillalovoz" },
+	{ label: "X", icon: SiX, href: "https://x.com/ethanvillalovoz" },
+	{ label: "YouTube", icon: SiYoutube, href: "https://www.youtube.com/@ethanvillalovoz" },
 ];
 
 
-function ProfileLinks() {
-	const renderLink = ({ label, href }: (typeof profileLinks)[number]) => (
-		<a key={label} href={href} target="_blank" rel="noopener noreferrer" className="portfolio-link portfolio-destination-link" aria-label={label}>
-			<AnimatedLabel arrow={false}>{label}</AnimatedLabel>
+function ProfileLink({ label, href, icon: Icon }: (typeof profileLinks)[number]) {
+	return (
+		<a key={label} href={href} target="_blank" rel="noopener noreferrer" className="portfolio-link" aria-label={label} title={label === "X" ? "X" : undefined}>
+			{label === "X" ? (
+				<span className="portfolio-link-text"><Icon className="portfolio-profile-mark portfolio-profile-mark-only" aria-hidden="true" /></span>
+			) : (
+				<><Icon className="portfolio-profile-mark" data-profile={label} aria-hidden="true" /><AnimatedLabel arrow={false}>{label}</AnimatedLabel></>
+			)}
 		</a>
 	);
-	return (
-		<nav className="portfolio-profile-links portfolio-profile-links-header" aria-label="CV and profiles">
-			{profileLinks.slice(0, 4).map(renderLink)}
-			<span className="portfolio-profile-links-pair">
-				{profileLinks.slice(4).map(renderLink)}
-			</span>
-		</nav>
-	);
 }
-
 
 function ExperienceRow({
 	title,
@@ -193,8 +192,8 @@ function PublicationRow({
 					<span className="portfolio-link-text">{publication.venue} {publication.date}</span>
 					</a>
 				</p>
-				<p className="portfolio-work-description">{publication.description}</p>
 				<PublicationResources resources={publication.resources} label={`${publication.shortTitle} resources`} shortTitle={publication.shortTitle} />
+				<p className="portfolio-work-description">{publication.description}</p>
 			</div>
 		</article>
 	);
@@ -203,11 +202,12 @@ function PublicationRow({
 export default function HomePageClient() {
 	return (
 		<main className="portfolio-site" id="top">
+			<div className="portfolio-theme-corner">
+				<ThemeToggle />
+			</div>
+
 			<div className="portfolio-container">
 				<header className="portfolio-intro">
-					<div className="portfolio-theme-corner">
-						<ThemeToggle />
-					</div>
 					<div className="portfolio-identity">
 						<div className="portfolio-identity-copy">
 							<h1 className="portfolio-h1"><span id="intro-heading" className="portfolio-top-target" tabIndex={-1}>Ethan Villalovoz</span></h1>
@@ -219,10 +219,16 @@ export default function HomePageClient() {
 						</div>
 					</div>
 
+					<nav className="portfolio-profile-links" aria-label="Ethan's profiles">
+						{profileLinks.slice(0, -2).map((profile) => <ProfileLink key={profile.label} {...profile} />)}
+						<span className="portfolio-profile-pair">
+							{profileLinks.slice(-2).map((profile) => <ProfileLink key={profile.label} {...profile} />)}
+						</span>
+					</nav>
+
                     <Portrait />
 
 					<div className="portfolio-intro-copy">
-						<ProfileLinks />
 						<p className="portfolio-p">
 							I&apos;m an M.S. student in Computer Science at{" "}
 							<OrganizationLink
@@ -235,12 +241,10 @@ export default function HomePageClient() {
 							, specializing in Computational Perception &amp; Robotics. I&apos;m interested in how robots can understand people and the physical world.
 						</p>
 
-						<div className="portfolio-contact-row">
-							<p className="portfolio-p portfolio-contact-copy">
-								You can reach me at{" "}
-								<CopyEmail />
-							</p>
-						</div>
+						<p className="portfolio-p portfolio-contact-copy">
+							You can reach me at{" "}
+							<CopyEmail />
+						</p>
 					</div>
 				</header>
 

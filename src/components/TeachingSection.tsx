@@ -1,6 +1,7 @@
 import { teachingExperiences } from "@/data/research";
 import TextLink from "@/components/TextLink";
 import OrganizationLink from "@/components/OrganizationLink";
+import { SiYoutube } from "react-icons/si";
 import Image from "next/image";
 
 const institutionLinks: Record<string, { href: string; iconSrc: string }> = {
@@ -53,9 +54,9 @@ export default function TeachingSection() {
 												aria-label={`Watch tutorial: ${experience.tutorial.title} (${experience.tutorial.duration})`}>
 												<span className="teaching-tutorial-poster">
 													<Image src="/images/teaching/gaussian-quadratic-form.jpg" alt="" width={480} height={360} unoptimized className="teaching-tutorial-poster-image" />
-													<span className="teaching-tutorial-play" aria-hidden="true">▶</span>
 												</span>
-												<span className="teaching-tutorial-copy">
+												<span className="teaching-tutorial-caption">
+													<SiYoutube className="portfolio-resource-mark" data-brand="youtube" aria-hidden="true" />
 													<span className="teaching-tutorial-label">
 														<span className="portfolio-link-text">
 															{title.slice(0, lastSpace + 1)}
@@ -63,6 +64,7 @@ export default function TeachingSection() {
 																{title.slice(lastSpace + 1)}
 															</span>
 														</span>
+														<span className="teaching-tutorial-duration-gap" aria-hidden="true">{" "}</span>
 														<span className="teaching-tutorial-duration">{experience.tutorial.duration}</span>
 													</span>
 												</span>

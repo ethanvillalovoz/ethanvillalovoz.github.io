@@ -6,6 +6,7 @@
 
 html {
   min-width: 320px;
+  -webkit-tap-highlight-color: transparent;
   /* Preserve the existing scroll-boundary behavior in Safari and Chrome. */
   overscroll-behavior-y: none;
 }
@@ -31,7 +32,7 @@ img {
   --background: 253 253 252;
   --foreground: 99 99 94;
   --heading: 33 32 28;
-  --muted: 99 99 94;
+  --muted: 112 112 106;
   --underline: 138 138 138;
   --interaction-accent: 23 23 23;
   --selection-background: 229 229 229;
@@ -49,7 +50,7 @@ img {
 
 .dark {
   --background: 23 23 23;
-  --foreground: 163 163 163;
+  --foreground: 212 212 212;
   --heading: 245 245 245;
   --muted: 163 163 163;
   --underline: 138 138 138;
@@ -90,13 +91,6 @@ button {
   touch-action: manipulation;
 }
 
-/* These controls provide their own underline or press feedback. */
-.portfolio-link,
-.portfolio-organization-link,
-.portfolio-theme-toggle {
-  -webkit-tap-highlight-color: transparent;
-}
-
 .site-body {
   isolation: isolate;
   display: flex;
@@ -117,40 +111,26 @@ button {
 
 .portfolio-theme-corner {
   position: absolute;
-  right: -12px;
-  /* Keep the 44px control 16px above the portrait at every breakpoint. */
-  top: -60px;
+  right: max(12px, calc((100vw - 692px) / 2 + 12px));
+  top: 24px;
   z-index: 1;
 }
 
 .portfolio-container {
-  /* Compensate for line boxes so the intro's visible gaps share a rhythm. */
-  --portfolio-section-space: 64px;
-  --portfolio-intro-space: 25px;
-  --portfolio-entry-leading: 1.5rem;
-  --portfolio-entry-space: 24px;
-  --portfolio-social-padding: 4px;
-  --portfolio-social-prose-space: 20px;
-  --portfolio-resource-tail: 8px;
   box-sizing: border-box;
   margin: 0 auto;
   max-width: 692px;
-  /* Include the visual offset above the reference header, without a banner. */
-  padding: 96px 24px 48px;
-  font-feature-settings: "cv01", "ss03";
-  font-optical-sizing: auto;
+  padding: 72px 24px 64px;
   width: 100%;
 }
 
 .portfolio-intro {
-  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 64px;
-  grid-template-areas: "identity portrait" "copy copy";
+  grid-template-areas: "identity portrait" "profiles profiles" "copy copy";
   column-gap: 20px;
-  /* Anchor the visible gap to the location line, excluding control padding. */
-  row-gap: calc(var(--portfolio-intro-space) - 4px - var(--portfolio-social-padding));
-  margin-bottom: var(--portfolio-section-space);
+  row-gap: 16px;
+  margin-bottom: 56px;
 }
 
 .portfolio-identity {
@@ -162,7 +142,7 @@ button {
 .portfolio-intro-copy {
   grid-area: copy;
   min-width: 0;
-  margin-top: 0;
+  margin-top: 32px;
 }
 
 .portfolio-profile-image {
@@ -179,11 +159,11 @@ button {
 .portfolio-h1 {
   color: rgb(var(--heading));
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1.5rem;
-  margin: 0;
+  letter-spacing: -0.025em;
+  line-height: 1.75rem;
+  margin: 0 0 4px;
   padding: 0;
   text-wrap: balance;
 }
@@ -200,40 +180,28 @@ button {
 }
 
 .portfolio-focus {
-  font-weight: 500;
   color: rgb(var(--foreground));
-  font-size: 1rem;
-  /* Keep wrapped roles readable; use the reference's compact single line below. */
-  line-height: 1.25rem;
-  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0 0 4px;
   text-wrap: pretty;
 }
 
-@media (min-width: 540px) {
-  .portfolio-focus { line-height: 1rem; }
-}
-
-.portfolio-intro-copy .portfolio-link,
-.portfolio-intro-copy .portfolio-organization-link {
-  font-weight: 400;
-}
-
 .portfolio-location {
-  align-items: flex-start;
+  align-items: center;
   color: rgb(var(--muted));
   display: flex;
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.8125rem;
   font-weight: 400;
   gap: 6px;
-  line-height: var(--portfolio-entry-leading);
+  line-height: 1.25rem;
   margin: 0;
 }
 
 .portfolio-location svg {
   flex: 0 0 auto;
   height: 14px;
-  margin-top: calc((var(--portfolio-entry-leading) - 14px) / 2);
   width: 14px;
 }
 
@@ -253,30 +221,9 @@ button {
 .portfolio-p + .portfolio-p { margin-top: 16px; }
 
 .portfolio-contact-copy {
-  margin-top: 24px;
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.5rem;
   color: rgb(var(--muted));
-}
-
-.portfolio-contact-row {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 8px 24px;
-  margin-top: 24px;
-}
-
-/* Exclude the email button’s trailing space from the next section gap.
-   Feedback remains in normal flow and gets its full line height. */
-.portfolio-contact-row:not(:has(.portfolio-copy-status[data-state="failed"])) {
-  margin-bottom: -5.5px;
-}
-
-.portfolio-contact-row .portfolio-contact-copy {
-  min-width: 0;
-  max-width: 100%;
-  margin: 0;
 }
 
 .portfolio-profile-links {
@@ -288,30 +235,20 @@ button {
   grid-area: profiles;
 }
 
-.portfolio-profile-links-header {
-  margin-bottom: calc(var(--portfolio-social-prose-space) - var(--portfolio-social-padding));
-}
-
-.portfolio-profile-links-pair { display: contents; }
-
-@media (max-width: 639px) {
-  /* Wrap the last two profiles together instead of leaving YouTube alone. */
-  .portfolio-profile-links-pair {
-    display: inline-flex;
-    align-items: center;
-    flex: none;
-    gap: 20px;
-  }
+/* Keep X and YouTube on the same row when the profile links wrap. */
+.portfolio-profile-pair {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 20px;
+  flex-shrink: 0;
 }
 
 .portfolio-profile-links .portfolio-link {
   display: inline-block;
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.5rem;
   white-space: nowrap;
-  padding: 4px 8px;
-  margin-inline: -8px;
-  border-radius: 6px;
+  padding: 4px 0;
   min-height: 32px;
   transition: transform var(--motion-fast) var(--ease-out);
   transform-origin: left center;
@@ -327,17 +264,9 @@ button {
   vertical-align: -2px;
 }
 
-/* Brand colors stay on the marks; labels retain the shared theme colors. */
-.portfolio-profile-mark[data-profile="LinkedIn"] {
-  color: #0a66c2;
-}
-
-.portfolio-profile-mark[data-profile="YouTube"] {
-  color: #ff0000;
-}
-
-.portfolio-profile-mark[data-profile="Scholar"] {
-  color: #4285f4;
+/* Profile icons follow their link text in both themes and interaction states. */
+.portfolio-profile-mark {
+  color: inherit;
 }
 
 .portfolio-profile-mark-only {
@@ -345,48 +274,54 @@ button {
 }
 
 .portfolio-section + .portfolio-section {
-  margin-top: var(--portfolio-section-space);
+  margin-top: 64px;
 }
 
 .portfolio-section-label {
   color: rgb(var(--heading));
   font-family: var(--font-sans);
   font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0;
+  font-weight: 550;
+  letter-spacing: -0.015em;
   line-height: 1.5rem;
-  margin: 0 0 20px;
+  margin: 0 0 24px;
   padding: 0;
   text-transform: none;
 }
 
 .portfolio-experience-list {
   display: grid;
-  gap: var(--portfolio-entry-space);
+  gap: 28px;
 }
 
 .portfolio-experience-details {
-  margin: 4px 0 0;
-  font-size: 1rem;
-  line-height: var(--portfolio-entry-leading);
+  margin: 6px 0 0 20px;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
-.portfolio-experience-description {
+.portfolio-experience-description,
+.portfolio-work-description {
   color: rgb(var(--foreground));
-  font-size: 1rem;
-  line-height: var(--portfolio-entry-leading);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
   margin: 0;
+  padding: 0;
+  text-wrap: pretty;
 }
 
 .portfolio-experience-technologies {
-  margin-top: 4px;
-  font-size: 1rem;
+  margin-top: 6px;
+  font-size: 0.8125rem;
 }
 
 .portfolio-experience-technologies ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 10px;
+  gap: 4px 10px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -398,47 +333,32 @@ button {
 }
 
 .portfolio-link.portfolio-technology-link {
-  display: inline-block;
-  line-height: var(--portfolio-entry-leading);
-  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 23px;
   color: rgb(var(--muted));
   font-weight: 400;
 }
 
-/* Inline text keeps the underline on the glyphs without adding a second line box. */
+/* Equal label boxes keep technology link underlines level. */
 .portfolio-technology-link .portfolio-link-text {
-  display: inline;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 23px;
 }
-
-.portfolio-technology-symbol {
-  display: inline-block;
-  flex-shrink: 0;
-  vertical-align: middle;
-}
-
-/* Optical sizing preserves the existing layout slots and link spacing. */
-.portfolio-technology-symbol[data-technology="csharp"],
-.portfolio-technology-symbol[data-technology="cpp"] { transform: scale(0.9); }
-.portfolio-technology-symbol[data-technology="matplotlib"] { transform: scale(1.2); }
-.portfolio-technology-symbol[data-technology="numpy"] { transform: scale(0.95); }
-.portfolio-technology-symbol[data-technology="tkinter"] { transform: scale(1.2); }
-
-.portfolio-technology-link > .portfolio-technology-symbol { margin-top: -3px; }
-.portfolio-technology-dotnet { width: 30px; height: 20px; color: #512bd4; transform: scale(0.93); }
-.dark .portfolio-technology-dotnet { color: #b5a0ff; }
-.portfolio-technology-sql { width: 15px; height: 15px; color: #4682b4; }
-.portfolio-technology-graphql { width: 15px; height: 15px; color: #e10098; transform: scale(0.93); }
 
 .portfolio-experience-stints {
   display: grid;
   gap: 16px;
-  margin-top: 0;
+  margin-top: 2px;
 }
 
 .portfolio-experience-row {
   align-items: baseline;
   display: grid;
-  gap: 0 16px;
+  gap: 2px 16px;
   grid-template-columns: minmax(0, 1fr) auto;
 }
 
@@ -447,7 +367,7 @@ button {
   color: rgb(var(--heading));
   font-family: var(--font-sans);
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0;
   line-height: 1.5rem;
   margin: 0;
@@ -458,14 +378,14 @@ button {
 .portfolio-row-role {
   color: rgb(var(--foreground));
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0;
   grid-column: 1;
   grid-row: 1;
-  line-height: var(--portfolio-entry-leading);
+  line-height: 1.25rem;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 20px;
 }
 
 .portfolio-row-date,
@@ -482,8 +402,7 @@ button {
 }
 
 .portfolio-row-date {
-  font-size: 1rem;
-  line-height: var(--portfolio-entry-leading);
+  font-size: 0.875rem;
   grid-column: 2;
   grid-row: 1;
   text-align: right;
@@ -503,14 +422,14 @@ button {
   .portfolio-row-date {
     grid-column: 1 / -1;
     grid-row: 2;
-    padding-left: 0;
+    padding-left: 20px;
     text-align: left;
   }
 }
 
 .portfolio-work-list {
   display: grid;
-  gap: var(--portfolio-entry-space);
+  gap: 64px;
 }
 
 .portfolio-work-item + .portfolio-work-item {
@@ -553,44 +472,34 @@ button {
 .portfolio-work-title {
   color: rgb(var(--heading));
   font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.5rem;
+  font-size: 1.0625rem;
+  font-weight: 550;
+  letter-spacing: -0.012em;
+  line-height: 1.625rem;
   margin: 0;
   min-width: 0;
   padding: 0;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .portfolio-work-title .portfolio-link {
   font-family: inherit;
-  font-weight: inherit;
+  font-weight: 500;
 }
 
 .portfolio-work-authors,
 .portfolio-work-venue {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0;
-  line-height: var(--portfolio-entry-leading);
+  line-height: 1.3125rem;
   padding: 0;
-}
-
-.portfolio-work-description {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: var(--portfolio-entry-leading);
-  padding: 0;
-  text-wrap: pretty;
 }
 
 .portfolio-work-authors {
   color: rgb(var(--muted));
-  margin: 0;
+  margin: 6px 0 0;
 }
 
 .portfolio-work-authors .portfolio-link {
@@ -607,37 +516,47 @@ button {
   font-weight: 500;
 }
 
+.portfolio-work-authors strong .portfolio-link-text {
+  background-size: 100% 1.5px;
+}
+
 .portfolio-work-venue {
   display: flex;
   align-items: center;
   gap: 6px;
   color: rgb(var(--muted));
-  font-style: normal;
-  margin: 0;
+  font-style: italic;
+  margin: 4px 0 0;
 }
 
 .portfolio-work-resources {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 4px 20px;
-  font-size: 1rem;
-  line-height: var(--portfolio-entry-leading);
+  gap: 4px 8px;
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
   margin-top: 4px;
-  /* Keep the hit area, but measure following whitespace from the text line. */
-  margin-bottom: calc(-1 * var(--portfolio-resource-tail));
+}
+
+.portfolio-resource-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.portfolio-resource-separator {
+  color: rgb(var(--muted));
 }
 
 .portfolio-work-description {
-  color: rgb(var(--foreground));
-  margin: 8px 0 0;
+  margin: 16px 0 0;
 }
 
 @media (min-width: 692px) {
   .portfolio-work-item {
-    grid-template-columns: 172px minmax(0, 1fr);
+    grid-template-columns: 180px minmax(0, 1fr);
   }
-  .portfolio-work-media { width: 172px; }
 }
 
 .portfolio-copy-mark {
@@ -655,9 +574,6 @@ button {
   text-decoration: none;
   white-space: nowrap;
 }
-
-/* Keep the inline institution logo attached to its name when the intro wraps. */
-.portfolio-intro-copy .portfolio-organization-link { white-space: nowrap; }
 
 .portfolio-organization-mark {
   border-radius: 2px;
@@ -680,6 +596,7 @@ button {
   background-color: #fff;
 }
 
+/* Primary action links share medium weight; metadata links override it. */
 .portfolio-link {
   color: rgb(var(--heading));
   display: inline;
@@ -750,14 +667,15 @@ button {
 }
 
 .portfolio-copy-status {
-  display: none;
   color: rgb(var(--muted));
   font-family: var(--font-sans);
   font-size: 0.75rem;
+  left: 0;
   letter-spacing: 0;
   line-height: 1rem;
-  margin-top: 2px;
+  position: absolute;
   text-transform: none;
+  top: calc(100% + 2px);
   transform: none;
   white-space: nowrap;
   opacity: 0;
@@ -765,9 +683,7 @@ button {
 }
 
 .portfolio-copy-status[data-state="copied"],
-.portfolio-copy-status[data-state="failed"] { display: block; opacity: 1; }
-/* Keep failure feedback in the text flow so CV and footer links move below it. */
-.portfolio-copy-email:has(.portfolio-copy-status[data-state="failed"]) { vertical-align: top; }
+.portfolio-copy-status[data-state="failed"] { opacity: 1; }
 .portfolio-copy-email:has(:focus-visible) .portfolio-copy-status { transition: none; }
 
 .portfolio-theme-toggle {
@@ -809,7 +725,7 @@ button {
 ::view-transition-new(root) { z-index: 2; }
 html[data-theme-reveal="true"]::view-transition-new(root) {
   clip-path: circle(calc(var(--theme-reveal-progress) * var(--theme-reveal-radius)) at var(--theme-reveal-x) var(--theme-reveal-y));
-  animation: theme-reveal 340ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: theme-reveal 250ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*),
@@ -850,16 +766,16 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 .teaching-list {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 20px;
 }
 
 .teaching-term {
   color: rgb(var(--muted));
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0;
-  line-height: var(--portfolio-entry-leading);
+  line-height: 1.25rem;
   margin: 0;
   white-space: nowrap;
 }
@@ -867,24 +783,24 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 .teaching-role {
   color: rgb(var(--foreground));
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0;
-  line-height: var(--portfolio-entry-leading);
+  line-height: 1.25rem;
   margin: 0;
 }
 
 .teaching-groups {
   display: grid;
-  gap: var(--portfolio-entry-space);
+  gap: 28px;
 }
 
 .teaching-institution-name {
   color: rgb(var(--heading));
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5rem;
-  margin: 0;
+  margin: 0 0 2px;
 }
 
 .teaching-institution-name .portfolio-organization-link {
@@ -892,29 +808,23 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 }
 
 .teaching-row + .teaching-row {
-  margin-top: var(--portfolio-entry-space);
+  margin-top: 16px;
 }
 
 .teaching-role-heading {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 0 16px;
+  gap: 2px 16px;
   flex-wrap: wrap;
 }
 
 .teaching-course {
   color: rgb(var(--heading));
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: var(--portfolio-entry-leading);
-  margin: 0;
-}
-
-.portfolio-row-title .portfolio-organization-link,
-.teaching-institution-name .portfolio-organization-link,
-.teaching-course .portfolio-link {
-  font-weight: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.3125rem;
+  margin: 6px 0 0;
 }
 
 .teaching-tutorial {
@@ -922,14 +832,13 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
   align-items: center;
   flex-wrap: wrap;
   gap: 4px 10px;
-  margin-top: 6px;
+  margin-top: 10px;
   color: rgb(var(--muted));
-  font-size: 1rem;
-  line-height: var(--portfolio-entry-leading);
+  font-size: 0.8125rem;
+  line-height: 1.3125rem;
 }
 
 .teaching-tutorial .portfolio-link {
-  font-weight: 400;
   display: inline-flex;
   align-items: center;
   gap: 0;
@@ -952,10 +861,16 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
   flex-shrink: 0;
 }
 
+.teaching-tutorial-duration-gap {
+  /* Preserve the inline gap, but let whitespace collapse at a line break. */
+  font-size: 0;
+  word-spacing: 10px;
+  line-height: 0;
+}
+
 .teaching-tutorial-duration {
   display: inline-block;
   white-space: nowrap;
-  margin-left: 10px;
   color: rgb(var(--muted));
   font-weight: 400;
 }
@@ -973,51 +888,19 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
   }
 }
 
-@media (min-width: 640px) {
-  .portfolio-container {
-    --portfolio-section-space: 128px;
-    --portfolio-entry-space: 28px;
-    --portfolio-social-prose-space: 24px;
-    --portfolio-intro-space: 29px;
-    padding-top: 176px;
-    padding-bottom: 128px;
-  }
+@media (min-width: 600px) {
+  .portfolio-container { padding-top: 112px; padding-bottom: 80px; }
   .portfolio-intro {
     grid-template-columns: minmax(0, 1fr) 72px;
-    grid-template-areas: "identity portrait" "copy copy";
+    grid-template-areas: "identity portrait" "profiles profiles" "copy copy";
     column-gap: 32px;
+    row-gap: 16px;
+    margin-bottom: 80px;
   }
   .portfolio-profile-image { width: 72px; height: 72px; }
-}
-
-@media (min-width: 768px) {
-  .portfolio-container { padding-top: 117px; }
-}
-
-
-/* Organization marks lead the name and align to its first text line. */
-.portfolio-row-title .portfolio-organization-link,
-.teaching-institution-name .portfolio-organization-link {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 8px;
-  max-width: 100%;
-}
-.portfolio-row-title .portfolio-organization-mark,
-.teaching-institution-name .portfolio-organization-mark {
-  flex: 0 0 15px;
-  /* Exclude underline padding and keep wrapped institution names top-aligned. */
-  margin: calc((var(--portfolio-entry-leading) - 15px) / 2) 0 0;
-  align-self: flex-start;
-}
-.portfolio-row-title .portfolio-organization-name,
-.teaching-institution-name .portfolio-organization-name {
-  /* The nested inline text paints its underline without enlarging this row. */
-  min-width: 0;
-}
-@media (min-width: 640px) {
-  /* Match the reference's visible gap: 16px margin + 12px first-row padding. */
-  .portfolio-section-label { margin-bottom: 28px; }
+  .portfolio-intro-copy { margin-top: 40px; }
+  .portfolio-section + .portfolio-section { margin-top: 112px; }
+  .portfolio-work-list { gap: 64px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1051,8 +934,7 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
   overflow-wrap: anywhere;
   min-height: 32px;
   color: rgb(var(--heading));
-  font-weight: 400;
-  padding: 0;
+  padding: 4px 0;
   transition: transform var(--motion-fast) var(--ease-out);
   transform-origin: left center;
 }
@@ -1066,7 +948,7 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 }
 
 .portfolio-resource-mark[data-brand="youtube"] {
-  color: #ff0000;
+  color: inherit;
 }
 
 .portfolio-footer {
@@ -1075,25 +957,14 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px 24px;
-  margin-top: var(--portfolio-section-space);
+  margin-top: 96px;
   color: rgb(var(--muted));
-  font-size: 1rem;
+  font-size: 0.8125rem;
   line-height: 1.5rem;
-}
-
-@media (min-width: 640px) {
-  /* The inline email button shifts this baseline by 2.5px. */
-  .portfolio-footer { margin-top: calc(var(--portfolio-section-space) - 2.5px); }
 }
 
 .portfolio-footer p {
   margin: 0;
-}
-
-.portfolio-profile-links-footer {
-  flex-basis: 100%;
-  width: 100%;
-  margin-bottom: 8px;
 }
 
 .portfolio-footer .portfolio-link {
@@ -1106,20 +977,20 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
   font-weight: inherit;
 }
 
+/* Feedback belongs to existing actions, never the static publication images. */
+.portfolio-profile-links .portfolio-link:active,
+.teaching-tutorial .portfolio-link:active,
+.portfolio-work-resources .portfolio-link:active { transform: scale(.97); }
 .portfolio-row-date, .teaching-term { font-variant-numeric: tabular-nums; }
 .portfolio-profile-links .portfolio-link:focus-visible,
 .teaching-tutorial .portfolio-link:focus-visible,
 .portfolio-work-resources .portfolio-link:focus-visible { transition: none; transform: none; }
 
-@media (max-width: 639px) {
-  .portfolio-contact-copy { margin-top: 24px; }
+@media (max-width: 599px) {
+  .portfolio-work-media { width: 100%; }
 }
 
 @media (pointer: coarse) {
-  .portfolio-container {
-    --portfolio-social-padding: 10px;
-    --portfolio-resource-tail: 10px;
-  }
   .portfolio-profile-links .portfolio-link,
   .portfolio-work-resources .portfolio-link {
     position: relative;
@@ -1128,11 +999,21 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
   }
   /* Increase the one-tap email target without displacing its sentence. */
   .portfolio-copy-button::after { content: ""; position: absolute; inset: -6px 0; }
-  /* Reserve the full touch target in the row so it cannot overlap its neighbors. */
-  .portfolio-profile-links .portfolio-link[aria-label="X"] {
-    min-width: 44px;
-    text-align: left;
+  /* Expand the icon-only link's hit area without moving adjacent profiles. */
+  .portfolio-profile-links .portfolio-link[aria-label="X"]::after {
+    content: "";
+    position: absolute;
+    width: 44px;
+    min-height: 44px;
+    inset: 0 auto 0 50%;
+    transform: translateX(-50%);
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-profile-links .portfolio-link:active,
+  .teaching-tutorial .portfolio-link:active,
+  .portfolio-work-resources .portfolio-link:active { transform: none; }
 }
 
 /* Tutorial poster preview; typography and layout use the existing site tokens. */
@@ -1141,21 +1022,11 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
   grid-template-columns: 112px minmax(0, 1fr);
   gap: 10px;
   width: fit-content;
-  max-width: calc(100% + 16px);
-  /* Enlarge the target without moving the poster, text, or surrounding rows. */
-  padding: 8px;
-  margin: -4px -8px -8px;
-  border-radius: 6px;
-  transition: transform var(--motion-fast) var(--ease-out);
+  max-width: 100%;
 }
-.teaching-tutorial-copy {
-  display: grid;
-  grid-column: 2 / -1;
-  grid-template-columns: minmax(0, 1fr);
-  align-items: start;
-  gap: 10px;
-  min-width: 0;
-}
+.teaching-tutorial-caption { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 10px; align-items: start; min-width: 0; }
+/* Center the 15px icon within the title’s first 21px line, even when the duration wraps. */
+.teaching-tutorial-preview .portfolio-resource-mark { margin: 3px 0 0; }
 .teaching-tutorial-poster {
   position: relative;
   display: block;
@@ -1167,20 +1038,6 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
   background: #242424;
 }
 .teaching-tutorial-poster-image { display: block; width: 100%; height: 100%; object-fit: cover; }
-.teaching-tutorial-play {
-  display: grid;
-  place-items: center;
-  position: absolute;
-  left: calc(50% - 12px);
-  top: calc(50% - 12px);
-  width: 24px;
-  height: 24px;
-  padding-left: 2px;
-  border-radius: 50%;
-  background: rgb(0 0 0 / .65);
-  color: white;
-  font-size: 10px;
-}
 @media (max-width: 479px) {
   .teaching-tutorial .teaching-tutorial-preview { grid-template-columns: 88px minmax(0, 1fr); gap: 10px; }
   .teaching-tutorial-poster { width: 88px; }
@@ -1206,8 +1063,7 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 .portfolio-theme-corner .portfolio-hint[data-open="true"] { transform: none; }
 .portfolio-theme-corner .portfolio-hint::after { inset: -10px 0 100%; }
 .portfolio-copy-status { max-width: min(280px, 75vw); white-space: normal; transform: translateY(-2px); transition: opacity 140ms var(--ease-out), transform 140ms var(--ease-out); }
-.portfolio-copy-status[data-state="copied"],
-.portfolio-copy-status[data-state="failed"] { transform: none; }
+.portfolio-copy-status[data-state="copied"] { transform: none; }
 .portfolio-copy-status[data-instant="true"] { transition: none; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1239,12 +1095,11 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 @media (max-width: 479px) { .portfolio-experience-row { grid-template-columns: minmax(0, 1fr); } }
 
 /* Optional refinement preview, checkpoint 95450ed. */
-/* The portrait keeps its position without extending the gap below the identity. */
-.portfolio-portrait { position: absolute; top: 0; right: 0; display: block; perspective: 600px; }
+.portfolio-portrait { grid-area: portrait; align-self: start; display: block; }
 .link-outbound-arrow { display: inline-block; width: 11px; height: 11px; margin-left: 3px; vertical-align: 0; color: rgb(var(--muted)); transition: transform 160ms var(--ease-out), color 160ms var(--ease-out); }
 .portfolio-link:focus-visible .link-outbound-arrow { color: rgb(var(--heading)); transition: none; }
 @media (hover: hover) and (pointer: fine) {
-  .portfolio-link:not(.teaching-tutorial-preview):hover .link-outbound-arrow { transform: translate(1.5px, -1.5px); color: rgb(var(--heading)); }
+  .portfolio-link:hover .link-outbound-arrow { transform: translate(1.5px, -1.5px); color: rgb(var(--heading)); }
 }
 .publication-details { margin-top: 8px; }
 .citation-action { margin-bottom: 12px; }
@@ -1310,6 +1165,16 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 .publication-details > .publication-disclosure { display: contents; }
 .publication-details .disclosure-grid { flex-basis: 100%; min-width: 0; order: 1; }
 .citation-fallback { max-width: min(644px, calc(100vw - 48px)); }
+
+
+.paper-icon-fold { transform-origin: 11.5px 7px; }
+@keyframes paper-corner-lift {
+  45% { transform: translateY(-.6px) rotate(-18deg); }
+  100% { transform: none; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .portfolio-link:hover:not(:focus-visible) .paper-icon-fold { animation: paper-corner-lift 280ms var(--ease-out); }
+}
 
 
 /* A readable handout from the browser's ordinary Print / Save as PDF command. */
