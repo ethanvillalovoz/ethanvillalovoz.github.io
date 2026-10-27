@@ -1092,6 +1092,8 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
 .portfolio-container { overflow-wrap: break-word; }
 .portfolio-experience-group, .portfolio-experience-row, .portfolio-experience-stints { min-width: 0; }
 .portfolio-row-date, .portfolio-organization-link, .teaching-term { white-space: normal; }
+/* Keep the intro's institution mark and name on the same line. */
+.portfolio-intro-copy .portfolio-organization-link { white-space: nowrap; }
 @media (max-width: 479px) { .portfolio-experience-row { grid-template-columns: minmax(0, 1fr); } }
 
 /* Optional refinement preview, checkpoint 95450ed. */
