@@ -21,6 +21,7 @@ export interface ResearchPublication {
 	identifier: string;
 	description: string;
 	image: string;
+	imageTitle: string;
 	imageAlt: string;
 	resources: ResearchResource[];
 }
@@ -60,6 +61,8 @@ export const researchPublications: ResearchPublication[] = [
 		description:
 			"Uses Bayesian optimization to find prompts that help language models generate code that passes tests.",
 		image: "/images/research-details/bode-gen-method.png",
+		// Figure 1, page 3: high-level overview of the BODE-GEN approach.
+		imageTitle: "BODE-GEN approach overview",
 		imageAlt: "BODE-GEN Bayesian prompt optimization method diagram",
 		resources: [
 			{ label: "Paper", href: "https://arxiv.org/pdf/2512.15076" },
@@ -94,6 +97,8 @@ export const researchPublications: ResearchPublication[] = [
 		description:
 			"Studies how robot formations affect navigation and whether people find approaching robots welcoming or threatening.",
 		image: "/images/projects/social-triangles-formations-thumbnail.png",
+		// Figure 3, page 3: the four robot formation study conditions.
+		imageTitle: "Robot formation study conditions",
 		imageAlt:
 			"Four robot formations evaluated in Social Triangles: V-shape, wedge, vertical line, and horizontal line, with arrows showing the direction of travel",
 		resources: [

@@ -465,6 +465,128 @@ button {
   width: 100%;
 }
 
+.portfolio-figure-trigger {
+  appearance: none;
+  cursor: zoom-in;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  transition: transform var(--motion-fast) var(--ease-out);
+}
+
+.portfolio-figure-trigger:active,
+.portfolio-figure-control:active {
+  transform: scale(0.98);
+}
+
+.portfolio-figure-trigger:focus-visible,
+.portfolio-figure-control:focus-visible {
+  outline: 2px solid rgb(var(--interaction-accent));
+  outline-offset: 3px;
+  transform: none;
+  transition: none;
+}
+
+/* The native modal keeps the page inert and returns focus to its figure. */
+.portfolio-figure-dialog {
+  background: rgb(var(--background));
+  border: 1px solid rgb(var(--divider));
+  border-radius: 12px;
+  box-shadow: 0 16px 64px rgb(0 0 0 / 0.2);
+  color: rgb(var(--heading));
+  margin: auto;
+  max-height: calc(100dvh - 32px);
+  max-width: none;
+  padding: 0;
+  width: min(1100px, calc(100% - 32px));
+}
+
+.portfolio-figure-dialog::backdrop {
+  background: rgb(0 0 0 / 0.55);
+}
+
+.portfolio-figure-header {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  padding: 8px 8px 8px 20px;
+}
+
+.portfolio-figure-header h2 {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.3125rem;
+  margin: 0;
+}
+
+.portfolio-figure-control {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: inherit;
+  cursor: pointer;
+  display: grid;
+  flex-shrink: 0;
+  height: 44px;
+  padding: 0;
+  place-items: center;
+  transition: transform var(--motion-fast) var(--ease-out);
+  width: 44px;
+}
+
+.portfolio-figure-control svg {
+  height: 20px;
+  width: 20px;
+}
+
+.portfolio-figure-canvas {
+  padding: 0 16px 16px;
+}
+
+/* Safari can mark the modal's initial programmatic focus as keyboard focus. */
+.portfolio-figure-dialog[data-keyboard="false"] :focus-visible {
+  outline: none;
+}
+
+.portfolio-figure-image {
+  background: #fff;
+  border-radius: 4px;
+  display: block;
+  height: auto;
+  max-height: calc(100dvh - 112px);
+  object-fit: contain;
+  width: 100%;
+}
+
+html:has(.portfolio-figure-dialog[open]) {
+  overflow: hidden;
+  padding-right: var(--figure-scroll-lock-padding, 0px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-figure-trigger,
+  .portfolio-figure-control {
+    transition: none;
+  }
+
+  .portfolio-figure-trigger:active,
+  .portfolio-figure-control:active {
+    transform: none;
+  }
+}
+
+@media (max-width: 691px) {
+  .portfolio-figure-dialog {
+    width: calc(100% - 16px);
+  }
+
+  .portfolio-figure-canvas {
+    padding: 0 0 8px;
+  }
+}
+
 .portfolio-work-copy {
   min-width: 0;
 }
@@ -977,7 +1099,7 @@ html[data-theme-reveal="true"]::view-transition-new(root) {
   font-weight: inherit;
 }
 
-/* Feedback belongs to existing actions, never the static publication images. */
+/* Link press feedback shares the same restrained motion across sections. */
 .portfolio-profile-links .portfolio-link:active,
 .teaching-tutorial .portfolio-link:active,
 .portfolio-work-resources .portfolio-link:active { transform: scale(.97); }

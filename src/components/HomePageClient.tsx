@@ -48,7 +48,7 @@ const experiences: Experience[] = [
 		iconSrc: "/images/organizations/microsoft.ico",
 		role: "Software Engineer Intern",
 		date: "May 2026 – Jul 2026",
-		description: "Built and evaluated an AI-agent prototype for financial close.",
+		description: "Built an AI agent prototype to investigate financial close blockers across applications and evaluated its tool use, cost, and reliability.",
 		technologies: ["csharp", "dotnet", "azure", "graphql", "python"],
 	},
 	// Temporarily hidden from Experience; uncomment this entry to restore it.
@@ -65,7 +65,7 @@ const experiences: Experience[] = [
 		iconSrc: "/images/organizations/cmu-ri.svg",
 		role: "Summer Scholar",
 		date: "Jun 2024 – Aug 2024",
-		description: "Implemented Bayesian reward learning using human feedback in simulation.",
+		description: "Implemented Bayesian reward learning to infer object placement preferences using corrections and clarification questions in simulation.",
 		technologies: ["python", "numpy", "matplotlib"],
 	},
 	{
@@ -74,7 +74,7 @@ const experiences: Experience[] = [
 		iconSrc: "/images/organizations/google.png",
 		role: "STEP Intern",
 		date: "May 2023 – Aug 2023",
-		description: "Built data pipelines and dashboards for internal database queue metrics.",
+		description: "Built five C++/SQL jobs and HTML dashboards to automate collection and reporting of internal database queue statistics.",
 		technologies: ["cpp", "sql", "html"],
 	},
 	{
@@ -83,12 +83,13 @@ const experiences: Experience[] = [
 		iconSrc: "/images/organizations/oregon-state-crest.svg",
 		role: "NSF REU Fellow",
 		date: "Jun 2022 – Aug 2022",
-		description: "Built tools to configure robot formations for human–robot interaction studies.",
+		description: "Built Python tools and a Tkinter interface to compute robot formation coordinates from user inputs for human–robot interaction studies.",
 		technologies: ["python", "tkinter"],
 	},
 ];
 
 const profileLinks = [
+	{ label: "Resume", icon: FaFileLines, href: "/data/EthanVillalovoz-Resume.pdf" },
 	{ label: "CV", icon: FaFileLines, href: "/data/EthanVillalovoz-CV.pdf" },
 	{ label: "GitHub", icon: SiGithub, href: "https://github.com/ethanvillalovoz" },
 	{
